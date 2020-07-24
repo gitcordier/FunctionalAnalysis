@@ -1,0 +1,209 @@
+%\section{Exercise 7. Metrizability \& number theory}
+\textit{
+Let be X the vector space of all complex functions on the unit interval 
+$[0, 1]$, topologized by the family of seminorms 
+%
+  \begin{align}
+    p_{x}(f)=|f(x)| \quad (0\leq x\leq 1).\nonumber
+  \end{align}
+%
+This topology is called the topology of pointwise convergence. 
+Justify this terminology.
+Show that there is a sequence $\{f_n\}$ in X such that (a) $\{f_n\}$ converges 
+to $0$ as $n \to\infty$, but (b) if $\{γ_n\}$ is any sequence of scalars such 
+that $γ_n\to\infty$ then $\{γ_nf_n\}$ does not converge to $0$. 
+(Use the fact that the collection of all complex sequences converging to $0$ 
+has the same cardinality as $[0, 1]$.)
+This shows that metrizability cannot be omited in (b) of Theorem 1.28.
+}
+\begin{proof}
+Our justification consists in proving that $\tau$-convergence and pointwise 
+convergence are the same one. 
+%
+To do so, remark first that the family of the seminorms $p_{x}$ is separating.
+By [1.37], the collection $\mathscr{B}$ of all finite intersections 
+of the sets 
+%
+  \begin{align}
+    V\up{(x, k} 
+      \Def 
+    \singleton{p_x < 2^{\minus k}} 
+      \quad 
+    (x \in [0, 1], k \in \N)
+  \end{align}
+%
+is then a local base for a topology $\tau$ on $X$. Given 
+%
+  $\set{f_n}{\counting{n}}$, 
+%
+we set
+%
+\newcommand\off[1]{\function{off}(#1)}
+%
+\begin{align}
+  \off{U} \Def \sum_{n=1}^\infty [f_n \notin U] \quad (U\in\tau),
+\end{align}
+%
+with the convention $\off{U}=\infty$ whether the sum has no finite support. 
+So, 
+%
+  \begin{align}
+    %
+    \label{Inequality boolean series}
+    %
+    \sum_{i=1}^m \off{U\up{i}} 
+      = 
+    \sum_{n=1}^\infty \sum_{i=1}^m [f_n \notin U\up{i}]
+      \geq 
+    \off{U\up{1} \cuts \cdots \cuts U\up{m}}
+  \end{align}
+%
+We first assume that $\singleton{f_n}$ $\tau$-converges to some $f$ in $X$, \ie
+%
+  \begin{align}
+    \off{f+V} < \infty \quad(V \in \mathscr{B}).
+  \end{align}
+%
+The special cases $V=V\up{x, k}$ mean the pointwise convergence of 
+$\singleton{f_n}$. 
+%
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converges to any $g$ 
+in $X$, \ie 
+%
+  \begin{align}
+    %
+    \label{Divergence}
+    %
+    \forall g \in X, \exists V\up{g} \in \localbase{B}: 
+      \off{g+V\up{g}} = \infty. 
+    %
+  \end{align}
+%
+Given $g$, $V\up{g}$ is then an intersection
+%
+  $
+    V\up{x\up{1}, k\up{1}} \cap \cdots \cap 
+    V\up{x\up{m}, k\up{m}} 
+  $.
+%
+%So, (\ref{1.7 Inequality boolean series}) implies 
+Thus
+%
+  \begin{align}
+    \sum_{i=1}^m \off{g + V\up{x\up{i}, k\up{i}}} 
+      %
+        \citegeq{\ref{Inequality boolean series}} 
+      %
+    \off{g + V\up{g}} 
+    % 
+      \citeq{\ref{Divergence}} 
+    %
+    \infty .
+  \end{align}
+%
+One of the sum $\off{g + V\up{x\up{i}, k\up{i}}}$ must then be $\infty$. 
+This implies that convergence of $f_n$ to $g$ fails at point $x_i$.
+$g$ being arbitrary, we so conclude that $f_n$ does not converge pointwise.
+We have just proved that 
+%
+  $\tau$-convergence is a rewording of pointwise convergence.
+%
+% SECOND PART
+We now aim to prove the second part.
+%
+From now on, 
+%
+  $\varit{k}$, $\varit{n}$ and $\varit{p}$ 
+%
+run on $\N_+$. Let $\dy{x}$ be the usual dyadic expansion of a real number $x$, 
+so that $\dy{x}$ is an aperiodic binary sequence \iif $x$ is irrational. 
+%
+Define
+%
+\begin{align}
+  %
+  \label{f_n(x) definition}
+  %
+  f_n(x) 
+    \Def 
+  \begin{cases}
+      2^{-\sum_{k= 1}^{n} {\dy{x}_{-k}}} & (x \in [0, 1]\setminus \Q )\\
+      0                                            & (x \in [0,1]\cap \Q)
+    \end{cases}
+\end{align}
+%
+so that $f_n(x) \tendsto{n}{\infty} 0$
+%
+and take scalars 
+%
+  $\gamma_n$ 
+%
+such that $\tendsto{n}{\infty} \infty$, \ie 
+%
+  at fixed $p$, $\gamma_{n}$ is greater than $2^{p}$ for almost all $n$.
+%
+Next, choose $n\up{p}$ among those \textit{almost all} $n$ that are 
+large enough to satisfy 
+%
+  \begin{align}
+    n\up{p-1} - n\up{p-2} < n\up{p}- n\up{p-1} 
+  \end{align}
+%
+(start with $n\up{\minus 1} = n\up{0} = 0$) and so obtain 
+%
+  \begin{align}
+    2^p < \gamma_{n\up{p}}:\, 
+    %
+      0< n\up{p} - n\up{p-1}\tendsto{p}{\infty} \infty.
+    %
+  \end{align}
+%
+The indicator $\chi$ of 
+%
+  $\{n\up{1}, n\up{2}, \dots\}$
+%
+is then aperiodic, \ie 
+%
+  \def\xgamma{x^{(\gamma)}}
+  \begin{align}
+    \xgamma 
+      \Def
+    \sum_{k=1}^\infty \chi_k 2^{\minus k} 
+      %\notin \Q
+  \end{align}
+is irrational. Consequently,
+%
+  \begin{align}
+    \dy{\xgamma}_{\minus k} &= \chi_{k}.
+  \end{align}
+%
+We now easily see that
+%
+  \begin{align}
+    \chi_1 + \cdots + \chi_{n\up{p}} = p, 
+  \end{align}
+%
+which, combined with (\ref{f_n(x) definition}), yields
+%
+  \begin{align}
+    f_{n\up{p}}(\xgamma) = 2^{\minus p}.
+  \end{align}
+%
+Finally,
+%
+  \begin{align}
+    \gamma_{n\up{p}} f_{n\up{p}}(\xgamma) > 1.
+  \end{align}
+%
+We have so established that the subsequence 
+%
+  $\singleton{\gamma_{n\up{p}}f_{n\up{p}}}$ 
+% 
+does not tend pointwise to $0$, hence neither does the whole sequence 
+%
+  $\singleton{\gamma_{n}f_n}$.
+%
+In other words, (b) holds, which is in violent contrast with [1.28]: 
+$X$ is then not metrizable. So ends the proof.
+\end{proof}
+% END
