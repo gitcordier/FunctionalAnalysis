@@ -46,7 +46,7 @@ Feel free to get copies of this great book by yourself. For the record,
   because it is a lovely result, since it connects a topological result 
   (*to be metrizable or not to be*) with number theory
   (basic results about dyadic expansions).
-  TODO: ? Maybe I'll add an alternative proof with another expansion.
+  TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate expansion.
 - 1_9.tex
 - 1_10.tex
 - 1_16.tex   
