@@ -15,6 +15,7 @@ I am carefully rewriting my solutions, aiming at the cleanest possible result.
     - mathrsfs 
     - amsthm 
     - mathspec
+  - cite
   - geometry
   - xltxtra
   - xunicode
@@ -49,6 +50,6 @@ Feel free to get copies of this great book by yourself. For the record,
 - 1_16.tex  
   This is about showing that a function test topology is independent 
   from the "supremum seminorms" we consider. It is then more than an exercise, 
-  it must be considered as a part of the textbook (sections 1.44, 1.46).
+  it should be regarded as a very part of the textbook (sections 1.44, 1.46).
 - shasums256
 - LICENSE

@@ -1,0 +1,62 @@
+%\section{1.10 Exercise 10. An open mapping theorem}
+\textit{Suppose that X and Y are topological vector spaces,
+%
+  $\dim Y < \infty$,
+%
+$\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.}
+%
+  \begin{enumerate}
+    \item{
+      Prove that $\Lambda$ is an open mapping.}
+    \item{
+      Assume, in addition, that the null space of $\Lambda$ is closed, 
+      and prove that $\Lambda$ is continuous.
+    }
+%
+\end{enumerate}
+\begin{proof}
+  \begin{enumerate}
+    \item{
+      Let $e$ range over a base of $Y$: 
+      For each $e$, there exists $x_e$ in $X$ such that 
+      %
+        $\Lambda(x_e)=e$, 
+      % 
+      since $\Lambda$ is onto.So,
+      %
+        \begin{align}\label{1_10_sum}
+          y = \sum_{e} y_e \Lambda x_e \quad (y\in Y).
+        \end{align}
+      %
+      The sequence $\singleton{x_e}$ is finite hence bounded: 
+        Given $V$ a balanced neighborhood of the origin, 
+        there exists a positive scalar $s$ such that  
+      %
+        \begin{align}
+          x_e \in s V
+        \end{align}
+      %
+      for all $x_e$.
+      Combining this with (\ref{1_10_sum}) shows that 
+      %
+        \begin{align}
+          y \in \sum_e \Lambda (V) \quad (y\in Y: |y_e| < s^{\minus 1}).
+        \end{align}
+      %
+  }
+    \item{
+      Since $N$ is closed, $\pi$ continously maps $X$ onto $X/N$, 
+      another topological (Hausdorf) vector space, see [1.41]. 
+      %
+      Now take $f$ as in Exercise 9: 
+      Since $\Lambda$ is onto, $f$ is an isomorphism of $X/N$ onto $Y$. 
+      $X/N$ has then dimension $\dim Y$. 
+      The inverse isomorphism $f^{-1}$ is then an homeomorphism of 
+      %
+        $Y\equiv \C^{\dim Y}$ 
+      %
+      onto $X/N$; see [1.21].
+      Consequently, both $f$ and $f^{-1}$ are continuous: So is $\Lambda = f\circ \pi$.
+    }
+  \end{enumerate}
+\end{proof}

@@ -1,6 +1,7 @@
 % a4paper = ISO 216 standard. 
 % Don't forget to revert to default if you want the US Letter instead.
 \documentclass[a4paper,11pt,titlepage,openany]{book}
+\usepackage{cite}
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
 \usepackage{amsmath,physics, amssymb,mathrsfs,amsthm, mathspec}
@@ -181,6 +182,9 @@
 %\renewcommand\thesection{\thechapter.\arabic{annex}}
 %\section{Number theory}
 %\input{\ROOT/Annex_number_theory.tex}
+\bibliography{bibliography}{}
+\bibliographystyle{plain}
+\addcontentsline{toc}{chapter}{bibliography}
 \end{document}
 
 

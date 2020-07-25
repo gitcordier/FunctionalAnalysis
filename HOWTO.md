@@ -1,3 +1,11 @@
+# Compiling with bibliography
+
+    xelatex FA_DM.tex 
+    bibtex FA_DM
+    xelatec FA_DM.tex
+    xelatex FA_DM.tex 
+
+# Simple compilation 
 Simply run 
 
     xelatex FA_DM_.tex
