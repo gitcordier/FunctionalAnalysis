@@ -1,0 +1,241 @@
+%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+\textit{
+Prove that the topology of $C(\Omega)$ does not depend on the particular 
+choice of $\{K_{n}\}$, as long as this sequence satisfies the conditions 
+specified in section 1.44. Do the same for $C^\infty(\Omega)$ (Section 1.46).}
+%
+\paragraph{Lemma} Let $X$ be a topological space with a countable local base 
+$\set{V_N}{\counting{N}}$. 
+If 
+%
+  $\tilde{V}_N = V_1 \cuts \cdots \cuts V_N$, 
+%
+then every subsequence 
+% 
+  $\singleton{\tilde{V}_{\rho(N)}}$ 
+%
+is a also a {decreasing} (\ie 
+%
+  $\tilde{V}_{\rho(N)} \contains \tilde{V}_{\rho(N+1)}$)
+%
+local base of $X$.
+%
+\begin{proof}
+The decreasing property is trivial. Now remark that 
+%
+  $V_N \contains \tilde{V}_N \contains \tilde{V}_{N+1}$:
+%
+The left inclusion shows that 
+%
+  $\singleton{\tilde{V}_N}$ 
+% 
+is a local base of $X$. Then so is 
+%
+  $\singleton{\tilde{V}_{\rho(N)}}$,
+% 
+since $\tilde{V}_N \contains \tilde{V}_{\rho(N)}$.
+\end{proof}
+%
+\paragraph{Corollary}
+If 
+%
+  $\singleton{Q_N}$ 
+%
+is a sequence of compacts that satisfies the conditions specified 
+in section 1.44, then every subsequence 
+%
+  $\singleton{Q_{\rho(N)}}$ 
+%
+also satisfies theses conditions.
+%
+Furthermore, if $\tau^{Q}$ is the $C(\Omega)$'s 
+(respectively $C^\infty (\Omega)$) topology of the seminorms $p^{Q}_N = p_N$, 
+as defined in section 1.44 (respectively 1.46), then the seminorms 
+%
+  $p^{Q}_{\rho(N)}$ 
+%
+define the same topology $\tau^{Q}$.
+%
+\begin{proof}%
+%
+Let $X$ be $C(\Omega)$ topologized with the seminorms $p^{Q}_N$ 
+(the case $X=C^\infty(\Omega)$ is proved the same way).
+%
+If 
+  %
+    $V^{Q}_N = \singleton{p^{Q}_N < 1/N}$, 
+  %
+then 
+  %
+    $\singleton{V^{Q}_N}$ 
+  %
+is a decreasing local base of $X$.
+%
+Moreover,
+% 
+  \begin{align}
+    Q_{\rho(N)} 
+      \subset 
+    \interior{Q}_{\rho(N) + 1} 
+      \subset 
+    Q_{\rho(N) + 1} 
+      \subset 
+    Q_{\rho(N+ 1)},
+  \end{align}
+% 
+and this yields
+%
+  \begin{align}
+    Q_{\rho(N)} 
+      \subset 
+    \interior{Q}_{\rho(N+ 1)}.
+  \end{align}
+%
+In other words, 
+%
+  $Q_{\rho(N)}$ satisfies the conditions specified in section 1.44.
+%
+%
+  $\singleton{p^{Q}_{\rho(N)}}$
+% 
+then defines a topology $\tau^{Q_\rho}$ for which  
+% 
+  $\singleton{V^{Q}_{\rho(N)}}$ 
+%
+is a local base. So, 
+% 
+  $\tau^{Q_\rho} \subset \tau^{Q}$.
+%
+Conversely, the Lemma turns 
+%
+  $\singleton{V^{Q}_{\rho(N)}}$ 
+%
+into a local base of $\tau^{Q}$. Hence  
+%
+  $\tau^{Q}\subset \tau^{Q_\rho}$.
+%
+\end{proof}
+\paragraph{Theorem} 
+The topology of $C(\Omega)$ does not depend on the particular choice of 
+$\{K_{n}\}$, as long as this sequence satisfies the conditions 
+specified in section 1.44. Neither does the topology of $C^\infty (\Omega)$, 
+as long as this sequence satisfies the conditions specified in section 1.46.
+%
+\begin{proof}%
+With the Corollary's notations,
+% 
+  $\tau^{K} = \tau^{K_\kappa}$,
+%
+for every subsequence $\singleton{K_{\kappa(n)}}$.
+% 
+Similarly, let 
+%
+  $\singleton{L_n}$ 
+% 
+be a sequence of compact subsets of $\Omega$ that satisfies 
+the condition specified in [1.44], 
+so that 
+%
+  $\tau^{L} = \tau^{L_\lambda}$
+%
+for every subsequence $\singleton{L_{\lambda(n)}}$. 
+%
+The following definition
+%
+  \begin{align}
+    C_{i, j} \Def K_i \setminus \interior{L_j} \quad (\counting{i, j})
+  \end{align}
+%
+turns $\set{C_{i, j}}{\counting{j}}$ into a decreasing sequence of compacts.
+%
+We now suppose (to reach a contradiction) that 
+% 
+  no $C_{i,j}$ is empty 
+% 
+and so conclude that 
+% 
+  $\bigcap_{j=1}^\infty C_{i, j}$ 
+%
+contains a point that is not in any $L_j$. 
+But the conditions specified in [1.44] force 
+% 
+  $\singleton{\interior{L}_j}$ 
+%
+to be an open cover.
+% 
+This contradiction reveals that $C_{i,j}, C_{i, j+1}, C_{i, j+2}, \dots,$  
+are actually empty for some $j=j\up{i}$. We then define  
+%
+  $\lambda(i) = i + j\up{i}$, 
+% 
+so that
+%
+  \begin{align}
+    %
+    \label{1_16. K subset interior L}
+    %
+    K_i 
+      \subset 
+    \interior{L}_{\lambda(i)}.
+  \end{align} 
+%
+Let us reiterate the above proof with $K_n$ and $L_n$ in exchanged roles 
+then similarly find a subsequence $\set{\kappa(j)}{\counting{j}}$ such that 
+%
+  \begin{align}
+  %
+  \label{1_16. L subset interior K}
+  %
+    L_j \subset \interior{K}_{\kappa(j)}
+  \end{align}
+%
+Combine 
+%
+  (\ref{1_16. K subset interior L}) with 
+  (\ref{1_16. L subset interior K}) 
+%
+and so obtain
+%
+  \begin{align}
+    K_1 
+      \subset 
+    \interior{L}_{\lambda(1)} 
+      \subset 
+    L_{\lambda(1)} 
+      \subset 
+    \interior{K}_{\kappa\circ\lambda(1)}
+      \subset 
+    K_{\kappa\circ\lambda(1)}
+      \subset
+    \interior{L}_{\lambda\circ\kappa\circ\lambda(1)}
+      \subset
+    \cdots
+  \end{align}
+%
+Thus the sequence 
+%
+  $Q = (
+    K_1, 
+    L_{\lambda(1)}, 
+    K_{\kappa\circ\lambda(1)}, 
+    L_{\lambda\circ\kappa\circ\lambda(1)},
+    \dots
+  )$
+
+satisfies the conditions specified in section 1.44. 
+It now follows from the Corollary that 
+%
+  \begin{align}  
+    \tau^{K} 
+    = 
+      \tau^{K_\kappa} 
+    = 
+      \tau^{Q} 
+    = 
+      \tau^{L_\lambda} 
+    = \tau^{L}.
+  \end{align} 
+%
+So ends the proof
+\end{proof}
+% END
