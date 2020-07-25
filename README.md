@@ -40,13 +40,15 @@ Feel free to get copies of this great book by yourself. For the record,
 - FA_DM.tex
 - FA_mainmatter.tex
 - FA_chapter_1.tex
-- 1_7.tex
-
-  Up to now, only the solution to the problem 1.7. 
-  
+- 1_7.tex  
   I choose to start with this 
   because it is a lovely result, since it connects a topological result 
-  [*to be metrizable or not to be*] with number theory
-  [basic results about dyadic expansions].
+  (*to be metrizable or not to be*) with number theory
+  (basic results about dyadic expansions).
+  TODO: ? Maybe I'll add an alternative proof with another expansion.
+- 1_16.tex  
+  This is about showing that a function test topology is independent 
+  from the "supremum seminorms" we consider. It is then more than an exercise, 
+  it must be considered as a part of the textbook (sections 1.44, 1.46).
 - shasums256
 - LICENSE
