@@ -47,7 +47,9 @@ Feel free to get copies of this great book by yourself. For the record,
   (*to be metrizable or not to be*) with number theory
   (basic results about dyadic expansions).
   TODO: ? Maybe I'll add an alternative proof with another expansion.
-- 1_16.tex  
+- 1_9.tex
+- 1_10.tex
+- 1_16.tex   
   This is about showing that a function test topology is independent 
   from the "supremum seminorms" we consider. It is then more than an exercise, 
   it should be regarded as a very part of the textbook (sections 1.44, 1.46).
