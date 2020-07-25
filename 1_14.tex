@@ -1,0 +1,131 @@
+\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. 
+Show that the following three families of seminorms 
+  (where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. 
+If $D = d/dx$: 
+%
+  \begin{enumerate}
+    \item{
+      $\| D^n f \|_\infty = \sup\set{\left| D^n f(x)\right|}{\infty< x< \infty}$
+    }
+    \item{
+      $\| D^n f \|_1 =\int_0^1 \left|D^n f(x) \right|$
+    }
+    \item{
+      $\| D^n f \|_2 = \left\{
+        \int_0^1 \left| D^n f(x) \right|^2 d\var{x} \right\}^{1/2}.$
+    }
+  \end{enumerate}
+  %
+}
+%
+\begin{proof} 
+First, remark that  
+%
+  \begin{align}\label{1_14_2}
+    \| D^n f \|_1 
+      \leq 
+    \| D^n f \|_2 
+      \leq 
+    \| D^n f \|_\infty 
+      <\infty 
+  \end{align}
+%
+(the inequality on the left is a Cauchy-Schwarz one), 
+since $K$ has length $1$. Next, start from 
+%
+  \begin{align}\label{1_14_3}
+    D^n f(x) = \int_{\minus \infty}^x D^{n+1}f
+  \end{align}
+%
+(which is true, since $f$ has a bounded support) to obtain
+  \begin{align}\label{1_14_4}
+    \left| D^n f(x)\right|
+      \leq 
+    \int_{\minus\infty}^x \left| D^{n+1}f \right| 
+      \leq 
+    \|D^{n+1}f \|_1 
+  \end{align}
+%
+hence
+%
+  \begin{align}\label{1_14_5}
+    \| D^n f \|_\infty 
+      \leq 
+    \| D^{n+1} f \|_1 .
+  \end{align}
+%
+Combining (\ref{1_14_2}) with (\ref{1_14_5}) yields
+%
+  \begin{align}\label{1_14_6}
+    \|D f \|_1 
+      \leq 
+    \cdots
+      \leq
+    \| D^n f \|_1 
+      \leq 
+    \| D^{n} f \|_2 
+      \leq 
+    \| D^{n} f \|_\infty 
+      \leq 
+    \| D^{n+1}f\|_1 
+      \leq 
+    \cdots
+  \end{align}
+%
+We now define 
+  \begin{align}\label{1_14_1}
+    \mathscr{B}\up{i}
+      \Def 
+    \set{ V\up{i}_n \Def \set{f\in \D_K}{\| f \|_i < 1/n}
+      }{
+        \counting{n}
+      } 
+    \quad (i=1, 2, \infty), 
+  \end{align}
+so that (\ref{1_14_6}) is mirrored in terms of neighborhood inclusions, 
+as follows,
+%
+  \begin{align}\label{1_14_7}
+    V\up{1}_1 
+      \supset
+    \cdots 
+      \supset 
+    V\up{1}_n
+      \supset 
+    V\up{2}_n 
+      \supset 
+    V\up{\infty}_n 
+      \supset 
+    V\up{1}_{n+1} 
+      \supset 
+    \cdots
+  \end{align}
+%
+Since 
+  $V\up{i}_n\supset V\up{i}_{n+1}$, 
+$\mathscr{B}_i$ is the local base of a topology $\tau_i$. 
+But the chain (\ref{1_14_7}) forces the $\tau_i$'s to be equals. 
+To see that, choose a set $S$ that is $\tau_1$-open at, say $a$: So, 
+%
+  $V\up{1}_n \subset S-a$  
+%
+for some $n$. Now $V\up{1}_n \supset V\up{2}_n$ (see (\ref{1_14_7})) forces  
+%
+  $V\up{2}_n \subset S-a$ , 
+%
+which implies that $S$ is $\tau_2$-open at $a$.
+Similarly, we deduce, still from (\ref{1_14_7}), that 
+\begin{align}
+  \tau_2\text{-open} 
+    \then 
+  \tau_\infty\text{-open} 
+    \then 
+  \tau_1\text{-open}.
+\end{align}
+So ends the proof.
+\end{proof}
+
+
+
+
+
