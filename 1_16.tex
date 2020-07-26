@@ -10,7 +10,7 @@ only on the ambient space itself.
 This should then be regarded as a very part of the textbook \cite{FA}
 %
 The proof consists in combining trivial consequences of the local base 
-definition with the well-known result (\eg [2.6] in \cite{BigRudin}) 
+definition with a well-known result (\eg [2.6] in \cite{BigRudin}) 
 about intersection of nonempty compact sets. 
 
 \paragraph{Lemma} Let $X$ be a topological space with a countable local base 
@@ -32,9 +32,9 @@ local base of $X$.
 \begin{proof}
 The decreasing property is trivial. Now remark that 
 %
-  $V_N \contains \tilde{V}_{N} \contains \tilde{V}_{N+1}$:
+  $V_N \contains \tilde{V}_{N}$:
 %
-The left inclusion shows that 
+This shows that 
 %
   $\singleton{\tilde{V}_{N}}$ 
 % 
@@ -98,10 +98,10 @@ Moreover,
       \subset 
     Q_{\rho(N) + 1} 
       \subset 
-    Q_{\rho(N+ 1)},
+    Q_{\rho(N+ 1)}.
   \end{align}
 % 
-and this yields
+Thus,
 %
   \begin{align}
     Q_{\rho(N)} 
@@ -124,11 +124,11 @@ is a local base. So,
 % 
   $\tau_{Q_\rho} \subset \tau_{Q}$.
 %
-Conversely, the above corollary turns 
+Conversely, the above corollary asserts that 
 %
   $\singleton{V_{\rho(N)}}$ 
 %
-into a local base of $\tau_{Q}$. Hence  
+is also a local base of $\tau_{Q}$, which yields  
 %
   $\tau_{Q}\subset \tau_{Q_\rho}$.
 %
@@ -172,13 +172,16 @@ We now suppose (to reach a contradiction) that
 % 
   no $C_{i, j}$ is empty 
 % 
-and so conclude that 
+and so conclude\footnote{
+  The intersection of a decreasing sequence of nomempty Hausdorf compacts 
+  is nonempty. This is a corollary of 2.6 of \cite{BigRudin}.
+} 
+that 
 % 
-  %$\bigcap_{j=1}^\infty C_{i, j}$ 
   $C_{i, 1} \cap C_{i, 2} \cap \cdots$
 %
 contains a point that is not in any $\text{int}(L_j)$. 
-But the conditions specified in [1.44] force 
+On the other hand, the conditions specified in [1.44] force the collection 
 % 
   $\set{\text{int}(L_j)}{\counting{j}}$ 
 %
@@ -188,7 +191,7 @@ This contradiction reveals that
 %
   $C_{i,\,j} = C_{i, \,j+1} = C_{i, \,j+2} = \cdots =\emptyset$
 %  
-for some $j=j\up{i}$. We then define  
+for some $j=j\up{i}$. We now define  
 %
   $\lambda_i = i + j\up{i}$, 
 % 
