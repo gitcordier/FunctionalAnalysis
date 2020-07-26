@@ -1,0 +1,93 @@
+\textit{Suppose
+\begin{enumerate}
+  \item $X$ and $Y$ are topological vector spaces,
+  \item $\Lambda: X\to Y$ is linear.
+  \item $N$ is a closed subspace of $X$,
+  \item$\pi: X\to X/N$ is the quotient map, and
+  \item $\Lambda x=0$ for every $x\in N$.
+\end{enumerate}
+Prove that there is a unique $f:X/N\to Y$ which satisfies 
+%
+  $\Lambda=f\circ \pi$, 
+%
+that is, 
+%
+  $\Lambda x=f(\pi (x))$ for all $x\in X$. 
+%
+Prove that $f$ is linear and that $\Lambda$ is continuous if and only if 
+%
+  $f $ is continuous. 
+%
+Also, $\Lambda$ is open if and only if $f$ is open.}
+%
+\begin{proof}
+The equation $\Lambda = f \circ \pi$ has necessarily a unique solution, 
+which is the binary relation 
+%
+  \begin{align}\label{1_9: defintion of f.}
+     f \Def\set{(\pi x, \Lambda x)}{x \in X} \subset X/N \times Y.
+    \end{align}
+%
+To ensure that $f$ is actually a mapping, simply remark that 
+the linearity of $\Lambda$ implies 
+%
+  \begin{align}
+    %\forall ( x,  x') \in X^2: 
+    %
+    \Lambda x \neq \Lambda  x' \then \pi x' \neq \pi x'.
+  \end{align}
+%
+It straightforwardly derives from (\ref{1_9: defintion of f.}) that 
+$f$ inherits linearity from $\pi$ and $\Lambda$. Now remark that 
+%
+  \begin{align}
+    \pi x = N   
+      \citethen{f\text{ linear}} 
+    f(\pi x) = 0 
+      \citethen{\ref{1_9: defintion of f.}} 
+    \Lambda x = 0 
+      \then \pi x = N 
+\end{align}
+and so conclude that $f$ is also one-to-one.
+%
+Now assume $f$ to be continuous. Then so is 
+%
+  $\Lambda = f\circ \pi $, 
+% 
+by (a) of [1.41]. 
+%
+Conversely, 
+%
+if $\Lambda$ is continuous, then for each neighborhood $V$ of $0_Y$ 
+there exists a neighborhood $U$ of $0_X$ such that
+%
+  \begin{align}
+    \Lambda(U) = f\left(\pi(U)\right) 
+      \subset 
+    V.
+  \end{align}
+%
+Since $\pi$ is open (see (a) of [1.41]), $\pi(U)$ is a neighborhood of 
+%
+  $N=0_{X/N}$: 
+%s
+This is sufficient to establish that the linear mapping $f$ is continuous.
+%
+If $f$ is open, so is $\Lambda = f\circ \pi$, by (a) of [1.41]. 
+%
+Conversely, let  
+%
+  \begin{align}
+    W \Def \pi (V) \subset  X/N \quad (V \text{ neighborhood of } 0_X) 
+  \end{align}
+%
+range over all neighborhoods of $N$, as $\Lambda$ is kept open: So is 
+%
+  \begin{align}
+    \Lambda(V) = f \left(\pi(V)\right) = f(W).  
+  \end{align}
+%
+The linear mapping $f$ is then open. 
+\end{proof}
+
+
