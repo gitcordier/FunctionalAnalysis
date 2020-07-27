@@ -64,7 +64,7 @@ Feel free to get copies of this great book by yourself. For the record,
   This is about showing that a function test topology is independent 
   from the "supremum seminorms" we consider. It is then more than an exercise, 
   it should be regarded as a very part of the textbook (sections 1.44, 1.46).
-- 1_17.tex
+- 1_17.tex  
   Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
   continuous in the test functions topology.
 - LICENSE
