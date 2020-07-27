@@ -38,13 +38,16 @@ Feel free to get copies of this great book by yourself. For the record,
 
 
 ## Files
+- FA_DM.pdf  
+  Output from [Xelatex](https://www.tug.org) compilation.
+- FA_DM.html  
+  Output from [Hevea](http://hevea.inria.fr) compilation
 - FA_DM.tex
 - FA_mainmatter.tex
 - FA_chapter_1.tex
 - 1_7.tex  
-  I choose to start with this 
-  because it is a lovely result, since it connects a topological result 
-  (*to be metrizable or not to be*) with number theory
+  I choose to start with this because it is a lovely result, since it connects 
+  a topological result (*to be metrizable or not to be*) with number theory
   (basic results about dyadic expansions).
   TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate 
   expansion.
@@ -55,7 +58,7 @@ Feel free to get copies of this great book by yourself. For the record,
   Continuousness, openess of a linear mapping onto a finite dimensional space.
   Not trivial, since the domain may be infinite-dimensional. 
 - 1_14.tex  
-  Alternative ways to define topology of the test functions space D_K, 
+  Alternative ways to the define topology of the test functions space D_K, 
   in the special case K=[0, 1].
 - 1_16.tex   
   This is about showing that a function test topology is independent 
@@ -64,5 +67,5 @@ Feel free to get copies of this great book by yourself. For the record,
 - 1_17.tex
   Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
   continuous in the test functions space topology.
-- shasums256
 - LICENSE
+- HOWTO
