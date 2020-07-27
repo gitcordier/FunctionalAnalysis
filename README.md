@@ -46,13 +46,23 @@ Feel free to get copies of this great book by yourself. For the record,
   because it is a lovely result, since it connects a topological result 
   (*to be metrizable or not to be*) with number theory
   (basic results about dyadic expansions).
-  TODO: ? Maybe I'll add an alternative proof with the (almost nowhere) degenerate expansion.
-- 1_9.tex
-- 1_10.tex
-- 1_14.tex
+  TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate 
+  expansion.
+- 1_9.tex  
+  Continuousness, openness of a linear mapping: First isomorphism theorem with 
+  a closed space N (not necessarily the null space!).
+- 1_10.tex  
+  Continuousness, openess of a linear mapping onto a finite dimensional space.
+  Not trivial, since the domain may be infinite-dimensional. 
+- 1_14.tex  
+  Alternative ways to define topology of the test functions space D_K, 
+  in the special case K=[0, 1].
 - 1_16.tex   
   This is about showing that a function test topology is independent 
   from the "supremum seminorms" we consider. It is then more than an exercise, 
   it should be regarded as a very part of the textbook (sections 1.44, 1.46).
+- 1_17.tex
+  Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
+  continuous in the test functions space topology.
 - shasums256
 - LICENSE

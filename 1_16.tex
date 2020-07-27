@@ -1,11 +1,11 @@
 \textit{
 Prove that the topology of $C(\Omega)$ does not depend on the particular 
-choice of $\{K_{n}\}$, as long as this sequence satisfies the conditions 
+choice of $\singleton{K_n}$, as long as this sequence satisfies the conditions 
 specified in section 1.44. Do the same for $C^\infty(\Omega)$ (Section 1.46).}
 %
 \paragraph{Comment}This is an invariance property: 
 The function test topology only depends on the existence of the 
-supremum-seminorms $|f|_N = \max{|f|}$, then, eventually, 
+supremum-seminorms $p_n$, then, eventually, 
 only on the ambient space itself. 
 This should then be regarded as a very part of the textbook \cite{FA}
 %
@@ -13,112 +13,114 @@ The proof consists in combining trivial consequences of the local base
 definition with a well-known result (\eg [2.6] in \cite{BigRudin}) 
 about intersection of nonempty compact sets. 
 
-\paragraph{Lemma} Let $X$ be a topological space with a countable local base 
-$\set{V_N}{\counting{N}}$. 
+\paragraph{Lemma 1} Let $X$ be a topological space with a countable local base 
+$\set{V_n}{\counting{n}}$. 
 If 
 %
-  $\tilde{V}_{N} = V_1 \cuts \cdots \cuts V_N$, 
+  $\tilde{V}_{n} = V_1 \cuts \cdots \cuts V_n$, 
 %
 then every subsequence 
 % 
-  $\singleton{\tilde{V}_{\rho(N)}}$ 
+  $\singleton{\tilde{V}_{\rho(n)}}$ 
 %
-is a also a {decreasing} (\ie 
+is a decreasing (\ie 
 %
-  $\tilde{V}_{\rho(N)} \contains \tilde{V}_{\rho(N+1)}$)
+  $\tilde{V}_{\rho(n)} \contains \tilde{V}_{\rho(n+1)}$)
 %
 local base of $X$.
 %
 \begin{proof}
 The decreasing property is trivial. Now remark that 
 %
-  $V_N \contains \tilde{V}_{N}$:
+  $V_n \contains \tilde{V}_{n}$:
 %
 This shows that 
 %
-  $\singleton{\tilde{V}_{N}}$ 
+  $\singleton{\tilde{V}_{n}}$ 
 % 
 is a local base of $X$. Then so is 
 %
-  $\singleton{\tilde{V}_{\rho(N)}}$,
+  $\singleton{\tilde{V}_{\rho(n)}}$,
 % 
-since $\tilde{V}_{N} \contains \tilde{V}_{\rho(N)}$.
+since $\tilde{V}_{n} \contains \tilde{V}_{\rho(n)}$.
 \end{proof}
 %
-The following special case 
+\noindent The following special case 
 %
-  $V_{N} = \tilde{V}_{N}$ 
+  $V_{n} = \tilde{V}_{n}$ 
 % 
 is one of the key ingredients:
-\paragraph{Corollary 1 (special case)}
-With the same notations, if $\singleton{V_{N}}$ is a decreasing local base, 
-then so is $\singleton{V_{\rho(N)}}$.
+%: COROLLARY 1 OF LEMMA 1-----------------------------------------------------%
+\paragraph{Corollary 1 (special case $V_{n} = \tilde{V}_{n}$)}
+Under the same notations of Lemma 1, if $\singleton{V_{n}}$ is a decreasing 
+local base, then so is $\singleton{V_{\rho(n)}}$.
 %
+%: COROLLARY 2 OF LEMMA 1-----------------------------------------------------%
 \paragraph{Corollary 2}
 If 
 %
-  $\singleton{Q_N}$ 
+  $\singleton{Q_n}$ 
 %
-is a sequence of compacts that satisfies the conditions specified 
+is a sequence of compact sets that satisfies the conditions specified 
 in section 1.44, then every subsequence 
 %
-  $\singleton{Q_{\rho(N)}}$ 
+  $\singleton{Q_{\rho(n)}}$ 
 %
 also satisfies theses conditions.
 %
 Furthermore, if $\tau_{Q}$ is the $C(\Omega)$'s 
-(respectively $C^\infty (\Omega)$'s) topology of the seminorms $p_{N}$, 
+(respectively $C^\infty (\Omega)$'s) topology of the seminorms $p_{n}$, 
 as defined in section 1.44 (respectively 1.46), then the seminorms 
 %
-  $p_{\rho(N)}$ 
+  $p_{\rho(n)}$ 
 %
 define the same topology $\tau_{Q}$.
 %
 \begin{proof}%
 %
-Let $X$ be $C(\Omega)$ topologized with the seminorms $p_{N}$ 
+Let $X$ be $C(\Omega)$ topologized with the seminorms $p_{n}$ 
 (the case $X=C^\infty(\Omega)$ is proved the same way).
 %
 If 
   %
-    $V_{N} = \singleton{p_{N} < 1/N}$, 
+    $V_{n} = \singleton{p_{n} < 1/n}$, 
   %
 then 
   %
-    $\singleton{V_{N}}$ 
+    $\singleton{V_{n}}$ 
   %
 is a decreasing local base of $X$.
 %
 Moreover,
 % 
   \begin{align}
-    Q_{\rho(N)} 
+    Q_{\rho(n)} 
       \subset 
-    \interior{Q}_{\rho(N) + 1} 
+    \interior{Q}_{\rho(n) + 1} 
       \subset 
-    Q_{\rho(N) + 1} 
+    Q_{\rho(n) + 1} 
       \subset 
-    Q_{\rho(N+ 1)}.
+    Q_{\rho(n+ 1)}.
   \end{align}
 % 
 Thus,
 %
   \begin{align}
-    Q_{\rho(N)} 
+    Q_{\rho(n)} 
       \subset 
-    \interior{Q}_{\rho(N+ 1)}.
+    \interior{Q}_{\rho(n+ 1)}.
   \end{align}
 %
 In other words, 
 %
-  $Q_{\rho(N)}$ satisfies the conditions specified in section 1.44.
+  $Q_{\rho(n)}$ satisfies the conditions specified in section 1.44.
 %
 %
-  $\singleton{p_{\rho(N)}}$
+  $\singleton{p_{\rho(n)}}$
 % 
 then defines a topology $\tau_{Q_\rho}$ for which  
 % 
-  $\singleton{V_{\rho(N)}}$ 
+  $\singleton{V_{\rho(n)}}$ 
 %
 is a local base. So, 
 % 
@@ -126,95 +128,141 @@ is a local base. So,
 %
 Conversely, the above corollary asserts that 
 %
-  $\singleton{V_{\rho(N)}}$ 
+  $\singleton{V_{\rho(n)}}$ 
 %
-is also a local base of $\tau_{Q}$, which yields  
+is a local base of $\tau_{Q}$, which yields  
 %
   $\tau_{Q}\subset \tau_{Q_\rho}$.
 %
 \end{proof}
-\noindent We are now in a fair position to establish the following:
-%\newpage
-\paragraph{Theorem} 
-The topology of $C(\Omega)$ does not depend on the particular choice of 
-$\{K_{n}\}$, as long as this sequence satisfies the conditions 
-specified in section 1.44. Neither does the topology of $C^\infty (\Omega)$, 
-as long as this sequence satisfies the conditions specified in section 1.46.
+%: LEMMA 2 -------------------------------------------------------------------%
+\paragraph{Lemma 2} 
+If a sequence of compact sets $\singleton{Q_n}$ satisfies the conditions 
+specified in section 1.44, then every compact set $K$ lies in allmost all 
 %
-\begin{proof}%
-With the second corollary's notations,
-% 
-  $\tau_{K} = \tau_{K_\kappa}$,
+  $Q^\circ_n$, \ie
 %
-for every subsequence $\singleton{K_{\kappa(n)}}$.
-% 
-Similarly, let 
+there exists $m$ such that 
 %
-  $\singleton{L_n}$ 
-% 
-be a sequence of compact subsets of $\Omega$ that satisfies 
-the condition specified in [1.44], 
-so that 
+  \begin{align}
+    K \subset 
+    \interior{Q}_m 
+      \subset 
+    \interior{Q}_{m+1}
+      \subset
+    \interior{Q}_{m+2}
+      \subset
+    \cdots.
+  \end{align}
 %
-  $\tau_{L} = \tau_{L_\lambda}$
-%
-for every subsequence $\singleton{L_{\lambda(n)}}$. 
-%
+\begin{proof}
 The following definition
 %
   \begin{align}
-    C_{i, j} \Def K_i \setminus \interior{L_j} \quad (\counting{i, j})
+    C_n \Def K \setminus \interior{Q}_n \quad (\counting{n})
   \end{align}
 %
-shapes $\set{C_{i, j}}{\counting{j}}$ as a decreasing sequence of compacts.
-%
-We now suppose (to reach a contradiction) that 
+shapes $\singleton{C_n}$ as a decreasing sequence of compact\footnote{
+  See (b) of 2.5 of \cite{BigRudin}.
+} 
+sets. We now suppose (to reach a contradiction) that 
 % 
-  no $C_{i, j}$ is empty 
+  no $C_n$ is empty 
 % 
 and so conclude\footnote{
-  The intersection of a decreasing sequence of nomempty Hausdorf compacts 
+  The intersection of a decreasing sequence of nomempty Hausdorff compact sets 
   is nonempty. This is a corollary of 2.6 of \cite{BigRudin}.
 } 
-that 
+that the $C_n$'s intersection contains a point that is not in any $Q^\circ_n$. 
+On the other hand, the conditions specified in [1.44] force the 
 % 
-  $C_{i, 1} \cap C_{i, 2} \cap \cdots$
-%
-contains a point that is not in any $\text{int}(L_j)$. 
-On the other hand, the conditions specified in [1.44] force the collection 
-% 
-  $\set{\text{int}(L_j)}{\counting{j}}$ 
+  $Q^\circ_n$'s collection  
 %
 to be an open cover.
 % 
 This contradiction reveals that 
 %
-  $C_{i,\,j} = C_{i, \,j+1} = C_{i, \,j+2} = \cdots =\emptyset$
+  $C_m = \emptyset$, 
+    \ie 
+  $K \subset Q^\circ_m$, 
 %  
-for some $j=j\up{i}$. We now define  
+for some $m$.
 %
-  $\lambda_i = i + j\up{i}$, 
+Finally,  
+  \begin{align}
+    K\subset 
+    \interior{Q}_m
+      \subset
+    Q_m
+      \subset
+    \interior{Q}_{m+1}
+      \subset
+    Q_{m +1}
+      \subset
+    \interior{Q}_{m+2}
+      \subset
+    \cdots.
+  \end{align}  
+So ends the proof.
+\end{proof}
+%: THEOREM -------------------------------------------------------------------%
+\noindent We are now in a fair position to establish the following:
+%\newpage
+\paragraph{Theorem} 
+The topology of $C(\Omega)$ does not depend on the particular choice of 
+$\singleton{K_n}$, as long as this sequence satisfies the conditions 
+specified in section 1.44. Neither does the topology of $C^\infty (\Omega)$, 
+as long as this sequence satisfies the conditions specified in section 1.44.
+%
+\begin{proof}%
+With the second corollary's notations,
 % 
-so that
+  $\tau_{K} = \tau_{K_\lambda}$,
+%
+for every subsequence $\singleton{K_{\lambda(n)}}$.
+% 
+Similarly, let 
+%
+  $\singleton{L_n}$ 
+% 
+be another sequence of compact subsets of $\Omega$ that satisfies 
+the condition specified in [1.44], 
+so that 
+%
+  $\tau_{L} = \tau_{L_\kappa}$
+%
+for every subsequence $\singleton{L_{\kappa(n)}}$. 
+%
+Now apply the above Lemma 2 with $K_i$ ($\counting{i}$) and so conclude that  
+%
+  $K_i 
+    \subset 
+  L^\circ_{m_i} 
+    \subset 
+  L^\circ_{m_{i}+1}
+    \subset
+  \cdots$
+%  
+for some $m_i$. The special case $n= m_i + i$ is then 
 %
   \begin{align}
     %
     \label{1_16. K subset interior L}
-    %
-    K_i \setminus \interior{L}_{\lambda_i} = \emptyset, \quad \ie \quad
-    K_i 
+    K_i
       \subset 
-    \interior{L}_{\lambda_i}.
+    \interior{L}_{\kappa_i}
+      \quad 
+    (\kappa_i \Def m_i + i)
   \end{align} 
 %
 Let us reiterate the above proof with $K_n$ and $L_n$ in exchanged roles 
-then similarly find a subsequence $\set{\kappa_j}{\counting{j}}$ such that 
+then similarly find a subsequence $\set{\lambda_j}{\counting{j}}$ such that 
 %
   \begin{align}
   %
   \label{1_16. L subset interior K}
   %
-    L_j \subset \interior{K}_{\kappa_j}
+    L_j \subset \interior{K}_{\lambda_j}
   \end{align}
 %
 Combine 
@@ -227,26 +275,26 @@ and so obtain
   \begin{align}
     K_1 
       \subset 
-    \interior{L}_{\lambda_1} 
+    \interior{L}_{\kappa_1} 
       \subset 
-    L_{\lambda_1} 
+    L_{\kappa_1} 
       \subset 
-    \interior{K}_{\kappa\circ\lambda_1}
+    \interior{K}_{\lambda_{\kappa_1}}
       \subset 
-    K_{\kappa\circ\lambda_1}
+    K_{\lambda_{\kappa_1}}
       \subset
-    \interior{L}_{\lambda_{\kappa\circ\lambda_1}}
+    \interior{L}_{\kappa_{\lambda_{\kappa_1}}}
       \subset
-    \cdots
+    \cdots, 
   \end{align}
 %
-Thus the sequence 
+which means that the sequence 
 %
   $Q = (
     K_1, 
-    L_{\lambda_1}, 
-    K_{\kappa\circ\lambda_1}, 
-    L_{\lambda_{\kappa\circ\lambda_1}},
+    L_{\kappa_1}, 
+    K_{\lambda_{\kappa_1}}, 
+    %L_{\kappa_{\lambda_{\kappa_1}}},
     \dots
   )$
 %
@@ -256,11 +304,11 @@ It now follows from the corollary 2 that
   \begin{align}  
     \tau_{K} 
     = 
-      \tau_{K_\kappa} 
+      \tau_{K_\lambda} 
     = 
       \tau_{Q} 
     = 
-      \tau_{L_\lambda} 
+      \tau_{L_\kappa} 
     = \tau_{L}.
   \end{align} 
 %

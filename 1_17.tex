@@ -1,0 +1,108 @@
+\textit{In the setting of Section 1.46, prove that 
+  %
+    $f \mapsto D^{\alpha}f$ 
+  %
+is a continuous mapping of 
+%
+  $C^{\infty}(\Omega)$ into 
+  $C^{\infty}(\Omega)$ and also of 
+  $\D_{K}$ into 
+  $\D_{K}$, for every multi-index $\alpha$.
+%
+}
+\begin{proof} 
+In both cases, $D^\alpha$ is a linear mapping. 
+It is then sufficient to establish continuousness at the origin.
+%
+We begin with the $C^\infty(\Omega)$ case. \\
+\\
+Let $U$ be an aribtray neighborhood of the origin.
+There so exists $N$ such that $U$ contains
+%
+  \begin{align} 
+    V_{N}= \set{
+      \phi \in C^\infty(\Omega)
+    }{
+      \max
+      \set{
+        | D^\beta\phi(x) |
+      }{
+        | \beta | \leq N, x\in K_N
+      }
+    < 1/N
+    }.
+  \end{align}
+%
+Now pick $g$ in $V_{N+|\alpha|}$, so that
+%
+  \begin{align}
+    \max
+    \set{
+      | D^\gamma g(x) |
+    }{
+      | \gamma | \leq N+| \alpha |, 
+      x\in K_{N}
+    }
+    < \frac{1}{N}.
+  \end{align}
+%
+(the fact that $K_N\subset K_{N+|\alpha|}$ was tacitely used).
+%
+The special case $\gamma = \beta + \alpha$ yields
+%‡
+\begin{align}
+    \sup
+    \set{
+      | D^\beta D^\alpha g(x) |
+    }{
+      | \beta | \leq N, 
+      x\in K_{N}
+    }
+    < \frac{1}{N}.
+  \end{align}
+%
+We have just proved that
+%
+  \begin{align}
+    g \in V_{N + | \alpha|}
+      \then 
+    D^\alpha g \in V_{N},
+      \quad
+      \ie
+      \quad
+    D^\alpha (V_{N+|\alpha|}) \subset V_N.
+  \end{align}
+%
+The continuity of 
+  $D^{\alpha}: C^\infty (\Omega) \to C^\infty (\Omega)$ 
+is so established.
+%%
+%
+We now prove the second part, \ie 
+that $D^\alpha: \mathscr{D}_K \to \mathscr{D}_K$ is continuous. \\
+\\
+%
+Let $r$ be a positive scalar. From now on, $V(r)$ will denote the 
+preimage in $\D_K$ of the open disc $D(r)$  \ie 
+%
+\begin{align}
+  V(r) \Def \set{f \in \D_K}{| D^\alpha f | < r}.
+\end{align}
+%
+Similarly, we define $A(r)$ as the preimage of $D(r)$ in $C^\infty(\Omega)$, 
+\ie 
+%
+\begin{align}
+  A(r) \Def \set{f \in C^\infty (\Omega)}{| D^\alpha f | < r }.
+\end{align}
+%
+The continuousness of 
+%
+  $D^\alpha$ in $C^\infty(\Omega)$ 
+%
+implies that $A(r)$ is open in $C^\infty(\Omega)$. Moreover, 
+%
+  $B(r) = A(r) \cap \ \D_K$. 
+%
+$B(r)$ is then open in $\D_K$, for all $r$. So ends the proof.
+\end{proof}
