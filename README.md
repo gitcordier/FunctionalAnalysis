@@ -39,9 +39,9 @@ Feel free to get copies of this great book by yourself. For the record,
 
 ## Files
 - FA_DM.pdf  
-  Output from [Xelatex](https://www.tug.org) compilation.
-- FA_DM.html  
-  Output from [Hevea](http://hevea.inria.fr) compilation
+  Output from [Xelatex](https://www.tug.org) compilation.  
+  Bear in mind that you can get an html output from 
+  [Hevea](http://hevea.inria.fr) compilation; see HOWTO.
 - FA_DM.tex
 - FA_mainmatter.tex
 - FA_chapter_1.tex
@@ -66,6 +66,6 @@ Feel free to get copies of this great book by yourself. For the record,
   it should be regarded as a very part of the textbook (sections 1.44, 1.46).
 - 1_17.tex
   Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
-  continuous in the test functions space topology.
+  continuous in the test functions topology.
 - LICENSE
 - HOWTO
