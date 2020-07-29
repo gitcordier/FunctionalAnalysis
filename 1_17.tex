@@ -78,31 +78,21 @@ The continuity of
 is so established.
 %%
 %
-We now prove the second part, \ie 
-that $D^\alpha: \mathscr{D}_K \to \mathscr{D}_K$ is continuous. \\
+We now prove the second part.
 \\
 %
-Let $r$ be a positive scalar. From now on, $V(r)$ will denote the 
-preimage in $\D_K$ of the open disc $D(r)$  \ie 
+To do so, we use the fact that 
 %
-\begin{align}
-  V(r) \Def \set{f \in \D_K}{| D^\alpha f | < r}.
-\end{align}
-%
-Similarly, we define $A(r)$ as the preimage of $D(r)$ in $C^\infty(\Omega)$, 
-\ie 
-%
-\begin{align}
-  A(r) \Def \set{f \in C^\infty (\Omega)}{| D^\alpha f | < r }.
-\end{align}
-%
-The continuousness of 
-%
-  $D^\alpha$ in $C^\infty(\Omega)$ 
-%
-implies that $A(r)$ is open in $C^\infty(\Omega)$. Moreover, 
-%
-  $B(r) = A(r) \cap \ \D_K$. 
-%
-$B(r)$ is then open in $\D_K$, for all $r$. So ends the proof.
+  \begin{align}
+    K \subset K_m \subset K_{m+1} \subset \cdots
+  \end{align}
+for some index $m$; see Lemma 2 of Exersice 1.16. 
+A trivial consequence of this is that
+  \begin{align}
+    V_N = V_N \cap \D_K \quad (N \geq m).
+  \end{align}
+The collection $\set{V_N}{N \geq m}$ is then a local base of $\D_K$.
+Finally, we reiterate the proof of the first part with $\D_K$ playing the role 
+of $C^\infty(\Omega)$ and so conclude that $\D_K\to\D_K, f\mapsto D^\alpha f$ 
+is continuous.
 \end{proof}
