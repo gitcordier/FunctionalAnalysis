@@ -4,8 +4,8 @@
   %
 is a continuous mapping of 
 %
-  $C^{\infty}(\Omega)$ into 
-  $C^{\infty}(\Omega)$ and also of 
+  $C^{\infty}\left(\Omega\right)$ into 
+  $C^{\infty}\left(\Omega\right)$ and also of 
   $\D_{K}$ into 
   $\D_{K}$, for every multi-index $\alpha$.
 %
@@ -14,48 +14,46 @@ is a continuous mapping of
 In both cases, $D^\alpha$ is a linear mapping. 
 It is then sufficient to establish continuousness at the origin.
 %
-We begin with the $C^\infty(\Omega)$ case. \\
+We begin with the $C^\infty\left(\Omega\right)$ case. \\
 \\
 Let $U$ be an aribtray neighborhood of the origin.
 There so exists $N$ such that $U$ contains
 %
   \begin{align} 
-    V_{N}= \set{
-      \phi \in C^\infty(\Omega)
-    }{
-      \max
-      \set{
-        | D^\beta\phi(x) |
+    V_{N}= \left\{
+      \phi \in C^\infty\left(\Omega\right): 
+      \max\set{
+        | D^\beta\phi (x) |
       }{
-        | \beta | \leq N, x\in K_N
+        \magnitude{ \beta } \leq N, x\in K_N
       }
     < 1/N
-    }.
+    \right\}.
   \end{align}
 %
-Now pick $g$ in $V_{N+|\alpha|}$, so that
+Now pick $g$ in $V_{N+\magnitude{\alpha}}$, so that
 %
   \begin{align}
     \max
     \set{
-      | D^\gamma g(x) |
+      \magnitude{ D^\gamma g\left(x\right) }
     }{
-      | \gamma | \leq N+| \alpha |, 
+      \magnitude{ \gamma | \leq N+| \alpha }, 
       x\in K_{N}
     }
     < \frac{1}{N}.
   \end{align}
 %
-(the fact that $K_N\subset K_{N+|\alpha|}$ was tacitely used).
+(the fact that $K_N\subset K_{N+\magnitude{\alpha}}$ was tacitely used).
 %
 The special case $\gamma = \beta + \alpha$ yields
 %‡
 \begin{align}
-    \sup
+    \max
     \set{
-      | D^\beta D^\alpha g(x) |
+      | D^\beta D^\alpha g(x)|
     }{
-      | \beta | \leq N, 
+      \magnitude{\beta} \leq N, 
       x\in K_{N}
     }
     < \frac{1}{N}.
@@ -63,36 +61,59 @@ The special case $\gamma = \beta + \alpha$ yields
 %
 We have just proved that
 %
-  \begin{align}
-    g \in V_{N + | \alpha|}
+  \begin{align}\label{1.17. inclusion}
+    g \in V_{N + \magnitude{\alpha}}
       \then 
     D^\alpha g \in V_{N},
       \quad
       \ie
       \quad
-    D^\alpha (V_{N+|\alpha|}) \subset V_N.
+    D^\alpha \left(V_{N+\magnitude{\alpha}}\right) \subset V_N.
   \end{align}
 %
 The continuity of 
-  $D^{\alpha}: C^\infty (\Omega) \to C^\infty (\Omega)$ 
-is so established.
-%%
+  $D^{\alpha}: C^\infty \left(\Omega\right) \to C^\infty \left(\Omega\right)$ 
+is so established. \\\\
 %
-We now prove the second part.
-\\
 %
-To do so, we use the fact that 
+To prove the continuousness of the restriction 
+%
+  $D^\alpha \lvert_{\D_K}: \D_K \to \D_K$, % 
+%
+%
+we first remark the collection of the  
+%
+  ${V_N \cap \D_K}$ % 
+%
+is a local base of the subspace topology of $\D_K$.
+%
+%
+  $V_{N+\alpha} \cap \D_K$ % 
+%
+is then a neighborhood of $0$ in this topology. %
+Furthermore, 
 %
   \begin{align}
-    K \subset K_m \subset K_{m+1} \subset \cdots
+    %
+    D^\alpha \lvert_{\D_K} \left(V_{N+\magnitude{\alpha}} \cap \D_K\right) 
+    % 
+    & = 
+      D^\alpha\left(V_{N+\magnitude{\alpha}} \cap \D_K\right) \\
+      %
+    & \subset
+      D^\alpha\left(V_{N+\magnitude{\alpha}}\right) 
+        \cap 
+      D^\alpha\left(\D_K\right) \\
+      %
+    & \subset 
+      V_N 
+        \cap 
+      \D_K
+        %
+          \quad (\text{see }\ref{1.17. inclusion})
+        %
+    %
   \end{align}
-for some index $m$; see Lemma 2 of Exersice 1.16. 
-A trivial consequence of this is that
-  \begin{align}
-    V_N = V_N \cap \D_K \quad (N \geq m).
-  \end{align}
-The collection $\set{V_N}{N \geq m}$ is then a local base of $\D_K$.
-Finally, we reiterate the proof of the first part with $\D_K$ playing the role 
-of $C^\infty(\Omega)$ and so conclude that $\D_K\to\D_K, f\mapsto D^\alpha f$ 
-is continuous.
+%
+So ends the proof.
 \end{proof}
