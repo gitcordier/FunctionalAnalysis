@@ -4,7 +4,7 @@
 \usepackage{cite}
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
-\usepackage{amsmath,physics, amssymb,mathrsfs,amsthm, mathspec}
+\usepackage{amsmath,physics,amssymb,mathrsfs,amsthm,mathspec}
 
 % TEXs LOGOS! 
 %\usepackage{dtklogos}
@@ -16,7 +16,7 @@
 \usepackage{array}
 %\usepackage[dvipsnames]{xcolor}
 %\usepackage[]{color}
-\usepackage{framed}
+%\usepackage{framed}
 \usepackage{colortbl}
 
 %: FOR XELATEX. SKIP IF ERROR MESSAGE
@@ -67,7 +67,7 @@
 \def\minus{\insmall{-}}
 
 % The field C and the usual subsets R, Q, Z, N. 
-\newcommand\usualSet[1]{\mathbf #1}
+\newcommand\usualSet[1]{{\mathbf #1}}
 \def\C{\usualSet{C}}
 \def\R{\usualSet{R}}
 \def\Q{\usualSet{Q}}
@@ -104,7 +104,7 @@
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 
 % Analysis
-\newcommand\magnitude[1]{\left| #1 \right|}
+\newcommand\magnitude[1]{\left\lvert #1 \right\rvert}
 
 % Topology
 \newcommand{\localbase}[1]{\mathscr #1}
@@ -116,14 +116,16 @@
 \newcommand{\tendsto}[2]{\underset{#1\to#2}{\longrightarrow}}
 
 % Variables
-\newcommand{\varit}[1]{\textit{#1}}
-
-% Usual terms
+\newcommand{\varit}[1]{\mathit{#1}}
+\def\vart{\varit{t}}
+%Usual terms
 \def\ie{\textit{i.e.} }
 \def\eg{\textit{e.g.} }
+\def\cf{\textit{cf.\,}}
 \def\iif{{\bf iff} }
 \def\wlg{{\bf wlg }} % Without loss og generality
 \def\then{\Rightarrow}
+\def\since{\Leftarrow}
 
 % Citations
 \newcommand{\citehere}[2]{\overset{(#1)}{#2}}
@@ -131,11 +133,16 @@
 %\newcomand{\citeineq}[1]{\citehere{#1}{=}}
 \newcommand{\citeleq}[1]{\citehere{#1}{\leq}}
 \newcommand{\citegeq}[1]{\citehere{#1}{\geq}}
-%\newcommand{\citegeq}[1]{toto}
+\newcommand{\citeleast}[1]{\citehere{#1}{<}}
+\newcommand{\citegreater}[1]{\citehere{#1}{>}}
+
+\newcommand{\citesubset}[1]{\citehere{#1}{\subset}}
+\newcommand{\citesupset}[1]{\citehere{#1}{\supset}}
+
 \newcommand{\citethen}[1]{\citehere{#1}{\Rightarrow}}
 %\newcommand{\citesince}[1]{\citehere{#1}{\Leftarrow}}
-\newcommand{\citeresult}[2]{[#2]}
-
+\newcommand{\citeresult}[2]{#1 of #2}
+\newcommand{\citeresultFA}[1]{\citeresult{#1}{\cite{FA}}}
 % Misc
 \newcommand{\dy}[1]{{\function{dyadic}}(#1)}
 \def\ddy{{\function{decay}}}
