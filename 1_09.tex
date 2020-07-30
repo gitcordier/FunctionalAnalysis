@@ -20,11 +20,18 @@ Prove that $f$ is linear and that $\Lambda$ is continuous if and only if
 %
 Also, $\Lambda$ is open if and only if $f$ is open.}
 %
-\begin{proof}
-The equation $\Lambda = f \circ \pi$ has necessarily a unique solution, 
-which is the binary relation 
+\begin{proof} Bear in mind that 
 %
-  \begin{align}\label{1_9: defintion of f.}
+  $\pi$ continously maps $X$ onto the topological (Hausdorff) space $X/N$, 
+  since $N$ is closed (see \citeresultFA{1.41}).
+%
+Moreover, the equation 
+% 
+  $\Lambda = f \circ \pi$ 
+% 
+has necessarily a unique solution, which is the binary relation 
+%
+  \begin{align}\label{1.9. definition of f.}
      f \Def\set{(\pi x, \Lambda x)}{x \in X} \subset X/N \times Y.
     \end{align}
 %
@@ -37,19 +44,32 @@ the linearity of $\Lambda$ implies
     \Lambda x \neq \Lambda  x' \then \pi x' \neq \pi x'.
   \end{align}
 %
-It straightforwardly derives from (\ref{1_9: defintion of f.}) that 
-$f$ inherits linearity from $\pi$ and $\Lambda$. Now remark that 
+It straightforwardly derives from (\ref{1.9. definition of f.}) that 
+$f$ inherits linearity from $\pi$ and $\Lambda$.\\
+\\ 
+{\bf Remark.} The special case 
+%
+  $N = \singleton{\Lambda = 0}$ , \ie $\Lambda x= 0$ \iif $x\in N$ (\cf (e)), %
+%
+is the first isomorphism theorem in the topological spaces context. 
+To see this, remark that this stronger form (e') of (e) yields 
 %
   \begin{align}
-    \pi x = N   
-      \citethen{f\text{ linear}} 
-    f(\pi x) = 0 
-      \citethen{\ref{1_9: defintion of f.}} 
-    \Lambda x = 0 
-      \then \pi x = N 
+    f(\pi x) = 0
+      \citethen{\ref{1.9. definition of f.}}
+    \Lambda x = 0
+      \citethen{e'}
+    x \in N 
+      \then 
+    \pi x = N
 \end{align}
 and so conclude that $f$ is also one-to-one.
 %
+%We have thus proved 
+%
+  %the first isomorphism theorem in the topological spaces context. %
+%
+\\\\
 Now assume $f$ to be continuous. Then so is 
 %
   $\Lambda = f\circ \pi $, 

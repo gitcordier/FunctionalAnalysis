@@ -17,51 +17,64 @@ $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-  \begin{enumerate}
-    \item{
-      Let $e$ range over a base of $Y$: 
-      For each $e$, there exists $x_e$ in $X$ such that 
-      %
-        $\Lambda(x_e)=e$, 
-      % 
-      since $\Lambda$ is onto.So,
-      %
-        \begin{align}\label{1_10_sum}
-          y = \sum_{e} y_e \Lambda x_e \quad (y\in Y).
-        \end{align}
-      %
-      The sequence $\singleton{x_e}$ is finite hence bounded: 
-        Given $V$ a balanced neighborhood of the origin, 
-        there exists a positive scalar $s$ such that  
-      %
-        \begin{align}
-          x_e \in s V
-        \end{align}
-      %
-      for all $x_e$.
-      Combining this with (\ref{1_10_sum}) shows that 
-      %
-        \begin{align}
-          y \in \sum_e \Lambda (V) \quad (y\in Y: |y_e| < s^{\minus 1}).
-        \end{align}
-      %
-  }
-    \item{
-      Since $N$ is closed, $\pi$ continously maps $X$ onto $X/N$, 
-      another topological (Hausdorff) vector space, see [1.41]. 
-      %
-      Now take $f$ as in Exercise 9: 
-      Since $\Lambda$ is onto, the first isomorphism theorem asserts that 
-      %
-        $f$ is an isomorphism of $X/N$ onto $Y$. 
-      %
-      Consequently, $X/N$ has dimension $n=\dim Y$. 
-      $f$ is then an homeomorphism of 
-      %
-        $X/N\equiv \C^{n}$ 
-      %
-      onto $Y$; see [1.21].
-      We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
-    }
-  \end{enumerate}
+We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
+has positive dimension $n$. \\\\
+%
+Let $e$ range over a base of $Y$: For each $e$, 
+there exists $x_e$ in $X$ such that 
+%
+  $\Lambda(x_e)=e$, 
+% 
+since $\Lambda$ is onto. So,
+%
+  \begin{align}\label{1_10_sum}
+    y = \sum_{e} y_e \Lambda x_e \quad (y\in Y).
+  \end{align}
+%
+The sequence $\singleton{x_e}$ is finite hence bounded: 
+  Given $V$ a balanced neighborhood of the origin, 
+  there exists a positive scalar $s$ such that  
+%
+  \begin{align}
+    x_e \in s V
+  \end{align}
+%
+for all $x_e$.
+Combining this with (\ref{1_10_sum}) shows that 
+%
+  \begin{align}
+    y \in \sum_e \Lambda (V) \quad (y\in Y: |y_e| < s^{\minus 1}), 
+  \end{align}
+%
+which proves (a).\\\\
+%
+%
+To prove (b), take $f, \pi, N$ as in Exercise 1.9, \ie 
+%
+  \begin{align}
+    & X \to                    X/N   \to                  Y,  \\
+    & x \overset{\pi}{\mapsto} \pi x  \overset{f}{\mapsto} \Lambda x \nonumber
+  \end{align}
+%
+in the special case
+%
+  $N = \singleton{\Lambda = 0}$. 
+%
+Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) 
+asserts that 
+%
+  $f$ is an isomorphism of $X/N$ onto $Y$. 
+%
+Consequently, 
+%
+  \begin{align}
+    \dim X/N= n.
+  \end{align}
+% 
+$f$ is then an homeomorphism of 
+%
+  $X/N\equiv \C^{n}$ 
+%
+onto $Y$; see \citeresultFA{1.21}.
+We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
 \end{proof}
