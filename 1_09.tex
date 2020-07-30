@@ -52,13 +52,13 @@ $f$ inherits linearity from $\pi$ and $\Lambda$.\\
   $N = \singleton{\Lambda = 0}$ , \ie $\Lambda x= 0$ \iif $x\in N$ (\cf (e)), %
 %
 is the first isomorphism theorem in the topological spaces context. 
-To see this, remark that this stronger form (e') of (e) yields 
+To see this, remark that this strenghtening of (e) yields 
 %
   \begin{align}
     f(\pi x) = 0
       \citethen{\ref{1.9. definition of f.}}
     \Lambda x = 0
-      \citethen{e'}
+      \then 
     x \in N 
       \then 
     \pi x = N
@@ -95,19 +95,25 @@ This is sufficient to establish that the linear mapping $f$ is continuous.
 %
 If $f$ is open, so is $\Lambda = f\circ \pi$, by (a) of [1.41]. 
 %
-Conversely, let  
+To prove the converse, remark that 
+%
+  every neighborhood $W$ of $0_{X/N}$ satisfies %
 %
   \begin{align}
-    W \Def \pi (V) \subset  X/N \quad (V \text{ neighborhood of } 0_X) 
+    W = \pi(V)
   \end{align}
 %
-run through the neighborhoods of $N$, as $\Lambda$ is kept open: So is 
+for some neighborhood $V$ of $0_X$. So, 
 %
   \begin{align}
-    \Lambda(V) = f \left(\pi(V)\right) = f(W).  
+    f(W) = f \left(\pi(V)\right) = \Lambda(V).
   \end{align}
 %
-The linear mapping $f$ is then open. 
+As a consequence, 
+% 
+  if $\Lambda$ is open, then $f(W)$ is a neighborhood of $0_Y$. %
+%
+So ends the proof.
 \end{proof}
 
 
