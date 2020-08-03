@@ -279,9 +279,8 @@ TSWLatexianTemp*
 1_01*
 1_02*
 1_03*
-1_04
+1_04*
 1_05*
- #
 1_06*
  #
 1_08*
@@ -294,11 +293,9 @@ TSWLatexianTemp*
  #
  #
 1_18*
-2_01*
-2_02*
- #
+2_*
 3_*
-FA_chapter_2*
+*chapter_2*
 *pdf
 dyadic*
 Annex*

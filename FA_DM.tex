@@ -83,7 +83,10 @@
 % The usual scalar field = C, most of the time.
 \def\field{\C}
 
+% Counting numbers
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
+% integers (nonnegative)
+\newcommand\integers[1]{#1=0, 1, 2, \dots}
 \newcommand{\D}{{\mathscr D}}
 
 % Indices: upper, lower
@@ -144,6 +147,7 @@
 \newcommand{\citeresult}[2]{#1 of #2}
 \newcommand{\citeresultFA}[1]{\citeresult{#1}{\cite{FA}}}
 % Misc
+\newcommand{\underbarwithindex}[2]{\underline{#1}\,\!_{#2}}
 \newcommand{\dy}[1]{{\function{dyadic}}(#1)}
 \def\ddy{{\function{decay}}}
 
