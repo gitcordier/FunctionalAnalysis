@@ -4,7 +4,15 @@
 \usepackage{cite}
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
-\usepackage{amsmath,physics,amssymb,mathrsfs,amsthm,mathspec}
+\usepackage{amsmath, 
+physics, 
+amssymb, 
+mathrsfs, 
+amsthm, 
+mathspec, 
+fouridx, 
+%stix
+}
 
 % TEXs LOGOS! 
 %\usepackage{dtklogos}
@@ -92,6 +100,10 @@
 % Indices: upper, lower
 \newcommand{\up}[1]{^{(#1)}}
 \newcommand{\low}[1]{_{#1}}
+\newcommand{\upnw}[2]{\fourIdx{#2}{}{}{}#1}
+\newcommand{\downsw}[2]{\fourIdx{}{#2}{}{}#1}
+\newcommand{\scriptatleft}[3]{\fourIdx{#2}{#3}{}{}#1}
+\newcommand{\diagscript}[3]{\fourIdx{#2}{}{}{#3}#1}
 
 % function, relation
 \newcommand{\function}[1]{\mathtt{#1}}
