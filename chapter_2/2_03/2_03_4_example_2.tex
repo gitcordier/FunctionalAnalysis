@@ -1,0 +1,147 @@
+$f_n$ is not differentiable on $\R$, so we give %
+%
+  $\bra{f_n}$ %
+%
+a \textit{derivative}
+%
+  \footnote{
+    See \citeresultFA{6.1} 
+    for a further discussion.
+  }, %
+as follows %
+%
+  \begin{align}
+    \bra{f_n}': \D_K &\to \C\\
+                    \phi &\mapsto \minus \bra{f_n}\ket{\phi'}; \nonumber
+  \end{align}
+%
+It has been proved that every $\bra{f_n}$ is continuous. %
+So is %
+%
+  \begin{align}
+    D : \D_K & \to \D_K \\
+        \phi & \mapsto \phi'; \nonumber
+  \end{align}
+see  Exercise 1.17. %
+$\bra{f_n}'$ is therefore continuous. Now apply %
+%
+  (\ref{2.3. (f_n) converges to Dirac (1).}). %
+%
+with $\phi'$ and so obtain %
+%
+  \begin{align}
+    \minus \bra{f_n}\ket{\phi'} &\tendsto{n}{\infty} \frac{4}{3} \phi''(0)
+    \quad(\phi \in \D_K), \nonumber
+  \end{align}
+%
+\ie %
+%
+  \begin{align}
+    \bra{f_n}' &\tendsto{n}{\infty} \frac{4}{3} \delta''. 
+  \end{align}
+%
+It follows from %
+%
+  (\ref{2.3. Bound with p and M (concrete).}) %
+%
+that, for some positive constant $C$, 
+%
+  \begin{align}
+  \lvert \bra{f_n}\ket{\phi'} \rvert 
+    \leq 
+  C \| \phi''\|_\infty \quad (\counting{n}).
+  \end{align}
+%
+It is therefore possible to uniformly bound 
+%
+  $\bra{f_n}'$ %
+%
+with respect to a norm %
+%
+  $\|D^p\cdot\|_\infty$, %
+%
+namely $\|D^2\cdot\|$. 
+%
+Then arises a question: %
+%
+  Is $2$ the smallest $p$? 
+%
+The answer is: Yes. 
+%
+To show this, we first assume, to reach a contradiction, that %
+%
+  there exists a positive constant $M$ such that
+%
+  \begin{align}
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
+      \leq 
+    C \| \phi' \|_\infty 
+    \quad (\counting{n}).
+  \end{align}
+%
+Define %
+%
+  \begin{align}
+    \Phi_{j}(x) = \int_{\minus 1}^x \phi_j.
+  \end{align}
+%
+The oddness of $\phi_j$ forces %
+% 
+  $\Phi_{j}$ to vanish outside $[\minus 1, 1]$. 
+%
+$\phi_{j}$ is then in $\D_K$. So, under our assumption, 
+%
+  \begin{align}
+    \lvert 
+      \langle{f_n}\lvert \Phi_j' \rangle
+    \rvert 
+      \leq 
+    M \| \Phi_{j}' \|
+    \quad (\counting{n}); 
+  \end{align}
+%
+which is %
+%
+  \begin{align}
+    \lvert
+      \langle{f_n}\lvert{\phi_j}\rangle
+    \rvert 
+      \leq 
+    M 
+    \quad (\counting{n}).
+  \end{align}
+%
+We have thus reached a contradiction (again with the sequence %
+%
+  $\singleton{\langle f_n\lvert \phi_{\rho(n)} \rangle}$) %
+%
+and so conclude that there is no constant $M$ such that %
+%
+  \begin{align}
+    \lvert 
+      \langle \lvert f_n \phi'\rangle
+    \rvert 
+      \leq 
+    M \| \phi' \|_\infty
+    \quad (\counting{n}).
+  \end{align}
+%
+Finally, assume, to reach a contradicton, that %
+there exists a constant $M$ such that 
+%
+  \begin{align}
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
+      \leq 
+    M \| \phi \|_\infty.
+  \end{align}
+%
+The mean value theorem (see (\ref{2.3. Mean value inequality.})) asserts that %
+%
+  \begin{align}
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
+      \leq 
+    M \| \phi \|_\infty \leq C \frac{\lambda}{2}\| \phi' \|; 
+  \end{align}
+%
+which is, again, a desired contradiction. So ends the proof.
+

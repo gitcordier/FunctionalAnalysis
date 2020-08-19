@@ -1,0 +1,174 @@
+From now on, unless the contrary is explicitely stated, %
+we asume that $\phi$ only denotes an element of $C_K^\infty(\R)$. 
+Let $f_n$ be a Lebesgue integrable function such that %
+%
+  \begin{align}\label{2.3. Convergence on D_K (1).}
+    \Lambda \phi = \underset{n \to \infty}{\lim} 
+      \int_{K} f_n\phi 
+      %
+      \quad (\phi \in C_K^\infty(\R)).
+  \end{align}
+%
+for some linear form $\Lambda$. %
+%
+Since $\phi$ vanishes outside $K$, we can suppose without loss of generality %
+that the support of $f_n$ lies in $K$. So, %
+%
+  (\ref{2.3. Convergence on D_K (1).}) %
+% 
+can be restated as follows, 
+%
+  \begin{align}
+    \Lambda \phi = \underset{n \to \infty}{\lim} 
+      \bra{f_n}\ket{\phi} 
+      %
+      \quad (\phi \in C_K^\infty(\R)).
+  \end{align}
+%
+Let $K_1, K_2, \dots, $ be compact sets that satisfy the conditions 
+specified in \citeresultFA{1.44}. %
+$\D_K$ is $C_K^\infty(\R)$ topologized by the related seminorms %
+%
+  $p_1, p_2, \dots$; see \citeresultFA{1.46, 6.2} and Exercise 1.16.
+%
+We know that $K\subset K_m$ for some index $m$ %
+(see Lemma 2 of Exercise 1.16): From now on, we only consider the indices 
+$N \geq m$, so that%
+%
+  \renewcommand{\labelenumi}{(\alph{enumi})}%
+  %
+  \begin{enumerate}
+    \item{
+      $p_N(\phi) = \| \phi \|_N \Def \max 
+      \set{\lvert D^{\alpha}\phi(x) \rvert}{\alpha \leq N, x \in \R}$, %
+      for $\phi \in \D_K$;
+    }
+    \item{
+      The collection of the sets %
+      $V_N = \set{ \phi \in \D_K}{ \| \phi \|_N < 2^{\minus N}}$ %
+      is a (decreasing) local base of $\tau_K$, the subspace topology of $\D_K$; %
+      see \citeresultFA{6.2} for a more complete discussion.
+    }
+  \end{enumerate}
+  %
+  \renewcommand{\labelenumi}{(\roman{enumi})}
+  %
+%
+$\bra{f_n}$ is bounded on $V_m$, this is a special case of %
+%
+  (\ref{2.3  g  bounded operator (1).}). %
+%
+Every functional $\bra{f_n}$ is therefore $\tau_K$-continuous, see %
+%
+  \citeresultFA{1.18}.
+%
+To sum it up: %
+%
+  \begin{enumerate}
+    \item{$\D_K$, equipped the topology $\tau_K$, is a Fréchet space %
+      (see \citeresultFA{section 1.46})};
+    %
+    \item{Every linear functional $\bra{f_n}$ is continuous %
+      with respect to this topology;}
+    %
+    \item{
+      $\bra{f_n}\ket{\phi} \tendsto{n}{\infty} \Lambda \phi$ for all $\phi$, 
+        \ie 
+      $ \Lambda-\bra{f_n} \tendsto{n}{\infty}0$.
+    }
+  \end{enumerate}
+%
+With the help of \citeresultFA{[2.6] and [2.8]}, we conclude that %
+%
+  $\Lambda$ is continuous 
+%
+and that the sequence
+%
+  $\singleton{\bra{f_n}}$ %
+%
+is equicontinuous. 
+%
+So is the sequence %
+%
+  $\singleton{\Lambda - \bra{f_n}}$, %
+%
+since addition is continuous.
+%
+There so exists $i, j$ such that 
+%
+  \begin{align}
+   %
+    \left\lvert 
+      \Lambda \phi 
+    \right\rvert
+      < 
+    1/2 & \quad \text{if }\phi\in V_i, \\
+    %
+    \left\lvert 
+      \Lambda\phi - \bra{f_n}\ket{\phi} 
+    \right\rvert  
+      < 
+    1/2 & \quad \text{if } \phi\in V_j.
+    %
+  \end{align}
+%
+Choose $p = \max\singleton{i, j}$, so that $V_p = V_i \cap V_j$: %
+The latter inequalities imply that %
+%
+  \begin{align}
+    %
+    \left\lvert \bra{f_n}\ket{\phi} \right\rvert  & \leq 
+      \magnitude{
+        \Lambda\phi 
+        - \bra{f_n }\ket{\phi} 
+      }
+      + 
+      \magnitude{\Lambda \phi}
+      %
+     < 1 \
+     %
+       \quad\text{if } \phi\in V_p. %
+    %
+  \end{align}
+%
+Now remark that every %
+%
+  \begin{align}
+    \phi_{\mu} \Def 
+      \begin{cases}
+        \frac{1}{\mu \cdot 2^{p} \|\phi \|_p} \phi & (\phi \neq 0, \mu > 1)\\
+        0                                          & (\phi   =  0, \mu > 1) 
+      \end{cases}
+  \end{align}
+%
+keeps in $V_p$. Finally, % 
+it is clear that each below statement implies the following one.
+%
+  \begin{align}
+    \lvert \langle {f_n}  | \phi_{\mu} \rangle \rvert &  
+    < 1 \\
+      %
+    \left\lvert \bra{f_n}\ket{\phi} \right\rvert &  
+    < 2^{p}  \| \phi \|_p \cdot \mu \\
+    %
+    \magnitude{\bra{f_n}\ket{\phi}} & 
+    \leq 2^{p} \| \phi \|_p \\
+    %
+     \magnitude{\bra{f_n}\ket{\phi}} &
+     \leq 2^{p} \left(\| D^0 \phi \|_\infty 
+       + 
+         \cdots 
+      + 
+        \| D^p \phi \|_\infty\right)\\
+    %
+    \label{2.3. Bound with p and M (theoritical).}
+     \magnitude{\bra{f_n}\ket{\phi}} &
+     \leq 2^{p} (p+1) \| D^p \phi \|_\infty  
+     %
+     \quad (\text{see } \ref{2.3. Mean value inequality.})
+  \end{align}
+%
+The first part is so proved, with $ M= 2^{p}(p+1)$. %
+\newline\newline\noindent
+%
+% END

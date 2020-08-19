@@ -1,0 +1,96 @@
+If 
+%
+  $\phi\in\D_{[a, b]}$, then %
+%
+%
+  \begin{align}\label{2.3. Mean value inequality.}
+    \| D^\alpha \phi \|_\infty 
+      \leq 
+    \| D^{p} \phi \|_\infty \left(\frac{\lambda}{2}\right)^{p-\alpha}
+      \quad (\alpha = 0, 1, \dots, p) 
+  \end{align}
+%
+at every order $\integers{p}$; %
+where $\lambda$ is the length $\magnitude{b-a}$. %
+%
+\begin{proof}
+Let $x_0$ be in %
+% 
+    $(a, b)$ .
+% 
+We first consider the case $x_0 \leq c = (a+b)/2$: %
+The mean value theorem asserts that there exists %
+%
+  $x_{1}$ ($a <x_{1} < x_{0} $), 
+%
+such that 
+%
+  \begin{align}
+    \phi(x_0) =\phi(x_0) - \phi(a)=  D\phi(x_{1})(x_{0} -a).
+  \end{align}
+%
+Since every %
+%
+  $D^p\phi$ lies in $\D_{[a, b]}$, %
+%
+a straightforward proof by induction shows that there exists a partition % 
+%
+  $a < \cdots < x_p < \cdots < x_0 $ 
+%
+such that 
+  \begin{align}
+    \phi(x_0) & = D^0 \phi(x_0) \\ 
+              & = D^1\phi(x_{1})(x_{0} - a ) \\
+            % & = D^2\phi(x_{2})(x_{0} - a )(x_{1} - a)\\
+              & = \cdots \nonumber\\
+              & = D^p\phi(x_{p})(x_{0} - a)\cdots(x_{p-1}-a),
+  \end{align}
+%
+for all $p$. %
+More compactly, 
+%
+  \begin{align}
+      D^\alpha \phi (x_0) = D^p\phi(x_p) \prod_{k= \alpha}^{p-1}(x_k - a);
+      %(x_\alpha -a )\cdots (x_{p-1} -a).
+  \end{align}
+%
+which yields, 
+%
+  \begin{align}\label{2.3. Mean Value (1).}
+    \lvert D^\alpha \phi(x) \rvert
+      \leq 
+    \| D^{p} \phi \|_\infty 
+    \left(\frac{\lambda}{2}\right)^{p-\alpha}
+    \quad (x \in [a, c])
+  \end{align}
+%
+The case $x_0 \geq c$ outputs a ``reversed'' result, with %
+%
+  $b > \cdots > x_p > \cdots > x_0$ %
+%
+and $x_k -b$ playing the role of $x_k-a$: %
+So, %
+%
+  \begin{align}\label{2.3. Mean Value (2).}
+    \lvert D^\alpha \phi(x) \rvert
+      \leq 
+    \| D^{p} \phi \|_\infty 
+    \left(\frac{\lambda}{2}\right)^{p-\alpha} 
+    \quad (x \in [c, b]).
+  \end{align}
+%
+Finally, we combine %
+%
+  (\ref{2.3. Mean Value (1).}) with %
+  (\ref{2.3. Mean Value (2).}) %
+%
+and so obtain %
+%
+  \begin{align}
+    \| D^\alpha \phi \|_\infty 
+      \leq 
+    \| D^{p} \phi \|_\infty 
+    \left(\frac{\lambda}{2}\right)^{p-\alpha}.
+  \end{align}
+%
+\end{proof}

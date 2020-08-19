@@ -1,0 +1,269 @@
+We first consider %
+%
+  $C_0(\R)$ %
+%
+topologized by the supremum norm. %
+Given a Lebesgue integrable function $u$, we put %
+  \begin{align}
+    \bra{u}\ket{\phi} 
+      \Def 
+    \int_\R u\phi  
+      \quad(\phi \in C_0(\R)).
+  \end{align}
+%
+The following inequalities % 
+%
+  \begin{align}\label{2.3  g  bounded operator (1).}
+    %
+    \left\lvert\bra{u}\ket{\phi}\right\rvert 
+      \leq 
+    \int_\R \left\lvert u\phi \right\rvert 
+      \leq
+    \| u \|_{L^1}
+      \quad(\|\phi\|_\infty \leq 1)
+  \end{align} 
+%
+imply that every linear functional 
+%
+  \begin{align}
+    \bra{u}: C_0(\R) &\to \C \\
+             \phi    &\mapsto \bra{u}\ket{\phi} \nonumber
+  \end{align}
+is bounded on the open unit ball. It is therefore continuous; %
+%
+  see \citeresultFA{1.18}. %
+%
+Conversely, ${u}$ can be identified with %
+%
+  $\bra{u}$, %
+%
+since $C_c(\R)$ is sufficiently large to assure that $u$ is determined %
+(a.e) by the integrals %
+%
+  $\bra{u}\ket{\phi}$. %
+%
+In the Banach spaces terminology, 
+% 
+  $u$ is then (identified with) a linear \textit{bounded}\hspace{2pt}\footnote{
+  %
+    see \citeresultFA{1.32, 4.1}
+  } %
+% %
+operator $\bra{u}$, of norm %
+%
+  \begin{align}\label{2.3  g  bounded operator (2).}
+    \| u \| \Def 
+    \sup\set{
+      \magnitude{\bra{u}\ket{\phi}}
+    }{ 
+      \| \phi \|_\infty \leq 1
+    } =  \| u \|_{L^1}.
+  \end{align} 
+%
+Note that, in the latter equality, $\|u\| \leq \| u \|_{L^1}$ comes from %
+%
+  (\ref{2.3  g  bounded operator (1).}), %
+%
+as the converse comes from the Stone-Weierstrass theorem\footnote{
+%
+  See 7.26 of \cite{BabyRudin}.
+}. %
+%
+We now consider the special cases %
+%
+  $u = g_n$ %
+  %($\counting{n}$), %
+%
+, where $g_n$ is %
+%
+  \begin{align}
+    g_n : \R & \to \R\\
+           x & \mapsto \begin{cases} 
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  n^3 x & \left(x \in    \left[\minus \frac{1}{n}, \frac{1}{n}\right]\right)\\
+  0     & \left(x \notin \left[\minus \frac{1}{n}, \frac{1}{n}\right]\right).
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \end{cases}\nonumber
+  \end{align}
+%
+First, remark that $g_n(x) \tendsto{n}{\infty} 0$ ($x \in \R$), %
+as the sequence $\singleton{g_n}$ fails to converge in $C_0(\R)$ %
+%
+  (since $g_n(1/n)= n^2 \geq 1$),  %
+%
+and also in $L^1$ %
+%
+  (since $\int_\R \lvert g_n \rvert = n^2 \longrightarrow{\infty}$)
+. %
+Nevertheless, we will show that %
+%
+  the $\bra{g_n}$ %
+%
+converge pointwise\footnote{
+%
+  See \citeresultFA{3.14} for a definition of the related topology. %
+%
+} on $\D_K$ %
+\ie %
+there exists a $\tau_K$-continuous linear form $\Lambda$ such that %
+%
+  \begin{align}\label{2.3. Convergence in D_K, not vague.}
+    \bra{g_n}\ket{\phi} \tendsto{n}{\infty} \Lambda \phi, %
+  \end{align}
+%
+where $\phi$ ranges over $\D_K$. %
+%
+We now prove (\ref{2.3  g  bounded operator (2).}) in the special cases %
+%
+  $u = g_n$. %
+%
+To do so, we fetch %
+%
+  $\phi^{+}_{1}, \dots, \phi^{+}_{j}, \dots,$ from $C_K^\infty(\R)$. %
+%
+More specifically, %
+%
+  \begin{enumerate}
+    \item{
+      $\phi^{+}_{j} = 1$ on $[e^{\minus j}, 1-e^{\minus j}]$; 
+    }%
+    \item{
+      $\phi^{+}_{j} = 0$ on $\R\setminus [-1, 1]$;%
+    }
+    \item{
+      $0 \leq \phi^{+}_{j} \leq 1$ on $\R$; %
+    }
+  \end{enumerate}
+%
+see \citeresultFA{[1.46]} for a possible construction of those $\phi^{+}_{j}$. 
+%
+Let %
+%
+  $\phi^{-}_{1}, \dots, \phi^{-}_{j}, \dots,$ %
+%
+mirror the $\phi^{+}_{j}$, in the sense that %
+%
+  $\phi^{-}_{j}(x) = \phi^{+}_{j}(\minus x)$, %
+%
+so that %
+%
+  \begin{enumerate}\addtocounter{enumi}{3}
+    \item{
+      $\phi_{j} \Def \phi^{+}_{j} - \phi^{-}_{j}$ is odd, as $g_n$ is;
+    }
+    \item{
+      every $\phi_{j}$ is in $C_K^\infty(\R)$;
+    }
+    \item{
+      The sequence $\singleton{\phi_j}$ converges (pointwise) to %
+      $1_{[0, 1]} - 1_{[\minus 1, 0]}$, and $\lvert\phi_{j} \rvert \leq 1$. %
+    }
+  \end{enumerate}
+%
+Thus, with the help of the Lebesgue's convergence theorem, 
+%
+  \begin{align}\label{2.3. Norm in the dual equals norm L1 (1).}
+      \langle{g_n}\lvert{\phi_j}\rangle
+      = 
+    2 \int_{0}^1 g_n(t) \phi^{+}_{j}(t) d t
+      \tendsto{j}{\infty} 
+    2 \int_{0}^1 g_n(t) d t
+      = \| g_n \|_{L^1} = n.
+  \end{align}
+%
+Finally, %
+%
+  \begin{align}\label{2.3. Norm in the dual equals norm L1 (2).}
+    \| g_n\|_{L^{1}}
+      \citegeq{\ref{2.3  g  bounded operator (2).}}
+    \sup\set{
+    \magnitude{\bra{g_n}\ket{\phi}}
+    }{
+      \| \phi \| \leq 1
+    } 
+      \citegeq{\ref{2.3. Norm in the dual equals norm L1 (1).}} 
+    \| g_n\|_{L^{1}};
+  \end{align}  %
+%
+which is the desired result. %
+%
+So, in terms of boundedness constants: %
+Given $n$, there exist constants $C_{n}$ such that 
+  %
+    \begin{align}\label{2.3. Optimal bound.}
+      \left\lvert 
+        \bra{g_n}\ket{\phi} 
+      \right\rvert 
+        \leq 
+      C_{n} \quad (\| \phi \|_\infty \leq 1); 
+    \end{align}
+  %
+see (\ref{2.3  g  bounded operator (1).}). 
+Furthermore, % 
+%
+  $\|g_n\|_{L^1} = n$ is actually the best (the lowest) possible $C_{n}$; see %
+  %
+    (\ref{2.3. Norm in the dual equals norm L1 (2).}). %
+  %
+But, on the other hand, %
+%
+  (\ref{2.3. Norm in the dual equals norm L1 (1).}) %
+%
+shows that there exists a subsequence %%
+%
+  $\singleton{\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle}$ %
+%
+where %
+%
+  $\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle$ %
+% 
+is greater than, say, $n/2$. %
+%
+Consequently, there is no common bound $M$ such that %%
+%
+  \begin{align}\label{2.3. Uniform bound for the supremum norm.}
+    \left\lvert 
+      \bra{g_n}\ket{\phi} 
+    \right\rvert 
+      \leq M
+    \quad (\| \phi \|_\infty \leq 1; \counting{n}).
+  \end{align}
+%
+In other words, the $g_n$ have no \textit{uniform bound} in ${L^1}$, %
+  \ie %
+the collection of all continous linear mappings %
+%
+  $\bra{g_n}$ %
+%
+is not equicontinous %
+%
+  (see discussion in \citeresultFA{2.6}). %
+%
+As a consequence, %
+%
+  the $\bra{g_n}$ %
+%
+do not converge pointwise (say ``vaguely'', in Radon measure context): %
+A vague (\ie pointwise) convergence would be (by definition) %
+%
+  \begin{align}
+    \bra{g_n}\ket{\phi} \tendsto{n}{\infty} \Lambda \phi %
+    \quad (\phi \in C_0(\R)) %
+  \end{align}
+%
+for some $\Lambda\in C_0(\R)^\ast$, which would make %
+%
+  (\ref{2.3. Uniform bound for the supremum norm.})
+%
+hold; see \citeresultFA{2.6, 2.8}. %
+%
+This by no means says that the %
+%
+  $\bra{g_n}$ %
+%
+do not converge pointwise to some $\Lambda$, in a relevant space (see %
+%
+  (\ref{2.3. Convergence in D_K, not vague.}). %
+%
+\newline\newline\noindent
+% END
