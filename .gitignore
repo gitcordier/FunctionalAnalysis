@@ -293,7 +293,6 @@ TSWLatexianTemp*
  #
  #
 1_18*
-2_*
 3_*
 *chapter_2*
 *pdf
@@ -301,5 +300,6 @@ dyadic*
 Annex*
 # Misc
 misc*
+*misc*
 .DS_Store
 
