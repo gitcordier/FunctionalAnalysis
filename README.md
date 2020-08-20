@@ -28,9 +28,10 @@ You may want to install the latest
 [TexLive](https://www.tug.org)
 # Legal issues 
 - I do not broadcast nor sell any copy of *Functional Analysis*
-- I do not make available any content from this book, **excepted** problems statements 
+- I do not make available any content from this book, 
+    **excepted** problems statements 
 
-Feel free to get copies of this great book by yourself. For the record, 
+Feel free to get copies of this great book by yourself. 
 *Functional Analysis*' ISBNs are
 
 - ISBN-10: 0070542368
@@ -40,32 +41,49 @@ Feel free to get copies of this great book by yourself. For the record,
 ## Files
 - FA_DM.pdf  
   Output from [Xelatex](https://www.tug.org) compilation.  
-  Bear in mind that you can get an html output from 
+  You can also get an html output from 
   [Hevea](http://hevea.inria.fr) compilation; see HOWTO.
 - FA_DM.tex
 - FA_mainmatter.tex
 - FA_chapter_1.tex
-- 1_7.tex  
-  I choose to start with this because it is a lovely result, since it connects 
-  a topological result (*to be metrizable or not to be*) with number theory
-  (basic results about dyadic expansions).
-  TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate 
-  expansion.
-- 1_9.tex  
-  Continuousness, openness of a linear mapping: First isomorphism theorem with 
-  a closed space N (not necessarily the null space!).
-- 1_10.tex  
-  Continuousness, openess of a linear mapping onto a finite dimensional space.
-  Not trivial, since the domain may be infinite-dimensional. 
-- 1_14.tex  
-  Alternative ways to the define topology of the test functions space D_K, 
-  in the special case K=[0, 1].
-- 1_16.tex   
-  This is about showing that a function test topology is independent 
-  from the "supremum seminorms" we consider. It is then more than an exercise, 
-  it should be regarded as a very part of the textbook (sections 1.44, 1.46).
-- 1_17.tex  
-  Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
-  continuous in the test functions topology.
+- chapter_1/ 
+  - 1_7.tex  
+    I choose to start with this because it is a lovely result, since it connects 
+    a topological result (*to be metrizable or not to be*) with number theory
+    (basic results about dyadic expansions).
+    TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate 
+    expansion.
+  - 1_9.tex  
+    Continuousness, openness of a linear mapping.
+  - 1_10.tex  
+    Continuousness, openess of a linear mapping onto a finite dimensional space.
+    Not trivial, since the domain may be infinite-dimensional. 
+  - 1_14.tex  
+    Alternative ways to the define topology of the test functions space D_K, 
+    in the special case K=[0, 1].
+  - 1_16.tex   
+    This is about showing that a function test topology is independent 
+    from the "supremum seminorms" we consider. It is then more than an exercise, 
+    it should be regarded as a very part of the textbook (sections 1.44, 1.46).
+  - 1_17.tex  
+    Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
+    continuous in the test functions topology. 
+- chapter_2/ 
+  - 2_03/  
+      - 2_03.tex  
+      In $D_K$, some Lebesgue integrable functions converge to $\delta'$, 
+      which is not Radon. Their weak derivatives converge to $\delta''$.
+      - 2_03_0_labels.tex  
+      References
+      - 2_03_0_lemma.tex 
+      Specialization of mean value theorem.
+      - 2_03_1_radon_measures.tex  
+      Start by looking into $C_0(R)^\ast$.
+      - 2_03_2_uniform_bound.tex 
+      $D_K$ topology allows equicontinuity. 
+      - 2_03_3_example_1.tex 
+      Convergence of Lebesgue integrable functions to $\delta'$ in $D_K$.
+      - 2_03_4_example_2.tex 
+      Their weak derivatives converge to $\delta''$.
 - LICENSE
 - HOWTO
