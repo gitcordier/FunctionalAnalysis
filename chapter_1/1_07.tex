@@ -25,18 +25,18 @@ By [1.37], the collection $\mathscr{B}$ of all finite intersections
 of the sets 
 %
   \begin{align}
-    V\up{(x, k} 
+    V_{x, k} 
       \Def 
     \singleton{p_x < 2^{\minus k}} 
       \quad 
     (x \in [0, 1], k \in \N)
   \end{align}
 %
-is then a local base for a topology $\tau$ on $X$. Given 
+is therefore a local base for a topology $\tau$ on $X$. Given 
 %
   $\set{f_n}{\counting{n}}$, 
 %
-we set
+we put
 %
 \newcommand\off[1]{\function{off}(#1)}
 %
@@ -44,18 +44,22 @@ we set
   \off{U} \Def \sum_{n=1}^\infty [f_n \notin U] \quad (U\in\tau),
 \end{align}
 %
-with the convention $\off{U}=\infty$ whether the sum has no finite support. 
+with the convention %$\off{U}
+%
+  ``$\Sigma=\infty$'' %
+%
+whether the sum has no finite support. 
 So, 
 %
   \begin{align}
     %
     \label{Inequality boolean series}
     %
-    \sum_{i=1}^m \off{U\up{i}} 
+    \sum_{i=1}^m \off{U_{i}} 
       = 
-    \sum_{n=1}^\infty \sum_{i=1}^m [f_n \notin U\up{i}]
+    \sum_{n=1}^\infty \sum_{i=1}^m [f_n \notin U_{i}]
       \geq 
-    \off{U\up{1} \cuts \cdots \cuts U\up{m}}
+    \off{U_{1} \cuts \cdots \cuts U_{m}}.
   \end{align}
 %
 We first assume that $\singleton{f_n}$ $\tau$-converges to some $f$ in $X$, \ie
@@ -64,8 +68,13 @@ We first assume that $\singleton{f_n}$ $\tau$-converges to some $f$ in $X$, \ie
     \off{f+V} < \infty \quad(V \in \mathscr{B}).
   \end{align}
 %
-The special cases $V=V\up{x, k}$ mean the pointwise convergence of 
-$\singleton{f_n}$. 
+The special cases %
+%
+  $V_{x, 1}, V_{x, 2}, \dots, $ %
+%
+mean the pointwise convergence %
+%
+  $f_n(x) \overset{n\infty}{\longrightarrow} f(x)$. %
 %
 Conversely, assume that $\singleton{f_n}$ does not $\tau$-converges to any $g$ 
 in $X$, \ie 
@@ -74,48 +83,49 @@ in $X$, \ie
     %
     \label{Divergence}
     %
-    \forall g \in X, \exists V\up{g} \in \localbase{B}: 
-      \off{g+V\up{g}} = \infty. 
+    \forall g \in X, \exists W \in \localbase{B}: 
+      \off{g+W} = \infty. 
     %
   \end{align}
 %
-Given $g$, $V\up{g}$ is then an intersection
+Given $g$, such $W$ is, by definition,  a finite intersection
 %
   $
-    V\up{x\up{1}, k\up{1}} \cap \cdots \cap 
-    V\up{x\up{m}, k\up{m}} 
+    V_{x_{1}, k_{1}} \cap \cdots \cap 
+    V_{x_{m}, k_{m}} 
   $.
 %
 %So, (\ref{1.7 Inequality boolean series}) implies 
-Thus
+Thus,
 %
   \begin{align}
-    \sum_{i=1}^m \off{g + V\up{x\up{i}, k\up{i}}} 
+    \sum_{i=1}^m \off{g + V_{x_{i}, k_{i}}} 
       %
         \citegeq{\ref{Inequality boolean series}} 
       %
-    \off{g + V\up{g}} 
+    \off{g + W} 
     % 
       \citeq{\ref{Divergence}} 
     %
     \infty .
   \end{align}
 %
-One of the sum $\off{g + V\up{x\up{i}, k\up{i}}}$ must then be $\infty$. 
-This implies that convergence of $f_n$ to $g$ fails at point $x_i$.
-$g$ being arbitrary, we so conclude that $f_n$ does not converge pointwise.
+One of the sum $\off{g + V_{x_{i}, k_{i}}}$ must then be $\infty$. 
+In other words, there exists a point $x_i$ for which $\singleton{f_n(x_i)}$ %
+does not converge to $g(x_i)$. %
+$g$ being arbitrary, we so conclude that $f_n$ does not converge pointwise. %
 We have just proved that 
 %
   $\tau$-convergence is a rewording of pointwise convergence.
 %
 % SECOND PART
-We now aim to prove the second part.
+We now prove the second part.
 %
-From now on, 
+From now on, we let %
 %
   $\varit{k}$, $\varit{n}$ and $\varit{p}$ 
 %
-run on $\N_+$. Let $\dy{x}$ be the usual dyadic expansion of a real number $x$, 
+run on $\N_+$, as $\dy{x}$ denotes the usual dyadic expansion of $x$, %
 so that $\dy{x}$ is an aperiodic binary sequence \iif $x$ is irrational. 
 %
 Define
@@ -127,83 +137,84 @@ Define
   f_n(x) 
     \Def 
   \begin{cases}
-      2^{-\sum_{k= 1}^{n} {\dy{x}_{-k}}} & (x \in [0, 1]\setminus \Q )\\
-      0                                            & (x \in [0,1]\cap \Q)
+      \exp_2\left({\minus\sum_{k= 1}^{n} {\dy{x}_{\minus k}}}\right) 
+        & 
+          (x \in [0, 1]\setminus \Q )\\
+      0 
+        & 
+          (x \in [0,1]\cap \Q), 
     \end{cases}
 \end{align}
 %
-so that $f_n(x) \tendsto{n}{\infty} 0$, %
+so that $f_n(x) \overset{n\infty}{\longrightarrow} 0$, %
 %
-and take scalars 
+and take % 
 %
-  $\gamma_n$ 
-%
-such that $\tendsto{n}{\infty} \infty$, \ie 
+  $\gamma_n \overset{n\infty}{\longrightarrow} \infty$, \ie 
 %
   at fixed $p$, $\gamma_{n}$ is greater than $2^{p}$ for almost all $n$.
 %
-Next, choose $n\up{p}$ among those \textit{almost all} $n$ that are 
+Next, choose $n_{p}$ among those \textit{almost all} $n$ that are 
 large enough to satisfy 
 %
   \begin{align}
-    n\up{p-1} - n\up{p-2} < n\up{p}- n\up{p-1} 
+    n_{p-1} - n_{p-2} < n_{p}- n_{p-1} 
   \end{align}
 %
-(start with $n\up{\minus 1} = n\up{0} = 0$) and so obtain 
+(start with $n_{\minus 1} = n_{0} = 0$) and so obtain 
 %
   \begin{align}
-    2^p < \gamma_{n\up{p}}:\, 
+    2^p < \gamma_{n_{p}}:\, 
     %
-      0< n\up{p} - n\up{p-1}\tendsto{p}{\infty} \infty.
+      0< n_{p} - n_{p-1}\tendsto{p}{\infty} \infty.
     %
   \end{align}
 %
 The indicator $\chi$ of 
 %
-  $\{n\up{1}, n\up{2}, \dots\}$
+  $\{n_{1}, n_{2}, \dots\}$ in $\Z$
 %
 is then aperiodic, \ie 
 %
-  \def\xgamma{x^{(\gamma)}}
+  \def\xgamma{\alpha_{\gamma}}
   \begin{align}
     \xgamma 
       \Def
-    \sum_{k=1}^\infty \chi_k 2^{\minus k} 
+    \sum_{k=1}^\infty \chi_k 2^{\minus k} \in [0, 1]\setminus \Q .
       %\notin \Q
   \end{align}
-is irrational. Consequently,
+%
+Hence, $\chi$ is not a the infinite-support expansion of a rational number; %
+which forces  %
 %
   \begin{align}
     \dy{\xgamma}_{\minus k} &= \chi_{k}.
   \end{align}
 %
-We now easily see that
+The key ingredient is that %
 %
   \begin{align}
-    \chi_1 + \cdots + \chi_{n\up{p}} = p, 
+    \chi_1 + \cdots + \chi_{n_{p}} = p\,.
   \end{align}
 %
-which, combined with (\ref{f_n(x) definition}), yields
+Combined with (\ref{f_n(x) definition}), it yields %
 %
   \begin{align}
-    f_{n\up{p}}(\xgamma) = 2^{\minus p}.
+    f_{n_{p}}(\xgamma) = 2^{\minus p}.
   \end{align}
 %
 Finally,
 %
   \begin{align}
-    \gamma_{n\up{p}} f_{n\up{p}}(\xgamma) > 1.
+    \gamma_{n_{p}} f_{n_{p}}(\xgamma) > 1.
   \end{align}
 %
-We have so established that the subsequence 
+There so exists $\singleton{\gamma_{n_p}}$ such that %
 %
-  $\singleton{\gamma_{n\up{p}}f_{n\up{p}}}$ 
-% 
-does not tend pointwise to $0$, hence neither does the whole sequence 
+  $\singleton{\gamma_{n_p} f_{\gamma_{n_p}}}$ %
 %
-  $\singleton{\gamma_{n}f_n}$.
-%
-In other words, (b) holds, which is in violent contrast with [1.28]: 
-$X$ is then not metrizable. So ends the proof.
+fails to converge pointwise to $0$. %
+In other words, (b) holds, which is in violent contrast with %
+\citeresultFA{1.28}: $X$ is therefore not metrizable. So ends the proof.
 \end{proof}
 % END
