@@ -1,0 +1,85 @@
+\textit{
+Define the Fourier coefficient $\hat{f}(n)$ of a function %
+%
+  $f\in L^2(T)$ ($T$ is the unit circle) %
+%
+by
+%
+  \begin{align*}
+  \hat{f}(n) 
+    = 
+  \frac{1}{2\pi} \int_{\minus \pi}^{\pi} %
+  %
+    f(e^{i\theta}) e^{\minus i n\theta} d\theta
+  %
+  \end{align*}
+%
+for all $n\in \Z$ (the integers). Put 
+%
+  \begin{align*}
+    \Lambda_n f =\sum_{k=\minus n }^{n} \hat{f}(k).
+  \end{align*}
+%
+Prove that %
+  $\set{f \in {L}^2(T)}{\underset{n\infty}{\lim}\,\Lambda_n f \text{ exists}} $ %
+%
+is a dense subspace of $L^2(T)$ of the first category. %
+}
+%
+\begin{proof}Let $(f,g)$ denote the inner product of $f$ and $g$ in $L^2(T)$, %
+so that 
+  \begin{align}
+    \Lambda_n f = \sum_{k=\minus n}^n (f, e_k). 
+  \end{align}
+%
+Moreover, as a finite sum of linear functional $f \mapsto (f, e_k)$, %
+$\Lambda_n$ is continuous. 
+Now remark that 
+% 
+  \begin{align}
+    P \Def \text{span}\{ e_k: k\in \Z\} 
+      \subset 
+    F \Def \set{
+        f \in {L}^2(T)
+      }{
+        \lim_{n\infty} \Lambda_n f \text{ exists}
+    } \subset {L}^2(T), 
+  \end{align}
+%
+then conclude that %
+%
+  \begin{align}
+    {L}^2(T)= \overline{P} = \overline{ F},
+  \end{align}
+%
+with the help of the Fejér's theorem\footnote{
+%
+  See 4.25 of \cite{BigRudin}.}. %
+%
+We have so established that $F$ is dense in $L^2(T)$. %
+We now prove the second part. %
+\newline\newline\noindent
+%
+Obviously, $\sum_{k\in \Z} \| e_k\|^2$ diverges. %
+Thus, the theorem \citeresultFA{12.6} forces one of the series %
+%
+  \begin{align}
+    \sum_{k\in \Z} (g, e_k) \quad (g \in L^2(T))
+  \end{align}
+%
+to diverge. %
+The subspace $F$ is then a proper subset of ${L}^2(T)$. %
+It now follows from (b) of \citeresultFA{2.7} that %
+%
+  $F$ is not of the second category. %
+%
+\end{proof}
+
+
+
+
+
+
+
+
+
