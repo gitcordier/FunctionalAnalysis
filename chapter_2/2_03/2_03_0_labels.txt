@@ -18,7 +18,7 @@ Lemma
 
 2_03_3
 \label{2.3. Mean value inequality (concrete).}
-\label{2.3. Integration by parts.}
+\label{2.3. Equality from integration by parts.}
 \label{2.3. Convergence on D_K (1).}
 \label{2.3. Bound with p and M (theoritical).}
 

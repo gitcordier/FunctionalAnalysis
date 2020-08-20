@@ -1,18 +1,18 @@
-$f_n$ is not differentiable on $\R$, so we give %
+In order to construct the second requested example, we give %
 %
-  $\bra{f_n}$ %
+  ${f_n}$ %
 %
-a \textit{derivative}
+a \textit{derivative} 
 %
   \footnote{
     See \citeresultFA{6.1} 
     for a further discussion.
-  }, %
-as follows %
+  } %
+${f_n}'$, as follows %
 %
   \begin{align}
-    \bra{f_n}': \D_K &\to \C\\
-                    \phi &\mapsto \minus \bra{f_n}\ket{\phi'}; \nonumber
+    {f_n}': \D_K &\to \C\\
+                    \phi &\mapsto \minus \bra{f_n}\ket{\phi'}. \nonumber
   \end{align}
 %
 It has been proved that every $\bra{f_n}$ is continuous. %
@@ -23,9 +23,9 @@ So is %
         \phi & \mapsto \phi'; \nonumber
   \end{align}
 see  Exercise 1.17. %
-$\bra{f_n}'$ is therefore continuous. Now apply %
+${f_n}'$ is therefore continuous. Now apply %
 %
-  (\ref{2.3. (f_n) converges to Dirac (1).}). %
+  (\ref{2.3. (f_n) converges to Dirac (1).}) %
 %
 with $\phi'$ and so obtain %
 %
@@ -37,24 +37,24 @@ with $\phi'$ and so obtain %
 \ie %
 %
   \begin{align}
-    \bra{f_n}' &\tendsto{n}{\infty} \frac{4}{3} \delta''. 
+    {f_n}' &\tendsto{n}{\infty} \frac{4}{3} \delta''. 
   \end{align}
 %
 It follows from %
 %
   (\ref{2.3. Bound with p and M (concrete).}) %
 %
-that, for some positive constant $C$, 
+that, 
 %
   \begin{align}
   \lvert \bra{f_n}\ket{\phi'} \rvert 
     \leq 
-  C \| \phi''\|_\infty \quad (\counting{n}).
+  \frac{4}{3} \| \phi''\|_\infty \quad (\counting{n}).
   \end{align}
 %
 It is therefore possible to uniformly bound 
 %
-  $\bra{f_n}'$ %
+  ${f_n}'$ %
 %
 with respect to a norm %
 %
@@ -75,7 +75,7 @@ To show this, we first assume, to reach a contradiction, that %
   \begin{align}
     \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    C \| \phi' \|_\infty 
+    M \| \phi' \|_\infty 
     \quad (\counting{n}).
   \end{align}
 %
@@ -87,9 +87,9 @@ Define %
 %
 The oddness of $\phi_j$ forces %
 % 
-  $\Phi_{j}$ to vanish outside $[\minus 1, 1]$. 
+  $\Phi_{j}$ to vanish outside $[\minus 1, 1]$: %
 %
-$\phi_{j}$ is then in $\D_K$. So, under our assumption, 
+$\phi_{j}$ is therefore in $\D_K$. So, under our assumption, 
 %
   \begin{align}
     \lvert 
@@ -140,7 +140,9 @@ The mean value theorem (see (\ref{2.3. Mean value inequality.})) asserts that %
   \begin{align}
     \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    M \| \phi \|_\infty \leq C \frac{\lambda}{2}\| \phi' \|; 
+    M \| \phi \|_\infty 
+      \leq 
+    M \| \phi' \|_\infty; 
   \end{align}
 %
 which is, again, a desired contradiction. So ends the proof.

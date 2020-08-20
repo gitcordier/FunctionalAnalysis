@@ -54,13 +54,14 @@ $N \geq m$, so that%
   \renewcommand{\labelenumi}{(\roman{enumi})}
   %
 %
-$\bra{f_n}$ is bounded on $V_m$, this is a special case of %
+Let us specialize (\ref{2.3  g  bounded operator (1).}) with %
 %
-  (\ref{2.3  g  bounded operator (1).}). %
+  $u=f_n$ and $ \phi \in V_m$ %
 %
-Every functional $\bra{f_n}$ is therefore $\tau_K$-continuous, see %
+then conclude that $\bra{f_n}$ is bounded by $\| f_n \|_{L^1}$ on $V_m$: %
+Every linear functional $\bra{f_n}$ is therefore $\tau_K$-continuous; see %
 %
-  \citeresultFA{1.18}.
+  \citeresultFA{1.18}. \newline\newline\noindent
 %
 To sum it up: %
 %
@@ -94,7 +95,7 @@ So is the sequence %
 %
 since addition is continuous.
 %
-There so exists $i, j$ such that 
+There so exists $i, j$ such that, for all $n$, 
 %
   \begin{align}
    %
@@ -131,13 +132,13 @@ The latter inequalities imply that %
     %
   \end{align}
 %
-Now remark that every %
+Now remark that every $\psi =\psi[\mu, \phi]$, where %
 %
   \begin{align}
-    \phi_{\mu} \Def 
+     \psi[\mu, \phi] \Def 
       \begin{cases}
-        \frac{1}{\mu \cdot 2^{p} \|\phi \|_p} \phi & (\phi \neq 0, \mu > 1)\\
-        0                                          & (\phi   =  0, \mu > 1) 
+        ({1}/{\mu \cdot 2^{p} \|\phi \|_p}) \phi & (\phi \neq 0, \mu > 1)\\
+        0                                          & (\phi   =  0, \mu > 1),  
       \end{cases}
   \end{align}
 %
@@ -145,7 +146,7 @@ keeps in $V_p$. Finally, %
 it is clear that each below statement implies the following one.
 %
   \begin{align}
-    \lvert \langle {f_n}  | \phi_{\mu} \rangle \rvert &  
+    \lvert \langle {f_n}  | \psi \rangle \rvert &  
     < 1 \\
       %
     \left\lvert \bra{f_n}\ket{\phi} \right\rvert &  
@@ -155,20 +156,22 @@ it is clear that each below statement implies the following one.
     \leq 2^{p} \| \phi \|_p \\
     %
      \magnitude{\bra{f_n}\ket{\phi}} &
-     \leq 2^{p} \left(\| D^0 \phi \|_\infty 
+     \leq 2^{p} \left\{\| D^0 \phi \|_\infty 
        + 
          \cdots 
       + 
-        \| D^p \phi \|_\infty\right)\\
+        \| D^p \phi \|_\infty\right\}.
     %
+  \end{align}
+  Finally, with the help of (\ref{2.3. Mean value inequality.}), 
+  \begin{align}
     \label{2.3. Bound with p and M (theoritical).}
      \magnitude{\bra{f_n}\ket{\phi}} &
-     \leq 2^{p} (p+1) \| D^p \phi \|_\infty  
-     %
-     \quad (\text{see } \ref{2.3. Mean value inequality.})
+       \leq 
+      2^{p} (p+1) \| D^p \phi \|_\infty .
   \end{align}
 %
-The first part is so proved, with $ M= 2^{p}(p+1)$. %
+The first part is so proved, with \textit{some} $p$ and $ M= 2^{p}(p+1)$. %
 \newline\newline\noindent
 %
 % END

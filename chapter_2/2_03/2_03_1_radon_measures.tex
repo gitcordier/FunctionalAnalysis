@@ -37,8 +37,7 @@ Conversely, ${u}$ can be identified with %
 %
   $\bra{u}$, %
 %
-since $C_c(\R)$ is sufficiently large to assure that $u$ is determined %
-(a.e) by the integrals %
+since $u$ is determined (a.e) by the integrals %
 %
   $\bra{u}\ket{\phi}$. %
 %
@@ -52,7 +51,7 @@ In the Banach spaces terminology,
 operator $\bra{u}$, of norm %
 %
   \begin{align}\label{2.3  g  bounded operator (2).}
-    \| u \| \Def 
+    %\| u \|_{C_0(\R)^\ast} \Def 
     \sup\set{
       \magnitude{\bra{u}\ket{\phi}}
     }{ 
@@ -60,7 +59,7 @@ operator $\bra{u}$, of norm %
     } =  \| u \|_{L^1}.
   \end{align} 
 %
-Note that, in the latter equality, $\|u\| \leq \| u \|_{L^1}$ comes from %
+Note that, in the latter equality, $\leq \| u \|_{L^1}$ comes from %
 %
   (\ref{2.3  g  bounded operator (1).}), %
 %
@@ -188,7 +187,7 @@ Finally, %
 which is the desired result. %
 %
 So, in terms of boundedness constants: %
-Given $n$, there exist constants $C_{n}$ such that 
+Given $n$, there exists $C_{n} < \infty$ such that 
   %
     \begin{align}\label{2.3. Optimal bound.}
       \left\lvert 
@@ -201,7 +200,7 @@ Given $n$, there exist constants $C_{n}$ such that
 see (\ref{2.3  g  bounded operator (1).}). 
 Furthermore, % 
 %
-  $\|g_n\|_{L^1} = n$ is actually the best (the lowest) possible $C_{n}$; see %
+  $\|g_n\|_{L^1}$ is actually the best, \ie lowest, possible $C_{n}$; see %
   %
     (\ref{2.3. Norm in the dual equals norm L1 (2).}). %
   %
@@ -213,13 +212,13 @@ shows that there exists a subsequence %%
 %
   $\singleton{\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle}$ %
 %
-where %
+such that %
 %
   $\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle$ %
 % 
-is greater than, say, $n/2$. %
+is greater than, say, $\sqrt{n} $; as $\| \phi_{\rho(n)} \|_\infty = 1$. %
 %
-Consequently, there is no common bound $M$ such that %%
+Consequently, there is no bound $M$ such that %%
 %
   \begin{align}\label{2.3. Uniform bound for the supremum norm.}
     \left\lvert 
@@ -243,7 +242,7 @@ As a consequence, %
 %
   the $\bra{g_n}$ %
 %
-do not converge pointwise (say ``vaguely'', in Radon measure context): %
+do not converge pointwise (or ``vaguely'', in Radon measure context): %
 A vague (\ie pointwise) convergence would be (by definition) %
 %
   \begin{align}
@@ -261,7 +260,7 @@ This by no means says that the %
 %
   $\bra{g_n}$ %
 %
-do not converge pointwise to some $\Lambda$, in a relevant space (see %
+do not converge pointwise, in a relevant space, to some $\Lambda$ (see %
 %
   (\ref{2.3. Convergence in D_K, not vague.}). %
 %

@@ -30,7 +30,8 @@ Bear in mind that %
 %
   $K \subset K_m$ %
 %
-and shift the $K_N$'s indices by $\minus m$, so that %
+and shift the $K_N$'s indices%by $\minus m$
+, so that %
 %
   $K_{m+1}$ becomes $K_1$, $K_{m+2}$ becomes $K_2$, and so on. %
 %
@@ -55,13 +56,13 @@ The mean value asserts that
       \leq 
     \Beta_{n}(\phi')\magnitude{1/n - ({\minus}1/n)} 
       = 
-    \frac{2}{n} \Beta_{n}(\phi')
+    \frac{2}{n} \Beta_{n}(\phi').
     %
-  \end{align}.
+  \end{align}
 %
-An integration by parts shows that %
+Independently, an integration by parts shows that %
 %
-  \begin{align}\label{2.3. Integration by parts.}
+  \begin{align}
     \bra{f_n}\ket{\phi}
       & =  
         \left[ \frac{n^3 t^2}{2} \phi(t) \right]^{1/n}_{\minus 1/n}
@@ -78,8 +79,7 @@ Combine %
   (\ref{2.3. Mean value inequality (concrete).}) %
 %
 with %
-%
-  (\ref{2.3. Integration by parts.}) %
+  (\ref{2.3. Equality from integration by parts.})
 %
 and so obtain %
 %
@@ -101,7 +101,7 @@ and so obtain %
       \frac{4}{3} \Beta_{n}(\phi') \\
       \label{2.3. Bound with p and M (concrete).}
       & \leq 
-      \frac{4}{3} \| \phi' \|_\infty;
+      \frac{4}{3} \| \phi' \|_\infty.
       %
   \end{align}
 %
@@ -111,7 +111,7 @@ Futhermore, %
 % 
 gives a hint about the convergence of $f_n$: Since %
 %
-  $\Beta_{n}(\phi')$ tends to $\phi'(0)$, %
+  $\Beta_{n}(\phi')$ tends to $\magnitude{\phi'(0)}$, %
 %
 we may expect that %
 %
@@ -144,8 +144,7 @@ So,
 We have just proved that 
 %
   \begin{align}\label{2.3. (f_n) converges to Dirac (1).}
-    \bra{f_n}\ket{\phi} \tendsto{n}{\infty} \Lambda\phi 
-      = 
+    \bra{f_n}\ket{\phi} \tendsto{n}{\infty} %\Lambda\phi \Def 
     \frac{4}{3}\phi'(0) 
     %
     \quad (\phi\in \mathscr{D}_K).
@@ -154,14 +153,19 @@ We have just proved that
 In other words, 
 %
   \begin{align}
-    \bra{f_n} \tendsto{n}{\infty}\Lambda = \minus \frac{4}{3}\delta' ,
+    \bra{f_n} \tendsto{n}{\infty}\minus \frac{4}{3}\delta' ,
   \end{align}
 %
 where $\delta$ is the \textit{Dirac measure} and 
-$\delta', \delta'', \dots, $ its derivatives ; see \citeresultFA{6.1 and 6.9}.
+$\delta', \delta'', \dots, $ its \textit{derivatives}; %
+%
+  see \citeresultFA{6.1 and 6.9}.
 %
 \newline\newline\noindent
-It follows from the previous part that $\Lambda$ is $\tau_K$-continuous. %
+It follows from the previous part that %
+%
+  $\minus \frac{4}{3}\delta'$ is $\tau_K$-continuous. %
+%
 Moreover, we have a bound %
 %
   \begin{align}
@@ -169,7 +173,7 @@ Moreover, we have a bound %
     \quad (\counting{n}), 
   \end{align}
 %
-with $p=1$ and $M= \frac{4}{3}$ (which is a concrete version of %
+with $p=1$ and $M= \frac{4}{3}$ (which is a contructive version of %
 %
   (\ref{2.3. Bound with p and M (concrete).})%
 %
@@ -179,7 +183,7 @@ with $p=1$ and $M= \frac{4}{3}$ (which is a concrete version of %
     \set{
       \langle{f_n} \lvert \phi_{\rho(n)} \rangle
     }{
-      \| \phi_{\rho(n)} \|_\infty \leq 1, \counting{n}
+      \| \phi_{\rho(n)} \|_\infty = 1; \counting{n}
     }
   \end{align}
 %
@@ -191,8 +195,10 @@ in a more precise fashion: %
 There is no constant $M$ such that %
 %
   \begin{align}
-    \lvert \langle f_n \lvert \phi \rangle \rvert \leq M 
-    \quad (\phi\in C_K^\infty(\R), \| \phi \|_\infty \leq 1).
+    \lvert \langle f_n \lvert \phi \rangle \rvert \leq 
+      M 
+    \| \phi \|_{\infty}
+    \quad (\phi\in C_K^\infty(\R)).
   \end{align}
 %
 The previous bound of $\bra{f_n}$ %
