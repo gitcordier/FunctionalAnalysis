@@ -75,15 +75,24 @@ Feel free to get copies of this great book by yourself.
       which is not Radon. Their weak derivatives converge to $\delta''$.
       - 2_03_0_labels.tex  
       References
-      - 2_03_0_lemma.tex 
+      - 2_03_0_lemma.tex.  
       Specialization of mean value theorem.
       - 2_03_1_radon_measures.tex  
       Start by looking into $C_0(R)^\ast$.
-      - 2_03_2_uniform_bound.tex 
+      - 2_03_2_uniform_bound.tex. 
       $D_K$ topology allows equicontinuity. 
-      - 2_03_3_example_1.tex 
+      - 2_03_3_example_1.tex  
       Convergence of Lebesgue integrable functions to $\delta'$ in $D_K$.
-      - 2_03_4_example_2.tex 
-      Their weak derivatives converge to $\delta''$.
+      - 2_03_4_example_2.tex  
+      Their weak derivatives converge to $\delta''$.  
+      - TODO: Add proof that the Dirac derivative is not a Radon measure, 
+      to complete the figure.
+  - 2_06.tex  
+    The Banach-Steinhaus theorem applied to $L^2(T)$ the $L2$ functions of the 
+    unit circle of $C$: 
+    The series made on the Fourier coefficients may diverge.
+    Nevertheless, convergence holds in a dense space 
+    (by the the Fejér theorem, for instance). 
+    TODO: (?) Add some comparison with the Carleson's theorem. 
 - LICENSE
 - HOWTO
