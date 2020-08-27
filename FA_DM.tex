@@ -119,8 +119,8 @@ fouridx,
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 
 % Analysis
-\newcommand\magnitude[1]{\left\lvert #1 \right\rvert}
-
+\newcommand\magnitude[1]{\left\lvert #1 \,\right\rvert}
+\renewcommand{\norm}[2]{\| \,#2 \, \|_{#1}}
 % Topology
 \newcommand{\localbase}[1]{\mathscr #1}
 
@@ -128,7 +128,7 @@ fouridx,
 \newcommand{\boolean}[1]{[#1]}
 
 % limits
-\newcommand{\tendsto}[2]{\underset{#1\to#2}{\longrightarrow}}
+\newcommand{\tendsto}[2]{\underset{#1\to #2}{\longrightarrow}}
 
 % Variables
 \newcommand{\varit}[1]{\mathit{#1}}
