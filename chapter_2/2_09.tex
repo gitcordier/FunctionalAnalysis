@@ -1,0 +1,140 @@
+\textit{
+Suppose $X,Y,Z$ are Banach spaces and 
+%
+  \begin{align*}
+    B:X\times Y \to Z
+  \end{align*}
+is bilinear and continuous. Prove that there exists $M<\infty$ such that 
+%
+  \begin{align*}
+    \norm{}{B(x, y} \leq M \norm{}{x}\norm{}{y} \quad (x\in X, y\in Y).
+  \end{align*}
+%
+Is completeness needed here?}
+\begin{proof} The answer is: No. To prove this, we only assume that %
+%
+  $(X$, $Y$, $Z)$ %
+%
+are normed spaces. %
+Let $W$ denote any of these spaces: From now on, % 
+%
+  $\pi(w) = w/\norm{}{w}$ ($ w\in W \setminus \singleton{0}$) and %
+  $\pi(0) = 0$,  %
+%
+For the sake of readability, %
+and also to make the problem more visual, we equipp %
+%
+  $X\times Y$, %
+%
+with a Manhattan norm %
+%
+  \begin{align}
+    \norm{}{(x, y)} \Def \norm{}{x} + \norm{}{y} \quad (x\in X, y \in Y).
+  \end{align}
+%
+This is by no means a distortion of the initial assumptions, %
+since the norm topology is the product topology. %
+To see that, consider all %
+%
+  $(r, \delta_1, \delta_2, s)\in \R^4$ %
+%
+such that %
+%
+  \begin{align}
+    0 < r < \max\singleton{\delta_1, \delta_2} < \delta_1 + \delta_2 < s, 
+  \end{align}
+%
+and remark that % 
+%
+  \begin{align}
+    \norm{}{(x, y)} < r 
+      \therefore 
+    \norm{}{x} < \delta_1 \land 
+    \norm{}{y} < \delta_2
+      \therefore 
+    \norm{}{(x, y)} < s .
+  \end{align}
+%‡
+Both $\norm{}{\cdot}$ and $B$ are continuous: So is %
+%
+  $\norm{}{B}$. %
+%
+Thus, there exists a positive $r$ such that %
+%
+  \begin{align}
+    \norm{}{B(x,y) - B(0, 0)} = \norm{}{B(x,y)} < 1 \quad (\norm{}{(x, y)} < r).
+  \end{align}
+%
+Finally, given any $s < \frac{1}{2}$, 
+%
+  \begin{align}
+    \left \| {}{B(x, y)} \right\| 
+     & = 
+    \left \| B\left(
+      %
+        (1/rs) rs \norm{}{x}\cdot \pi(x), 
+        (1/rs) rs \norm{}{y}\cdot \pi(y)
+      %
+      \right) \right\| \\
+      & =
+    (1/r s)^{2}\norm{}{x}\norm{}{y} 
+    \left \| 
+      B\left(
+        rs\cdot \pi(x), 
+        rs \cdot \pi(y) 
+        \right) 
+      \right\| \\
+      & < 
+    (1/rs)^2 \norm{}{x}\norm{}{y},
+  \end{align}
+%
+since $\norm{}{(rs \cdot \pi(x), rs \cdot \pi(y))} < r$. So ends the proof. %
+%
+\end{proof}
+%\newline\newline
+\noindent
+%
+As a concrete example, choose %
+%
+  $X = Y = Z = C_c(\R)$, %
+%
+topologized by the supremum norm. %
+%
+$C_c(\R)$ is not complete%
+%
+  \footnote{
+    See 5.4.4 \cite{AnalyseIII} 
+  }, %
+nevertheless the bilinear product %
+%
+  \begin{align}
+    B(f, g) = f\times g \quad ((f, g)\in C_c(\R)^2) %
+  \end{align}
+%
+is bounded, (since %
+    $\norm{\infty}{B(f,g) } =\norm{\infty}{f}\norm{\infty}{g}$%
+) %
+and continuous. To see that, pick $(u, v)$ in $C_c(\R)^2$: %%
+Given any positive scalar $t$, %
+there exists another positive scalar $r$ such that %
+%
+  $r(r + 2\cdot\norm{}{(u,v)}) < t$. % 
+%
+So, under the following assumption %
+%
+\begin{align}
+  \norm{\infty}{f-u} + \norm{\infty}{g-v} < r, %
+\end{align}
+we reach %
+%
+  \begin{align}
+    \norm{\infty}{fg - uv} %= & \norm{\infty}{(f- u)g  + u(g - v)} \\
+      & \leq 
+    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + 
+    \norm{\infty}{u}   \cdot \norm{\infty}{g-v} \\
+      & < r\cdot (r+\norm{}{(u, v)}) + \norm{}{(u, v)} \cdot r \\
+      & < t.
+  \end{align}
+  %which establishes the continuousness of $B$. 
+  %
+  % END
