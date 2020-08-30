@@ -94,5 +94,10 @@ Feel free to get copies of this great book by yourself.
     Nevertheless, convergence holds in a dense space 
     (by the the Fejér theorem, for instance). 
     TODO: (?) Add some comparison with the Carleson's theorem. 
+  - 2_09.tex  
+    Given normed spaces (X, Y, Z), any continuous bilinear mapping 
+    $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded. 
+    Thoses spaces need not be complete. An easy example is given by 
+    $B(f, g)= fg$ where $f$ and $g$ keep in $C_c(R)$.
 - LICENSE
 - HOWTO
