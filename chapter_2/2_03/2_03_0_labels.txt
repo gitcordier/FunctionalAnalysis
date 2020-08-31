@@ -24,6 +24,6 @@ Lemma
 
 2_03_4
 \label{2.3. Equality from integration by parts.}
-\|abel{2.3. Bound with p and M (M_n).}
+\label{2.3. Bound with p and M (M_n).}
 \label{2.3. Bound with p and M (concrete).}
 \label{2.3. (f_n) converges to Dirac (1).}

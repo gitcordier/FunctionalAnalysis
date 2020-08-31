@@ -39,13 +39,13 @@ $N \geq m$, so that%
   %
   \begin{enumerate}
     \item{
-      $p_N(\phi) = \| \phi \|_N \Def \max 
+      $p_N(\phi) = \norm{N}{\phi} \Def \max 
       \set{\lvert D^{\alpha}\phi(x) \rvert}{\alpha \leq N, x \in \R}$, %
       for $\phi \in \D_K$;
     }
     \item{
       The collection of the sets %
-      $V_N = \set{ \phi \in \D_K}{ \| \phi \|_N < 2^{\minus N}}$ %
+      $V_N = \set{ \phi \in \D_K}{ \norm{N}{\phi} < 2^{\minus N}}$ %
       is a (decreasing) local base of $\tau_K$, the subspace topology of $\D_K$; %
       see \citeresultFA{6.2} for a more complete discussion.
     }
@@ -58,7 +58,7 @@ Let us specialize (\ref{2.3  g  bounded operator (1).}) with %
 %
   $u=f_n$ and $ \phi \in V_m$ %
 %
-then conclude that $\bra{f_n}$ is bounded by $\| f_n \|_{L^1}$ on $V_m$: %
+then conclude that $\bra{f_n}$ is bounded by $\norm{L^1}{f_n}$ on $V_m$: %
 Every linear functional $\bra{f_n}$ is therefore $\tau_K$-continuous; see %
 %
   \citeresultFA{1.18}. \newline\newline\noindent
@@ -137,7 +137,7 @@ Now remark that every $\psi =\psi[\mu, \phi]$, where %
   \begin{align}
      \psi[\mu, \phi] \Def 
       \begin{cases}
-        ({1}/{\mu \cdot 2^{p} \|\phi \|_p}) \phi & (\phi \neq 0, \mu > 1)\\
+        ({1}/{\mu \cdot 2^{p} \norm{p}{\phi}}) \phi & (\phi \neq 0, \mu > 1)\\
         0                                          & (\phi   =  0, \mu > 1),  
       \end{cases}
   \end{align}
@@ -150,17 +150,19 @@ it is clear that each below statement implies the following one.
     < 1 \\
       %
     \left\lvert \bra{f_n}\ket{\phi} \right\rvert &  
-    < 2^{p}  \| \phi \|_p \cdot \mu \\
+    < 2^{p}  \norm{p}{\phi} \cdot \mu \\
     %
     \magnitude{\bra{f_n}\ket{\phi}} & 
-    \leq 2^{p} \| \phi \|_p \\
+    \leq 2^{p} \norm{p}{\phi} \\
     %
      \magnitude{\bra{f_n}\ket{\phi}} &
-     \leq 2^{p} \left\{\| D^0 \phi \|_\infty 
+     \leq 2^{p} \singleton{
+       \norm{\infty}{D^0 \phi} 
        + 
          \cdots 
       + 
-        \| D^p \phi \|_\infty\right\}.
+        \norm{\infty}{D^p \phi}
+      }.
     %
   \end{align}
   Finally, with the help of (\ref{2.3. Mean value inequality.}), 
@@ -168,7 +170,7 @@ it is clear that each below statement implies the following one.
     \label{2.3. Bound with p and M (theoritical).}
      \magnitude{\bra{f_n}\ket{\phi}} &
        \leq 
-      2^{p} (p+1) \| D^p \phi \|_\infty .
+      2^{p} (p+1) \norm{\infty}{D^p \phi} .
   \end{align}
 %
 The first part is so proved, with \textit{some} $p$ and $ M= 2^{p}(p+1)$. %

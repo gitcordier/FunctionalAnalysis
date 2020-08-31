@@ -16,7 +16,7 @@ Actually, we will prove that
     \item{
       A \textit{uniform} bound %
       %
-        $\lvert\bra{f_n}\ket{\phi}\rvert \leq M \| D^p \phi \|$ %
+        $\lvert\bra{f_n}\ket{\phi}\rvert \leq M \norm{\infty}{D^p \phi}$ %
         ($\counting{n}$) %
       %
       exists for all those $f_n$, with $p=1$ as the smallest possible $p$.
@@ -101,7 +101,7 @@ and so obtain %
       \frac{4}{3} \Beta_{n}(\phi') \\
       \label{2.3. Bound with p and M (concrete).}
       & \leq 
-      \frac{4}{3} \| \phi' \|_\infty.
+      \frac{4}{3} \norm{\infty}{\phi'}.
       %
   \end{align}
 %
@@ -164,26 +164,30 @@ $\delta', \delta'', \dots, $ its \textit{derivatives}; %
 \newline\newline\noindent
 It follows from the previous part that %
 %
-  $\minus \frac{4}{3}\delta'$ is $\tau_K$-continuous. %
+  $\minus \frac{4}{3}\delta'$ is $\tau_K$-continuous,  %
 %
-Moreover, we have a bound %
+and from %%
+%
+  (\ref{2.3. Bound with p and M (concrete).}) %
+%
+that %%
 %
   \begin{align}
-    \lvert \bra{f_n}\ket{\phi} \rvert \leq M \| D^p \phi \|_\infty 
-    \quad (\counting{n}), 
+    \lvert \bra{f_n}\ket{\phi} \rvert \leq \frac{4}{3} \norm{\infty}{\phi'} 
+    \quad (\counting{n}) 
   \end{align}
 %
-with $p=1$ and $M= \frac{4}{3}$ (which is a contructive version of %
+(which is a constructive version of %
 %
-  (\ref{2.3. Bound with p and M (concrete).})%
+  (\ref{2.3. Bound with p and M (theoritical).}) ). %
 %
-). Furthermore, we have already spotlighted a sequence %
+Furthermore, we have already spotlighted a sequence %
 %
   \begin{align}
     \set{
       \langle{f_n} \lvert \phi_{\rho(n)} \rangle
     }{
-      \| \phi_{\rho(n)} \|_\infty = 1; \counting{n}
+      \norm{\infty}{\phi_{\rho(n)}} = 1; \counting{n}
     }
   \end{align}
 %
@@ -197,7 +201,7 @@ There is no constant $M$ such that %
   \begin{align}
     \lvert \langle f_n \lvert \phi \rangle \rvert \leq 
       M 
-    \| \phi \|_{\infty}
+    \norm{\infty}{\phi}
     \quad (\phi\in C_K^\infty(\R)).
   \end{align}
 %

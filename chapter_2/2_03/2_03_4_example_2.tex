@@ -2,7 +2,7 @@ In order to construct the second requested example, we give %
 %
   ${f_n}$ %
 %
-a \textit{derivative} 
+a \textit{derivative}%
 %
   \footnote{
     See \citeresultFA{6.1} 
@@ -49,7 +49,7 @@ that,
   \begin{align}
   \lvert \bra{f_n}\ket{\phi'} \rvert 
     \leq 
-  \frac{4}{3} \| \phi''\|_\infty \quad (\counting{n}).
+  \frac{4}{3} \norm{\infty}{ \phi''} \quad (\counting{n}).
   \end{align}
 %
 It is therefore possible to uniformly bound 
@@ -58,9 +58,9 @@ It is therefore possible to uniformly bound
 %
 with respect to a norm %
 %
-  $\|D^p\cdot\|_\infty$, %
+  $\norm{\infty}{D^p\cdot}$, %
 %
-namely $\|D^2\cdot\|$. 
+namely $\norm{\infty}{D^2\cdot}$. 
 %
 Then arises a question: %
 %
@@ -75,7 +75,7 @@ To show this, we first assume, to reach a contradiction, that %
   \begin{align}
     \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    M \| \phi' \|_\infty 
+    M \norm{\infty}{\phi'} 
     \quad (\counting{n}).
   \end{align}
 %
@@ -96,7 +96,7 @@ $\phi_{j}$ is therefore in $\D_K$. So, under our assumption,
       \langle{f_n}\lvert \Phi_j' \rangle
     \rvert 
       \leq 
-    M \| \Phi_{j}' \|
+    M \norm{\infty}{\Phi_{j}'}
     \quad (\counting{n}); 
   \end{align}
 %
@@ -122,7 +122,7 @@ and so conclude that there is no constant $M$ such that %
       \langle \lvert f_n \phi'\rangle
     \rvert 
       \leq 
-    M \| \phi' \|_\infty
+    M \norm{\infty}{\phi'}
     \quad (\counting{n}).
   \end{align}
 %
@@ -132,7 +132,7 @@ there exists a constant $M$ such that
   \begin{align}
     \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    M \| \phi \|_\infty.
+    M \norm{\infty}{\phi}.
   \end{align}
 %
 The mean value theorem (see (\ref{2.3. Mean value inequality.})) asserts that %
@@ -140,9 +140,9 @@ The mean value theorem (see (\ref{2.3. Mean value inequality.})) asserts that %
   \begin{align}
     \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    M \| \phi \|_\infty 
+    M \norm{\infty}{\phi} 
       \leq 
-    M \| \phi' \|_\infty; 
+    M \norm{\infty}{\phi'}; 
   \end{align}
 %
 which is, again, a desired contradiction. So ends the proof.
