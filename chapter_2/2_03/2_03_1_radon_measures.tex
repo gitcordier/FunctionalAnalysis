@@ -54,8 +54,9 @@ operator $\bra{u}$, of norm %
     \sup\set{
       \magnitude{\bra{u}\ket{\phi}}
     }{ 
-      \norm{\infty}{\phi} \leq 1
-    } =  \norm{L^1}{u}.
+      \norm{\infty}{\phi} = 1
+    } 
+    =  \norm{L^1}{u}.
   \end{align} 
 %
 Note that, in the latter equality, $\leq \norm{L^1}{u}$ comes from %
@@ -154,7 +155,7 @@ so that %
     }
     \item{
       The sequence $\singleton{\phi_j}$ converges (pointwise) to %
-      $1_{[0, 1]} - 1_{[\minus 1, 0]}$, and $\lvert\phi_{j} \rvert \leq 1$. %
+      $1_{[0, 1]} - 1_{[\minus 1, 0]}$, and $\norm{\infty}{\phi_{j}} = 1$. %
     }
   \end{enumerate}
 %
@@ -173,13 +174,13 @@ Finally, %
 %
   \begin{align}\label{2.3. Norm in the dual equals norm L1 (2).}
     \norm{L^1}{g_n}
-      \citegeq{\ref{2.3  g  bounded operator (2).}}
+      \citeleq{\ref{2.3. Norm in the dual equals norm L1 (1).}} 
     \sup\set{
     \magnitude{\bra{g_n}\ket{\phi}}
     }{
-      \norm{N}{\phi} \leq 1
-    } 
-      \citegeq{\ref{2.3. Norm in the dual equals norm L1 (1).}} 
+      \norm{\infty}{\phi} = 1
+    }
+      \citeleq{\ref{2.3  g  bounded operator (2).}}
     \norm{L^1}{g_n};
   \end{align}  %
 %
@@ -193,7 +194,7 @@ Given $n$, there exists $C_{n} < \infty$ such that
         \bra{g_n}\ket{\phi} 
       \right\rvert 
         \leq 
-      C_{n} \quad (\norm{\infty}{\phi} \leq 1); 
+      C_{n} \quad (\norm{\infty}{\phi} = 1); 
     \end{align}
   %
 see (\ref{2.3  g  bounded operator (1).}). 
@@ -215,7 +216,7 @@ such that %
 %
   $\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle$ %
 % 
-is greater than, say, $\sqrt{n} $; as $\norm{\infty}{\phi_{\rho(n)}} = 1$. %
+is greater than, say, $n -0.01$, as $\norm{\infty}{\phi_{\rho(n)}} = 1$. %
 %
 Consequently, there is no bound $M$ such that %%
 %
@@ -224,7 +225,7 @@ Consequently, there is no bound $M$ such that %%
       \bra{g_n}\ket{\phi} 
     \right\rvert 
       \leq M
-    \quad (\norm{\infty}{\phi} \leq 1; \counting{n}).
+    \quad (\norm{\infty}{\phi} = 1; \counting{n}).
   \end{align}
 %
 In other words, the $g_n$ have no \textit{uniform bound} in ${L^1}$, %
