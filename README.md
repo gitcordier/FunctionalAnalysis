@@ -98,6 +98,11 @@ Feel free to get copies of this great book by yourself.
     Given normed spaces (X, Y, Z), any continuous bilinear mapping 
     $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded. 
     Thoses spaces need not be complete. An easy example is given by 
-    $B(f, g)= fg$ where $f$ and $g$ keep in $C_c(R)$.
+    $B(f, g)= fg$ where $f$ and $g$ keep in $C_c(R)$. 
+  - 2_10.tex  
+    A bilinear mapping that is continuous at the origin is continuous. 
+    Actually, 2.09 contains all the relevant material. 
+    In the more general topological vector space context proof, 
+    the norm is replaced by Minkowski functionals on balanced open sets.
 - LICENSE
 - HOWTO
