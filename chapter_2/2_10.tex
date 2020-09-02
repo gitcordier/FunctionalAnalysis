@@ -4,15 +4,15 @@ if it is continuous at the origin $(0, 0)$.
 }
 \begin{proof}
 Let $(X_1, X_2, Z)$ be topological spaces %
-and consider a bilinear mapping %
+and $B$ a bilinear mapping %
 %
   \begin{align}
     B: X_1 \times X_2 \to Z 
   \end{align}
 %
-From now on, $(x_i, x_j)$ ($i=1, 2\,; j=3-i$) denote arbitrary elements of %
+From now on, $x_i$ ($i=1, 2$) denotes an arbitrary element of %
 %
-  $(X_i, X_j)$. %
+  $X_i$. %
 %
 We henceforth assume that $B$ is continuous at the origin %
 %
@@ -25,59 +25,77 @@ there exists in $X_i$ a balanced open subset $U_i$ such that %
     B(U_1 \times U_2) \subset W .
   \end{align}
 %
-Define $\mu_i$ as the Minkowski functional %
+Let $\ceil{x_i}$ denote any scalar that is greater than %
 %
-  $x_i \mapsto \inf\set{\alpha > 0}{x_i \in \alpha \cdot U_i}$, %
-%
-and let $\alpha_i(x_i)$ denote any element of the interval %
-%
-  $(\mu_i(x_i), \infty)$. %
+  $\mu_i(x_i) = \inf\set{\alpha > 0}{x_i \in \alpha \cdot U_i}$. %
 %
 So, 
 %
   \begin{align}
     B(x_1, x_2) 
     %& = B(
-    %    \alpha_1(x_1) \alpha_1(x_1)^{\minus 1} \cdot x_1, 
-    %    \alpha_2(x_2) \alpha_2(x_2)^{\minus 1} \cdot x_2) \\
+    %    \ceil{x_1} \ceil{x_1}^{\minus 1} \cdot x_1, 
+    %    \ceil{x_2} \ceil{x_2}^{\minus 1} \cdot x_2) \\
       & = 
-        \alpha_1(x_1)\alpha_2(x_2) 
+        \ceil{x_1}\ceil{x_2} 
             \cdot 
         B\left(
-          \alpha_1(x_1)^{\minus 1}x , 
-          \alpha_2(x_2)^{\minus 1} x_2
+          \ceil{x_1}^{\minus 1}x , 
+          \ceil{x_2}^{\minus 1} x_2
         \right) \\
       & \in 
-    \alpha_1(x_1) \alpha_2(x_2) \cdot B(U_1 \times U_2) \\
+    \ceil{x_1} \ceil{x_2} \cdot B(U_1 \times U_2) \\
+    \label{2_10. Bound.}
       & \subset 
-    \alpha_1(x_1) \alpha_2(x_2) \cdot W.
+    \ceil{x_1} \ceil{x_2} \cdot W.
   \end{align}
 %% 
-Pick $(u_1, u_2)$ in $X_1\times X_2$, and keep $x_i -u_i$ in %
+To prove that $B$ is continuous, %
+we pick $(p_1, p_2)$ an arbitrary element of $X_1\times X_2$. %
+From now on, %
 %
-  $\displaystyle{\frac{1}{\alpha_j(u_j)+1} \cdot U_i}$, %
+  $\ceil{p_i} < \mu_i(p_i) + 1$. 
 %
-so that
+It directly follows from (\ref{2_10. Bound.}) that %
 %
   \begin{align}
-    \mu_i(x_i-u_i) 
-      \leq 
-    \frac{1}{\alpha_j(u_j) + 1} 
-      < 
-    \alpha_i(x_i-u_i) \Def \frac{1}{\alpha_j(u_j) + \frac{1}{2}} 
+    B(p_1, p_2) - B(x_1, x_2) 
+      = B(p_1, p_2 - x_2) + B(p_1 -x_1, x_2 -p_2) + B(p_1-x_1,p_2) \\
+      \label{2.10. In multiple of W.}
+       \in  
+         \ceil{p_1}\ceil{p_2 - x_2}\cdot W + 
+         \ceil{p_1 - x_1}\ceil{x_2-p_2} \cdot W  + 
+         \ceil{p_1-x_1}\ceil{p_2} \cdot W 
   \end{align}
 %
+We now request that $x_i$ keeps in a specific neighborhood of $p_i$, namely %
 %
-yields %
 \begin{align}
-  B(x_1, x_2) - B(u_1, u_2) 
-    & = B(x_1-u_1, x_2) + B(u_1, x_2) - B(u_1,u_2) \\
-    & = B(x_1-u_1, x_2) + B(u_1, x_2-u_2) \\
-    & \in \alpha_1(x_1-u_1)\alpha_2(u_2)\cdot W + \alpha_1(u_1)\alpha_2(x_2-u_2) \cdot W \\
-    & \subset W + W .
-\end{align}
+  x_i -p_i \in \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2} \cdot U_i,   %
+  \end{align}
 %
-So ends the proof.
+so that 
+%
+\begin{align}
+  \mu_i(x_i -p_i) \leq \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2}. %
+  \end{align}
+%
+From now on, $\ceil{x_i - p_i}$ is bounded as follows  %
+%
+  \begin{align}
+    \mu_i(x_i - p_i)< \ceil{x_i - p_i} < \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 1}.
+  \end{align}
+%
+Finally, within such boundaries, (\ref{2.10. In multiple of W.}) yields %
+%
+  \begin{align}
+    B(p_1, p_2) - B(x_1, x_2) \in W + W + W 
+    %\quad (x_i - p_i \in \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2} \cdot U_i)
+  \end{align}
+%
+$W$ being arbitrary, %
+we have so established the continuousness of $B$ at $(p_1, p_2)$. %
+Since $(p_1, p_2)$ is also arbitrary, the proof is complete.
 \end{proof}
 %
 %END
