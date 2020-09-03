@@ -10,51 +10,47 @@ and $B$ a bilinear mapping %
     B: X_1 \times X_2 \to Z 
   \end{align}
 %
-From now on, $x_i$ ($i=1, 2$) denotes an arbitrary element of %
+From now on, $x=(x_1, x_2)$ denotes an arbitrary element of %
 %
-  $X_i$. %
+  $X_1\times X_2$. %
 %
 We henceforth assume that $B$ is continuous at the origin %
 %
   $(0, 0)$ of $X_1\times X_2$, \ie  %
 %
 given an arbitrary balanced open subset $W$ of $Z$, %
-there exists in $X_i$ a balanced open subset $U_i$ such that %
+there exists in $X_i$ ($i=1, 2$) a balanced open subset $U_i$ such that %
 %
   \begin{align}
     B(U_1 \times U_2) \subset W .
   \end{align}
 %
-Let $\ceil{x_i}$ denote any scalar that is greater than %
+Let $\nu_i(x)$ denote any scalar that is greater than %
 %
-  $\mu_i(x_i) = \inf\set{\alpha > 0}{x_i \in \alpha \cdot U_i}$. %
+  $\mu_i(x_i) = \inf\set{r> 0}{x_i \in r \cdot U_i}$. %
 %
 So, 
 %
   \begin{align}
     B(x_1, x_2) 
     %& = B(
-    %    \ceil{x_1} \ceil{x_1}^{\minus 1} \cdot x_1, 
-    %    \ceil{x_2} \ceil{x_2}^{\minus 1} \cdot x_2) \\
+    %    \nu(x)_1 \nu(x)_1^{\minus 1} \cdot x_1, 
+    %    \nu(x)_2 \nu(x)_2^{\minus 1} \cdot x_2) \\
       & = 
-        \ceil{x_1}\ceil{x_2} 
+        \nu_1(x)\nu_2(x) 
             \cdot 
         B\left(
-          \ceil{x_1}^{\minus 1}x , 
-          \ceil{x_2}^{\minus 1} x_2
+          \nu_1(x)^{\minus 1} x_1 , 
+          \nu_2(x)^{\minus 1} x_2
         \right) \\
       & \in 
-    \ceil{x_1} \ceil{x_2} \cdot B(U_1 \times U_2) \\
+    \nu_1(x) \nu_2(x) \cdot B(U_1 \times U_2) \\
     \label{2_10. Bound.}
       & \subset 
-    \ceil{x_1} \ceil{x_2} \cdot W.
+    \nu_1(x) \nu_2(x) \cdot W.
   \end{align}
 %% 
-To prove that $B$ is continuous, %
-we pick $(p_1, p_2)$ an arbitrary element of $X_1\times X_2$. %
-From now on, %
-%
-  $\ceil{p_i} < \mu_i(p_i) + 1$. 
+Now pick $p=(p_1, p_2)$ in $X_1\times X_2$: %
 %
 It directly follows from (\ref{2_10. Bound.}) that %
 %
@@ -63,34 +59,36 @@ It directly follows from (\ref{2_10. Bound.}) that %
       = B(p_1, p_2 - x_2) + B(p_1 -x_1, x_2 -p_2) + B(p_1-x_1,p_2) \\
       \label{2.10. In multiple of W.}
        \in  
-         \ceil{p_1}\ceil{p_2 - x_2}\cdot W + 
-         \ceil{p_1 - x_1}\ceil{x_2-p_2} \cdot W  + 
-         \ceil{p_1-x_1}\ceil{p_2} \cdot W 
+         \nu_1(p)\nu_2(p-x)\cdot W + 
+         \nu_1(p-x)\nu_2(x-p) \cdot W  + 
+         \nu_1(p-x)\nu_2(p) \cdot W.
   \end{align}
 %
-We now request that $x_i$ keeps in a specific neighborhood of $p_i$, namely %
-%
-\begin{align}
-  x_i -p_i \in \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2} \cdot U_i,   %
-  \end{align}
-%
-so that 
-%
-\begin{align}
-  \mu_i(x_i -p_i) \leq \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2}. %
-  \end{align}
-%
-From now on, $\ceil{x_i - p_i}$ is bounded as follows  %
+Let us henceforth assume that %
 %
   \begin{align}
-    \mu_i(x_i - p_i)< \ceil{x_i - p_i} < \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 1}.
+    p_i -x_i \in [\mu_1(p) + \mu_2(p) + 2]^{\minus 1} \cdot U_i;   
   \end{align}
 %
-Finally, within such boundaries, (\ref{2.10. In multiple of W.}) yields %
+which yields %
 %
   \begin{align}
-    B(p_1, p_2) - B(x_1, x_2) \in W + W + W 
-    %\quad (x_i - p_i \in \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2} \cdot U_i)
+    \mu_i(p_i -x_i) 
+      \leq 
+   [\mu_1(p) + \mu_2(p) + 2]^{\minus 1}.
+  \end{align}
+%
+Finally, combine the special case %
+%
+  \begin{align}
+    \nu_i(p -x) & =   [\mu_1(p) + \mu_2(p) + 1]^{\minus 1}, \\ 
+    \nu_i(p)    & =\,\,\mu_1(p) + \mu_2(p) + 1
+  \end{align}
+%
+with (\ref{2.10. In multiple of W.}) and so obtain %%
+%
+  \begin{align}
+    B(p_1, p_2) - B(x_1, x_2)  \in W + W+ W.
   \end{align}
 %
 $W$ being arbitrary, %
