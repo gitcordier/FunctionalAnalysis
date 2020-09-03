@@ -104,5 +104,7 @@ Feel free to get copies of this great book by yourself.
     Actually, 2.09 contains all the relevant material. 
     In the more general topological vector space context proof, 
     the norm is replaced by Minkowski functionals on balanced open sets.
+  - 2_12.tex  
+    A bilinear mapping that is separately continuous, but not continuous.
 - LICENSE
 - HOWTO
