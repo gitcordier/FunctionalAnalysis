@@ -1,0 +1,55 @@
+\textit{%
+Suppose $X$ is an F-space and $Y$ is a subspace of $X$ %
+whose complement is of the first category. %
+Prove that $Y=X$. }Hint: \textit{%
+%
+  $Y$ must intersect $x+Y$ for every $x\in X$. %
+%
+}
+%
+\begin{proof} Assume $Y$ is a subgroup of $X$. %
+Under our assumptions, %
+there exists $\set{E_n}{\counting{n}}$ in $X$ such that %
+%
+  \renewcommand{\labelenumi}{(\roman{enumi})} 
+  \begin{enumerate}
+    \item ${(\overline{E}_n)}^\circ=\emptyset ;$
+    \item $X\setminus Y = \displaystyle{\bigcup_{n=1}^\infty  E_n}$.
+  \end{enumerate}
+%
+By (i), the complement $V_n$ of $\overline{E}_n$ is a dense open set. %
+Since $X$ is an F-space, it follows from the Baire's theorem that %
+%
+  the intersection $S$ of the $V_n$'s is dense in $X$:  %
+%
+So is $x+S$ ($x\in X$). To see that, remark that %
+%
+  \begin{align}\label{2_15_2}
+    X = x + \overline{S} \subset \overline{x + S}
+  \end{align} 
+%
+follows from \citeresultFA{1.3 (b)}. %
+Since $S$ and $x+S$ are both dense open subsets of $X$, %
+the Baire's theorem asserts that %
+%
+  \begin{align}
+    \overline{(x+S)\cap S} = X.
+  \end{align} 
+%
+Thus, 
+%
+  \begin{align}\label{2_15_4}
+    (x+S)\cap S\neq\emptyset.
+  \end{align}
+%
+Moreover, it follows from (ii) that %
+%
+  $X\setminus Y \subset \bigcup_n \closure{E}_n$, \ie 
+  $Y \contains S$. %
+Combined with (\ref{2_15_4}), this shows that $x+Y$ cuts $Y$. 
+Therefore, our arbitrary $x$ is an element of the subgroup $Y$. %
+We have thus established that $X \subset Y$, which achieves the proof.
+\end{proof}
+\renewcommand{\labelenumi}{(\alph{enumi})} 
+%
+% END

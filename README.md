@@ -106,5 +106,10 @@ Feel free to get copies of this great book by yourself.
     the norm is replaced by Minkowski functionals on balanced open sets.
   - 2_12.tex  
     A bilinear mapping that is separately continuous, but not continuous.
+  - 2_15.tex  
+    In a Fréchet space X, the complement C of a subgroup Y is not of the first category, unless X=Y.
+    To sum it up: If Y is a proper subspace, 
+    then Y is of the first category BUT its complement C 
+    is of the second category, as X is. 
 - LICENSE
 - HOWTO
