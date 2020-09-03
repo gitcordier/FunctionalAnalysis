@@ -33,22 +33,18 @@ First, remark that
 %
 holds, since $K$ has length $1$ 
 (the inequality on the left is a Cauchy-Schwarz one). 
-Next, start from 
-%
-  \begin{align}\label{1_14_3}
-    D^n f(x) = \int_{\minus 1}^x D^{n+1}f
-  \end{align}
-%
-(which is true, since $f$ has support $K$) to obtain
+Next, that the support of $D^n f$ lies in $K$; which yields % 
   \begin{align}\label{1_14_4}
-    \left| D^n f(x)\right|
+    \magnitude{ D^n f(x) }
+      =
+    \magnitude{ \int_{0}^x D^{n+1}f }
       \leq 
-    \int_{\minus 1}^x \left| D^{n+1}f \right| 
+    \int_{0}^x \magnitude{D^{n+1}f }
       \leq 
-    \|D^{n+1}f \|_1, 
+    \|D^{n+1}f \|_1 .
   \end{align}
 %
-hence
+So, 
 %
   \begin{align}\label{1_14_5}
     \| D^n f \|_\infty 
@@ -56,13 +52,9 @@ hence
     \| D^{n+1} f \|_1 .
   \end{align}
 %
-Combining (\ref{1_14_2}) with (\ref{1_14_5}) yields
+We now combine (\ref{1_14_2}) with (\ref{1_14_5}) and so obtain %
 %
   \begin{align}\label{1_14_6}
-    \|D^0 f \|_1 
-      \leq 
-    \cdots
-      \leq
     \| D^n f \|_1 
       \leq 
     \| D^{n} f \|_2 
@@ -71,22 +63,19 @@ Combining (\ref{1_14_2}) with (\ref{1_14_5}) yields
       \leq 
     \| D^{n+1}f\|_1 
       \leq 
-    \cdots .
+    \cdots \quad (\integers{n}).
   \end{align}
 %
-We now put  
+Put  
   \begin{align}\label{1_14_1}
-    V\up{i}_n &       \Def \set{f\in \D_K}{\| f \|_i <1/n}\quad(i=1,2,\infty)\\
-    \mathscr{B}\up{i}&\Def \set{V\up{i}_n }{\counting{n}},
+    V\up{i}_n &       \Def \set{f\in \D_K}{\norm{i}{f} < 2^{\minus n} }
+      \quad(i=1,2,\infty)\\
+    \mathscr{B}\up{i}&\Def \set{V\up{i}_n }{\integers{n}},
   \end{align}
 so that (\ref{1_14_6}) is mirrored in terms of neighborhood inclusions, 
 as follows,
 %
   \begin{align}\label{1_14_7}
-    V\up{1}_1 
-      \supset
-    \cdots 
-      \supset 
     V\up{1}_n
       \supset 
     V\up{2}_n 
@@ -100,17 +89,26 @@ as follows,
 %
 Since 
   $V\up{i}_n\supset V\up{i}_{n+1}$, 
-$\mathscr{B}\up{i}$ is the local base of a topology $\tau_i$. 
-But the chain (\ref{1_14_7}) forces the $\tau_i$ to be equals. 
-To see that, choose a set $S$ that is $\tau_1$-open at, say $a$, \ie 
+$\mathscr{B}\up{i}$ is a local base of a topology $\tau_i$. 
+But the chain (\ref{1_14_7}) forces %
 %
-  $V\up{1}_n \subset S-a$  
+  \begin{align}
+    \tau_1 = \tau_2 = \tau_\infty.
+  \end{align}
 %
-for some $n$. Next, concatenate this with $V\up{2}_n \subset V\up{1}_n$ (see (\ref{1_14_7})) and so obtain  
+To see that, choose a set $S$ that is $\tau_1$-open at $p$, \ie 
 %
-  $V\up{2}_n \subset S-a$, 
+  $V\up{1}_n \subset S-p$  
 %
-which implies that $S$ is $\tau_2$-open at $a$.
+for some $n$. Next, concatenate this with %
+%
+  $V\up{2}_n \subset V\up{1}_n$ (see (\ref{1_14_7})) %
+%
+and so obtain  
+%
+  $V\up{2}_n \subset S-p$, 
+%
+which implies that $S$ is $\tau_2$-open at $p$.
 Similarly, we deduce, still from (\ref{1_14_7}), that 
 \begin{align}
   \tau_2\text{-open} 
