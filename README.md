@@ -107,9 +107,14 @@ Feel free to get copies of this great book by yourself.
   - 2_12.tex  
     A bilinear mapping that is separately continuous, but not continuous.
   - 2_15.tex  
-    In a Fréchet space X, the complement C of a subgroup Y is not of the first category, unless X=Y.
+    In a F-space X, the complement C of a subgroup Y is not 
+    of the first category, unless X=Y.
     To sum it up: If Y is a proper subspace, 
     then Y is of the first category BUT its complement C 
     is of the second category, as X is. 
+  - 2_16.tex  
+    A simpler version of the closed graph theorem. 
+    Roughly speaking, compactness replaces completeness. Compactness cannot 
+    be dropped: A counterexample is given.
 - LICENSE
 - HOWTO
