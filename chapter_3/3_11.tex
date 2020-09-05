@@ -1,0 +1,167 @@
+\textit{\noindent
+Let $X$ be an infinite-dimensional Fréchet space. %
+Prove that $X^\ast$, with its $\weakstar$topology, %
+is of the first category in itself.
+}
+\newline\newline\noindent
+This is actually a consequence of the below lemma,  %
+which we prove first. %
+The proof that $X^\ast$ is of the first category in itself comes right after, %
+as a corollary.%
+%
+\paragraph{Lemma.}%
+If $X$ is an infinite dimensional topological vector space whose dual %
+%
+  $X^\ast$ %
+%
+separates points on $X$, then the polar
+%
+  \begin{align}
+    K_A\Def \{ \Lambda \in X^\ast:\, \magnitude{\Lambda} \leq 1 \text{ on } A\}
+  \end{align} 
+%
+of any absorbing subset $A$ is a $\weakstar$closed set that has empty interior.
+%
+\begin{proof}%
+Let $x$ range over $X$. The linear form %
+%
+  $\Lambda \mapsto \Lambda x$ %
+%
+is $\weakstar$continuous; see \citeresultFA{3.14}. %
+Therefore, %
+%
+  $P_x=\{ \Lambda \in X^\ast:\, \lvert \delta_x \,\Lambda  \,\rvert \leq 1\}$ %
+%
+is $\weakstar$ closed: %
+%In particular, every $P_a$ ($a \in A$) is $\weakstar$closed:  %
+As intersection of all $\set{P_a}{a\in A}$, %
+$K_A$ is also a $\weakstar$closed set. %
+We now prove the second half of the statement. % %
+%
+\newline\newline\noindent
+%
+From now on, $X$ is assumed to be endowed with its weak topology: %
+$X$ is then locally convex, but its dual space is still %
+%
+  $X^\ast$ (see \citeresultFA{3.11}). %
+%
+Put %
+%
+  \begin{align}
+    W \Def \bigcap_{x\in F} \set{\Lambda \in X^\ast}{\magnitude{\Lambda x} < r_x}, 
+  \end{align}
+%
+where $r_x$ runs on $\R_+$, %
+as $F$ runs through the nonempty finite subsets of $X$. %
+%
+Clearly, the collection of all such $W$ is a local base of $X^\ast$. %
+Pick one of those $W$ and remark that the following subspace %
+%
+  \begin{align}
+    M \Def \text{span}(F)
+  \end{align}
+%
+is finite dimensional. Therefore, it is closed, by \citeresultFA{1.21 (b)}. %
+%
+Assume, to reach a contradiction, that $A\subset M$: %
+Each $x$ is then in $tM=M$ for some $t=t(x)>0$, since $A$ is absorbing. %
+So, $X=M$ is finite dimensional, which is a desired contradiction.
+%
+We have just established that $A\setminus M$ is nonempty: %
+Now pick $\varit{a}$ in $A\setminus M$ and so conclude that %f
+%
+  \begin{align}
+    b\Def \frac{a}{t}\in A
+  \end{align}
+%
+Remark that $b\notin M$ (otherwise, $t b = a \in tM=M$ would hold): %
+By the Hahn-Banach theorem \citeresultFA{3.5}, %
+there exists $\Lambda_b$ in $X^\ast$ such that 
+%
+  \begin{align}
+    \label{3.11. Polar_4.}\Lambda_b b    > & \,\,2 \\
+    \label{3.11. Polar_4bis.}\Lambda_b (M) = & \singleton{0}.
+  \end{align}
+%
+The latter equality implies that $\Lambda_b$ vanishes on $F$; %
+hence $\Lambda_b$ is an element of $W$. %
+On the other hand, given an arbitrary $f\in K_A$, %
+the following inequalities  %
+%
+  \begin{align}
+    \magnitude{\Lambda_b (b) + f(b)} 
+      \geq 
+    2 - \magnitude{f(b)} 
+      >
+    1.
+  \end{align}
+%
+show that $f + \Lambda_b$ is off $K_A$. %
+%
+We have thus proved that
+%
+  \begin{align}
+  f+ W\not\subset K_A.
+  \end{align}
+%
+Since $W$ and $f$ are both arbitrary, this achieves the proof. %
+\end{proof}
+%
+%\newline\newline
+\noindent
+We now give a proof of the original statement:
+%
+\paragraph{Corollary.}%
+Under the same assumptions: If $X$ is Fréchet, %
+then $X^\ast$ is meager in itself.
+%
+\begin{proof}%
+From now on, $X^\ast$ is only endowed with its $\weakstar$topology. %
+Let $d$ be an invariant distance that is compatible with the topology of $X$, %
+so that the following sets
+%
+  \begin{align}
+    B_n \Def \set{x\in X}{d(0, x) <  2^{\minus n}}\quad (\counting{n}) 
+  \end{align}
+%
+form a local base of $X$. %
+%
+If $\Lambda$ is in $X^\ast$, then %
+%
+  \begin{align}
+    \magnitude{\Lambda} <  m \text{ on } B_n
+  \end{align}
+%
+for some $(n, m) \in \singleton{1, 2, 3, \dots}^2$; see \citeresultFA{1.18}. %
+%
+Hence, $X^\ast$ is the union of all % 
+%
+  \begin{align}\label{3.11. Countable union.}
+    m\cdot K_n \quad (\counting{m,n}), 
+  \end{align}
+%
+where $K_n$ is the polar of $B_n$. %
+Clearly, showing that $K_n$ is nowhere dense will achieve the proof. %
+To do so, remark that the above lemma asserts that %
+%
+  \begin{align}
+    \left({\overline{K}_n}\right)^\circ = \left({{K}_n}\right)^\circ =\emptyset, 
+  \end{align}
+%
+\ie %
+%
+  \begin{align}\label{3.11. Nowhere dense.}
+    \left(\,{\overline{m\cdot K_n}}\, \right)^\circ 
+      = 
+    %\left(\, m \cdot \overline{{{K}_n}} \, \right)^\circ
+    %  = 
+    %\left(m \cdot K_n \right)^\circ 
+    %  = 
+    m\cdot \left({{K}_n}\right)^\circ 
+      = 
+    \emptyset.
+  \end{align}
+%%
+%
+So ends the proof.% 
+\end{proof}

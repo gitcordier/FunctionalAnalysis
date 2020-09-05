@@ -116,5 +116,10 @@ Feel free to get copies of this great book by yourself.
     A simpler version of the closed graph theorem. 
     Roughly speaking, compactness replaces completeness. Compactness cannot 
     be dropped: A counterexample is given.
+  - 3_11.tex  
+    Meagerness of the polar (in the infinite dimensional case) 
+    of the neighborhoods of the origin: 
+    Hahn-Banach theorem and polar. We only involve the weak star -closedness of 
+    the polar, not its weak star-compactness!
 - LICENSE
 - HOWTO
