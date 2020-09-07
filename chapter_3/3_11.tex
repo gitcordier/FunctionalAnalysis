@@ -30,11 +30,11 @@ Let $x$ range over $X$. The linear form %
 is $\weakstar$continuous; see \citeresultFA{3.14}. %
 Therefore, %
 %
-  $P_x=\{ \Lambda \in X^\ast:\, \lvert \delta_x \,\Lambda  \,\rvert \leq 1\}$ %
+  $P_x= \set{\Lambda \in X^\ast}{\magnitude{\Lambda x} \leq 1}$ %
 %
 is $\weakstar$ closed: %
 %In particular, every $P_a$ ($a \in A$) is $\weakstar$closed:  %
-As intersection of all $\set{P_a}{a\in A}$, %
+As the intersection of $\set{P_a}{a\in A}$, %
 $K_A$ is also a $\weakstar$closed set. %
 We now prove the second half of the statement. % %
 %
@@ -61,50 +61,50 @@ Pick one of those $W$ and remark that the following subspace %
     M \Def \text{span}(F)
   \end{align}
 %
-is finite dimensional. Therefore, it is closed, by \citeresultFA{1.21 (b)}. %
-%
+is finite dimensional. %
 Assume, to reach a contradiction, that $A\subset M$: %
-Each $x$ is then in $tM=M$ for some $t=t(x)>0$, since $A$ is absorbing. %
+Each $x$ is then in $tM=M$ for some $t_x>0$, since $A$ is absorbing. %
 So, $X=M$ is finite dimensional, which is a desired contradiction.
 %
-We have just established that $A\setminus M$ is nonempty: %
+We have just established that $A\not\subset M$: %
 Now pick $\varit{a}$ in $A\setminus M$ and so conclude that %f
 %
   \begin{align}
-    b\Def \frac{a}{t}\in A
+    b\Def \frac{a}{t_a}\in A
   \end{align}
 %
-Remark that $b\notin M$ (otherwise, $t b = a \in tM=M$ would hold): %
+Remark that $b\notin M$ (otherwise, $a = t_a b \in t_a M=M$ would hold) %
+and that $M$ is closed (see \citeresultFA{1.21 (b)}): %
 By the Hahn-Banach theorem \citeresultFA{3.5}, %
-there exists $\Lambda_b$ in $X^\ast$ such that 
+there exists $\Lambda_a$ in $X^\ast$ such that 
 %
   \begin{align}
-    \label{3.11. Polar_4.}\Lambda_b b    > & \,\,2 \\
-    \label{3.11. Polar_4bis.}\Lambda_b (M) = & \singleton{0}.
+    \label{3.11. Polar_4.}\Lambda_a b    > & \,\,2 \\
+    \label{3.11. Polar_4bis.}\Lambda_a (M) = & \singleton{0}.
   \end{align}
 %
-The latter equality implies that $\Lambda_b$ vanishes on $F$; %
-hence $\Lambda_b$ is an element of $W$. %
-On the other hand, given an arbitrary $f\in K_A$, %
+The latter equality implies that $\Lambda_a$ vanishes on $F$; %
+hence $\Lambda_a$ is an element of $W$. %
+On the other hand, given an arbitrary $\Lambda \in K_A$, %
 the following inequalities  %
 %
   \begin{align}
-    \magnitude{\Lambda_b (b) + f(b)} 
+    \magnitude{\Lambda_a b + \Lambda_A b} 
       \geq 
-    2 - \magnitude{f(b)} 
+    2 - \magnitude{\Lambda b} 
       >
     1.
   \end{align}
 %
-show that $f + \Lambda_b$ is off $K_A$. %
+show that $\Lambda + \Lambda_a$ is not in $K_A$. %
 %
 We have thus proved that
 %
   \begin{align}
-  f+ W\not\subset K_A.
+  \Lambda + W\not\subset K_A.
   \end{align}
 %
-Since $W$ and $f$ are both arbitrary, this achieves the proof. %
+Since $W$ and $\Lambda$ are both arbitrary, this achieves the proof. %
 \end{proof}
 %
 %\newline\newline
@@ -112,7 +112,7 @@ Since $W$ and $f$ are both arbitrary, this achieves the proof. %
 We now give a proof of the original statement:
 %
 \paragraph{Corollary.}%
-Under the same assumptions: If $X$ is Fréchet, %
+If $X$ is an infinite-dimensional Fréchet space, %
 then $X^\ast$ is meager in itself.
 %
 \begin{proof}%
@@ -121,7 +121,7 @@ Let $d$ be an invariant distance that is compatible with the topology of $X$, %
 so that the following sets
 %
   \begin{align}
-    B_n \Def \set{x\in X}{d(0, x) <  2^{\minus n}}\quad (\counting{n}) 
+    B_n \Def \set{x\in X}{d(0, x) <  1/n}\quad (\counting{n}) 
   \end{align}
 %
 form a local base of $X$. %
@@ -129,26 +129,30 @@ form a local base of $X$. %
 If $\Lambda$ is in $X^\ast$, then %
 %
   \begin{align}
-    \magnitude{\Lambda} <  m \text{ on } B_n
+    \magnitude{\Lambda} \leq  m \text{ on } B_n
   \end{align}
 %
 for some $(n, m) \in \singleton{1, 2, 3, \dots}^2$; see \citeresultFA{1.18}. %
 %
-Hence, $X^\ast$ is the union of all % 
+Hence, $X^\ast$ is the countable union of all % 
 %
   \begin{align}\label{3.11. Countable union.}
     m\cdot K_n \quad (\counting{m,n}), 
   \end{align}
 %
 where $K_n$ is the polar of $B_n$. %
-Clearly, showing that $K_n$ is nowhere dense will achieve the proof. %
-To do so, remark that the above lemma asserts that %
+Clearly, showing that every $m\cdot K_n$ is nowhere dense %
+is now sufficient. %
+To do so, we use the fact that $X^\ast$ separates points; %
+see \citeresultFA{3.4}. % 
+As a consequence, the above lemma implies %
 %
   \begin{align}
-    \left({\overline{K}_n}\right)^\circ = \left({{K}_n}\right)^\circ =\emptyset, 
+    \left({\overline{K}_n}\right)^\circ = \left({{K}_n}\right)^\circ=\emptyset. 
   \end{align}
 %
-\ie %
+Since the multiplication by $m$ is an homeomorphism (see \citeresultFA{1.7}), %
+this is equivalent to %
 %
   \begin{align}\label{3.11. Nowhere dense.}
     \left(\,{\overline{m\cdot K_n}}\, \right)^\circ 
@@ -161,7 +165,6 @@ To do so, remark that the above lemma asserts that %
       = 
     \emptyset.
   \end{align}
-%%
 %
 So ends the proof.% 
 \end{proof}

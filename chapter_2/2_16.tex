@@ -1,5 +1,5 @@
 \textit{%
-$\set{(x,1/x)}{x > 0}$uppose that $X$ and $K$ are metric spaces, %
+Suppose that $X$ and $K$ are metric spaces, %
 that $K$ is compact, and that the graph of %
 %
   $f:X\to K$ %
@@ -9,7 +9,7 @@ Prove that $f$ is continuous %
 %
   (This is an analogue of Theorem 2.15 but much easier.) %
 %
-$\set{(x,1/x)}{x > 0}$how that compactness of $K$ cannot be omitted from the hypothese, %
+Show that compactness of $K$ cannot be omitted from the hypothese, %
 even when $X$ is compact.
 }
 %
@@ -33,34 +33,45 @@ converges in $G$. So, $b=f(a)$; %
 which establishes that $f$ is sequentially continuous.
 %
 Since $X$ is metrizable, $f$ is also continuous; see \citeresultFA{[A6]}. %
+So ends the proof.
 %
 \newline\newline\noindent %
 %
-To prove that compactness cannot be omitted from the hypotheses, %
+To show that compactness cannot be omitted from the hypotheses, %
 we showcase the following counterexample, %
 %
   \begin{align}
   f: [0, \infty) & \to [0, \infty)\\
      x & \mapsto\begin{cases}
-       1/x & (x > 0)  \\
+       1/x & (x > 0)  \\\nonumber
        0   & (x = 0).
     \end{cases}
   \end{align}
 %
-Clearly, the graph of $f$ is the following set
+Clearly, $f$ has a discontinuity at $0$. %
+Nevertheless the graph $G$ of $f$ is closed. %
+To see that, first remark that %
 %
   \begin{align}
-    \set{(x, 1/x)}{x > 0} \cup \singleton{(0, 0)}.
+    G = \set{(x, 1/x)}{x > 0} \cup \singleton{(0, 0)}.
   \end{align}
 %
-Let $\singleton{(x_n, f(x_n))}$ be a sequence in $\set{(x,f(x))}{x > 0}$ %
-that converges to, say, $(a, b)$. %
-Clearly, $a\neq 0$, since $\singleton{(x_n, f(x_n))}$ is bounded. %
-So, $a > 0$ and $b = 1/a$ (since $f$ is continuous on $R_+$).
-This establishes that the subset $\set{(x,1/x)}{x > 0}$ is closed. %
-As a finite union of closed sets, the graph of $f$ is closed. 
+Next, let %
 %
-Nevertheless, $f$ is not continuous on $[0, \infty)$.
+  $\singleton{(x_n, 1/x_n)}$ %
+%
+be a sequence in %
+%
+  $G_+ = \set{(x, 1/x)}{x > 0}$ %
+%
+that converges to $(a, b)$. %
+To be more specific: %
+$a=0$ contradicts the boundedness of $\singleton{(x_n,1/x_n)}$: %
+$a$ is necessarily positive and $b = 1/a$, %
+since $x\mapsto 1/x$ is continuous on $R_+$.
+This establishes that $(a, b) \in G_+$, hence the closedness $G_+$. %
+Finally, we conclude that $G$ is closed, as a finite union of closed sets.
+%
 \end{proof}
 %
 % END
