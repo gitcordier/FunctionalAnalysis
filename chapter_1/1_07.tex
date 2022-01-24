@@ -1,10 +1,11 @@
 %\section{Exercise 7. Metrizability \& number theory}
+\noindent
 \textit{
 Let be X the vector space of all complex functions on the unit interval 
 $[0, 1]$, topologized by the family of seminorms 
 %
   \begin{align}
-    p_{x}(f)=|f(x)| \quad (0\leq x\leq 1).\nonumber
+    \mathit{p_{x}(f\,)=|f(x)| \quad\quad (0\leq x\leq 1).\nonumber}
   \end{align}
 %
 This topology is called the topology of pointwise convergence. 
@@ -17,199 +18,215 @@ has the same cardinality as $[0, 1]$.)
 This shows that metrizability cannot be omited in (b) of Theorem 1.28.
 }
 \begin{proof}
-Our justification consists in proving that $\tau$-convergence and pointwise 
-convergence are the same one. 
+%Our justification consists in proving that $\tau$-convergence and pointwise 
+%convergence are the same one. 
 %
-To do so, remark first that the family of the seminorms $p_{x}$ is separating.
-By [1.37], the collection $\mathscr{B}$ of all finite intersections 
+%To do so, remark first that 
+The family of the seminorms $p_{\varit{x}}$ is separating: 
+By \citeresultFA{1.37}, the collection $\mathscr{B}$ of all finite intersections 
 of the sets 
 %
   \begin{align}
-    V_{x, k} 
+    %\tensor*[_x]{V}{_k}
+    V(\varit{x},\varit{k})
       \Def 
-    \singleton{p_x < 2^{\minus k}} 
-      \quad 
-    (x \in [0, 1], k \in \N)
+    \singleton{p_\varit{x} < 2^{\,\minus \varit{k}}} 
+      \quad\quad
+    (\varit{\varit{x}} \in [0, 1], \varit{k} \in \N)
   \end{align}
 %
-is therefore a local base for a topology $\tau$ on $X$. Given 
-%
-  $\set{f_n}{\counting{n}}$, 
-%
-we put
-%
-\newcommand\off[1]{\function{off}(#1)}
-%
-\begin{align}
-  \off{U} \Def \sum_{n=1}^\infty [f_n \notin U] \quad (U\in\tau),
-\end{align}
-%
-with the convention %$\off{U}
-%
-  ``$\Sigma=\infty$'' %
-%
-whether the sum has no finite support. 
+is therefore a local base for a topology $\tau$ on $X$. 
 So, 
 %
   \begin{align}
     %
     \label{Inequality boolean series}
     %
-    \sum_{i=1}^m \off{U_{i}} 
-      = 
-    \sum_{n=1}^\infty \sum_{i=1}^m [f_n \notin U_{i}]
-      \geq 
-    \off{U_{1} \cuts \cdots \cuts U_{m}}.
-  \end{align}
+    \sum_{n=1}^\infty \boolean{f_n \notin \cap_{i=1}^m U_i} \leq 
+    \sum_{n=1}^\infty \sum_{i=1}^m \boolean{f_n \notin U_{i}} = 
+    \sum_{i=1}^m \sum_{n=1}^\infty \boolean{f_n \notin U_i} %\off{U_{i}    
+    \quad\quad (f_n \in X, U_i \in \tau).
+  \end{align}%
 %
-We first assume that $\singleton{f_n}$ $\tau$-converges to some $f$ in $X$, \ie
+Now assume that $\{f_n\}$ $\tau$-converges to some $f$, \ie 
 %
   \begin{align}
-    \off{f+V} < \infty \quad(V \in \mathscr{B}).
+    %
+    \sum_{n=1}^\infty \boolean{f_n \notin f + W} < \infty \quad\quad (W \in \mathscr{B}).
   \end{align}
+The special case %
 %
-The special cases %
+$W = V(\varit{x}, \varit{k})$ %
 %
-  $V_{x, 1}, V_{x, 2}, \dots, $ %
+means that %
 %
-mean the pointwise convergence %
+  $\magnitude{f_n(\varit{\varit{x}}) - f(\varit{x})} < 2^{\,\minus \varit{k}}$ %
 %
-  $f_n(x) \overset{n\infty}{\longrightarrow} f(x)$. %
-%
-Conversely, assume that $\singleton{f_n}$ does not $\tau$-converges to any $g$ 
-in $X$, \ie 
+for almost all $n$,  \ie 
+  $\singleton{f_n(\varit{x})}$ converges to $f(\varit{x})$. 
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converges in $X$, \ie 
 %
   \begin{align}
     %
     \label{Divergence}
     %
-    \forall g \in X, \exists W \in \localbase{B}: 
-      \off{g+W} = \infty. 
+    \forall f \in X, \exists W \in \localbase{B}: 
+      \sum_{n=1}^\infty\boolean{f_n \notin f +  W} = \infty. 
     %
   \end{align}
 %
-Given $g$, such $W$ is, by definition,  a finite intersection
+$W$ is now the intersection of finitely many %
 %
-  $
-    V_{x_{1}, k_{1}} \cap \cdots \cap 
-    V_{x_{m}, k_{m}} 
-  $.
+$V(\varit{\varit{x}}, \varit{k})$, %
 %
-%So, (\ref{1.7 Inequality boolean series}) implies 
-Thus,
+say  
+%
+  $ V(x_1, k_1), \dots, V(x_m, k_m)$. Thus,  %
 %
   \begin{align}
-    \sum_{i=1}^m \off{g + V_{x_{i}, k_{i}}} 
+    \sum_{i=1}^m \sum_{n=1}^\infty \boolean{f_n \notin f + V(x_i, k_i)}
       %
         \citegeq{\ref{Inequality boolean series}} 
       %
-    \off{g + W} 
+    \sum_{n=1}^\infty \boolean{f_n \notin f + W}
     % 
       \citeq{\ref{Divergence}} 
     %
     \infty .
   \end{align}
 %
-One of the sum $\off{g + V_{x_{i}, k_{i}}}$ must then be $\infty$. 
-In other words, there exists a point $x_i$ for which $\singleton{f_n(x_i)}$ %
-does not converge to $g(x_i)$. %
-$g$ being arbitrary, we so conclude that $f_n$ does not converge pointwise. %
-We have just proved that 
+We can now conclude that, for some index $\varit{i}$, 
+%
+  \begin{align}
+    \sum_{n=1}^\infty \boolean{
+      f_n \notin f + V(x_i, k_i)
+    } = \infty .
+  \end{align}
+In other word, %
+%
+$\singleton{f_n(x_i)}$ %
+%
+fails to converge to 
+$f(x_i)$.
+We have so proved that 
 %
   $\tau$-convergence is a rewording of pointwise convergence.
 %
 % SECOND PART
-We now prove the second part.
+We now establish the second part. \\% 
+\\\noindent
+To do so, we split $\varit{x}$ into two variables: %
+$\varit{r}$ if $\varit{x}$ is rational, $\alpha$ otherwise.
 %
-From now on, we let %
+The proof is based on the following well-known result: Each $\alpha$ %
+has a {\it unique} binary expansion. %
+More precisely, there exists a bijection %
 %
-  $\varit{k}$, $\varit{n}$ and $\varit{p}$ 
+$b:[0, 1] \setminus \Q \to %
+\set{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}}$ %
 %
-run on $\N_+$, as $\dy{x}$ denotes the usual dyadic expansion of $x$, %
-so that $\dy{x}$ is an aperiodic binary sequence \iif $x$ is irrational. 
+where %
+$b(\alpha) = (\beta_1, \beta_2, \dots)$ %
+is the only bit stream such that %
 %
-Define
+  \begin{align}
+    \label{definition of alpha}
+    \alpha = \sum_{k=1}^\infty \beta_k \cdot 2^{\,\minus k}.
+  \end{align}
 %
-\begin{align}
-  %
-  \label{f_n(x) definition}
-  %
-  f_n(x) 
-    \Def 
-  \begin{cases}
-      \exp_2\left({\minus\sum_{k= 1}^{n} {\dy{x}_{\minus k}}}\right) 
-        & 
-          (x \in [0, 1]\setminus \Q )\\
-      0 
-        & 
-          (x \in [0,1]\cap \Q), 
-    \end{cases}
-\end{align}
+Remark that %
 %
-so that $f_n(x) \overset{n\infty}{\longrightarrow} 0$, %
+$b(\alpha)_1 + \dots + b(\alpha)_n \longrightarrow \infty$, %
 %
-and take % 
+since %
 %
-  $\gamma_n \overset{n\infty}{\longrightarrow} \infty$, \ie 
+$b(\alpha)$
 %
-  at fixed $p$, $\gamma_{n}$ is greater than $2^{p}$ for almost all $n$.
+has infinite support, then fix %
 %
-Next, choose $n_{p}$ among those \textit{almost all} $n$ that are 
+  \begin{equation}
+    \label{definition of f_n(alpha)}
+    f_n(\alpha)\Def %
+    \frac{1}{b(\alpha)_1+\cdots+ b(\alpha)_n} \tendsto{n}{\infty} 0.
+  \end{equation}
+%
+The actual values $f_n(r)$ are of no interest, %
+as long as every sequence $\set{f_n(r)}{\counting{n}}$ converges to $0$. %
+For example, put $f_n(r) = r/n$, or just $f_n(r) = 0$. %
+We also take % 
+%
+  $\gamma_n \longrightarrow \infty$, \ie % 
+%
+given any counting number $\varit{p}$, %
+$\gamma_{n}$ is greater than $\varit{p}$ for almost all $\varit{n}$.
+%
+Next, we choose $n_{p}$ among those \textit{almost all} $\mathit{n}$ that are 
 large enough to satisfy 
 %
   \begin{align}
-    n_{p-1} - n_{p-2} < n_{p}- n_{p-1} 
+    \label{definition of n_p}
+    n_p - n_{p-1} > p
   \end{align}
 %
-(start with $n_{\minus 1} = n_{0} = 0$) and so obtain 
+(start with $n_0=0$).
 %
-  \begin{align}
-    2^p < \gamma_{n_{p}}:\, 
-    %
-      0< n_{p} - n_{p-1}\tendsto{p}{\infty} \infty.
-    %
-  \end{align}
+So, every list %
 %
-The indicator $\chi$ of 
+  $n_{p}, n_{p'}, n_{p''}, \dots $ %
 %
-  $\{n_{1}, n_{2}, \dots\}$ in $\Z$
+that satisfies %
 %
-is then aperiodic, \ie 
+  $n_{p'}- n_{p} = n_{p''} - n_{p'} = \dots$ %
 %
-  \def\xgamma{\alpha_{\gamma}}
+is finite %
+(otherwise, %
+    $n_{p'}-n_{p} \geq n_{p+1} - n_{p}  
+    > p 
+    \rightarrow  \infty %
+    $
+would hold from; see (\ref{definition of n_p})).
+In other words, {\it the distribution of %
+%
+$\mathit{n_1, n_2, \dots}$ %
+%
+displays no periodic pattern}. %
+As a consequence, the {\it characteristic function} %
+  $\chi: k\mapsto \boolean{k \in \singleton{n_1, n_2, \dots}}$ %
+is not eventually periodic. %
+Combined with (\ref{definition of alpha}), this establishes that 
+%
+\def\xgamma{\alpha_{\gamma}}
+%
   \begin{align}
     \xgamma 
       \Def
-    \sum_{k=1}^\infty \chi_k 2^{\minus k} \in [0, 1]\setminus \Q .
+    \sum_{k=1}^\infty \chi_k 2^{\minus \varit{k}}
       %\notin \Q
   \end{align}
 %
-Hence, $\chi$ is not a the infinite-support expansion of a rational number; %
-which forces  %
+is irrational. Conversely, still with (\ref{definition of alpha}),  %
 %
   \begin{align}
-    \dy{\xgamma}_{\minus k} &= \chi_{k}.
+    b(\xgamma)_{k} = \chi_{k}.
   \end{align}
 %
-The key ingredient is that %
+Now remark that %
+%
+  \begin{alignat}{2}
+    \chi_1 + \cdots + \chi_{n_{1}} & &&=1 \\
+    \chi_1 + \cdots + \chi_{n_{1}} & + \cdots + \chi_{n_{2}} &&=2 \\
+    \nonumber \vdots&  &&\\
+    \chi_1 + \cdots + \chi_{n_{1}} & + \cdots + \chi_{n_{2}} + \cdots + 
+    \chi_{n_{p}}&&=p.
+  \end{alignat}
+%
+Combined with (\ref{definition of f_n(alpha)}), this yields %
 %
   \begin{align}
-    \chi_1 + \cdots + \chi_{n_{p}} = p\,.
+    \gamma_{n_p} f_{n_{p}}(\xgamma) = \frac{\gamma_{n_p}}{p} > 1.
   \end{align}
 %
-Combined with (\ref{f_n(x) definition}), it yields %
-%
-  \begin{align}
-    f_{n_{p}}(\xgamma) = 2^{\minus p}.
-  \end{align}
-%
-Finally,
-%
-  \begin{align}
-    \gamma_{n_{p}} f_{n_{p}}(\xgamma) > 1.
-  \end{align}
-%
-There so exists $\singleton{\gamma_{n_p}}$ such that %
+There so exists a subsequence $\singleton{\gamma_{n_p}}$ such that %
 %
   $\singleton{\gamma_{n_p} f_{\gamma_{n_p}}}$ %
 %

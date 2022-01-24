@@ -62,9 +62,9 @@ Pick one of those $W$ and remark that the following subspace %
   \end{align}
 %
 is finite dimensional. %
-Assume, to reach a contradiction, that $A\subset M$: %
-Each $x$ is then in $tM=M$ for some $t_x>0$, since $A$ is absorbing. %
-So, $X=M$ is finite dimensional, which is a desired contradiction.
+Assume, to reach a contradiction, that $A\subset M$. %
+So, every $x$ lies in $t_xM=M$ for some $t_x>0$, since $A$ is absorbing. %
+As a consequence, $X=M$ is finite dimensional, which is a desired contradiction.
 %
 We have just established that $A\not\subset M$: %
 Now pick $\varit{a}$ in $A\setminus M$ and so conclude that %f
@@ -78,9 +78,14 @@ and that $M$ is closed (see \citeresultFA{1.21 (b)}): %
 By the Hahn-Banach theorem \citeresultFA{3.5}, %
 there exists $\Lambda_a$ in $X^\ast$ such that 
 %
-  \begin{align}
-    \label{3.11. Polar_4.}\Lambda_a b    > & \,\,2 \\
-    \label{3.11. Polar_4bis.}\Lambda_a (M) = & \singleton{0}.
+  \begin{align}\label{3.11. Polar_4.}
+    \Lambda_a b > 2
+  \end{align}
+%
+and
+%
+  \begin{align}\label{3.11. Polar_4bis.}
+    \Lambda_a (M) = \singleton{0}.
   \end{align}
 %
 The latter equality implies that $\Lambda_a$ vanishes on $F$; %
@@ -109,7 +114,7 @@ Since $W$ and $\Lambda$ are both arbitrary, this achieves the proof. %
 %
 %\newline\newline
 \noindent
-We now give a proof of the original statement:
+We now give a proof of the original statement. %
 %
 \paragraph{Corollary.}%
 If $X$ is an infinite-dimensional Fréchet space, %

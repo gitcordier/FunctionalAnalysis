@@ -1,0 +1,143 @@
+\textit{%
+Suppose X is a real vector space (without topology). %
+Call a point $x_0\in A \subset X$ an internal point of $A$ if %
+$A- x_0$ is an absorbing set. %
+%
+%\renewcommand{\labelenumi}{(\alph{enumi})}
+%
+  \begin{enumerate}
+    \item{%
+      Suppose $A$ and $B$ are disjoint convex sets in $X$, %
+      and $A$ has an internal point. %
+      Prove that there is a nonconstant linear functional $\Lambda$ such that %
+      $\Lambda(A)\cap \Lambda(B)$ contains at most one point. %
+      (The proof is similar to that of Theorem 3.4) %
+    }%
+    \item{%
+      Show (with $X=\R^2$, for example) that it may not possible to have %
+      $\Lambda (A)$ and $\Lambda (B)$ disjoint, under the hypotheses of (a). %
+    }
+  \end{enumerate} 
+}
+%
+\begin{proof}%
+Take $A$ and $B$ as in (a); the trivial case $B=\emptyset$ is discarded. %
+Since $A-x_0$ is absorbing, so is its convex superset %
+%
+  $C= A-B - x_0 + b_0$ $(b_0 \in B)$. %
+%
+Note that $C$ contains the origin. %
+Let $p$ be the Minkowski functional of $C$. Since $A$ and $B$ are disjoint, %
+$b_0-x_0$ is not in $C$, hence $p(b_0-x_0) \geq1$. %
+We now proceed as in the proof of the Hahn-Banach theorem \citeresultFA{3.4} %
+to establish the existence of a linear functional %
+%
+  $\Lambda: X\to  \R$ such that %
+%
+  \begin{align}
+    \Lambda \leq p %
+  \end{align}
+%
+and %
+%
+  \begin{align}
+    \Lambda(b_0-x_0) =1.
+  \end{align}%
+%
+Then %
+%
+  \begin{align}
+    \Lambda a -\Lambda b + 1 =\Lambda (a-b+ b_0-x_0) \leq p (a-b+ b_0-x_0) \leq 1\quad (a\in A, b \in B).
+  \end{align}
+%
+Hence %
+%
+  \begin{align}\label{3_3_3}
+    \Lambda a \leq \Lambda b .
+  \end{align}
+%
+We now prove that $\Lambda (A) \cap \Lambda (B) $ contains at most one point. %
+Suppose, to reach a contradiction, that this intersection contains %
+%
+  $y_1$ and $y_2$. %
+%
+There so exists %
+%
+  $(a_i, b_i)$ %%
+%
+in $A\times B$ ($i=1, 2$) such that %
+%
+  \begin{align}\label{3_3_4}
+    \Lambda a_i= \Lambda b_i = y_i .
+  \end{align}
+%
+Assume without loss of generality that $y_1< y_2$. Then, %
+%\begin{align}
+%y_1=\Lambda b_1 < \Lambda \left( \frac{1}{2} a_1\right ) + \Lambda \left( \frac{1}{2} a_2\right ) = \frac{1}{2} (y_1+y_2)  \quad .
+%\end{align}
+%
+  \begin{align}\label{3_3_5}
+    2\cdot y_1= \Lambda b_1+  \Lambda b_1 < \Lambda ( a_1 + a_2) = (y_1+y_2)  \quad .
+  \end{align}
+%
+Remark that $a_3= \frac{1}{2} (a_1+ a_2)$ lies in the convex set $A$. %
+This implies %
+%
+  \begin{align}
+  \Lambda b_1 \overset{(\ref{3_3_5})}{<}  \Lambda a_3 \overset{(\ref{3_3_3})}{\leq} \Lambda b_1\quad ;
+  \end{align}
+%
+which is a desired contradiction. (a) is so proved and we now deal with (b). %
+%
+\newline\newline\noindent
+%
+From now on, the space $X$ is $\R^2$. Fetch %
+%
+   \begin{align}
+     S_1 & \Def \set{(x, y )\in \R^2}{x\leq 0, y \geq 0}, \\
+     S_2 & \Def \set{(x, y )\in \R^2}{x>0, y > 0}, \\
+     A   & \Def S_1\cup S_2, \\
+     B   & \Def X\setminus A.
+   \end{align}
+%
+Pick $(x_i, y_i)$ in $S_i$. %
+Let $t$ range over the unit interval, and so obtain %
+%
+  \begin{align}
+    t\cdot  \left(\begin{array}{c}x_1 \\y_1\end{array}\right)+
+    (1-t)  \cdot \left(\begin{array}{c}x_2 \\ y_2\end{array}\right)= 
+    \left(\begin{array}{c}t\cdot x_1+(1-t)\cdot x_2 \\t\cdot y_1 + (1-t)\cdot y_2\end{array}\right)
+    \in \R\times \R_+\subset A.
+  \end{align}
+%
+Thus, every segment that has an extremity in $S_1$ and the other one in $S_2$ %
+lies in $A$. %
+Moreover, each $S_i$ is convex. We can now conclude that $A$ is so. %
+The convexity of $B$ is proved in the same manner. Furthermore, %
+$A$ hosts a non degenerate triangle, \ie $A^{\circ}$ is nonempty\footnote{%
+%
+  For a immediate proof of this, remark that a triangle boundary is %
+  compact/closed and apply [1.10] or 2.5 of \cite{BigRudin}.
+}: %
+$A$ contains an internal point. %
+%
+\newline\newline\noindent
+%
+Let $L$ be a vector line of $\R^2$. %
+In other words, $L$ is the null space of a linear functional %
+%
+  $\Lambda: \R^2\to \R$ %
+%
+(to see this, take some nonzero $u$ in $L^\bot$ and set %
+%
+  $\Lambda x= (x,u)$ %
+%
+for all $x$ in $\R^2$). One easily checks that both $A$ and $B$ cut $L$. %
+Hence %
+%
+  \begin{align}
+    \Lambda (L)=\{0\}\subset \Lambda (A)\cap \Lambda (B)\neq\emptyset\quad.
+    \end{align}
+%
+So ends the proof.
+\end{proof}

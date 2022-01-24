@@ -17,44 +17,68 @@ $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
-has positive dimension $n$. \\\\
+%We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
+%has positive dimension $n$. \\\\
 %
-Let $e$ range over a base of $Y$: For each $e$, 
+Discard the trivial case $\Lambda = 0$ then assume that %
+$\dim Y = n$ %
+for some positive $n$. %
+Let $e$ range over a base of $B$ of $Y$. %
+Pick $W$ an arbitrary neighborhood of the origin: %
+There so exists $V$ %
+a balanced neighborhood of the origin such that 
+%
+  \begin{align}
+    \label{definition of v}
+    \underset{
+      \text{Put } V \text{ exactly } n \text{ time(s)}
+    }{
+      \underbrace{V+\cdots +V}
+    }\subset W, 
+  \end{align}
+%
+since addition is continuous. %
+Moreover, for each $e$, 
 there exists $x_e$ in $X$ such that 
 %
   $\Lambda(x_e)=e$, 
 % 
-since $\Lambda$ is onto. So,
+simply because $\Lambda$ is onto. So,
 %
   \begin{align}\label{1_10_sum}
-    y = \sum_{e} y_e \Lambda x_e \quad (y\in Y).
+    y = \sum_{e} y_e \cdot \Lambda x_e, 
   \end{align}
 %
-The sequence $\singleton{x_e}$ is finite; therefore it is bounded: %
-Given $V$ a balanced neighborhood of the origin, there exists a positive %
-scalar $s$ such that  
+given any element $y=\sum_{e}y_e\cdot e$ of $Y$. %
+As a finite set, $\set{x_e}{e\in B}$ is bounded: %
+In particular, there exists  a positive scalar $s$ such that  
 %
   \begin{align}
-    x_e \in s V \text{ for all } x_e.
+    \forall e\in B,  x_e \in s \cdot V.
   \end{align}
 %
 Combining this with (\ref{1_10_sum}) shows that 
 %
   \begin{align}
-    y \in \sum_e \Lambda (V) \quad (y\in Y: |y_e| < s^{\minus 1}), 
+    \label{y in sum of lambda V}
+    y \in \sum_e y_e \cdot s \cdot \Lambda (V).
   \end{align}
 %
-which proves (a).\\\\
+We now come back to (\ref{definition of v}) and so conclude that %
+%
+  \begin{align}
+    y \in \sum_e \Lambda (V) \subset \Lambda(W) 
+  \end{align}
+%
+whether $\magnitude{y_e} < 1/s$; which proves (a).\\\\
 %
 %
 To prove (b), assume that the null space 
 %
   $\singleton{\Lambda = 0}$ %
 % 
-is closed and let $f, \pi$ be as in Exercise 1.9, with 
+is closed and let $f, \pi$ be as in Exercise 1.9,  %
 %
-  % Ker: \ket?
   $\singleton{\Lambda = 0}$ %
 %
 playing the role of $N$.

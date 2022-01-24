@@ -1,0 +1,28 @@
+\renewcommand{\labelenumi}{\arabic{enumi}.}
+\chapter{Notations and Conventions}
+\section{Logic}
+\begin{enumerate}
+\item{{\bf Halmos' iff}:  \iif is a short for "if and only if".}
+\item{{\bf Definitions (of values) with $\Def$}: Given a variables %
+$\varit{a}$ and $\varit{b}$, %
+$a\Def b$ means that $\varit{a}$ is defined as equal to $\varit{b}$.}
+\item{{\bf Definitions (formul\ae)}: Definitions come from \iif. %
+In other words, both parts (the "if \dots" part and the "only if \dots" part) %
+are explicitely stated. }
+\item{{\bf Iverson notation}:  Given a boolean expression $\Phi$, 
+%
+  \begin{align}
+    \boolean{\Phi}\Def
+    \begin{cases}
+      0 & \quad\quad \text{if } \Phi \text{ is false;} \\
+      1 & \quad\quad \text{if } \Phi \text{ is true.}
+    \end{cases}
+  \end{align}
+
+For example, $\boolean{1 > 0} = 1$ but $\boolean{ \sqrt{2} \in \Q} = 0$
+}
+\end{enumerate}
+%\section{Vector spaces}
+%\begin{enumerate}
+%  \item{If $X$ is a vector space of base $B$ and $e$ is an element of B, }
+%\end{enumerate}
