@@ -69,7 +69,8 @@ Feel free to get copies of this great book by yourself.
   - 2_03/  
       - 2_03.tex  
       In $D_K$, some Lebesgue integrable functions converge to $\delta'$, 
-      which is not Radon. Their weak derivatives converge to $\delta''$.
+      which is not a Radon measure. 
+      Their weak derivatives converge to $\delta''$.
       - 2_03_0_labels.tex  
       References
       - 2_03_0_lemma.tex.  
@@ -113,6 +114,7 @@ Feel free to get copies of this great book by yourself.
     A simpler version of the closed graph theorem. 
     Roughly speaking, compactness replaces completeness. Compactness cannot 
     be dropped: A counterexample is given.
+- chapter 3/
   - 3_11.tex  
     Meagerness of the polar (in the infinite dimensional case) 
     of the neighborhoods of the origin: 
