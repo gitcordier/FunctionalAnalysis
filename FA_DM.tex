@@ -1,7 +1,7 @@
 % a4paper = ISO 216 standard. 
 % Don't forget to revert to default if you want the US Letter instead.
-\documentclass[a4paper,11pt,titlepage,openany]{book}
-\usepackage{cite}
+\documentclass[a4paper,11pt,titlepage,openany, leqno]{book}
+
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
 \usepackage{amsmath, 
@@ -12,8 +12,9 @@ amsthm,
 mathspec, 
 fouridx, 
 %stix
+tensor
 }
-
+%\usepackage{tlatex}
 % TEXs LOGOS! 
 %\usepackage{dtklogos}
 
@@ -57,9 +58,10 @@ fouridx,
 \def\mainfont{CMU Serif}
 \setmainfont{\mainfont}
 \setmathfont(Latin)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
-\setmathfont(Greek)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
+\setmathfont(Greek)[Uppercase=Regular,Lowercase=Italic]{\mainfont}
 \setmathrm{\mainfont}
 \setmathbb{\mainfont}
+%\setmathit{\mainfont}
 \setmathtt{CMU Typewriter Text Light}
 %\setmathbf{CMU Serif}
 
@@ -82,9 +84,6 @@ fouridx,
 \def\Z{\usualSet{Z}}
 \def\N{\usualSet{N}}
 
-% Nicer phi letter
-\renewcommand\phi{\varphi}
-
 % "Defined as equals to", alternative to := .
 \def\Def{\triangleq}
 
@@ -104,13 +103,16 @@ fouridx,
 \newcommand{\downsw}[2]{\fourIdx{}{#2}{}{}#1}
 \newcommand{\scriptatleft}[3]{\fourIdx{#2}{#3}{}{}#1}
 \newcommand{\diagscript}[3]{\fourIdx{#2}{}{}{#3}#1}
+%\tensor*[^x]{V}{_k}
 
 % function, relation
 \newcommand{\function}[1]{\mathtt{#1}}
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
+\DeclareMathOperator\supp{supp}
 
 % Sets
+%\renewcommand{\notin}{\tiny{\not\in}}
 \def\contains{\supset}
 \def\cuts{\cap}
 \newcommand{\co}[1]{\function{co}(#1)}
@@ -119,17 +121,18 @@ fouridx,
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
 
+
 % Arithmetics
 \newcommand{\ceil}[1]{\lceil #1 \rceilf}
 % Analysis
-\newcommand\magnitude[1]{\left\lvert #1 \,\right\rvert}
+\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
 \renewcommand{\norm}[2]{\| \,#2 \, \|_{#1}}
 \def\weakstar{\text{weak}^\ast\text{-}}
 % Topology
 \newcommand{\localbase}[1]{\mathscr #1}
 
 %Iverson bracket
-\newcommand{\boolean}[1]{[#1]}
+\newcommand{\boolean}[1]{\left[\,#1\,\right]}
 
 % limits
 \newcommand{\tendsto}[2]{\underset{#1\to #2}{\longrightarrow}}
@@ -180,7 +183,7 @@ fouridx,
 
 \begin{document}
 %\begin{abstract}
-   % \input{\ROOT/abstract.tex}
+%    \input{\ROOT/abstract.tex}
 %\end{abstract}
 \title{\TITLE}
 \author{\AUTHOR}
@@ -188,19 +191,18 @@ fouridx,
 \maketitle
 
 % FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
-\renewcommand{\labelenumi}{$(\textit{\alph{enumi}})$}
+\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
 % IF LANG = @fr
 %\renewcommand{\chaptername}{Chapitre}
 %
 % CHAPTER  NAME :
-
-%
-%\frontmatter
-%
 \frontmatter
 \tableofcontents
+\setcounter{chapter}{1}
+\input{\ROOT/notations.tex}
 \mainmatter
 %\part{Content}
+\setcounter{chapter}{0}
 \input{\ROOT/FA_mainmatter.tex}
 \backmatter
 %\part{Annex}
@@ -212,9 +214,9 @@ fouridx,
 %\renewcommand\thesection{\thechapter.\arabic{annex}}
 %\section{Number theory}
 %\input{\ROOT/Annex_number_theory.tex}
-\bibliography{bibliography}{}
 \bibliographystyle{plain}
-\addcontentsline{toc}{chapter}{bibliography}
+\bibliography{bibliography}{}
+\addcontentsline{toc}{chapter}{Bibliography}
 \end{document}
 
 
