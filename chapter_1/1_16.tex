@@ -13,21 +13,23 @@ The proof consists in combining trivial consequences of the local base
 definition with a well-known result (\eg [2.6] in \cite{BigRudin}) 
 about intersection of nonempty compact sets. 
 
-\paragraph{Lemma 1} Let $X$ be a topological space with a countable local base 
-$\set{V_n}{\counting{n}}$. 
+\paragraph{Lemma 1} {\it %
+Let $X$ be a topological space with a countable local base %
+$\mathit{\set{V_n}{\counting{n}}}$. 
 If 
 %
-  $\tilde{V}_{n} = V_1 \cuts \cdots \cuts V_n$, 
+  $\mathit{\tilde{V}_{n} = V_1 \cuts \cdots \cuts V_n}$, 
 %
 then every subsequence 
 % 
-  $\singleton{\tilde{V}_{\rho(n)}}$ 
+  $\mathit{\singleton{\tilde{V}_{\rho(n)}}}$ 
 %
 is a decreasing (\ie 
 %
-  $\tilde{V}_{\rho(n)} \contains \tilde{V}_{\rho(n+1)}$)
+  $\mathit{\tilde{V}_{\rho(n)} \contains \tilde{V}_{\rho(n+1)}}$)
 %
-local base of $X$.
+local base of $\varit{X}$.
+}
 %
 \begin{proof}
 The decreasing property is trivial. Now remark that 
@@ -52,29 +54,31 @@ since $\tilde{V}_{n} \contains \tilde{V}_{\rho(n)}$.
 is one of the key ingredients:
 %: COROLLARY 1 OF LEMMA 1-----------------------------------------------------%
 \paragraph{Corollary 1 (special case $V_{n} = \tilde{V}_{n}$)}
-Under the same notations of Lemma 1, if $\singleton{V_{n}}$ is a decreasing 
-local base, then so is $\singleton{V_{\rho(n)}}$.
+{\it Under the same notations of Lemma 1, if $\mathit{\singleton{V_{n}}}$ %
+is a decreasing local base, then so is $\mathit{\singleton{V_{\rho(n)}}}$.}
 %
 %: COROLLARY 2 OF LEMMA 1-----------------------------------------------------%
-\paragraph{Corollary 2}
+\paragraph{Corollary 2}{\it %
 If 
 %
-  $\singleton{Q_n}$ 
+  $\mathit{\mathit{\singleton{Q_n}}}$ 
 %
 is a sequence of compact sets that satisfies the conditions specified 
 in section 1.44, then every subsequence 
 %
-  $\singleton{Q_{\rho(n)}}$ 
+  $\mathit{\singleton{Q_{\rho(n)}}}$ 
 %
 also satisfies theses conditions.
 %
-Furthermore, if $\tau_{Q}$ is the $C(\Omega)$'s 
-(respectively $C^\infty (\Omega)$'s) topology of the seminorms $p_{n}$, 
+Furthermore, if $\mathit{\tau_{Q}}$ is the $\mathit{C(\Omega)}$'s 
+(respectively $\mathit{C^\infty (\Omega)}$'s) topology of the seminorms %
+$\mathit{p_{n}}$, 
 as defined in section 1.44 (respectively 1.46), then the seminorms 
 %
-  $p_{\rho(n)}$ 
+  $\mathit{p_{\rho(n)}}$ 
 %
-define the same topology $\tau_{Q}$.
+define the same topology $\mathit{\tau_{Q}}$. %
+}
 %
 \begin{proof}%
 %
@@ -136,15 +140,15 @@ is a local base of $\tau_{Q}$, which yields
 %
 \end{proof}
 %: LEMMA 2 -------------------------------------------------------------------%
-\paragraph{Lemma 2} \label{1.16 Lemma 2}
-If a sequence of compact sets $\singleton{Q_n}$ satisfies the conditions 
+\paragraph{Lemma 2}{ \it \label{1.16 Lemma 2}
+If a sequence of compact sets $\mathit{\singleton{Q_n}}$ satisfies the conditions 
 specified in section 1.44, then every compact set $K$ lies in allmost all 
 %
-  $Q^\circ_n$, \ie
+  $\mathit{Q^{\,\circ}_n}$, \ie
 %
-there exists $m$ such that 
+there exists $\varit{m}$ such that 
 %
-  \begin{align}
+  \begin{align}\mathit{
     K \subset 
     \interior{Q}_m 
       \subset 
@@ -152,14 +156,15 @@ there exists $m$ such that
       \subset
     \interior{Q}_{m+2}
       \subset
-    \cdots.
+    \cdots.}
   \end{align}
+}
 %
 \begin{proof}
 The following definition
 %
   \begin{align}
-    C_n \Def K \setminus \interior{Q}_n \quad (\counting{n})
+    C_n \Def K \setminus \interior{Q}_n 
   \end{align}
 %
 shapes $\singleton{C_n}$ as a decreasing sequence of compact\footnote{
@@ -210,11 +215,22 @@ Finally,
 %: THEOREM -------------------------------------------------------------------%
 \noindent We are now in a fair position to establish the following:
 %\newpage
-\paragraph{Theorem} 
-The topology of $C(\Omega)$ does not depend on the particular choice of 
-$\singleton{K_n}$, as long as this sequence satisfies the conditions 
-specified in section 1.44. Neither does the topology of $C^\infty (\Omega)$, 
+\paragraph{Theorem}{\it 
+The topology of %
+%
+$\mathit{C(\Omega)}$ %
+%
+does not depend on the particular choice of %
+%
+$\mathit{\singleton{K_n}}$, %
+%
+as long as this sequence satisfies the conditions specified in section 1.44. %
+Neither does the topology of %
+%
+$\mathit{C^{\,\infty} (\Omega)}$, %
+%
 as long as this sequence satisfies the conditions specified in section 1.44.
+}
 %
 \begin{proof}%
 With the second corollary's notations,

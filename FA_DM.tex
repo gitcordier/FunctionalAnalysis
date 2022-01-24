@@ -12,7 +12,7 @@ amsthm,
 mathspec, 
 fouridx, 
 %stix
-tensor
+%tensor
 }
 %\usepackage{tlatex}
 % TEXs LOGOS! 
@@ -58,7 +58,7 @@ tensor
 \def\mainfont{CMU Serif}
 \setmainfont{\mainfont}
 \setmathfont(Latin)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
-\setmathfont(Greek)[Uppercase=Regular,Lowercase=Italic]{\mainfont}
+\setmathfont(Greek)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
 \setmathrm{\mainfont}
 \setmathbb{\mainfont}
 %\setmathit{\mainfont}
@@ -115,7 +115,8 @@ tensor
 %\renewcommand{\notin}{\tiny{\not\in}}
 \def\contains{\supset}
 \def\cuts{\cap}
-\newcommand{\co}[1]{\function{co}(#1)}
+\DeclareMathOperator\cvxhull{co}
+\newcommand{\co}[1]{\cvxhull(#1)}
 \newcommand{\set}[2]{\{#1: #2\}}
 \newcommand{\singleton}[1]{\{#1\}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}

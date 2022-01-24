@@ -78,28 +78,28 @@ nevertheless the bilinear product %
   \end{align}
 %
 is bounded, (since %
-    $\norm{\infty}{B(f,g) } = \norm{\infty}{f}\norm{\infty}{g}$%
+    $\norm{\infty}{B(f,g)} = \norm{\infty}{f}\norm{\infty}{g}$%
 ) %
-and continuous. To see that, pick $(u, v)$ in $C_c(\R)^2$: %%
-Given any positive scalar $\epsilon$, %
-there exists another positive scalar $r$ such that %
-%
-  $r(r + \norm{}{u} + \norm{}{v}) < \epsilon$. % 
-%
-So, under the following assumption %
+and continuous. To show this, pick a positive scalar $\epsilon $ %
+smaller than $1$ then put %
 %
 \begin{align}
-  \max\singleton{\norm{\infty}{f-u}, \norm{\infty}{g-v}} < r, %
+  r \Def \frac{\epsilon}{1 + \norm{\infty}{f} + \norm{\infty}{g}} % 
 \end{align}
-we reach %
+(bear in mind that $r < 1$). Next, choose $(u, v)$ in $C_c(\R)^2$ such that %
+%
+\begin{align}
+  \norm{\infty}{f-u} + \norm{\infty}{g-v} < r, %
+\end{align}
+%
+and so obtain (the triangle inequality will be tacitely used) %
 %
   \begin{align}
     \norm{\infty}{fg - uv} %= & \norm{\infty}{(f- u)g  + u(g - v)} \\
       & \leq 
-    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + 
-    \norm{\infty}{u}   \cdot \norm{\infty}{g-v} \\
-      & < r ( r + \norm{}{v} )  + \norm{}{u} r \\
-      & < r(r + \norm{}{u} + \norm{}{v}) \\
+    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + \norm{\infty}{u} \cdot \norm{\infty}{g-v} \\
+      & <  r \norm{\infty}{g} + (r + \norm{\infty}{f}) \cdot r \\
+      & < r (r + \norm{\infty}{f} + \norm{\infty}{g})  \\
       & < \epsilon; 
   \end{align}
   which establishes the continuousness of $B$. 
