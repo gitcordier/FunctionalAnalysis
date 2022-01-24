@@ -49,10 +49,7 @@ Feel free to get copies of this great book by yourself.
 - chapter_1/ 
   - 1_7.tex  
     I choose to start with this because it is a lovely result, since it connects 
-    a topological result (*to be metrizable or not to be*) with number theory
-    (basic results about dyadic expansions).
-    TODO: ? Maybe I'll add an alternative proof with the (possibly) degenerate 
-    expansion.
+    a topological result (*to be metrizable or not to be*) with number theory.
   - 1_9.tex  
     Continuousness, openness of a linear mapping.
   - 1_10.tex  
