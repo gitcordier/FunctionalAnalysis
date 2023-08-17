@@ -47,21 +47,26 @@ Feel free to get copies of this great book by yourself.
 - FA_mainmatter.tex
 - FA_chapter_1.tex
 - chapter_1/ 
+  - 1_1.tex
+    Basic results that straightforwardly follow from the axioms 
+    as given as in section 1.4.
   - 1_7.tex  
-    I choose to start with this because it is a lovely result, since it connects 
-    a topological result (*to be metrizable or not to be*) with number theory.
+    I choose to start with this because it is a lovely result, 
+    since it connects a topological result 
+    (*to be metrizable or not to be*) with number theory.
   - 1_9.tex  
     Continuousness, openness of a linear mapping.
   - 1_10.tex  
-    Continuousness, openess of a linear mapping onto a finite dimensional space.
-    Not trivial, since the domain may be infinite-dimensional. 
+    Continuousness, openess of a linear mapping onto a finite dimensional 
+    space.Not trivial, since the domain may be infinite-dimensional. 
   - 1_14.tex  
     Alternative ways to the define topology of the test functions space D_K, 
     in the special case K=[0, 1].
   - 1_16.tex   
     This is about showing that a function test topology is independent 
-    from the "supremum seminorms" we consider. It is then more than an exercise, 
-    it should be regarded as a very part of the textbook (sections 1.44, 1.46).
+    from the "supremum seminorms" we consider. 
+    It is then more than an exercise, it should be regarded as a very part of 
+    the textbook (sections 1.44, 1.46).
   - 1_17.tex  
     Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
     continuous in the test functions topology. 
@@ -118,7 +123,7 @@ Feel free to get copies of this great book by yourself.
   - 3_11.tex  
     Meagerness of the polar (in the infinite dimensional case) 
     of the neighborhoods of the origin: 
-    Hahn-Banach theorem and polar. We only involve the weak star -closedness of 
-    the polar, not its weak star-compactness!
+    Hahn-Banach theorem and polar. We only involve the weak star 
+    -closedness of the polar, not its weak star-compactness!
 - LICENSE
 - HOWTO
