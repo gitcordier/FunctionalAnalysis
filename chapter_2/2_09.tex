@@ -1,107 +1,117 @@
 \textit{
 Suppose $X,Y,Z$ are Banach spaces and 
 %
-  \begin{align*}
-    B:X\times Y \to Z
-  \end{align*}
+\begin{align*}
+  B:X\times Y \to Z
+\end{align*}
+%
 is bilinear and continuous. Prove that there exists $M<\infty$ such that 
 %
-  \begin{align*}
-    \norm{}{B(x, y} \leq M \norm{}{x}\norm{}{y} \quad (x\in X, y\in Y).
-  \end{align*}
+\begin{align*}
+  \norm{}{B(x, y)}
+  \leq 
+  M \norm{}{x}\norm{}{x} \quad (x\in X, y\in Y).
+\end{align*}
 %
 Is completeness needed here?}
-\begin{proof} The answer is: No. To prove this, we only assume that %
+\begin{proof}%
+% % % % % % % 
+% FIRST PART %
+% % % % % % % 
+The answer is: No. To prove this, we only assume that %
 %
-  $X$, $Y$, $Z$ %
+  $\mathit{X}$, $\mathit{Y}$, $\mathit{Z}$ %
 %
 are normed spaces. %
 %
-Let $(x, y)$ range over $X\times Y$. %
-%
-$B$ is continous at the origin; thus, there exists a positive $r$ such that %
-%
-  \begin{align}
-    \norm{}{B(x,y)} < 1 \quad (\max\singleton{\norm{}{x}, \norm{}{y}} < r).
-  \end{align}
-%
-Given $(x, y)$, we choose two scalars  %
-%
-  $\alpha$, $\beta$ %
-%
+Since $B$ is continous at the origin, there exists a positive $r$ %
 such that %
 %
-  $r\alpha > \norm{}{x} $ and $r\beta >\norm{}{y}$. %
+\begin{align}\label{bound for B}
+  \norm{}{x} + \norm{}{y} < r \Rightarrow %
+  \norm{}{B(x, y)} < 1.
+\end{align}
 %
-Thus, 
 %
-  \begin{align}
-    \norm{}{B(x, y)} 
-     & = 
-    \alpha \beta \norm{}{
-        B\left(
-        %
-          \alpha^{\minus 1} x, 
-          \beta^{\minus 1} y
-        %
-        \right)
-      }\\
-    & < \alpha \beta.
-  \end{align}
+Given nonzero $\mathit{x}, \mathit{y}$, let $s$ range over $]0, r[$, so that the folllowing bound %
 %
-We now conclude that %
+\begin{align}
+  \norm{}{B(x, y)} = \frac{4\norm{}{x}\norm{}{y}}{s^2} %
+    \left\|
+      B \left(\frac{s}{2\norm{}{x}}x, \frac{s}{2\norm{}{y}}y \right)
+    \right\|
+  \overset{(\ref{bound for B})}{<} \frac{4 \norm{}{x} \norm{}{y}}{s^2}
+  %\quad (x\neq 0, y \neq 0)
+\end{align}
+is effective. % 
+It is now obvious that %%
 %
-  \begin{align}
-      B(x, y)\leq 
-    r^{\minus 2} \norm{}{x}\norm{}{y}.
-  \end{align}
+\begin{align}
+    B(x, y) \leq %
+    \frac{\!\!\!4\!}{\,s^{\,2}}\norm{}{x}\norm{}{y} 
+    \tendsto{s}{r}
+    \frac{\!\!\!4\!}{\,r^{\,2}}\norm{}{x}\norm{}{y}
+    \quad ((x, y) \in X \times Y); 
+\end{align}
 %
-So ends the proof. %
-%
-\newline\newline\noindent %
-%
+which achieves the proof.\\\\ %
+% % % % % % % %
+% SECOND PART %
+% % % % % % % %
 As a concrete example, choose %
 %
   $X = Y = Z = C_c(\R)$, %
 %
 topologized by the supremum norm. %
 %
-$C_c(\R)$ is not complete%
+$C_c(\R)$ is not complete %
 %
-  \footnote{
-    See 5.4.4 \cite{AnalyseIII} 
-  }, %
+(see 5.4.4 of \cite{AnalyseIII}), %
+%
 nevertheless the bilinear product %
 %
-  \begin{align}
-    B(f, g) = f\times g \quad ((f, g)\in C_c(\R)^2) %
-  \end{align}
-%
-is bounded, (since %
-    $\norm{\infty}{B(f,g)} = \norm{\infty}{f}\norm{\infty}{g}$%
-) %
-and continuous. To show this, pick a positive scalar $\epsilon $ %
-smaller than $1$ then put %
-%
 \begin{align}
-  r \Def \frac{\epsilon}{1 + \norm{\infty}{f} + \norm{\infty}{g}} % 
-\end{align}
-(bear in mind that $r < 1$). Next, choose $(u, v)$ in $C_c(\R)^2$ such that %
-%
-\begin{align}
-  \norm{\infty}{f-u} + \norm{\infty}{g-v} < r, %
+  \begin{aligned}
+    B: &&& C_c(\R)^{2} & \to      &&& C_c(\R) \\\nonumber 
+      &&& (f, g)       & \mapsto  &&& f \cdot g
+  \end{aligned}
 \end{align}
 %
-and so obtain (the triangle inequality will be tacitely used) %
+is bounded (since %
+    $\norm{\infty}{f\cdot g} \leq \norm{\infty}{f}\cdot \norm{\infty}{g}$%
+), %
+and continuous. To show this, pick a positive scalar %
+$\epsilon $ smaller than $1$, provided any $(f, g)$. Next, define %
+%
+\begin{align}
+  r \triangleq \frac{\epsilon}{1 + \norm{\infty}{f} + \norm{\infty}{g}} < 1. %
+\end{align}
+%
+We now restrict $(u, v)$ to a particular neighborhood of $(f, g)$. %
+More specifically,  
+\begin{align}
+  \norm{\infty}{f-u} + \norm{\infty}{g-v} < r. %
+\end{align}
+%
+Next, remark that %
+%
+  $\norm{\infty}{u} \leq r + \norm{\infty}{f}$ %
+%
+and so obtain (bear in mind that $r < 1$)%
 %
   \begin{align}
-    \norm{\infty}{fg - uv} %= & \norm{\infty}{(f- u)g  + u(g - v)} \\
-      & \leq 
-    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + \norm{\infty}{u} \cdot \norm{\infty}{g-v} \\
-      & <  r \norm{\infty}{g} + (r + \norm{\infty}{f}) \cdot r \\
-      & < r (r + \norm{\infty}{f} + \norm{\infty}{g})  \\
-      & < \epsilon; 
+    \norm{\infty}{fg - uv} 
+      & =
+    \norm{\infty}{(f-u) \cdot g + u \cdot (g-v)} \\
+      & \leq
+    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + 
+    \norm{\infty}{u}   \cdot \norm{\infty}{g-v} \\
+      & < r \cdot \norm{\infty}{g} + (r + \norm{\infty}{f}) \cdot r \\
+      & < r \cdot (r + \norm{\infty}{f} + \norm{\infty}{g})  \\
+      & < \epsilon.
   \end{align}
-  which establishes the continuousness of $B$. 
-  \end{proof}
-  % END
+%
+Since $\epsilon$ was arbitrary, it is now established that $B$ continuous %
+at every $(f, g)$.
+\end{proof}
+% END
