@@ -1,0 +1,117 @@
+\textit{The convex hull of a set $A$ in a vector space $X$ is the set of all %
+convex combinations of members of $A$, that is the set of all sums %
+%
+  $t_1 x_1 +\cdots +t_n x_n$ %
+%
+in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. 
+%
+Prove that the convex hull of a set $A$ is convex and that is the intersection 
+of all convex sets that contain $A$.}
+%
+\begin{proof} The convex hull of a set $S$ will be denoted by $\co{S}$. %
+Remark that $S \subset \co{S}$ %
+(to see that, take $t_1 = 1$ for each $x_1$ in $S$) and that %
+$\co{A} \subset \co{B}$ where $A \subset B$ (obvious).
+\\
+Our proof will directly derive from the following lemma, 
+\renewcommand{\labelenumi}{(\roman{enumi})} 
+\begin{quote}
+\textit{Let $S$ be a subset of a vector space $X$: Its convex hull $\co{S}$ %
+is convex and the following statements %
+\begin{enumerate}
+  \item $S$ is convex; %
+  \item{
+    %
+      $s_1 S + \dots + s_n S = (s_1 + \cdots + s_n) S$ %
+      %
+      for all positive scalar variables $\mathit{s_1}, \dots, \mathit{s_n}$; %
+  }
+  \item{
+    %
+    $\mathit{t_1} S + \dots + \mathit{t_n} S = S$ %
+    %
+    for all positive scalar variables $\mathit{s_1}, \dots, \mathit{s_n}$ %
+    such that %
+    %
+    $s_1 + \cdots + s_n = 1$; %
+  }
+  \item $\co{S} = S$
+\end{enumerate}
+are equivalent.}
+\end{quote}
+%
+More specifically, %
+%
+our proof of the second part will only depend on (i) $\Rightarrow$ (iv). \\
+\\
+From now on, we skip the trivial case $S=\emptyset$ %
+then only consider nonempty sets. %
+To prove the first part, let $\mathit{a}$, $\mathit{b}$ %
+run through the convex combination(s) of $S$, so that %
+%
+  $a = t_1 x_1 + \cdots + t_n x_n$ and %
+  $b = t_{n+1} x_{n+1} + \cdots + t_{n+p} x_{n+p}$ %
+%
+for some $(\mathit{t_i}, \mathit{x_i})$. %
+%
+Every sum $sa + (1-s)b $ ($0\leq s \leq 1$) is then a convex combination of %
+$\mathit{x_1}, \dots, \mathit{x_{n+p}}$, since %
+%
+\begin{align}
+  sa + (1-s)b = \sum_{i=1}^n st_i x_i + \sum_{i=n+1}^{n+p} (1-s)t_i x_i 
+\end{align}
+%
+and
+\begin{align}
+  \sum_{i=1}^n st_i + \sum_{i=n+1}^{n+p} (1-s)t_i &= 
+  s\sum_{i=1}^n t_i +(1-s) \sum_{i=n+1}^{n+p} t_i  = 1.
+\end{align}
+%
+In terms of sets $S$, this reads %
+\begin{align}
+  s\co{S} + (1-s)\co{S} \subset \co{S}; 
+\end{align}
+which was our fist goal. %
+We now aim at the equivalence %
+%
+(i) $\Rightarrow$ $\cdots$ $\Rightarrow$ (iv) $\Rightarrow$ (i): %
+%
+An easy proof by induction makes the implication (i) $\Rightarrow$ (ii) %
+directly come from (d) of the above exercise 1, chapter 1. %
+%
+(iii) is a special case of (ii),
+and the implication (iii) $\Rightarrow$ (iv) derives from the definition of %
+the convex hull. %
+%
+We now close the chain with (iv) $\Rightarrow$ (i), %
+by remarking that $S$ is convex whether $S = \co{S}$. %
+%  
+We now prove the second part: %
+Start from $F\ni\co{A}$ then possibly enrich $F$ the following way: %
+\begin{align}
+  B \in F \Rightarrow B \text{ is convex and contains }A.
+\end{align}
+Note that our definition of $F$ is weaker than the primary assumption %
+``[$F$ only encompasses] \textit{all convex sets that contain A}", %
+which is the special case %
+%
+\begin{align}
+  B \in F \Leftrightarrow B \text{ is convex and contains }A.
+\end{align}
+%
+In any case, the key ingredient is that %
+$\co{A} \in F$ forces $\co{A} \supset \bigcap F$. %
+Conversely, the following formula %
+%
+\begin{align}
+  \co{A} \subset \co{B} \overset{(i) \Rightarrow (iv)}{=} B \quad (B \in F) 
+\end{align}
+%
+is valid and implies %
+\begin{align}
+  \co{A} \subset \bigcap_{B \in F} B. 
+\end{align}
+%
+So ends the proof
+\end{proof}
+%
