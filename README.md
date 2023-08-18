@@ -50,6 +50,9 @@ Feel free to get copies of this great book by yourself.
   - 1_1.tex
     Basic results that straightforwardly follow from the axioms 
     as given as in section 1.4.
+  - 1_2.tex 
+    The convex hull of a set A is convex and that is the intersection of 
+    all convex set(s) that contain A.
   - 1_7.tex  
     I choose to start with this because it is a lovely result, 
     since it connects a topological result 
