@@ -1,0 +1,172 @@
+\renewcommand{\labelenumi}{(\alph{enumi})} 
+\textit{
+Let be X as topological vector space. All sets mentioned below are understood to be the subsets of X. Prove the following statements:
+\begin{enumerate}
+\item The convex hull of every open set is open.
+\item If X is locally convex then the convex hull of every bounded set is bounded.
+\item If A and B are bounded, so is A+B.
+\item If A and B are compact, so is A+B.
+\item If A is compact and B is closed, then A+B is closed.
+\item The sum of two closed sets may fail to be closed.
+\end{enumerate}
+}
+%: (a)
+\begin{proof}
+\renewcommand{\labelenumi}{(\arabic{enumi})} 
+\begin{enumerate}
+\item 
+Pick a nonempty open set $A$ then let all variables %
+$\mathit{x_i}$ ($i=1, 2, \dots$) range over $A$, %
+so that, at each $i$,  %
+%
+\begin{align}
+  x_i \in V_i \subset A 
+\end{align}
+%
+for some neighborhood $V_i$ of $x_i$. %
+%
+Hence 
+%
+\begin{align}
+  \sum t_i x_i \in \sum t_i V_i  \subset \co{A}
+\end{align}
+%
+at arbitrary convex combination $\sum_i t_i x_i$. %
+Now remark that $\sum t_i V_i$ is open; see [1.7] of \cite{FA}; %
+which achieves the proof (the case $A=\emptyset$ is trivial). %
+%
+%:(b)
+\item Provided a bounded set $E$, %
+pick $V$ a neighbourhood of $0$: By (b) of [1.14] in \cite{FA}, %
+$V$ contains a convex neighbourhood of $0$, say $W$. %
+%
+There so exists a positive scalar $s$ such that
+%
+\begin{align}
+  E \subset tW \subset tV \quad (t>s); 
+\end{align}
+%
+which yields %
+%
+\begin{align}
+  \co{E} \subset \co{tW} = t\co{W} = t W \subset tV.
+\end{align}
+%
+So ends the proof. %
+%
+%:(c)
+\item At fixed neighbourhood of $\{0\}$ $V$, %
+we combine the continuousness of $+$ with [1.14] of \cite{FA} %
+to conclude that there exists $U$ a balanced neighborhood of the origin %
+such that %
+%
+\begin{align}
+  U+U\subset V. 
+\end{align}
+%
+Moreover, by the very definition of boundedness, %
+$A \subset r U$ for some positive scalar $r$. % 
+Similarly, $B \subset s U$ for some positive $s$. % 
+%
+Finally, 
+%
+\begin{align}
+A+B \subset  rU + sU \subset tU + tU \subset tV \quad (t > r, s), 
+\end{align}
+%
+since $U$ is balanced. So ends the proof. %
+%
+%:(d)
+\item First, $A$ and $B$ are compact: So is $A\times B$. %
+Next, $+$ maps continuously $A\times B$ onto $A+B$. %
+In conclusion, $A+B$ is compact. %
+%
+%:(e)
+\item First, choose an arbitrary $c$ outside $A+B$: %
+The result will be established by showing that $c$ is not in the closure %
+of $A+B$. %
+%
+To do so, let the variable $\mathit{a}$ range over $A$: %
+Every set $a+B$ is closed as well: see [1.7] of \cite{FA}. %
+%
+Trivially, $a+B \neq c$: By [1.10] of \cite{FA}, %
+there so exists $V=V(a)$ a neighborhood of the origin such that %
+%
+\begin{align}
+  (a+B + V) \cap (c+V) = \emptyset.
+\end{align}
+%
+Moreover, there are finitely many $a+V$, say $a_1 + V_1, a_2 + V_2, \dots$, %
+whose union $U$ contains the compact set $A$. Therefore, %
+%
+\begin{align}\label{U + B encloses A + B}
+  A+B \subset U + B.
+\end{align}
+%
+Now define %
+\begin{align}
+  W \triangleq V_1 \cap V_2 \cap \cdots, 
+\end{align}
+%
+so that 
+%
+\begin{align}
+  (a_i + B + V_i) \cap (c + W) = \emptyset \quad (i = 1, 2, \dots).
+\end{align}
+%
+This shows that $c$ is not in the closure of $U+B$. %
+Finally, we use (\ref{U + B encloses A + B}) to conclude that $c$ %
+is not in $\overline{A+B}$ either; which achieves the proof. \\
+\\
+\textbf{Corollary}: if $B$ is the closure of a set $S$, then %
+%
+\begin{align}
+  A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
+\end{align}
+%
+by (b) of [1.13] of \cite{FA} (since $A$ is closed; %
+see [1.12] from the same source). %
+This special case will occur in the proof of exercise 15 of chapter 2. %
+%
+%:(f)
+\item The last proof will consist in exibhiting a counterexample. %
+To do so, let $f$ be any continuous mapping of the real line such that %
+\renewcommand{\labelenumii}{(\roman{enumii})} 
+\begin{enumerate}
+  \item $f(x) + f(\minus x) \neq 0$ \quad ($x \in \R$);
+  \item $f$ vanishes at infinity. 
+\end{enumerate}
+For instance, we may set %
+%
+  $f(x) = 2^{\minus |x|}$, %
+  $f(x) = e^{\minus x^2}$, %
+  $f(x) = 1/(1+|x|)$, \dots, %
+%
+and so on. \\
+\\
+As a continous function, $f$ has closed graph $G$; see [2.14] of \cite{FA}. %
+%
+Moreover, (i) implies that the origin %
+%
+  $(0, 0)= \left(x-x, f(x)+ f(\minus x)\right)$ %
+% 
+is not in $G+G$. %
+%
+On the other hand, 
+%
+\begin{align}
+  \{ \left(0, f(n) + f(\minus n)\right): n=1, 2, \dots\} \subset G + G.
+\end{align}
+%
+
+%
+Now the key ingredient is that % 
+%
+\begin{align}
+  \left(0, f(n)+f(\minus n)\right) \overset{(ii)}{\tendsto{n}{\infty}} (0, 0). 
+\end{align}
+%
+We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
+So ends the proof.
+\end{enumerate}
+\end{proof}
