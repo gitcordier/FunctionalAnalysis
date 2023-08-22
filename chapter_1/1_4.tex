@@ -7,19 +7,29 @@ Show that $B$ is balanced but that its interior is not.
 %
 \begin{proof}
 It is obvious that $B$ contains the origin $(0,0)$. %
-More generally, the nonempty set $B$ is balanced, since
+Additionally, $B$ has nomempty interior. Indeed, the following set %
+%
+\begin{align}
+  \{(z_1, z_2) \in \C^2: |1- z_1| + |2- z_2] < 1/2 \} \subset B %
+\end{align}
+%
+is a neighborhood of $(1, 2) \in B$. %
+Moreover, $B$ is balanced, since
 \begin{align}
   |\alpha z_1|  = |\alpha| |z_1| \leq  |\alpha| |z_2| = |\alpha z_2| %
   \quad (|\alpha| \leq 1)
 \end{align}
 %
 for all $(z_1, z_2)$ in $B$. %
-Nevertheless, $(0, 0)$ is not an interior point of $B$. %
-In order to show this, assume, to reach a contradiction, %
+%
+Nevertheless, the nonempty set $B^\circ$ is not balanced, what we now %
+establish by showing that $(0, 0) \notin B^\circ$. %
+%
+To do so, assume, to reach a contradiction, %
 that the origin has a neighborhood %
 %
 \begin{align}
-  U \triangleq \{(u_1, u_2): |u_1| + |u_2] < r \} \subset B %
+  U \triangleq \{(z_1, z_2) \in \C^2: |z_1| + |z_2] < r \} \subset B %
 \end{align}
 %
 for some positive $r$. Clearly, $U$ contains $(r/2, 0)$ %
