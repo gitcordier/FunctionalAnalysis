@@ -86,8 +86,8 @@ the convex hull. %
 We now close the chain with (iv) $\Rightarrow$ (i), %
 by remarking that $S$ is convex whether $S = \co{S}$. %
 %  
-We now prove the second part: %
-Start from $F\ni\co{A}$ then possibly enrich $F$ the following way: %
+The lemma being proved, let us establish the second part. %
+To do so, start from $F\ni\co{A}$ then possibly enrich $F$ the following way: %
 \begin{align}
   B \in F \Rightarrow B \text{ is convex and contains }A.
 \end{align}
@@ -99,9 +99,13 @@ which is the special case %
   B \in F \Leftrightarrow B \text{ is convex and contains }A.
 \end{align}
 %
-In any case, the key ingredient is that %
-$\co{A} \in F$ forces $\co{A} \supset \bigcap F$. %
-Conversely, the following formula %
+In any case, the key ingredient is that $\co{A} \in F$ implies %
+%
+\begin{align}
+ \co{A} \supset \bigcap_{B \in F} B.
+\end{align}
+%
+Conversely, the next formula %
 %
 \begin{align}
   \co{A} \subset \co{B} \overset{(i) \Rightarrow (iv)}{=} B \quad (B \in F) 

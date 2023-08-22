@@ -174,7 +174,7 @@ There is no more to prove. %
 \renewcommand{\labelenumii}{(\roman{enumii})}
 \textit{
 \begin{quote}
-If $S\subset X$, then any assertion 
+If $\emptyset \neq S\subset X$, then any assertion 
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$;
 \item $S$ is convex balanced such that $S + S = S$;
@@ -184,7 +184,8 @@ implies the other ones.
 \end{quote}
 }
 %
-To prove the lemma, let $\mathit{S}$ range over the subsets of $X$. %
+To prove the lemma, let $\mathit{S}$ %
+run through all nonempty subsets of $X$. %
 First, assume that (i) holds: Clearly, every $S$ is convex balanced. %
 Moreover, $S+S \subset S$.  Conversely, $S = S + \{0\} \subset S + S $; %
 which establishes (ii). %
@@ -215,7 +216,7 @@ which is (iii). Finally, dropping (ii) in favor of (iii) leads to %
 %
 \begin{align} 
   \alpha  S +\beta  S 
-  = |\alpha | S + | \beta | S 
+  \overset{(a)}{=} |\alpha | S + | \beta | S 
   \overset{(d)}{=} (|\alpha | + | \beta| )S 
   \overset{(iii)}{=} S 
   %

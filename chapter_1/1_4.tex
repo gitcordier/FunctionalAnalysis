@@ -1,0 +1,29 @@
+\textit{Let be %
+%
+  $B = \{(z_{1}, z_{2}) \in \C^2: |z_{1}| \leq |z_{2}| \}$. %
+%
+Show that $B$ is balanced but that its interior is not.
+}
+%
+\begin{proof}
+It is obvious that $B$ contains the origin $(0,0)$. %
+More generally, the nonempty set $B$ is balanced, since
+\begin{align}
+  |\alpha z_1|  = |\alpha| |z_1| \leq  |\alpha| |z_2| = |\alpha z_2| %
+  \quad (|\alpha| \leq 1)
+\end{align}
+%
+for all $(z_1, z_2)$ in $B$. %
+Nevertheless, $(0, 0)$ is not an interior point of $B$. %
+In order to show this, assume, to reach a contradiction, %
+that the origin has a neighborhood %
+%
+\begin{align}
+  U \triangleq \{(u_1, u_2): |u_1| + |u_2] < r \} \subset B %
+\end{align}
+%
+for some positive $r$. Clearly, $U$ contains $(r/2, 0)$ %
+and that special case $(r/2, 0) \in B$ now contradicts the definition of $B$. %
+So ends the proof.
+\end{proof}
+

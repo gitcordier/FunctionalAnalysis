@@ -82,7 +82,7 @@ Next, $+$ maps continuously $A\times B$ onto $A+B$. %
 In conclusion, $A+B$ is compact. %
 %
 %:(e)
-\item First, choose an arbitrary $c$ outside $A+B$: %
+\item First, choose an arbitrary $c\in X$ outside $A+B$: %
 The result will be established by showing that $c$ is not in the closure %
 of $A+B$. %
 %
@@ -92,7 +92,7 @@ Every set $a+B$ is closed as well: see [1.7] of \cite{FA}. %
 Trivially, $a+B \neq c$: By [1.10] of \cite{FA}, %
 there so exists $V=V(a)$ a neighborhood of the origin such that %
 %
-\begin{align}
+\begin{align}\label{separation}
   (a+B + V) \cap (c+V) = \emptyset.
 \end{align}
 %
@@ -111,14 +111,15 @@ Now define %
 so that 
 %
 \begin{align}
-  (a_i + B + V_i) \cap (c + W) = \emptyset \quad (i = 1, 2, \dots).
+  (a_i + B + V_i) \cap (c + W) \overset{(\ref{separation})}{=} \emptyset %
+  \quad (i = 1, 2, \dots).
 \end{align}
 %
-This shows that $c$ is not in the closure of $U+B$. %
-Finally, we use (\ref{U + B encloses A + B}) to conclude that $c$ %
+As a conclusion, $c$ is not in the closure of $U+B$. %
+Finally, we use (\ref{U + B encloses A + B}) to assert that $c$ %
 is not in $\overline{A+B}$ either; which achieves the proof. \\
 \\
-\textbf{Corollary}: if $B$ is the closure of a set $S$, then %
+\textbf{Corollary}: If $B$ is the closure of a set $S$, then %
 %
 \begin{align}
   A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
@@ -136,7 +137,7 @@ To do so, let $f$ be any continuous mapping of the real line such that %
   \item $f(x) + f(\minus x) \neq 0$ \quad ($x \in \R$);
   \item $f$ vanishes at infinity. 
 \end{enumerate}
-For instance, we may set %
+For instance, we may combine (ii) with $f$ even and $f>0$ by setting %
 %
   $f(x) = 2^{\minus |x|}$, %
   $f(x) = e^{\minus x^2}$, %
@@ -148,7 +149,7 @@ As a continous function, $f$ has closed graph $G$; see [2.14] of \cite{FA}. %
 %
 Moreover, (i) implies that the origin %
 %
-  $(0, 0)= \left(x-x, f(x)+ f(\minus x)\right)$ %
+  $(0, 0) \neq \left(x-x, f(x)+ f(\minus x)\right)$ %
 % 
 is not in $G+G$. %
 %
@@ -170,3 +171,4 @@ We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
 So ends the proof.
 \end{enumerate}
 \end{proof}
+%END
