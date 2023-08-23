@@ -12,7 +12,7 @@ Let be X as topological vector space. All sets mentioned below are understood to
 }
 %: (a)
 \begin{proof}
-\renewcommand{\labelenumi}{(\arabic{enumi})} 
+\renewcommand{\labelenumi}{(\alph{enumi})} 
 \begin{enumerate}
 \item 
 Pick a nonempty open set $A$ then let all variables %
@@ -32,12 +32,12 @@ Hence
 \end{align}
 %
 at arbitrary convex combination $\sum_i t_i x_i$. %
-Now remark that $\sum t_i V_i$ is open; see [1.7] of \cite{FA}; %
+Now remark that $\sum t_i V_i$ is open; see Section 1.7 of \cite{FA}; %
 which achieves the proof (the case $A=\emptyset$ is trivial). %
 %
 %:(b)
 \item Provided a bounded set $E$, %
-pick $V$ a neighbourhood of $0$: By (b) of [1.14] in \cite{FA}, %
+pick $V$ a neighbourhood of $0$: By (b) of Section 1.14 in \cite{FA}, %
 $V$ contains a convex neighbourhood of $0$, say $W$. %
 %
 There so exists a positive scalar $s$ such that
@@ -55,8 +55,8 @@ which yields %
 So ends the proof. %
 %
 %:(c)
-\item At fixed neighbourhood of $\{0\}$ $V$, %
-we combine the continuousness of $+$ with [1.14] of \cite{FA} %
+\item At fixed $V$, neighbourhood of the origin, %
+we combine the continuousness of $+$ with Section 1.14 of \cite{FA} %
 to conclude that there exists $U$ a balanced neighborhood of the origin %
 such that %
 %
@@ -82,14 +82,16 @@ Next, $+$ maps continuously $A\times B$ onto $A+B$. %
 In conclusion, $A+B$ is compact. %
 %
 %:(e)
-\item First, choose an arbitrary $c\in X$ outside $A+B$: %
+\item From now on, we assume that neither $A$ nor $B$ is empty, %
+since otherwise the result is trivial.  %
+Now pick $c\in X$ outside $A+B$: %
 The result will be established by showing that $c$ is not in the closure %
-of $A+B$. %
+of $A+B$. \\
+\\
+To do so, we let the variable $\mathit{a}$ range over $A$: %
+Every set $a+B$ is closed as well; see Section 1.7 of \cite{FA}. %
 %
-To do so, let the variable $\mathit{a}$ range over $A$: %
-Every set $a+B$ is closed as well: see [1.7] of \cite{FA}. %
-%
-Trivially, $a+B \neq c$: By [1.10] of \cite{FA}, %
+Trivially, $a+B \neq c$: By Section 1.10 of \cite{FA}, %
 there so exists $V=V(a)$ a neighborhood of the origin such that %
 %
 \begin{align}\label{separation}
@@ -116,8 +118,8 @@ so that
 \end{align}
 %
 As a conclusion, $c$ is not in the closure of $U+B$. %
-Finally, we use (\ref{U + B encloses A + B}) to assert that $c$ %
-is not in $\overline{A+B}$ either; which achieves the proof. \\
+Finally, (\ref{U + B encloses A + B}) asserts that %
+$c$ is not in $\overline{A+B}$ either; which achieves the proof. \\
 \\
 \textbf{Corollary}: If $B$ is the closure of a set $S$, then %
 %
@@ -125,9 +127,10 @@ is not in $\overline{A+B}$ either; which achieves the proof. \\
   A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
 \end{align}
 %
-by (b) of [1.13] of \cite{FA} (since $A$ is closed; %
-see [1.12] from the same source). %
-This special case will occur in the proof of exercise 15 of chapter 2. %
+by (b) of Section 1.13 of \cite{FA} (since $A$ is closed; %
+see Section 1.12, from the same source). %
+The special case $A = \{x\}$, $B=X$ %
+will occur in the proof of Exercise 15 in chapter 2. %
 %
 %:(f)
 \item The last proof will consist in exibhiting a counterexample. %

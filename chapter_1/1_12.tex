@@ -1,0 +1,31 @@
+%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+{\CMUCS Suppose $d_{1}(x,y)=|x-y|, d_{2}(x,y)=|\phi(x)-\phi(y)|$, where $\phi(x)={x}/{(1+\lvert x \rvert )}$. Prove that $d_{1}$ and $d_{2}$ are metrics on $\R$ which induce the same topology, although $d_{1}$ is complete and $d_{2}$ is not.}
+\paragraph{PROOF.} First, each $d_i\, (i=1,\,2)$ induces a topology $\tau_i\,$ spanned by set of open balls 
+\begin{align}\label{1_12_2}
+B_i(a,r)\Def \{ x\in \R:\, d_i (a,\,x) < r\} \quad (a\in \R\,,\, \, r\in \R_+ )\quad . \end{align}
+Next, remark that the mapping $\phi:\,  \R\to (\moins 1\, ;\,1)\,$ is odd and that
+\begin{align}\label{1_12_1}
+1> \phi(x)=1-\frac{1}{x+1} \underset{x\infty}{\uparrow} 1 \quad \quad (x\> 0) \quad.
+\end{align}
+$\phi$ is then an $\tau_1$-homeomorphism of $\R\,$ onto $(\moins 1\,;\, 1)$. Pick $a\,$ in $\R\,$: given any positive scalar $\varepsilon\,$ the $\tau_1$-continuity of $\phi\,$ supplies a positive scalar $\eta=\eta(\eps)\,$ so that 
+\begin{align}
+\forall x \in\R:\: (\, |a-x|< \eta \,\donc\, |\phi(a)-\phi(x)|< \varepsilon)\quad , \end{align}
+\ie
+\begin{align}\label{1_12_5}
+B_1(a,\eta)\subset B_2(a,\eps)\quad  .\end{align}
+Keep $a\,$ and deduce from the $\tau_1$-continuity of $\phi^{\moins 1}:\, (\moins 1;\, 1)\to \R\,$ that there exists a positive scalar $\varepsilon'\,$ such that 
+\begin{align} \label{1_12_6}
+\quad B_{2}(a,\varepsilon')\subset B_{1}(a,\,\eta')  \quad  ,\end{align}
+provided a positive scalar $\eta'\,$. The special case $\eta' \Def \eta(\eps)\,$ leads us to 
+\begin{align}
+B_{2}(a,\varepsilon')\overset{(\ref{1_12_6})}{\subset} B_{1}(a,\eta ) \overset{(\ref{1_12_5})}{\subset} B_2(a,\eps)\quad . \end{align}
+This yields
+\begin{align}\tau_1=\tau_2 \quad . \end{align}
+Finally, let $m\,$ and $n\,$ range $\N\,$, so that
+\begin{align}
+\quad d_{2}(m,\,n)=|\phi(m)-\phi(n)| {\underset{m> n \infty}{\longrightarrow}}0\quad .
+\quad \end{align}
+The natural numbers sequence is then a $\tau_2$-Cauchy one that $\tau_2$-diverges, since
+\begin{align}
+d_{2}(0,\,n) = \phi (n) \underset{n\infty}{\longrightarrow}1 \, \notin \, \phi(\R) \quad .\end{align}
+Hence $d_2\,$ fails to be complete.\QED

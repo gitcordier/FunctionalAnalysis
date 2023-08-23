@@ -275,28 +275,13 @@ TSWLatexianTemp*
 # Makeindex log files
 *.lpz
 
-# Files that are not ready
-1_01*
-1_02*
-1_03*
-1_04*
-1_05*
-1_06*
- #
-1_08*
- #
-1_11*
-1_12*
-1_13*
- #
-1_15*
- #
- #
-1_18*
+# Files that are not ready / not relevant
 dyadic*
 Annex*
+
 # Misc
 misc*
+
 *misc*
 .DS_Store
 

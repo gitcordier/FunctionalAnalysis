@@ -20,7 +20,7 @@
 \end{enumerate}
 }
 %
-\renewcommand{\labelenumi}{\arabic{enumi}.} 
+\renewcommand{\labelenumi}{(\alph{enumi})} 
 \begin{proof}
 \begin{enumerate}
 %: (a)
@@ -130,27 +130,37 @@ which achieves the proof. %
 %
 \begin{align}
   (s+t) \bigcap C \subset s\bigcap C + t\bigcap C \subset  sA + tA 
-  \overset{(d)}{=} (s+t)A
+  \overset{(d)}{\subset} (s+t)A
 \end{align}
 %
-for all positives scalars $\mathit{s}$, $\mathit{t}$. Thus, %
+for all positives scalars $\mathit{s}$, $\mathit{t}$. %
+Inclusions at both extremities force %
 %
 \begin{align}
-  (s+t) \bigcap C \subset s\bigcap C  + t \bigcap C  \subset (s+t) \bigcap C.
+  s\bigcap C  + t\bigcap C = (s+t) \bigcap C.
 \end{align}
 %
 We now conclude from (d) that the intersection of $C$ is convex. %
 So ends the proof.
 %: (g)
-\item Pick $x_1, x_2$ in $\bigcup \Gamma$, 
+\item Skip all trivial cases %
+%
+  $\Gamma = \emptyset$, %
+  $\{ \emptyset\}$, %
+  $\{\{x\}\}$, %
+  $\{\emptyset$, %
+  $\{x\}\}$ %
+%
+then pick $x_1, x_2$ in $\bigcup \Gamma$, 
 so that each $x_i$ ($i=1, 2)$ lies in some $C_i \in \Gamma$. %
 %
 Since $\Gamma$ is totally ordered by set inclusion, we henceforth assume %
 without loss of generality that $C_1$ is a subset of $C_2$. %
 %
 So, $x_1, x_2$ are now elements of the convex set $C_2$. %
-Every convex combination of our $x_1$'s is then in %
-$C_2 \subset \bigcup \Gamma $, hence (g). %
+Every convex combination of our $x_i$'s is then in %
+$C_2 \subset \bigcup \Gamma$. Hence (g). %
+%
 %: (h)
 \item Simply remark that 
 %
@@ -164,23 +174,23 @@ then conclude from (d) that $A + B$ is convex. %
 \item Given any $\alpha$ from the closed unit disc, %
 %
 \begin{align}
-\alpha(A+B)=\alpha A+ \alpha B \subset A+B.
+\alpha(A+B)=\alpha A+ \alpha B \subset A+B. 
 \end{align}
 %
-There is no more to prove. %
+There is no more to prove: $A+B$ is balanced. %
 %: (j)
 \item Our proof will be based on the following lemma, %
 %
 \renewcommand{\labelenumii}{(\roman{enumii})}
 \textit{
 \begin{quote}
-If $\emptyset \neq S\subset X$, then any assertion 
+If $S$ is nonempty, then each of the following three properties
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$;
 \item $S$ is convex balanced such that $S + S = S$;
 \item $S$ is convex balanced such that $\lambda S=S\quad (\lambda > 0)$
 \end{enumerate}
-implies the other ones. 
+implies the other two.
 \end{quote}
 }
 %
@@ -197,7 +207,8 @@ Next, assume (only) (ii): A proof by induction shows that %
 \end{align}
 %
 with the help of (b) and (d). %
-The special case $n = \lceil{1/\lambda}\rceil + \lceil{\lambda}\rceil$ ($\lambda > 0$) yields %
+Pick $\lambda >0$ then choose $n$ so large that $1 < n \lambda < n^2$. %
+Thus, %
 %
 \begin{align}
   nS \overset{(\ref{induction nS})}{\subset} S 
@@ -205,7 +216,11 @@ The special case $n = \lceil{1/\lambda}\rceil + \lceil{\lambda}\rceil$ ($\lambda
   \subset  n^2 S, 
 \end{align}
 %
-since $S$ is balanced and that $1 < n \,\lambda < n^2$. %
+since $S$ is balanced. %
+For instance, set %
+%
+  $n = \lceil{1/\lambda}\rceil + \lceil{\lambda}\rceil$. %
+%
 Dividing the latter inclusions by $n$ shows that %
 %
 \begin{align} 
@@ -251,13 +266,10 @@ Next, let $\mathit{Y}$ range over $V$, so that %
 which yields
 %
 \begin{align}
-  I + I \subset I. 
+  I + I = I 
 \end{align}
 %
-Conversely, 
-\begin{align}
-  I  = I + \{0\} \subset I + I.
-\end{align}
+(the fact that $I  = I + \{0\} \subset I + I$ was tacitely used). %
 %
 It now follows from the lemma's (ii) $\Rightarrow$ (i) that %
 $I$ is a vector subspace of $X$. %
@@ -284,7 +296,7 @@ Combined with the latter inclusions, this leads to %
 It then follows from the lemma's (ii) $\Rightarrow$ (i) that %
 $U$ is a vector subspace of $X$. %
 %
-Finally, let $\mathit{A},\mathit{B}$ run through the vector subspaces of $X$: %
+Finally, let $\mathit{A},\mathit{B}$ run through all vector subspaces of $X$: %
 Combining (h) with (i) proves that $A+B$ is convex balanced as well. %
 %
 Furthermore, %
@@ -299,3 +311,4 @@ We now conclude from (ii) that any $A+B$ is a vector subspace of $X$. %
 So ends the proof. %
 \end{enumerate}
 \end{proof}
+% END

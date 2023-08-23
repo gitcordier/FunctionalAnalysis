@@ -20,21 +20,22 @@ $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 %We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
 %has positive dimension $n$. \\\\
 %
-Discard the trivial case $\Lambda = 0$ then assume that %
+Discard the trivial case $\Lambda = 0$ and so assume that %
 $\dim Y = n$ %
 for some positive $n$. %
-Let $e$ range over a base of $B$ of $Y$. %
-Pick $W$ an arbitrary neighborhood of the origin: %
+Let $e$ range over a base of $B$ of $Y$ then %
+pick $W$ an arbitrary neighborhood of the origin: %
 There so exists $V$ %
 a balanced neighborhood of the origin such that 
 %
   \begin{align}
     \label{definition of v}
-    \underset{
-      \text{Put } V \text{ exactly } n \text{ time(s)}
-    }{
-      \underbrace{V+\cdots +V}
-    }\subset W, 
+    %\underset{
+    %  \text{Put } V \text{ exactly } n \text{ time(s)}
+    %}{
+    %  \underbrace{V+\cdots +V}
+    %}\subset W, 
+    \sum_{e} V \subset W, 
   \end{align}
 %
 since addition is continuous. %
@@ -46,12 +47,11 @@ there exists $x_e$ in $X$ such that
 simply because $\Lambda$ is onto. So,
 %
   \begin{align}\label{1_10_sum}
-    y = \sum_{e} y_e \cdot \Lambda x_e, 
+    y = \sum_{e} y_e \cdot \Lambda x_e \quad \quad (y\in Y).
   \end{align}
 %
-given any element $y=\sum_{e}y_e\cdot e$ of $Y$. %
 As a finite set, $\set{x_e}{e\in B}$ is bounded: %
-In particular, there exists  a positive scalar $s$ such that  
+There so exists a positive scalar $s$ such that  
 %
   \begin{align}
     \forall e\in B,  x_e \in s \cdot V.
