@@ -1,0 +1,135 @@
+%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+\textit{
+Let $\phi$ be the embedding of $X$ into $X^{\,\ast\ast}$ decribed in Section 4.5. Let $\tau$ be the weak topology of $X$, and let $\sigma$ be the weak$^{\,\ast}$- topology of $X^{\,\ast\ast}$- the one induced by $X^{\,\ast}$.
+\begin{enumerate}
+  \item Prove that $\phi$ is an homeomorphism of $(X,\, \tau)$ onto a dense subspace of $(X^{\,\ast\ast},\, \sigma)$.
+  \item If $B$ is the closed unit ball of $X$, prove that $\phi(B\,)$ is $\sigma$-dense in the closed unit ball of $X^{\,\ast\ast}$. (Use the Hahn-Banach separation theorem.)
+  \item Use (a), (b), and the Banach-Alaoglu theorem to prove that $X$ is reflexive if and only if $B$ is weakly compact.
+  \item Deduce from (c) that every norm-closed subspace of a reflexive space is reflexive.
+  \item If $X$ is reflexive and $Y$ is a closed subspace of $X$, prove that $X/Y$ is reflexive.
+  \item Prove that $X$ is reflexive if and only $X^{\,\ast} $ if reflexive. \\ Suggestion: One half follows from (c); for the other half, apply (d) to the subspace $\phi(X\,)$ of $X^{\,\ast\ast}$.
+\end{enumerate}
+}
+
+\begin{proof}
+Let $\psi$ be the isometric embedding of $X^\ast$ into $X^{\ast\ast\ast}$. %
+The dual space of $(X^{\ast\ast},\sigma)$ is then $\psi(X^\ast)$. \\
+\\
+%
+It is sufficient to prove that
+\begin{align}
+  \phi^{\minus 1}: \phi(X) \to & X \\
+  \phi (x) \mapsto & x 
+\end{align}
+%
+is an homeomorphism (with respect to $\tau$ and $\sigma$). We first consider
+\begin{align}
+  V \Def & \set{
+      x^{\ast\ast} \in X^{\ast\ast} }{ 
+      \magnitude{ \bra{x^{\ast\ast} }\ket{\psi x^\ast}} < r
+    } & (x^{\ast} \in X^{\ast}, r > 0); \\
+  U \Def & \set{
+      x \in X }{
+      \magnitude{ \bra{x}\ket{x^\ast} } < r 
+    } & (x^\ast \in X^\ast, r > 0 ).
+\end{align}
+and remark that the so defined $V\,$'s (respectively $U\,$'s) shape a local subbase $\mathscr{S}_\sigma$ (respectively $\mathscr{S}_\tau$) of $\sigma$ (respectively $\tau$). We now observe that 
+\begin{align}
+U=\phi^{\minus 1} \left(V \cap \phi(X\,) \right) = \phi^{\minus 1} (V)  \cap X \quad ( V\in \mathscr{S}_\sigma\,,\,\,U\in \mathscr{S}_\tau) \quad ,
+\end{align}
+since $\phi^{\minus 1}$ is one-to-one. This remains true whether we enrich each subbase $\mathscr{S}$ with all finite intersections of its own elements, for the same reason. It then follows from the very definition of a local base of a weak / weak$^\ast$-topology that $\phi^{\minus 1}$ and its inverse $\phi$ are continuous.\\
+\\
+The second part of (a) is a special case of [3.5] and is so proved. First, it is evident that 
+\begin{align}
+\overline{\phi(X\,)}_\sigma\subset X^{\,\ast\ast}\quad .
+\end{align}
+and we now assume- to reach a contradiction- that $(X^{\,\ast\ast},\, \sigma)$ contains a point $z^{\,\ast\ast}$ outside the $\sigma$-closure of $\phi(X\,)$. By [3.5], there so exists $y^{\,\ast}$ in $X^{\,\ast}$ such that 
+\begin{align}
+\label{4_1_6} \langle \phi x,\, \psi y^{\,\ast} \rangle=&\langle  y^{\,\ast} ,\,\phi x \rangle= \langle x,\, y^{\,\ast}\rangle= 0\quad (x\in X\,)\quad ; \\
+\label{4_1_7} \langle z^{\,\ast\ast},\, \psi y^{\,\ast} \rangle=&\,1
+\end{align}
+(\ref{4_1_6}) forces $y^{\,\ast}$ to be a the zero of $X^{\,\ast}$. The functional $\psi y^{\,\ast}$ is then the zero of $X^{\,\ast\ast\ast}$: (\ref{4_1_7}) is contradicted. Statement (a) is so proved; we next deal with (b).\\
+\\
+%: (b)
+The unit ball $B^{\,\ast\ast}$ of $X^{\,\ast\ast}$ is weak$^\ast$-closed, by (c) of [4.3]. On the other hand,
+\begin{align}
+\phi(B\,)\subset  B^{\,\ast\ast}\quad ,
+\end{align}
+since $\phi$ is isometric. Hence
+\begin{align}
+\overline{\phi(B\,)}_\sigma\subset \overline{ (B^{\,\ast\ast})}_\sigma=  B^{\,\ast\ast}\quad .
+\end{align}
+Now suppose, to reach a contradiction, that $B^{\,\ast\ast}\setminus \overline{\phi(B\,)}_\sigma$ contains a vector $z^{\,\ast\ast}$. By [3.7], there exists $y^{\,\ast}$ in $X^{\,\ast}$ such that 
+\begin{align}
+ \label{4_1_10} \lvert \psi y^{\,\ast}  \rvert \leq &1 \quad  \text{on}\,\,\overline{\phi(B\,)}_\sigma \quad  ; \\
+   \label{4_1_11}  \langle z^{\,\ast\ast},\, \psi y^{\,\ast} \rangle > &1\quad .
+\end{align}
+It follows from (\ref{4_1_10}) that 
+\begin{align}
+\lvert \, \psi y^{\,\ast}\,   \rvert \leq 1 \text{  on }\phi(B\,)\, , \, \, \ie \lvert\, y^{\,\ast}  \, \rvert \leq 1  \text{  on } B\quad .
+\end{align}
+We have so proved that 
+\begin{align}
+y^{\,\ast} \in B^\ast \quad .
+\end{align}
+Since $ z^{\,\ast\ast}$ lies in $B^{\,\ast\ast}$, it is now clear that 
+\begin{align}
+\lvert \langle z^{\,\ast\ast},\,  \psi y^{\,\ast} \rangle\rvert \leq 1\quad; 
+\end{align}
+what it contradicts (\ref{4_1_11}), and thus proves (b). We now aim at (c).\\
+\\
+%: c
+It follows from (a) that
+\begin{align}\label{4_15}
+B\text{ is weakly compact if and only if }\phi(B\,) \text{ is weak}^\ast\text{-compact. }
+\end{align}
+If $B$ is weakly compact, then $\phi(B\,)$ is weak$^\ast$-closed. So,
+\begin{align}
+\phi(B\,)= \overline{\phi(B\,)}_\sigma\overset{(b)}{=} B^{\,\ast\ast}\quad .
+\end{align}
+$\phi$ is therefore onto, \ie $X$ is reflexive.\\
+Conversely, keep $\phi$ as onto: one easily checks that $\phi(B\,)=B^{\,\ast\ast}$. The image $\phi (B\,)$ is then weak$^\ast$-compact by (c) of [4.3]. The conclusion now follows from (\ref{4_15}).\\
+\\
+%: (d)
+Next, let $X$ be a reflexive space $X$, whose closed unit ball is $B$. Let $Y$ be a norm-closed subspace of $X$: $Y$ is then weakly closed (\cf [3.12]). On the other hand, it follows from (c) that $B$ is weakly compact. We now conclude that the closed unit ball $B\cap Y$ of $Y$ is weakly compact. We again use (c) to conclude that $Y$ is reflexive. (d) is therefore established. Now proceed to (e).\\
+\\
+%: (e)
+Let $\equiv$ stand for ``isometrically isomorphic" and apply twice [4.9] to obtain, first
+\begin{align}\label{4_17}
+(X/Y\,)^\ast \equiv  Y^\bot  \quad ,
+\end{align}
+next,
+\begin{align}\label{4_18}
+(X/Y\,)^{\ast\ast}  \equiv  (Y^\bot)^\ast  
+ \equiv  X^{\,\ast\ast} / (Y^\bot)^\bot  
+ \equiv X/Y\quad .
+\end{align}
+Combining (\ref{4_17}) with (\ref{4_18}) makes (e) to hold.\\
+\\
+It remains to prove (f). To do so, we state the following trivial lemma (L)
+\begin{quotation}
+\noindent  { \CMUCS Given a reflexive Banach space $Z$, the weak$^{\,\ast}$-topology of $Z^{\,\ast}$ is its weak one.}
+\end{quotation}
+%Its proof is nothing else but a tiny rewriting: if $Z^{\ast\ast}\equiv Z$, then $ Z^\ast_{\text{w}^\ast}=Z^\ast_{\text{w}}$.\\
+Assume first that $X$ is reflexive. Since $B^{\,\ast}$ is weak$^\ast$ compact, by (c) of [4.3], (L) implies that $B^{\,\ast}$ is also weakly compact. Then (c) turns $X^{\,\ast}$ into a reflexive space. \\
+\\
+Conversely, let $X^{\,\ast}$ be reflexive. What we have just proved that makes $X^{\,\ast\ast}$ reflexive. On the other hand, $\phi(X\,)$ is a norm-closed subspace of $X^{\,\ast\ast}$; \cf [4.5]. Hence $\phi(X\,)$ is reflexive, by (d). It now follows from (c) that $B^{\,\ast\ast} \cap \phi(X\,)$ is weakly compact, \ie weak$^\ast$-compact (to see this, apply (L) with $Z=X^{\,\ast}$). \\
+\\
+By (a), $B$ is therefore weakly compact, \ie $X$ is reflexive; see (c). So ends the proof.
+\end{proof}
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+

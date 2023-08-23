@@ -52,7 +52,11 @@ Feel free to get copies of this great book by yourself.
     as given as in section 1.4.
   - 1_2.tex 
     The convex hull of a set A is convex and that is the intersection of 
-    all convex set(s) that contain A.
+    all convex set(s) that contain A. 
+  - 1_3.tex
+  - 1_4.tex
+  - 1_5.tex
+  - 1_6.tex
   - 1_7.tex  
     I choose to start with this because it is a lovely result, 
     since it connects a topological result 
@@ -74,33 +78,33 @@ Feel free to get copies of this great book by yourself.
     Given a multi-index $\alpha$, the differential operators $D^\alpha$ is 
     continuous in the test functions topology. 
 - chapter_2/ 
-  - 2_03/  
-      - 2_03.tex  
+  - 2_3/  
+      - 2_3.tex  
       In $D_K$, some Lebesgue integrable functions converge to $\delta'$, 
       which is not a Radon measure. 
       Their weak derivatives converge to $\delta''$.
-      - 2_03_0_labels.tex  
+      - 2_3_0_labels.tex  
       References
-      - 2_03_0_lemma.tex.  
+      - 2_3_0_lemma.tex.  
       Specialization of mean value theorem.
-      - 2_03_1_radon_measures.tex  
+      - 2_3_1_radon_measures.tex  
       Start by looking into $C_0(R)^\ast$.
-      - 2_03_2_uniform_bound.tex. 
+      - 2_3_2_uniform_bound.tex. 
       $D_K$ topology allows equicontinuity. 
-      - 2_03_3_example_1.tex  
+      - 2_3_3_example_1.tex  
       Convergence of Lebesgue integrable functions to $\delta'$ in $D_K$.
-      - 2_03_4_example_2.tex  
+      - 2_3_4_example_2.tex  
       Their weak derivatives converge to $\delta''$.  
       - TODO: Add proof that the Dirac derivative is not a Radon measure, 
       to complete the figure.
-  - 2_06.tex  
+  - 2_6.tex  
     The Banach-Steinhaus theorem applied to $L^2(T)$ the $L2$ functions of the 
     unit circle of $C$: 
     The series made on the Fourier coefficients may diverge.
     Nevertheless, convergence holds in a dense space 
     (by the the Fejér theorem, for instance). 
     TODO: (?) Add some comparison with the Carleson's theorem. 
-  - 2_09.tex  
+  - 2_9.tex  
     Given normed spaces (X, Y, Z), any continuous bilinear mapping 
     $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded. 
     Thoses spaces need not be complete. An easy example is given by 
@@ -123,10 +127,19 @@ Feel free to get copies of this great book by yourself.
     Roughly speaking, compactness replaces completeness. Compactness cannot 
     be dropped: A counterexample is given.
 - chapter 3/
+  - 3_4.tex
   - 3_11.tex  
     Meagerness of the polar (in the infinite dimensional case) 
     of the neighborhoods of the origin: 
     Hahn-Banach theorem and polar. We only involve the weak star 
     -closedness of the polar, not its weak star-compactness!
+- chapter 4/
+  - 4_1.tex
+  - 4_13.tex
+  - 4_15.tex
+- chapter 6/
+  - 6_1.tex
+  - 6_9.tex
+  - 6_9.tex
 - LICENSE
 - HOWTO

@@ -4,16 +4,24 @@
 
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
-\usepackage{amsmath, 
+
+\usepackage{amsmath}
+\usepackage{
 physics, 
 amssymb, 
 mathrsfs, 
 amsthm, 
 mathspec, 
 fouridx, 
-%stix
-%tensor
+%%stix
+%%tensor
+theorem, 
+tikz
 }
+\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+
+%\usetikzlibrary{shapes.geometric}
+%\usetikzlibrary{arrows.meta,arrows}
 %\usepackage{tlatex}
 % TEXs LOGOS! 
 %\usepackage{dtklogos}
@@ -55,8 +63,10 @@ fouridx,
 %\newfontfamily{\Didot}{Didot}
 % Alternatively, for all Unix systems:
 %\newfontfamily{\Didot}{Theano Didot}
+%\usepackage{mathspec}
 \def\mainfont{CMU Serif}
 \setmainfont{\mainfont}
+
 \setmathfont(Latin)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
 \setmathfont(Greek)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
 \setmathrm{\mainfont}
@@ -71,6 +81,16 @@ fouridx,
 %\selectbackgroundlanguage[variant=usmax]{english}
 \setdefaultlanguage[variant=usmax]{english}
 
+%
+%\usepackage{glossaries}
+%\makeglossaries
+
+
+%\newglossaryentry{maths}
+%{
+%    name=mathematics,
+%    description={Mathematics is what mathematicians do}
+%}
 %: ----------------------------PRIMITIVES------------------------------------- 
 \newcommand{\insmall}[1]{\text{\small{#1}}}
 % Some acceptable minus sign.
@@ -83,6 +103,7 @@ fouridx,
 \def\Q{\usualSet{Q}}
 \def\Z{\usualSet{Z}}
 \def\N{\usualSet{N}}
+\def\K{\usualSet{K}}
 
 % "Defined as equals to", alternative to := .
 \def\Def{\triangleq}
@@ -113,6 +134,7 @@ fouridx,
 
 % Sets
 %\renewcommand{\notin}{\tiny{\not\in}}
+%\renewcommand{\ni}{\small \ni}
 \def\contains{\supset}
 \def\cuts{\cap}
 \DeclareMathOperator\cvxhull{co}
@@ -199,13 +221,15 @@ fouridx,
 % CHAPTER  NAME :
 \frontmatter
 \tableofcontents
-\setcounter{chapter}{1}
+%\clearpage
+
+%\printglossary
 \input{\ROOT/notations.tex}
+\setcounter{chapter}{0}
 \mainmatter
 %\part{Content}
-\setcounter{chapter}{0}
 \input{\ROOT/FA_mainmatter.tex}
-\backmatter
+%\backmatter
 %\part{Annex}
 %\renewcommand\thechapter{\Alph{chapter}}
 %\setcounter{chapter}{1}

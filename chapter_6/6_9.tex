@@ -1,0 +1,18 @@
+%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+\renewcommand{\labelenumi}{(\alph{enumi})} 
+{\CMUCS 
+\begin{enumerate}
+\item Prove that a set $E\subset \mathscr{D}(\Omega)$ is bounded if and only if 
+\begin{align*}
+\sup \{\lvert\Lambda \phi\rvert:\, \phi \in E\,\}< \infty
+\end{align*} 
+for every $\Lambda \in \mathscr{D}(\Omega)$.
+\item Suppose $\{\phi_j\}$ is a sequence in $\mathscr{D}(\Omega)$ such that $\{\Lambda \phi_j\}$ is a bounded sequence of numbers, for every $\Lambda \in \mathscr{D}'(\Omega)$. Prove that some subsequence of $\{\phi_j\}$ converges, in the topology of $\mathscr{D}(\Omega)$.
+\item Suppose $\{\Lambda _j\}$ is a sequence in $\mathscr{D}'(\Omega)$ such that $\{\Lambda_{j\,} \phi\}$ is bounded, for every $\phi \in \mathscr{D}(\Omega)$. Prove that some subsequence of $\{\Lambda _j\}$ converges in $\mathscr{D}'(\Omega)$ and that the convergence is uniform on every bounded subset of $\mathscr{D}(\Omega)$. Hint: By the Banach-Steinhaus theorem, the restrictions of the $\Lambda_j$ to $\mathscr{D}_K$ are equicontinuous. Apply Ascoli's theorem.
+\end{enumerate}}
+\paragraph{PROOF.} 
+%: (a)
+Since $\mathscr{D}(\Omega)$ locally convex space (see (b) of [6.4]), [3.18] states that $E\,$ is bounded if and only if it is weakly bounded. That is (a). \\
+\\
+%: (b) 
+To prove (b), we first use (a) to conclude that $E= \{\phi_j:\, j\in \N\}$ is bounded: so is $\overline{E}$. By (c) of [6.5], there exists some $ \mathscr{D}_K$ that contains $\overline{E}$. Since $ \mathscr{D}_K$ has the Heine-Borel property (see [1.46]), $\overline{E}$ is $\tau_K$-compact. Apply [A4] with the metrizable space $\mathscr{D}_K$ (see [1.46]) to conclude that $\overline{E}$ has a $\tau_K$ limit point. It then follows from (b) of [6.5] that (b) holds.

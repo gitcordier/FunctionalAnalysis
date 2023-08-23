@@ -1,15 +1,19 @@
 \renewcommand{\labelenumi}{\arabic{enumi}.}
-\chapter{Notations and Conventions}
+\addcontentsline{toc}{chapter}{Notations and conventions}
+\chapter*{Notations and Conventions}
 \section{Logic}
 \begin{enumerate}
-\item{{\bf Halmos' iff}:  \iif is a short for "if and only if".}
-\item{{\bf Definitions (of values) with $\Def$}: Given a variables %
+\item{{\bf Halmos' iff.} \iif is a short for ``if and only if".}
+\item{{\bf Definitions (of values) with $\Def$.} Given variables %
 $\varit{a}$ and $\varit{b}$, %
 $a\Def b$ means that $\varit{a}$ is defined as equal to $\varit{b}$.}
-\item{{\bf Definitions (formul\ae)}: Definitions come from \iif. %
-In other words, both parts (the "if \dots" part and the "only if \dots" part) %
-are explicitely stated. }
-\item{{\bf Iverson notation}:  Given a boolean expression $\Phi$, %
+\item{{\bf $\equiv$.} $a\equiv b$ means that there exists a ``natural'' %
+bijection $\to$ that maps $a$ to $b$; which let us identify $a$ with $b$. %
+In a metric space context, $a\equiv b$ means that $\to$ is isometric.}
+\item{{\bf Definitions (formul\ae).} Definitions use the \iif format. %
+In other words, every definition has a ``only if''. %
+}
+\item{{\bf Iverson notation.} Given a boolean expression $\Phi$, %
 $\boolean{\Phi}$ returns the truth value of $\Phi$, encoded as follows, %
 %
   \begin{align} \nonumber
@@ -27,3 +31,212 @@ For example, $\boolean{1 > 0} = 1$ but $\boolean{ \sqrt{2} \in \Q} = 0$.
 %\begin{enumerate}
 %  \item{If $X$ is a vector space of base $B$ and $e$ is an element of B, }
 %\end{enumerate}
+\section{Topological vector spaces}
+\begin{enumerate}
+\item{{\bf Product space}}
+\item{{\bf Scalar field.} The usual (complete) scalar field is $\C$. %
+A property, \eg linearity, that is true on $\C$ is also true on $\R$. %
+The complex case is then a {\it special case} of the real one. %
+Sometimes, this specialization is not purely formal. %
+For example, theorem 12.7 of \cite{FA} asserts that, in a Hilbert space $H$ %
+equipped with the inner product $\bra{\,\cdot\,}\ket{\,\cdot\,}$, %
+every nonzero linear continuous operator $T$ ``breaks orthogonality'', %
+in the sense that there always exists $x=x(T)$ in $H$ that satisfies %
+%
+$\bra{Tx}\ket{x} \neq 0$. %
+%
+The proof of this theorem strongly depends on the complex field. %
+Actually, a real counterpart does not exists. %
+To see that, consider the $90^\circ$ rotations of the euclidian plane. %
+%
+Nevertheless, {\it unless the contrary is explicitely mentioned}, %
+the exension to the real case will always be obvious. %
+So, taking $\C$ as the scalar field shall mean %
+%
+``{\it %
+Instead of letting the scalar field undefined, we choose $\C$ for the sake of %
+expessivity. But considering $\R$ instead of %
+$\C$ would actually make no difference here}''. %
+%
+}
+\item{{\bf Finite dimensional spaces}. %
+Let $Y$ be a finite dimensional space. %
+If $\dim Y = 0$, \ie  %
+%
+$Y$ is a group of order $1$,  %%
+then $\singleton{\emptyset, Y}$ is the only possible topology for $Y$. %
+%
+For instance, in a quotient space $X/N$, %
+the zero is $N$ and $\singleton{N}$ is zero-dimensional in $X/N$. %
+%
+\\
+\\\noindent
+Assume henceforth that $\dim Y > 0$ , \ie $Y$ has a base %
+%
+$F_n = \set{f_i}{i= 1,\dots, n}$ for some positive $n$. %
+%
+%For example, $Y$ may be the $\C_n[X] = \set{P(X)}{\deg P < n} $ %
+%the set of all polynomials of degree less than $n$. %
+%In such case, $\singleton{1, X, \dots, X^{n-1}}$ is a base for $Y$. %
+%
+The cartesian power $\C^n  = \prod_{j=1}^{n} \C$ is %
+the vector space of all lists %
+%
+$(z_1, \dots, z_n)$, where $z_j\in \C$ %
+%
+(identify $\C^1$ with $\C$). %
+The subset %
+%
+$E_n = \set{e_j}{j=1, \dots, n}$ %
+%
+is the {\it standard base} of $\C^n$, \ie $e_j = 1_{\singleton{j}}$. %
+So, %
+%
+$\dim \C^n = n$. %
+%%
+% DEFINITION OF U AND V.
+Let $u:\C^n \to Y$ be the only linear mapping that verifies all %
+%
+$u(e_j) = f_j$. %
+%
+Since $u$ is encoded as the identity matrix, % %
+%
+both $u$ and $v = u^{\, \minus 1}$ exist as isomorphisms. %
+%
+Additionally, $\C^n$ can be equipped with various norms, %
+\eg the {\it p-norms} $\norm{p}{\,}$ %
+(where %
+%
+$\norm{p}{(z_1, \dots, z_n)}^p = %
+\magnitude{z_1}^p + \cdots + \magnitude{z_n}^p; p \geq 1$
+%
+) or %
+%
+$\norm{\infty}{}$ (where %
+%
+$\norm{\infty}{(z_1, \dots, z_n)} = \max \magnitude{z_j}$
+). %
+%
+Note that $Y$ inherits any norm $\norm{}{}$ of $\C^n$, with %%
+$\norm{}{u(z_1, \cdots, z_n)}= \norm{}{(z_1, \cdots, z_n)}$; %
+%
+which turns $u$ into a isometry of $\C^n$ onto $Y$. %
+%
+Let $\tau_{\norm{}{\,}}$ denote the topology of a norm $\norm{}{\,}$. %
+%
+We now go back to the proof of 1.21 of \cite{FA} and %
+so equip $Y$ with a its own norm $\norm{2}{}$; %
+%
+which turns $u$ into a isometric isomorphim of $\C^n$ onto $Y$. %
+%
+$Y$ can now be seen as a topological vector space, in at least one fashion; %
+namely, the space $(Y,\tau_{\norm{2}{\,}})$. %
+%
+Let $\tau = \tau_Y$ stand for any arbitrary topology of $Y$. %
+Hence the following commutative diagram % 
+%
+\begin{equation}
+\begin{tikzpicture}[-stealth,
+  label/.style = { font=\footnotesize }]
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 4em,
+      column sep = 4em
+    ]
+    {
+                                & (\C^n, \tau_{\norm{2}{\,}})   &                    \\
+     (Y, \tau_{\norm{2}{\,}})   &                        &  (Y, \tau)   \\
+                                &  (\C^n, \tau_{\norm{2}{\,}})  &                      \\
+      %$\C^n$ & B_1 & B_2    \\
+    };
+  \path (m-1-2) edge node [above,label]  {$u$} (m-2-1);
+  \path (m-2-1) edge node [above,label]  {$v$} (m-3-2);
+  \path (m-3-2) edge node [above,label]  {$u$} (m-2-3);
+  \path (m-2-3) edge node [above,label]  {$v$} (m-1-2);
+  %
+  %\path (m-2-1) edge node [above,label]  {$i$} (m-2-3);
+  %\path (m-2-3) edge node [above,label]  {$i$} (m-2-1);
+  
+\end{tikzpicture}
+\end{equation}
+It is now clear that the {\it identity mapping} %
+%
+$u\circ v$ % 
+%
+is an homeomorphism of $Y$ onto $Y$, which implies that %
+%
+$\tau = \tau_{\norm{2}{\,}}$. %
+%
+In other words, there is only one topology $\tau$ for $Y$, %
+as a topological vector space. %
+%
+This topology is normable, since %
+%
+$\tau = \tau_{\norm{2}{\,}}$. %
+%
+Let $\norm{Y}{\,}$ stand for any norm of $Y$. The special case %
+%
+$Y=\C^n, F_n = E_n, u= i$ %
+%
+is of considerable interest. %
+TOTO. 
+Now take $\tilde{Y}$ of dimension $n$ then similarly define %
+(obvious notations) %
+%
+$\tilde{u}$, $\tilde{v}$ and $\tilde{\tau}$.%
+%
+\begin{equation}
+\begin{tikzpicture}[-stealth,
+  label/.style = { font=\footnotesize }]
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 4em,
+      column sep = 4em
+    ]
+    {
+                & (\C^n, \tau_{\C^n})   &               \\
+    (Y, \tau)   &                       &  (\tilde{Y}, \tilde{\tau})   \\
+                &  (\C^n, \tau_{\C^n})  &              \\
+    };
+  \path (m-1-2) edge node [above,label]  {$u$} (m-2-1);
+  \path (m-2-1) edge node [above,label]  {$v$} (m-3-2);
+  \path (m-3-2) edge node [above,label]  {$\tilde{u}$} (m-2-3);
+  \path (m-2-3) edge node [above,label]  {$\tilde{v}$} (m-1-2);
+\end{tikzpicture}
+\end{equation}
+%
+The homeomorphism between $Y$ and $\tilde{Y}$ leads to %
+{\it the equivalence of norms at fixed dimension $n$}, as follows %
+$A \norm{Y}{y} \leq \norm{\tilde{Y}}{ \tilde{u}\circ v (y)} \leq B \norm{Y}{y}$ ($y\in Y$) for some positive $A, B$. 
+%
+Equip $Y$ and $\tilde{Y}$ with the inherited norm $\norm{}{\,}$. %
+$Y$ and $\tilde{Y}$ are homeomorphically isomorphic ($\equiv$) to %
+%
+$\C^n, \norm{}{\,}$. %
+%
+\begin{equation}
+\begin{tikzpicture}[-stealth,
+  label/.style = { font=\footnotesize }]
+  \matrix (m)
+    [
+      matrix of math nodes,
+      row sep    = 4em,
+      column sep = 4em
+    ]
+    {
+                                & (\C^n, \norm{}{\,})   &                    \\
+     (Y, \norm{}{\,})    &                        &  (\tilde{Y}, \norm{}{\,})    \\
+                                &  (\C^n, \norm{}{\,})   &                      \\
+      %$\C^n$ & B_1 & B_2    \\
+    };
+  \path (m-1-2) edge node [above,label]  {$\equiv$} (m-2-1);
+  \path (m-2-1) edge node [above,label]  {$\equiv$} (m-3-2);
+  \path (m-3-2) edge node [above,label]  {$\equiv$} (m-2-3);
+  \path (m-2-3) edge node [above,label]  {$\equiv$} (m-1-2);
+\end{tikzpicture}
+\end{equation}
+From now the default norm will be $\norm{\infty}{}$.
+}
+\end{enumerate}

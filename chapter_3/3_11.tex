@@ -9,18 +9,19 @@ which we prove first. %
 The proof that $X^\ast$ is of the first category in itself comes right after, %
 as a corollary.%
 %
-\paragraph{Lemma.}%
-If $X$ is an infinite dimensional topological vector space whose dual %
+\paragraph{Lemma.}{\it %
+f $\varit{X}$ is an infinite dimensional topological vector space whose dual %
 %
-  $X^\ast$ %
+  $\mathit{X^{\,\ast}}$ %
 %
 separates points on $X$, then the polar
 %
   \begin{align}
-    K_A\Def \{ \Lambda \in X^\ast:\, \magnitude{\Lambda} \leq 1 \text{ on } A\}
+    \varit{K}_A\Def \{ \Lambda \in \mathit{X^\ast}:\, \magnitude{\Lambda} \leq \mathrm{1} \text{ on } A\}
   \end{align} 
 %
-of any absorbing subset $A$ is a $\weakstar$closed set that has empty interior.
+of any absorbing subset $\varit{A}$ is a $\varit{\weakstar}$closed set that has empty interior.
+}
 %
 \begin{proof}%
 Let $x$ range over $X$. The linear form %
@@ -48,11 +49,10 @@ $X$ is then locally convex, but its dual space is still %
 Put %
 %
   \begin{align}
-    W \Def \bigcap_{x\in F} \set{\Lambda \in X^\ast}{\magnitude{\Lambda x} < r_x}, 
+    W_{F, x} \Def \bigcap_{x\in F} \set{\Lambda \in X^\ast}{\magnitude{\Lambda x} < r_x} \quad\quad (r_x > 0)
   \end{align}
 %
-where $r_x$ runs on $\R_+$, %
-as $F$ runs through the nonempty finite subsets of $X$. %
+where $F$ runs through the nonempty finite subsets of $X$. %
 %
 Clearly, the collection of all such $W$ is a local base of $X^\ast$. %
 Pick one of those $W$ and remark that the following subspace %
@@ -64,7 +64,8 @@ Pick one of those $W$ and remark that the following subspace %
 is finite dimensional. %
 Assume, to reach a contradiction, that $A\subset M$. %
 So, every $x$ lies in $t_xM=M$ for some $t_x>0$, since $A$ is absorbing. %
-As a consequence, $X=M$ is finite dimensional, which is a desired contradiction.
+As a consequence, $X$ is the finite dimensional space $M$, %
+which is a desired contradiction.
 %
 We have just established that $A\not\subset M$: %
 Now pick $\varit{a}$ in $A\setminus M$ and so conclude that %f
@@ -74,7 +75,8 @@ Now pick $\varit{a}$ in $A\setminus M$ and so conclude that %f
   \end{align}
 %
 Remark that $b\notin M$ (otherwise, $a = t_a b \in t_a M=M$ would hold) %
-and that $M$ is closed (see \citeresultFA{1.21 (b)}): %
+and that $M$, as a finite dimensional space, is closed %
+(see \citeresultFA{1.21 (b)} for a proof): %
 By the Hahn-Banach theorem \citeresultFA{3.5}, %
 there exists $\Lambda_a$ in $X^\ast$ such that 
 %
@@ -117,8 +119,9 @@ Since $W$ and $\Lambda$ are both arbitrary, this achieves the proof. %
 We now give a proof of the original statement. %
 %
 \paragraph{Corollary.}%
-If $X$ is an infinite-dimensional Fréchet space, %
-then $X^\ast$ is meager in itself.
+{\it If $\varit{X}$ is an infinite-dimensional Fréchet space, %
+then $\mathit{X^\ast}$ is meager in itself.
+}
 %
 \begin{proof}%
 From now on, $X^\ast$ is only endowed with its $\weakstar$topology. %
@@ -126,7 +129,7 @@ Let $d$ be an invariant distance that is compatible with the topology of $X$, %
 so that the following sets
 %
   \begin{align}
-    B_n \Def \set{x\in X}{d(0, x) <  1/n}\quad (\counting{n}) 
+    B_n \Def \set{x\in X}{d(0, x) <  1/n}\quad\quad (\counting{n}) 
   \end{align}
 %
 form a local base of $X$. %
@@ -142,7 +145,7 @@ for some $(n, m) \in \singleton{1, 2, 3, \dots}^2$; see \citeresultFA{1.18}. %
 Hence, $X^\ast$ is the countable union of all % 
 %
   \begin{align}\label{3.11. Countable union.}
-    m\cdot K_n \quad (\counting{m,n}), 
+    m\cdot K_n \quad\quad (\counting{m,n}), 
   \end{align}
 %
 where $K_n$ is the polar of $B_n$. %
