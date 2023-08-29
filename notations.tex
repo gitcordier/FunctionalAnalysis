@@ -68,19 +68,31 @@ Such identification is relevant in the sense that all vector spaces that %
 share common dimension $n$ are actually topological vector spaces that are %
 homeomorphic each others. \\
 \\
-To see that, let $Y$ run through all $n$-dimensional subspaces of %
-a given complex topological vector space $X$. %
-From now on, $\C^n$ is equipped with the Euclian norm topology. %
-%
+To see that, let $\mathit{Y}$ run through all $n$-dimensional subspaces. 
+For instance, $Y$ be $\C^n$, %
+or the set of all complex %
+polynomials of degree smaller than $n$, %
+or the set of complex matrices of size $(p,q)$, as $pq=n$. \\
+\\
 It is easy to get an isomorphism $f$ of $\C^n$ onto $Y$. %
-To do so, we skip the trivial case $n=0$ then pick a base $F_Y$ of $Y$. %
-There so exists a one-to-one mapping of $F_{\C^n}$ onto $ F_Y$ that %
-extends to an isomorphism $f: \C^n \to Y$. %
+To do so, let us pick a base $F_Y$ of $Y$: %
+There so exists a one-to-one mapping of $F_{\C^n}$ onto $ F_Y$, %
+and such mapping extends to an isomorphism $f: \C^n \to Y$. %
+%
+Each $Y$ inherits a topology $\tau_Y$, from some ambient space $X\supset Y$, %
+that turns $Y$ into a topological vector space. %
+Indeed, the case $X=Y$ can always be put into account. %
+To see that, let us equipp $Y$ with the norm %
+%
+  $Y \to \R, y \mapsto \| f^{\,\minus 1} (y)\|_2$, %
+%
+where $\| \, \|_2$ is the Euclidian norm of $\C^n$.
 %
 We now use the Section 1.21 of \cite{FA} to conclude that %
-$f$ is more specifically an homeomorphism. %
+$f$ is more specifically an homeomorphism of $Y$ onto $Y\subset X$. %
 %
-Given two possibles copies $(Y_i, f_i)$, $(i=1, 2)$ of such pairs $(Y, f)$, %
+Given two copies $(Y_i, f_i)$, $(i=1, 2)$ of the variable %
+$(\mathit{Y}, \mathit{f}\,)$, %
 we then obtain the following commutative diagram, %
 %
 \begin{equation}
@@ -103,16 +115,16 @@ we then obtain the following commutative diagram, %
 \end{equation}
 %
 It is now clear that all $Y$ are homeomorphic each other: %
-Since $\C^n$ is locally convex balanced, so is every $Y$. %
-%
+Since $\C^n$ is locally convex balanced, so is every $Y$; %
+see (b) of Section 1.16 of \cite{FA}. %
 In other words, each $\tau_Y$ is induced by norms $\| \, \|_{Y}$; %
 see Section 1.39 of \cite{FA}. %
 The special case $Y_1 = Y_2\,, \varphi: y \mapsto y$ %
-expresses the equivalence of all such $\| \, \|_Y$, in the sense that %
+expresses the equivalence of all norms $\| \, \|_Y$, in the sense that %
 \begin{align}
   A \| y\|_{Y_1} \leq \| y \|_{Y_2} \leq B\| y\|_{Y_1} \quad (y \in Y_1)
 \end{align}
 for some positive constants $A$, $B$. %
-For instance, choose $B = \sup\{\| y \|_2: \| y \|_1 < 1\}$. %
+For instance, choose $B = \sup\{\| y \|_{Y_2}: \| y \|_{Y_1} = 1\}$. %
 \end{enumerate}
 % END
