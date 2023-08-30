@@ -6,7 +6,7 @@
 \begin{enumerate}
 \item{If $x,\,y\in X$ there is a unique $z\in X$ such that $x+z=y$.}
 \item{ $0\cdot x=0=\alpha\cdot 0 \quad (\alpha\in\field, x\in X)$.}
-\item{ $2A\subset A+A$.}
+\item{ $2A\subseteq A+A$.}
 \item{ $A$ is convex if and only if $(s+t)A=sA+tA$ %
   for all positive scalars $s$ and $t$.}
 \item{ Every union (and intersection) of balanced sets is balanced.}
@@ -70,7 +70,7 @@ for every $x$ in $X$, and so conclude that %
 \begin{align}\label{double lies in sum}
   2A = \{2x: x\in A \} 
   = \{x + x: x \in A \} 
-  \subset \{ x + y : (x,\,y) \in A^2 \} 
+  \subseteq \{ x + y : (x,\,y) \in A^2 \} 
   = A+A
 \end{align}
 %
@@ -79,7 +79,7 @@ for all subsets $A$ of $X$; which proves (c). %
 \item If $A$ is convex, then %
 %
 \begin{align}
-  A \subset \frac{s}{s+t} A + \frac{t}{s+t} A \subset A;
+  A \subseteq \frac{s}{s+t} A + \frac{t}{s+t} A \subseteq A;
 \end{align}
 %
 which is %
@@ -107,21 +107,21 @@ So ends the proof. %
 \item Let $A$ range over $B$ a collection of balanced subsets, so that %
 %
 \begin{align}
-  \alpha \bigcap B \subset  \alpha A \subset A \subset \bigcup B 
+  \alpha \bigcap B \subseteq  \alpha A \subseteq A \subseteq \bigcup B 
 \end{align}
 %
 for all scalars $\alpha$ of magnitude $\leq 1$. %
-The inclusion $\alpha \bigcap B \subset A$ establishes the first part. %
+The inclusion $\alpha \bigcap B \subseteq A$ establishes the first part. %
 Now remark that %
 %
 \begin{align}
-  \alpha A  \subset \bigcup {B} 
+  \alpha A  \subseteq \bigcup {B} 
 \end{align}
 %
 implies %
 %
 \begin{align}
-  \alpha \bigcup {B} \subset \bigcup {B};
+  \alpha \bigcup {B} \subseteq \bigcup {B};
 \end{align}
 which achieves the proof. %
 %
@@ -129,8 +129,8 @@ which achieves the proof. %
 \item Let $A$ range over $C$ a collection of convex subsets, so that %
 %
 \begin{align}
-  (s+t) \bigcap C \subset s\bigcap C + t\bigcap C \subset  sA + tA 
-  \overset{(d)}{\subset} (s+t)A
+  (s+t) \bigcap C \subseteq s\bigcap C + t\bigcap C \subseteq  sA + tA 
+  \overset{(d)}{\subseteq} (s+t)A
 \end{align}
 %
 for all positives scalars $\mathit{s}$, $\mathit{t}$. %
@@ -159,7 +159,7 @@ without loss of generality that $C_1$ is a subset of $C_2$. %
 %
 So, $x_1, x_2$ are now elements of the convex set $C_2$. %
 Every convex combination of our $x_i$'s is then in %
-$C_2 \subset \bigcup \Gamma$. Hence (g). %
+$C_2 \subseteq \bigcup \Gamma$. Hence (g). %
 %
 %: (h)
 \item Simply remark that 
@@ -174,7 +174,7 @@ then conclude from (d) that $A + B$ is convex. %
 \item Given any $\alpha$ from the closed unit disc, %
 %
 \begin{align}
-\alpha(A+B)=\alpha A+ \alpha B \subset A+B. 
+\alpha(A+B)=\alpha A+ \alpha B \subseteq A+B. 
 \end{align}
 %
 There is no more to prove: $A+B$ is balanced. %
@@ -197,7 +197,7 @@ implies the other two.
 To prove the lemma, let $\mathit{S}$ %
 run through all nonempty subsets of $X$. %
 First, assume that (i) holds: Clearly, every $S$ is convex balanced. %
-Moreover, $S+S \subset S$.  Conversely, $S = S + \{0\} \subset S + S $; %
+Moreover, $S+S \subseteq S$.  Conversely, $S = S + \{0\} \subseteq S + S $; %
 which establishes (ii). %
 %
 Next, assume (only) (ii): A proof by induction shows that %
@@ -211,9 +211,9 @@ Pick $\lambda >0$ then choose $n$ so large that $1 < n \lambda < n^2$. %
 Thus, %
 %
 \begin{align}
-  nS \overset{(\ref{induction nS})}{\subset} S 
-  \subset n\,\lambda S 
-  \subset  n^2 S, 
+  nS \overset{(\ref{induction nS})}{\subseteq} S 
+  \subseteq n\,\lambda S 
+  \subseteq  n^2 S, 
 \end{align}
 %
 since $S$ is balanced. %
@@ -224,7 +224,7 @@ For instance, set %
 Dividing the latter inclusions by $n$ shows that %
 %
 \begin{align} 
-  S \subset \lambda S \subset nS \overset{(\ref{induction nS})}{\subset} S,
+  S \subseteq \lambda S \subseteq nS \overset{(\ref{induction nS})}{\subseteq} S,
 \end{align}
 %
 which is (iii). Finally, dropping (ii) in favor of (iii) leads to %
@@ -245,7 +245,7 @@ this extends to $|\alpha| + |\beta| = 0$, as follows, %
 %
 \begin{align} 
   \alpha S + \beta S  = 0S + 0S\overset{(b)}{=} \{0\} 
-  \overset{(b)}{=} 0S \subset S.
+  \overset{(b)}{=} 0S \subseteq S.
 \end{align}
 %
 Hence (i), which achieves the lemma's proof. %
@@ -260,7 +260,7 @@ So is $I$ (combine (e) with (f)). %
 Next, let $\mathit{Y}$ range over $V$, so that %
 %
 \begin{align}
-  I + I \subset Y + Y \subset  Y; 
+  I + I \subseteq Y + Y \subseteq  Y; 
 \end{align}
 %
 which yields
@@ -269,7 +269,7 @@ which yields
   I + I = I 
 \end{align}
 %
-(the fact that $I  = I + \{0\} \subset I + I$ was tacitely used). %
+(the fact that $I  = I + \{0\} \subseteq I + I$ was tacitely used). %
 %
 It now follows from the lemma's (ii) $\Rightarrow$ (i) that %
 $I$ is a vector subspace of $X$. %
@@ -279,18 +279,18 @@ Combining (e) with (g) establishes that $U$ is convex balanced. %
 %
 To show that $U$ is more specifically a vector subspace, %
 we first remark that such total order implies that either %
-$Z \subset Y$ or $Y \subset Z$, as $\mathit{Z}$ ranges over $V$. %
+$Z \subseteq Y$ or $Y \subseteq Z$, as $\mathit{Z}$ ranges over $V$. %
 A straightforward consequence is that 
 %
 \begin{align}
-  Y \subset Y + Z  \subset Y\cup Z.
+  Y \subseteq Y + Z  \subseteq Y\cup Z.
 \end{align}
 %
 Another one is that $Y \cup Z$ ranges over $V$ as well. %
 Combined with the latter inclusions, this leads to %
 %
 \begin{align}
-  U \subset U  + U \subset U.
+  U \subseteq U  + U \subseteq U.
 \end{align}
 %
 It then follows from the lemma's (ii) $\Rightarrow$ (i) that %

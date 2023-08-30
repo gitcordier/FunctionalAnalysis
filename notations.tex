@@ -72,27 +72,38 @@ To see that, let $\mathit{Y}$ run through all $n$-dimensional subspaces.
 For instance, $Y$ be $\C^n$, %
 or the set of all complex %
 polynomials of degree smaller than $n$, %
-or the set of complex matrices of size $(p,q)$, as $pq=n$. \\
+or the set of complex matrices of size $(n/d, d)$ ($d |n)$. \\
 \\
 It is easy to get an isomorphism $f$ of $\C^n$ onto $Y$. %
 To do so, let us pick a base $F_Y$ of $Y$: %
 There so exists a one-to-one mapping of $F_{\C^n}$ onto $ F_Y$, %
-and such mapping extends to an isomorphism $f: \C^n \to Y$. %
+and such mapping extends to an isomorphism $f: \C^n \to Y$. \\
+\\
+Additionally, $Y$ is a vector subspace of some topological space %
+$(X, \tau_X)$. %
+To see that, assume that no such $X\neq Y$ exists then equipp $X=Y$ %
+with the norm %
 %
-Each $Y$ inherits a topology $\tau_Y$, from some ambient space $X\supset Y$, %
-that turns $Y$ into a topological vector space. %
-Indeed, the case $X=Y$ can always be put into account. %
-To see that, let us equipp $Y$ with the norm %
+\begin{align}
+  \| \, \|_{Y, 2}: Y & \to \R \\
+            y & \mapsto \| f^{\,\minus 1} (y)\|_2 \nonumber, 
+\end{align}
 %
-  $Y \to \R, y \mapsto \| f^{\,\minus 1} (y)\|_2$, %
+where $\| \, \|_2$ is the Euclidian norm of $\C^n$. %
 %
-where $\| \, \|_2$ is the Euclidian norm of $\C^n$.
+As a consequence, $Y$ is always a topological vector space of topology %
+%
+\begin{align}\label{inherited norm}
+  \tau_Y \triangleq \{ Y\cap U: U \in \tau_X\}, 
+\end{align}
+%
+for some $\tau_X$. %
 %
 We now use the Section 1.21 of \cite{FA} to conclude that %
-$f$ is more specifically an homeomorphism of $Y$ onto $Y\subset X$. %
+$f$ is more specifically an homeomorphism of $Y$ onto $Y\subseteq X$. %
 %
-Given two copies $(Y_i, f_i)$, $(i=1, 2)$ of the variable %
-$(\mathit{Y}, \mathit{f}\,)$, %
+Given two copies $(\mathit{X}_i, \mathit{Y}_i, \mathit{f}_i)$, $(i=1, 2)$ of the variable %
+$(\mathit{X}, \mathit{Y}, \mathit{f}\,)$, %
 we then obtain the following commutative diagram, %
 %
 \begin{equation}
@@ -114,17 +125,26 @@ we then obtain the following commutative diagram, %
 \end{tikzpicture}
 \end{equation}
 %
-It is now clear that all $Y$ are homeomorphic each other: %
-Since $\C^n$ is locally convex balanced, so is every $Y$; %
-see (b) of Section 1.16 of \cite{FA}. %
-In other words, each $\tau_Y$ is induced by norms $\| \, \|_{Y}$; %
-see Section 1.39 of \cite{FA}. %
-The special case $Y_1 = Y_2\,, \varphi: y \mapsto y$ %
-expresses the equivalence of all norms $\| \, \|_Y$, in the sense that %
+It is now clear that all $Y$ are homeomorphic each other. %
+The special case $Y_1 = Y_2$ means that $\tau_{Y_1} = \tau_{Y_2}$. 
+In other words, each vector space $Y$ has a unique topology $\tau_Y$; %
+the embedding $Y\subseteq X$ no longer matters. % 
+% 
+$\tau_y$ is therefore induced by $\|\,\|_{Y, 2}$, which implies that %
+$Y$ is normable. $Y$ can now be seen as a normed space, %
+of arbitray norm $\|\,\|_{Y}$. %
+%
+Finally, we reach the equivalence of all such norms $\| \, \|_Y$, %
+in the sense that %
+%
 \begin{align}
-  A \| y\|_{Y_1} \leq \| y \|_{Y_2} \leq B\| y\|_{Y_1} \quad (y \in Y_1)
+  A \| y_1\|_{Y_1} \leq \| \varphi(y_1) \|_{Y_2} \leq B\| y_1 \|_{Y_1} \quad (y_1 \in Y_1)
 \end{align}
-for some positive constants $A$, $B$. %
-For instance, choose $B = \sup\{\| y \|_{Y_2}: \| y \|_{Y_1} = 1\}$. %
+%
+for positive constants $\mathit{A}, \mathit{B}$. %
+For instance, choose %
+%
+  $B = \sup\{\| \varphi(y_1) \|_{Y_2}: \| y \|_{Y_1} = 1\}$. %
+%
 \end{enumerate}
 % END
