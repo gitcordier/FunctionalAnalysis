@@ -9,9 +9,9 @@ Prove that the convex hull of a set $A$ is convex and that is the intersection
 of all convex sets that contain $A$.}
 %
 \begin{proof} The convex hull of a set $S$ will be denoted by $\co{S}$. %
-Remark that $S \subset \co{S}$ %
+Remark that $S \supseteq eq \co{S}$ %
 (to see that, take $t_1 = 1$ for each $x_1$ in $S$) and that %
-$\co{A} \subset \co{B}$ where $A \subset B$ (obvious). \\
+$\co{A} \supseteq eq \co{B}$ where $A \supseteq eq B$ (obvious). \\
 \\
 Our proof will directly derive from %
 %
@@ -70,7 +70,7 @@ and
 %
 In terms of sets $S$, this reads %
 \begin{align}
-  s\co{S} + (1-s)\co{S} \subset \co{S}; 
+  s\co{S} + (1-s)\co{S} \subseteq \co{S}; 
 \end{align}
 which was our fist goal. %
 We now aim at the equivalence %
@@ -108,18 +108,18 @@ is now the special case %
 In any case, the key ingredient is that $\co{A} \in F$ implies %
 %
 \begin{align}
- \co{A} \supset \bigcap_{B \in F} B.
+ \co{A} \supseteq  \bigcap_{B \in F} B.
 \end{align}
 %
 Conversely, the next formula %
 %
 \begin{align}
-  \co{A} \subset \co{B} \overset{(i) \Rightarrow (iv)}{=} B \quad (B \in F) 
+  \co{A} \subseteq \co{B} \overset{(i) \Rightarrow (iv)}{=} B \quad (B \in F) 
 \end{align}
 %
 is valid and implies %
 \begin{align}
-  \co{A} \subset \bigcap_{B \in F} B. 
+  \co{A} \subseteq \bigcap_{B \in F} B. 
 \end{align}
 %
 So ends the proof

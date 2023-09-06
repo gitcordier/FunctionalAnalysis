@@ -1,109 +1,88 @@
-%\section{1.10 Exercise 10. An open mapping theorem}
 \textit{Suppose that X and Y are topological vector spaces,
 %
   $\dim Y < \infty$,
 %
 $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 %
-  \begin{enumerate}
-    \item{
-      Prove that $\Lambda$ is an open mapping.}
-    \item{
-      Assume, in addition, that the null space of $\Lambda$ is closed, 
-      and prove that $\Lambda$ is continuous.
-    }
-  \end{enumerate}
-  %
+\begin{enumerate}
+  \item{
+    Prove that $\Lambda$ is an open mapping.}
+  \item{
+    Assume, in addition, that the null space of $\Lambda$ is closed, 
+    and prove that $\Lambda$ is continuous.
+  }
+\end{enumerate}
+%
 }
 %
 \begin{proof}
 %We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
 %has positive dimension $n$. \\\\
 %
-Discard the trivial case $\Lambda = 0$ and so assume that %
-$\dim Y = n$ %
+Discard the trivial case $\Lambda = 0$ and assume that $\dim Y = n$ %
 for some positive $n$. %
-Let $e$ range over a base of $B$ of $Y$ then %
-pick $W$ an arbitrary neighborhood of the origin: %
-There so exists $V$ %
-a balanced neighborhood of the origin such that 
+Let $e$ range over a basis of $B$ of $Y$ then pick in $X$ $W$ an arbitrary %
+neighborhood of the origin: There so exists $V$ a balanced neighborhood of %
+the origin of $X$ such that 
 %
   \begin{align}
     \label{definition of v}
-    %\underset{
-    %  \text{Put } V \text{ exactly } n \text{ time(s)}
-    %}{
-    %  \underbrace{V+\cdots +V}
-    %}\subset W, 
-    \sum_{e} V \subset W, 
+    \sum_{e} V \subseteq W, 
   \end{align}
 %
-since addition is continuous. %
-Moreover, for each $e$, 
-there exists $x_e$ in $X$ such that 
+since addition is continuous. Moreover, for each $e$, there exists $x_e$ %
+in $X$ such that 
 %
   $\Lambda(x_e)=e$, 
 % 
-simply because $\Lambda$ is onto. So,
+simply because $\Lambda$ is onto: Given $y$ in $Y$, %
+of $e$-component(s) $y_e$, we now obtain
 %
-  \begin{align}\label{1_10_sum}
-    y = \sum_{e} y_e \cdot \Lambda x_e \quad \quad (y\in Y).
-  \end{align}
+\begin{align}\label{1_10_sum}
+  y = \sum_{e} y_e \Lambda x_e.
+\end{align}
 %
-As a finite set, $\set{x_e}{e\in B}$ is bounded: %
-There so exists a positive scalar $s$ such that  
+As a finite set, $\set{x_e}{e\in B}$ is bounded: There so exists a positive %
+scalar $s$ such that  
 %
-  \begin{align}
-    \forall e\in B,  x_e \in s \cdot V.
-  \end{align}
+\begin{align}
+  \forall e\in B,  x_e \in s V.
+\end{align}
 %
 Combining this with (\ref{1_10_sum}) shows that 
 %
   \begin{align}
     \label{y in sum of lambda V}
-    y \in \sum_e y_e \cdot s \cdot \Lambda (V).
+    y \in \sum_e y_e \,s \Lambda (V).
   \end{align}
 %
 We now come back to (\ref{definition of v}) and so conclude that %
 %
   \begin{align}
-    y \in \sum_e \Lambda (V) \subset \Lambda(W) 
+    y \in \sum_e \Lambda (V) \subseteq \Lambda(W) 
   \end{align}
 %
-whether $\magnitude{y_e} < 1/s$; which proves (a).\\\\
+whether $\magnitude{y_e} < 1/s$; which proves (a); %
+see \hyperref[finite dimensional spaces]{[finite dimensional spaces]}.\\\\
 %
 %
 To prove (b), assume that the null space 
 %
-  $\singleton{\Lambda = 0}$ %
+  $\{\Lambda = 0\}$ %
 % 
 is closed and let $f, \pi$ be as in Exercise 1.9,  %
 %
-  $\singleton{\Lambda = 0}$ %
+  $\{\Lambda = 0\}$ %
 %
-playing the role of $N$.
-%%
-% Isomorphism:
-%  \begin{align}
-%    & X \to                    X/N   \to                  Y . \\
-%    & x \overset{\pi}{\mapsto} \pi x  \overset{f}{\mapsto} \Lambda x \nonumber
-%  \end{align}
+playing the role of $N$. Since $\Lambda$ is onto, the first isomorphism %
+theorem (see Exercise 1.9) asserts that $f$ is an isomorphism of $X/N$ %
+onto $Y$. Consequently, 
 %
-Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) 
-asserts that 
-%
-  $f$ is an isomorphism of $X/N$ onto $Y$. 
-%
-Consequently, 
-%
-  \begin{align}
-    \dim X/N= n.
-  \end{align}
+\begin{align}
+  \dim X/N= n.
+\end{align}
 % 
-$f$ is then an homeomorphism of 
-%
-  $X/N\equiv \C^{n}$ 
-%
-onto $Y$; see \citeresultFA{1.21}.
+$f$ is then an homeomorphism of $X/N$ onto $Y$; %
+see \hyperref[finite dimensional spaces]{[finite dimensional spaces]}.
 We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
 \end{proof}
