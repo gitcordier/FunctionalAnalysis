@@ -1,5 +1,4 @@
 \renewcommand{\labelenumi}{\arabic{enumi}.}
-%\addcontentsline{toc}{chapter}{Notations and conventions}
 \chapter{Notations and Conventions}
 \section*{Logic}
 \begin{enumerate}
@@ -13,14 +12,14 @@ In a metric space context, $a\equiv b$ means that $\to$ is isometric.}
 \item{{\bf Definitions (formul\ae).} Definitions use the \iif format. %
 In other words, every definition has a ``only if''. %
 }
-\item{{\bf Iverson notation.} Given a boolean expression $\Phi$, %
-$\boolean{\Phi}$ returns the truth value of $\Phi$, encoded as follows, %
+\item{{\bf Iverson notation.} Given a boolean expression $\varphi$, %
+$\boolean{\varphi}$ returns the truth value of $\varphi$, encoded as follows, %
 %
   \begin{align} \nonumber
-    \boolean{\Phi}\Def 
+    \boolean{\varphi}\Def 
     \begin{cases}
-      0 & \quad\quad \text{if } \Phi \text{ is false;} \\
-      1 & \quad\quad \text{if } \Phi \text{ is true.}
+      0 & \quad\quad \text{if } \varphi \text{ is false;} \\
+      1 & \quad\quad \text{if } \varphi \text{ is true.}
     \end{cases}
   \end{align}
 
@@ -32,9 +31,9 @@ For example, $\boolean{1 > 0} = 1$ but $\boolean{ \sqrt{2} \in \Q} = 0$.
 %  \item{If $X$ is a vector space of base $B$ and $e$ is an element of B, }
 %\end{enumerate}
 \section*{Topological vector spaces}
-\begin{enumerate}
-\item{{\bf Product space}}
-\item {\bf Scalar field.} The usual (complete) scalar field is $\C$. %
+\subsection*{Product space}
+\subsection*{Scalar field}%
+The usual (complete) scalar field is $\C$. %
 A property, \eg linearity, that is true on $\C$ is also true on $\R$. %
 The complex case is then a {\it special case} of the real one. %
 Sometimes, this specialization is not purely formal. %
@@ -60,51 +59,53 @@ $\C$ would actually make no difference here
 }. %
 \end{quote}
 %
-\item {\bf Finite dimensional spaces}. %
-It may be customary to identify, without loss of generality, %
-any vector space of finite dimension $n$ with $\C^n$. % 
+\subsection*{Finite dimensional spaces}%
+It may be customary to identify any $n$-dimensional vector space $Y$ with %
+the normed space $(\C^n, \| \,\|_{\C^n})$, %
+as $\| \, \|_{\C^n}$ is an arbitray norm on $\C^n$. %
 %
-Such identification is relevant in the sense that all vector spaces that %
-share common dimension $n$ are actually topological vector spaces that are %
-homeomorphic each others. \\
-\\
-To see that, let $\mathit{Y}$ run through all $n$-dimensional subspaces. 
-For instance, $Y$ be $\C^n$, %
-or the set of all complex %
-polynomials of degree smaller than $n$, %
-or the set of complex matrices of size $(n/d, d)$ ($d |n)$. \\
-\\
-It is easy to get an isomorphism $f$ of $\C^n$ onto $Y$. %
-To do so, let us pick a base $F_Y$ of $Y$: %
+Indeed, those vector spaces $Y$ are actually normable spaces that are %
+homeomorphic each others. %
+%
+This statement can be expressed as an \textit{equivalence relation} over all %
+normed vector spaces $(Y, \|\,\|_Y)$. %
+More precisely, given copies $Y_i$ ($i=1, 2$) of space(s) $Y$, there exists %
+an isomorphism $h: Y_1 \to Y_2$ and a positive constant $C$ such that %
+%
+\begin{align}\label{norm equivalence 1}
+  \| y_2 \|_{Y_2} \leq C \| y_1 \|_{Y_1} \quad 
+  (y_i \in Y_i: y_2 = h(y_1)).
+\end{align}
+%
+\begin{proof}
+Pick a basis $F_Y$ of $Y$, as $\mathit{Y}$ run through all $n$-dimensional %
+vector spaces (the trivial case $n=0$ shall be implicitely skipped). %
 There so exists a one-to-one mapping of $F_{\C^n}$ onto $ F_Y$, %
-and such mapping extends to an isomorphism $f: \C^n \to Y$. \\
-\\
-Additionally, $Y$ is a vector subspace of some topological space %
-$(X, \tau_X)$. %
-To see that, assume that no such $X\neq Y$ exists then equipp $X=Y$ %
-with the norm %
+and such mapping extends to an isomorphism $f: \C^n \to Y$. %
 %
-\begin{align}
+On the other hand, there exists an ambient topological vector space %
+$(X, \tau_X)$ that induces, on $Y$, a topology %%
+%
+\begin{align}\label{inherited norm}
+  \tau_Y \triangleq \{ Y\cap U: Y \subseteq X, U \in \tau_X\}.
+\end{align}
+%
+For instance, take $X=Y$ then equipp $Y$ with the norm %
+%
+\begin{align}\label{normability}
   \| \, \|_{Y, 2}: Y & \to \R \\
             y & \mapsto \| f^{\,\minus 1} (y)\|_2 \nonumber, 
 \end{align}
 %
 where $\| \, \|_2$ is the Euclidian norm of $\C^n$. %
 %
-As a consequence, $Y$ is always a topological vector space of topology %
+Now assign each $Y$ a space $(X, \tau_X)$ then use Theorem 1.21 of \cite{FA} %
+to conclude that $f$ is more specifically a homeomorphism of $\C^n$ %
+(equipped with $\|\, \|_2$) onto $Y$. %
 %
-\begin{align}\label{inherited norm}
-  \tau_Y \triangleq \{ Y\cap U: U \in \tau_X\}, 
-\end{align}
-%
-for some $\tau_X$. %
-%
-We now use the Section 1.21 of \cite{FA} to conclude that %
-$f$ is more specifically an homeomorphism of $Y$ onto $Y\subseteq X$. %
-%
-Given two copies $(\mathit{X}_i, \mathit{Y}_i, \mathit{f}_i)$, $(i=1, 2)$ of the variable %
-$(\mathit{X}, \mathit{Y}, \mathit{f}\,)$, %
-we then obtain the following commutative diagram, %
+Given two copies $(\mathit{X}_i, \mathit{Y}_i, \mathit{f}_i)$ %
+of the variables $\mathit{X}, \mathit{Y}, \mathit{f}$, %
+we so obtain the following commutative diagram: %
 %
 \begin{equation}
 \begin{tikzpicture}[-stealth,
@@ -119,32 +120,53 @@ we then obtain the following commutative diagram, %
          & \C^n &     \\
       Y_1&      & Y_2 \\
     };
-  \path (m-2-1) edge node [above,label]  {$f_1^{-1}$} (m-1-2);
+  \path (m-2-1) edge node [above,label]  {$f_1^{\, \minus 1}$} (m-1-2);
   \path (m-1-2) edge node [above,label]  {$f_2$} (m-2-3);
-  \path (m-2-1) edge node [above,label]  {$\varphi$} (m-2-3);
+  \path (m-2-1) edge node [above,label]  {$h$} (m-2-3);
 \end{tikzpicture}
 \end{equation}
 %
 It is now clear that all $Y$ are homeomorphic each other. %
+%
 The special case $Y_1 = Y_2$ means that $\tau_{Y_1} = \tau_{Y_2}$. 
 In other words, each vector space $Y$ has a unique topology $\tau_Y$; %
-the embedding $Y\subseteq X$ no longer matters. % 
+the embedding $Y \subseteq X$ does not matter. % 
 % 
-$\tau_y$ is therefore induced by $\|\,\|_{Y, 2}$, which implies that %
-$Y$ is normable. $Y$ can now be seen as a normed space, %
-of arbitray norm $\|\,\|_{Y}$. %
+$\tau_{Y}$ is induced by at least one norm $\|\,\|_Y$, \eg %
+$\|\,\|_{Y, 2}$; see (\ref{normability}). %
 %
-Finally, we reach the equivalence of all such norms $\| \, \|_Y$, %
-in the sense that %
+We now establish the norm equivalence over all vector spaces $Y$. To do so, %
+we easily check that the continous function $h$ maps the open unit sphere %
+%
+  $B_1 = \{ \| \, \|_{Y_1} < 1 \}$ onto %
+%
+a $\|\,\|_{Y_2}$-bounded set. %
+%
+This allows us to pick %
 %
 \begin{align}
-  A \| y_1\|_{Y_1} \leq \| \varphi(y_1) \|_{Y_2} \leq B\| y_1 \|_{Y_1} \quad (y_1 \in Y_1)
+  C_h \triangleq \sup_{B_1} \| h \|_{Y_2} > 0, 
 \end{align}
 %
-for positive constants $\mathit{A}, \mathit{B}$. %
-For instance, choose %
+so that %
 %
-  $B = \sup\{\| \varphi(y_1) \|_{Y_2}: \| y \|_{Y_1} = 1\}$. %
+\begin{align}\label{norm equivalence 2}
+  \|h(y_1)\|_{Y_{2}} \leq C_h \|y_1\|_{Y_{1}}; 
+\end{align}
 %
-\end{enumerate}
+which is (\ref{norm equivalence 1}). %
+%
+Finally, we show that we are actually dealing with an equivalence relation. %
+First, reflexivity and transitivity are obvious. Moreover, 
+permuting the $\mathit{Y}_i$'s, with %
+%
+  $\mathit{%
+  h^{\, \minus 1}, 
+  B_2 = \{\| \, \|_{Y_2} < 1 \}, 
+  C_{h^{\, \minus 1}} = \sup_{B_2} \| h^{\, \minus 1}\|_{Y_2}
+  }$
+%
+playing the role of $\mathit{h}, \mathit{B_1}, \mathit{C_h}$ %
+leads to a \textit{symmetrical} result; which achieves the proof.
+\end{proof}
 % END
