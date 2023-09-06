@@ -1,126 +1,108 @@
-\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. 
-Show that the following three families of seminorms 
-  (where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. 
+\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. %
+Show that the following three families of seminorms %
+(where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. 
 If $D = d/dx$: 
 %
-  \begin{enumerate}
-    \item{
-      $\| D^n f \|_\infty = \sup\set{\left| D^n f(x)\right|}{\infty< x< \infty}$
-    }
-    \item{
-      $\| D^n f \|_1 =\int_0^1 \left|D^n f(\varit{x}) \right| d\varit{x}$
-    }
-    \item{
-      $\| D^n f \|_2 = \left\{
-        \int_0^1 | D^n f(\varit{x}) |^2  d\varit{x} 
-      \right\}^{1/2}.$
-    }
-  \end{enumerate}
-  %
+\begin{enumerate}
+\item{
+  $\| D^n f \|_\infty = \sup\set{\left| D^n f(x)\right|}{\infty< x< \infty}$
+}
+\item{
+  $\| D^n f \|_1 =\int_0^1 \left|D^n f(\varit{x}) \right| d\varit{x}$
+}
+\item{
+  $\| D^n f \|_2 = \left\{
+    \int_0^1 | D^n f(\varit{x}) |^2  d\varit{x} 
+  \right\}^{1/2}.$
+}
+\end{enumerate}
+%
 }
 %
-\begin{proof} 
-First, remark that  
+\begin{proof}%
+Let us equipp $\D_K$ with the inner product %
 %
-  \begin{align}\label{1_14_2}
-    \| D^n f \|_1 
-      \leq 
-    \| D^n f \|_2 
-      \leq 
-    \| D^n f \|_\infty 
-      <\infty 
-  \end{align}
+  $\bra{f}\ket{g} = \int_0^1 f \, \bar{g}$, so that %
+  $\bra{f}\ket{f} = \| f \|_2$. %
 %
-holds, since $K$ has length $1$ 
-(the inequality on the left is a Cauchy-Schwarz one). 
-Next, that the support of $D^n f$ lies in $K$; which yields % 
-  \begin{align}\label{1_14_4}
-    \magnitude{ D^n f(x) }
-      =
-    \magnitude{ \int_{0}^x D^{n+1}f }
-      \leq 
-    \int_{0}^x \magnitude{D^{n+1}f }
-      \leq 
-    \|D^{n+1}f \|_1 .
-  \end{align}
+The following %
 %
-So, 
-%
-  \begin{align}\label{1_14_5}
-    \| D^n f \|_\infty 
-      \leq 
-    \| D^{n+1} f \|_1 .
-  \end{align}
-%
-We now combine (\ref{1_14_2}) with (\ref{1_14_5}) and so obtain %
-%
-  \begin{align}\label{1_14_6}
-    \| D^n f \|_1 
-      \leq 
-    \| D^{n} f \|_2 
-      \leq 
-    \| D^{n} f \|_\infty 
-      \leq 
-    \| D^{n+1}f\|_1 
-      \leq 
-    \cdots \quad (\integers{n}).
-  \end{align}
-%
-Put  
-  \begin{align}\label{1_14_1}
-    V\up{i}_n &       \Def \set{f\in \D_K}{\norm{i}{f} < 2^{\minus n} }
-      \quad(i=1,2,\infty)\\
-    \mathscr{B}\up{i}&\Def \set{V\up{i}_n }{\integers{n}},
-  \end{align}
-so that (\ref{1_14_6}) is mirrored in terms of neighborhood inclusions, 
-as follows,
-%
-  \begin{align}\label{1_14_7}
-    V\up{1}_n
-      \supseteq  
-    V\up{2}_n 
-      \supseteq  
-    V\up{\infty}_n 
-      \supseteq  
-    V\up{1}_{n+1} 
-      \supseteq  
-    \cdots .
-  \end{align}
-%
-Since 
-  $V\up{i}_n\supseteq  V\up{i}_{n+1}$, 
-$\mathscr{B}\up{i}$ is a local base of a topology $\tau_i$. 
-But the chain (\ref{1_14_7}) forces %
-%
-  \begin{align}
-    \tau_1 = \tau_2 = \tau_\infty.
-  \end{align}
-%
-To see that, choose a set $S$ that is $\tau_1$-open at $f$, \ie 
-%
-  $V\up{1}_n \subseteq S-f$  
-%
-for some $n$. Next, concatenate this with %
-%
-  $V\up{2}_n \subseteq V\up{1}_n$ (see (\ref{1_14_7})) %
-%
-and so obtain  
-%
-  $V\up{2}_n \subseteq S-f$; 
-%
-which implies that $S$ is $\tau_2$-open at $f$.
-Similarly, we deduce, still from (\ref{1_14_7}), that 
 \begin{align}
-  \tau_2\text{-open} 
-    \then 
-  \tau_\infty\text{-open} 
-    \then 
-  \tau_1\text{-open}.
+  \int_0^1 1\,| D^n f| \leq \| 1 \|_2 \| D^n f \|_2 
 \end{align}
-So ends the proof.
+%
+is then a Cauchy-Schwarz inequality; see Theorem 12.2 of \cite{FA}. %
+We so obtain %
+%
+\begin{align}\label{inequalities 1}
+  \| D^n f \|_1 
+    \leq 
+  \| D^n f \|_2 
+    \leq 
+  \| D^n f \|_\infty 
+    <\infty 
+\end{align}
+%
+since $K$ has length $1$. %
+%
+Obviously, the support of $D^n f$ lies in $K$, hence the below equality %
+%
+\begin{align}\label{inequalities 2}
+  |D^n f(x)|
+    =
+  \left|\int_{0}^x D^{n+1}f\right|
+    \leq 
+  \int_{0}^x |D^{n+1}f|
+    \leq 
+  \|D^{n+1}f \|_1.
+\end{align}
+%
+Take the supremum over all $|D^n f(x)|$: Combining (\ref{inequalities 1}) %
+with (\ref{inequalities 2}) now reads as follows, %
+%
+\begin{align}\label{inequalities 3}
+  \|D^n f\|_1 
+    \leq 
+  \|D^{n} f\|_2 
+    \leq 
+  \|D^{n} f\|_\infty 
+    \leq 
+  \|D^{n+1}f\|_1 
+    \leq 
+  \cdots < \infty.
+\end{align}
+%
+Finally, put %
+%
+\begin{align}
+  V^{(i)}_n         & \triangleq \{f\in \D_K: \|f \|_i < 2^{\,\minus n}\}, \\
+  \mathscr{B}^{(i)} & \triangleq \{V^{(i)}_n: n = 0, 1, 2, \dots\},
+\end{align}
+%
+so that (\ref{inequalities 3}) is mirrored by neighborhood inclusions, %
+provided $i=1, 2, \infty$:
+%
+\begin{align}\label{inclusions}
+  V^{(1)}_n
+    \supseteq  
+  V^{(2)}_n 
+    \supseteq  
+  V^{(\infty)}_n 
+    \supseteq  
+  V^{(1)}_{n+1} 
+    \supseteq  
+  \cdots .
+\end{align}
+%
+Their subchains $V^{(i)}_n\supseteq V^{(i)}_{n+1}$ turn $\mathscr{B}^{(i)}$ %
+into a local base of a topology $\tau_i$. 
+The whole chain (\ref{inclusions}) then forces %
+%
+\begin{align}
+  \tau_1 \subseteq \tau_2 \subseteq \tau_\infty \subseteq \tau_1;
+\end{align}
+%
+which achieves the proof.
 \end{proof}
-
-
-
-
+% END
 

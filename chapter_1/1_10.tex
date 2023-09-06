@@ -16,9 +16,6 @@ $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-%We discard the trivial case $\dim Y = 0$ then henceforth assume that $\dim Y$ 
-%has positive dimension $n$. \\\\
-%
 Discard the trivial case $\Lambda = 0$ and assume that $\dim Y = n$ %
 for some positive $n$. %
 Let $e$ range over a basis of $B$ of $Y$ then pick in $X$ $W$ an arbitrary %
@@ -39,7 +36,7 @@ simply because $\Lambda$ is onto: Given $y$ in $Y$, %
 of $e$-component(s) $y_e$, we now obtain
 %
 \begin{align}\label{1_10_sum}
-  y = \sum_{e} y_e \Lambda x_e.
+  y = \sum_{e} y_e \Lambda (x_e).
 \end{align}
 %
 As a finite set, $\set{x_e}{e\in B}$ is bounded: There so exists a positive %
@@ -62,7 +59,7 @@ We now come back to (\ref{definition of v}) and so conclude that %
     y \in \sum_e \Lambda (V) \subseteq \Lambda(W) 
   \end{align}
 %
-whether $\magnitude{y_e} < 1/s$; which proves (a); %
+for if $|y_e| < 1/s$; which proves (a); %
 see \hyperref[finite dimensional spaces]{[finite dimensional spaces]}.\\\\
 %
 %
@@ -86,3 +83,4 @@ $f$ is then an homeomorphism of $X/N$ onto $Y$; %
 see \hyperref[finite dimensional spaces]{[finite dimensional spaces]}.
 We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
 \end{proof}
+% END

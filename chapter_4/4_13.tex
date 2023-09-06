@@ -9,7 +9,7 @@
 %: a
 \paragraph{PROOF.} Since each $T_n$ is compact, (a) follows from (c) of [4.18]. Besides, we take the opportunity to alternatively prove that the compact operators subspace is norm closed.\\
 \\
-Reset every $T_n$ as a compact operator. Let $\{x_{\,0}^{\,i}:\, i\in \N\}$ be in $U$ the open unit ball of $X$. Since $T_1$ is compact, $\{x^i_0\}$ contains a subsequence $\{x^{\,i}_{\,1}:\, i\in \N\}$ such that $\{T_1x^{i}_{\,1}\}$ converges to a point $y_{\,1}$ of $Y$. The same reasoning can be recursively applied to $T_{n}$ and $\{x^{\,i}_{\, n-1}\}\subset U$ so that $\{T_{n\,}x^{\,i}_{\, n}\}$ tends to some $y_{n}$ of $Y$, as $\{x^{\,i}_{\, n}\}$ is a subsequence of $\{x^{\,i}_{\,n-1}\}$. Then
+Reset every $T_n$ as a compact operator. Let $\{x_{\,0}^{\,i}:\, i\in \N\}$ be in $U$ the open unit ball of $X$. Since $T_1$ is compact, $\{x^i_0\}$ contains a subsequence $\{x^{\,i}_{\,1}:\, i\in \N\}$ such that $\{T_1x^{i}_{\,1}\}$ converges to a point $y_{\,1}$ of $Y$. The same reasoning can be recursively applied to $T_{n}$ and $\{x^{\,i}_{\, n-1}\}\subseteq U$ so that $\{T_{n\,}x^{\,i}_{\, n}\}$ tends to some $y_{n}$ of $Y$, as $\{x^{\,i}_{\, n}\}$ is a subsequence of $\{x^{\,i}_{\,n-1}\}$. Then
 \begin{align}\label{4_13_a_0}
 T_{n\,} x^{i}_p \,\underset{i\to \infty}{\longrightarrow}\,y_n\quad (p\> n=1,\, 2,\, 3,\, \dotsb )\quad .
 \end{align}
@@ -34,7 +34,7 @@ $\{T_{ j\,} \tilde{x}_{\, j} \}$ is then a Cauchy sequence. So is $\{T \,\tilde{
 %: b
 Fix $\eps$ as a positive scalar. Since $T$ is compact, $Y$ contains a finite set $C$ such that 
 \begin{align}\label{4_13_b_1}
-T(U\,)\subset \bigcup_{c\in C} B(c,\, \eps)\quad .
+T(U\,)\subseteq \bigcup_{c\in C} B(c,\, \eps)\quad .
 \end{align}
 As a Hilbert space, $Y$ contains a \textsl{maximal orthonormal set} (or \textsl{Hilbert basis}) $M$. This implies that $\text{span}(M)$ is dense in $Y$; \cf 4.18 \& 4.22 of \cite{Big_Rudin}. The finiteness of $C$ forces $M$ to enclose a finite set $S$ so that 
 \begin{align}\label{4_13_b_2}

@@ -7,7 +7,7 @@
 \sum_{m=0}^\infty c_m (D^m\phi)(0)
 }\end{align*}
 converges for every $\phi\in C^{\,\infty} (R)$?
-\item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathscr{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subset \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathscr{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
+\item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathscr{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subseteq \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathscr{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
 \item Can the assumption about the supports be dropped in (b)?
 \end{enumerate}}
 \paragraph{PROOF.} The answer is: no. Let us establish this assertion. Assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
@@ -21,7 +21,7 @@ S(T,\, Q\,)\Def \{N\in \N, \, \exists C\in \R_+:\, \lvert T\phi\, \rvert \< C\, 
 }\end{align}
 Such subset of $\N$ has a minimum $\omega(T,\, Q)$. The following value
 \begin{align}{\label{6_6_2}
-\omega (T\,) \Def \max\{ \omega(T,\, Q\,): \, Q\subset \Omega\, , \,\, Q \text{ compact }\}\< \infty
+\omega (T\,) \Def \max\{ \omega(T,\, Q\,): \, Q\subseteq \Omega\, , \,\, Q \text{ compact }\}\< \infty
 }\end{align}
 is then the order of $T$. Assume, to reach a contradiction, that, after passage to a subsequence,
 \begin{align}{\label{6_6_3}
@@ -30,7 +30,7 @@ is then the order of $T$. Assume, to reach a contradiction, that, after passage 
 for some compact $Q=Q_j\,$. By (a) of [6.24], $Q_j$ cuts $\text{supp}\Lambda_j\,$, say in $p_j\,$. Since $K$ encloses $\text{supp}\Lambda_j\,$, $\{p_j\}$ tends, after passage to a subsequence, to some $p$ of $K\,$.
 Choose a positive scalar $r$ so that 
 \begin{align}{\label{6_6_5}
-\overline{B}(p,\, r)\Def \{ x\in \R^n:\, \lvert x-p\,\rvert\< r\}\subset \Omega \quad .
+\overline{B}(p,\, r)\Def \{ x\in \R^n:\, \lvert x-p\,\rvert\< r\}\subseteq \Omega \quad .
 }\end{align}
 Such closed ball $\overline{B}(p,\, r)$ is a compact subset of $\Omega$. By (b) of [6.5] (which refers to [1.46])  $\mathscr{D}_{\overline{B}(p,\, r)}$ is then a Fréchet space. It now follows from [2.6] that $\{\Lambda_j\}$ is equicontinuous on $\mathscr{D}_{\overline{B}(p,\, r)}\,$. There so exists\footnote{For more details, see Exercise 2.3.} a nonnegative integer $N$ such that 
 \begin{align}{\label{6_6_6}
