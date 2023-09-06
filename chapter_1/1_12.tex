@@ -1,42 +1,73 @@
-\textit{
-Suppose %
+\textit{Suppose %
 %
-  $d_{1}(x,y)=|x-y|, d_{2}(x,y)=|\phi(x)-\phi(y)|$, %
+  $d_1(x,y)=|x-y|, d_2(x,y)=|\varphi(x)-\varphi(y)|$, %
 %
 where %
 %
-  $\phi(x)={x}/{(1+\lvert x \rvert )}$. %
+  $\varphi(x)={x}/{(1+\lvert x \rvert )}$. %
 %
-Prove that $d_{1}$ and $d_{2}$ are metrics on $\R$ which induce %
-the same topology, although $d_{1}$ is complete and $d_{2}$ is not.
+Prove that $d_1$ and $d_2$ are metrics on $\R$ which induce the same %
+topology, although $d_1$ is complete and $d_2$ is not.
 }
-\begin{proof}First, each $d_i\, (i=1,\,2)$ induces a topology $\tau_i\,$ spanned by set of open balls 
+\begin{proof}%
+First, each $d_i\, (i=1, 2)$ induces a topology $\tau_i$ %
+whose open balls are all %
+%
 \begin{align}\label{1_12_2}
-B_i(a,r)\Def \{ x\in \R:\, d_i (a,\,x) < r\} \quad (a\in \R\,,\, \, r\in \R_+ )\quad . \end{align}
-Next, remark that the mapping $\phi:\,  \R\to (\minus 1\, ;\,1)\,$ is odd and that
-\begin{align}\label{1_12_1}
-1> \phi(x)=1-\frac{1}{x+1} \underset{x\infty}{\uparrow} 1 \quad \quad (x\> 0) \quad.
+  B_i(a,r) \triangleq \{x \in \R: d_i (a, x) < r \} 
+  \quad (a \in \R, r > 0 ).
 \end{align}
-$\phi$ is then an $\tau_1$-homeomorphism of $\R\,$ onto $(\minus 1\,;\, 1)$. Pick $a\,$ in $\R\,$: given any positive scalar $\epsilon\,$ the $\tau_1$-continuity of $\phi\,$ supplies a positive scalar $\eta=\eta(\epsilon)\,$ so that 
+%
+Next, remark that the mapping $\varphi: \R \to ]\minus 1, 1[$ is odd and that %
+%
+\begin{align}\label{1_12_1}
+  1> \varphi(x) \tendsto{x}{\infty} 1.
+\end{align}
+%
+$\varphi$ is therefore a $\tau_1$-homeomorphsim of $\R$ onto $]\minus 1, 1[$. %
+%
+A first consequence is that, at fixed $a \in \R$, given any positive scalar %
+$\epsilon$, the $\tau_1$-continuousness of $\varphi$ supplies an open ball %
+$B_1(a,\eta)$ on which $|\varphi(a)-\varphi|<\epsilon$. %
+In terms of balls $B_i$, this reads as follows, %
+%
 \begin{align}
-\forall x \in\R:\: (\, |a-x|< \eta \,\Rightarrow\, |\phi(a)-\phi(x)|< \epsilon)\quad , \end{align}
-\ie
-\begin{align}\label{1_12_5}
-B_1(a,\eta)\subseteq B_2(a,\epsilon)\quad  .\end{align}
-Keep $a\,$ and deduce from the $\tau_1$-continuity of $\phi^{\minus 1}:\, (\minus 1;\, 1)\to \R\,$ that there exists a positive scalar $\epsilon'\,$ such that 
+  B_1(a,\eta) \subseteq B_2(a,\epsilon).
+\end{align}
+%
+The second consequence is that the $\tau_1$-continuousness of %
+$\varphi^{\, \minus 1}$ yields similar inclusions %
+%
 \begin{align} \label{1_12_6}
-\quad B_{2}(a,\epsilon')\subseteq B_{1}(a,\,\eta')  \quad  ,\end{align}
-provided a positive scalar $\eta'\,$. The special case $\eta' \Def \eta(\epsilon)\,$ leads us to 
+\quad B_2(a, \epsilon') \subseteq B_1 (a, \eta')
+\end{align}
+%
+provided $\eta'>0$. At arbitrary $\epsilon$, the special case $\eta' = \eta$ %
+is the concatenation %
+%
 \begin{align}
-B_{2}(a,\epsilon')\overset{(\ref{1_12_6})}{\subset} B_{1}(a,\eta ) \overset{(\ref{1_12_5})}{\subset} B_2(a,\epsilon)\quad . \end{align}
-This yields
-\begin{align}\tau_1=\tau_2 \quad . \end{align}
-Finally, let $m\,$ and $n\,$ range $\N\,$, so that
+  B_2(a, \epsilon') \subseteq B_1(a,\eta) \subseteq B_2(a,\epsilon); 
+\end{align}
+%
+which proves that $\tau_1 =\tau_2$. %
+%
+Finally, all inequalities $n < i < j$ over $\N$ together yield %
+%
 \begin{align}
-\quad d_{2}(m,\,n)=|\phi(m)-\phi(n)| {\underset{m> n \infty}{\longrightarrow}}0\quad .
+  d_2(i, j)=|\varphi(i)-\varphi(j)| \tendsto{n}{\infty} 0.
 \quad \end{align}
-The natural numbers sequence is then a $\tau_2$-Cauchy one that $\tau_2$-diverges, since
+%
+The sequence $n=0, 1, 2, \dots$ is therefore $\tau_2$-Cauchy. We will %
+nevertheless establish that it $\tau_2$-diverges. To do so, we start by %
+offering the $\tau_2$-converge to some $\lambda$: %
+The triangle inequality immediately dismiss that assumption, as follows, %
+%
 \begin{align}
-d_{2}(0,\,n) = \phi (n) \underset{n\infty}{\longrightarrow}1 \, \notin \, \phi(\R) \quad .\end{align}
-Hence $d_2\,$ fails to be complete.
+  d_2(0, \lambda) \geq 
+  d_2(0, n) - d_2(\lambda, n) = 
+  \varphi(n) -d_2(\lambda, n)  \tendsto{n}{\infty} 1.
+\end{align}
+%
+We then conclude that $d_2$ fails to be complete. 
 \end{proof}
+% END
