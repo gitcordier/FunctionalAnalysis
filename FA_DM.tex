@@ -224,10 +224,14 @@ tikz
 %\clearpage
 
 %\printglossary
+
 \input{\ROOT/notations.tex}
-\setcounter{chapter}{0}
+
 \mainmatter
 %\part{Content}
+\renewcommand{\thechapter}{\arabic{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
 \input{\ROOT/FA_mainmatter.tex}
 %\backmatter
 %\part{Annex}

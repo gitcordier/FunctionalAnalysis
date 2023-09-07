@@ -1,38 +1,97 @@
-\renewcommand{\labelenumi}{\arabic{enumi}.}
-\chapter{Notations and Conventions}
-\section*{Logic}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\roman{subsection}}
+%
+\chapter{Notations and Conventions}%
+%\addcontentsline{toc}{chapter}{Notations and Conventions}
+\section{Logic}%
+\subsection{Propositional logic}
+Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
+operators $\lnot$, $\lor$, $\land$, $\Leftrightarrow$, $\Rightarrow$, %
+$\Leftarrow$, assign boolean \textit{truth values} as follows,
 \begin{enumerate}
-\item{{\bf Halmos' iff.} \iif is a short for ``if and only if".}
-\item{{\bf Definitions (of values) with $\Def$.} Given variables %
-$\varit{a}$ and $\varit{b}$, %
-$a\Def b$ means that $\varit{a}$ is defined as equal to $\varit{b}$.}
-\item{{\bf $\equiv$.} $a\equiv b$ means that there exists a ``natural'' %
-bijection $\to$ that maps $a$ to $b$; which let us identify $a$ with $b$. %
-In a metric space context, $a\equiv b$ means that $\to$ is isometric.}
-\item{{\bf Definitions (formul\ae).} Definitions use the \iif format. %
-In other words, every definition has a ``only if''. %
-}
-\item{{\bf Iverson notation.} Given a boolean expression $\varphi$, %
+  \item[$\lnot$]{%
+    $\lnot p$ has not the truth value of $p$.
+  }
+  \item[$\lor$]{
+    The \textit{conjonction} $p \lor q$ is true, unless: %
+    $p$ false, $q$ false.
+  }
+  \item[$\land$]{
+    The \textit{disjunction} is false, unless: $p$ true, $q$ true.
+  }
+  \item[$\Leftrightarrow$]{%
+    The \textit{logical equivalence} expresses \textit{tautologies}: %
+    $p \Leftrightarrow q$ is true, unless: %
+    $p$ has not the truth value of $q$. %
+    It is easily checked that %
+    %
+      $(p \Leftrightarrow q) \Leftrightarrow %
+        \left(
+          (p \Rightarrow q) \land 
+          (p \Leftarrow  q)
+        \right)$; see the below definitions.
+    
+  }
+  \item[$\Rightarrow$]{%
+    The logical implication is denoted by $\Rightarrow$: %
+    $p \Rightarrow q$ means %
+    \textit{if (criterion/premise) $p$ then (conclusion) $q$}, or, %
+    alternatively, \textit{$p$ implies $q$}. %%
+    %
+    $p \Rightarrow q $ is formally defined as $\lnot p \lor q$. %
+    %
+    Remark that the ``reasoning'' $p \Rightarrow q $ is always valid, unless: %
+    $p$ true, $q$ false. Moreover, %
+    %
+      $p \land (p \Rightarrow q) \Rightarrow q$ %
+    %
+    is always true.
+    }
+    \item[$\Leftarrow$]{ $q \Leftarrow p$ is $ p\Rightarrow q $ read backward. 
+    A common pronunciation is \textit{$q$ since $p$}.
+    }
+\end{enumerate}
+%
+For a subtle introduction to proposition logic, %
+see Section 1.3 and Subsection 16.1.3 of \cite{SpecifyingSystems}.
+%
+\subsection{Iverson notation}%
+Given a boolean expression $\varphi$, %
 $\boolean{\varphi}$ returns the truth value of $\varphi$, encoded as follows, %
 %
-  \begin{align} \nonumber
-    \boolean{\varphi}\Def 
-    \begin{cases}
-      0 & \quad\quad \text{if } \varphi \text{ is false;} \\
-      1 & \quad\quad \text{if } \varphi \text{ is true.}
-    \end{cases}
-  \end{align}
-
+\begin{align} \nonumber
+  \boolean{\varphi}\triangleq 
+  \begin{cases}
+    0 & \quad\quad \text{if } \varphi \text{ is false;} \\
+    1 & \quad\quad \text{if } \varphi \text{ is true.}
+  \end{cases}
+\end{align}
+%
 For example, $\boolean{1 > 0} = 1$ but $\boolean{ \sqrt{2} \in \Q} = 0$.
-}
-\end{enumerate}
-%\section{Vector spaces}
-%\begin{enumerate}
-%  \item{If $X$ is a vector space of base $B$ and $e$ is an element of B, }
-%\end{enumerate}
-\section*{Topological vector spaces}
-\subsection*{Product space}
-\subsection*{Scalar field}%
+\section{Special terms}
+\subsection{Halmos' iff and definitions}%
+\iif is a short for ``if and only if". %
+Splitting \iif into \textit{if-then} clauses shows that it is just %
+a rewording of the logical equivalence $\Leftrightarrow$. %
+All definitions will use the \iif format; %
+which is consistent with the fact that every definition expresses a tautology.
+%
+\subsection{Assigning values}%
+Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization %
+of $=$. We say that $x\triangleq y$ \iif $x$ and $y$ are assumed to be equal. 
+Usually, $x\triangleq y$ means that $x$ is assigned the previously known 
+value $y$ (some authors write $x:=y$) but this is not a limitation. 
+Definitions can be redundant and may overlap. The only restriction is that %
+$x\triangleq y$ is inconsistent whether $x\neq y$.
+
+\subsection{Equinumerosity}%
+$a\equiv b$ means that there exists a bijection $\to$ that maps $a$ to $b$; %
+which let us identify $a$ with $b$. %
+In a metric space context, $a\equiv b$ means that $\to$ is isometric.
+\section{Topological vector spaces}
+%\subsection{Vector spaces}
+\subsection{Product space}
+\subsection{Scalar field}%
 The usual (complete) scalar field is $\C$. %
 A property, \eg linearity, that is true on $\C$ is also true on $\R$. %
 The complex case is then a {\it special case} of the real one. %
@@ -59,7 +118,7 @@ $\C$ would actually make no difference here
 }. %
 \end{quote}
 %
-\subsection*{Finite dimensional spaces}\label{finite dimensional spaces}%
+\subsection{Finite dimensional spaces}\label{finite dimensional spaces}%
 It may be customary to identify any $n$-dimensional vector space $Y$ with %
 the normed space $(\C^n, \| \,\|_{\C^n})$, %
 as $\| \, \|_{\C^n}$ is an arbitray norm on $\C^n$. %
