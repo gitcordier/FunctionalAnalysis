@@ -14,26 +14,23 @@ Let be X as topological vector space. All sets mentioned below are understood to
 \begin{proof}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 \begin{enumerate}
-\item 
-Pick a nonempty open set $A$ then let all variables %
-$\mathit{x_i}$ ($i=1, 2, \dots$) range over $A$, %
-so that, at each $i$,  %
+\item%
+Pick an open set $A$ then let the variables $\mathit{V}_i$ %
+($i=1, 2, \dots$) run through all open subsets of $A$, so that % 
 %
 \begin{align}
-  x_i \in V_i \subseteq A 
+  \co{A} \subseteq 
+  \bigcup_{t_i} \, %
+    (t_1V_1 + \cdots + t_i V_i  + \cdots) 
+  \subseteq \co{A}
 \end{align}
 %
-for some neighborhood $V_i$ of $x_i$. %
+given all convex combinations %
 %
-Hence 
-%
-\begin{align}
-  \sum t_i x_i \in \sum t_i V_i  \subseteq \co{A}
-\end{align}
-%
-at arbitrary convex combination $\sum_i t_i x_i$. %
-Now remark that $\sum t_i V_i$ is open; see Section 1.7 of \cite{FA}; %
-which achieves the proof (the case $A=\emptyset$ is trivial). %
+  $t_1V_1 + \cdots + t_i V_i  + \cdots $. %
+ %
+We know from Section 1.7 of \cite{FA} that those sums are open; %
+which achieves the proof. %
 %
 %:(b)
 \item Provided a bounded set $E$, %
