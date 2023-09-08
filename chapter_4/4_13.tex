@@ -24,7 +24,7 @@ Applied with $\{x^{\,i}_{\,n}:\, (n,i\,)\in\N^2\}$, a Cantor's diagonal process 
 %\end{align}
 We now easily obtain
 \begin{align}\label{4_13_a_3}
-\| T_{j\,} \tilde{x}_{j\,}  -T_{\, k} \tilde{x}_{\, k}\| \<
+\| T_{j\,} \tilde{x}_{j\,}  -T_{\, k} \tilde{x}_{\, k}\| \leq
 \| T_{j\,} \tilde{x}_{j\,}- y_{j\,}\| +
 \| y_{j\,} -T_{j\,} \tilde{x}_{k\,}\| +
 \| T_{j\,} - T_{ k\,}\|   \underset{k> j\to \infty}{\longrightarrow}0\quad .
@@ -32,27 +32,27 @@ We now easily obtain
 $\{T_{ j\,} \tilde{x}_{\, j} \}$ is then a Cauchy sequence. So is $\{T \,\tilde{x}_{\, j}\}$, since $\| T-T_{j}\,\| \to 0$. On the other hand, $Y$ is complete: (a) is then proved and we now establish the counterpart in a Hilbert space.\\
 \\
 %: b
-Fix $\eps$ as a positive scalar. Since $T$ is compact, $Y$ contains a finite set $C$ such that 
+Fix $\epsilon$ as a positive scalar. Since $T$ is compact, $Y$ contains a finite set $C$ such that 
 \begin{align}\label{4_13_b_1}
-T(U\,)\subseteq \bigcup_{c\in C} B(c,\, \eps)\quad .
+T(U\,)\subseteq \bigcup_{c\in C} B(c,\, \epsilon)\quad .
 \end{align}
 As a Hilbert space, $Y$ contains a \textsl{maximal orthonormal set} (or \textsl{Hilbert basis}) $M$. This implies that $\text{span}(M)$ is dense in $Y$; \cf 4.18 \& 4.22 of \cite{Big_Rudin}. The finiteness of $C$ forces $M$ to enclose a finite set $S$ so that 
 \begin{align}\label{4_13_b_2}
-\forall c\in C, \, \exists  s(c\,) \in \text{span} (S\,):\, \|c - s(c\,)\| <\eps\quad .
+\forall c\in C, \, \exists  s(c\,) \in \text{span} (S\,):\, \|c - s(c\,)\| <\epsilon\quad .
 \end{align}
 Let $x$ be in $U$. It follows from (\ref{4_13_b_1}) that 
 \begin{align}\label{4_13_b_3}
-\|Tx - c_x \| < \eps
+\|Tx - c_x \| < \epsilon
 \end{align}
 for some $c_x$ of $C$. We now combine (\ref{4_13_b_2}) and (\ref{4_13_b_3}) to obtain
 \begin{align}
-\|Tx - s(c_x) \| \<  \| Tx - c_x \| + \| c_x - s(c_x)\| < 2\eps
+\|Tx - s(c_x) \| \leq  \| Tx - c_x \| + \| c_x - s(c_x)\| < 2\epsilon
 \end{align}
 As a finite-dimensional subspace, $\text{span}(S\,)$ is closed (see footnote 4, Exercise 1.10). We so obtain
 \begin{align}
 Y=\text{span}(S\,)\oplus \text{span}(S\,)^\bot \quad ,
 \end{align}
-by [12.4]. There so exists a unique projection projection $\pi=\pi(\eps)$ of $Y$ onto itself (see [5.6] for the definition) such that
+by [12.4]. There so exists a unique projection projection $\pi=\pi(\epsilon)$ of $Y$ onto itself (see [5.6] for the definition) such that
 \begin{align}
 \pi (Y) = \text{span}(S\,)\, ,\,  \,  (I-\pi)(Y\,) = \text{span}(S\,)^\bot\quad .
 \end{align}
@@ -66,13 +66,13 @@ Thus,
 \end{align}
 Then,
 \begin{align}
-\|( I- \pi )(T x) \| \< \| I- \pi \| \, \| Tx -s(c_x)\| < 4 \eps  \quad (x\in U)\quad 
+\|( I- \pi )(T x) \| \leq \| I- \pi \| \, \| Tx -s(c_x)\| < 4 \epsilon  \quad (x\in U)\quad 
 \end{align}
 (the fact that $\pi$ has norm $1$ is hidden in the right side inequality). We have just so proved that 
 \begin{align}
-\| T-\pi\circ T\, \| \in \underset{\eps \sim 0}{O}(\eps) \quad . 
+\| T-\pi\circ T\, \| \in \underset{\epsilon \sim 0}{O}(\epsilon) \quad . 
 \end{align}
-That is particularly true whether $\eps=\eps_0,\, \eps_1,\, \eps_2,\, \dots ,\, \eps_n \underset{n\to \infty}{\longrightarrow} 0\,$. Let so $T_n$ be $ \pi(\eps_n) \circ T\,$ and conclude that these (compact) operators approximate $T$ in the desired fashion, \ie
+That is particularly true whether $\epsilon=\epsilon_0,\, \epsilon_1,\, \epsilon_2,\, \dots ,\, \epsilon_n \underset{n\to \infty}{\longrightarrow} 0\,$. Let so $T_n$ be $ \pi(\epsilon_n) \circ T\,$ and conclude that these (compact) operators approximate $T$ in the desired fashion, \ie
 \begin{align}
 \| T-T_n \| \underset{n \to \infty}{\longrightarrow} 0\quad .
 \end{align}

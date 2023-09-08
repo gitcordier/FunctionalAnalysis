@@ -7,9 +7,9 @@
 \renewcommand{\labelenumi}{(\alph{enumi})}
 \item Prove that $T\in \mathscr{B}(L^2(\mu))$ and that 
 \begin{align*}
-\| T\, \|^2 \< \int_\Omega\int_\Omega \lvert K (s,t\,)\rvert ^2 d\mu (s\,) d\mu(t\,).
+\| T\, \|^2 \leq \int_\Omega\int_\Omega \lvert K (s,t\,)\rvert ^2 d\mu (s\,) d\mu(t\,).
 \end{align*}
-\item Suppose $a_i$, $b_i$ are members of $L^2(\mu)$, for $1\< i\< n$, put $K_1=\sum a_i(s\,)b_i(t\,)$ and define $T_1$ in terms of $K_1$ a $T$ was defined in terms of $K$. Prove that $\dim \mathscr{R}(T_1)\< n$.
+\item Suppose $a_i$, $b_i$ are members of $L^2(\mu)$, for $1\leq i\leq n$, put $K_1=\sum a_i(s\,)b_i(t\,)$ and define $T_1$ in terms of $K_1$ a $T$ was defined in terms of $K$. Prove that $\dim \mathscr{R}(T_1)\leq n$.
 \item Deduce that $T$ is a compact operator in $L^2(\mu)$. Hint: Use exercise 13.
 \item Suppose $\lambda\in \C,\, \lambda\neq 0$. Prove: Either the equation 
 \begin{align*}Tf-\lambda f=g\end{align*}
@@ -20,7 +20,7 @@ has a unique solution $f\in L^2(\mu)$ for every $g\in L^2(\mu)$ or there are inf
 %: a 
 \paragraph{PROOF.} Let $X$ (respectively $P\,$) be the Banach space $L^2(\mu)$ (respectively $L^2(\mu\times \mu)\,$). A consequence of the Radon-Nikodym theorem (\cf 6.16 of \cite{Big_Rudin}\,) is that there exists a group isomorphism $\rho:\, X\to \, X^{\,\ast},\, f\mapsto f^{\,\,\ast}$ such that
 \begin{align}
-\langle u ,\, f^{\,\,\ast}  \rangle =\int_\Omega u\mdot f \, \d\mu  \quad (u\in X,\, f\in X)\quad .
+\langle u ,\, f^{\,\,\ast}  \rangle =\int_\Omega u\cdot f \, \d\mu  \quad (u\in X,\, f\in X)\quad .
 \end{align}
 Define a.e $K_s,\, K_t:\, \Omega\to \C$ by setting
 \begin{align}
@@ -28,20 +28,20 @@ K_s(t\,)\Def K_t(s\,)\Def  K(s,\, t\,)\, \, \text{ a.e}\quad \left((s,t\,)\in \O
 \end{align}
 $T$ is clearly linear. Moreover, 
 \begin{align}
-\lvert (T f\,)(s\,) \rvert = \lvert \langle K_s,\, f^{\,\,\ast} \rangle \rvert \< \| K_s\|_X\quad(\|\,f\,\,\|_X < 1) \quad
+\lvert (T f\,)(s\,) \rvert = \lvert \langle K_s,\, f^{\,\,\ast} \rangle \rvert \leq \| K_s\|_X\quad(\|\,f\,\,\|_X < 1) \quad
 \end{align}
 (the latter inequality is a Cauchy-Schwarz one). Now apply the Fubini's theorem with $\lvert K\,\rvert^2$ to obtain
 \begin{align}
-\|Tf\,\,\|^2_X \< \int_\Omega \| K_s\|^2_X \, \,\d \mu (s\,)  =\| K\,\|_P^2 \,< \infty \quad(\|\,f\,\,\|_X < 1)\quad  .
+\|Tf\,\,\|^2_X \leq \int_\Omega \| K_s\|^2_X \, \,\d \mu (s\,)  =\| K\,\|_P^2 \,< \infty \quad(\|\,f\,\,\|_X < 1)\quad  .
 \end{align}
 (a) is then proved. \\
 \\
 %: b
 To show (b), remark that
 \begin{align}
-\int_\Omega a_i (s\,) \mdot b_i \mdot f  \,\,\d\mu \,\,\in \C\mdot  a_i(s\,)\,\,\,\text{a.e}\quad \quad (f\in X, \, s\in \Omega)  \quad.
+\int_\Omega a_i (s\,) \cdot b_i \cdot f  \,\,\d\mu \,\,\in \C\cdot  a_i(s\,)\,\,\,\text{a.e}\quad \quad (f\in X, \, s\in \Omega)  \quad.
 \end{align}
-It is now clear that $T$ maps any $f$ of $X$ into $\C \mdot a_1+\dotsb+ \C\mdot a_n$. We so conclude that $\dim R(T_1)\< n $. \\
+It is now clear that $T$ maps any $f$ of $X$ into $\C \cdot a_1+\dotsb+ \C\cdot a_n$. We so conclude that $\dim R(T_1)\leq n $. \\
 \\
 %: c
 We now aim at (c). The current part refers to Exercise 4.13. $X$ is also a Hilbert space and so contains a Hilbert basis $M$. Define a.e
@@ -51,15 +51,15 @@ a_b: \Omega \to &\,\C   \\
 \end{align}
 whenever $b$ ranges $M$. Hence,
 \begin{align}
-K_s= \sum_{b\in M} a_b(s\,) \mdot b \, \text{ a.e} \quad (s\in \Omega) \quad.
+K_s= \sum_{b\in M} a_b(s\,) \cdot b \, \text{ a.e} \quad (s\in \Omega) \quad.
 \end{align}
-Provided any positive scalar $\eps$, there so exists a finite subset $S=S(\eps)$ of $M$ such that
+Provided any positive scalar $\epsilon$, there so exists a finite subset $S=S(\epsilon)$ of $M$ such that
 \begin{align}
-\| K_s - \sum_{b\in S} a_b(s\,) \mdot b\,\|_X < \eps \quad  (s\in \Omega)\quad .
+\| K_s - \sum_{b\in S} a_b(s\,) \cdot b\,\|_X < \epsilon \quad  (s\in \Omega)\quad .
 \end{align}
-Remark that $\underset{b\in S}{\sum} a_b \mdot b$ matches the definition of $K_1$; \cf(b): from now on, 
+Remark that $\underset{b\in S}{\sum} a_b \cdot b$ matches the definition of $K_1$; \cf(b): from now on, 
 \begin{align}
-K_1\Def \sum_{b\in S} a_b \mdot b\quad .
+K_1\Def \sum_{b\in S} a_b \cdot b\quad .
 \end{align}
 It follows from (b) that
 \begin{align}
@@ -67,9 +67,9 @@ It follows from (b) that
 \end{align}
 Now turn back to (a), with $K-K_1$ playing the role of $K$, and so obtain
 \begin{align}
-\|T-T_1\| < \eps \mu(\Omega)\< \infty \quad .
+\|T-T_1\| < \epsilon \mu(\Omega)\leq \infty \quad .
 \end{align}
-For if $\mu$ is finite, use (a) of Exercise 4.13 to conclude that $T$ is compact. Assume henceforth that $\mu$ is not (necessarily) finite and pick $\delta$ in $\R_+$. The simple functions (with finite measure support\,) form a dense family of an $L^p$ space ($1\< p<\infty$); \cf 3.13 of \cite{Big_Rudin}. It then exists a simple function $K_\delta$ of $L^2(\mu\times \mu)$ such that 
+For if $\mu$ is finite, use (a) of Exercise 4.13 to conclude that $T$ is compact. Assume henceforth that $\mu$ is not (necessarily) finite and pick $\delta$ in $\R_+$. The simple functions (with finite measure support\,) form a dense family of an $L^p$ space ($1\leq p<\infty$); \cf 3.13 of \cite{Big_Rudin}. It then exists a simple function $K_\delta$ of $L^2(\mu\times \mu)$ such that 
 \begin{align}
 (\mu\times\mu)\left(\{K_\delta\neq 0\}\right) <\infty \,, \,\, \| K-K_\delta \|_P <\delta\quad .
 \end{align}
@@ -79,13 +79,13 @@ Define an operator $T_\delta$ in terms of $K_\delta$ as $T$ was defined in terms
 \end{align}
 The key ingredient is that $K_\delta$ can be identified with an element of the finite measure space $L^2(\{K_\delta\neq 0\},\mu\times\mu)\,$. What we have attempted to approximate $T$ by $T_1$ can therefore be reiterated (with $K_\delta$ playing the role of $K$) to achieve an approximation $T_{\delta,1}$ of $T_\delta$ so that
 \begin{align}\label{4_15_14}
-\|T_{\delta}-T_{\delta,1}\| < \eps\quad .
+\|T_{\delta}-T_{\delta,1}\| < \epsilon\quad .
 \end{align}
 It now follows from (\ref{4_15_13}) and (\ref{4_15_14}) that
 \begin{align}
-\|T-T_{\delta,1}\|\< \|T-T_{\delta}\| +\|T_{\delta}-T_{\delta,1}\| < \eps+\delta\quad .
+\|T-T_{\delta,1}\|\leq \|T-T_{\delta}\| +\|T_{\delta}-T_{\delta,1}\| < \epsilon+\delta\quad .
 \end{align}
-Since $\eps$ and $\delta$ were arbitrary, the $\sigma$-finite case is proved. We now establish (d).\\
+Since $\epsilon$ and $\delta$ were arbitrary, the $\sigma$-finite case is proved. We now establish (d).\\
 \\
 %: d
 Provided  $g$ of $X$, let $E_g$ be the following equation on $X$
@@ -103,14 +103,14 @@ Otherwise, $T-\lambda I$ is bijective and every equation $E_g$ has then a unique
 \\
 Our last step is the description of $T^{\,\ast}$. Let $S:\, X\to X$ be such that
 \begin{align}
-(Sf\,)(t\,)\Def \int_\Omega K_t \mdot f \,\,\, \text{a.e}\quad \quad (\,f\in X,\, t\in \Omega)
+(Sf\,)(t\,)\Def \int_\Omega K_t \cdot f \,\,\, \text{a.e}\quad \quad (\,f\in X,\, t\in \Omega)
 \end{align}
 Proceed as in (a), with $S$ instead of $T$: $S$ lies in $\mathscr{B}(X)$. Next, we claim that 
 \begin{align}
 \langle u,\, T^{\,\ast} f^{\,\,\ast}  \rangle = &\, \langle Tu,\,f^{\,\,\ast}   \rangle\\
-=&  \int_{\Omega} (T  u ) \mdot  f \,\, \,\d\mu \\
-\label{int_Fubini}=& \int_{\Omega^2} K\mdot f \mdot  u \,\,\, \d(\mu\times\mu) \\
-=&  \int_{\Omega} (S  f\, ) \mdot  u \,\,\, \d\mu\,  \\
+=&  \int_{\Omega} (T  u ) \cdot  f \,\, \,\d\mu \\
+\label{int_Fubini}=& \int_{\Omega^2} K\cdot f \cdot  u \,\,\, \d(\mu\times\mu) \\
+=&  \int_{\Omega} (S  f\, ) \cdot  u \,\,\, \d\mu\,  \\
 =&\, \langle u,\, (S f\, )^\ast \rangle \quad ,
 \end{align}
 whenever $u$ and $f$ run through the closed unit ball of $X$. Since $\|T\, \|$, $\| T^{\,\ast} \|$ are equal and finite, only exactness of (\ref{int_Fubini}) is possibly in doubt; the below justification dissipates it. In conclusion,
@@ -124,18 +124,18 @@ T^{\,\ast} = S\quad .
 \\
 \underline{Justification of (\ref{int_Fubini})}. The current proof shall be complete once we have justified (\ref{int_Fubini}). To do so, keep $u$ and $f$ as above. Let us introduce
 \begin{align}
-A(s\,)\Def \int_\Omega \lvert K_s(t\,) \mdot u (t\,)\rvert  \,\, \d\mu(t\,) \, \,\,\text{a.e}  \quad (s\in \Omega)\quad ,
+A(s\,)\Def \int_\Omega \lvert K_s(t\,) \cdot u (t\,)\rvert  \,\, \d\mu(t\,) \, \,\,\text{a.e}  \quad (s\in \Omega)\quad ,
 \end{align}
 to make hold the following Cauchy-Schwarz inequality
 \begin{align}
-A(s\,)\< \| K_s\|_X  \quad (s\in \Omega)\quad .
+A(s\,)\leq \| K_s\|_X  \quad (s\in \Omega)\quad .
 \end{align}
 Thus,
 \begin{align}
  \int_{\Omega^2} \lvert K(s,\,t\,) \, u(t\,)\,  f\,(s\,) \rvert \,\d\mu(s\,)\d\mu(t\,) 
  = &   \int_\Omega   \lvert \,f\,(s\,) \rvert \,A(s\,) \, \d\mu(s\,) \\
- \< &  \int_\Omega   \lvert \,f\,(s\,) \rvert  \, \| K_s\|_X\,\d\mu(s\,) \\
- \label{4_15_complement_2} \< & \left[ \int_\Omega \| K_s\|_X^2\,\,\d\mu(s\,) \right]^{\frac{1}{2}} 
+ \leq &  \int_\Omega   \lvert \,f\,(s\,) \rvert  \, \| K_s\|_X\,\d\mu(s\,) \\
+ \label{4_15_complement_2} \leq & \left[ \int_\Omega \| K_s\|_X^2\,\,\d\mu(s\,) \right]^{\frac{1}{2}} 
  =      \| K\,\|_P < \infty \quad .
  \end{align}
 The inequality in (\ref{4_15_complement_2}) is a Cauchy-Schwarz one, the following equality follows from the Fubini's theorem. This achieves the proof.\QED
