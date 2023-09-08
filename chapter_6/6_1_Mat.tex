@@ -9,30 +9,30 @@ That was our first part. We now go further by proving the separability of $\math
 \end{align}
 Now let $m$ range over $\{1,\, 2,\,3,\, \dots\}$ and set $W_{m,\, j\,}$ in $\mathscr{D}(\Omega)$ as follows
 \begin{align}\label{6_1_5a}
-D^{\,\moins \alpha} \phi \in \mathscr{D}(\Omega):\, D^{\,\alpha} D^{\,\moins \alpha} \phi= \phi\quad .
+D^{\,\minus \alpha} \phi \in \mathscr{D}(\Omega):\, D^{\,\alpha} D^{\,\minus \alpha} \phi= \phi\quad .
 \end{align}
 %\begin{align}\label{6_1_5c}
-%D^{\,\moins \alpha} \phi(x\,) \Def 
+%D^{\,\minus \alpha} \phi(x\,) \Def 
 %\underset{ \alpha_1 \text{ time(s)}  }{
-                                                         % \underbrace{ \int_{\moins \infty}^{x_1} \dotsc\int_{\moins\infty}^{x_1}}
+                                                         % \underbrace{ \int_{\minus \infty}^{x_1} \dotsc\int_{\minus\infty}^{x_1}}
 %                                                          }
 % \,\,\dotsc\,
 % \underset{ \alpha_n \text{ time(s)}  }{
-                                                         % \underbrace{ \int_{\moins \infty}^{x_n} \dotsc\int_{\moins\infty}^{x_n}}
+                                                         % \underbrace{ \int_{\minus \infty}^{x_n} \dotsc\int_{\minus\infty}^{x_n}}
                                                         %  } 
                                                        %  \,\, \phi \quad (x\in \R^n)\quad .
                                                         %  \end{align}
 \begin{align}\label{6_1_5}
-W_{m,\, j\,}(x\,)\Def D^{\,\moins (m,\dotsc,\,m)} ( \psi P_{(m,\dotsc, \, m),\, j\,})
+W_{m,\, j\,}(x\,)\Def D^{\,\minus (m,\dotsc,\,m)} ( \psi P_{(m,\dotsc, \, m),\, j\,})
                                                           \end{align}
 By (\ref{6_1_4}), there exists a natural number $k(\!m)$ such that 
 \begin{align}\label{6_1_6}
-\|D^{(m,\dotsc,\, m)} (f   -W_{m,\, j})   \|_\infty < 1/m  \quad (j\> k(\!m) )\quad  .
+\|D^{(m,\dotsc,\, m)} (f   -W_{m,\, j})   \|_\infty < 1/m  \quad (j\geq k(\!m) )\quad  .
 \end{align}
  Assume without loss of generality that $S$ has diameter $1$, so that (\ref{6_1_6}) yields
 \begin{align}\label{6_1_7}
-\|D^{\, \lambda } (f   -W_{m,\, k(\!m)}  )  \|_\infty < 1/m \quad ( \lvert \lambda \rvert \< m )\quad ,
-%\max \{  \lvert D^{\, \lambda}(f- W_{m,\, k(\!m) })(x\,)\rvert :\, x\in S,\, \lvert \lambda\rvert \< m\,\} < 1/m \quad 
+\|D^{\, \lambda } (f   -W_{m,\, k(\!m)}  )  \|_\infty < 1/m \quad ( \lvert \lambda \rvert \leq m )\quad ,
+%\max \{  \lvert D^{\, \lambda}(f- W_{m,\, k(\!m) })(x\,)\rvert :\, x\in S,\, \lvert \lambda\rvert \leq m\,\} < 1/m \quad 
 \end{align}
 by the mean value theorem. In other words $(\text{remark that }\text{supp} (f   -W_{m,\, k(\!m)}) \subseteq S\,)$,  
 \begin{align}\label{6_1_8}
@@ -46,19 +46,19 @@ We have so established that the $W_{m,\, k(\!m)}$'s family is dense in $\mathscr
 \\
 Choose $\delta $ in $\R_+$ and fetch any $W_{m,\, k(\!m)}$. Let $X$ be $(X_1,\dotsc,\, X_n)$ and express $P_{(m,\dotsc,\, m\,),\, k(\!m)}$ as 
 \begin{align}\label{6_1_10}
-P(X\,)=\sum_{\lvert \gamma \rvert \< d} p_\gamma \mdot X^{\,\gamma} \quad  .
+P(X\,)=\sum_{\lvert \gamma \rvert \leq d} p_\gamma \cdot X^{\,\gamma} \quad  .
 \end{align}
-Since $\overline{\Q}=\R$, $\Q[X\,]$ hosts some $\disp{Q(X\,)=\sum_{\lvert \gamma \rvert \< d} q_\gamma \mdot X^{\,\gamma}}$ such that $\lvert p_\gamma - q_\gamma\rvert < \delta\,$ for all $\gamma$. Thus,
+Since $\overline{\Q}=\R$, $\Q[X\,]$ hosts some $\{Q(X\,)=\sum_{\lvert \gamma \rvert \leq d} q_\gamma \cdot X^{\,\gamma}}$ such that $\lvert p_\gamma - q_\gamma\rvert < \delta\,$ for all $\gamma$. Thus,
 \begin{align}\label{6_1_11}
-\lvert P(x\,)-Q(x\,) \,\rvert \<   \sum_{\lvert \gamma \rvert \< d} \lvert p_\gamma-q_\gamma\rvert\, \lvert x\,\rvert^{\lvert \gamma\rvert} \< \delta \sum_{l  \< d} \binom{l+n-1}{n-1}\, \| \, x\, \|^{l}_\infty \quad (x\in \R^n)\quad .
+\lvert P(x\,)-Q(x\,) \,\rvert \leq   \sum_{\lvert \gamma \rvert \leq d} \lvert p_\gamma-q_\gamma\rvert\, \lvert x\,\rvert^{\lvert \gamma\rvert} \leq \delta \sum_{l  \leq d} \binom{l+n-1}{n-1}\, \| \, x\, \|^{l}_\infty \quad (x\in \R^n)\quad .
 \end{align}
 Since $S$ is bounded, we so obtain
 \begin{align}\label{6_1_12}
  \|\psi (P- Q) \|_\infty  \in O(\delta) \quad .
 \end{align}
-Now define $\tilde{W}_m\,$ in terms of $Q$ as $W_{m,\, k(\!m)}$ was defined in terms of $P$, and consider the integrations made in (\ref{6_1_5}): each $D^{\,\lambda} \tilde{W}_m\,\, (\lvert \lambda \rvert\< m)$ can be obtained from some of them. So (\ref{6_1_12}) yields
+Now define $\tilde{W}_m\,$ in terms of $Q$ as $W_{m,\, k(\!m)}$ was defined in terms of $P$, and consider the integrations made in (\ref{6_1_5}): each $D^{\,\lambda} \tilde{W}_m\,\, (\lvert \lambda \rvert\leq m)$ can be obtained from some of them. So (\ref{6_1_12}) yields
 \begin{align}\label{6_1_13}
- \| D^{\,\lambda} (W_{m,\, k(\!m)} - \tilde{W}_m ) \|_\infty  \in O(\delta)\quad (\lvert \lambda \rvert\< m) \quad   . 
+ \| D^{\,\lambda} (W_{m,\, k(\!m)} - \tilde{W}_m ) \|_\infty  \in O(\delta)\quad (\lvert \lambda \rvert\leq m) \quad   . 
 \end{align}
 To be more specific, these $\lambda$'s only exist in finite  amount, so the big O can be assumed to be the same for all them. Since $\delta$ was arbitrary, combining  (\ref{6_1_9}) with (\ref{6_1_13}) establishes the density of the all $\tilde{W}_m$'s family $\tilde{W}$.\\
 \\
