@@ -121,7 +121,7 @@ Feel free to get copies of this great book by yourself.
     of the first category, unless X=Y.
     To sum it up: If Y is a proper subspace, 
     then Y is of the first category BUT its complement C 
-    is of the second category, as X is. 
+    is of the second category, as X is. The proof is flawed/not achevied. I have written a correct proof that I will push soon. 
   - 2_16.tex  
     A simpler version of the closed graph theorem. 
     Roughly speaking, compactness replaces completeness. Compactness cannot 
