@@ -1,4 +1,4 @@
-%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+%
 { \CMUCS Suppose $\mu$ is a finite (or $\sigma$-finite) positive measure on a measure space $\Omega$, $\mu\times\mu$ is the corresponding product measure on $\Omega\times\Omega$, and $K\in L^2(\mu\times\mu)$. Define 
 \begin{align*}
 (Tf\,)(s\,)=\int_\Omega K(s,t\,) f\,(t\,) d\mu(t\,)\quad [\,f\in L^2(\mu)\,].
@@ -18,7 +18,7 @@ has a unique solution $f\in L^2(\mu)$ for every $g\in L^2(\mu)$ or there are inf
  \end{enumerate}
 }
 %: a 
-\paragraph{PROOF.} Let $X$ (respectively $P\,$) be the Banach space $L^2(\mu)$ (respectively $L^2(\mu\times \mu)\,$). A consequence of the Radon-Nikodym theorem (\cf 6.16 of \cite{Big_Rudin}\,) is that there exists a group isomorphism $\rho:\, X\to \, X^{\,\ast},\, f\mapsto f^{\,\,\ast}$ such that
+\begin{proof} Let $X$ (respectively $P\,$) be the Banach space $L^2(\mu)$ (respectively $L^2(\mu\times \mu)\,$). A consequence of the Radon-Nikodym theorem (\cf 6.16 of \cite{BigRudin}\,) is that there exists a group isomorphism $\rho:\, X\to \, X^{\,\ast},\, f\mapsto f^{\,\,\ast}$ such that
 \begin{align}
 \langle u ,\, f^{\,\,\ast}  \rangle =\int_\Omega u\cdot f \, \d\mu  \quad (u\in X,\, f\in X)\quad .
 \end{align}
@@ -69,7 +69,7 @@ Now turn back to (a), with $K-K_1$ playing the role of $K$, and so obtain
 \begin{align}
 \|T-T_1\| < \epsilon \mu(\Omega)\leq \infty \quad .
 \end{align}
-For if $\mu$ is finite, use (a) of Exercise 4.13 to conclude that $T$ is compact. Assume henceforth that $\mu$ is not (necessarily) finite and pick $\delta$ in $\R_+$. The simple functions (with finite measure support\,) form a dense family of an $L^p$ space ($1\leq p<\infty$); \cf 3.13 of \cite{Big_Rudin}. It then exists a simple function $K_\delta$ of $L^2(\mu\times \mu)$ such that 
+For if $\mu$ is finite, use (a) of Exercise 4.13 to conclude that $T$ is compact. Assume henceforth that $\mu$ is not (necessarily) finite and pick $\delta$ in $\R_+$. The simple functions (with finite measure support\,) form a dense family of an $L^p$ space ($1\leq p<\infty$); \cf 3.13 of \cite{BigRudin}. It then exists a simple function $K_\delta$ of $L^2(\mu\times \mu)$ such that 
 \begin{align}
 (\mu\times\mu)\left(\{K_\delta\neq 0\}\right) <\infty \,, \,\, \| K-K_\delta \|_P <\delta\quad .
 \end{align}
@@ -90,13 +90,13 @@ Since $\epsilon$ and $\delta$ were arbitrary, the $\sigma$-finite case is proved
 %: d
 Provided  $g$ of $X$, let $E_g$ be the following equation on $X$
 \begin{align}Tf-\lambda f =g \quad ,\end{align}
-whose solution set is denoted by $S_g\,$. Note that $S_0$ is $\ker (T-\lambda)$ and discard the trivial case $S_0=X\,$\footnote{\eg$ X=L^2(\{0\},\, \delta)\,$, so that $I=\lambda^{\moins 1} T $ is compact. }: each $f$ of $X $ lies in $S_{\,Tf-\lambda f\,} $, as some $Tf-\lambda f\,$'s are nonzero. Some $S_g$'s are then nonempty. Remark that 
+whose solution set is denoted by $S_g\,$. Note that $S_0$ is $\ker (T-\lambda)$ and discard the trivial case $S_0=X\,$\footnote{\eg$ X=L^2(\{0\},\, \delta)\,$, so that $I=\lambda^{\minus 1} T $ is compact. }: each $f$ of $X $ lies in $S_{\,Tf-\lambda f\,} $, as some $Tf-\lambda f\,$'s are nonzero. Some $S_g$'s are then nonempty. Remark that 
 \begin{align}\label{4_15_17}
 S_g= f + S_0 \quad (f\in S_g) \quad 
 \end{align}
 in such case. Furthermore, the equality $\beta= \alpha $ of [4.25] yields 
 \begin{align}
-(T-\lambda I\,)(X)\neq X \, \ssi\, S_0 \neq\{0\}  \quad .
+(T-\lambda I\,)(X)\neq X , \text{\ie}  S_0 \neq\{0\}  \quad .
 \end{align}
 So if $T-\lambda I$ is not onto, not only some $S_g$'s are empty, but also $S_0\neq\{0\}$. Every nonempty $S_g$ (such sets always exist, see above) is then infinite, by (\ref{4_15_17}).\\
 Otherwise, $T-\lambda I$ is bijective and every equation $E_g$ has then a unique solution $f$. The Fredholm alternative is so proved. \\
@@ -115,7 +115,7 @@ Proceed as in (a), with $S$ instead of $T$: $S$ lies in $\mathscr{B}(X)$. Next, 
 \end{align}
 whenever $u$ and $f$ run through the closed unit ball of $X$. Since $\|T\, \|$, $\| T^{\,\ast} \|$ are equal and finite, only exactness of (\ref{int_Fubini}) is possibly in doubt; the below justification dissipates it. In conclusion,
 \begin{align}
- T^{\,\ast}   =  \rho S \rho^{\moins 1} \quad .
+ T^{\,\ast}   =  \rho S \rho^{\minus 1} \quad .
 \end{align}
 Informally, 
 \begin{align}
@@ -138,7 +138,7 @@ Thus,
  \label{4_15_complement_2} \leq & \left[ \int_\Omega \| K_s\|_X^2\,\,\d\mu(s\,) \right]^{\frac{1}{2}} 
  =      \| K\,\|_P < \infty \quad .
  \end{align}
-The inequality in (\ref{4_15_complement_2}) is a Cauchy-Schwarz one, the following equality follows from the Fubini's theorem. This achieves the proof.\QED
+The inequality in (\ref{4_15_complement_2}) is a Cauchy-Schwarz one, the following equality follows from the Fubini's theorem. This achieves the proof.\end{proof}
 
 
 

@@ -130,11 +130,15 @@ tikz
 \newcommand{\function}[1]{\mathtt{#1}}
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
-
+\newcommand{\id}[1]{\text{id}_{#1}}
+%\newcommand{\DeclareMathOperator}[1]{\text{#1}}
 
 % Sets
 %\renewcommand{\notin}{\tiny{\not\in}}
 %\renewcommand{\ni}{\small \ni}
+\DeclareMathOperator\opcard{card}
+\newcommand{\card}[1]{\opcard(#1)}
+%
 \def\contains{\supseteq }
 \def\cuts{\cap}
 \DeclareMathOperator\cvxhull{co}
@@ -148,8 +152,10 @@ tikz
 % Arithmetics
 \newcommand{\ceil}[1]{\lceil #1 \rceilf}
 % Analysis
-\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
-\renewcommand{\norm}[2]{\| \,#2 \, \|_{#1}}
+%\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
+\newcommand\magnitude[1]{\abs{#1}}
+\newcommand{\norma}[2]{\norm{#2}_{#1}}
+%\renewcommand{\norm}[2]{\norm{#2}_{#1}}
 \def\weakstar{\text{weak}^\ast\text{-}}
 % Topology
 \newcommand{\localbase}[1]{\mathscr #1}

@@ -1,8 +1,6 @@
 We will actually prove more by showing that $\mathscr{D}(\Omega)$ is separable for each nonempty open subset $\Omega\,$ of $\R^n\,$. 
-
- The following is split in three parts. The first one is about the above requested result. \\
-
-
+\begin{proof}
+The following is split in three parts. The first one is about the above requested result: %
 That was our first part. We now go further by proving the separability of $\mathscr{D}(\Omega)\,$. To do so, we keep $(\alpha,\, j\,)$ in $\N^n\times \N\,$. Remark that $S$ encloses $\text{supp}(D^{\, \alpha}f\,) $: according to the first part, there exists a sequence $\{ P_{\alpha,\, j}:\, j\in \N \}  \subset\R [X_1,\dotsc ,\, X_n]$ such that 
 \begin{align}\label{6_1_4}
 \|  D^{\, \alpha} f-  \psi P_{\alpha,\, j \,} \|_\infty \underset{j\infty}{\longrightarrow} 0 \quad . 
@@ -48,7 +46,7 @@ Choose $\delta $ in $\R_+$ and fetch any $W_{m,\, k(\!m)}$. Let $X$ be $(X_1,\do
 \begin{align}\label{6_1_10}
 P(X\,)=\sum_{\lvert \gamma \rvert \leq d} p_\gamma \cdot X^{\,\gamma} \quad  .
 \end{align}
-Since $\overline{\Q}=\R$, $\Q[X\,]$ hosts some $\{Q(X\,)=\sum_{\lvert \gamma \rvert \leq d} q_\gamma \cdot X^{\,\gamma}}$ such that $\lvert p_\gamma - q_\gamma\rvert < \delta\,$ for all $\gamma$. Thus,
+Since $\bar{\Q}=\R$, $\Q[X\,]$ hosts some ${\Q(X\,)=\sum_{\lvert \gamma \rvert \leq d} q_\gamma \cdot X^{\,\gamma}}$ such that $\lvert p_\gamma - q_\gamma\rvert < \delta\,$ for all $\gamma$. Thus,
 \begin{align}\label{6_1_11}
 \lvert P(x\,)-Q(x\,) \,\rvert \leq   \sum_{\lvert \gamma \rvert \leq d} \lvert p_\gamma-q_\gamma\rvert\, \lvert x\,\rvert^{\lvert \gamma\rvert} \leq \delta \sum_{l  \leq d} \binom{l+n-1}{n-1}\, \| \, x\, \|^{l}_\infty \quad (x\in \R^n)\quad .
 \end{align}
@@ -62,7 +60,9 @@ Now define $\tilde{W}_m\,$ in terms of $Q$ as $W_{m,\, k(\!m)}$ was defined in t
 \end{align}
 To be more specific, these $\lambda$'s only exist in finite  amount, so the big O can be assumed to be the same for all them. Since $\delta$ was arbitrary, combining  (\ref{6_1_9}) with (\ref{6_1_13}) establishes the density of the all $\tilde{W}_m$'s family $\tilde{W}$.\\
 \\
-Furthermore, each member of $\tilde{W}$ is only made of two ingredients: $\psi$ and a polynomial of $\Q[X]$. The mapping $\psi$ is attached to some $K_i$ and $\Q[X]$ inherits countableness from $\Q$. Note that the ``integrations packs" of (\ref{6_1_5}) only exist in countable amount. Our $\tilde{W}$ is then countable.\QED
+Furthermore, each member of $\tilde{W}$ is only made of two ingredients: $\psi$ and a polynomial of $\Q[X]$. The mapping $\psi$ is attached to some $K_i$ and $\Q[X]$ inherits countableness from $\Q$. Note that the ``integrations packs" of (\ref{6_1_5}) only exist in countable amount. %
+Our $\tilde{W}$ is then countable. %
+\end{proof}
 
 
 

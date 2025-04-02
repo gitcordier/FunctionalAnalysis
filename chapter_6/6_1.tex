@@ -1,5 +1,5 @@
-{\CMUCS Suppose $f$ is a complex continuous function in $\R^n$, with compact support. \!\!Prove that $\psi P_j\to \!f$ uniformly on $\R^n$, for some $\psi\in \mathscr{D}$ and for some sequence $\{P_j\,\}$ of polynomials.}
-\paragraph{PROOF.} According to 1.16, $\Omega$ is union of a compact sets sequence $\{K_{i\,}\}$ and $\text{supp} (f\,)$ lies in some $K= K_{i\,}$, so that $f\,$ is embedded in $\mathscr{D}(\Omega)\,$. We can apply [1.10] to ensure that $\Omega$ encloses a compact set $S=\overline{K +B(\epsilon)}$ for sufficiently small $\epsilon>0\,$.\\
+{\it  Suppose $f$ is a complex continuous function in $\R^n$, with compact support. \!\!Prove that $\psi P_j\to \!f$ uniformly on $\R^n$, for some $\psi\in \mathscr{D}$ and for some sequence $\{P_j\,\}$ of polynomials.}
+\begin{proof} According to 1.16, $\Omega$ is union of a compact sets sequence $\{K_{i\,}\}$ and $\text{supp} (f\,)$ lies in some $K= K_{i\,}$, so that $f\,$ is embedded in $\mathscr{D}(\Omega)\,$. We can apply [1.10] to ensure that $\Omega$ encloses a compact set $S=\overline{K +B(\epsilon)}$ for sufficiently small $\epsilon>0\,$.\\
 \\
 One easily checks that the Stone-Weierstraß theorem [5.7] can be applied with the subalgebra $ \{ g\in C(S\,) :\, g \text{ is polynomial}\,\}$ of $C(S\,)\,$.
 There so exists a sequence $\{P_j:\, j\in \N\}$ of $\R[X_1,\dotsc,\, X_n]\,$ such that 
@@ -10,6 +10,6 @@ There so exists a sequence $\{P_j:\, j\in \N\}$ of $\R[X_1,\dotsc,\, X_n]\,$ suc
 \begin{align}\label{6_1_2}
 \| \, f - \psi P_{j\,}\|_\infty=  \, \|  \,\psi f - \psi P_{j\,}\|_\infty 
 =  &  \, \sup_S  \lvert \, \psi f -\! \psi P_{j\,}\rvert  \\
-   \minuseq  &  \,   \sup_S  \lvert  \, f -  \, P_{j\,} \rvert    \, \overset{(\ref{6_1_1})}{\underset{j\infty}{\longrightarrow}} 0\quad .
+   =  &  \,   \sup_S  \lvert  \, f -  \, P_{j\,} \rvert    \, \overset{(\ref{6_1_1})}{\underset{j\infty}{\longrightarrow}} 0\quad .
 \end{align} 
-\QED
+\end{proof}

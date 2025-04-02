@@ -18,37 +18,66 @@ there exists a sequence $\set{E_n}{\counting{n}}$ of $X$ such that %
   \end{enumerate}
 %
 By (i), the complement $V_n$ of $\overline{E}_n$ is a dense open set. %
-Since $X$ is an F-space, it follows from the Baire's theorem that %
+Now pick $x$ in $X$: $x + V_n$ is dense open as well, 
+since the translation by $x$ is an homeomorphism of $X$. %
 %
-  the intersection $S$ of the $V_n$'s is dense in $X$:  %
+Note that the density is also a special case of \citeresultFA{1.3 (b)}, as follows, %
 %
-So is $x+S$ ($x\in X$). To see that, remark that %
+\begin{align}\label{2_15_2}
+  X = x + X \subseteq \overline{x + V_n}.
+\end{align} 
 %
-  \begin{align}\label{2_15_2}
-    X = x + \overline{S} \subseteq \overline{x + S}
-  \end{align} 
+We now apply the Baire's theorem twice to establish that %
 %
-follows from \citeresultFA{1.3 (b)}. %
-Since $S$ and $x+S$ are both dense open subsets of $X$, %
-the Baire's theorem asserts that %
+\begin{enumerate}
+  \item every intersection $W_n = V_n \cap (x+V_n)$ is dense in $X$;
+  \item so is the intersection $\displaystyle{\bigcap_{n=1}^\infty W_n}$.
+\end{enumerate}
 %
-  \begin{align}
-    \overline{(x+S)\cap S} = X.
-  \end{align} 
+Bear in mind that every dense subset of $X$ is nonempty and remark that %
+\begin{align}\label{2_15_3}
+  \bigcap_{n=1}^\infty W_n \subseteq \bigcap_{n=1}^\infty V_n \subseteq Y
+\end{align} 
+holds, since %
 %
-Thus, 
+  $X\setminus Y \subseteq \bigcup_{n=1}^\infty \overline{E}_n$. %
 %
-  \begin{align}\label{2_15_4}
-    (x+S)\cap S\neq\emptyset.
-  \end{align}
+Now pick $w$ in $\bigcap_{n=1}^\infty W_n$, so that %
+$w$ is an element of $Y$ (by (\ref{2_15_3})) that lies in every $W_n$. %
+The key ingredient is that $W_n$ a subset of $x + V_n$. %
+Hence %
 %
-Moreover, it follows from (ii) that %
+\begin{align}
+  w \in  x + V_n. 
+\end{align}
 %
-  $X\setminus Y \subseteq \bigcup_n \closure{E}_n$, \ie 
-  $Y \contains S$. %
-Combined with (\ref{2_15_4}), this shows that $x+Y$ cuts $Y$. 
-Therefore, our arbitrary $x$ is an element of the subgroup $Y$. %
-We have thus established that $X \subseteq Y$, which achieves the proof.
+Finally, 
+\begin{align}
+  w - x \in \bigcap_{n=1}^\infty V_n \subseteq Y; 
+\end{align}
+%
+again with (\ref{2_15_3}).
+It is now clear that $x + Y$ cuts $Y$ in $x + (w - x ) = w$, which establishes that $x$ lies is $Y - Y$. %
+As a conclusion, 
+\begin{align}
+  X \subseteq Y,  
+\end{align}
+%
+since $x$ was arbitrary and that $Y$ is a subgroup. %
+So ends the proof.
+%
+%
+%  \begin{align}\label{2_15_4}
+%    (x+S)\cap S\neq\emptyset.
+%  \end{align}
+%
+%Moreover, it follows from (ii) that %
+%
+%  $X\setminus Y \subseteq \bigcup_n \closure{E}_n$, \ie 
+%  $Y \contains S$. %
+%Combined with (\ref{2_15_4}), this shows that $x+Y$ cuts $Y$. 
+%Therefore, our arbitrary $x$ is an element of the subgroup $Y$. %
+%We have thus established that $X \subseteq Y$, which achieves the proof.
 \end{proof}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %

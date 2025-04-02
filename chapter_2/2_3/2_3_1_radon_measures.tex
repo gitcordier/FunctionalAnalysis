@@ -19,8 +19,8 @@ The following inequalities %
       \leq 
     \int_\R \left\lvert u\phi \right\rvert 
       \leq
-    \norm{L^1}{u}
-      \quad(\norm{\infty}{\phi} \leq 1)
+    \norma{L^1}{u}
+      \quad(\norma{\infty}{\phi} \leq 1)
   \end{align} 
 %
 imply that every linear functional 
@@ -55,12 +55,12 @@ operator $\bra{u}$, of norm %
     \sup\set{
       \magnitude{\bra{u}\ket{\phi}}
     }{ 
-      \norm{\infty}{\phi} = 1
+      \norma{\infty}{\phi} = 1
     } 
-    =  \norm{L^1}{u}.
+    =  \norma{L^1}{u}.
   \end{align} 
 %
-Note that, in the latter equality, $\leq \norm{L^1}{u}$ comes from %
+Note that, in the latter equality, $\leq \norma{L^1}{u}$ comes from %
 %
   (\ref{2.3  g  bounded operator (1).}), %
 %
@@ -156,7 +156,7 @@ so that %
     }
     \item{
       The sequence $\singleton{\phi_j}$ converges (pointwise) to %
-      $1_{[0, 1]} - 1_{[\minus 1, 0]}$, and $\norm{\infty}{\phi_{j}} = 1$. %
+      $1_{[0, 1]} - 1_{[\minus 1, 0]}$, and $\norma{\infty}{\phi_{j}} = 1$. %
     }
   \end{enumerate}
 %
@@ -168,21 +168,21 @@ Thus, with the help of the Lebesgue's convergence theorem,
     2 \int_{0}^1 g_n(t) \phi^{+}_{j}(t) d t
       \tendsto{j}{\infty} 
     2 \int_{0}^1 g_n(t) d t
-      = \norm{L^1}{g_n} = n.
+      = \norma{L^1}{g_n} = n.
   \end{align}
 %
 Finally, %
 %
   \begin{align}\label{2.3. Norm in the dual equals norm L1 (2).}
-    \norm{L^1}{g_n}
+    \norma{L^1}{g_n}
       \citeleq{\ref{2.3. Norm in the dual equals norm L1 (1).}} 
     \sup\set{
     \magnitude{\bra{g_n}\ket{\phi}}
     }{
-      \norm{\infty}{\phi} = 1
+      \norma{\infty}{\phi} = 1
     }
       \citeleq{\ref{2.3  g  bounded operator (2).}}
-    \norm{L^1}{g_n};
+    \norma{L^1}{g_n};
   \end{align}  %
 %
 which is the desired result. %
@@ -195,13 +195,13 @@ Given $n$, there exists $C_{n} < \infty$ such that
         \bra{g_n}\ket{\phi} 
       \right\rvert 
         \leq 
-      C_{n} \quad (\norm{\infty}{\phi} = 1); 
+      C_{n} \quad (\norma{\infty}{\phi} = 1); 
     \end{align}
   %
 see (\ref{2.3  g  bounded operator (1).}). 
 Furthermore, % 
 %
-  $\norm{L^1}{g_n}$ is actually the best, \ie lowest, possible $C_{n}$; see %
+  $\norma{L^1}{g_n}$ is actually the best, \ie lowest, possible $C_{n}$; see %
   %
     (\ref{2.3. Norm in the dual equals norm L1 (2).}). %
   %
@@ -217,7 +217,7 @@ such that %
 %
   $\langle{g_n}\lvert{\phi_{\rho(n)}}\rangle$ %
 % 
-is greater than, say, $n -0.01$, as $\norm{\infty}{\phi_{\rho(n)}} = 1$. %
+is greater than, say, $n -0.01$, as $\norma{\infty}{\phi_{\rho(n)}} = 1$. %
 %
 Consequently, there is no bound $M$ such that %%
 %
@@ -226,7 +226,7 @@ Consequently, there is no bound $M$ such that %%
       \bra{g_n}\ket{\phi} 
     \right\rvert 
       \leq M
-    \quad (\norm{\infty}{\phi} = 1; \counting{n}).
+    \quad (\norma{\infty}{\phi} = 1; \counting{n}).
   \end{align}
 %
 In other words, the $g_n$ have no \textit{uniform bound} in ${L^1}$, %

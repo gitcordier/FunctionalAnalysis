@@ -1,6 +1,6 @@
-%!TEX root = /Volumes/HD_2/Rudin/Rudin_DM.tex
+%
 \renewcommand{\labelenumi}{(\alph{enumi})} 
-{\CMUCS
+{\it 
 \begin{enumerate}
 \item Suppose that $c_m=\exp\{\minus (m!)!\}$, $m=0,\, 1,\, 2,\, \dots\, $. Does the series
 \begin{align*}{
@@ -10,7 +10,7 @@ converges for every $\phi\in C^{\,\infty} (R)$?
 \item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathscr{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subseteq \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathscr{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
 \item Can the assumption about the supports be dropped in (b)?
 \end{enumerate}}
-\paragraph{PROOF.} The answer is: no. Let us establish this assertion. Assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
+\begin{proof} The answer is: no. Let us establish this assertion. Assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
 \\
 The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this; see the $\phi_j-\check{\phi}_j$ involved in (\ref{2_3_phicheck}).}, \eg greater than $1/c_m$.
  A desired contradiction is then reached. We now prove (b), again by contradiction.\\
@@ -52,7 +52,7 @@ $\Lambda$ belongs to $\mathscr{D}'(\Omega)$, since $\{x_m\}$ has no limit point.
 \Lambda_j:\, \mathscr{D}(\Omega) \to   & \, \C  \qquad\qquad\qquad\qquad(j\in \N)\\
  \phi \mapsto &  \,  \sum_{\lvert m\rvert \leq j} (D^{\,\alpha_m}\phi)(x_m) \nonumber
 }\end{align}
-is also a distribution and that $\{\Lambda_j\}$ tends to $\Lambda$ in $\mathscr{D}'(\Omega)$. Nevertheless, no $\Lambda_j$'s can have common support because $\{x_m\}$ has no limit point. Our assumption can therefore be dropped.\QED
+is also a distribution and that $\{\Lambda_j\}$ tends to $\Lambda$ in $\mathscr{D}'(\Omega)$. Nevertheless, no $\Lambda_j$'s can have common support because $\{x_m\}$ has no limit point. Our assumption can therefore be dropped.\end{proof}
 
 
 

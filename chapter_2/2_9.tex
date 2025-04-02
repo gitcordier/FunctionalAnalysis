@@ -8,9 +8,9 @@ Suppose $X,Y,Z$ are Banach spaces and
 is bilinear and continuous. Prove that there exists $M<\infty$ such that 
 %
 \begin{align*}
-  \norm{}{B(x, y)}
+  \norm{B(x, y)}
   \leq 
-  M \norm{}{x}\norm{}{x} \quad (x\in X, y\in Y).
+  M \norm{x}\norm{x} \quad (x\in X, y\in Y).
 \end{align*}
 %
 Is completeness needed here?}
@@ -28,19 +28,19 @@ Since $B$ is continous at the origin, there exists a positive $r$ %
 such that %
 %
 \begin{align}\label{bound for B}
-  \norm{}{x} + \norm{}{y} < r \Rightarrow %
-  \norm{}{B(x, y)} < 1.
+  \norm{x} + \norm{y} < r \Rightarrow %
+  \norm{B(x, y)} < 1.
 \end{align}
 %
 %
 Given nonzero $\mathit{x}, \mathit{y}$, let $s$ range over $]0, r[$, so that the folllowing bound %
 %
 \begin{align}
-  \norm{}{B(x, y)} = \frac{4\norm{}{x}\norm{}{y}}{s^2} %
+  \norm{B(x, y)} = \frac{4\norm{x}\norm{y}}{s^2} %
     \left\|
-      B \left(\frac{s}{2\norm{}{x}}x, \frac{s}{2\norm{}{y}}y \right)
+      B \left(\frac{s}{2\norm{x}}x, \frac{s}{2\norm{y}}y \right)
     \right\|
-  \overset{(\ref{bound for B})}{<} \frac{4 \norm{}{x} \norm{}{y}}{s^2}
+  \overset{(\ref{bound for B})}{<} \frac{4 \norm{x} \norm{y}}{s^2}
   %\quad (x\neq 0, y \neq 0)
 \end{align}
 is effective. % 
@@ -48,9 +48,9 @@ It is now obvious that %%
 %
 \begin{align}
     B(x, y) \leq %
-    \frac{\!\!\!4\!}{\,s^{\,2}}\norm{}{x}\norm{}{y} 
+    \frac{\!\!\!4\!}{\,s^{\,2}}\norm{x}\norm{y} 
     \tendsto{s}{r}
-    \frac{\!\!\!4\!}{\,r^{\,2}}\norm{}{x}\norm{}{y}
+    \frac{\!\!\!4\!}{\,r^{\,2}}\norm{x}\norm{y}
     \quad ((x, y) \in X \times Y); 
 \end{align}
 %
@@ -78,36 +78,36 @@ nevertheless the bilinear product %
 \end{align}
 %
 is bounded (since %
-    $\norm{\infty}{f\cdot g} \leq \norm{\infty}{f}\cdot \norm{\infty}{g}$%
+    $\norma{\infty}{f\cdot g} \leq \norma{\infty}{f}\cdot \norma{\infty}{g}$%
 ), %
 and continuous. To show this, pick a positive scalar %
 $\epsilon $ smaller than $1$, provided any $(f, g)$. Next, define %
 %
 \begin{align}
-  r \triangleq \frac{\epsilon}{1 + \norm{\infty}{f} + \norm{\infty}{g}} < 1. %
+  r \triangleq \frac{\epsilon}{1 + \norma{\infty}{f} + \norma{\infty}{g}} < 1. %
 \end{align}
 %
 We now restrict $(u, v)$ to a particular neighborhood of $(f, g)$. %
 More specifically,  
 \begin{align}
-  \norm{\infty}{f-u} + \norm{\infty}{g-v} < r. %
+  \norma{\infty}{f-u} + \norma{\infty}{g-v} < r. %
 \end{align}
 %
 Next, remark that %
 %
-  $\norm{\infty}{u} \leq r + \norm{\infty}{f}$ %
+  $\norma{\infty}{u} \leq r + \norma{\infty}{f}$ %
 %
 and so obtain (bear in mind that $r < 1$)%
 %
   \begin{align}
-    \norm{\infty}{fg - uv} 
+    \norma{\infty}{fg - uv} 
       & =
-    \norm{\infty}{(f-u) \cdot g + u \cdot (g-v)} \\
+    \norma{\infty}{(f-u) \cdot g + u \cdot (g-v)} \\
       & \leq
-    \norm{\infty}{f-u} \cdot \norm{\infty}{g} + 
-    \norm{\infty}{u}   \cdot \norm{\infty}{g-v} \\
-      & < r \cdot \norm{\infty}{g} + (r + \norm{\infty}{f}) \cdot r \\
-      & < r \cdot (r + \norm{\infty}{f} + \norm{\infty}{g})  \\
+    \norma{\infty}{f-u} \cdot \norma{\infty}{g} + 
+    \norma{\infty}{u}   \cdot \norma{\infty}{g-v} \\
+      & < r \cdot \norma{\infty}{g} + (r + \norma{\infty}{f}) \cdot r \\
+      & < r \cdot (r + \norma{\infty}{f} + \norma{\infty}{g})  \\
       & < \epsilon.
   \end{align}
 %

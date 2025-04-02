@@ -89,13 +89,11 @@ $a\equiv b$ means that there exists a bijection $\to$ that maps $a$ to $b$; %
 which let us identify $a$ with $b$. %
 In a metric space context, $a\equiv b$ means that $\to$ is isometric.
 \section{Topological vector spaces}
-%\subsection{Vector spaces}
-\subsection{Product space}
 \subsection{Scalar field}%
 The usual (complete) scalar field is $\C$. %
 A property, \eg linearity, that is true on $\C$ is also true on $\R$. %
 The complex case is then a {\it special case} of the real one. %
-Sometimes, this specialization is not purely formal. %
+Sometimes, this specialization is not harmless. %
 For example, theorem 12.7 of \cite{FA} asserts that, in a Hilbert space $H$ %
 equipped with the inner product $\bra{\,\cdot\,}\ket{\,\cdot\,}$, %
 every nonzero linear continuous operator $T$ ``breaks orthogonality'', %
@@ -112,120 +110,117 @@ the exension to the real case will always be obvious. %
 So, taking $\C$ as the scalar field shall mean %
 %
 \begin{quote}{\it %
-Instead of letting the scalar field undefined, we choose $\C$ for the sake of %
-expessivity. But considering $\R$ instead of %
-$\C$ would actually make no difference here
-}. %
+  Instead of letting the scalar field undefined, we choose $\C$ for the sake of %
+  expessivity. But considering $\R$ instead of %
+  $\C$ would actually make no difference here.
+}
 \end{quote}
 %
-\subsection{Finite dimensional spaces}\label{finite dimensional spaces}%
-It may be customary to identify any $n$-dimensional vector space $Y$ with %
-the normed space $(\C^n, \| \,\|_{\C^n})$, %
-as $\| \, \|_{\C^n}$ is an arbitray norm on $\C^n$. %
+\subsection{Vector space bases}\label{notations: vector spaces: vector space bases}
+Given a vector space $X$ over $\C$ (or, more generally, over a field), %
+a subset $B$ of $X$ is a basis of $X$ \iif %
+$(z_u) \mapsto \sum_{u\in B} z_u u$ bijectively maps all {\it almost null} %
+$z: B \to \K, u \mapsto z_u$ %
+onto $X$. %
 %
-Indeed, those vector spaces $Y$ are actually normable spaces that are %
-homeomorphic each others. %
+The axiom of choice (AC) forces %
+\begin{enumerate}
+  \item the existence of such $B$ %
+    (the proof is similar to the second part of the Hahn-Banach theorem [3.1] of \cite{FA} %
+    with $B$ playing the role of $\Lambda$); %
+  \item all bases to have the same cardinal, %
+    which is called the {\it dimension} of $X$ and is denoted as $\dim(X)$. %
+\end{enumerate}
 %
-This statement can be expressed as an \textit{equivalence relation} over all %
-normed vector spaces $(Y, \|\,\|_Y)$. %
-More precisely, given copies $Y_i$ ($i=1, 2$) of space(s) $Y$, there exists %
-an isomorphism $h: Y_1 \to Y_2$ and a positive constant $C$ such that %
+We now come to the {\it finite-dimensional} case, \ie $\dim(X)$ is a nonnegative integer $n$. %
+Remark that $n=0$, \ie $B=\emptyset$, means that $X$ is a singleton. %
+%
+Our first step consists in studying $\C^n$, which is the standard $n$-dimensional vector space.
+%
+\subsection{Finite-dimensional spaces}\label{notations: vector spaces: finite-dimensional vector spaces}%
+%
+\quote{\it%
+  From now on, the zero-dimensional case, which is trivial, shall be skipped. %
+}
+%
+\subsubsection{The product topology of $\C^n$}\label{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}
+%
+As the $n$-th power of $\C$, $\C^n$ is topologized by the polydiscs %%
+\begin{align}
+  \prod_{i=1}^{n} D(r_i) \quad (D(r_i) \Def \set{z_i \in C}{\magnitude{z_i} < r_i}), %
+\end{align}
+%as $r_i$ ranges over the real line. %%$]0, \infty[$. %
+Equivalently, we may equipp $\C^n$ with the euclidian norm % %
+\begin{align}
+  \norma{2}{z} \Def \sqrt{\magnitude{z_1}^2 + \cdots + \magnitude{z_n}^2} \quad \left(z = (z_1, \dots, z_n) \in \C^n\right), 
+\end{align}
+%
+whose open balls centered at the origin are all %
+\begin{align}
+  B(r) \Def \set{z\in \C^n}{\norma{2}{z} < r} \quad (r > 0).
+\end{align}
+To see such equivalence, first pick a positive $r$ then set $r_i = r/\sqrt{n}$, so that %
+\begin{align}
+\prod_{i=1}^{n} D(r_i) \subseteq B(r). 
+\end{align}
+%
+Next, conversely choosing $r = \min\{r_1, \dots, r_n\}$ yields %
+\begin{align}
+   B(r) \subseteq \prod_{i=1}^{n} D(r_i) .
+\end{align}
+%
+\subsubsection{Topology of a finite-dimensional vector space}
+It is customary to identify any $n$-dimensional vector space %
+with $\C^n$ endowed with the product topology; %
+see [\ref{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}]. %
+%
+To see this, pick a $n$-dimensional vector space $Y$, of basis $\{u_1, \dots, u_n\}$; %
+see [\ref{notations: vector spaces: vector space bases}]. %
+%
+Setting $u_k = f(e_k)$ means a special case of [1.20] of \cite{FA}, %
+where $f$ is an isomorphism of $\C^n$ onto $Y$. %
+%
+Actually, $Y$ is endowed with the topology $\set{f(U)}{U \text{ open}}$, %
+%
+and [1.21] of \cite{FA} shows that it is the only vector space topology for $Y$. %
+%
+As a consequence, this establishes that $Y$ is necessarily locally convex and bounded; \ie normable; %
+see [1.39] of \cite{FA}. %
+Moreover, provided a norm $\norma{Y}{\,\cdot\,}$ over $Y$, there exists a positive {\it modulus of continuity} $C=C_f$ such that %
 %
 \begin{align}\label{norm equivalence 1}
-  \| y_2 \|_{Y_2} \leq C \| y_1 \|_{Y_1} \quad 
-  (y_i \in Y_i: y_2 = h(y_1)).
+  \norma{Y}{y} \leq C \norma{2}{z} \quad \left((z, y) \in f\right), 
 \end{align}
 %
-\begin{proof}
-Pick a basis $F_Y$ of $Y$, as $\mathit{Y}$ run through all $n$-dimensional %
-vector spaces (the trivial case $n=0$ shall be implicitely skipped). %
-There so exists a one-to-one mapping of $F_{\C^n}$ onto $ F_Y$, %
-and such mapping extends to an isomorphism $f: \C^n \to Y$. %
+since $f$ is continuous. %
 %
-On the other hand, there exists an ambient topological vector space %
-$(X, \tau_X)$ that induces, on $Y$, a topology %%
+Now pick a $n$-dimensional topological vector space $W$ then repeat the same reasoning, %
+first with some $g: \C^n \to W$, %
+next with $h = g\circ f^{\,\minus 1}$, in the role of $f$: %
 %
-\begin{align}\label{inherited norm}
-  \tau_Y \triangleq \{ Y\cap U: Y \subseteq X, U \in \tau_X\}.
-\end{align}
-%
-For instance, take $X=Y$ then equipp $Y$ with the norm %
-%
-\begin{align}\label{normability}
-  \| \, \|_{Y, 2}: Y & \to \R \\
-            y & \mapsto \| f^{\,\minus 1} (y)\|_2 \nonumber, 
-\end{align}
-%
-where $\| \, \|_2$ is the Euclidian norm of $\C^n$. %
-%
-Now assign each $Y$ a space $(X, \tau_X)$ then use Theorem 1.21 of \cite{FA} %
-to conclude that $f$ is more specifically a linear homeomorphism of $\C^n$ %
-(equipped with $\|\, \|_2$) onto $Y$. %
-%
-Given two copies $(\mathit{X}_i, \mathit{Y}_i, \mathit{f}_i)$ %
-of the variables $\mathit{X}, \mathit{Y}, \mathit{f}$, %
-we so obtain the following commutative diagram: %
-%
-\begin{equation}
-\begin{tikzpicture}[-stealth,
-  label/.style = { font=\footnotesize }]
-  \matrix (m)
-    [
-      matrix of math nodes,
-      row sep    = 4em,
-      column sep = 4em
-    ]
-    {
-         & \C^n &     \\
-      Y_1&      & Y_2 \\
-    };
-  \path (m-2-1) edge node [above,label]  {$f_1^{\, \minus 1}$} (m-1-2);
-  \path (m-1-2) edge node [above,label]  {$f_2$} (m-2-3);
-  \path (m-2-1) edge node [above,label]  {$h$} (m-2-3);
-\end{tikzpicture}
-\end{equation}
-%
-It is now clear that all $Y$ are homeomorphic each other. %
-%
-The special case $Y_1 = Y_2$ means that $\tau_{Y_1} = \tau_{Y_2}$. 
-In other words, each vector space $Y$ has a unique topology $\tau_Y$; %
-the embedding $Y \subseteq X$ does not matter. % 
-% 
-$\tau_{Y}$ is induced by at least one norm $\|\,\|_Y$, \eg %
-$\|\,\|_{Y, 2}$; see (\ref{normability}). %
-%
-We now establish the norm equivalence over all vector spaces $Y$. To do so, %
-we easily check that the continous function $h$ maps the open unit sphere %
-%
-  $B_1 = \{ \| \, \|_{Y_1} < 1 \}$ onto %
-%
-a $\|\,\|_{Y_2}$-bounded set. %
-%
-This allows us to pick %
-%
-\begin{align}
-  C_h \triangleq \sup_{B_1} \| h \|_{Y_2} > 0 \quad(y_1 \in Y_1), 
-\end{align}
-%
+We then equip $W$ with a norm $\norma{W}{\,\cdot\,}$, %
 so that %
 %
-\begin{align}\label{norm equivalence 2}
-  \|h(y_1)\|_{Y_{2}} \leq C_h \|y_1\|_{Y_{1}}; 
+\begin{align}
+  \norma{W}{w} \leq C_h \norma{Y}{y} \quad \left((y, w) \in h \right)
 \end{align}
 %
-which is (\ref{norm equivalence 1}). %
+for some positive $C_h$. %
 %
-Finally, we show that we are actually dealing with an equivalence relation. %
-First, reflexivity and transitivity are obvious. Moreover, 
-permuting the $\mathit{Y}_i$'s, with %
+The special case $g=f$ means that $Y$'s norms are equivalent, %
+in the sense that there exists a positive $C_{\id{}}$ such that %
+\begin{align}
+  \norma{\text{id}(Y)}{y} \leq C_{\id{}} \norma{Y}{y}, 
+\end{align}
 %
-  $\mathit{%
-  h^{\, \minus 1}, 
-  B_2 = \{\| \, \|_{Y_2} < 1 \}, 
-  C_{h^{\, \minus 1}} = \sup_{B_2} \| h^{\, \minus 1}\|_{Y_2}
-  }$
-%
-playing the role of $\mathit{h}, \mathit{B_1}, \mathit{C_h}$ %
-leads to a \textit{symmetrical} result; which achieves the proof.
-\end{proof}
+\subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$}
+In all pecial cases $Y=\C^n$ topologized by the standard norms $1$, $2$, $\infty$, 
+the optimal modulus, \ie the smallest $C = C_{i, j}$ such that %
+\begin{align}
+	\norma{j}{z} \leq C_{i, j} \norma{i}{z} \quad \left(z \in \C^n \right)),
+\end{align}
+is easily derived from definitions - see [1.19] of \cite{FA} - %
+with the noticeable exception of $C_{2, 1}=\sqrt{n}$, which is usually seen as a special {\it Cauchy-Schwarz inequality}; %
+see (1) in [12.2] of \cite{FA}. %
+The very steps of this classical hack are left to the reader. %
 % END

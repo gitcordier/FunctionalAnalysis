@@ -1,0 +1,35 @@
+The following permutation
+\begin{align}
+\sigma:&\,  \C^2 \to \C^2\\
+& (z,z')\mapsto (z',z) 
+\end{align}
+is an automorphism, \ie an homeomorphism [\cf (a) of 1.21], of the vector space $\C^2$. The key ingredient is that $\sigma$ is open. Moreover, the invariant points under $\sigma$ form the diagonal
+\eq{D\Def \{(z,z)\in\C^2 \}\quad. }\endeq
+As the graph of
+\begin{align*}
+I:& \,  \C \to \C\nonumber\quad , \\ 
+&\, \,  z\mapsto z \nonumber
+\end{align*}
+$D$ is a (closed) proper subspace of $\C^2$. Thus,
+\eq{D°=\emptyset\quad . }\endeq
+Remark that 
+\eq{\label{1_4_1}
+S\Def \{(z_{1},z_{2})_n :\, n=1,2,3,\dots \}\subseteq B  \donc\,  \limsup_{n\infty}\,  \lvert z_{1,n} \rvert \< \liminf_{n\infty}\, \lvert z_{2,n}\rvert \quad . }\endeq
+For if $S$ converges (\ref{1_4_1}) forces $S$ to do so in $B$, which is then closed.
+\eq{\label{eq_1_4_2}
+\C^2 \setminus B= \{(z_{1},z_{2})\in \C^2:\, \lvert z_{1}\rvert  >  \lvert z_{2}\rvert \}
+}\endeq 
+is therefore open. So is 
+\eq{E\Def \sigma(\C^2 \setminus B)= \{(z_{1},z_{2})\in \C^2:\, \lvert z_{1}\rvert  <   \lvert z_{2}\rvert \}\quad , }\endeq
+since $\sigma$ is open.
+\eq{B=E \uplus D  \quad . }\endeq
+Let $(z_1,z_2$ be in $B°$ If such a point would lie in $D$, there would be $V$ a neighbourhood of $(0,0)$ such that 
+\eq{(z_1,z_2) + V \subseteq B  \quad ,}\endeq
+$(z_1,z_2) + V )\cap E$ is open. So is $(z_1,z_2) + V  )\cap D$. contradicting 
+\eq{B°\subseteq B\setminus \Delta \C = B_<}\endeq
+Let $(z_1,z_2)$ be any element of $B°$. Since $(\Delta\C)°=\emptyset$, $(z_1,z_2)$ is in $B_<$. 
+\eq{([z] \in \C^\ast / N \cong \R_+ }\endeq
+Since $\C^2$ is separated, there exists a neighbourhood of the origin such that 
+\eq{C(z_1)+V\cup C(z_2)+ V\quad, }\endeq
+so that
+\eq{z_1 + V \cup z_2 + V}\endeq
