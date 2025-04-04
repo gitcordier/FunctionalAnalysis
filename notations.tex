@@ -145,9 +145,11 @@ Our first step consists in studying $\C^n$, which is the standard $n$-dimensiona
 %
 \subsubsection{The product topology of $\C^n$}\label{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}
 %
-As the $n$-th power of $\C$, $\C^n$ is topologized by the polydiscs %%
+As the $n$-th power of $\C$, $\C^n$ has a standard base $\set{e_k}{k = 1, \dots, n}$ %
+(where $e_k = 1_{\singleton{k}})$. %
+Furthermore, it is topologized by the {\it polydiscs} %%
 \begin{align}
-  \prod_{i=1}^{n} D(r_i) \quad (D(r_i) \Def \set{z_i \in C}{\magnitude{z_i} < r_i}), %
+  \prod_{i=1}^{n} D_{r_i} \quad (D_{r_i} \Def \set{z_i \in C}{\magnitude{z_i} < r_i}), %
 \end{align}
 %as $r_i$ ranges over the real line. %%$]0, \infty[$. %
 Equivalently, we may equipp $\C^n$ with the euclidian norm % %
@@ -155,23 +157,23 @@ Equivalently, we may equipp $\C^n$ with the euclidian norm % %
   \norma{2}{z} \Def \sqrt{\magnitude{z_1}^2 + \cdots + \magnitude{z_n}^2} \quad \left(z = (z_1, \dots, z_n) \in \C^n\right), 
 \end{align}
 %
-whose open balls centered at the origin are all %
+whose open balls centered at the origin are all nonempty%
 \begin{align}
-  B(r) \Def \set{z\in \C^n}{\norma{2}{z} < r} \quad (r > 0).
+  B_r \Def \set{z\in \C^n}{\norma{2}{z} < r}.
 \end{align}
 To see such equivalence, first pick a positive $r$ then set $r_i = r/\sqrt{n}$, so that %
 \begin{align}
-\prod_{i=1}^{n} D(r_i) \subseteq B(r). 
+\prod_{i=1}^{n} D_{r_i} \subseteq B_r. 
 \end{align}
 %
 Next, conversely choosing $r = \min\{r_1, \dots, r_n\}$ yields %
 \begin{align}
-   B(r) \subseteq \prod_{i=1}^{n} D(r_i) .
+   B_r \subseteq \prod_{i=1}^{n} D_{r_i} .
 \end{align}
 %
 \subsubsection{Topology of a finite-dimensional vector space}
 It is customary to identify any $n$-dimensional vector space %
-with $\C^n$ endowed with the product topology; %
+with $\C^n$ topologized by the euclidian norm; %
 see [\ref{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}]. %
 %
 To see this, pick a $n$-dimensional vector space $Y$, of basis $\{u_1, \dots, u_n\}$; %
@@ -182,27 +184,40 @@ where $f$ is an isomorphism of $\C^n$ onto $Y$. %
 %
 Actually, $Y$ is endowed with the topology $\set{f(U)}{U \text{ open}}$, %
 %
-and [1.21] of \cite{FA} shows that it is the only vector space topology for $Y$. %
+and [1.21] of \cite{FA} states that $f$ is an homeomorphism, which implies that %
 %
-As a consequence, this establishes that $Y$ is necessarily locally convex and bounded; \ie normable; %
+\begin{quote}
+  $\set{f(U)}{U \text{ open}}$ {\it is the only vector space topology for $Y$}. %
+\end{quote}
+%
+As a consequence, $Y$ is necessarily locally convex and bounded; \ie normable; %
 see [1.39] of \cite{FA}. %
-Moreover, provided a norm $\norma{Y}{\,\cdot\,}$ over $Y$, there exists a positive {\it modulus of continuity} $C=C_f$ such that %
+Moreover, provided a norm $\norm{\,\cdot\,}$ on $Y$, there exists a positive {\it modulus of continuity} $C=C_f$ such that %
 %
 \begin{align}\label{norm equivalence 1}
-  \norma{Y}{y} \leq C \norma{2}{z} \quad \left((z, y) \in f\right), 
+  \norm{y} \leq C \norma{2}{z} \quad \left((z, y) \in f\right), 
 \end{align}
 %
 since $f$ is continuous. %
 %
 Now pick a $n$-dimensional topological vector space $W$ then repeat the same reasoning, %
-first with some $g: \C^n \to W$, %
-next with $h = g\circ f^{\,\minus 1}$, in the role of $f$: %
+first with $g: \C^n \to W$, %
+next with $h = g\circ f^{\,\minus 1}$, in the role of $f$, and so conclude that %
+the homeomorphism $h$ maps $Y$'s topology onto $Y$'s topology %
+and that $W$ is normable. %
+To sum it up, %  
 %
-We then equip $W$ with a norm $\norma{W}{\,\cdot\,}$, %
+\begin{quote}
+  $\dim(Y) = \dim(W)$, \ie %
+  $Y$ {\it and } $W$ {\it are isomorphic each other, }
+  {\it means that }$Y${\it \,and }$W${\it \,are two normable spaces that are homeomorphic each other.}
+\end{quote}
+%
+We then equip $W$ with a norm $\lvert\lvert\lvert\,\cdot\,\rvert\rvert\rvert$, %
 so that %
 %
 \begin{align}
-  \norma{W}{w} \leq C_h \norma{Y}{y} \quad \left((y, w) \in h \right)
+  \lvert\lvert\lvert w \rvert\rvert\rvert \leq C_h \norm{y} \quad \left((y, w) \in h \right)
 \end{align}
 %
 for some positive $C_h$. %
@@ -210,11 +225,11 @@ for some positive $C_h$. %
 The special case $g=f$ means that $Y$'s norms are equivalent, %
 in the sense that there exists a positive $C_{\id{}}$ such that %
 \begin{align}
-  \norma{\text{id}(Y)}{y} \leq C_{\id{}} \norma{Y}{y}, 
+  \lvert\lvert\lvert y \rvert\rvert\rvert \leq C_{\id{}} \norm{y}. %
 \end{align}
 %
 \subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$}
-In all pecial cases $Y=\C^n$ topologized by the standard norms $1$, $2$, $\infty$, 
+In all special cases $Y=\C^n$ topologized by the standard norms $1$, $2$, $\infty$, 
 the optimal modulus, \ie the smallest $C = C_{i, j}$ such that %
 \begin{align}
 	\norma{j}{z} \leq C_{i, j} \norma{i}{z} \quad \left(z \in \C^n \right)),
