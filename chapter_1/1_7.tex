@@ -111,47 +111,32 @@ Each irrational number $\alpha$ has a \textit{unique} binary expansion. %
 More precisely, there exists a bijection %
 %
 \begin{align}
-  b: [0, 1] \setminus \Q &\to \{ 
-      \beta \in \{0, 1\}^{\N_+}: \beta \text{ is not eventually periodic}
-    \}
+  b: [0, 1] \setminus \Q &\to \set{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}}\\
+    \alpha &\mapsto (\beta_1, \beta_2, \dots)\nonumber
 \end{align}
 %%
-where %
-%
-  $b(\alpha) = (\beta_1, \beta_2, \dots)$ %
-%
-is the only bit stream such that %
+where $(\beta_1, \beta_2, \dots)$ is the only bit stream such that %
 %
 \begin{align}
   \label{definition of alpha}
   \alpha = \sum_{k=1}^\infty \beta_k 2^{\minus k}.
 \end{align}
 %
-First, remark that %
+First, remark that $\beta_1 + \beta_2 + \dots = \infty$ then define %
 %
-$b(\alpha)_1 + \dots + b(\alpha)_n \tendsto{n}{\infty}\infty$, %
-%
-since %
-%
-$b(\alpha)$
-%
-has infinite support. Next, fix %
-%
-\begin{equation}
+\begin{align}
   \label{definition of f_n(alpha)}
-  f_n(\alpha)\triangleq %
-  \frac{1}{b(\alpha)_1 + \cdots + b(\alpha)_n} \tendsto{n}{\infty} 0
-\end{equation}
+  %f_n(\Q)      &\Def  \singleton{0}, \\
+  f_n(\alpha)  &\Def  \frac{1}{1 + \beta_1 + \dots + \beta_n}, \,\, f_n  = 0 \text{ on } \Q, 
+\end{align}
 %
-wherever $b(\alpha)_1+ \cdots + b(\alpha)_n > 0$. %
-All other values $f_n(x)$ are of no interest. %
-For instance, put $f_n(x) = 0$. %
+so that $f_n$ tends to $0$ (pointwise). %
 %
-Now take an arbitrary % 
+Independently, take an arbitrary % 
 %
 $\gamma_n \longrightarrow \infty$: % 
 %
-Given $p=1, 2, 3, \dots$, $\gamma_n$ is greater than $p$ %
+Given $\counting{p}$, $\gamma_n$ is greater than $2^p$ %
 for all but finitely many $n$. %
 %
 Next, we choose $n_p$ among those \textit{almost all} $n$ that are 
@@ -159,53 +144,40 @@ large enough to additionally satisfy %
 %
 \begin{align}
   \label{definition of n_p}
-  n_p - n_{p-1} > p \longrightarrow \infty, 
+  n - n_{p-1} > p, 
 \end{align}
 %
 provided $n_0=0$. This way, the distribution of %
 %
   $n_1, n_2, \dots$, %
 %
-\textit{displays no periodic pattern}. %
-In other words, the \textit{characteristic function} %
-%
-  $\chi: k\mapsto [k \in \{n_1, n_2, \dots\}]$ %
-%
-is not eventually periodic. %
-Combined with (\ref{definition of alpha}), this establishes that 
-%
-\def\xgamma{\alpha_{\gamma}}
+\textit{displays no periodic pattern}: %
+Setting $\beta_{\gamma, k} = [k \in \{n_1, n_2, \dots \}]$ yields %
 %
 \begin{align}
-  \xgamma 
-    \triangleq
-  \sum_{k=1}^\infty \chi_k 2^{\, \minus k}
-    %\notin \Q
+  \alpha_\gamma & \Def \sum_{k=1}^\infty \beta_{\gamma, k} 2^{\, \minus k} \notin \Q.
 \end{align}
 %
-is irrational. Conversely, still with (\ref{definition of alpha}),  %
+Moreover, %
 %
 \begin{align}
-  b(\xgamma)_{k} = \chi_{k}.
-\end{align}
-%
-Moreover, it follows from the very definition of $\chi$ that %
-%
-\begin{align}
-  \chi_1 + \cdots + \chi_{n_{1}} & + \cdots + \chi_{n_{p}} = p.
+  p &= \beta_{\gamma, 1} + \dots + \beta_{\gamma, n_1} + \dots + \beta_{\gamma, n_p}.
 \end{align}
 %
 Hence %
 %
 \begin{align}
-  \gamma_{n_p} f_{n_{p}}(\xgamma) = \frac{\gamma_{n_p}}{p} > 1.
+  \gamma_{n_p} f_{n_{p}}(\alpha_\gamma) 
+    = \frac{\gamma_{n_p}}{p+1}  
+    > \frac{2^p}{p+1}
+      \tendsto{p}{\infty} \infty.
 \end{align}
 %
-There so exists a subsequence $\{\gamma_{n_p}\}$ such that %
+There so exists a subsequence $\{\gamma_{n_p}\}$ that prevents %
 %
 $\{\gamma_{n_p} f_{\gamma_{n_p}}\}$ %
 %
-fails to converge pointwise to $0$. %
+to converge pointwise to $0$. %
 Since $\{\gamma_{n}\}$ was arbitrary, this proves (b).
 \end{proof}
 % END
