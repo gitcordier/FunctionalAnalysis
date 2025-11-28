@@ -283,6 +283,12 @@ Annex*
 misc*
 
 *misc*
+
+# MacOS files
 .DS_Store
 
+# Passwords
 *.ini
+
+# Excel files 
+*.xlsx
