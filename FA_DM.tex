@@ -28,7 +28,7 @@ tikz
 
 %\usepackage[bottom=3cm,top=2cm]{geometry}
 % Metric system, sorry;)
-\usepackage[left=3cm,top=2.5cm,right=3cm,bottom=2.5cm]{geometry}
+\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
 %: COLOR
 \usepackage{array}
 %\usepackage[dvipsnames]{xcolor}
@@ -136,6 +136,8 @@ tikz
 % Sets
 %\renewcommand{\notin}{\tiny{\not\in}}
 %\renewcommand{\ni}{\small \ni}
+\renewcommand{\subset}{\subseteq}
+\renewcommand{\supset}{\supseteq}
 \DeclareMathOperator\opcard{card}
 \newcommand{\card}[1]{\opcard(#1)}
 %
@@ -189,14 +191,16 @@ tikz
 \newcommand{\citegreater}[1]{\citehere{#1}{>}}
 
 \newcommand{\citesubset}[1]{\citehere{#1}{\subset}}
-\newcommand{\citesupset}[1]{\citehere{#1}{\supseteq }}
+\newcommand{\citesubseteq}[1]{\citehere{#1}{\subseteq}}
+\newcommand{\citesupset}[1]{\citehere{#1}{\supset}}
+\newcommand{\citesupseteq}[1]{\citehere{#1}{\supseteq}}
 
 \newcommand{\citethen}[1]{\citehere{#1}{\Rightarrow}}
 %\newcommand{\citesince}[1]{\citehere{#1}{\Leftarrow}}
 \newcommand{\citeresult}[2]{#1 of #2}
 \newcommand{\citeresultFA}[1]{\citeresult{#1}{\cite{FA}}}
 
-\newcommand{\citin}[1]{\citehere{#1}{\in}}
+\newcommand{\citein}[1]{\citehere{#1}{\in}}
 % Misc
 \newcommand{\underbarwithindex}[2]{\underline{#1}\,\!_{#2}}
 \newcommand{\dy}[1]{{\function{dyadic}}(#1)}
