@@ -18,20 +18,19 @@ Hint: \textit{$Y$ must intersect $x+Y$ for every $x\in X$. }%
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 Assume that $X = V_n \sqcup \overline{E}_n$ ($n=1, 2, 3, \dots$) such that %
 %
-  \renewcommand{\labelenumi}{(\roman{enumi})} 
-  \begin{enumerate}
-    \item $X = \overline{V}_n$; 
-    \item $ X\setminus Y = \bigcup_{n=1}^\infty E_n$.
-  \end{enumerate}
-  \renewcommand{\labelenumi}{(\alph{enumi})} 
+\renewcommand{\labelenumi}{(\roman{enumi})} 
+\begin{enumerate}
+  \item $X = \overline{V}_n$; 
+  \item $ X\setminus Y = \bigcup_{n=1}^\infty E_n$.
+\end{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})} 
 %
-First, let $x$ range over $X$, so that $x + V_n$ is open and dense as well %
-(because%
+First, let $x$ range over $X$, so that $x + V_n$ is open and dense as well (because%
 \footnote{
   This is also a special case of \citeresultFA{1.3 (b)}, where: %
   $X = x + X \subset \overline{x + V_n}$.
 }
-the translation by $x$ is an homeomorphism of $X$ onto $X$).
+the translation by $x$ is a homeomorphism of $X$ onto $X$).
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. Where Baire's theorem is involved.
@@ -69,6 +68,7 @@ Finally, combining (\ref{2_15_1}) with (\ref{2_15_2}) yields %
 \end{align}
 %
 since $Y$ is a subspace (subgroup) of $X$. We have so established that %
+%
 \begin{align}
   X \subset Y, 
 \end{align}
