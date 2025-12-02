@@ -10,32 +10,32 @@
 % width: 12
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{%
-Let be $X$ the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
+Let $X$ be the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
 %
 \begin{align}
   p_x(f)= \magnitude{f(x)} \quad (0\leq x\leq 1).\nonumber
 \end{align}
 %
 This topology is called the topology of pointwise convergence. Justify this terminology. Show that there is a sequence % 
-$\singleton{f_n}$ in X such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but (b) if $\{\gamma_n\}$ is any %
-sequence of scalars such that $\gamma_n \to \infty$ then $\{\gamma_n f_n\}$ does not converge to $0$. (Use the fact that %
-the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) This shows that %
-metrizability cannot be omited in (b) of Theorem 1.28.
+$\singleton{f_n}$ in X such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but (b) if $\singleton{\gamma_n}$ %
+is any sequence of scalars such that $\gamma_n \to \infty$ then $\singleton{\gamma_n f_n}$ does not converge to $0$. %
+(Use the fact that the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) %
+This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 }
 %
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First part: Justification of the terminology
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Justification of the terminology}
+\subsection{Justifying the terminology}
 \begin{proof}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-The family of the seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all finite intersections of the sets %
+The family of seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all finite intersections of the sets %
 %
 \begin{align}
-  V(x,k) \triangleq \{p_x < 2^{\minus k}\} 
+  V(x,k) \triangleq \singleton{p_x < 2^{\minus k}} 
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{align}
 %
@@ -52,19 +52,19 @@ is therefore a local base for a topology $\tau$ on $X$; see Section 1.37 of \cit
   \sum_{i=1}^m \sum_{n=1}^\infty \bigl[f_n \notin U_i\bigr] \quad (f_n \in X, U_i \in \tau).
 \end{align}
 %
-Now assume that $\{f_n\}$ $\tau$-converges to some $f$, \ie 
+Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$, \ie 
 %
 \begin{align}
   %
   \sum_{n=1}^\infty \bigl[f_n \notin f + W\bigr] < \infty \quad (W \in \mathscr{B}).
 \end{align}
 %
-The special case $W = V(x, k)$ means that, given $k$, $\magnitude{f_n(x) - f(x)} < 2^{\minus k}$ for almost all $n$. %
-In other words, $\{f_n(x)\}$ converges to $f(x)$. %
+The special case $W = V(x, k)$ means that, for any $k$, $\magnitude{f_n(x) - f(x)} < 2^{\minus k}$ for almost all $n$. %
+In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\{f_n\}$ does not $\tau$-converges in $X$, \ie %
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge in $X$, \ie %
 %
 \begin{align}
   %
@@ -74,7 +74,7 @@ Conversely, assume that $\{f_n\}$ does not $\tau$-converges in $X$, \ie %
   %
 \end{align}
 %
-$W$ is then the intersection of some $V(x_1, k_1), \dots, V(x_m, k_m)$. Hence %
+$W$ is then the intersection of finitely many $V(x_1, k_1), \dots, V(x_m, k_m)$. Hence %
 %
 \begin{align}
   \infty 
@@ -85,11 +85,11 @@ $W$ is then the intersection of some $V(x_1, k_1), \dots, V(x_m, k_m)$. Hence %
 It is now clear that % 
 %
 \begin{align}
-  \sum_{n=1}^\infty \bigl[f_n \notin f + V(x_i, k_i)\bigr] = \infty .
+  \sum_{n=1}^\infty \bigl[f_n \notin f + V(x_i, k_i)\bigr] = \infty
 \end{align}
 %
-for some $i$. In other words, $\{f_n(x_i)\}$ fails to converge to $f(x_i)$. The overall conclusion is that %
-$\tau$-convergence is the $X$'s version of pointwise convergence. %
+for some $i$. In other words, $\singleton{f_n(x_i)}$ fails to converge to $f(x_i)$. The overall conclusion is that %
+$\tau$-convergence is $X$'s version of pointwise convergence.%
 \end{proof}
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -100,7 +100,7 @@ $\tau$-convergence is the $X$'s version of pointwise convergence. %
 % First proof: Use the given hint
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proof (with the given hint)}
-We now prove the second part by constructing a specific sequence $\{f_n\}$ that simultaneously satisfies (a) and (b). %
+We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that simultaneously satisfies (a) and (b). %
 Indeed, the hint says that there exists a one-to-one and \textit{onto} mapping %
 %
 \begin{align}
@@ -117,7 +117,8 @@ We set (under the same notation)%
 %
 so that %
 %
-  $x_\gamma = \varphi^{\minus 1}\Bigl( 1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots,1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr)$ %
+  $x_\gamma %
+  = \varphi^{\minus 1}\Bigl( 1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots,1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr)$ %
 %
 implies %
 %
@@ -155,22 +156,22 @@ where $(\beta_1, \dots, \beta_n, \dots)$ satisfies %
   v &= \beta_1 / 2 + \cdots + \beta_n / 2^n + \cdots .
 \end{align}
 %
-First, note that $\beta_1 + \beta_2 + \beta_3 + \cdots = \infty$ then define (under the same notation)%
+First, note that $\beta_1 + \beta_2 + \beta_3 + \cdots = \infty$; then define (under the same notation)%
 %
 \begin{align}
   \label{definition of f_n(alpha)}
    f_n(v)  &\Def 1/2^{\beta_1 + \cdots + \beta_n} \tendsto{n}{\infty} 0.	
 \end{align}
 %
-Now pick an arbitrary $\gamma_n \to \infty$: Given a positive integer $k$, $\gamma_n > 4^k$ for almost all $n$, %
-say $\tilde{n}$. Next, choose $n=n_k$ from $\singleton{\tilde{n}}$ so large that %
+Now pick an arbitrary $\gamma_n \to \infty$: Given a positive integer $k$, $\gamma_n > 4^k$ for all sufficiently large $n$, %
+say $n > \tilde{n}$. Next, choose $n_k > \tilde{n}$ from $\singleton{\tilde{n}}$ so large that %
 %
 \begin{align}
   \label{definition of n_k}
-  n_{k+1} - n_k > k \to \infty .
+  n_{k+1} - n_k > k.
 \end{align}
 %
-This way, $\chi = 1_{\{ n_1, n_2, \dots \}}$ \textit{is not eventually periodic on }$\N_+$! Moreover, one easily checks that %
+This way, $\chi = 1_{\{n_1, n_2, \dots \}}$ \textit{is not eventually periodic on }$\N_+$! Moreover, one easily checks that %
 the specialization $\beta = \chi = \bin (v_\gamma)$ yields %
 %
 \begin{align} \label{p sum of bits}
@@ -182,13 +183,13 @@ Finally, combining (\ref{definition of f_n(alpha)}) with (\ref{p sum of bits}) s
 \begin{align}
   \gamma_{n_k} f_{n_{k}}(v_\gamma) 
     = {\gamma_{n_k}}/{2^k} 
-    > 4^k / 2 ^k 
+    > 4^k / 2^k 
     > 2^k 
     \tendsto{k}{\infty}\infty.
 \end{align}
 %
-As a conclusion, every $\gamma_n \to\infty$ contains a subsequence $\{\gamma_{n_k}\}$ that keeps %
-$\gamma_{n_k} f_{n_k}(v)$ away from $0$ (for some $v=v_\gamma$) when $k \to \infty$; which is (b). 
+As a conclusion, every $\gamma_n \to\infty$ contains a subsequence $\singleton{\gamma_{n_k}}$ that keeps %
+$\gamma_{n_k} f_{n_k}(v)$ away from $0$ (for some $v=v_\gamma$) when $k \to \infty$. This is (b). 
 \end{proof}
 %
 % END
