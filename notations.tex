@@ -78,16 +78,24 @@ which is consistent with the fact that every definition expresses a tautology.
 %
 \subsection{Assigning values}%
 Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization %
-of $=$. We say that $x\triangleq y$ \iif $x$ and $y$ are assumed to be equal. 
-Usually, $x\triangleq y$ means that $x$ is assigned the previously known 
-value $y$ (some authors write $x:=y$) but this is not a limitation. 
+of $=$. We say that $a\triangleq b$ \iif $a$ and $b$ are assumed to be equal. 
+Usually, $a\triangleq b$ means that $a$ is assigned the previously known 
+value $b$ (some authors write $a:=b$) but this is not a limitation. 
 Definitions can be redundant and may overlap. The only restriction is that %
-$x\triangleq y$ is inconsistent whether $x\neq y$.
+$a\triangleq b$ is inconsistent whether $a\neq b$.
 
 \subsection{Equinumerosity}%
 $a\equiv b$ means that there exists a bijection $\to$ that maps $a$ to $b$; %
 which let us identify $a$ with $b$. %
-In a metric space context, $a\equiv b$ means that $\to$ is isometric.
+In a metric space context, $a\equiv b$ means that $\to$ is isometric. %
+\section{Sets}
+\subsection{Subsets and supersets}%
+Provided a pair $(A, X)$, $\subset$ and $\supset$ are the regular symbols for set ordering, as follows: %
+\begin{align}
+  A \subset X & \defiif a \in A \Rightarrow a \in X \\
+  X \supset A & \defiif A \subset X.
+\end{align}
+Note that there is no specific symbol for a strict version: If needed, we will explicitely state that $A \neq X$. 
 \section{Topological vector spaces}
 \subsection{Scalar field}%
 The usual (complete) scalar field is $\C$. %
@@ -118,10 +126,12 @@ So, taking $\C$ as the scalar field shall mean %
 %
 \subsection{Vector space bases}\label{notations: vector spaces: vector space bases}
 Given a vector space $X$ over $\C$ (or, more generally, over a field), %
-a subset $B$ of $X$ is a basis of $X$ \iif %
-$(z_u) \mapsto \sum_{u\in B} z_u u$ bijectively maps all {\it almost null} %
-$z: B \to \K, u \mapsto z_u$ %
-onto $X$. %
+a subset $B$ of $X$ is a basis of $X$ \iif the \textit{finite sum} %
+\begin{align}
+  \bigl\{(z_u)_{u\in B}: z_u \in \C, \singleton{u: z_u \neq 0} \text{ is finite} \bigr\} & \to X \\\nonumber
+                                                                                   (z_u) & \mapsto \sum_{z_u \neq 0 } z_u u
+\end{align}
+bijectively maps all \textit{almost null} $(z_u)$ \textit{onto} $X$. %
 %
 The axiom of choice (AC) forces %
 \begin{enumerate}
@@ -161,14 +171,14 @@ whose open balls centered at the origin are all nonempty%
 \begin{align}
   B_r \Def \set{z\in \C^n}{\norma{2}{z} < r}.
 \end{align}
-To see such equivalence, first pick a positive $r$ then set $r_i = r/\sqrt{n}$, so that %
+To show the equivalence, we pick a positive $r$ then set $r_i = r/\sqrt{n}$, so that %
 \begin{align}
-\prod_{i=1}^{n} D_{r_i} \subseteq B_r. 
+\prod_{i=1}^{n} D_{r_i} \subset B_r. 
 \end{align}
 %
-Next, conversely choosing $r = \min\{r_1, \dots, r_n\}$ yields %
+Conversely, let us choose $r = \min\{r_1, \dots, r_n\}$. Hence %
 \begin{align}
-   B_r \subseteq \prod_{i=1}^{n} D_{r_i} .
+   B_r \subset \prod_{i=1}^{n} D_{r_i} .
 \end{align}
 %
 \subsubsection{Topology of a finite-dimensional vector space}
