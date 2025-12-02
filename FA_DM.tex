@@ -107,6 +107,7 @@ tikz
 
 % "Defined as equals to", alternative to := .
 \def\Def{\triangleq}
+\def\defiif{\quad \iif \quad}
 
 % The usual scalar field = C, most of the time.
 \def\field{\C}
@@ -166,7 +167,7 @@ tikz
 \newcommand{\boolean}[1]{\left[\,#1\,\right]}
 
 % limits
-\newcommand{\tendsto}[2]{\underset{#1\to #2}{\longrightarrow}}
+\newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
 
 % Variables
 \newcommand{\varit}[1]{\mathit{#1}}
