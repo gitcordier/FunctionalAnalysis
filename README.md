@@ -44,7 +44,7 @@ Feel free to get copies of this great book by yourself.
 ## Files
 
 - FA_DM.pdfOutput from [Xelatex](https://www.tug.org) compilation.You can also get an html output from
-  [Hevea](http://hevea.inria.fr) compilation; see HOWTO.
+  [Hevea](http://hevea.inria.fr) compilation, see HOWTO.
 - FA_DM.tex
 - FA_mainmatter.tex
 - FA_chapter_1.tex

@@ -21,7 +21,7 @@
 \subsection{Propositional logic}
 Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
 operators $\lnot$, $\lor$, $\land$, $\iff$, $\THEN$, %
-$\Leftarrow$, assign boolean \textit{truth values} as follows,
+$\Leftarrow$, are assigned boolean \textit{truth values} as follows,
 \begin{enumerate}
   \item[$\lnot$]{%
     $\lnot p$ and $p$ have opposite values.
@@ -101,14 +101,14 @@ Note that there is no specific symbol for a strict version: If needed, we will e
 \section{Topological vector spaces}
 \subsection{Scalar field}%
 The usual (complete) scalar field is $\C$. A property\eg linearity, that is true on $\C$ is also true on $\R$. %
-The complex case is then a {\it special case} of the real one. Sometimes, this specialization is not harmless. %
+The complex case is then a {\it special case} of the real one. Sometimes, this restriction is not harmless. %
 For example, theorem 12.7 of \cite{FA} asserts that, in a Hilbert space $H$ equipped with the inner product %
 $\bra{\,\cdot\,}\ket{\,\cdot\,}$, every nonzero linear continuous operator $T$ ``breaks orthogonality'', %
 in the sense that there always exists $x=x(T)$ in $H$ that satisfies $\bra{Tx}\ket{x} \neq 0$. %
 %
 The proof of this theorem strongly depends on the complex field. Actually, a real counterpart does not exist. %
 To see that, consider the $90^\circ$ rotations of the Euclidean plane. Nevertheless, unless indicated otherwise, %
-the extension to the real case will always be obvious. So, taking $\C$ as the scalar field thus means %
+the extension to the real case will always be obvious. So, taking $\C$ as the scalar field means %
 %
 \begin{quote}{\it %
   Instead of leaving the scalar field undefined, we choose $\C$ for the sake of expressivity. But considering $\R$ instead of %
@@ -137,7 +137,7 @@ The axiom of choice (AC) forces %
 \end{enumerate}
 %
 We now come to the {\it finite-dimensional} case\ie $\dim(X)$ is a nonnegative integer $n$. Note that $n=0$\ie $B=\emptyset$, %
-is equivalent to $X=\singleton{0}$. Our first step consists in studying $\C^n$, which is the standard $n$-dimensional vector 
+is equivalent to $X=\singleton{0}$. Our first step is to study $\C^n$, which is the standard $n$-dimensional vector 
 space.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -185,11 +185,11 @@ Conversely, put $r = \min\{r_1, \dots, r_n\}$ so that %
 \end{align}
 %
 \subsubsection{Topology of a finite-dimensional vector space}
-It is customary to identify any $n$-dimensional vector space with $\C^n$ topologized by the Euclidean norm, %
+It is customary to identify any $n$-dimensional vector space with $\C^n$ equipped with the Euclidean norm, %
 see [\ref{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}]. %
 %
-To show this, pick an $n$-dimensional vector space $Y$. Additionally, let $f$ be an isomorphism of $\C^n$ onto $Y$. %
-For instance, require that $f(u_k) = f(e_k)$, like in [1.20] of \cite{FA}, as $\singleton{u_k}$ is a basis of $Y$, %
+To show this, pick an $n$-dimensional vector space $Y$ and let $f$ be an isomorphism of $\C^n$ onto $Y$. %
+For instance, require that $u_k = f(e_k)$, like in [1.20] of \cite{FA}, as $\singleton{u_k}$ is a basis of $Y$, %
 see [\ref{notations: vector spaces: vector space bases}]. It follows from [1.21] of \cite{FA} that $f$ is an homeomorphism. 
 A straightforward but striking consequence is that 
 %
@@ -198,7 +198,7 @@ A straightforward but striking consequence is that
 \end{quote}
 %
 Thus, $Y$ is necessarily locally convex and locally bounded \ie normable, see [1.39] of \cite{FA}. Note that %
-$\norm{y} = \norma{2}{f^{\minus 1}(y)}$ ($y \in Y$) is an example of norm. Moreover, if $Y$ is given a norm $\norma{}{\cdot}$, 
+$\norm{y}= \norma{2}{f^{\minus 1}(y)}$ ($y\in Y$) is an example of a norm. Moreover, if $Y$ is given a norm $\norma{}{\cdot}$, 
 then there exists a positive constant (termed as ``modulus of continuity'') $C=C_f$ such that %
 %
 \begin{align}\label{norm equivalence 1}
@@ -216,17 +216,17 @@ equivalent in the finite-dimensional context, %
   \item $W$ and $Y$ are homeomorphic to each other, they are normable.
 \end{enumerate}
 %
-Furthermore, $W$'s and $Y$'s norms are equivalent in the sense that similar moduli of continuity %
-(see (\ref{norm equivalence 1})) also exist for them. To see this, equip $W$ with a norm $%
-\lvert\lvert\lvert\,\cdot\,\rvert\rvert\rvert$, then reiterate the latter reasoning with $h$%
-instead of $f$. Hence 
+Furthermore, the norms on $W$ and $Y$ are \textit{equivalent}. That is, for any given norm on $Y$ and any given norm on $W$, 
+there exist similar continuity moduli that relate them to each other (see (\ref{norm equivalence 1})). To see this, equip $W$ 
+with a norm $\lvert\lvert\lvert\,\cdot\,\rvert\rvert\rvert$, then reiterate the latter reasoning with $h$i nstead of $f$.%
+Hence %
 %
 \begin{align}
   \lvert\lvert\lvert w \rvert\rvert\rvert & \leq C_h \norm{y} \quad\quad \left((y, w) \in h \right)
 \end{align}
 %
 for some $C_h > 0$. Similarly, $h^{\minus 1}$ outputs a ``reversed'' inequality. The special case $g=f$ is that %
-$Y$'s norms are equivalent, in the sense that %
+all norms on $Y$ are equivalent, in the sense that %
 %
 %
 \begin{align}

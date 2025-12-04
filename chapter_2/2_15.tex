@@ -26,7 +26,7 @@ Assume that $X$ satisfies
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %
-for all positive integers $n$. First, let $x$ range over $X$ so that $x + V_n$ is open and dense as well (because%
+for all positive integers $n$. First, let $x$ range over $X$. We note that $x + V_n$ is open and dense as well (because%
 \footnote{
   This is also a special case of \citeresultFA{1.3 (b)}, since %
   $X = x + X \subset \overline{x + V_n}$.
@@ -40,16 +40,16 @@ Next, apply Baire's theorem twice to establish that %
 %
 \begin{enumerate}
   \item every intersection $W_n = V_n \cap [x+V_n]$ is dense in $X$;
-  \item so is the (then nonempty) intersection $\bigcap_{n=1}^\infty W_n$.
+  \item so is the intersection $\bigcap_{n=1}^\infty W_n$, which is then nonempty. 
 \end{enumerate}
 %
-Moreover, the intersection $\bigcap_{n=1}^\infty V_n$ cuts no $E_n$. To sum up, %
+Moreover, the intersection $\bigcap_{n=1}^\infty V_n$ avoids every $E_n$. To sum up, %
 %
 \begin{align}\label{2_15_1}
   w \citein{b} \bigcap_{n=1}^\infty W_n \citesubset{a} \bigcap_{n=1}^\infty V_n \citesubset{ii} Y 
 \end{align} 
 %
-for some $w = w(x)\in Y$. %
+for some $w = w(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % C. Key ingredient! 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -68,7 +68,7 @@ Finally, combining (\ref{2_15_1}) with (\ref{2_15_2}) yields %
   x = w - (w - x) \in Y - Y = Y,
 \end{align}
 %
-since $Y$ is a subspace (subgroup) of $X$. We have so established that %
+since $Y$ is a subspace (subgroup) of $X$. We have thus established that %
 %
 \begin{align}
   X \subset Y, 

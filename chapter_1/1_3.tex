@@ -16,13 +16,13 @@ Let be X as topological vector space. All sets mentioned below are understood to
 \begin{enumerate}
 \item%
 Pick an open set $A$ then let the variables $\mathit{V}_i$ %
-($i=1, 2, \dots$) run through all open subsets of $A$, so that % 
+($i=1, 2, \dots$) run through all open subsets of $A$so that % 
 %
 \begin{align}
-  \co{A} \subseteq 
+  \co{A} \subset 
   \bigcup_{t_i} \, %
     (t_1V_1 + \cdots + t_i V_i  + \cdots) 
-  \subseteq \co{A}
+  \subset \co{A}
 \end{align}
 %
 given all convex combinations %
@@ -40,13 +40,13 @@ $V$ contains a convex neighbourhood of $0$, say $W$. %
 There so exists a positive scalar $s$ such that
 %
 \begin{align}
-  E \subseteq tW \subseteq tV \quad (t>s); 
+  E \subset tW \subset tV \quad (t>s); 
 \end{align}
 %
 which yields %
 %
 \begin{align}
-  \co{E} \subseteq \co{tW} = t\co{W} = t W \subseteq tV.
+  \co{E} \subset \co{tW} = t\co{W} = t W \subset tV.
 \end{align}
 %
 So ends the proof. %
@@ -58,17 +58,17 @@ to conclude that there exists $U$ a balanced neighborhood of the origin %
 such that %
 %
 \begin{align}
-  U+U\subseteq V. 
+  U+U\subset V. 
 \end{align}
 %
 Moreover, by the very definition of boundedness, %
-$A \subseteq r U$ for some positive scalar $r$. % 
-Similarly, $B \subseteq s U$ for some positive $s$. % 
+$A \subset r U$ for some positive scalar $r$. % 
+Similarly, $B \subset s U$ for some positive $s$. % 
 %
 Finally, 
 %
 \begin{align}
-A+B \subseteq  rU + sU \subseteq tU + tU \subseteq tV \quad (t > r, s), 
+A+B \subset  rU + sU \subset tU + tU \subset tV \quad (t > r, s), 
 \end{align}
 %
 since $U$ is balanced. So ends the proof. %
@@ -86,7 +86,7 @@ The result will be established by showing that $c$ is not in the closure %
 of $A+B$. \\
 \\
 To do so, we let the variable $\mathit{a}$ range over $A$: %
-Every set $a+B$ is closed as well; see Section 1.7 of \cite{FA}. %
+Every set $a+B$ is closed as well, see Section 1.7 of \cite{FA}. %
 %
 Trivially, $a+B \neq c$: By Section 1.10 of \cite{FA}, %
 there so exists $V=V(a)$ a neighborhood of the origin such that %
@@ -99,7 +99,7 @@ Moreover, there are finitely many $a+V$, say $a_1 + V_1, a_2 + V_2, \dots$, %
 whose union $U$ contains the compact set $A$. Therefore, %
 %
 \begin{align}\label{U + B encloses A + B}
-  A+B \subseteq U + B.
+  A+B \subset U + B.
 \end{align}
 %
 Now define %
@@ -121,7 +121,7 @@ $c$ is not in $\overline{A+B}$ either; which achieves the proof. \\
 \textbf{Corollary}: If $B$ is the closure of a set $S$, then %
 %
 \begin{align}
-  A+B \subseteq \overline{A+S} \subseteq \overline{A+B} = A + B
+  A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
 \end{align}
 %
 by (b) of Section 1.13 of \cite{FA} (since $A$ is closed; %
@@ -145,7 +145,7 @@ For instance, we may combine (ii) with $f$ even and $f>0$ by setting %
 %
 and so on. \\
 \\
-As a continous function, $f$ has closed graph $G$; see [2.14] of \cite{FA}. %
+As a continous function, $f$ has closed graph $G$, see [2.14] of \cite{FA}. %
 %
 Moreover, (i) implies that the origin %
 %
@@ -156,7 +156,7 @@ is not in $G+G$. %
 On the other hand, 
 %
 \begin{align}
-  \{ \left(0, f(n) + f(\minus n)\right): n=1, 2, \dots\} \subseteq G + G.
+  \{ \left(0, f(n) + f(\minus n)\right): n=1, 2, \dots\} \subset G + G.
 \end{align}
 %
 

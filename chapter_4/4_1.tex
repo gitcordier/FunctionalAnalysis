@@ -2,7 +2,7 @@
 \textit{
 Let $\phi$ be the embedding of $X$ into $X^{\,\ast\ast}$ decribed in Section 4.5. Let $\tau$ be the weak topology of $X$, and let $\sigma$ be the weak$^{\,\ast}$- topology of $X^{\,\ast\ast}$- the one induced by $X^{\,\ast}$.
 \begin{enumerate}
-  \item Prove that $\phi$ is an homeomorphism of $(X,\, \tau)$ onto a dense subspace of $(X^{\,\ast\ast},\, \sigma)$.
+  \item Prove that $\phi$ is a homeomorphism of $(X,\, \tau)$ onto a dense subspace of $(X^{\,\ast\ast},\, \sigma)$.
   \item If $B$ is the closed unit ball of $X$, prove that $\phi(B\,)$ is $\sigma$-dense in the closed unit ball of $X^{\,\ast\ast}$. (Use the Hahn-Banach separation theorem.)
   \item Use (a), (b), and the Banach-Alaoglu theorem to prove that $X$ is reflexive if and only if $B$ is weakly compact.
   \item Deduce from (c) that every norm-closed subspace of a reflexive space is reflexive.
@@ -22,7 +22,7 @@ It is sufficient to prove that
   \phi (x) \mapsto & x 
 \end{align}
 %
-is an homeomorphism (with respect to $\tau$ and $\sigma$). We first consider
+is a homeomorphism (with respect to $\tau$ and $\sigma$). We first consider
 \begin{align}
   V \Def & \set{
       x^{\ast\ast} \in X^{\ast\ast} }{ 
@@ -41,7 +41,7 @@ since $\phi^{\minus 1}$ is one-to-one. This remains true whether we enrich each 
 \\
 The second part of (a) is a special case of [3.5] and is so proved. First, it is evident that 
 \begin{align}
-\overline{\phi(X\,)}_\sigma\subseteq X^{\,\ast\ast}\quad .
+\overline{\phi(X\,)}_\sigma\subset X^{\,\ast\ast}\quad .
 \end{align}
 and we now assume- to reach a contradiction- that $(X^{\,\ast\ast},\, \sigma)$ contains a point $z^{\,\ast\ast}$ outside the $\sigma$-closure of $\phi(X\,)$. By [3.5], there so exists $y^{\,\ast}$ in $X^{\,\ast}$ such that 
 \begin{align}
@@ -53,11 +53,11 @@ and we now assume- to reach a contradiction- that $(X^{\,\ast\ast},\, \sigma)$ c
 %: (b)
 The unit ball $B^{\,\ast\ast}$ of $X^{\,\ast\ast}$ is weak$^\ast$-closed, by (c) of [4.3]. On the other hand,
 \begin{align}
-\phi(B\,)\subseteq  B^{\,\ast\ast}\quad ,
+\phi(B\,)\subset  B^{\,\ast\ast}\quad ,
 \end{align}
 since $\phi$ is isometric. Hence
 \begin{align}
-\overline{\phi(B\,)}_\sigma\subseteq \overline{ (B^{\,\ast\ast})}_\sigma=  B^{\,\ast\ast}\quad .
+\overline{\phi(B\,)}_\sigma\subset \overline{ (B^{\,\ast\ast})}_\sigma=  B^{\,\ast\ast}\quad .
 \end{align}
 Now suppose, to reach a contradiction, that $B^{\,\ast\ast}\setminus \overline{\phi(B\,)}_\sigma$ contains a vector $z^{\,\ast\ast}$. By [3.7], there exists $y^{\,\ast}$ in $X^{\,\ast}$ such that 
 \begin{align}
@@ -87,7 +87,7 @@ If $B$ is weakly compact, then $\phi(B\,)$ is weak$^\ast$-closed. So,
 \begin{align}
 \phi(B\,)= \overline{\phi(B\,)}_\sigma\overset{(b)}{=} B^{\,\ast\ast}\quad .
 \end{align}
-$\phi$ is therefore onto, \ie $X$ is reflexive.\\
+$\phi$ is therefore onto\ie $X$ is reflexive.\\
 Conversely, keep $\phi$ as onto: one easily checks that $\phi(B\,)=B^{\,\ast\ast}$. The image $\phi (B\,)$ is then weak$^\ast$-compact by (c) of [4.3]. The conclusion now follows from (\ref{4_15}).\\
 \\
 %: (d)
@@ -113,9 +113,9 @@ It remains to prove (f). To do so, we state the following trivial lemma (L)
 %Its proof is nothing else but a tiny rewriting: if $Z^{\ast\ast}\equiv Z$, then $ Z^\ast_{\text{w}^\ast}=Z^\ast_{\text{w}}$.\\
 Assume first that $X$ is reflexive. Since $B^{\,\ast}$ is weak$^\ast$ compact, by (c) of [4.3], (L) implies that $B^{\,\ast}$ is also weakly compact. Then (c) turns $X^{\,\ast}$ into a reflexive space. \\
 \\
-Conversely, let $X^{\,\ast}$ be reflexive. What we have just proved that makes $X^{\,\ast\ast}$ reflexive. On the other hand, $\phi(X\,)$ is a norm-closed subspace of $X^{\,\ast\ast}$; \cf [4.5]. Hence $\phi(X\,)$ is reflexive, by (d). It now follows from (c) that $B^{\,\ast\ast} \cap \phi(X\,)$ is weakly compact, \ie weak$^\ast$-compact (to see this, apply (L) with $Z=X^{\,\ast}$). \\
+Conversely, let $X^{\,\ast}$ be reflexive. What we have just proved that makes $X^{\,\ast\ast}$ reflexive. On the other hand, $\phi(X\,)$ is a norm-closed subspace of $X^{\,\ast\ast}$; \cf [4.5]. Hence $\phi(X\,)$ is reflexive, by (d). It now follows from (c) that $B^{\,\ast\ast} \cap \phi(X\,)$ is weakly compact\ie weak$^\ast$-compact (to see this, apply (L) with $Z=X^{\,\ast}$). \\
 \\
-By (a), $B$ is therefore weakly compact, \ie $X$ is reflexive; see (c). So ends the proof.
+By (a), $B$ is therefore weakly compact\ie $X$ is reflexive, see (c). So ends the proof.
 \end{proof}
 
 

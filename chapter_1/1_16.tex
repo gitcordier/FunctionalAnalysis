@@ -10,7 +10,7 @@ only on the ambient space itself.
 This should be regarded as a very part of the textbook \cite{FA}
 %
 The proof consists in combining trivial consequences of the local base 
-definition with a well-known result (\eg [2.6] in \cite{BigRudin}) 
+definition with a well-known result (for instance, see [2.6] in \cite{BigRudin}) 
 about intersection of nonempty compact sets. 
 
 \paragraph{Lemma 1} {\it %
@@ -99,11 +99,11 @@ Moreover,
 % 
   \begin{align}
     Q_{\rho(n)} 
-      \subseteq 
+      \subset 
     \interior{Q}_{\rho(n) + 1} 
-      \subseteq 
+      \subset 
     Q_{\rho(n) + 1} 
-      \subseteq 
+      \subset 
     Q_{\rho(n+ 1)}.
   \end{align}
 % 
@@ -111,7 +111,7 @@ Thus,
 %
   \begin{align}
     Q_{\rho(n)} 
-      \subseteq 
+      \subset 
     \interior{Q}_{\rho(n+ 1)}.
   \end{align}
 %
@@ -128,7 +128,7 @@ then defines a topology $\tau_{Q_\rho}$ for which
 %
 is a local base. So, 
 % 
-  $\tau_{Q_\rho} \subseteq \tau_{Q}$.
+  $\tau_{Q_\rho} \subset \tau_{Q}$.
 %
 Conversely, the above corollary asserts that 
 %
@@ -136,7 +136,7 @@ Conversely, the above corollary asserts that
 %
 is a local base of $\tau_{Q}$, which yields  
 %
-  $\tau_{Q}\subseteq \tau_{Q_\rho}$.
+  $\tau_{Q}\subset \tau_{Q_\rho}$.
 %
 \end{proof}
 %: LEMMA 2 -------------------------------------------------------------------%
@@ -144,14 +144,14 @@ is a local base of $\tau_{Q}$, which yields
 If a sequence of compact sets $\mathit{\singleton{Q_n}}$ satisfies the conditions 
 specified in section 1.44, then every compact set $K$ lies in allmost all 
 %
-  $\mathit{Q^{\,\circ}_n}$, \ie
+  $\mathit{Q^{\,\circ}_n}$\ie
 %
 there exists $\varit{m}$ such that 
 %
   \begin{align}\mathit{
-    K \subseteq 
+    K \subset 
     \interior{Q}_m 
-      \subseteq 
+      \subset 
     \interior{Q}_{m+1}
       \subset
     \interior{Q}_{m+2}
@@ -190,14 +190,14 @@ This contradiction reveals that
 %
   $C_m = \emptyset$, 
     \ie 
-  $K \subseteq Q^\circ_m$, 
+  $K \subset Q^\circ_m$, 
 %  
 for some $m$.
 %
 Finally,  
 %
   \begin{align}
-    K\subseteq 
+    K\subset 
     \interior{Q}_m
       \subset
     Q_m
@@ -254,9 +254,9 @@ for every subsequence $\singleton{L_{\kappa(n)}}$.
 Now apply the above Lemma 2 with $K_i$ ($\counting{i}$) and so conclude that  
 %
   $K_i 
-    \subseteq 
+    \subset 
   L^\circ_{m_i} 
-    \subseteq 
+    \subset 
   L^\circ_{m_{i}+1}
     \subset
   \cdots$
@@ -267,7 +267,7 @@ for some $m_i$. In particular, the special case $\kappa_i = m_i + i$ is
     %
     \label{1_16. K subset interior L}
     K_i
-      \subseteq 
+      \subset 
     \interior{L}_{\kappa_i}.
   \end{align} 
 %
@@ -278,7 +278,7 @@ then similarly find a subsequence $\set{\lambda_j}{\counting{j}}$ such that
   %
   \label{1_16. L subset interior K}
   %
-    L_j \subseteq \interior{K}_{\lambda_j}
+    L_j \subset \interior{K}_{\lambda_j}
   \end{align}
 %
 Combine 
@@ -290,13 +290,13 @@ and so obtain
 %
   \begin{align}
     K_1 
-      \subseteq 
+      \subset 
     \interior{L}_{\kappa_1} 
-      \subseteq 
+      \subset 
     L_{\kappa_1} 
-      \subseteq 
+      \subset 
     \interior{K}_{\lambda_{\kappa_1}}
-      \subseteq 
+      \subset 
     K_{\lambda_{\kappa_1}}
       \subset
     \interior{L}_{\kappa_{\lambda_{\kappa_1}}}
