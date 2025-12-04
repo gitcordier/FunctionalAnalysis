@@ -1,6 +1,6 @@
 % a4paper = ISO 216 standard. 
 % Don't forget to revert to default if you want the US Letter instead.
-\documentclass[a4paper,12pt,titlepage,openany, leqno]{book}
+\documentclass[a4paper,10pt,titlepage,openany, leqno]{book}
 
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
@@ -28,7 +28,7 @@ tikz
 
 %\usepackage[bottom=3cm,top=2cm]{geometry}
 % Metric system, sorry;)
-\usepackage[left=2.5cm,top=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+\usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
 %: COLOR
 \usepackage{array}
 %\usepackage[dvipsnames]{xcolor}
@@ -142,7 +142,7 @@ tikz
 \DeclareMathOperator\opcard{card}
 \newcommand{\card}[1]{\opcard(#1)}
 %
-\def\contains{\supseteq }
+\def\contains{\supseteq}
 \def\cuts{\cap}
 \DeclareMathOperator\cvxhull{co}
 \newcommand{\co}[1]{\cvxhull(#1)}
@@ -164,7 +164,7 @@ tikz
 \newcommand{\localbase}[1]{\mathscr #1}
 
 %Iverson bracket
-\newcommand{\boolean}[1]{\bigl[#1\bigr]}
+\newcommand{\Iverson}[1]{\bigl[#1\bigr]}
 
 % limits
 \newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
@@ -173,14 +173,19 @@ tikz
 \newcommand{\varit}[1]{\mathit{#1}}
 \def\vart{\varit{t}}
 %Usual terms
-\def\ie{\textit{i.e.} }
-\def\eg{\textit{e.g.} }
+\def\ie{\textit{, i.e., }}
+\def\eg{\textit{, e.g., }}
 \def\cf{\textit{cf.\,}}
 \def\iif{{\bf iff} }
+\def\IIF{{\bf iff}}
 \def\wlg{{\bf wlg }} % Without loss og generality
 \def\then{\Rightarrow}
+\def\THEN{\Rightarrow}
+\def\THEREFORE{\Rightarrow}
 \def\therefore{\Rightarrow}
 \def\since{\Leftarrow}
+\def\IF{\Leftarrow}
+\renewcommand{\iff}{\Leftrightarrow}
 
 % Citations
 \newcommand{\citehere}[2]{\overset{(#1)}{#2}}
