@@ -19,7 +19,7 @@ Let $X$ be the vector space of all complex functions on the unit interval $[0, 1
 This topology is called the topology of pointwise convergence. Justify this terminology. \\
 \\
 Show that there is a sequence % 
-$\singleton{f_n}$ in X such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but (b) if $\singleton{\gamma_n}$ %
+$\singleton{f_n}$ in $X$ such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but (b) if $\singleton{\gamma_n}$ %
 is any sequence of scalars such that $\gamma_n \to \infty$ then $\singleton{\gamma_n f_n}$ does not converge to $0$. %
 (Use the fact that the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) %
 This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
@@ -62,12 +62,12 @@ Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$, which can be sta
   \sum_{n=1}^\infty \Iverson{f_n - f \notin W} < \infty \quad (W \in \mathscr{B}).
 \end{align}
 %
-The special case $W = V(x, k)$ implies that, given $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but finitely many $n$. %
-In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
+The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
+finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\singleton{f_n}$ $\tau$-diverges\ie for any $f \in X$, there exist finitely many %
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge; that is, for any $f \in X$, there exist finitely many %
 $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
 %
 \begin{align}
@@ -103,42 +103,43 @@ pointwise convergence on $X$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proof (with the given hint)}
 We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that simultaneously satisfies (a) and (b). %
-Indeed, the hint suggests that there exists a one-to-one and onto mapping %  
+Indeed, the hint suggests that there exists a bijective mapping %  
 %
 \begin{align}
-  \varphi: \bigl\{(\theta_n)\!: \theta_n \xrightarrow{n\infty} 0\bigr\} & \to [0, 1] \\
+  \varphi: \bigl\{(\theta_n): \theta_n \xrightarrow{n\infty} 0\bigr\} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
 \end{align}
 %
 \begin{proof}
-This allows us to set %
+We set %
 %
 \begin{align}
-  f_n(x) & \Def \theta_n \tendsto{n}{\infty} 0 \quad \bigl(x = \varphi(\theta_1, \dots, \theta_n, \dots)\bigr).
+  f_n(x) & \Def \theta_n \quad \bigl(x = \varphi(\theta_1, \dots, \theta_n, \dots)\bigr)
 \end{align}
 %
-This way, the special case %
+so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construction, the special case %
 %
-  $x_\gamma %
-  = \varphi( 1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots,1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots)$ %
+\begin{align}
+  x_\gamma %
+  \Def \varphi\Bigl(1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr) %
+\end{align}
 %
-outputs %
+yields %
 %
 \begin{align}
   \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude{\gamma_n}} %
   \tendsto{n}{\infty} \infty, 
 \end{align}
 %
-provided a sequence $\singleton{\gamma_n}$ that tends to $\infty$. This proves (b), since %
+given a sequence $\singleton{\gamma_n}$ that tends to $\infty$. This proves (b), since %
 $\singleton{\gamma_n f_n(x_\gamma)}$ diverges.
 \end{proof}
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Proving it the hard way (no hint)}
-We will use the following simple proposition about binary expansions: Every irrational has an eventually aperiodic binary %
-expansion. %
+\subsection{Proof with binary expansions (no hint)}
+We rely on the following simple proposition: Every irrational number has an eventually aperiodic binary expansion. %
 %
 \begin{proof}
 More precisely, there exists a bijection %
@@ -149,36 +150,35 @@ More precisely, there exists a bijection %
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
-Now a convenient $\singleton{f_n}$ can be defined as follows: %
+A suitable $\singleton{f_n}$ can be defined under the same notation, as follows: %
 %
 \begin{align}
   \label{definition of f_n(alpha)} f_n(x) \Def \begin{cases} 
-    2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigl(x \in [0, 1]\setminus \Q, %
-      \text{where } (\beta_1, \dots, \beta_n, \dots) = \bin^{\minus 1}(x)\bigr) \\
+    2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \bin(\beta_1, \dots, \beta_n, \dots) \text{ is irrational}) \\
     0 & (x \in \Q).
   \end{cases} 
 \end{align}
 %
 Indeed, we note that every bit stream $\bin^{\minus 1}(x)$ has infinitely many $1$'s, which implies that %
 $f_n(x) \xrightarrow{n\infty} 0$. Next, pick an arbitrary $\gamma_n \to \infty$. Thus, for any positive integer $k$, %
-$\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We actually choose $n_k > N_k$ so large that %
+$\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k > N_k$ so large that %
 %
 \begin{align}
   \label{definition of n_k}
   n_{k+1} - n_k > k.
 \end{align}
 %
-The point is that $1_{\{n_1, n_2, \dots \}}: \N_{+} \to \singleton{0,1}$ is eventually aperiodic\ie has an image by $\bin$. %
-Moreover, the specialization $\beta = 1_{\{n_1, n_2, \dots \}}$ implies %
+The point is that $1_{\{n_1, n_2, \dots \}}$ is eventually aperiodic on ${\N_{+}}$. Moreover, the specialization %
+$\beta^{\gamma} = 1_{\{n_1, n_2, \dots \}}$ implies %
 %
 \begin{align} \label{p sum of bits}
-  \beta_1 + \dots + \beta_{n_1} + \dots + \beta_{n_k} = k.
+  \beta^\gamma_1 + \dots + \beta^\gamma_{n_1} + \dots + \beta^\gamma_{n_k} = k.
 \end{align}
 %
-Finally, take this special $\beta$ so that combining (\ref{definition of f_n(alpha)}) with (\ref{p sum of bits}) yields %
+Finally, the combination of (\ref{definition of f_n(alpha)}) with (\ref{p sum of bits}) yields %
 %
 \begin{align}
-  \gamma_{n_k} f_{n_{k}}(\bin(\beta))
+  \gamma_{n_k} f_{n_{k}}(\bin(\beta^\gamma))
     = {\gamma_{n_k}}/{2^k} 
     > 4^k / 2^k 
     > 2^k 
@@ -186,7 +186,7 @@ Finally, take this special $\beta$ so that combining (\ref{definition of f_n(alp
 \end{align}
 %
 In conclusion, every sequence $\singleton{\gamma_n}$ that tends to $\infty$ contains a subsequence %
-$\singleton{\gamma_{n_k}}$ that makes $\singleton{\gamma_{n_k}f_{n_k}}$ diverge. This is (b). 
+$\singleton{\gamma_{n_k}}$ that causes $\singleton{\gamma_{n_k}f_{n_k}}$ to diverge. This is (b). 
 \end{proof}
 %
 % END

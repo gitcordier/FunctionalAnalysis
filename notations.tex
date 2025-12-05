@@ -1,6 +1,6 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % FunctionalAnalysis 
-% notaions.tex
+% notations.tex
 % 
 % encoding: UTF-8 
 % EOL: LF
@@ -21,32 +21,31 @@
 \subsection{Propositional logic}
 Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
 operators $\lnot$, $\lor$, $\land$, $\iff$, $\THEN$, %
-$\Leftarrow$, are assigned boolean \textit{truth values} as follows,
+$\Leftarrow$, are assigned boolean \textit{truth values} (``true'' and ``false'') as follows,
 \begin{enumerate}
   \item[$\lnot$]{%
-    $\lnot p$ and $p$ have opposite values.
+    $\lnot p$ and $p$ have opposite values:
   }
   \item[$\lor$]{
     The \textit{disjunction} (``or'') $p \lor q$ is true unless $p$ is false and $q$ is false.
   }
   \item[$\land$]{
-    The \textit{conjunction} (``and'') is false unless $p$ is true and $q$ is true.
+    The \textit{conjunction} (``and'') $p \land q$ is true if and only if $p$ is true and $q$ is true.
   }
   \item[$\iff$]{%
     The \textit{logical equivalence} expresses \textit{tautologies}: %
-    $p \iff q$ is true unless $p$ and $q$ have opposite values. %
-    It is easily checked that $(p \iff q) \iff \bigl((p \then q) \land (p \IF  q) \bigr)$, see the definitions below.
+    $p \iff q$ is true unless $p$ and $q$ have opposite values. It is easily checked that %
+    $(p \iff q) \iff \bigl((p \then q) \land (p \IF  q) \bigr)$, see the definitions below.
   }
   \item[$\THEN$]{%
-    The logical connection \textit{$p$ implies $q$} is made by $\THEN$: %
-    $p \THEN q$ means \textit{if (criterion/premise) $p$ then (conclusion) $q$}. %
-    $p \THEN q $ is formally defined as $\lnot p \lor q$. %
-    Note that the ``reasoning'' $p \THEN q $ is always true unless $p$ is true and $q$ is false. %
-    Moreover, $p \land (p \THEN q) \THEN q$ is always true. This deductive rule is known as \textit{modus ponens}.
-    }
+    The logical connection \textit{$p$ implies $q$} is supported by $\THEN$: $p \THEN q$ means \textit{if $p$ then $q$} %
+    and is formally defined as $\lnot p \lor q$. Note that the ``reasoning'' $p \THEN q $ is always true unless %
+    $p$ is true and $q$ is false. Moreover, $p \land (p \THEN q) \THEN q$ is always true. %
+    This deductive rule is known as \textit{modus ponens}.
+  }
   \item[$\Leftarrow$]{ $q \IF p$ means that $q$ is implied by $p$ and is defined as $ p\THEN q $. %
     It is commonly read aloud as ``$q$ if $p$'' or ``$q$ is a consequence of $p$''.
-    }
+  }
 \end{enumerate}
 %
 See Section 1.3 and Subsection 16.1.3 of \cite{SpecifyingSystems} for further reading.
@@ -66,62 +65,52 @@ $\Iverson{\varphi}$ returns the truth value of $\varphi$, encoded as follows, %
 For example, $\Iverson{1 > 0} = 1$ but $\Iverson{ \sqrt{2} \in \Q} = 0$.
 \section{Special terms}
 \subsection{Halmos' iff and definitions}%
-\iif is a short for ``if and only if". %
-Splitting \iif into \textit{if-then} clauses shows that it is just %
-a rewording of the logical equivalence $\iff$. %
-All definitions will use the \iif format, which is consistent with the fact that every definition expresses a tautology.
+\iif is a shorthand for ``if and only if". Splitting \iif into \textit{if-then} clauses shows that it is just a rewording of %
+the logical equivalence $\iff$. All definitions will use the \iif format, which is consistent with the fact that %
+every definition expresses a tautology.
 %
 \subsection{Assigning values}%
-Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization %
-of $=$. We say that $a\triangleq b$ \iif $a$ and $b$ are assumed to be equal. 
-Usually, $a\triangleq b$ means that $a$ is assigned the previously known 
-value $b$ (some authors write $a:=b$) but this is not a limitation. 
-Definitions can be redundant and may overlap. The only restriction is that %
-$a\triangleq b$ is inconsistent if $a\neq b$.
-%
-\subsection{Equinumerosity}%
-$a\equiv b$ means that there exists a bijection $\to$ that maps $a$ to $b$, which lets us identify $a$ with $b$. %
-In a metric space context, $a\equiv b$ means that $\to$ is isometric. %
+Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \iif %
+$a$ and $b$ are assumed to be equal. Usually, $a\triangleq b$ means that $a$ is assigned the previously known value %
+$b$ (some authors write $a:=b$) but this is not a limitation. Definitions can be redundant and may overlap. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SETS
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Sets}
 \subsection{Subsets and supersets}%
-Given a pair $(A, X)$, $\subset$ and $\supset$ are the standard symbols for set ordering, as follows: %
+$\subset$ and $\supset$ are the standard symbols for set ordering, as follows: %
 \begin{align}
-  A \subset X & \defiif a \in A \THEN a \in X \\
-  X \supset A & \defiif A \subset X.
+  X \subset Y & \defiif x \in X \THEN x\in Y \\
+  Y \supset X & \defiif X \subset Y.
 \end{align}
-Note that there is no specific symbol for a strict version: If needed, we will explicitly state that $A \neq X$. 
+Note that we will not reserve any specific symbol for a strict version: If needed, we will explicitly state that $X \neq Y$. 
+%
+\subsection{special mappings}
+The identity $I$ is the special mapping $I_X = \set{(x,x)}{x\in X}$. Similarly, the projection %
+$\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists;  Note that $I$ is the diagonal of $X^2$. %
+%
+\subsection{Equinumerosity}%
+$X\equiv Y$ means that there exists a bijection $\varphi$ that maps $X$ to $Y$, which lets us identify $X$ with $Y$. %
+In a metric space context, $X\equiv Y$ means that $\varphi$ is isometric. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % TVS 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Topological vector spaces}
 \subsection{Scalar field}%
-The usual (complete) scalar field is $\C$. A property\eg linearity, that is true on $\C$ is also true on $\R$. %
-The complex case is then a {\it special case} of the real one. Sometimes, this restriction is not harmless. %
-For example, theorem 12.7 of \cite{FA} asserts that, in a Hilbert space $H$ equipped with the inner product %
-$\bra{\,\cdot\,}\ket{\,\cdot\,}$, every nonzero linear continuous operator $T$ ``breaks orthogonality'', %
-in the sense that there always exists $x=x(T)$ in $H$ that satisfies $\bra{Tx}\ket{x} \neq 0$. %
-%
-The proof of this theorem strongly depends on the complex field. Actually, a real counterpart does not exist. %
-To see that, consider the $90^\circ$ rotations of the Euclidean plane. Nevertheless, unless indicated otherwise, %
-the extension to the real case will always be obvious. So, taking $\C$ as the scalar field means %
-%
-\begin{quote}{\it %
-  Instead of leaving the scalar field undefined, we choose $\C$ for the sake of expressivity. But considering $\R$ instead of %
-  $\C$ would actually make no difference here.
-}
-\end{quote}
+$\C$ extends $\R$, which implies that a property\eg linearity, that is true on $\C$ is also true on $\R$. %
+The complex case is then a \textit{special case} of the real one. Sometimes, this restriction can be significant. %
+Nevertheless, the standard scalar field is $\C$, which means that considering $\R$ instead of $\C$ makes no difference, %
+unless stated otherwise. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% Vecror spaces
+% Vector spaces
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Vector space bases}\label{notations: vector spaces: vector space bases}
 Given a vector space $X$ over $\C$ (or, more generally, over a field), a subset $B$ of $X$ is a basis of $X$ \iif %
-the \textit{finite sum} %
+the sum %
+%
 \begin{align}
   \bigl\{(z_u)_{u\in B}: z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite} \bigr\} & \to X \\\nonumber
   (z_u) & \mapsto \sum_{z_u \neq 0 } z_u u
@@ -136,25 +125,20 @@ The axiom of choice (AC) forces %
   \item all bases to have the same cardinal, which is called the {\it dimension} of $X$ and is denoted as $\dim(X)$. %
 \end{enumerate}
 %
-We now come to the {\it finite-dimensional} case\ie $\dim(X)$ is a nonnegative integer $n$. Note that $n=0$\ie $B=\emptyset$, %
-is equivalent to $X=\singleton{0}$. Our first step is to study $\C^n$, which is the standard $n$-dimensional vector 
-space.
+We now come to the finite-dimensional case. Note that the $0$-dimensional case is the degenerate case $B=\emptyset$, %
+which is equivalent to $X=\singleton{0}$. Our first step is to study $\C^n$ ($n>0$) the standard $n$-dimensional vector space.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Finite dimension
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Finite-dimensional spaces}\label{notations: vector spaces: finite-dimensional vector spaces}%
-%
-\quote{\it%
-  From now on, the zero-dimensional case, which is trivial, will be omitted. %
-}
-%
 \subsubsection{The product topology of $\C^n$}%
 \label{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}
 %
-$\C^n$ has a standard basis $1_{\singleton{1}}, \dots, 1_{\singleton{n}}$ so that $z_k$ is the $k$-th component of %
-$(z_1, \dots , z_n) = z_1 (1, 0, \dots, 0)  + \cdots  + z_n (0, \dots, 0, 1) \in \C^n$. %
-Furthermore, $\C^n$ is endowed with the topology generated by all polydiscs %
+$\C^n$ has a standard basis $1_{\singleton{1}}, \dots, 1_{\singleton{n}} \in \{0, 1\}^{\{0, \dots, n-1\}}$ %
+so that $z_k$ ($1 \leq k \leq n$) is the $k$-th component of a given %
+$(z_1, \dots , z_n) = z_1 (1, 0, \dots, 0)  + \cdots  + z_n (0, \dots, 0, 1) \in \C^n$. Furthermore, %
+$\C^n$ is endowed with the topology generated by all polydiscs %
 %
 \begin{align}
   \prod_{i=1}^{n} \underbrace{\set{z_i \in C}{\magnitude{z_i} < r_i}}_{D_{r_i}} \quad (r_i > 0 ).
@@ -190,7 +174,7 @@ see [\ref{notations: vector spaces: finite-dimensional vector spaces: the produc
 %
 To show this, pick an $n$-dimensional vector space $Y$ and let $f$ be an isomorphism of $\C^n$ onto $Y$. %
 For instance, require that $u_k = f(e_k)$, like in [1.20] of \cite{FA}, as $\singleton{u_k}$ is a basis of $Y$, %
-see [\ref{notations: vector spaces: vector space bases}]. It follows from [1.21] of \cite{FA} that $f$ is an homeomorphism. 
+see [\ref{notations: vector spaces: vector space bases}]. It follows from [1.21] of \cite{FA} that $f$ is a homeomorphism. 
 A straightforward but striking consequence is that 
 %
 \begin{quote}
@@ -205,7 +189,7 @@ then there exists a positive constant (termed as ``modulus of continuity'') $C=C
   \norm{y} \leq C \norma{2}{z} \quad \bigl((z, y) \in f\bigr), 
 \end{align}
 %
-because $f$ is continuous. Now pick an $n$-dimensional topological vector space $W$, then reiterate the same reasoning, 
+because $f$ is continuous. Now pick an $n$-dimensional topological vector space $W$, then reiterate the same reasoning, %
 first with $g: \C^n \to W$, next with $h = g\circ f^{\,\minus 1}$ playing the role of $f$. This establishes that the 
 homeomorphism $h$ maps $Y$ onto $W$ and that $W$ is normable as well. It is now clear that the following assertions are 
 equivalent in the finite-dimensional context, %
@@ -218,29 +202,31 @@ equivalent in the finite-dimensional context, %
 %
 Furthermore, the norms on $W$ and $Y$ are \textit{equivalent}. That is, for any given norm on $Y$ and any given norm on $W$, 
 there exist similar continuity moduli that relate them to each other (see (\ref{norm equivalence 1})). To see this, equip $W$ 
-with a norm $\lvert\lvert\lvert\,\cdot\,\rvert\rvert\rvert$, then reiterate the latter reasoning with $h$ instead of $f$.%
+with another norm $\norma{{\text{\fw W}}}{\cdot}$, then retrace the latter steps up to (\ref{norm equivalence 1})) with $h$ instead of $f$.%
 Hence %
 %
 \begin{align}
-  \lvert\lvert\lvert w \rvert\rvert\rvert & \leq C_h \norm{y} \quad\quad \left((y, w) \in h \right)
+  \norma{{\text{\fw W}}}{w} & \leq C_h \norm{y} \quad\quad \left((y, w) \in h \right)
 \end{align}
 %
-for some $C_h > 0$. Similarly, $h^{\minus 1}$ outputs a ``reversed'' inequality. The special case $g=f$ is that %
+for some $C_h > 0$. The special case $g=f$ is that %
 all norms on $Y$ are equivalent, in the sense that %
 %
 %
 \begin{align}
-  \lvert\lvert\lvert y \rvert\rvert\rvert \leq C_{\id{}} \norm{y}.
+  \norma{{\text{\fw copy of Y}}}{y} \leq C_I \norm{y}.
 \end{align}
 %
 \subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$}
-When $\C^n$ is equipped with standard norms $1, 2, \infty$, the optimal modulus\ie the smallest 
-$C = C_{i, j}$  ($i, j = 1, 2, \infty$) such that %
+When $\C^n$ is equipped with standard norms $1, 2, \infty$, the sharp constant\ie the smallest %
+$C_{i, j}$  ($i, j = 1, 2, \infty$) such that %
 \begin{align}
-	\norma{j}{z} \leq C_{i, j} \norma{i}{z} \quad \left(z \in \C^n \right)
+	\norma{j}{z} \leq C_{i, j} \norma{i}{z} %\quad \left(z \in \C^n \right)
 \end{align}
 %
-is easily derived from definitions - see [1.19] of \cite{FA} - with the noticeable exception of $C_{2, 1}=\sqrt{n}$, which is 
-usually seen as a special {\it Cauchy-Schwarz inequality},  see (1) in [12.2] of \cite{FA}. The very steps of this classical 
-hack are left to the reader. %
+is easily derived from definitions - see [1.19] of \cite{FA} - with the noticeable exception of $C_{2, 1}=\sqrt{n}$. %
+Indeed, $\norma{1}{z} \leq \sqrt{n} \norma{2}{z}$ is a special Cauchy-Schwarz inequality, see (1) in [12.2] of \cite{FA}. %
+The steps of this classical trick are left to the reader. %
+%
 % END
+
