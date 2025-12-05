@@ -102,7 +102,7 @@ pointwise convergence on $X$.
 % First proof: Use the given hint
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proof (with the given hint)}
-We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that simultaneously satisfies (a) and (b). %
+We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that satisfies both (a) and (b). %
 Indeed, the hint suggests that there exists a bijective mapping %  
 %
 \begin{align}
@@ -131,7 +131,7 @@ yields %
   \tendsto{n}{\infty} \infty, 
 \end{align}
 %
-given a sequence $\singleton{\gamma_n}$ that tends to $\infty$. This proves (b), since %
+given a sequence $\singleton{\gamma_n}$ diverging to $\infty$. This proves (b), since %
 $\singleton{\gamma_n f_n(x_\gamma)}$ diverges.
 \end{proof}
 %
@@ -150,7 +150,7 @@ More precisely, there exists a bijection %
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
-A suitable $\singleton{f_n}$ can be defined under the same notation, as follows: %
+A suitable $\singleton{f_n}$ can be defined as follows: %
 %
 \begin{align}
   \label{definition of f_n(alpha)} f_n(x) \Def \begin{cases} 
@@ -168,14 +168,19 @@ $\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k >
   n_{k+1} - n_k > k.
 \end{align}
 %
-The point is that $1_{\{n_1, n_2, \dots \}}$ is eventually aperiodic on ${\N_{+}}$. Moreover, the specialization %
-$\beta^{\gamma} = 1_{\{n_1, n_2, \dots \}}$ implies %
+The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is eventually aperiodic. Moreover, the particular choice %
+%
+\begin{align}
+  \beta^{\gamma} \Def 1_{\{n_1, n_2, \dots \}}
+\end{align}
+%
+implies %
 %
 \begin{align} \label{p sum of bits}
   \beta^\gamma_1 + \dots + \beta^\gamma_{n_1} + \dots + \beta^\gamma_{n_k} = k.
 \end{align}
 %
-Finally, the combination of (\ref{definition of f_n(alpha)}) with (\ref{p sum of bits}) yields %
+Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yield %
 %
 \begin{align}
   \gamma_{n_k} f_{n_{k}}(\bin(\beta^\gamma))
@@ -185,7 +190,7 @@ Finally, the combination of (\ref{definition of f_n(alpha)}) with (\ref{p sum of
     \tendsto{k}{\infty}\infty.
 \end{align}
 %
-In conclusion, every sequence $\singleton{\gamma_n}$ that tends to $\infty$ contains a subsequence %
+In conclusion, every sequence of scalars $\gamma_n$ such that $\gamma_n \to \infty$ contains a subsequence%
 $\singleton{\gamma_{n_k}}$ that causes $\singleton{\gamma_{n_k}f_{n_k}}$ to diverge. This is (b). 
 \end{proof}
 %

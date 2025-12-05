@@ -16,23 +16,19 @@ Hint: \textit{$Y$ must intersect $x+Y$ for every $x\in X$. }%
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. Assumptions.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Take $E_n$ and $V_n$ such that %
+Take a sequence of open sets $\singleton{V_n}$ where %
 %
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
-  \item $X = V_n \cup \overline{E}_n$ \quad ($V_n \cap \overline{E}_n = \emptyset)$;
-  \item $X = \overline{V}_n$; 
+  \item $X = V_n \cup \closure{E}_n$ \quad ($V_n \cap \overline{E}_n = \emptyset)$;
+  \item $X = \closure{V_n}$; 
   \item $ X\setminus Y = \bigcup_{n=1}^\infty E_n$
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %
-for all positive integers $n$. First, let $x$ be an arbitrary element of $X$. We note that $x + V_n$ is open and dense 
-as well (because%
-\footnote{
-  This is also a special case of \citeresultFA{1.3 (b)}, since %
-  $X = x + X \subset \overline{x + V_n}$.
-}
-the translation by $x$ is a homeomorphism of $X$ onto $X$).
+for all $n$. Fix $x \in X$. Then $x + V_n$ is also open and dense because the translation by $x$ is a %
+self-homeomorphism. Alternatively, observe that $X = x + X \subset \closure{x + V_n}$, %
+which is is a special case of \citeresultFA{1.3 (b)}. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. Where Baire's theorem is involved.
