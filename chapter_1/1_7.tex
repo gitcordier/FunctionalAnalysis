@@ -55,7 +55,7 @@ the following inequalities, expressed in Iverson's notation, hold: %
   \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i}.
 \end{align}
 %
-Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$, which can be stated as follows: %
+Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. By definition, %
 %
 \begin{align}
   %
@@ -67,8 +67,8 @@ finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge; that is, for any $f \in X$, there exist finitely many %
-$V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge. This implies that, for every $f \in X$, there exist %
+finitely many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
 %
 \begin{align}
   %
@@ -103,7 +103,7 @@ pointwise convergence on $X$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proof (with the given hint)}
 We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that satisfies both (a) and (b). %
-Indeed, the hint suggests that there exists a bijective mapping %  
+Indeed, the hint suggests that there exists a bijection %  
 %
 \begin{align}
   \varphi: \bigl\{(\theta_n): \theta_n \xrightarrow{n\infty} 0\bigr\} & \to [0, 1] \\
@@ -124,7 +124,7 @@ so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construct
   \Def \varphi\Bigl(1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr) %
 \end{align}
 %
-yields %
+outputs %
 %
 \begin{align}
   \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude{\gamma_n}} %
@@ -139,14 +139,15 @@ $\singleton{\gamma_n f_n(x_\gamma)}$ diverges.
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Proof with binary expansions (no hint)}
-We rely on the following simple proposition: Every irrational number has an eventually aperiodic binary expansion. %
+We rely on the following assertion: Every irrational number has a binary expansion that is not eventually periodic. %
 %
 \begin{proof}
-More precisely, there exists a bijection %
+More precisely, there exists a bijective sum  %
 %
-\def\bin{\text{\fw sum}}
+%\def\bin{\text{\fw sum}}
+\def\bin{\sigma}
 \begin{align}
-  \bin:  \bigl\{\beta \in \{0, 1\}^{\N_+}: \beta \text{ is eventually aperiodic}\bigr\} & \to [0, 1] \setminus \Q \\
+  \bin:  \bigl\{\beta \in \{0, 1\}^{\N_+}: \beta \text{ is not eventually periodic}\bigr\} & \to [0, 1] \setminus \Q \\
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
@@ -154,7 +155,7 @@ A suitable $\singleton{f_n}$ can be defined as follows: %
 %
 \begin{align}
   \label{definition of f_n(alpha)} f_n(x) \Def \begin{cases} 
-    2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \bin(\beta_1, \dots, \beta_n, \dots) \text{ is irrational}) \\
+    2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \bin(\beta_1, \dots, \beta_n, \dots) \notin \Q) \\
     0 & (x \in \Q).
   \end{cases} 
 \end{align}
@@ -168,7 +169,7 @@ $\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k >
   n_{k+1} - n_k > k.
 \end{align}
 %
-The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is eventually aperiodic. Moreover, the particular choice %
+The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Moreover, the particular choice %
 %
 \begin{align}
   \beta^{\gamma} \Def 1_{\{n_1, n_2, \dots \}}
@@ -185,7 +186,7 @@ Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yie
 \begin{align}
   \gamma_{n_k} f_{n_{k}}(\bin(\beta^\gamma))
     = {\gamma_{n_k}}/{2^k} 
-    > 4^k / 2^k 
+    %> 4^k / 2^k 
     > 2^k 
     \tendsto{k}{\infty}\infty.
 \end{align}

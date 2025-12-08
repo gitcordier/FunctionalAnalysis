@@ -54,9 +54,9 @@ The mean value asserts that
   \begin{align}\label{2.3. Mean value inequality (concrete).}
     \magnitude{ \phi(1/n) - \phi(\minus 1/n)} 
       \leq 
-    \Beta_{n}(\phi')\magnitude{1/n - ({\minus}1/n)} 
+    \Beta_{n}(\varphi')\magnitude{1/n - ({\minus}1/n)} 
       = 
-    \frac{2}{n} \Beta_{n}(\phi').
+    \frac{2}{n} \Beta_{n}(\varphi').
     %
   \end{align}
 %
@@ -66,12 +66,12 @@ Independently, an integration by parts shows that %
     \bra{f_n}\ket{\phi}
       & =  
         \left[ \frac{n^3 t^2}{2} \phi(t) \right]^{1/n}_{\minus 1/n}
-        - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \phi'(t)dt\\ 
+        - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \varphi'(t)dt\\ 
       %
       \label{2.3. Equality from integration by parts.}
       & =  
         \frac{n}{2}\left(\phi(1/n) - \phi(\minus 1/n)\right)
-        - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \phi'(t)dt.
+        - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \varphi'(t)dt.
       %
   \end{align}
 Combine %
@@ -88,20 +88,20 @@ and so obtain %
     & \leq  
       \frac{n}{2}\magnitude{\phi(1/n) - \phi(\minus 1/n)}
         + 
-      \frac{n^3}{2}\int_{\minus1/n}^{1/n} t^{2}\lvert\phi'(t)\rvert dt
+      \frac{n^3}{2}\int_{\minus1/n}^{1/n} t^{2}\lvert\varphi'(t)\rvert dt
       \\
     %
       & \leq  
-        \Beta_{n}(\phi') 
+        \Beta_{n}(\varphi') 
           + 
-        \frac{n^3}{2} \Beta_{n}(\phi') \int_{\minus1/n}^{1/n} t^{2} dt \\
+        \frac{n^3}{2} \Beta_{n}(\varphi') \int_{\minus1/n}^{1/n} t^{2} dt \\
       %
       \label{2.3. Bound with p and M (M_n).}
       & \leq 
-      \frac{4}{3} \Beta_{n}(\phi') \\
+      \frac{4}{3} \Beta_{n}(\varphi') \\
       \label{2.3. Bound with p and M (concrete).}
       & \leq 
-      \frac{4}{3} \norma{\infty}{\phi'}.
+      \frac{4}{3} \norma{\infty}{\varphi'}.
       %
   \end{align}
 %
@@ -111,32 +111,32 @@ Futhermore, %
 % 
 gives a hint about the convergence of $f_n$: Since %
 %
-  $\Beta_{n}(\phi')$ tends to $\magnitude{\phi'(0)}$, %
+  $\Beta_{n}(\varphi')$ tends to $\magnitude{\varphi'(0)}$, %
 %
 we may expect that %
 %
-  $f_n$ tends to $\frac{4}{3}\phi'(0)$. %
+  $f_n$ tends to $\frac{4}{3}\varphi'(0)$. %
 %
 This is actually true: A straightforward computation shows that %
 %
   \begin{align}
-    \bra{f_n}\ket{\phi} - \frac{4}{3}\phi'(0)
+    \bra{f_n}\ket{\phi} - \frac{4}{3}\varphi'(0)
       \citeq{\ref{2.3. Equality from integration by parts.}} 
     \frac{\phi(1/n) - \phi(\minus 1/n)}{1/n - (\minus 1/n)}
-    - \phi'(0)
-    - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} (\phi' - \phi'(0)) t^{2} dt.
+    - \varphi'(0)
+    - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} (\varphi' - \varphi'(0)) t^{2} dt.
   \end{align}
 %
 So, 
 %
   \begin{align}
-    \magnitude{\bra{f_n}\ket{\phi} -\frac{4}{3} \phi'(0)} 
+    \magnitude{\bra{f_n}\ket{\phi} -\frac{4}{3} \varphi'(0)} 
       & \leq 
     \magnitude{
       \frac{\phi(1/n) - \phi(\minus 1/n)}{1/n - (\minus 1/n)}
-      - \phi'(0)
+      - \varphi'(0)
     }
-    + \frac{1}{3}\Delta_{n}(\phi') 
+    + \frac{1}{3}\Delta_{n}(\varphi') 
     % 
     \tendsto{n}{\infty} 0.
   \end{align}
@@ -145,7 +145,7 @@ We have just proved that
 %
   \begin{align}\label{2.3. (f_n) converges to Dirac (1).}
     \bra{f_n}\ket{\phi} \tendsto{n}{\infty} %\Lambda\phi \Def 
-    \frac{4}{3}\phi'(0) 
+    \frac{4}{3}\varphi'(0) 
     %
     \quad (\phi\in \mathscr{D}_K).
   \end{align}
@@ -173,7 +173,7 @@ and from %%
 that %%
 %
   \begin{align}
-    \lvert \bra{f_n}\ket{\phi} \rvert \leq \frac{4}{3} \norma{\infty}{\phi'} 
+    \lvert \bra{f_n}\ket{\phi} \rvert \leq \frac{4}{3} \norma{\infty}{\varphi'} 
     \quad (\counting{n}) 
   \end{align}
 %

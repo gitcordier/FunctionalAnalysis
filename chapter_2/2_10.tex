@@ -1,97 +1,38 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 2_10.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{%
-Prove that a bilinear mapping is continuous %
-if it is continuous at the origin $(0, 0)$.
+Prove that a bilinear mapping is continuous if it is continuous at the origin $(0, 0)$.
 }
+%
 \begin{proof}
-Let $(X_1, X_2, Z)$ be topological spaces %
-and $B$ a bilinear mapping %
+Let $B: X_1 \times X_2 \to Z$ be a bilinear mapping that is continuous at $(0,0)$, where $X_i$ and $Z$ are topological vector %
+spaces. This implies that, for any balanced neighborhood $W$, there exists a balanced open set $U_i \subset X_i$ such that %
 %
 \begin{align}
-  B: X_1 \times X_2 \to Z. 
+  B(U_1 \times U_2) \subset W. 
 \end{align}
 %
-From now on, $x=(x_1, x_2)$ denotes an arbitrary element of %
-%
-  $X_1\times X_2$. %
-%
-We henceforth assume that $B$ is continuous at the origin %
-%
-  $(0, 0)$ of $X_1\times X_2$\ie  %
-%
-given an arbitrary \textbf{balanced} open subset $W$ of $Z$, %
-there exists in $X_i$ ($i=1, 2$) a \textbf{balanced} open subset $U_i$ %
-such that %
+Pick $a_i$ from $ X_i$, and then choose $r_i > 1$ large enough so that $a_i \in r_i U_i$. The vector $b_i - a_i$ is now %
+restricted to $(r_1 + r_2)^{\minus 1} U_i$. Hence %
 %
 \begin{align}
-  B(U_1 \times U_2) \subset W .
+  B(b_1, b_2) - B(a_1,  a_2) & = B(b_1 - a_1, b_2) + B(a_1, b_2) - B(a_1, a_2)\\
+  & = B(b_1 - a_1, b_2) + B(a_1, b_2 - a_2)\\
+  & = B(b_1 - a_1, b_2 - a_2) + B(b_1 - a_1, a_2) + B(a_1, b_2 - a_2)\\
+  & \subset \frac{1}{(r_1 + r_2)^2}W  + \frac{r_2}{r_1 + r_2}W + \frac{r_1}{r_1 + r_2}W\\
+  & \subset W  + W  + W 
 \end{align}
 %
-In such context, %
-%
-  $\lambda_i(x) $ is chosen greater than %
-  $\mu_i(x_i)=\inf\{r > 0: x_i \in r \cdot U_i\}$; %
-%
-see [1.33] of \cite{FA} for further reading about the %
-\textit{Minkowski functionals} $\mu$. %
-%
-In other words, $x_i$ lies in $\lambda_i(x) U_i$, since $U_i$ is balanced. %
-%
-Thus, % 
-%
-\begin{align}
-  B(x_1, x_2) 
-    & = 
-      \lambda_1(x)\lambda_2(x) \cdot B(
-        x_1/ \lambda_1(x), 
-        x_2/ \lambda_2(x)) \\
-    & \in 
-  \lambda_1(x) \lambda_2(x) \cdot B(U_1 \times U_2) \\
-    & \subset 
-  \lambda_1(x) \lambda_2(x) \cdot W. \label{2_10. Bound.}
-\end{align}
-%
-Pick $p=(p_1, p_2)$ in $X_1\times X_2$,  %
-and let $ q=(q_1, q_2)$ range over $X \times Y$, as a first step: %
-It directly follows from (\ref{2_10. Bound.}) that %
-%
-\begin{align}
-  B(p) - B(q) &= B(p_1, p_2 - q_2) + B(p_1, q_2) - B(q_1, q_2)\\
-  &= B(p_1, p_2 - q_2) + B(p_1-q_1, q_2)  \\
-  &= B(p_1, p_2 - q_2) + B(p_1 -q_1, q_2 -p_2) + B(p_1-q_1,p_2) \\
-  &\in  
-     \lambda_1(p)   \lambda_2(p-q) W + 
-     \lambda_1(p-q) \lambda_2(q-p) W + 
-     \lambda_1(p-q) \lambda_2(p)   W.\label{2.10. In multiple of W.}
-\end{align}
-%
-We now restrict $q$ to a particular neighborhood of $p$. %
-More specifically, 
-%
-\begin{align}
-  p_i - q_i \in \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 2} U_i; 
-\end{align}
-%
-which implies %
-%
-\begin{align}
-  \mu_i(q_i -p_i) = \mu_i(p_i -q_i) \leq \frac{1}{\mu_1(p_1)+\mu_2(p_2)+2} 
-\end{align}
-(the equality at the left is valid, since $U_i = -U_i$). %
-The special case %
-\begin{align}
-  \lambda_i(p)   &\triangleq  \mu_1(p_1) + \mu_2(p_2) + 1, \\
-  \lambda_i(p-q) &\triangleq  \frac{1}{\mu_1(p_1) + \mu_2(p_2) + 1} %
-    \triangleq  \lambda_i(q-p) 
-\end{align}
-implies that %
-%
-\begin{align}
-  B(p) - B(q)  \in W + W+ W, 
-\end{align}    
-%
-since $W$ is balanced. %
-%
-$W$ being arbitrary, we have so established the continuousness of $B$ at %
-arbitrary $p$; which achieves the proof.
+(the inclusions derive from the balancedness of $U_i$ and $W$). We conclude that $B$ is continuous at every %
+$(a_1, a_2)$, since $W$ was arbitrary. This concludes the proof. 
 \end{proof}
 %END

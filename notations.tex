@@ -18,7 +18,7 @@
 % LOGIC
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Logic}%
-\subsection{Propositional logic}
+\subsection{Propositional logic operators}
 Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
 operators $\lnot$, $\lor$, $\land$, $\iff$, $\THEN$, %
 $\Leftarrow$, are assigned boolean \textit{truth values} (``true'' and ``false'') as follows,
@@ -64,12 +64,12 @@ $\Iverson{\varphi}$ returns the truth value of $\varphi$, encoded as follows, %
 %
 For example, $\Iverson{1 > 0} = 1$ but $\Iverson{ \sqrt{2} \in \Q} = 0$.
 \section{Special terms}
-\subsection{Halmos' iff and definitions}%
+\subsection{The Halmos' $\iff$ (``if and only if'') and definitions}%
 \iif is a shorthand for ``if and only if". Splitting \iif into \textit{if-then} clauses shows that it is just a rewording of %
 the logical equivalence $\iff$. All definitions will use the \iif format, which is consistent with the fact that %
 every definition expresses a tautology.
 %
-\subsection{Assigning values}%
+\subsection{The assignement operator $\Def$}%
 Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \iif %
 $a$ and $b$ are assumed to be equal. Usually, $a\triangleq b$ means that $a$ is assigned the previously known value %
 $b$ (some authors write $a:=b$) but this is not a limitation. Definitions can be redundant and may overlap. %
@@ -84,11 +84,11 @@ $\subset$ and $\supset$ are the standard symbols for set ordering, as follows: %
   X \subset Y & \defiif x \in X \THEN x\in Y \\
   Y \supset X & \defiif X \subset Y.
 \end{align}
-Note that we will not reserve any specific symbol for a strict version: If needed, we will explicitly state that $X \neq Y$. 
+No specific symbol is reserved for strict ordering. If necessary, $X \neq Y$ will be explicitely stated. 
 %
 \subsection{special mappings}
 The identity $I$ is the special mapping $I_X = \set{(x,x)}{x\in X}$. Similarly, the projection %
-$\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists;  Note that $I$ is the diagonal of $X^2$. %
+$\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists. Note that $I$ is the diagonal of $X^2$. %
 %
 \subsection{Equinumerosity}%
 $X\equiv Y$ means that there exists a bijection $\varphi$ that maps $X$ to $Y$, which lets us identify $X$ with $Y$. %
@@ -99,10 +99,9 @@ In a metric space context, $X\equiv Y$ means that $\varphi$ is isometric. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Topological vector spaces}
 \subsection{Scalar field}%
-$\C$ extends $\R$, which implies that a property\eg linearity, that is true on $\C$ is also true on $\R$. %
-The complex case is then a \textit{special case} of the real case. Sometimes, this restriction can be significant. %
-Nevertheless, the standard scalar field is $\C$, which means that considering $\R$ instead of $\C$ makes no difference, %
-unless stated otherwise. %
+$\C$ extends $\R$, which implies that a property\eg linearity, that is true on $\C$ is also true on $\R$. The complex case %
+is then a \textit{special case} of the real case. Sometimes, this restriction is significant. Nevertheless, the standard %
+scalar field is $\C$, which means that considering $\R$ instead of $\C$ makes no difference, unless stated otherwise. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Vector spaces
@@ -175,46 +174,35 @@ see [\ref{notations: vector spaces: finite-dimensional vector spaces: the produc
 To show this, pick an $n$-dimensional vector space $Y$ and let $f$ be an isomorphism of $\C^n$ onto $Y$. %
 For instance, require that $u_k = f(e_k)$, like in [1.20] of \cite{FA}, as $\singleton{u_k}$ is a basis of $Y$, %
 see [\ref{notations: vector spaces: vector space bases}]. It follows from [1.21] of \cite{FA} that $f$ is a homeomorphism. 
-A straightforward but striking consequence is that 
+The striking consequence is that 
 %
 \begin{quote}
   $\set{f(U)}{U \text{ open in }\C^n}$ {is the only vector space topology for $Y$}. %
 \end{quote}
 %
 Thus, $Y$ is necessarily locally convex and locally bounded \ie normable, see [1.39] of \cite{FA}. Note that %
-$\norm{y}= \norma{2}{f^{\minus 1}(y)}$ ($y\in Y$) is an example of a norm. Moreover, if $Y$ is given a norm $\norma{}{\cdot}$, 
-then there exists a positive constant (termed as ``modulus of continuity'') $C=C_f$ such that %
-%
-\begin{align}\label{norm equivalence 1}
-  \norm{y} \leq C \norma{2}{z} \quad \bigl((z, y) \in f\bigr), 
-\end{align}
-%
-because $f$ is continuous. Now pick an $n$-dimensional topological vector space $W$, then repeat the same reasoning, %
-first with $g: \C^n \to W$, next with $h = g\circ f^{\,\minus 1}$ playing the role of $f$. This establishes that the 
-homeomorphism $h$ maps $Y$ onto $W$ and that $W$ is normable as well. It is now clear that the following assertions are 
-equivalent in the finite-dimensional context, %
+$\norm{y}= \norma{2}{f^{\minus 1}(y)}$ ($y\in Y$) is an example of a norm. Now pick an $n$-dimensional topological vector %
+space $W$, then repeat the same reasoning, first with $g: \C^n \to W$, next with $h = g\circ f^{\,\minus 1}$ playing %
+the role of $f$. This establishes that the homeomorphism $h$ maps $Y$ onto $W$ and that $W$ is normable as well. %
+It is now clear that the following assertions are equivalent in the finite-dimensional context, %
 %
 \begin{enumerate}
-  \item $\dim(W) = \dim(Y);$ 
-  \item $W$ and $Y$ are isomorphic to each other;%
+  \item $\dim(W) = \dim(Y),$ 
+  \item $W$ and $Y$ are isomorphic to each other,%
   \item $W$ and $Y$ are homeomorphic to each other, they are normable.
 \end{enumerate}
 %
 Furthermore, the norms on $W$ and $Y$ are \textit{equivalent}. That is, for any given norm on $Y$ and any given norm on $W$, 
-there exist similar continuity moduli that relate them to each other (see (\ref{norm equivalence 1})). To see this, equip $W$ 
-with another norm $\norma{{\text{\fw W}}}{\cdot}$, then retrace the latter steps up to (\ref{norm equivalence 1})) with $h$ instead of $f$.%
-Hence %
+there exists a postive constant (termed as ``modulus of continuity'') $C=C_h$ such that %
 %
 \begin{align}
-  \norma{{\text{\fw W}}}{w} & \leq C_h \norm{y} \quad\quad \left((y, w) \in h \right)
+  \norma{}{w} & \leq C \norm{y} \quad\quad \left((y, w) \in h \right), 
 \end{align}
 %
-for some $C_h > 0$. The special case $g=f$ is that %
-all norms on $Y$ are equivalent, in the sense that %
-%
+as $h$ is continuous.  The special case $W=Y$ is that all norms on $Y$ are equivalent, in the sense that %
 %
 \begin{align}
-  \norma{{\text{\fw copy of Y}}}{y} \leq C_I \norm{y}.
+  \norma{{\text{copy of }Y}}{h(y)} \leq C \norm{y}.
 \end{align}
 %
 \subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$}
