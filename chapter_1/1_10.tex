@@ -1,8 +1,16 @@
-\textit{Suppose that X and Y are topological vector spaces,
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 1_10.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
 %
-  $\dim Y < \infty$,
-%
-$\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\textit{Suppose that X and Y are topological vector spaces, $\dim Y < \infty$, $\Lambda : X \to Y$ is linear, and %
+$\Lambda(X) = Y$.
 %
 \begin{enumerate}
   \item{
@@ -16,68 +24,47 @@ $\Lambda : X \to Y$ is linear, and $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-Discard the trivial case $\Lambda = 0$ and assume that $\dim Y = n$ %
-for some positive $n$. %
-Let $e$ range over a basis of $B$ of $Y$ then pick in $X$ an arbitrary %
-neighborhood $W$ of the origin: There so exists $V$ a balanced neighborhood of %
-the origin of $X$ such that 
+Discard the trivial case $\Lambda = 0$ and assume that $\dim Y > 0$. From now on, $Y$ has a basis $B= \singleton{e, e', \dots}$ %
+and $W$ is an arbitrary neighborhood of $0$. Since addition is continuous, there exists a balanced open $V\subset Y$ such that %
 %
   \begin{align}
     \label{definition of v}
-    \sum_{e} V \subset W, 
+    \sum_{e} V \subset W. 
   \end{align}
 %
-since addition is continuous. Moreover, for each $e$, there exists $x_e$ %
-in $X$ such that 
-%
-  $\Lambda(x_e)=e$, 
-% 
-simply because $\Lambda$ is onto: Given $y$ in $Y$, %
-of $e$-component(s) $y_e$, we now obtain
+Moreover, the surjectivity of $\Lambda$ allows us to pick $x_e$ with $\Lambda x_e = e$. This implies that %
+every $y = \sum_e y_e e $ ($y_e \in \C$) can be expressed as %
 %
 \begin{align}\label{1_10_sum}
-  y = \sum_{e} y_e \Lambda (x_e).
+  y = \sum_{e} y_e \Lambda x_e. 
 \end{align}
 %
-As a finite set, $\set{x_e}{e\in B}$ is bounded: There so exists a positive %
-scalar $s$ such that  
+Note that $\set{x_e}{e\in B}$ is bounded (as a finite set). Hence %
 %
 \begin{align}
-  \forall e\in B,  x_e \in s V.
+  \set{x_e}{e \in B} \subset sV 
 \end{align}
 %
-Combining this with (\ref{1_10_sum}) shows that 
+for some $s > 0$. Combining this with (\ref{1_10_sum}) yields % 
 %
   \begin{align}
     \label{y in sum of lambda V}
-    y \in \sum_e y_e \,s \Lambda (V).
+    y \in \sum_e s y_e  \Lambda (V).
   \end{align}
 %
-We now come back to (\ref{definition of v}) and so conclude that %
+Using (\ref{definition of v}) and the balancedness of $\Lambda(V)$, we conclude that
 %
   \begin{align}
-    y \in \sum_e \Lambda (V) \subset \Lambda(W) 
+    y \in \sum_e \Lambda (V) \subset \Lambda(W)  \quad (\norma{\infty}{y} < 1/s). 
   \end{align}
 %
-for if $|y_e| < 1/s$; which proves (a) whether %
-$B$ is the standard basis of $Y = \C^n$ equipped with $\norma{\infty}{\,\cdot\,}$. %
+This proves (a) in the case where $Y = \C^n$ and $B$ is the standard basis. The general case now follows from %
+[\ref{notations: vector spaces: finite-dimensional vector spaces}].\\\\
 %
-The general case is now provided for free by [\ref{notations: vector spaces: finite-dimensional vector spaces}].\\\\
-%
-%
-To prove (b), assume that the null space 
-%
-  $\{\Lambda = 0\}$ %
-% 
-is closed and let $f, \pi$ be as in Exercise 1.9,  %
-%
-  $\{\Lambda = 0\}$ %
-%
-playing the role of $N$. Since $\Lambda$ is onto, the first isomorphism %
-theorem (see Exercise 1.9) asserts that $f$ is an isomorphism of $X/N$ %
-onto $Y$. %
-We now conclude with the help of [\ref{notations: vector spaces: finite-dimensional vector spaces}] %
-that $f$ is a homeomorphism of $X/N$ onto $Y$. %
+To prove (b), assume that the null space $\{\Lambda = 0\}$ is closed and let $f, \pi$ be as in Exercise 1.9, %
+$\{\Lambda = 0\}$ playing the role of $N$. Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) asserts %
+that $f$ is an isomorphism of $X/N$ onto $Y$. We now conclude with the help of %
+[\ref{notations: vector spaces: finite-dimensional vector spaces}] that $f$ is a homeomorphism of $X/N$ onto $Y$. %
 We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
 \end{proof}
 % END
