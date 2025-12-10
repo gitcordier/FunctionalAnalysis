@@ -51,14 +51,14 @@ $\Leftarrow$, are assigned boolean \textit{truth values} (``true'' and ``false''
 See Section 1.3 and Subsection 16.1.3 of \cite{SpecifyingSystems} for further reading.
 %
 \subsection{Iverson notation}%
-Given a boolean expression $\varphi$, %
-$\Iverson{\varphi}$ returns the truth value of $\varphi$, encoded as follows, %
+Given a boolean expression $\phi$, %
+$\Iverson{\phi}$ returns the truth value of $\phi$, encoded as follows, %
 %
 \begin{align} \nonumber
-  \Iverson{\varphi}\triangleq 
+  \Iverson{\phi}\triangleq 
   \begin{cases}
-    0 & \quad\quad \text{if } \varphi \text{ is false;} \\
-    1 & \quad\quad \text{if } \varphi \text{ is true.}
+    0 & \quad\quad \text{if } \phi \text{ is false;} \\
+    1 & \quad\quad \text{if } \phi \text{ is true.}
   \end{cases}
 \end{align}
 %
@@ -91,8 +91,8 @@ The identity $I$ is the special mapping $I_X = \set{(x,x)}{x\in X}$. Similarly, 
 $\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists. Note that $I$ is the diagonal of $X^2$. %
 %
 \subsection{Equinumerosity}%
-$X\equiv Y$ means that there exists a bijection $\varphi$ that maps $X$ to $Y$, which lets us identify $X$ with $Y$. %
-In a metric space context, $X\equiv Y$ means that $\varphi$ is isometric. %
+$X\equiv Y$ means that there exists a bijection $\phi$ that maps $X$ to $Y$, which lets us identify $X$ with $Y$. %
+In a metric space context, $X\equiv Y$ means that $\phi$ is isometric. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % TVS 

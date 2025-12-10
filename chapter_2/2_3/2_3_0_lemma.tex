@@ -1,96 +1,47 @@
 If 
 %
-  $\phi\in\D_{[a, b]}$, then %
-%
+  $\phi\in\D_{[a, b]}$, then, for all $k \leq p$ in $\N$, 
 %
   \begin{align}\label{2.3. Mean value inequality.}
-    \norma{\infty}{D^\alpha \phi} 
-      \leq 
-    \norma{\infty}{D^p \phi} \left(\frac{\lambda}{2}\right)^{p-\alpha}
-      \quad (\alpha = 0, 1, \dots, p) 
+    \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k} .
   \end{align}
-%
-at every order $\integers{p}$; %
-where $\lambda$ is the length $\magnitude{b-a}$. %
 %
 \begin{proof}
-Let $x_0$ be in %
-% 
-    $(a, b)$ .
-% 
-We first consider the case $x_0 \leq c = (a+b)/2$: %
-The mean value theorem asserts that there exists %
-%
-  $x_{1}$ ($a <x_{1} < x_{0} $), 
-%
-such that 
+Choose $a < x_0 \leq (a+b)/2$ first. By the mean value theorem, there exists $x_1 \in \openinterval{a}{x_0}$ such that % 
 %
   \begin{align}
-    \phi(x_0) =\phi(x_0) - \phi(a)=  D\phi(x_{1})(x_{0} -a).
+    \phi(x_0) = \phi(x_0) - \phi(a)=  D\phi(x_{1})(x_{0} - a).
   \end{align}
 %
-Since every %
+Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b]}$ yields % 
 %
-  $D^p\phi$ lies in $\D_{[a, b]}$, %
+\begin{align}
+  \phi(x_0) & = D^0 \phi(x_0) \\ 
+            & = D^1\phi(x_{1})(x_0 - a) \\
+            & = D^2\phi(x_{2})(x_1 - a)(x_0 - a) \\
+            &  \nonumber \mspace{10mu} \vdots \\
+            & = D^p\phi(x_{p})(x_{p-1} - a) \cdots (x_0-a),
+\end{align}
 %
-a straightforward proof by induction shows that there exists a partition % 
+for some $x_1, \dots ,x_p \in \openinterval{a}{x_0}$. Hence %
 %
-  $a < \cdots < x_p < \cdots < x_0 $ 
+\begin{align}\label{2.3. Mean Value (1).}
+  \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p .
+\end{align}
 %
-such that 
-  \begin{align}
-    \phi(x_0) & = D^0 \phi(x_0) \\ 
-              & = D^1\phi(x_{1})(x_{0} - a ) \\
-            % & = D^2\phi(x_{2})(x_{0} - a )(x_{1} - a)\\
-              & = \cdots \nonumber\\
-              & = D^p\phi(x_{p})(x_{0} - a)\cdots(x_{p-1}-a),
-  \end{align}
-%
-for all $p$. %
-More compactly, 
-%
-  \begin{align}
-      D^\alpha \phi (x_0) = D^p\phi(x_p) \prod_{k= \alpha}^{p-1}(x_k - a);
-      %(x_\alpha -a )\cdots (x_{p-1} -a).
-  \end{align}
-%
-which yields, 
-%
-  \begin{align}\label{2.3. Mean Value (1).}
-    \lvert D^\alpha \phi(x) \rvert
-      \leq 
-    \norma{\infty}{D^p \phi} 
-    \left(\frac{\lambda}{2}\right)^{p-\alpha}
-    \quad (x \in [a, c])
-  \end{align}
-%
-The case $x_0 \geq c$ outputs a ``reversed'' result, with %
-%
-  $b > \cdots > x_p > \cdots > x_0$ %
-%
-and $x_k -b$ playing the role of $x_k-a$: %
+Similarly, if $b > x_0 \geq (a+b)/2$ (interchanging the roles of $a$ and $b$), the same inequality (\ref{2.3. Mean Value (1).}) holds. %
 So, %
 %
-  \begin{align}\label{2.3. Mean Value (2).}
-    \lvert D^\alpha \phi(x) \rvert
-      \leq 
-    \norma{\infty}{D^p \phi} 
-    \left(\frac{\lambda}{2}\right)^{p-\alpha} 
-    % \quad (x \in [c, b]).
-  \end{align}
+\begin{align}\label{2.3. Mean value (2).}
+  \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p \quad ( a < x_0 < b ), 
+\end{align}
 %
-Finally, we combine %
+which establishes the case $k=0$. %
+Finally, applying (\ref{2.3. Mean value (2).}) to $D^k \phi $ in place of $\phi$ gives % 
 %
-  (\ref{2.3. Mean Value (1).}) with %
-  (\ref{2.3. Mean Value (2).}) %
+\begin{align}
+  \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
+\end{align}
 %
-and so obtain %
-%
-  \begin{align}
-    \norma{\infty}{D^\alpha \phi} 
-      \leq 
-    \norma{\infty}{D^p \phi} 
-    \left(\frac{\lambda}{2}\right)^{p-\alpha}.
-  \end{align}
-%
+for all $0 \leq k \leq p$. %
 \end{proof}

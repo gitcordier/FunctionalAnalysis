@@ -8,7 +8,7 @@
 \usepackage{amsmath}
 \usepackage{
 physics, 
-amssymb, 
+amssymb, amsfonts, 
 mathrsfs, 
 amsthm, 
 mathspec, 
@@ -70,7 +70,7 @@ tikz
 \setmathfont(Latin)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
 \setmathfont(Greek)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
 \setmathrm{\mainfont}
-\setmathbb{\mainfont}
+%\setmathbb{\mainfont}
 %\setmathit{\mainfont}
 \setmathtt{CMU Typewriter Text Light}
 %\setmathbf{CMU Serif}
@@ -154,12 +154,15 @@ tikz
 
 % Arithmetics
 \newcommand{\ceil}[1]{\lceil #1 \rceilf}
+
 % Analysis
+\newcommand\openinterval[2]{\left]#1, #2\right[}
 %\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
 \newcommand\magnitude[1]{\abs{#1}}
 \newcommand{\norma}[2]{\norm{#2}_{#1}}
 %\renewcommand{\norm}[2]{\norm{#2}_{#1}}
 \def\weakstar{\text{weak}^\ast\text{-}}
+
 % Topology
 \newcommand{\localbase}[1]{\mathscr #1}
 
@@ -179,13 +182,20 @@ tikz
 \def\iif{{\bf iff} }
 \def\IIF{{\bf iff}}
 \def\wlg{{\bf wlg }} % Without loss og generality
+
+% TODO: Make choices, be consistent
 \def\then{\Rightarrow}
 \def\THEN{\Rightarrow}
 \def\THEREFORE{\Rightarrow}
 \def\therefore{\Rightarrow}
 \def\since{\Leftarrow}
+\def\because{\Leftarrow}
 \def\IF{\Leftarrow}
 \renewcommand{\iff}{\Leftrightarrow}
+
+% Misc
+% phi is varphi:
+\renewcommand{\phi}{\varphi}
 
 % Citations
 \newcommand{\citehere}[2]{\overset{(#1)}{#2}}
@@ -221,6 +231,10 @@ tikz
 \def\AUTHOR{gitcordier}
 
 \begin{document}
+% Changes the "proof" in proof environment. 
+% source: https://tex.stackexchange.com/questions/8089/changing-style-of-proof
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{{\rm \small PROOF}}
 %\begin{abstract}
 %    \input{\ROOT/abstract.tex}
 %\end{abstract}

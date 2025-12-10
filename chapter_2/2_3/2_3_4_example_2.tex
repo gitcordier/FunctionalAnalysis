@@ -12,7 +12,7 @@ ${f_n}'$, as follows %
 %
   \begin{align}
     {f_n}': \D_K &\to \C\\
-                    \phi &\mapsto \minus \bra{f_n}\ket{\varphi'}. \nonumber
+                    \phi &\mapsto \minus \bra{f_n}\ket{\phi'}. \nonumber
   \end{align}
 %
 It has been proved that every $\bra{f_n}$ is continuous. %
@@ -20,17 +20,17 @@ So is %
 %
   \begin{align}
     D : \D_K & \to \D_K \\
-        \phi & \mapsto \varphi'; \nonumber
+        \phi & \mapsto \phi'; \nonumber
   \end{align}
 see  Exercise 1.17. %
 ${f_n}'$ is therefore continuous. Now apply %
 %
   (\ref{2.3. (f_n) converges to Dirac (1).}) %
 %
-with $\varphi'$ and so obtain %
+with $\phi'$ and so obtain %
 %
   \begin{align}
-    \minus \bra{f_n}\ket{\varphi'} &\tendsto{n}{\infty} \frac{4}{3} \varphi''(0)
+    \minus \bra{f_n}\ket{\phi'} &\tendsto{n}{\infty} \frac{4}{3} \phi''(0)
     \quad(\phi \in \D_K), \nonumber
   \end{align}
 %
@@ -47,9 +47,9 @@ It follows from %
 that, 
 %
   \begin{align}
-  \lvert \bra{f_n}\ket{\varphi'} \rvert 
+  \lvert \bra{f_n}\ket{\phi'} \rvert 
     \leq 
-  \frac{4}{3} \norma{\infty}{ \varphi''} \quad (\counting{n}).
+  \frac{4}{3} \norma{\infty}{ \phi''} \quad (\counting{n}).
   \end{align}
 %
 It is therefore possible to uniformly bound 
@@ -73,30 +73,30 @@ To show this, we first assume, to reach a contradiction, that %
   there exists a positive constant $M$ such that
 %
   \begin{align}
-    \lvert \langle f_n \lvert \varphi' \rangle \rvert 
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
-    M \norma{\infty}{\varphi'} 
+    M \norma{\infty}{\phi'} 
     \quad (\counting{n}).
   \end{align}
 %
 Define %
 %
   \begin{align}
-    \Phi_{j}(x) = \int_{\minus 1}^x \phi_j.
+    \phi_{j}(x) = \int_{\minus 1}^x \phi_j.
   \end{align}
 %
 The oddness of $\phi_j$ forces %
 % 
-  $\Phi_{j}$ to vanish outside $[\minus 1, 1]$: %
+  $\phi_{j}$ to vanish outside $[\minus 1, 1]$: %
 %
 $\phi_{j}$ is therefore in $\D_K$. So, under our assumption, 
 %
   \begin{align}
     \lvert 
-      \langle{f_n}\lvert \Phi_j' \rangle
+      \langle{f_n}\lvert \phi_j' \rangle
     \rvert 
       \leq 
-    M \norma{\infty}{\Phi_{j}'}
+    M \norma{\infty}{\phi_{j}'}
     \quad (\counting{n}); 
   \end{align}
 %
@@ -119,10 +119,10 @@ and so conclude that there is no constant $M$ such that %
 %
   \begin{align}
     \lvert 
-      \langle \lvert f_n \varphi'\rangle
+      \langle \lvert f_n \phi'\rangle
     \rvert 
       \leq 
-    M \norma{\infty}{\varphi'}
+    M \norma{\infty}{\phi'}
     \quad (\counting{n}).
   \end{align}
 %
@@ -130,7 +130,7 @@ Finally, assume, to reach a contradicton, that %
 there exists a constant $M$ such that 
 %
   \begin{align}
-    \lvert \langle f_n \lvert \varphi' \rangle \rvert 
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
     M \norma{\infty}{\phi}.
   \end{align}
@@ -138,11 +138,11 @@ there exists a constant $M$ such that
 The mean value theorem (see (\ref{2.3. Mean value inequality.})) asserts that %
 %
   \begin{align}
-    \lvert \langle f_n \lvert \varphi' \rangle \rvert 
+    \lvert \langle f_n \lvert \phi' \rangle \rvert 
       \leq 
     M \norma{\infty}{\phi} 
       \leq 
-    M \norma{\infty}{\varphi'}; 
+    M \norma{\infty}{\phi'}; 
   \end{align}
 %
 which is, again, a desired contradiction. So ends the proof.
