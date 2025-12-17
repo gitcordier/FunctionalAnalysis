@@ -20,7 +20,7 @@ can be restated as follows,
 %
   \begin{align}
     \Lambda \phi = \underset{n \to \infty}{\lim} 
-      \bra{f_n}\ket{\phi} 
+      Lambda_n\phi 
       %
       \quad (\phi \in C_K^\infty(\R)).
   \end{align}
@@ -73,7 +73,7 @@ To sum it up: %
       with respect to this topology;}
     %
     \item{
-      $\bra{f_n}\ket{\phi} \tendsto{n}{\infty} \Lambda \phi$ for all $\phi$, 
+      $Lambda_n\phi \tendsto{n}{\infty} \Lambda \phi$ for all $\phi$, 
         \ie 
       $ \Lambda-\bra{f_n} \tendsto{n}{\infty}0$.
     }
@@ -97,83 +97,35 @@ since addition is continuous.
 %
 There so exists $i, j$ such that, for all $n$, 
 %
-  \begin{align}
-   %
-    \left\lvert 
-      \Lambda \phi 
-    \right\rvert
-      < 
-    1/2 & \quad \text{if }\phi\in V_i, \\
-    %
-    \left\lvert 
-      \Lambda\phi - \bra{f_n}\ket{\phi} 
-    \right\rvert  
-      < 
-    1/2 & \quad \text{if } \phi\in V_j.
-    %
-  \end{align}
+\begin{align}
+  \magnitude{\Lambda \phi} < 1/2 & \quad \text{if }\phi\in V_i, \\
+  \magnitude{\Lambda \phi - \lambda_n \phi}   < 1/2 & \quad \text{if } \phi\in V_j.
+\end{align}
 %
-Choose $p = \max\singleton{i, j}$so that $V_p = V_i \cap V_j$: %
+Choose $p\geq i, j $ so that $V_p \subset V_i \cap V_j$: %
 The latter inequalities imply that %
 %
-  \begin{align}
-    %
-    \left\lvert \bra{f_n}\ket{\phi} \right\rvert  & \leq 
-      \magnitude{
-        \Lambda\phi 
-        - \bra{f_n }\ket{\phi} 
-      }
-      + 
-      \magnitude{\Lambda \phi}
-      %
-     < 1 \
-     %
-       \quad\text{if } \phi\in V_p. %
-    %
-  \end{align}
+\begin{align}
+  \magnitude{\Lambda \phi} & \leq \magnitude{\Lambda\phi - \Lambda_n \phi} + \magnitude{\Lambda \phi} < 1 \quad\text{if } \phi\in V_p. %
+ \end{align}
 %
-Now remark that every $\psi =\psi[\mu, \phi]$, where %
+Note that, at arbitrary $\epsilon > 0$, the mapping $\phi_\epsilon = 2^{\minus p}\phi / (\norma{p}{\phi} + \epsilon)$ is a member of $V_p$. %
+It is now clear that each below statement is true and implies the following one %
 %
-  \begin{align}
-     \psi[\mu, \phi] \Def 
-      \begin{cases}
-        ({1}/{\mu \cdot 2^{p} \norma{p}{\phi}}) \phi & (\phi \neq 0, \mu > 1)\\
-        0                                          & (\phi   =  0, \mu > 1),  
-      \end{cases}
-  \end{align}
+\begin{align}
+  \magnitude{\Lambda_n \phi_\epsilon} & < 1 \\
+  \magnitude{\Lambda_n \phi} & < 2^p \left(\norma{p}{\phi} + \epsilon\right)\\
+  \magnitude{\Lambda_n \phi} & \leq 2^p \norma{p}{\phi} \\
+  \magnitude{\Lambda_n \phi} & \leq 2^p \left(\norma{\infty}{\phi} + \norma{\infty}{D \phi} + \cdots + \norma{\infty}{D^p \phi}\right).
+\end{align}
 %
-keeps in $V_p$. Finally, % 
-it is clear that each below statement implies the following one.
+Finally, we apply \eqref{2.3. mean value inequality.} with $\phi, D\phi, \dots, D^p \phi$ to obtain %
 %
-  \begin{align}
-    \lvert \langle {f_n}  | \psi \rangle \rvert &  
-    < 1 \\
-      %
-    \left\lvert \bra{f_n}\ket{\phi} \right\rvert &  
-    < 2^{p}  \norma{p}{\phi} \cdot \mu \\
-    %
-    \magnitude{\bra{f_n}\ket{\phi}} & 
-    \leq 2^{p} \norma{p}{\phi} \\
-    %
-     \magnitude{\bra{f_n}\ket{\phi}} &
-     \leq 2^{p} \singleton{
-       \norma{\infty}{D^0 \phi} 
-       + 
-         \cdots 
-      + 
-        \norma{\infty}{D^p \phi}
-      }.
-    %
-  \end{align}
-  Finally, with the help of (\ref{2.3. Mean value inequality.}), 
-  \begin{align}
-    \label{2.3. Bound with p and M (theoritical).}
-     \magnitude{\bra{f_n}\ket{\phi}} &
-       \leq 
-      2^{p} (p+1) \norma{\infty}{D^p \phi} .
-  \end{align}
+\begin{align}\label{2.3. Bound with p and M (theoritical).}
+  \magnitude{\Lambda_n \phi} \leq 2^p (p+1) \norma{\infty}{D^p \phi}.
+\end{align}
 %
-The first part is so proved, with \textit{some} $p$ and $ M= 2^{p}(p+1)$. %
+The first part is so proved, with some $p$ and some $ M = M(p)$. %
 \newline\newline\noindent
 %
 % END

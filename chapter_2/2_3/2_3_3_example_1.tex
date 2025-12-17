@@ -1,27 +1,18 @@
 We now come back to the special case $f_n = g_n$ (see the first part). %
-From now on, $f_n(x) = n^3 x$ on $[\minus 1/n, 1/n]$, $0$ elsewhere. %
+From now on, $f_n(x) = n^3 x \Iverson{\minus 1/n \leq x \leq 1/n}$. %
 Actually, we will prove that 
 %
-  \renewcommand{\labelenumi}{(\alph{enumi})}
-  %
-  \begin{enumerate}
-    \item{
-      %
-        $\Lambda\phi 
-          = 
-        \underset{n \to \infty}{\lim} \int_{\minus 1}^1 f_{n}(t)\phi(t)dt$ 
-        %
-      exists for every $\phi\in\D_{K}$;
-    }
-    \item{
-      A \textit{uniform} bound %
-      %
-        $\lvert\bra{f_n}\ket{\phi}\rvert \leq M \norma{\infty}{D^p \phi}$ %
-        ($\counting{n}$) %
-      %
-      exists for all those $f_n$, with $p=1$ as the smallest possible $p$.
-    }
-  \end{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+%
+\begin{enumerate}
+  \item{$\int_K f_n \phi \tendsto{n}{\infty} \Lambda \phi \quad (\phi\in\D_{K})$,}
+  \item{A uniform bound %
+    %
+      $\magnitude{\Lambda_n} \leq M \norma{\infty}{D^p }$ %
+    %
+    exists for all $f_n$, with $p=1$ as the smallest possible $p$.
+  }
+\end{enumerate}
   %
   \renewcommand{\labelenumi}{(\roman{enumi})}
 %
@@ -30,61 +21,60 @@ Bear in mind that %
 %
   $K \subset K_m$ %
 %
-and shift the $K_N$'s indices%by $\minus m$
+and shift the $K_N$'s indices %by $\minus m$
 so that %
 %
   $K_{m+1}$ becomes $K_1$, $K_{m+2}$ becomes $K_2$, and so on. %
 %
 The resulting topology $\tau_K$ remains unchanged (see Exercise 1.16). %
 %
-We let $\phi$ keep running on $\D_K$ and so define %
+First, we set %
 %
   \begin{align}
-    \Beta_{n}(\phi) 
+    \Mu_{n}(\zeta) 
       & 
-        \Def  \max\set{\magnitude{\phi(x)}}{x \in [\minus 1/n, 1/n]}, \\
+      \Def \max_{[\minus 1/n , 1/n]}  \magnitude{\zeta}\\
+        %\Def  \max\set{\magnitude{\phi(x)}}{x \in [\minus 1/n, 1/n]}, \\
     %
-    \Delta_{n}(\phi) 
-      & 
-        \Def  \max\set{\magnitude{\phi(x) - \phi(0)}}{x \in [\minus 1/n, 1/n]}. 
+    \Delta_{n}(\zeta) & \Def \max_{[\minus 1/n , 1/n]} \magnitude{\zeta - \zeta(0)}
+    %\Delta_{n}(\phi) 
+      %& 
+        %\Def  \max\set{\magnitude{\phi(x) - \phi(0)}}{x \in [\minus 1/n, 1/n]}. 
   \end{align}
 %
-The mean value asserts that 
+for all $\zeta \in \D_K$. Next, we easily establish the following mean value inequality, 
 %
   \begin{align}\label{2.3. Mean value inequality (concrete).}
     \magnitude{ \phi(1/n) - \phi(\minus 1/n)} 
       \leq 
-    \Beta_{n}(\phi')\magnitude{1/n - ({\minus}1/n)} 
-      = 
-    \frac{2}{n} \Beta_{n}(\phi').
+    \frac{2}{n} \Mu_{n}(\phi').
     %
   \end{align}
 %
 Independently, an integration by parts shows that %
 %
   \begin{align}
-    \bra{f_n}\ket{\phi}
-      & =  
-        \left[ \frac{n^3 t^2}{2} \phi(t) \right]^{1/n}_{\minus 1/n}
-        - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \phi'(t)dt\\ 
+    \Lambda_n\phi = 
+      %& =  
+        %\left[ \frac{n^3 t^2}{2} \phi(t) \right]^{1/n}_{\minus 1/n}
+        %- \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \phi'(t)dt\\ 
       %
       \label{2.3. Equality from integration by parts.}
-      & =  
         \frac{n}{2}\left(\phi(1/n) - \phi(\minus 1/n)\right)
         - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \phi'(t)dt.
       %
   \end{align}
-Combine %
+Combining %
 %
   (\ref{2.3. Mean value inequality (concrete).}) %
 %
 with %
   (\ref{2.3. Equality from integration by parts.})
 %
-and so obtain %
+yields %
 %
   \begin{align}
-    \magnitude{\bra{f_n}\ket{\phi}}
+    \magnitude{\Lambda_n\phi}
     & \leq  
       \frac{n}{2}\magnitude{\phi(1/n) - \phi(\minus 1/n)}
         + 
@@ -92,13 +82,13 @@ and so obtain %
       \\
     %
       & \leq  
-        \Beta_{n}(\phi') 
+        \Mu_{n}(\phi') 
           + 
-        \frac{n^3}{2} \Beta_{n}(\phi') \int_{\minus1/n}^{1/n} t^{2} dt \\
+        \frac{n^3}{2} \Mu_{n}(\phi') \int_{\minus1/n}^{1/n} t^{2} dt \\
       %
       \label{2.3. Bound with p and M (M_n).}
       & \leq 
-      \frac{4}{3} \Beta_{n}(\phi') \\
+      \frac{4}{3} \Mu_{n}(\phi') \\
       \label{2.3. Bound with p and M (concrete).}
       & \leq 
       \frac{4}{3} \norma{\infty}{\phi'}.
@@ -111,7 +101,7 @@ Futhermore, %
 % 
 gives a hint about the convergence of $f_n$: Since %
 %
-  $\Beta_{n}(\phi')$ tends to $\magnitude{\phi'(0)}$, %
+  $\Mu_{n}(\phi')$ tends to $\magnitude{\phi'(0)}$, %
 %
 we may expect that %
 %
@@ -120,17 +110,17 @@ we may expect that %
 This is actually true: A straightforward computation shows that %
 %
   \begin{align}
-    \bra{f_n}\ket{\phi} - \frac{4}{3}\phi'(0)
+    \Lambda_n\phi - \frac{4}{3}\phi'(0)
       \citeq{\ref{2.3. Equality from integration by parts.}} 
     \frac{\phi(1/n) - \phi(\minus 1/n)}{1/n - (\minus 1/n)}
     - \phi'(0)
     - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} (\phi' - \phi'(0)) t^{2} dt.
   \end{align}
 %
-So, 
+Hence, 
 %
   \begin{align}
-    \magnitude{\bra{f_n}\ket{\phi} -\frac{4}{3} \phi'(0)} 
+    \magnitude{\Lambda_n\phi -\frac{4}{3} \phi'(0)} 
       & \leq 
     \magnitude{
       \frac{\phi(1/n) - \phi(\minus 1/n)}{1/n - (\minus 1/n)}
@@ -144,7 +134,7 @@ So,
 We have just proved that 
 %
   \begin{align}\label{2.3. (f_n) converges to Dirac (1).}
-    \bra{f_n}\ket{\phi} \tendsto{n}{\infty} %\Lambda\phi \Def 
+    \Lambda_n\phi \tendsto{n}{\infty} %\Lambda\phi \Def 
     \frac{4}{3}\phi'(0) 
     %
     \quad (\phi\in \mathscr{D}_K).
@@ -153,7 +143,7 @@ We have just proved that
 In other words, 
 %
   \begin{align}
-    \bra{f_n} \tendsto{n}{\infty}\minus \frac{4}{3}\delta' ,
+    \Lambda_n \tendsto{n}{\infty}\minus \frac{4}{3}\delta' ,
   \end{align}
 %
 where $\delta$ is the \textit{Dirac measure} and 
@@ -173,11 +163,11 @@ and from %%
 that %%
 %
   \begin{align}
-    \lvert \bra{f_n}\ket{\phi} \rvert \leq \frac{4}{3} \norma{\infty}{\phi'} 
+    \lvert \Lambda_n\phi \rvert \leq \frac{4}{3} \norma{\infty}{\phi'} 
     \quad (\counting{n}) 
   \end{align}
 %
-(which is a constructive version of %
+(which is a concrete version of %
 %
   (\ref{2.3. Bound with p and M (theoritical).}) ). %
 %

@@ -1,11 +1,12 @@
 If 
 %
-  $\phi\in\D_{[a, b]}$, then, for all $k \leq p$ in $\N$, 
+  $\phi\in\D_{[a, b]}$, then 
 %
-  \begin{align}\label{2.3. Mean value inequality.}
+  \begin{align}\label{2.3. mean value inequality.}
     \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k} .
   \end{align}
 %
+for all $k \leq p$ in $\N$.
 \begin{proof}
 Choose $a < x_0 \leq (a+b)/2$ first. By the mean value theorem, there exists $x_1 \in \openinterval{a}{x_0}$ such that % 
 %
@@ -25,19 +26,19 @@ Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b
 %
 for some $x_1, \dots ,x_p \in \openinterval{a}{x_0}$. Hence %
 %
-\begin{align}\label{2.3. Mean Value (1).}
+\begin{align}\label{2.3. inequality}
   \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p .
 \end{align}
 %
-Similarly, if $b > x_0 \geq (a+b)/2$ (interchanging the roles of $a$ and $b$), the same inequality (\ref{2.3. Mean Value (1).}) holds. %
+Similarly, if $b > x_0 \geq (a+b)/2$ (interchanging the roles of $a$ and $b$), the same inequality (\ref{2.3. inequality}) holds. %
 So, %
 %
-\begin{align}\label{2.3. Mean value (2).}
+\begin{align}\label{2.3. mean value inequality, case k=0}
   \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p \quad ( a < x_0 < b ), 
 \end{align}
 %
-which establishes the case $k=0$. %
-Finally, applying (\ref{2.3. Mean value (2).}) to $D^k \phi $ in place of $\phi$ gives % 
+which establishes \eqref{2.3. mean value inequality.} when $k=0$. %
+Finally, applying \eqref{2.3. mean value inequality, case k=0} to $D^k \phi $ in place of $\phi$ gives % 
 %
 \begin{align}
   \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}

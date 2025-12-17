@@ -116,7 +116,6 @@ tikz
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
 % integers (nonnegative)
 \newcommand\integers[1]{#1=0, 1, 2, \dots}
-\newcommand{\D}{{\mathscr D}}
 
 % Indices: upper, lower
 \newcommand{\up}[1]{^{(#1)}}
@@ -145,12 +144,14 @@ tikz
 \def\contains{\supseteq}
 \def\cuts{\cap}
 \DeclareMathOperator\cvxhull{co}
+\DeclareMathOperator\Leibnizdiff{d}
+\DeclareMathOperator\support{supp}
 \newcommand{\co}[1]{\cvxhull(#1)}
 \newcommand{\set}[2]{\{#1: #2\}}
 \newcommand{\singleton}[1]{\{#1\}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
-
+\newcommand{\supp}[1]{\support{(#1)}}
 
 % Arithmetics
 \newcommand{\ceil}[1]{\lceil #1 \rceilf}
@@ -160,6 +161,9 @@ tikz
 %\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
 \newcommand\magnitude[1]{\abs{#1}}
 \newcommand{\norma}[2]{\norm{#2}_{#1}}
+\newcommand{\Continuous}{{\mathscr C}}
+\newcommand{\diff}[1]{\Leibnizdiff\!#1}
+\newcommand{\D}{{\mathscr D}}
 %\renewcommand{\norm}[2]{\norm{#2}_{#1}}
 \def\weakstar{\text{weak}^\ast\text{-}}
 
@@ -196,6 +200,8 @@ tikz
 % Misc
 % phi is varphi:
 \renewcommand{\phi}{\varphi}
+% epsilon is varepsilon
+\renewcommand{\epsilon}{\varepsilon}
 
 % Citations
 \newcommand{\citehere}[2]{\overset{(#1)}{#2}}
