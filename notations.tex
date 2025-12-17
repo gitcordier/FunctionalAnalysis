@@ -217,7 +217,7 @@ is easily derived from definitions - see [1.19] of \cite{FA} - with the noticeab
 Indeed, $\norma{1}{z} \leq \sqrt{n} \norma{2}{z}$ is a special Cauchy-Schwarz inequality, see (1) in [12.2] of \cite{FA}. %
 The steps of this classical trick are left to the reader. %
 %
-\section{Measure theory}
+\section{Measure theory on $\R^n$}
 \subsection{Radon measures}
 A positive Radon measure is a linear functional %
 $\Lambda: C_c(\R^n) \to \C, \phi \mapsto \Lambda \phi$ that %
@@ -253,8 +253,8 @@ where the left side is a Lebesgue integral. The regularity property implies that
 The case $\diff{\Lambda} = f\diff{\beta}$, with regular Borel measure $\beta$ and $f$ Borel measurable, identifies %
 \eqref{definition of sum} with the Lebesgue integral as follows:
 %
-\begin{align}
-	\int_X f \phi \diff{\beta} = \Lambda \phi.
+\begin{align}\label{Borel integral}
+	\int_X f \phi \diff{\beta} = \Lambda \phi \quad \left(\phi \in C_c(\R^n)\right).
 \end{align}
 %
 In particular, if $f$ is positive, 
@@ -263,18 +263,31 @@ In particular, if $f$ is positive,
 	\int_{\R^n} f \diff{\beta} = \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
 \end{align}
 %
-Thus, we define the following spaces %
+Thus, we define the following vector spaces %
 %
 \begin{align}
-	L^1 \Def \Biggl\{f: \int_X \magnitude{f} \diff{\beta} < \infty\Biggr\} 
-  \subset \Biggl\{f: \forall K \subset X \text{ compact}: \int_{K} \magnitude{f} \diff{\beta} < \infty \Biggr\} 
-  \Def L^1_{text{loc}} %
+	L^1 \Def \Biggl\{f: \int_{\R^n}\magnitude{f} \diff{\beta} < \infty\Biggr\} 
+  \subset \Biggl\{f: \forall K \subset X \text{ compact}: \int_{\R^n} 1_K \magnitude{f} \diff{\beta} < \infty \Biggr\} 
+  \Def L^1_{\text{loc}} %
+\end{align}
+%
+The collection $N$ of all $f$ whose magnitude $\magnitude{f}_1 = \int_{\R^n} \magnitude{f} \diff{\beta}$ is zero is a closed %
+subspace of $L^1$. Moreover the quotient space $L^1/N$ is a Banach space. More specifically, %
+%
+\begin{align}
+	\norma{1}{g + N} \Def \inf\set{\magnitude{f}_1}{ f - g  \in N } \quad (g \in L^1)
+\end{align}
+%
+frames a complete norm for $L^1/N$. Now starting from \eqref{Borel integral} implies that $f$ and $\Lambda$ are identified %
+modulo $N$\ie 
+\begin{align}
+	f\beta = g\beta \iff f-g \in N.
 \end{align}
 %
 \subsection{Dirac's impulse, a physicist's detour}
 Suppose we wish to record the impact of a particle on a surface. To do so, we introduce a carrier signal $\phi(t)$ that %
 vanishes outside the observation interval. A given collision occurs at time $t_Q$, which means the surface absorbs a pulsed %
-energy quantum. Thus, the particle contribution is encoded as the Heaviside step function $H(t) = \Iverson{t \geq 0}$, %
+energy quantum $Q$. Thus, the particle contribution is encoded as the Heaviside step function $H(t) = \Iverson{t \geq 0}$, %
 as time $t$ ranges over the real line. This models the fact that energy $H(t)$ only increases by an infinitely abrupt jump %
 at reference time $t_Q=0$. In this detour, we heuristically conclude that %
 %
