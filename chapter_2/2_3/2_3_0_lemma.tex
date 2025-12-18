@@ -2,13 +2,13 @@ If
 %
   $\phi\in\D_{[a, b]}$, then 
 %
-  \begin{align}\label{2.3. mean value inequality.}
+  \begin{align}\label{2.3.mean-value-inequality.}
     \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k} .
   \end{align}
 %
 for all $k \leq p$ in $\N$.
 \begin{proof}
-Choose $a < x_0 \leq (a+b)/2$ first. By the mean value theorem, there exists $x_1 \in \openinterval{a}{x_0}$ such that % 
+Choose $a < x_0 \leq (a+b)/2$ first. By the mean value theorem, there exists $a < x_1 < x_0$ such that % 
 %
   \begin{align}
     \phi(x_0) = \phi(x_0) - \phi(a)=  D\phi(x_{1})(x_{0} - a).
@@ -19,12 +19,12 @@ Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b
 \begin{align}
   \phi(x_0) & = D^0 \phi(x_0) \\ 
             & = D^1\phi(x_{1})(x_0 - a) \\
-            & = D^2\phi(x_{2})(x_1 - a)(x_0 - a) \\
+            %& = D^2\phi(x_{2})(x_1 - a)(x_0 - a) \\
             &  \nonumber \mspace{10mu} \vdots \\
             & = D^p\phi(x_{p})(x_{p-1} - a) \cdots (x_0-a),
 \end{align}
 %
-for some $x_1, \dots ,x_p \in \openinterval{a}{x_0}$. Hence %
+for some $a < x_p <  \dots < x_1< x_0$. Hence %
 %
 \begin{align}\label{2.3. inequality}
   \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p .
@@ -33,12 +33,12 @@ for some $x_1, \dots ,x_p \in \openinterval{a}{x_0}$. Hence %
 Similarly, if $b > x_0 \geq (a+b)/2$ (interchanging the roles of $a$ and $b$), the same inequality (\ref{2.3. inequality}) holds. %
 So, %
 %
-\begin{align}\label{2.3. mean value inequality, case k=0}
+\begin{align}\label{2.3. mean-value-inequality-case k=0}
   \magnitude{\phi(x_0)} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^p \quad ( a < x_0 < b ), 
 \end{align}
 %
-which establishes \eqref{2.3. mean value inequality.} when $k=0$. %
-Finally, applying \eqref{2.3. mean value inequality, case k=0} to $D^k \phi $ in place of $\phi$ gives % 
+which establishes \eqref{2.3.mean-value-inequality.} when $k=0$. %
+Finally, applying \eqref{2.3. mean-value-inequality-case k=0} to $D^k \phi $ in place of $\phi$ gives % 
 %
 \begin{align}
   \norma{\infty}{D^k \phi} \leq \norma{\infty}{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
