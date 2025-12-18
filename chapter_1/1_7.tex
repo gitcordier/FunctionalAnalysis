@@ -12,9 +12,9 @@
 \textit{%
 Let $X$ be the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
 %
-\begin{align}
-  p_x(f)= \magnitude{f(x)} \quad (0\leq x\leq 1).\nonumber
-\end{align}
+\begin{equation}
+  p_x(f)= \magnitude{f(x)} \quad (0 \leq x \leq 1).\nonumber
+\end{equation}
 %
 This topology is called the topology of pointwise convergence. Justify this terminology. \\
 \\
@@ -36,15 +36,15 @@ This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 The family of seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all finite intersections of the sets %
 %
-\begin{align}
+\begin{equation}
   V(x,k) \triangleq \singleton{p_x < 2^{\minus k}} 
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
-\end{align}
+\end{equation}
 %
 is therefore a local base for a topology $\tau$ on $X$, see Section 1.37 of \cite{FA}. Thus, given $\singleton{g_n} \subset X$, 
 the following inequalities, expressed in Iverson's notation, hold: %
 %
-\begin{align}
+\begin{equation}
   %
   \label{Inequality boolean series}
   %
@@ -53,14 +53,14 @@ the following inequalities, expressed in Iverson's notation, hold: %
   \sum_{n=1}^\infty \sum_{i=1}^m \Iverson{g_n \notin U_i} 
   = 
   \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i}.
-\end{align}
+\end{equation}
 %
 Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. By definition, %
 %
-\begin{align}
+\begin{equation}
   %
   \sum_{n=1}^\infty \Iverson{f_n - f \notin W} < \infty \quad (W \in \mathscr{B}).
-\end{align}
+\end{equation}
 %
 The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
 finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
@@ -70,25 +70,25 @@ finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge. This implies that, for every $f \in X$, there exist %
 finitely many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
 %
-\begin{align}
+\begin{equation}
   %
   \label{Divergence}
   \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} = \infty. 
-\end{align}
+\end{equation}
 %
 In (\ref{Inequality boolean series}), the special case $g_n = f_n - f$ and $U_i = V(x_i, k_i)$ then gives%
 %
-\begin{align}
+\begin{equation}
   \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} \citeleq{\ref{Inequality boolean series}} 
   \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{f_n - f \notin V(x_i, k_i)}
   = \infty.
-\end{align}
+\end{equation}
 %
 It is now obvious that % 
 %
-\begin{align}
+\begin{equation}
   \sum_{n=1}^\infty \bigl[f_n - f \notin V(x_i, k_i)\bigr] = \infty
-\end{align}
+\end{equation}
 %
 for some $i$, which shows that $\singleton{f_n(x_i)}$ does not converge to $f(x_i)$. Thus, $\tau$-convergence coincides with %
 pointwise convergence on $X$. 
@@ -106,30 +106,30 @@ We now prove the second part by constructing a specific sequence $\singleton{f_n
 Indeed, the hint suggests that there exists a bijection %  
 %
 \begin{align}
-  \phi: \bigl\{(\theta_n): \theta_n \xrightarrow{n\infty} 0\bigr\} & \to [0, 1] \\
+  \phi: \setbig{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
 \end{align}
 %
 \begin{proof}
 We set %
 %
-\begin{align}
-  f_n(x) & \Def \theta_n \quad \bigl(x = \phi(\theta_1, \dots, \theta_n, \dots)\bigr)
-\end{align}
+\begin{equation}
+  f_n(x) \Def \theta_n \quad \bigl(x = \phi(\theta_1, \dots, \theta_n, \dots)\bigr)
+\end{equation}
 %
 so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construction, the special case %
 %
-\begin{align}
+\begin{equation}
   x_\gamma %
   \Def \phi\Bigl(1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr) %
-\end{align}
+\end{equation}
 %
 outputs %
 %
-\begin{align}
+\begin{equation}
   \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude{\gamma_n}} %
   \tendsto{n}{\infty} \infty, 
-\end{align}
+\end{equation}
 %
 given a sequence $\singleton{\gamma_n}$ diverging to $\infty$. This proves (b), since %
 $\singleton{\gamma_n f_n(x_\gamma)}$ diverges.
@@ -147,49 +147,49 @@ More precisely, there exists a bijective sum  %
 %\def\bin{\text{\fw sum}}
 \def\bin{\sigma}
 \begin{align}
-  \bin:  \bigl\{\beta \in \{0, 1\}^{\N_+}: \beta \text{ is not eventually periodic}\bigr\} & \to [0, 1] \setminus \Q \\
+  \bin:  \setbig{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
 A suitable $\singleton{f_n}$ can be defined as follows: %
 %
-\begin{align}
+\begin{equation}
   \label{definition of f_n(alpha)} f_n(x) \Def \begin{cases} 
     2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \bin(\beta_1, \dots, \beta_n, \dots) \notin \Q) \\
     0 & (x \in \Q).
   \end{cases} 
-\end{align}
+\end{equation}
 %
 Indeed, we note that every bit stream $\bin^{\minus 1}(x)$ has infinitely many $1$'s, which implies that %
 $f_n(x) \xrightarrow{n\infty} 0$. Next, pick an arbitrary $\gamma_n \to \infty$. Thus, for any positive integer $k$, %
 $\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k > N_k$ so large that %
 %
-\begin{align}
+\begin{equation}
   \label{definition of n_k}
   n_{k+1} - n_k > k.
-\end{align}
+\end{equation}
 %
 The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Moreover, the particular choice %
 %
-\begin{align}
+\begin{equation}
   \beta^{\gamma} \Def 1_{\{n_1, n_2, \dots \}}
-\end{align}
+\end{equation}
 %
 implies %
 %
-\begin{align} \label{p sum of bits}
+\begin{equation} \label{p sum of bits}
   \beta^\gamma_1 + \dots + \beta^\gamma_{n_1} + \dots + \beta^\gamma_{n_k} = k.
-\end{align}
+\end{equation}
 %
 Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yield %
 %
-\begin{align}
+\begin{equation}
   \gamma_{n_k} f_{n_{k}}(\bin(\beta^\gamma))
     = {\gamma_{n_k}}/{2^k} 
     %> 4^k / 2^k 
     > 2^k 
     \tendsto{k}{\infty}\infty.
-\end{align}
+\end{equation}
 %
 In conclusion, every sequence of scalars $\gamma_n$ such that $\gamma_n \to \infty$ contains a subsequence%
 $\singleton{\gamma_{n_k}}$ that causes $\singleton{\gamma_{n_k}f_{n_k}}$ to diverge. This is (b). 

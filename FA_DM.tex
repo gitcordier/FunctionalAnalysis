@@ -107,10 +107,7 @@ tikz
 
 % "Defined as equals to", alternative to := .
 \def\Def{\triangleq}
-\def\defiif{\quad \iif \quad}
-
-% The usual scalar field = C, most of the time.
-\def\field{\C}
+\def\defIFF{\quad \text{\bf iff} \quad}
 
 % Counting numbers
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
@@ -143,11 +140,11 @@ tikz
 %
 \def\contains{\supseteq}
 \def\cuts{\cap}
-\DeclareMathOperator\cvxhull{co}
-\DeclareMathOperator\Leibnizdiff{d}
-\DeclareMathOperator\support{supp}
+\DeclareMathOperator\cvxhull{co} 
+\DeclareMathOperator\support{supp} 
 \newcommand{\co}[1]{\cvxhull(#1)}
 \newcommand{\set}[2]{\{#1: #2\}}
+\newcommand{\setbig}[2]{\bigl\{#1: #2\bigr\}}
 \newcommand{\singleton}[1]{\{#1\}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
 \newcommand{\closure}[1]{\overline{#1}}
@@ -156,14 +153,16 @@ tikz
 % Arithmetics
 \newcommand{\ceil}[1]{\lceil #1 \rceilf}
 
+% Calculus 
+\DeclareMathOperator\Leibnizdiff{d}
+\newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
+
 % Analysis
-\newcommand\openinterval[2]{\left]#1, #2\right[}
-%\newcommand\magnitude[1]{\left\lvert\, #1 \,\right\rvert}
+\newcommand\openinterval[2]{\left]#1, #2\right[} 
 \newcommand\magnitude[1]{\abs{\,#1\,}}
 \newcommand{\norma}[2]{\norm{#2}_{#1}}
-\newcommand{\Continuous}{{\mathscr C}}
-\newcommand{\diff}[1]{\Leibnizdiff\!#1}
-\newcommand{\D}{{\mathscr D}}
+\newcommand{\Continuous}{{\mathscr C}} 
+\newcommand{\D}{{\mathscr D}} 
 %\renewcommand{\norm}[2]{\norm{#2}_{#1}}
 \def\weakstar{\text{weak}^\ast\text{-}}
 
@@ -182,19 +181,15 @@ tikz
 %Usual terms
 \def\ie{\textit{, i.e., }}
 \def\eg{\textit{, e.g., }}
-\def\cf{\textit{cf.\,}}
-\def\iif{{\bf iff} }
-\def\IIF{{\bf iff}}
+\def\cf{\textit{cf.\,}} 
+\def\IFF{{\bf iff }}
 \def\wlg{{\bf wlg }} % Without loss og generality
 
-% TODO: Make choices, be consistent
-\def\then{\Rightarrow}
-\def\THEN{\Rightarrow}
-\def\THEREFORE{\Rightarrow}
+% then, since.
+\def\then{\Rightarrow} 
 \def\therefore{\Rightarrow}
 \def\since{\Leftarrow}
-\def\because{\Leftarrow}
-\def\IF{\Leftarrow}
+\def\because{\Leftarrow} 
 \renewcommand{\iff}{\Leftrightarrow}
 
 % Misc
@@ -250,7 +245,7 @@ tikz
 \maketitle
 
 % FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
-\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
+%\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
 % IF LANG = @fr
 %\renewcommand{\chaptername}{Chapitre}
 %

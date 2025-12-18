@@ -21,29 +21,29 @@
 \subsection{Propositional logic operators}
 Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
 operators $\lnot$, $\lor$, $\land$, $\iff$, $\then$, %
-$\Leftarrow$, are assigned boolean \textit{truth values} (``true'' and ``false'') as follows,
+$\Leftarrow$, are assigned boolean \emph{truth values} (``true'' and ``false'') as follows,
 \begin{enumerate}
   \item[$\lnot$]{%
     $\lnot p$ and $p$ have opposite values:
   }
   \item[$\lor$]{
-    The \textit{disjunction} (``or'') $p \lor q$ is true unless $p$ is false and $q$ is false.
+    The \emph{disjunction} (``or'') $p \lor q$ is true unless $p$ is false and $q$ is false.
   }
   \item[$\land$]{
-    The \textit{conjunction} (``and'') $p \land q$ is true if and only if $p$ is true and $q$ is true.
+    The \emph{conjunction} (``and'') $p \land q$ is true if and only if $p$ is true and $q$ is true.
   }
   \item[$\iff$]{%
-    The \textit{logical equivalence} expresses \textit{tautologies}: %
+    The \emph{logical equivalence} expresses \emph{tautologies}: %
     $p \iff q$ is true unless $p$ and $q$ have opposite values. It is easily checked that %
-    $(p \iff q) \iff \bigl((p \then q) \land (p \IF  q) \bigr)$, see the definitions below.
+    $(p \iff q) \iff \bigl((p \then q) \land (p \because  q) \bigr)$, see the definitions below.
   }
   \item[$\then$]{%
-    The logical connection \textit{$p$ implies $q$} is supported by $\then$: $p \then q$ means \textit{if $p$ then $q$} %
+    The logical connection \emph{$p$ implies $q$} is supported by $\then$: $p \then q$ means \emph{if $p$ then $q$} %
     and is formally defined as $\lnot p \lor q$. Note that the ``reasoning'' $p \then q $ is always true unless %
     $p$ is true and $q$ is false. Moreover, $p \land (p \then q) \then q$ is always true. %
-    This deductive rule is known as \textit{modus ponens}.
+    This deductive rule is known as \emph{modus ponens}.
   }
-  \item[$\Leftarrow$]{ $q \IF p$ means that $q$ is implied by $p$ and is defined as $ p\then q $. %
+  \item[$\Leftarrow$]{ $q \because p$ means that $q$ is implied by $p$ and is defined as $ p\then q $. %
     It is commonly read aloud as ``$q$ if $p$'' or ``$q$ is a consequence of $p$''.
   }
 \end{enumerate}
@@ -64,13 +64,13 @@ $\Iverson{\phi}$ returns the truth value of $\phi$, encoded as follows, %
 %
 For example, $\Iverson{1 > 0} = 1$ but $\Iverson{ \sqrt{2} \in \Q} = 0$.
 \section{Special terms}
-\subsection{Halmos' $\iif$ and definitions}%
-\iif is a shorthand for ``if and only if". Splitting \iif into \textit{if-then} clauses shows that it is just a rewording of %
-the logical equivalence $\iff$. All definitions will use the \iif format, which is consistent with the fact that %
+\subsection{Halmos' \IFF and definitions}%
+\IFF is a shorthand for ``if and only if". Splitting \IFF into \emph{if-then} clauses shows that it is just a rewording of %
+the logical equivalence $\iff$. All definitions will use the \IFF format, which is consistent with the fact that %
 every definition expresses a tautology.
 %
 \subsection{The assignment operator $\Def$}%
-Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \iif %
+Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \IFF %
 $a$ and $b$ are assumed to be equal. Usually, $a\triangleq b$ means that $a$ is assigned the previously known value %
 $b$ (some authors write $a:=b$) but this is not a limitation. Definitions can be redundant and may overlap. %
 %
@@ -81,8 +81,8 @@ $b$ (some authors write $a:=b$) but this is not a limitation. Definitions can be
 \subsection{Subsets and supersets}%
 $\subset$ and $\supset$ are the standard symbols for set ordering, as follows: %
 \begin{align}
-  X \subset Y & \defiif x \in X \then x\in Y \\
-  Y \supset X & \defiif X \subset Y.
+  X \subset Y & \defIFF x \in X \then x\in Y \\
+  Y \supset X & \defIFF X \subset Y.
 \end{align}
 No specific symbol is reserved for strict ordering. If necessary, $X \neq Y$ will be explicitly stated. 
 %
@@ -100,28 +100,28 @@ In a metric space context, $X\equiv Y$ means that $\phi$ is isometric. %
 \section{Topological vector spaces}
 \subsection{Scalar field}%
 $\C$ extends $\R$, which implies that a property\eg linearity, that is true on $\C$ is also true on $\R$. The complex case %
-is then a \textit{special case} of the real case. This restriction may be significant in some contexts. Nevertheless, the %
+is then a \emph{special case} of the real case. This restriction may be significant in some contexts. Nevertheless, the %
 standard scalar field is $\C$, which means that considering $\R$ instead of $\C$ makes no difference, unless stated otherwise.%
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Vector spaces
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Vector space bases}\label{notations: vector spaces: vector space bases}
-Given a vector space $X$ over $\C$ (or, more generally, over a field), a subset $B$ of $X$ is a basis of $X$ \iif %
+Given a vector space $X$ over $\C$ (or, more generally, over a field), a subset $B$ of $X$ is a basis of $X$ \IFF %
 the sum %
 %
 \begin{align}
-  \bigl\{(z_u)_{u\in B}: z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite} \bigr\} & \to X \\\nonumber
+  \setbig{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \\\nonumber
   (z_u) & \mapsto \sum_{z_u \neq 0 } z_u u
 \end{align}
-bijectively maps all \textit{finitely supported} $(z_u)$ \textit{onto} $X$. %
+bijectively maps all \emph{finitely supported} $(z_u)$ \emph{onto} $X$. %
 %
 The axiom of choice (AC) forces %
 \begin{enumerate}
   \item the existence of such $B$ %
     (the proof is similar to the second part of the Hahn-Banach theorem [3.1] of \cite{FA} with $B$ playing the role of 
     $\Lambda$); %
-  \item all bases to have the same cardinal, which is called the {\it dimension} of $X$ and is denoted as $\dim(X)$. %
+  \item all bases to have the same cardinal, which is called the {\it dimension} of $X$ and is denoted as $\dim{X}$. %
 \end{enumerate}
 %
 We now turn to the finite-dimensional case. Note that the $0$-dimensional case is the degenerate case $B=\emptyset$, %
@@ -139,33 +139,33 @@ so that $z_k$ ($1 \leq k \leq n$) is the $k$-th component of a given %
 $(z_1,\dots, z_n) = z_1 (1, 0, \dots, 0)  + \cdots  + z_n (0, \dots, 0, 1) \in \C^n$. Furthermore, %
 $\C^n$ is endowed with the topology generated by all polydiscs %
 %
-\begin{align}
+\begin{equation}
   \prod_{i=1}^{n} \underbrace{\set{z_i \in C}{\magnitude{z_i} < r_i}}_{D_{r_i}} \quad (r_i > 0 ).
-\end{align}
+\end{equation}
 %
 Equivalently, we may equip $\C^n$ with the Euclidean norm % 
 %
-\begin{align}
+\begin{equation}
   \norma{2}{z} \Def \sqrt{\magnitude{z_1}^2 + \cdots + \magnitude{z_n}^2} \quad \left(z = (z_1, \dots, z_n) \in \C^n\right), 
-\end{align}
+\end{equation}
 %
 whose open balls centered at the origin are all %
 %
-\begin{align}
+\begin{equation}
   B_r \Def \set{z\in \C^n}{\norma{2}{z} < r} \quad (r > 0).
-\end{align}
+\end{equation}
 %
 To show the equivalence, first set $r_i = r/\sqrt{n}$. Hence %
 %
-\begin{align}
+\begin{equation}
   \prod_{i=1}^{n} D_{r_i} \subset B_r. 
-\end{align}
+\end{equation}
 %
-Conversely, put $r = \min\{r_1, \dots, r_n\}$ so that %
+Conversely, put $r = \min{r_1, \dots, r_n}$ so that %
 %
-\begin{align}
+\begin{equation}
    B_r \subset \prod_{i=1}^{n} D_{r_i} .
-\end{align}
+\end{equation}
 %
 \subsubsection{Topology of a finite-dimensional vector space}
 It is customary to identify any $n$-dimensional vector space with $\C^n$ equipped with the Euclidean norm, %
@@ -188,30 +188,30 @@ that the homeomorphism $h$ maps $Y$ onto $W$ and that $W$ is normable as well. I
 are equivalent in the finite-dimensional context: %
 %
 \begin{enumerate}
-  \item $\dim(W) = \dim(Y),$ 
+  \item $\dim{W} = \dim{Y},$ 
   \item $W$ and $Y$ are isomorphic to each other,%
   \item $W$ and $Y$ are homeomorphic to each other, they are normable.
 \end{enumerate}
 %
-Furthermore, the norms on $W$ and $Y$ are \textit{equivalent}. That is, for any given norm $\norm{\, \cdot \, }$ on $Y$ and %
-any given norm $\norma{W}{\,\cdot \,}$ on $W$, there exists a positive constant (termed as ``modulus of continuity'') $C= C_h$ %
+Furthermore, the norms on $W$ and $Y$ are \emph{equivalent}. That is, for any given norm $\norma{Y}{\cdot}$ on $Y$ and %
+any given norm $\norma{W}{\cdot}$ on $W$, there exists a positive constant (termed as \emph{modulus of continuity}) $C= C_h$ %
 such that %
 \begin{align}
-  \norma{W}{w} & \leq C \norm{y} \quad\quad \left((y, w) \in h \right), 
+  \norma{W}{W} & \leq C \norma{Y}{y} \quad\quad \left((y, w) \in h \right), 
 \end{align}
 %
 as $h$ is continuous.  The special case $W=Y$ is that all norms on $Y$ are equivalent, in the sense that %
 %
-\begin{align}
-  \norma{{\text{copy of }Y}}{h(y)} \leq C \norm{y}.
-\end{align}
+\begin{equation}
+  \norma{{\text{\fw copy of Y}}}{h(y)} \leq C \norma{Y}{y}.
+\end{equation}
 %
 \subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$} When $\C^n$ %
 is equipped with standard norms $1, 2, \infty$, the sharp constant\ie the smallest $C_{i, j}$ such that %
 %
-\begin{align}
-	\norma{j}{z} \leq C_{i, j} \norma{i}{z} %\quad \left(z \in \C^n \right)
-\end{align}
+\begin{equation}
+	\norma{j}{z} \leq C_{i, j} \norma{i}{z} 
+\end{equation}
 %
 is easily derived from definitions - see [1.19] of \cite{FA} - with the noticeable exception of $C_{2, 1} = \sqrt{n}$. %
 Indeed, $\norma{1}{z} \leq \sqrt{n} \norma{2}{z}$ is a special Cauchy-Schwarz inequality, see (1) in [12.2] of \cite{FA}. %
@@ -226,14 +226,14 @@ $\Lambda: C_c(\R^n) \to \C, \phi \mapsto \Lambda \phi$ that %
 \begin{enumerate}
   \item is positive\ie $\phi \geq 0 \then \Lambda\phi \geq 0$,
   \item is continuous in the sense that, for each compact $K \subset \R^n$ there exists a modulus of continuity $M_K$ such that %
-  \begin{align}
+  \begin{equation}
     \magnitude{\Lambda\phi} \leq M_K\norma{\infty}{\phi} \quad (\supp{\phi} \subset K ).
-  \end{align}
+  \end{equation}
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 % 
-Theorem [2.15] of \cite{BigRudin} shows that (i) actually implies (ii), as (ii) defines Radon measures in a weaker sense, %
-see \cite{AnalyseIII}. Moreover, $\Lambda$ is bounded on $C_c(\R^n)$ with respect to the supremum norm \iif (ii) is %
+Theorem [2.14] of \cite{BigRudin} shows that (i) actually implies (ii), as (ii) defines Radon measures in a weaker sense, %
+see \cite{AnalyseIII}. Moreover, $\Lambda$ is bounded on $C_c(\R^n)$ with respect to the supremum norm \IFF (ii) is %
 satisfied with all $M_K\leq \norma{\infty}{\Lambda} <\infty$. These bounded linear functionals are at the core of the theory, %
 and according to [6.19] of \cite{BigRudin}, each of them is isometrically identified  with a specific regular Borel measure %
 $\mu$. %
@@ -242,109 +242,134 @@ $\mu$. %
 Theorem [2.14] of \cite{BigRudin} states that every positive Radon measure $\Lambda$ (bounded or not) is identified with a %
 specific positive and regular Borel measure $\beta$. This justifies the introduction of % 
 %
-\begin{align}\label{definition of sum}
+\begin{equation}\label{definition-of-sum}
 	\int_{\R^n} \phi \diff{\beta} \Def \Lambda \phi \quad \left(\phi \in C_c(\R^n)\right),
-\end{align}
+\end{equation}
 %
 where the left side is a Lebesgue integral. The regularity property implies that $\Lambda$ has mass %
 %
-\begin{align}
-	\int_{\R^n} 1 \diff{\beta} \Def \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
-\end{align}
+\begin{equation}
+	\int_{\R^n} 1 \diff{\beta} \Def \sup \setbig{\Lambda \phi}{\phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1}.
+\end{equation}
 %
-When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ Borel measurable, \eqref{definition of sum} takes the form %
+When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ Borel measurable, \eqref{definition-of-sum} takes the form %
 %
-\begin{align}\label{Borel integral}
+\begin{equation}\label{Borel integral}
 	\int_{\R^n} f \phi \diff{\beta} = \Lambda \phi.
-\end{align}
+\end{equation}
 %
 In particular, if $f$ is positive, 
 %
-\begin{align}
-	\int_{\R^n} f \diff{\beta} = \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
-\end{align}
+\begin{equation}
+	\int_{\R^n} f \diff{\beta} = \sup \setbig{\Lambda \phi}{\phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1}.
+\end{equation}
 %
-Moreover, given $N = \set{f}{f = 0 \text{ almost everywhere with respect to }\beta}$, we see that, %
-in \eqref{Borel integral}, density $f$ and measure $\Lambda$ are identified modulo $N$. Algebraically speaking: %
-\begin{align}
+Moreover, given $N = \set{f}{f = 0 \quad \beta-\text{a.e}}$, we see that, in \eqref{Borel integral}, density $f$ and measure %
+$\Lambda$ are identified modulo $N$. Algebraically speaking: %
+%
+\begin{equation}
 	f_1\beta = f_2\beta \iff f_1-f_2 \in N
-\end{align}
+\end{equation}
 %
-Thus, we define the following vector spaces %
+Thus, we define the following \emph{magnitude} $\magnitude{\cdot}_1$,  %
 %
-\begin{align}
-	\mathcal{L}^1 \Def \Biggl\{f: \int_{\R^n}\magnitude{f} \diff{\beta} < \infty\Biggr\} 
-  \subset \Biggl\{f: \int_{\R^n} 1_K \magnitude{f} \diff{\beta} < \infty %
-  \text{, when $K \subset \R^n$ compact} \Biggr\} 
-  \Def \mathcal{L}^1_{\text{loc}}, 
-\end{align}
+\begin{equation}
+  \magnitude{f}_1 \Def \int_{\R^n}\magnitude{f} \quad \left(f \text{ $\beta$-measurable}\right),
+\end{equation}
 %
-where $\mathcal{L}^1$ is equipped with the seminorm 
+and the associated vector spaces for calculus:
 %
-\begin{align}
-\magnitude{f}_1 \Def \int_{\R^n} \magnitude{f} \diff{\beta} \quad (f \in \mathcal{L}^1).
-\end{align}
+\begin{equation}
+	\mathcal{L}^1 \Def \setbig{f}{\magnitude{f}_1  < \infty} \subset \mathcal{L}^1_{\text{loc}}
+  \Def \setbig{f}{\magnitude{1_K f}_1 < \infty \text{ for all compacts $K \subset \R^n$}}.
+\end{equation}
 %
-Notably, $N$ is closed in $\mathcal{L}^1$. This implies that $L^1 = \mathcal{L}^1/N$, equipped with the norm %
+The crucial points are: 
 %
-\begin{align}
-	\norma{1}{f + N} \Def \int_{\R^n} \magnitude{f} \diff{\beta} \quad (f \in \mathcal{L}^1)
-\end{align}
+\begin{enumerate}
+  \item $\mathcal{L}^1$, equipped with $\magnitude{\cdot}_1$, is a seminormed space, 
+  \item $N$ is a closed subspace of the seminormed space $\mathcal{L}^1$.
+\end{enumerate}
+%
+Together, these two facts imply that $L^1 = \mathcal{L}^1/N$, equipped with the norm %
+%
+\begin{equation}
+	\norma{1}{f + N} \Def \magnitude{f}_1 \quad (f \in \mathcal{L}^1), 
+\end{equation}
 %
 is a Banach space. % 
 \subsection{Dirac's impulse, a physicist's detour}
 Suppose we wish to record the impact of a particle on a surface. To do so, we introduce a carrier signal $\phi(t)$ that %
 vanishes outside the observation interval. A given collision occurs at time $t_Q$, which means the surface absorbs a pulsed %
-energy quantum $Q$. Thus, the particle contribution is encoded as the Heaviside step function $H(t) = \Iverson{t \geq 0}$, %
+energy quantum $Q$ (normalized to 1 unit). Thus, the particle contribution is encoded as the Heaviside step function $H(t) = \Iverson{t \geq 0}$, %
 as time $t$ ranges over the real line. This models the fact that energy $H(t)$ only increases by an infinitely abrupt jump %
-at reference time $t_Q=0$. In this detour, we heuristically conclude that %
+at reference time $t_Q=0$. In this detour, we heuristically conclude that the derivative of $H(t)$, if it could exist, would %
+explode by $+\infty$ at $t=0$. This motivates the empirical fiction%
 %
-\begin{align}
-  \frac{\diff{H}}{\diff{t}} = \infty \times \Iverson{t=0}.
-\end{align}
+\begin{equation}
+  \frac{\diff{H}}{\diff{t}} \;\text{behaves like}\; \infty \times \Iverson{t=0}.
+\end{equation}
 %
-The latter informal derivative $\diff{H}/\diff{t}$ is empirically known as $\delta(t)$ the \textit{Dirac delta function}, 
-or \textit{Dirac's impulse}. Interpreted as a density, $\delta(t)$ carries unit mass because %
+The informal derivative $\diff{H}/\diff{t}$ is called $\delta(t)$, the \emph{Dirac delta function}, or %
+\emph{Dirac's impulse}. Physically, the released energy is modeled by the impulse concentrated at $t=0$. Interpreted as %
+a density, $\delta(t)$ has total integral $1$ because %
 %
-\begin{align}
+\begin{equation}
   \int_{\minus \infty}^\infty \delta(t) \diff{t} = \int_{\minus \infty}^\infty \diff{H} = H(\infty) - H(\minus \infty) = 1.
-\end{align}
+\end{equation}
 %
-This expresses that the collision releases the energy quantum. We now apply this heuristic to the carrier signal $\phi$: %
+This expresses that integration of $\delta(t)$ over time recovers the whole energy $Q$. We now apply this heuristic to the c%
+arrier signal $\phi$: %
 %
 \begin{align}
-  \int_{\minus \infty}^\infty \phi(t) \delta(t)\diff{t} & =  \int_{\minus \infty}^\infty  \phi \diff{H} & \\
+  \int_{\minus \infty}^\infty \phi(t) \delta(t)\diff{t} & =  \int_{\minus \infty}^\infty  \phi \diff{H}  \\
   & =  \bigl[ H\phi \bigr]_{-\infty}^{\infty} - \int_{\minus \infty}^\infty H \diff{\phi} & [\text{integration by parts}]\\
-  & = -\int_{\minus \infty}^\infty H \diff{\phi} \label{Dirac's impulse as a distribution}&[\text{$\supp{\phi}$ is compact}]\\
+  & = -\int_{\minus \infty}^\infty H \diff{\phi} \label{Dirac-impulse-distribution1}&[\text{$\supp{\phi}$ is compact}]\\
   & =  \phi(0) &
 \end{align}
 %
-The key point is that the sum \eqref{Dirac's impulse as a distribution} no longer involves any $\diff{H}$. Moreover, %
-we obtain $\Delta \phi = \phi(0)$, the filtered carrier signal $\phi \mapsto \phi\vert_{t=0}$. This motivates the following %
-definitions, %
+The key point is that the sum \eqref{Dirac-impulse-distribution1} no longer involves any $\diff{H}$. Moreover, %
+we obtain the filtered carrier signal $\phi \mapsto \phi\vert_{t=0}$. This motivates the definition of the following linear %
+functionals: %
 %
-\begin{align}
-  H(\phi)  & \Def \int_{\minus \infty}^\infty H \phi\diff{t}, \\
-  \diff{H}(\phi) & \Def \minus \int_{\minus \infty}^\infty H \diff{\phi} = \phi(0), \\
-  \delta(\phi) & \Def \phi(0).\label{Dirac's impulse definition}
-\end{align}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\begin{enumerate}
+  \item{
+    \begin{equation*}
+      \Lambda_H(\phi) \Def \int_{\minus \infty}^\infty H \phi\diff{t},
+    \end{equation*}
+  }
+  \item{
+    \begin{equation*}
+      \Lambda_H'(\phi) \Def \minus \int_{\minus \infty}^\infty H \diff{\phi},
+    \end{equation*}
+  }
+  \item{
+    \begin{align}
+      % Workaround: Negative hspace to force vertical alignment with above definitions
+      \hspace{-0.45cm}\delta(\phi) & \Def \Lambda_H'(\phi)\nonumber \\
+      &  = \phi(0).\nonumber
+    \end{align}
+  }
+\end{enumerate}
+\renewcommand{\labelenumi}{\alph{enumi}}
 %
-This definition of $\delta$ conveys the idea of energy increasing by a fixed amount at pulsed time while being %
-mathematically sound. Extension of \eqref{Dirac's impulse definition} to all $\phi \in C_c(\R^n)$ is immediate and turns %
-$\delta$ into a Radon measure. Notably, its Borel-measure counterpart is the \textit{Dirac measure} %
+This definition of $\delta(\phi)$ conveys the idea of energy increasing by a fixed amount at pulsed time while being %
+mathematically sound. Extension of (iii) to all $\phi \in C_c(\R^n)$ is immediate and turns %
+$\delta$ into a Radon measure. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
 %
-\begin{align}
-  \delta: E \to \Iverson{0 \in E} 
-\end{align}
+\begin{equation}
+  \delta: E \mapsto \Iverson{0 \in E} 
+\end{equation}
 %
 restricted to Borel sets in $\R^n$. Dirac's $\delta$ plays a pivotal role in mathematical physics, as it is the convolution %
 identity. To see that, we set $\phi_s(t) = \phi(s-t)$ ($s \in \R$), then we interpret the convolution $[\delta \ast \phi](s)$ %
 as integration with respect to the Dirac measure. This reads as %
 %
-\begin{align}
+\begin{equation}
   [\delta \ast \phi](s)  \Def \int_{\minus \infty}^\infty \phi(s-t) \diff\delta(t) = \int_\R \phi_s \diff{\delta} 
-  \citeq{\ref{definition of sum}} \delta(\phi_s) = \phi(s). 
-\end{align}
+  \citeq{\ref{definition-of-sum}} \delta(\phi_s) = \phi(s). 
+\end{equation}
 %
 % END
 %
