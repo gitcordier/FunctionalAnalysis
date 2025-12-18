@@ -219,13 +219,13 @@ The steps of this classical trick are left to the reader. %
 %
 \section{Measure theory on $\R^n$}
 \subsection{Radon measures}
-A positive Radon measure is a linear functional %
+A (positive) Radon measure is a linear functional %
 $\Lambda: C_c(\R^n) \to \C, \phi \mapsto \Lambda \phi$ that %
 %
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
   \item is positive\ie $\phi \geq 0 \then \Lambda\phi \geq 0$,
-  \item is continuous in the sense that, for each compact $K \subset X$ there exists a modulus of continuity $M_K$ such that %
+  \item is continuous in the sense that, for each compact $K \subset \R^n$ there exists a modulus of continuity $M_K$ such that %
   \begin{align}
     \magnitude{\Lambda\phi} \leq M_K\norma{\infty}{\phi} \quad (\supp{\phi} \subset K ).
   \end{align}
@@ -233,28 +233,29 @@ $\Lambda: C_c(\R^n) \to \C, \phi \mapsto \Lambda \phi$ that %
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 % 
 Theorem [2.15] of \cite{BigRudin} shows that (i) actually implies (ii), as (ii) defines Radon measures in a weaker sense, %
-see \cite{AnalyseIII}. Moreover, $\Lambda$ is norm-bounded on $C_c(\R^n)$ \iif (ii) is satisfied with all %
-$M_K\leq \norma{\infty}{\Lambda} <\infty$. These bounded linear functionals are at the core of the theory and [6.19] of %
-\cite{BigRudin} isometrically identifies each of them with a specific regular Borel measure $\beta$. %
+see \cite{AnalyseIII}. Moreover, $\Lambda$ is bounded on $C_c(\R^n)$ with respect to the supremum norm \iif (ii) is %
+satisfied with all $M_K\leq \norma{\infty}{\Lambda} <\infty$. These bounded linear functionals are at the core of the theory, %
+and according to [6.19] of \cite{BigRudin}, each of them is isometrically identified  with a specific regular Borel measure %
+$\mu$. %
 %
 \subsection{Lebesgue integration}
-Since every Radon measure $\Lambda$ has a Borel equivalent, we introduce % 
+Theorem [2.14] of \cite{BigRudin} states that every positive Radon measure $\Lambda$ (bounded or not) is identified with a %
+specific positive and regular Borel measure $\beta$. This justifies the introduction of % 
 %
 \begin{align}\label{definition of sum}
-	\int_X \phi \diff{\Lambda} \Def \Lambda \phi, 
+	\int_{\R^n} \phi \diff{\beta} \Def \Lambda \phi \quad \left(\phi \in C_c(\R^n)\right),
 \end{align}
 %
 where the left side is a Lebesgue integral. The regularity property implies that $\Lambda$ has mass %
 %
 \begin{align}
-	\int_X 1 \diff{\Lambda} \Def \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
+	\int_{\R^n} 1 \diff{\beta} \Def \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
 \end{align}
 %
-The case $\diff{\Lambda} = f\diff{\beta}$, with regular Borel measure $\beta$ and $f$ Borel measurable, identifies %
-\eqref{definition of sum} with the Lebesgue integral as follows:
+When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ Borel measurable, \eqref{definition of sum} takes the form %
 %
 \begin{align}\label{Borel integral}
-	\int_X f \phi \diff{\beta} = \Lambda \phi \quad \left(\phi \in C_c(\R^n)\right).
+	\int_{\R^n} f \phi \diff{\beta} = \Lambda \phi.
 \end{align}
 %
 In particular, if $f$ is positive, 
@@ -263,27 +264,34 @@ In particular, if $f$ is positive,
 	\int_{\R^n} f \diff{\beta} = \sup \bigl\{\Lambda \phi: \phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1 \bigr\}.
 \end{align}
 %
+Moreover, given $N = \set{f}{f = 0 \text{ almost everywhere with respect to }\beta}$, we see that, %
+in \eqref{Borel integral}, density $f$ and measure $\Lambda$ are identified modulo $N$. Algebraically speaking: %
+\begin{align}
+	f_1\beta = f_2\beta \iff f_1-f_2 \in N
+\end{align}
+%
 Thus, we define the following vector spaces %
 %
 \begin{align}
-	L^1 \Def \Biggl\{f: \int_{\R^n}\magnitude{f} \diff{\beta} < \infty\Biggr\} 
-  \subset \Biggl\{f: \forall K \subset X \text{ compact}: \int_{\R^n} 1_K \magnitude{f} \diff{\beta} < \infty \Biggr\} 
-  \Def L^1_{\text{loc}} %
+	\mathcal{L}^1 \Def \Biggl\{f: \int_{\R^n}\magnitude{f} \diff{\beta} < \infty\Biggr\} 
+  \subset \Biggl\{f: \int_{\R^n} 1_K \magnitude{f} \diff{\beta} < \infty %
+  \text{, when $K \subset \R^n$ compact} \Biggr\} 
+  \Def \mathcal{L}^1_{\text{loc}}, 
 \end{align}
 %
-The collection $N$ of all $f$ whose magnitude $\magnitude{f}_1 = \int_{\R^n} \magnitude{f} \diff{\beta}$ is zero is a closed %
-subspace of $L^1$. Moreover the quotient space $L^1/N$ is a Banach space. More specifically, %
+where $\mathcal{L}^1$ is equipped with the seminorm 
 %
 \begin{align}
-	\norma{1}{g + N} \Def \inf\set{\magnitude{f}_1}{ f - g  \in N } \quad (g \in L^1)
+\magnitude{f}_1 \Def \int_{\R^n} \magnitude{f} \diff{\beta} \quad (f \in \mathcal{L}^1).
 \end{align}
 %
-frames a complete norm for $L^1/N$. Now starting from \eqref{Borel integral} implies that $f$ and $\Lambda$ are identified %
-modulo $N$\ie 
+Notably, $N$ is closed in $\mathcal{L}^1$. This implies that $L^1 = \mathcal{L}^1/N$, equipped with the norm %
+%
 \begin{align}
-	f\beta = g\beta \iff f-g \in N.
+	\norma{1}{f + N} \Def \int_{\R^n} \magnitude{f} \diff{\beta} \quad (f \in \mathcal{L}^1)
 \end{align}
 %
+is a Banach space. % 
 \subsection{Dirac's impulse, a physicist's detour}
 Suppose we wish to record the impact of a particle on a surface. To do so, we introduce a carrier signal $\phi(t)$ that %
 vanishes outside the observation interval. A given collision occurs at time $t_Q$, which means the surface absorbs a pulsed %
@@ -296,17 +304,17 @@ at reference time $t_Q=0$. In this detour, we heuristically conclude that %
 \end{align}
 %
 The latter informal derivative $\diff{H}/\diff{t}$ is empirically known as $\delta(t)$ the \textit{Dirac delta function}, 
-or \textit{Dirac's impulse}. Interpreted as a density, $\delta$ carries unit mass because %
+or \textit{Dirac's impulse}. Interpreted as a density, $\delta(t)$ carries unit mass because %
 %
 \begin{align}
   \int_{\minus \infty}^\infty \delta(t) \diff{t} = \int_{\minus \infty}^\infty \diff{H} = H(\infty) - H(\minus \infty) = 1.
 \end{align}
 %
-This expresses that the collision releases the energy quantum. We now involve the carrier signal $\phi$, as follows: %
+This expresses that the collision releases the energy quantum. We now apply this heuristic to the carrier signal $\phi$: %
 %
 \begin{align}
   \int_{\minus \infty}^\infty \phi(t) \delta(t)\diff{t} & =  \int_{\minus \infty}^\infty  \phi \diff{H} & \\
-  & =   \Delta H\phi - \int_{\minus \infty}^\infty H \diff{\phi} & [\text{integration by parts}]\\
+  & =  \bigl[ H\phi \bigr]_{-\infty}^{\infty} - \int_{\minus \infty}^\infty H \diff{\phi} & [\text{integration by parts}]\\
   & = -\int_{\minus \infty}^\infty H \diff{\phi} \label{Dirac's impulse as a distribution}&[\text{$\supp{\phi}$ is compact}]\\
   & =  \phi(0) &
 \end{align}
@@ -330,15 +338,13 @@ $\delta$ into a Radon measure. Notably, its Borel-measure counterpart is the \te
 \end{align}
 %
 restricted to Borel sets in $\R^n$. Dirac's $\delta$ plays a pivotal role in mathematical physics, as it is the convolution %
-identity. To see that, interpret the convolution $[\delta \ast \phi] (s)$ ($s \in \R$) as integration with respect to the %
-Dirac measure. Hence %
+identity. To see that, we set $\phi_s(t) = \phi(s-t)$ ($s \in \R$), then we interpret the convolution $[\delta \ast \phi](s)$ %
+as integration with respect to the Dirac measure. This reads as %
 %
 \begin{align}
-  [\delta \ast \phi](s)  = \int_{\minus \infty}^\infty \phi(s-t) \diff\delta(t) = \int_\R \phi_s \diff{\delta} 
-  \citeq{\ref{definition of sum}} \delta(\phi_s) = \phi(s), 
+  [\delta \ast \phi](s)  \Def \int_{\minus \infty}^\infty \phi(s-t) \diff\delta(t) = \int_\R \phi_s \diff{\delta} 
+  \citeq{\ref{definition of sum}} \delta(\phi_s) = \phi(s). 
 \end{align}
-%
-as $\phi_s(t) = \phi(s-t)$. % 
 %
 % END
 %
