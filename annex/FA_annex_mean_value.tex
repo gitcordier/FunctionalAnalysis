@@ -1,0 +1,137 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% FA_annex_mean-value.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{lemma}[A mean value inequality for higher-order derivatives]\label{mean-value-with-derivatives}
+If $\phi\in\D_{[a, b]}$, then
+%
+\begin{equation}
+  \norm[\infty]{D^k \phi} \leq \norm[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
+\end{equation}
+%
+for all $k \leq p$ in $\N$.
+\end{lemma}
+%
+\begin{proof}
+Choose $a < x_0 \leq (a+b)/2$ first. By the mean value theorem, there exists $a < x_1 < x_0$ such that
+%
+\begin{equation}
+  \phi(x_0) = \phi(x_0) - \phi(a)=  D\phi(x_1)(x_0 - a).
+\end{equation}
+%
+Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b]}$ yields % 
+%
+\begin{align}
+  \phi(x_0) & = D^0 \phi(x_0) \\ 
+  & = D^1\phi(x_1)(x_0 - a) \\
+  &  \nonumber \mspace{10mu} \vdots \\
+  & = D^p\phi(x_{p})(x_{p-1} - a) \cdots (x_0-a),
+\end{align}
+%
+for some $a < x_p <  \dots < x_1 < x_0$. Hence %
+%
+\begin{equation}
+  \magnitude{\phi(x_0)} \leq \norm[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p .
+\end{equation}
+%
+Similarly, if $b > x_0 \geq (a+b)/2$ (interchanging the roles of $a$ and $b$), the same inequality holds. Thus, 
+%
+\begin{equation}
+  \magnitude{\phi(x_0)} \leq \norm[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \quad (a < x_0 < b), 
+\end{equation}
+%
+which establishes the result when $k=0$. Finally, applying the latter inequality to $D^k \phi $ in %
+place of $\phi$ shows that % 
+%
+\begin{equation}
+  \norm[\infty]{D^k \phi} \leq \norm[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
+\end{equation}
+%
+for all $0 \leq k \leq p$. %
+\end{proof}
+%
+\begin{lemma}[Impossibility of a nontrivial reversed mean value theorem]%
+\label{lemma-derivative-not-bounded-by-magnitude}%
+There is no general formula to estimate derivatives from the supremum bound.
+\end{lemma}
+%
+\begin{proof}
+For pulsation, or \emph{angular frequency} $\omega \to \infty$, we consider 
+%
+\begin{align}
+\left(\phi_\omega, \psi_\omega\right): \R & \to [\minus 1, 1] \times [\minus 1, 1]\\
+t & \mapsto \bigl(\sin{(\omega t)}, \cos{(\omega t)}\bigr) \nonumber
+\end{align}
+%
+so that 
+\begin{align}\renewcommand{\arraystretch}{1.8}  % or 2
+  \begin{bmatrix}
+    \magnitude[\big]{D^p \phi_\omega(0)} \\
+    \magnitude[\big]{D^p \psi_\omega(0)}
+  \end{bmatrix}
+  \renewcommand{\arraystretch}{1.25}  % or 2
+  = 
+  \Iverson{p \equiv 0 \mod{2}} 
+    \cdot
+    \begin{bmatrix}
+      0 \\ 
+      \omega^p 
+    \end{bmatrix}
+    + 
+    \Iverson{p \equiv 1 \mod{2}} \cdot 
+    \begin{bmatrix}
+    \omega^p \\
+    0
+  \end{bmatrix}
+\end{align}
+In contrast, 
+%
+\begin{equation}
+  \norm[\infty]{\phi_\omega}  = \norm[\infty]{\psi_\omega} = 1. 
+\end{equation}
+%
+This construction already rules out any general reversed inequality. However, the following smooth example $\phi(t)$ keeps %
+constant derivative around $0$, which is more tractable. Let $p\in C^\infty(\R)$ be defined as $1$ on $]\minus \infty, 0]$, 
+$0$ on $[1,\infty[$, and a strict decay on $\openinterval{0}{1}$. A standard choice is $p = 1-h$ when %
+%
+\begin{equation}
+  h(t) \Def \frac{e^{\minus 1/t}}{e^{\minus 1/t} + e^{\minus 1/(1-t)}}
+\end{equation}
+%
+for all $0 < t < 1$. Inspired by signal processing, we choose three positive parameters: $A$ (maximum amplitude), $\tau$ %
+(delay), and $\omega$ (angular frequency). From now on, response $\phi(t)$ is the solution of 
+%
+\begin{align}
+  \begin{cases}
+    \phi(0) & = 0 \\
+    \displaystyle{\frac{\diff{\phi}}{\diff{t}}(t)} & = Ap\bigl(\omega(\abs{t} - \tau)\bigr), 
+  \end{cases}
+\end{align}
+%
+when time $t$ ranges over the real line. Equivalently, the function $\phi=\phi(t)$ is odd and, as time turns positive, 
+%
+\begin{align}
+  \phi(t)  = A \int_{0}^{t} p\bigl(\omega (s - \tau)\bigr) \diff{s} 
+    =  A \min(t, \tau) + A \int_{\tau}^{\max(t,  \tau)} p\bigl(\omega (s - \tau)\bigr) \diff{s} 
+\end{align}
+%
+Note that $\magnitude{\phi}$ has maximum %
+%
+\begin{align}
+  \norm[\infty]{\phi} & = \tau A  + A \int_{\tau}^{\tau + 1/\omega} p\bigl(\omega (s - \tau)\bigr) \diff{s} \\
+    & = \tau A  + \frac{A}{\omega} \int_{0}^{1} p(u)\diff{u} \\
+    & < \tau A + \frac{A}{\omega}.
+\end{align}
+%
+The special case $\tau= 1/\omega= 1/A$ is of great interest. In this case, amplitude at $t=0$ is $A \to \infty$, as %
+$\tau \to 0$. In contrast, $\norm[\infty]{\phi} < 2$.  
+\end{proof}
+% END
+% 

@@ -1,0 +1,81 @@
+% section: Dirac
+Suppose we wish to record the impact of a particle on a surface. To do so, we introduce the detector response $\phi$, which %
+vanishes outside the observation segment $S$. A given collision occurs at impact time $t_Q$, which means the surface absorbs %
+the energy quantum $Q$. Thus, the particle contribution is encoded as the Heaviside step function %
+$H: t \mapsto \Iverson{t \geq 0}$, as time $t$ ranges over the real line. This models the fact that energy
+%
+\begin{enumerate}
+\item{only changes by an infinitely abrupt increase at reference time $t_Q=0$,}
+\item{is conserved over time.}
+\end{enumerate}
+%
+We conclude that the derivative of $H$, if it could exist, would satisfy the empirical formula%
+%
+\newcommand{\heuristic}[1]{\mathtt{#1}}
+\begin{align}
+  \int_\R \heuristic{dH} =  1: \heuristic{\frac{dH}{dt}} = 
+  \begin{cases}
+    \infty & (t = 0) \\
+    0 & (t \neq 0) \\
+  \end{cases}
+\end{align}
+%
+The informal measure $\heuristic{dH}$ describes the behavior of the \emph{Dirac $\delta$ function}. Interpreted as a Borel %
+measure, $\delta$ has total mass $1$ because %
+%
+\begin{equation}\label{mass-of-dirac}
+  \int_\R \delta = \int_\R \heuristic{dH} = H(\infty) - H(\minus \infty) = 1.
+\end{equation}
+%
+This expresses that integrating $\delta$ over time recovers the whole energy $Q$. Lebesgue's dominated convergence theorem %
+tunes our energy model, as
+%
+\begin{equation}
+  \int_S \phi\,\delta \xrightarrow[\phi \to 1_S]{(b)} \int_S  \delta \citeq{(a)} [ 0 \in S].
+\end{equation}
+%
+The formalism will be complete when the heuristic $\heuristic{dH}$ is discarded from $\delta$'s definition. So, 
+%
+\begin{align}
+  \int_\R \phi\,\delta &=\int_\R \phi \, \heuristic{dH} & \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
+  & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_\R H \diff{\phi} & (\text{integration by parts})\\
+  & = \minus \int_\R H \diff{\phi} \label{Dirac-impulse-distribution1}&(\text{$\supp{\phi}$ is compact})\\
+  & =  \phi(0) &
+\end{align}
+%
+The key point is that the right-hand side in \eqref{Dirac-impulse-distribution1} does not involve $\diff{\heuristic{H}}$. %
+Moreover, we obtain the filtered response $\phi \mapsto \phi(0)$. This motivates the following definitions: %
+%
+\begin{align}
+  \Lambda_H(\phi) &\Def \int_\R H \phi\diff{t} & (\text{expresses $H$, the Heaviside step function})\\
+  \Lambda_H'(\phi) &\Def \minus \int_\R H \diff{\phi} = \phi(0) & 
+    (\text{the \textit{weak derivative} of $H$: impulse at $0$})\\
+  \delta(\phi) &\Def \phi(0) \label{definition-of-dirac} & (\text{$\delta$ now has a rigorous definition}).
+\end{align}
+%
+The functional $\delta:\phi\mapsto \phi(0)$ is rigorously defined and conveys the idea of energy increasing by a fixed amount %
+at a point in time. Its extension to all $\phi \in C_c(\R)$ turns $\delta$ into a Radon measure of norm/total variation %
+$\norm{\delta} = 1$ and support $\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) distribution %
+of order $0$; see \citeFA{Chapters 6 and 7}. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
+%
+\begin{equation}
+  \delta: E \mapsto \Iverson{0 \in E} 
+\end{equation}
+%
+restricted to Borel sets in $\R$. Hence the instance of \eqref{definition-of-sum}
+%
+\begin{equation}\label{filtering}
+  \int_\R \phi \, \delta = \delta(\phi) = \phi(0).
+\end{equation}
+%
+Convolution of $\delta$ with shifts $\phi_s:t \mapsto \phi(s-t)$ extends \eqref{filtering}, since 
+%
+\begin{equation}
+  [\delta \ast \phi](s) \Def \int_{\minus \infty}^\infty \phi(s-t) \diff{\delta(t)} 
+  = \int_\R \phi_s \diff{\delta} 
+  = \delta(\phi_s) = \phi(s) \qquad (s\in \R).
+\end{equation}
+%
+The Radon measure $\delta$ now serves as the convolution identity, which is of considerable interest.
+% END
+%%

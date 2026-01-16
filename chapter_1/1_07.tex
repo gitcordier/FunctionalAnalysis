@@ -1,6 +1,6 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % FunctionalAnalysis 
-% 1_7.tex
+% 1_07.tex
 % 
 % encoding: UTF-8 
 % EOL: LF
@@ -41,21 +41,21 @@ The family of seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
-is therefore a local base for a topology $\tau$ on $X$, see Section 1.37 of \cite{FA}. Thus, given $\singleton{g_n} \subset X$, 
-the following inequalities, expressed in Iverson's notation, hold: %
+is therefore a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Hence %
 %
 \begin{equation}
   %
-  \label{Inequality boolean series}
+  \label{Inequality-boolean-series}
   %
   \sum_{n=1}^\infty \Iverson{g_n \notin \cap_{i=1}^m U_i}
   \leq 
   \sum_{n=1}^\infty \sum_{i=1}^m \Iverson{g_n \notin U_i} 
   = 
-  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i}.
+  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i},
 \end{equation}
 %
-Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. By definition, %
+see [I.\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
+By definition, %
 %
 \begin{equation}
   %
@@ -76,11 +76,11 @@ finitely many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
   \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} = \infty. 
 \end{equation}
 %
-In (\ref{Inequality boolean series}), the special case $g_n = f_n - f$ and $U_i = V(x_i, k_i)$ then gives%
+Substituting $f_n - f$ for $f_n$ in \eqref{Inequality-boolean-series}, with $U_i = V(x_i, k_i)$, yields 
 %
 \begin{equation}
-  \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} \citeleq{\ref{Inequality boolean series}} 
-  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{f_n - f \notin V(x_i, k_i)}
+  \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} 
+  \leq \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{f_n - f \notin V(x_i, k_i)}
   = \infty.
 \end{equation}
 %
@@ -106,7 +106,7 @@ We now prove the second part by constructing a specific sequence $\singleton{f_n
 Indeed, the hint suggests that there exists a bijection %  
 %
 \begin{align}
-  \phi: \setbig{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
+  \phi: \set{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
 \end{align}
 %
@@ -147,14 +147,14 @@ More precisely, there exists a bijective sum  %
 %\def\bin{\text{\fw sum}}
 \def\bin{\sigma}
 \begin{align}
-  \bin:  \setbig{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
+  \bin:  \set{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
 A suitable $\singleton{f_n}$ can be defined as follows: %
 %
-\begin{equation}
-  \label{definition of f_n(alpha)} f_n(x) \Def \begin{cases} 
+\begin{equation}\label{definition of f_n(alpha)}
+  f_n(x) \Def \begin{cases} 
     2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \bin(\beta_1, \dots, \beta_n, \dots) \notin \Q) \\
     0 & (x \in \Q).
   \end{cases} 
@@ -164,8 +164,7 @@ Indeed, we note that every bit stream $\bin^{\minus 1}(x)$ has infinitely many $
 $f_n(x) \xrightarrow{n\infty} 0$. Next, pick an arbitrary $\gamma_n \to \infty$. Thus, for any positive integer $k$, %
 $\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k > N_k$ so large that %
 %
-\begin{equation}
-  \label{definition of n_k}
+\begin{equation}\label{definition of n_k}
   n_{k+1} - n_k > k.
 \end{equation}
 %
@@ -177,7 +176,7 @@ The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is not eventua
 %
 implies %
 %
-\begin{equation} \label{p sum of bits}
+\begin{equation}\label{p sum of bits}
   \beta^\gamma_1 + \dots + \beta^\gamma_{n_1} + \dots + \beta^\gamma_{n_k} = k.
 \end{equation}
 %
@@ -186,7 +185,6 @@ Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yie
 \begin{equation}
   \gamma_{n_k} f_{n_{k}}(\bin(\beta^\gamma))
     = {\gamma_{n_k}}/{2^k} 
-    %> 4^k / 2^k 
     > 2^k 
     \tendsto{k}{\infty}\infty.
 \end{equation}

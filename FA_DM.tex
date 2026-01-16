@@ -4,22 +4,25 @@
 
 %: MATH PACKAGE USED
 %\usepackage{graphicx}
-
-\usepackage{amsmath}
+%\usepackage{fontspec}
+\usepackage{amsmath, bm}
 \usepackage{
 physics, 
-amssymb, amsfonts, 
+amssymb, 
+amsfonts, 
 mathrsfs, 
 amsthm, 
+mathtools, 
 mathspec, 
 fouridx, 
 %%stix
-%%tensor
-theorem, 
-tikz
+%%tensor 
+%tikz 
 }
-\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
-
+%\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+\usepackage{diagbox} % For diagonal cells
 %\usetikzlibrary{shapes.geometric}
 %\usetikzlibrary{arrows.meta,arrows}
 %\usepackage{tlatex}
@@ -38,6 +41,7 @@ tikz
 
 %: FOR XELATEX. SKIP IF ERROR MESSAGE
 \usepackage{xltxtra,xunicode}
+
 %: for HEVEA- Uncomment before using XeTeX
 %\usepackage[utf8]{inputenc}
 \usepackage[xetex]{hyperref}
@@ -94,7 +98,8 @@ tikz
 %: ----------------------------PRIMITIVES------------------------------------- 
 \newcommand{\insmall}[1]{\text{\small{#1}}}
 % Some acceptable minus sign.
-\def\minus{\insmall{-}}
+\newcommand{\minus}{\insmall{-}}
+
 
 % The field C and the usual subsets R, Q, Z, N. 
 \newcommand\usualSet[1]{{\mathbf #1}}
@@ -113,6 +118,7 @@ tikz
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
 % integers (nonnegative)
 \newcommand\integers[1]{#1=0, 1, 2, \dots}
+\newcommand\naturals[1]{#1=0, 1, 2, \dots}
 
 % Indices: upper, lower
 \newcommand{\up}[1]{^{(#1)}}
@@ -128,6 +134,9 @@ tikz
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
 \newcommand{\id}[1]{\text{id}_{#1}}
+%\renewcommand{\restriction}[2]{\left.#1\right|_{#2}}
+\renewcommand{\restriction}[2]{#1\!\upharpoonright_{#2}}
+
 %\newcommand{\DeclareMathOperator}[1]{\text{#1}}
 
 % Sets
@@ -135,32 +144,57 @@ tikz
 %\renewcommand{\ni}{\small \ni}
 \renewcommand{\subset}{\subseteq}
 \renewcommand{\supset}{\supseteq}
-\DeclareMathOperator\opcard{card}
-\newcommand{\card}[1]{\opcard(#1)}
+\newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
+\DeclareMathOperator\opcard{card} 
 %
 \def\contains{\supseteq}
 \def\cuts{\cap}
 \DeclareMathOperator\cvxhull{co} 
-\DeclareMathOperator\support{supp} 
+%\DeclareMathOperator\support{supp} 
 \newcommand{\co}[1]{\cvxhull(#1)}
-\newcommand{\set}[2]{\{#1: #2\}}
-\newcommand{\setbig}[2]{\bigl\{#1: #2\bigr\}}
+\newcommand{\set}[3][\big]{#1\{#2 : #3 #1\}}
+
 \newcommand{\singleton}[1]{\{#1\}}
 \newcommand{\interior}[1]{\overset{\circ}{#1}}
-\newcommand{\closure}[1]{\overline{#1}}
-\newcommand{\supp}[1]{\support{(#1)}}
-
+\newcommand{\closure}[1]{\overline{#1}} 
+ 
 % Arithmetics
-\newcommand{\ceil}[1]{\lceil #1 \rceilf}
+
 
 % Calculus 
+\DeclareMathOperator\sgn{sgn}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
 \DeclareMathOperator\Leibnizdiff{d}
 \newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
+\newcommand{\supp}[1]{\operatorname{supp}#1}
 
+% Variation of a function. 
+% I don't know where the original \variation comes from. 
+% It outputs a \delta... Hence 
+\newcommand{\evalbar}[4][\Big]{#2\mathrel{#1|}_{#3}^{#4}}
+\newcommand{\evalbracket}[4][\Big]{#1[\,#2\,#1]_{#3}^{#4}}
+%
 % Analysis
-\newcommand\openinterval[2]{\left]#1, #2\right[} 
-\newcommand\magnitude[1]{\abs{\,#1\,}}
-\newcommand{\norma}[2]{\norm{#2}_{#1}}
+\newcommand{\openinterval}[2]{\left]#1, #2\right[} 
+%\newcommand{\magnitude}[1]{\abs{\,#1\,}}
+\def\hspaceNorm{\hspace{0.12 em}}
+\newcommand{\magnitude}[2][\big]{#1\lvert \hspaceNorm #2 \hspaceNorm #1\rvert}
+
+\renewcommand{\norm}[2][]{
+  \if\relax\detokenize{#1}\relax 
+    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
+  \else 
+    \left\lVert \hspaceNorm #2 \hspaceNorm \right\rVert_{#1} 
+  \fi
+}
+
+% Three-bar norm, macro from:
+% https://tex.stackexchange.com/questions/54385/spacing-between-triple-vertical-lines
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+% So, 
+\newcommand{\normtriple}[2]{\vertiii{\hspaceNorm #2 \hspaceNorm}_{#1}}
+
 \newcommand{\Continuous}{{\mathscr C}} 
 \newcommand{\D}{{\mathscr D}} 
 %\renewcommand{\norm}[2]{\norm{#2}_{#1}}
@@ -183,7 +217,7 @@ tikz
 \def\eg{\textit{, e.g., }}
 \def\cf{\textit{cf.\,}} 
 \def\IFF{{\bf iff }}
-\def\wlg{{\bf wlg }} % Without loss og generality
+\def\wlg{{\bf wlg }} % Without loss of generality
 
 % then, since.
 \def\then{\Rightarrow} 
@@ -194,12 +228,10 @@ tikz
 
 % Misc
 % phi is varphi:
-\renewcommand{\phi}{\varphi}
-% epsilon is varepsilon
-\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi} 
 
 % Citations
-\newcommand{\citehere}[2]{\overset{(#1)}{#2}}
+\newcommand{\citehere}[2]{\overset{#1}{#2}}
 \newcommand{\citeq}[1]{\citehere{#1}{=}}
 %\newcomand{\citeineq}[1]{\citehere{#1}{=}}
 \newcommand{\citeleq}[1]{\citehere{#1}{\leq}}
@@ -212,10 +244,11 @@ tikz
 \newcommand{\citesupset}[1]{\citehere{#1}{\supset}}
 \newcommand{\citesupseteq}[1]{\citehere{#1}{\supseteq}}
 
-\newcommand{\citethen}[1]{\citehere{#1}{\Rightarrow}}
+\newcommand{\citethen}[1]{\citehere{#1}{\then}}
 %\newcommand{\citesince}[1]{\citehere{#1}{\Leftarrow}}
 \newcommand{\citeresult}[2]{#1 of #2}
-\newcommand{\citeresultFA}[1]{\citeresult{#1}{\cite{FA}}}
+\newcommand{\citebook}[2]{[#1] of {\cite{#2}}}
+\newcommand{\citeFA}[1]{\citebook{#1}{FA}}
 
 \newcommand{\citein}[1]{\citehere{#1}{\in}}
 % Misc
@@ -224,6 +257,23 @@ tikz
 \def\ddy{{\function{decay}}}
 
 %--------------END OF PRIMITIVES--------------------------------
+
+% Environment for lemmas 
+\makeatletter
+\newtheoremstyle{namedlemma} % <name>
+  {3pt}                     % Space above
+  {20pt}                    % Space below
+  {}                        % Body font e.g \itshape
+  {}                        % Indent
+  {\bfseries}               % Head font
+  {.\newline}               % Hack
+  {\newline}                % Space after theorem head
+  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}} % Head spec
+\makeatother
+
+\theoremstyle{namedlemma}
+\newtheorem{lemma}{Lemma}[chapter]
+
 \def\ROOT{./}
 \def\TITLE{
   Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}
@@ -239,6 +289,7 @@ tikz
 %\begin{abstract}
 %    \input{\ROOT/abstract.tex}
 %\end{abstract}
+%\title{\TITLE}
 \title{\TITLE}
 \author{\AUTHOR}
 \date{\today}
@@ -249,35 +300,43 @@ tikz
 % IF LANG = @fr
 %\renewcommand{\chaptername}{Chapitre}
 %
-% CHAPTER  NAME :
 \frontmatter
 \tableofcontents
 %\clearpage
 
 %\printglossary
-
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\roman{subsection}}
 \input{\ROOT/notations.tex}
-
-\mainmatter
-%\part{Content}
-\renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
-\input{\ROOT/FA_mainmatter.tex}
-%\backmatter
+\renewcommand{\thesection}{\arabic{section}}
+\mainmatter
+%\part{Content} 
+\input{\ROOT/FA_mainmatter.tex} 
+
+\backmatter
 %\part{Annex}
-%\renewcommand\thechapter{\Alph{chapter}}
-%\setcounter{chapter}{1}
-%\chapter{Additional results}
-%\newcounter{annex}
-%\setcounter{annex}{1}
-%\renewcommand\thesection{\thechapter.\arabic{annex}}
-%\section{Number theory}
-%\input{\ROOT/Annex_number_theory.tex}
+\chapter{Annex}
+%\addcontentsline{toc}{chapter}{Annex}
+
+\newcounter{annex_chapter}
+\newcounter{annex_section}
+
+\setcounter{annex_chapter}{1}
+\setcounter{annex_section}{1}
+\setcounter{equation}{0}
+
+\renewcommand{\thechapter}{\Alph{annex_chapter}} 
+\renewcommand{\thesection}{\thechapter.\arabic{annex_section}} 
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+%
+\input{\ROOT/annex/FA_annex.tex}
+
+% --- Bibliography ---
 \bibliographystyle{plain}
-\bibliography{bibliography}{}
+\bibliography{bibliography}
 \addcontentsline{toc}{chapter}{Bibliography}
 \end{document}
-
-
-%Made on \XeTeX
+% Made on \XeTeX
+% END
+% 

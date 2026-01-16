@@ -9,150 +9,124 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\renewcommand{\thesection}{\Roman{section}}
-\renewcommand{\thesubsection}{\roman{subsection}}
 %
-\chapter{Notations and Assumptions}%
+\chapter{Notations and Assumptions}
 %\addcontentsline{toc}{chapter}{Notations and Conventions}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % LOGIC
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Logic}%
-\subsection{Propositional logic operators}
-Given propositional variables $\mathit{p}$, $\mathit{q}$, the boolean %
-operators $\lnot$, $\lor$, $\land$, $\iff$, $\then$, %
-$\Leftarrow$, are assigned boolean \emph{truth values} (``true'' and ``false'') as follows,
-\begin{enumerate}
-  \item[$\lnot$]{%
-    $\lnot p$ and $p$ have opposite values:
-  }
-  \item[$\lor$]{
-    The \emph{disjunction} (``or'') $p \lor q$ is true unless $p$ is false and $q$ is false.
-  }
-  \item[$\land$]{
-    The \emph{conjunction} (``and'') $p \land q$ is true if and only if $p$ is true and $q$ is true.
-  }
-  \item[$\iff$]{%
-    The \emph{logical equivalence} expresses \emph{tautologies}: %
-    $p \iff q$ is true unless $p$ and $q$ have opposite values. It is easily checked that %
-    $(p \iff q) \iff \bigl((p \then q) \land (p \because  q) \bigr)$, see the definitions below.
-  }
-  \item[$\then$]{%
-    The logical connection \emph{$p$ implies $q$} is supported by $\then$: $p \then q$ means \emph{if $p$ then $q$} %
-    and is formally defined as $\lnot p \lor q$. Note that the ``reasoning'' $p \then q $ is always true unless %
-    $p$ is true and $q$ is false. Moreover, $p \land (p \then q) \then q$ is always true. %
-    This deductive rule is known as \emph{modus ponens}.
-  }
-  \item[$\Leftarrow$]{ $q \because p$ means that $q$ is implied by $p$ and is defined as $ p\then q $. %
-    It is commonly read aloud as ``$q$ if $p$'' or ``$q$ is a consequence of $p$''.
-  }
-\end{enumerate}
+\section{Special terms}
+\subsection{Halmos' \IFF and definitions}%
+\IFF is a shorthand for ``if and only if". Splitting \IFF into \emph{if-then} clauses shows that it is  a rewording of the %
+logical equivalence $\iff$. All definitions will use the \emph{if and only if} convention, which is consistent with the fact %
+that every definition expresses an identity.
 %
-See Section 1.3 and Subsection 16.1.3 of \cite{SpecifyingSystems} for further reading.
+\subsection{The assignment operator $\Def$}%
+Given $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \IFF $a$ and $b$ are %
+\emph{assumed} to be equal. Typically, $a\triangleq b$ means that $a$ is assigned the previously known value $b$ %
+(some authors write $a:=b$) but this is not a strict requirement. 
 %
-\subsection{Iverson notation}%
-Given a boolean expression $\phi$, %
-$\Iverson{\phi}$ returns the truth value of $\phi$, encoded as follows, %
+\subsection{Iverson brackets}\label{Iverson-notation}
+Given a boolean expression $\phi$, $\Iverson{\phi}$ encodes the truth value of $\phi$ as a {\fw bit}:
 %
 \begin{align} \nonumber
   \Iverson{\phi}\triangleq 
   \begin{cases}
-    0 & \quad\quad \text{if } \phi \text{ is false;} \\
-    1 & \quad\quad \text{if } \phi \text{ is true.}
+    0 & \qquad (\phi \text{ is false}) \\
+    1 & \qquad (\phi \text{ is true}). \\
   \end{cases}
 \end{align}
 %
-For example, $\Iverson{1 > 0} = 1$ but $\Iverson{ \sqrt{2} \in \Q} = 0$.
-\section{Special terms}
-\subsection{Halmos' \IFF and definitions}%
-\IFF is a shorthand for ``if and only if". Splitting \IFF into \emph{if-then} clauses shows that it is just a rewording of %
-the logical equivalence $\iff$. All definitions will use the \IFF format, which is consistent with the fact that %
-every definition expresses a tautology.
-%
-\subsection{The assignment operator $\Def$}%
-Given variables $\varit{a}$ and $\varit{b}$, $\triangleq$ is a specialization of $=$. We say that $a\triangleq b$ \IFF %
-$a$ and $b$ are assumed to be equal. Usually, $a\triangleq b$ means that $a$ is assigned the previously known value %
-$b$ (some authors write $a:=b$) but this is not a limitation. Definitions can be redundant and may overlap. %
-%
+For example, $\Iverson{1 > 0} = 1$ but $\Iverson{ \sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators in logic, %
+see \cite{SpecifyingSystems}.
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SETS
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Sets}
 \subsection{Subsets and supersets}%
-$\subset$ and $\supset$ are the standard symbols for set ordering, as follows: %
-\begin{align}
-  X \subset Y & \defIFF x \in X \then x\in Y \\
-  Y \supset X & \defIFF X \subset Y.
-\end{align}
-No specific symbol is reserved for strict ordering. If necessary, $X \neq Y$ will be explicitly stated. 
+$\subset$ and $\supset$ are the standard symbols for set ordering. No specific symbol is reserved for strict ordering, every %
+restriction $X \neq Y$ will be explicitly stated when it applies.
+%
+Given $A$ and $B$, $A\cup B$ is the union of $A$ and $B$. More generally, for any collection $C$ of set(s) $S$, the union $U$ %
+of $C$ is expressed as follows:
+%
+\begin{equation}
+U \Def \bm{\bigcup}C \Def \bigcup_{S \in C} S.
+\end{equation}
+%
+Similarly, $\cap$ denotes intersection in the same manner. %
 %
 \subsection{Special mappings}
-The identity $I$ is the special mapping $I_X = \set{(x,x)}{x\in X}$. Similarly, the projection %
-$\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists. Note that $I$ is the diagonal of $X^2$. %
+The identity $I$ (or $id$) is the mapping $\set{(x,x)}{x\in X}$. Similarly, the projection %
+$\pi = \set{((x, y), x)}{x \in X, y \in Y}$ always exists. Observe that $I$ is the diagonal of $X \times X$. %
 %
 \subsection{Equinumerosity}%
-$X\equiv Y$ means that there exists a bijection $\phi$ that maps $X$ to $Y$, which lets us identify $X$ with $Y$. %
-In a metric space context, $X\equiv Y$ means that $\phi$ is isometric. %
+In a metric space context, $X\equiv Y$ means that $\phi$ is an onto isometry. %
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % TVS 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Topological vector spaces}
 \subsection{Scalar field}%
-$\C$ extends $\R$, which implies that a property\eg linearity, that is true on $\C$ is also true on $\R$. The complex case %
-is then a \emph{special case} of the real case. This restriction may be significant in some contexts. Nevertheless, the %
-standard scalar field is $\C$, which means that considering $\R$ instead of $\C$ makes no difference, unless stated otherwise.%
+$\C$ extends $\R$, which implies that a property\eg linearity, that holds over $\C$ also holds over $\R$. The complex %
+case is therefore \emph{the stronger one}. This restriction may be significant in some contexts. However, the %
+standard scalar field is $\C$. Considering $\R$ instead of $\C$ makes no difference, unless stated otherwise, as in %
+\citeFA{3.1 and Chapter 12}.%
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Vector spaces
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Vector space bases}\label{notations: vector spaces: vector space bases}
-Given a vector space $X$ over $\C$ (or, more generally, over a field), a subset $B$ of $X$ is a basis of $X$ \IFF %
+\subsection{Vector space bases}\label{vector-space-basis}
+Given a vector space $X$, a subset $B$ of $X$ is a basis of $X$ \IFF %
 the sum %
 %
 \begin{align}
-  \setbig{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \\\nonumber
+  \set{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \\\nonumber
   (z_u) & \mapsto \sum_{z_u \neq 0 } z_u u
 \end{align}
-bijectively maps all \emph{finitely supported} $(z_u)$ \emph{onto} $X$. %
+is a bijection from all \emph{finitely supported} families $(z_u)$ onto $X$. %
 %
 The axiom of choice (AC) forces %
 \begin{enumerate}
   \item the existence of such $B$ %
-    (the proof is similar to the second part of the Hahn-Banach theorem [3.1] of \cite{FA} with $B$ playing the role of 
+    (the proof is similar to the second part of the Hahn-Banach theorem \citeFA{3.1} with $B$ playing the role of 
     $\Lambda$); %
-  \item all bases to have the same cardinal, which is called the {\it dimension} of $X$ and is denoted as $\dim{X}$. %
+  \item all bases to have the same cardinality, which is called the \emph{dimension} of $X$ and is denoted as $\dim{X}$. %
 \end{enumerate}
 %
-We now turn to the finite-dimensional case. Note that the $0$-dimensional case is the degenerate case $B=\emptyset$, %
-which is equivalent to $X=\singleton{0}$. Our first step is to study $\C^n$ ($n>0$) the standard $n$-dimensional vector space.
+We now turn to the finite-dimensional case over the field $\C$. The zero-dimensional case is %
+$B=\emptyset$\ie $X=\singleton{0}$. Our first step is to study $\C^n$ ($n>0$) the standard $n$-dimensional vector space.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Finite dimension
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Finite-dimensional spaces}\label{notations: vector spaces: finite-dimensional vector spaces}%
-\subsubsection{The product topology of $\C^n$}%
-\label{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}
-%
-$\C^n$ has a standard basis $1_{\singleton{1}}, \dots, 1_{\singleton{n}} \in \{0, 1\}^{\{0, \dots, n-1\}}$ %
-so that $z_k$ ($1 \leq k \leq n$) is the $k$-th component of a given %
-$(z_1,\dots, z_n) = z_1 (1, 0, \dots, 0)  + \cdots  + z_n (0, \dots, 0, 1) \in \C^n$. Furthermore, %
-$\C^n$ is endowed with the topology generated by all polydiscs %
+\subsubsection{The product topology of $\C^n$}
+$\C^n$ has a standard basis $1_{\singleton{0}}, \dots, 1_{\singleton{n-1}}$ so that scalar $z_k$ is the $k$-th component of %
 %
 \begin{equation}
-  \prod_{i=1}^{n} \underbrace{\set{z_i \in C}{\magnitude{z_i} < r_i}}_{D_{r_i}} \quad (r_i > 0 ).
+  (z_1,\dots, z_n) \Def 
+  z_1 \cdot (\,\underbrace{1, 0, \dots, 0}_{1_{\singleton{0}}}\,)
+  + \cdots
+  + z_n  \cdot (\,\underbrace{0, \dots,0,  1}_{1_{\singleton{n-1}}}\,), 
+\end{equation}
+as $z=(z_1, \dots, z_n)$ ranges over $\C^n$. Moreover, $\C^n$ is endowed with the topology generated by all polydiscs %
+%
+\begin{equation}
+  \prod_{i=1}^{n} \{\,\underbrace{z_i \in \C: \magnitude{z_i} < r_i}_{D_{r_i}}\,\} \qquad (r_i > 0 ).
 \end{equation}
 %
 Equivalently, we may equip $\C^n$ with the Euclidean norm % 
 %
-\begin{equation}
-  \norma{2}{z} \Def \sqrt{\magnitude{z_1}^2 + \cdots + \magnitude{z_n}^2} \quad \left(z = (z_1, \dots, z_n) \in \C^n\right), 
+\begin{equation}\label{Euclidean-norm}
+  \norm[2]{z} \Def \sqrt{\magnitude{z_1}^2 + \cdots + \magnitude{z_n}^2}, 
 \end{equation}
 %
 whose open balls centered at the origin are all %
 %
 \begin{equation}
-  B_r \Def \set{z\in \C^n}{\norma{2}{z} < r} \quad (r > 0).
+  B_r \Def \set{z\in \C^n}{\norm[2]{z} < r} \qquad (r > 0).
 \end{equation}
 %
 To show the equivalence, first set $r_i = r/\sqrt{n}$. Hence %
@@ -161,31 +135,28 @@ To show the equivalence, first set $r_i = r/\sqrt{n}$. Hence %
   \prod_{i=1}^{n} D_{r_i} \subset B_r. 
 \end{equation}
 %
-Conversely, put $r = \min{r_1, \dots, r_n}$ so that %
+Conversely, put $r = \min{(r_1, \dots, r_n)}$ so that %
 %
 \begin{equation}
    B_r \subset \prod_{i=1}^{n} D_{r_i} .
 \end{equation}
 %
 \subsubsection{Topology of a finite-dimensional vector space}
-It is customary to identify any $n$-dimensional vector space with $\C^n$ equipped with the Euclidean norm, %
-see [\ref{notations: vector spaces: finite-dimensional vector spaces: the product topology of Cn}]. %
+It is customary to identify any $n$-dimensional vector space with $\C^n$ equipped with the Euclidean norm, 
+see [\ref{Euclidean-norm}]. %
 %
-To show this, pick an $n$-dimensional vector space $Y$ and let $f$ be an isomorphism of $\C^n$ onto $Y$. %
-For instance, require that $u_k = f(e_k)$, like in [1.20] of \cite{FA}, as $\singleton{u_k}$ is a basis of $Y$, %
-see [\ref{notations: vector spaces: vector space bases}]. It follows from [1.21] of \cite{FA} that $f$ is a homeomorphism. 
-The striking consequence is that 
+To show this, choose an isomorphism $f: \C^n \to Y$. For instance, let $f(e_k)$ be $u_k$, as in \citeFA{1.20}, when %
+$\{u_k\}$ is a basis of the $n$-dimensional $Y$, see [\ref{vector-space-basis}]. It follows from \citeFA{1.21} that $f$ is a %
+homeomorphism. A striking consequence is that %
 %
-\begin{quote}
-  $\set{f(U)}{U \text{ open in }\C^n}$ {is the only vector space topology for $Y$}. %
-\end{quote}
+  \emph{$\set{f(U)}{U \text{ open in }\C^n}$ is the only topological vector space topology for $Y$}. %
 %
-Thus, $Y$ is necessarily locally convex and locally bounded \ie normable, see [1.39] of \cite{FA}. Note that %
-$\norm{y}= \norma{2}{f^{\minus 1}(y)}$ ($y\in Y$) is an example of a norm. Additionally, $Y$ is locally compact, %
-since the closed unit ball of $\C^n$ is compact. Now pick an $n$-dimensional topological vector space $W$, then repeat the %
-same reasoning, first with $g: \C^n \to W$, next with $h = g\circ f^{\,\minus 1}$ playing the role of $f$. This establishes %
-that the homeomorphism $h$ maps $Y$ onto $W$ and that $W$ is normable as well. It is now clear that the following assertions %
-are equivalent in the finite-dimensional context: %
+in other words, there is only one version of $Y$ as a topological vector space. Thus, $Y$ is necessarily locally convex and %
+locally bounded \ie normable, see \citeFA{1.39}. Note that $\norm[Y]{y}= \norm[2]{f^{\minus 1}(y)}$ for all $y\in Y$ is an%
+example of a norm. Additionally, $Y$ is locally compact, as the closed unit ball of $\C^n$ is compact. %
+Choose an $n$-dimensional topological vector space $W$, and repeat the same reasoning, first with $g: \C^n \to W$, next with %
+$h = g\circ f^{\,\minus 1}$, playing the role of $f$. This establishes that the homeomorphism $h$ maps $Y$ onto $W$ and that %
+$W$ is normable as well. The following assertions are then equivalent in the finite-dimensional context: %
 %
 \begin{enumerate}
   \item $\dim{W} = \dim{Y},$ 
@@ -193,98 +164,150 @@ are equivalent in the finite-dimensional context: %
   \item $W$ and $Y$ are homeomorphic to each other, they are normable.
 \end{enumerate}
 %
-Furthermore, the norms on $W$ and $Y$ are \emph{equivalent}. That is, for any given norm $\norma{Y}{\cdot}$ on $Y$ and %
-any given norm $\norma{W}{\cdot}$ on $W$, there exists a positive constant (termed as \emph{modulus of continuity}) $C= C_h$ %
-such that %
+Furthermore, the norms on $W$ and $Y$ are \emph{equivalent}. That is, for any given norm $\norm[Y]{\cdot}$ on $Y$ and %
+any given norm $\normtriple{W}{\cdot}$ on $W$, there exists a positive constant (termed the \emph{modulus of continuity}) %
+$C= C_h$ such that %
+%
 \begin{align}
-  \norma{W}{W} & \leq C \norma{Y}{y} \quad\quad \left((y, w) \in h \right), 
+  \normtriple{W}{w} & \leq C \normtriple{Y}{y} \qquad\left((y, w) \in h \right), 
 \end{align}
 %
-as $h$ is continuous.  The special case $W=Y$ is that all norms on $Y$ are equivalent, in the sense that %
+as $h$ is continuous. When $W=Y$, this means that all norms on $Y$ are equivalent, in the sense that %
 %
 \begin{equation}
-  \norma{{\text{\fw copy of Y}}}{h(y)} \leq C \norma{Y}{y}.
+  \normtriple{Y}{h(y)} \leq C \norm[Y]{y}.
 \end{equation}
 %
-\subsubsection{The standard norms $\norma{1}{\,\cdot\,}$, $\norma{2}{\,\cdot\,}$, $\norma{\infty}{\,\cdot\,}$} When $\C^n$ %
-is equipped with standard norms $1, 2, \infty$, the sharp constant\ie the smallest $C_{i, j}$ such that %
+\subsubsection{The standard norms $1$, $2$, and $\infty$}
+When $\C^n$ is equipped with standard norms $\norm[1]{\,\cdot\,}$, $\norm[2]{\,\cdot\,}$, $\norm[\infty]{\,\cdot\,}$, %
+the least $C_{i, j}$ such that %
 %
 \begin{equation}
-	\norma{j}{z} \leq C_{i, j} \norma{i}{z} 
+	\norm[j]{z} \leq C_{i, j} \norm[i]{z} 
 \end{equation}
 %
-is easily derived from definitions - see [1.19] of \cite{FA} - with the noticeable exception of $C_{2, 1} = \sqrt{n}$. %
-Indeed, $\norma{1}{z} \leq \sqrt{n} \norma{2}{z}$ is a special Cauchy-Schwarz inequality, see (1) in [12.2] of \cite{FA}. %
-The steps of this classical trick are left to the reader. %
+is easily derived from definitions - see \citeFA{1.19} - with the exception of $C_{2, 1} = \sqrt{n}$. Indeed, %
+$\norm[1]{z} \leq \sqrt{n} \norm[2]{z}$ is a Cauchy-Schwarz inequality, see (1) in \citeFA{12.2}. The table below records %
+these sharp $C_{i,j}$,
 %
-\section{Measure theory on $\R^n$}
+\begin{table}[h!]\centering
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \diagbox{i}{j} & 1 & 2 & $\infty$ \\ \hline
+  1 & 1 & 1 & 1 \\ \hline
+  2 & $\sqrt{n}$ & 1 & 1 \\ \hline
+  $\infty$ & $n$ & $\sqrt{n}$ & 1 \\ \hline
+  \end{tabular}
+  \caption{Minimal $C_{i,j}$ for the standard norms $i, j = 1, 2, \infty$.}
+  \label{tab:sharp-constants}
+\end{table}
+%
+\subsection{Continuity and boundedness in normed spaces}%
+A linear mapping $\Lambda$ is said to be \emph{bounded} \IFF \emph{$\Lambda(E)$ is a bounded set for every bounded set $E$}; %
+see \citeFA{1.31}. Linearity implies that $\Lambda: X \to Y$ is bounded \IFF 
+%
+\begin{equation}
+  \norm{\Lambda} \Def \sup{\set{\norm{\Lambda x}}{\norm{x} < 1}} < \infty, 
+\end{equation}
+%
+Given normed spaces $X$ and $Y$, bounded linear maps $\Lambda$ form a normed space $B(X,Y)$, where norm $\norm{\Lambda}$ is %
+given above, see \citeFA{4.1}. It is now easy to see that, in the current context, boundedness and continuity coincide. %
+This is a particular case of \citeFA{2.8}. When $Y$ is the scalar field, this equivalence also comes from \citeFA{1.32}. %
+Furthermore, we observe, that given a collection of bounded mappings $\Lambda\in B(X,Y)$, the property of equicontinuity 
+now reads as 
+%
+\begin{equation}
+  \sup_{\Lambda}{\norm{\Lambda}} < \infty. 
+\end{equation}
+%
+Thus, \emph{uniform boundedness} and uniform continuity coincide as well; \cf \citeFA{2.4}.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Measure theory
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\section{Measure theory}
 \subsection{Radon measures}
-A (positive) Radon measure is a linear functional %
-$\Lambda: C_c(\R^n) \to \C, \phi \mapsto \Lambda \phi$ that %
+Given a locally compact Hausdorff space $X$\eg $\R^n$, a positive Radon measure $\Lambda$ is a functional that is %
+\emph{positive} on $C_c(X)$, in the sense that
 %
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
-  \item is positive\ie $\phi \geq 0 \then \Lambda\phi \geq 0$,
-  \item is continuous in the sense that, for each compact $K \subset \R^n$ there exists a modulus of continuity $M_K$ such that %
-  \begin{equation}
-    \magnitude{\Lambda\phi} \leq M_K\norma{\infty}{\phi} \quad (\supp{\phi} \subset K ).
-  \end{equation}
+  \item $\phi \geq 0 \then \Lambda \phi \geq 0 \qquad \bigl(\phi \in C_c(X)\bigr)$.
+\end{enumerate}
+%
+Theorem \citebook{2.14}{BigRudin} shows that positivity (i) implies the following \emph{continuity} property (ii):
+
+\begin{enumerate}\setcounter{enumi}{1}
+  \item For each compact $K \subset X$ there exists a modulus of continuity $M_K$ such that %
+  \begin{equation*}
+    \magnitude{\Lambda \phi} \leq M_K\norm[\infty]{\phi} \qquad \bigl(\phi \in C_c(X): \supp{\phi} \subset K \bigr).
+  \end{equation*}
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 % 
-Theorem [2.14] of \cite{BigRudin} shows that (i) actually implies (ii), as (ii) defines Radon measures in a weaker sense, %
-see \cite{AnalyseIII}. Moreover, $\Lambda$ is bounded on $C_c(\R^n)$ with respect to the supremum norm \IFF (ii) is %
-satisfied with all $M_K\leq \norma{\infty}{\Lambda} <\infty$. These bounded linear functionals are at the core of the theory, %
-and according to [6.19] of \cite{BigRudin}, each of them is isometrically identified  with a specific regular Borel measure %
-$\mu$. %
-%
-\subsection{Lebesgue integration}
-Theorem [2.14] of \cite{BigRudin} states that every positive Radon measure $\Lambda$ (bounded or not) is identified with a %
-specific positive and regular Borel measure $\beta$. This justifies the introduction of % 
-%
-\begin{equation}\label{definition-of-sum}
-	\int_{\R^n} \phi \diff{\beta} \Def \Lambda \phi \quad \left(\phi \in C_c(\R^n)\right),
-\end{equation}
-%
-where the left side is a Lebesgue integral. The regularity property implies that $\Lambda$ has mass %
+Condition (ii) defines Radon measures in a weaker sense, see \cite{AnalyseIII}. Moreover, $\Lambda$ is bounded on $C_c(X)$ %
+with respect to the supremum norm \IFF (ii) is satisfied with all $M_K\leq \norm[\infty]{\Lambda} <\infty$. These bounded %
+functionals are then uniformly continuous Radon measures. According to \citebook{6.19}{BigRudin}, each of them is %
+isometrically identified with a specific regular Borel measure $\mu$. Conversely, when the ambient space $X$ is compact, %
+every Radon measure is $\norm[\infty]{\cdot}$-bounded. For instance, this case is addressed in Exercise 3 of Chapter 2. %
+In measure theory context, by \emph{support} of $\mu$, we mean: 
 %
 \begin{equation}
-	\int_{\R^n} 1 \diff{\beta} \Def \sup \setbig{\Lambda \phi}{\phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1}.
+  \supp{\mu} \Def X \bigsetminus \bigcup \; V, 
 \end{equation}
 %
-When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ Borel measurable, \eqref{definition-of-sum} takes the form %
+where $V$ runs through all open sets of measure $0$. A very important Radon measure of support $\singleton{0}$, the %
+\emph{Dirac delta function} is described in [\ref{annex-Dirac}].
+%
+\subsection{Lebesgue integration}
+Theorem \citebook{2.14}{BigRudin} states that every positive Radon measure $\Lambda: C_c(X)\to \C$ is identified with a %
+specific positive and regular Borel measure $\beta:X \to \R$. Hence % 
+%
+\begin{equation}\label{definition-of-sum}
+	\int_{X} \phi \diff{\beta} \Def \Lambda \phi \qquad \bigl(\phi \in C_c(X)\bigr),
+\end{equation}
+%
+where the left side is a Lebesgue integral. The regularity property implies that $\beta$ has total mass %
+%
+\begin{equation}
+	\int_{X} 1 \diff{\beta} \Def \sup \set{\Lambda \phi}{\phi \in C_c(X), \norm[\infty]{\phi} \leq 1}.
+\end{equation}
+%
+When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ $X$-measurable, \eqref{definition-of-sum} takes the form %
 %
 \begin{equation}\label{Borel integral}
-	\int_{\R^n} f \phi \diff{\beta} = \Lambda \phi.
+	\int_{X} f \phi \diff{\beta} = \Lambda \phi.
 \end{equation}
 %
 In particular, if $f$ is positive, 
 %
 \begin{equation}
-	\int_{\R^n} f \diff{\beta} = \sup \setbig{\Lambda \phi}{\phi \in C_c(\R^n), \norma{\infty}{\phi} \leq 1}.
+	\int_{X} f \diff{\beta} = \sup \set{\Lambda \phi}{\phi \in C_c(X), \norm[\infty]{\phi} \leq 1}.
 \end{equation}
 %
-Moreover, given $N = \set{f}{f = 0 \quad \beta-\text{a.e}}$, we see that, in \eqref{Borel integral}, density $f$ and measure %
-$\Lambda$ are identified modulo $N$. Algebraically speaking: %
+Moreover, given $N = N(\beta)$ denoting $\set{f}{f = 0 \;\,\beta\text{-a.e.}}$, we see that the density $f$ and the measure %
+$\Lambda$ are identified modulo $N$ in \eqref{Borel integral}. Algebraically speaking: %
 %
 \begin{equation}
-	f_1\beta = f_2\beta \iff f_1-f_2 \in N
+	g\,\beta = f\,\beta \iff g-f \in N.
 \end{equation}
 %
-We now define the following \emph{magnitude} $\magnitude{\cdot}_1$,  %
+An important issue in calculus is to know whether the modulus integral $\magnitude{f}_1$, namely 
 %
 \begin{equation}
-  \magnitude{f}_1 \Def \int_{\R^n}\magnitude{f} \quad \left(f \text{ $\beta$-measurable}\right),
+  \magnitude{f}_1 \Def \int_{X}\magnitude{f}\diff{\beta} \qquad \left(f \text{ $X$-measurable}\right), 
 \end{equation}
 %
-and the associated vector spaces for calculus:
+is finite. This justifies the following definitions:%
 %
 \begin{equation}
-	\mathcal{L}^1 \Def \setbig{f}{\magnitude{f}_1  < \infty} \subset \mathcal{L}^1_{\text{loc}}
-  \Def \setbig{f}{\magnitude{1_K f}_1 < \infty, K \text{ compact}}.
+	\mathcal{L}^1(X, \beta)\Def \set{f}{\magnitude{f}_1  < \infty} 
+  \subset \mathcal{L}^1_{\text{loc}}(X,\beta) 
+  \Def \bm{\bigcap} \set[\big]{\mathcal{L}^1(K,\beta)}{K \subset X \text{ is compact.}}
 \end{equation}
 %
-The crucial points are: 
+Standard notation $\mathcal{L}^1(\beta)$ is used to avoid redundancy, or simply $\mathcal{L}^1$ when the context is clear. %
+Key points include: 
 %
 \begin{enumerate}
   \item $\mathcal{L}^1$, equipped with $\magnitude{\cdot}_1$, is a seminormed space, 
@@ -294,83 +317,28 @@ The crucial points are:
 Together, these two facts imply that $L^1 = \mathcal{L}^1/N$, equipped with the norm %
 %
 \begin{equation}
-	\norma{1}{f + N} \Def \magnitude{f}_1 \quad (f \in \mathcal{L}^1), 
+	\norm[1]{f + N} \Def \magnitude{f}_1 \qquad (f \in \mathcal{L}^1), 
 \end{equation}
 %
-is a Banach space. % 
-\subsection{Dirac's impulse, a physicist's detour}
-Suppose we wish to record the impact of a particle on a surface. To do so, we introduce a carrier signal $\phi(t)$ that %
-vanishes outside the observation interval. A given collision occurs at time $t_Q$, which means the surface absorbs a pulsed %
-energy quantum $Q$ (normalized to 1 unit). Thus, the particle contribution is encoded as the Heaviside step function $H(t) = \Iverson{t \geq 0}$, %
-as time $t$ ranges over the real line. This models the fact that energy $H(t)$ only increases by an infinitely abrupt jump %
-at reference time $t_Q=0$. In this detour, we heuristically conclude that the derivative of $H(t)$, if it could exist, would %
-explode by $+\infty$ at $t=0$. This motivates the empirical fiction%
-%
-\begin{equation}
-  \frac{\diff{H}}{\diff{t}} \;\text{behaves like}\; \infty \times \Iverson{t=0}.
-\end{equation}
-%
-The informal derivative $\diff{H}/\diff{t}$ is called $\delta(t)$, the \emph{Dirac delta function}, or %
-\emph{Dirac's impulse}. Physically, the released energy is modeled by the impulse concentrated at $t=0$. Interpreted as %
-a density, $\delta(t)$ has total integral $1$ because %
-%
-\begin{equation}
-  \int_{\minus \infty}^\infty \delta(t) \diff{t} = \int_{\minus \infty}^\infty \diff{H} = H(\infty) - H(\minus \infty) = 1.
-\end{equation}
-%
-This expresses that integration of $\delta(t)$ over time recovers the whole energy $Q$. We now apply this heuristic to the c%
-arrier signal $\phi$: %
+is a Banach space. These definitions and properties extend to $L^p$ spaces ($p> 1$), as follows 
 %
 \begin{align}
-  \int_{\minus \infty}^\infty \phi(t) \delta(t)\diff{t} & =  \int_{\minus \infty}^\infty  \phi \diff{H}  \\
-  & =  \bigl[ H\phi \bigr]_{-\infty}^{\infty} - \int_{\minus \infty}^\infty H \diff{\phi} & [\text{integration by parts}]\\
-  & = -\int_{\minus \infty}^\infty H \diff{\phi} \label{Dirac-impulse-distribution1}&[\text{$\supp{\phi}$ is compact}]\\
-  & =  \phi(0) &
+  \mathcal{L}^p &\Def \set{f}{\magnitude{f}^p \in \mathcal{L}^1}, \\
+  L^p & \Def \mathcal{L}^p / N,  \\
+  \norm[p]{f+N} &\Def \sqrt[p]{\magnitude{{\magnitude{f}^p}}}_1 \qquad (f \in \mathcal{L}^p).
 \end{align}
 %
-The key point is that the sum \eqref{Dirac-impulse-distribution1} no longer involves any $\diff{H}$. Moreover, %
-we obtain the filtered carrier signal $\phi \mapsto \phi\vert_{t=0}$. This motivates the definition of the following linear %
-functionals: %
-%
-\renewcommand{\labelenumi}{(\roman{enumi})}
-\begin{enumerate}
-  \item{
-    \begin{equation*}
-      \Lambda_H(\phi) \Def \int_{\minus \infty}^\infty H \phi\diff{t},
-    \end{equation*}
-  }
-  \item{
-    \begin{equation*}
-      \Lambda_H'(\phi) \Def \minus \int_{\minus \infty}^\infty H \diff{\phi},
-    \end{equation*}
-  }
-  \item{
-    \begin{align}
-      % Workaround: Negative hspace to force vertical alignment with above definitions
-      \hspace{-0.45cm}\delta(\phi) & \Def \Lambda_H'(\phi)\nonumber \\
-      &  = \phi(0).\nonumber
-    \end{align}
-  }
-\end{enumerate}
-\renewcommand{\labelenumi}{\alph{enumi}}
-%
-This definition of $\delta(\phi)$ conveys the idea of energy increasing by a fixed amount at pulsed time while being %
-mathematically sound. Extension of (iii) to all $\phi \in C_c(\R^n)$ is immediate and turns %
-$\delta$ into a Radon measure. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
+Similar \emph{quasi-Banach} $L^p$ spaces exist for $0< p < 1$, with the noticeable difference that %
+$\sqrt[p]{\magnitude{{\magnitude{f}^p}}}_1$ no longer defines a norm (the triangle inequality is lost). In contrast, %
+the counterpart $L^\infty = \set{f+N}{\norm[\infty]{f+N} < \infty}$ is equipped with $\norm[\infty]{\cdot}$, where the %
+quotient-norm
 %
 \begin{equation}
-  \delta: E \mapsto \Iverson{0 \in E} 
+  \norm[\infty]{f+N} \Def \inf\set{M}{M > 0, \magnitude{f} < M \;\,\beta \text{-a.e.}}
 \end{equation}
 %
-restricted to Borel sets in $\R^n$. Dirac's $\delta$ plays a pivotal role in mathematical physics, as it is the convolution %
-identity. To see that, we set $\phi_s(t) = \phi(s-t)$ ($s \in \R$), then we interpret the convolution $[\delta \ast \phi](s)$ %
-as integration with respect to the Dirac measure. This reads as %
+over bounded functions $f$ turns it into a Banach space.%
 %
-\begin{equation}
-  [\delta \ast \phi](s)  \Def \int_{\minus \infty}^\infty \phi(s-t) \diff\delta(t) = \int_\R \phi_s \diff{\delta} 
-  \citeq{\ref{definition-of-sum}} \delta(\phi_s) = \phi(s). 
-\end{equation}
+% END 
 %
-% END
 %
-
