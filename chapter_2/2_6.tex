@@ -1,0 +1,138 @@
+\textit{
+Define the Fourier coefficient $\hat{f}(n)$ of a function %
+%
+  $f\in L^2(T)$ ($T$ is the unit circle) %
+%
+by
+%
+  \begin{align*}
+  \hat{f}(n) 
+    = 
+  \frac{1}{2\pi} \int_{\minus \pi}^{\pi} %
+  %
+    f(e^{i\theta}) e^{\minus i n\theta} d\theta
+  %
+  \end{align*}
+%
+for all $n\in \Z$ (the integers). Put 
+%
+  \begin{align*}
+    \Lambda_n f =\sum_{k=\minus n }^{n} \hat{f}(k).
+  \end{align*}
+%
+Prove that %
+  $\set{f \in {L}^2(T)}{\underset{n\infty}{\lim}\,\Lambda_n f \text{ exists}} $ %
+%
+is a dense subspace of $L^2(T)$ of the first category. %
+}
+%
+\begin{proof}%
+Let $f(\theta)$ stand for $f(e^{i\theta})$so that %
+%
+  $L^2(T)$ is identified with a closed subset of $L^2([\minus \pi, \pi])$, %
+%
+hence the inner product %
+%
+  \begin{align}\label{2.06. Inner product.}
+    \hat{f}(n) 
+      = 
+    (f,e_n) 
+      =
+    \frac{1}{2\pi} \int_{\minus \pi}^\pi f(\theta)e^{\minus in\theta}d\theta.
+  \end{align}
+%
+We believe it is customary to write %
+\begin{align}\label{2.06. Rewriting of Lambda_n.}
+  \Lambda_n (f) = (f, e_{\minus n}) + \cdots + (f, e_n).
+\end{align}
+Moreover, a well known (and easy to prove) result is % 
+%
+  \begin{align}\label{2.06. Orthonormality.}
+    (e_{n}, e_{n'}) = [n=n'], \text{\ie } %
+    \set{e_n}{n\in\Z} \text{ is an orthormal subset of } L^2(T).
+  \end{align}
+%
+For the sake of brevity, we assume the isometric ($\equiv$) %
+identification %
+%
+  $L^2\equiv (L^2)^\ast$. %
+%
+So,  %
+%
+  \begin{align}\label{2.06. Norm of Lambda_n.}
+    \norm{\Lambda_n}^2
+      \citeq{\ref{2.06. Rewriting of Lambda_n.}}
+    \norm{e_{\minus n}  + \cdots + e_n}^2 
+      \citeq{\ref{2.06. Orthonormality.}} 
+    \norm{e_{\minus n }}^2 + \cdots + \norm{e_{n}}^2
+      \citeq{\ref{2.06. Orthonormality.}}
+    2n+1.
+  \end{align}
+%
+%$\Lambda_n$ is therefore a bounded linear functional, of norm $\sqrt{2n+1}$. %
+We now assume, to reach a contradiction, that %
+%
+  \begin{align}
+    B \Def \set{f \in {L}^2(T)}{
+      %{\underset{n\infty}
+      \sup\set{
+        \magnitude{\Lambda_n \,f}}{
+        \counting{n}
+      } < \infty
+  } %
+  \end{align}
+%
+is of the second category. %
+So, the Banach-Steinhaus theorem \citeFA{2.5} asserts that the sequence %
+%
+  $\singleton{\Lambda_n}$ %
+%
+is norm-bounded; which is a desired contradiction, since %
+%
+  \begin{align}
+    \norm{\Lambda_n} \citeq{
+      \ref{2.06. Norm of Lambda_n.}
+    } \sqrt{2n + 1} \tendsto{n}{\infty}\infty.
+%
+  \end{align}
+%
+We have just established that $B$ is actually of the first category; %
+and so is its subset %
+%
+  L=$\set{f\in {L}^2(T)}{\lim_{n\longrightarrow\infty}\Lambda_n f \text{ exists}}$. %
+%.
+We now prove that $L$ is nevertheless dense in $L^2(T)$. %
+To do so, we let $P$ be $\text{span}\set{e_k}{k\in Z} $, %
+the collection of the trignometric polynomials %
+%
+  $p(\theta)= \sum \lambda_k e^{ik\theta}$: %
+%
+Combining %
+%
+  (\ref{2.06. Rewriting of Lambda_n.}) with %
+  (\ref{2.06. Orthonormality.}) %
+%
+shows that %
+$\Lambda_n(p)= \sum \lambda_k$ for almost all $n$. %
+Thus, 
+%
+  \begin{align}\label{2.06. Basic inclusions.}
+    P \subset L \subset L^2(T).
+  \end{align}
+%
+We know from the Fejér theorem (the Lebesgue variant) that %
+$P$ is dense in $L^2(T)$. We then conclude, with the help of %
+%
+  (\ref{2.06. Basic inclusions.}), %
+%
+that %
+%
+  \begin{align}
+    L^2(T) = \overline{P} = \overline{L}.
+  \end{align}
+%
+%It is now clear that $\overline{L} = L^2(T)$. 
+So ends the proof
+\end{proof}
+
+

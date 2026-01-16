@@ -1,0 +1,77 @@
+\textit{%
+Suppose that $X$ and $K$ are metric spaces, %
+that $K$ is compact, and that the graph of %
+%
+  $f:X\to K$ %
+%
+is a closed subset of $X\times K$. %
+Prove that $f$ is continuous %
+%
+  (This is an analogue of Theorem 2.15 but much easier.) %
+%
+Show that compactness of $K$ cannot be omitted from the hypothese, %
+even when $X$ is compact.
+}
+%
+\begin{proof}%
+Choose a sequence $\set{x_n}{\counting{n}}$ whose limit is an arbitrary $a$. %
+By compactness of $K$, the graph $G$ of $f$ contains a subsequence %
+%
+  $\singleton{
+    (x_{\rho(n)}, f(x_{\rho(n)}))
+  }$
+%
+of %
+%
+  $\singleton{
+    (x_n, f(x_n))
+  }$
+%
+that converges to some $(a, b)$ of $X\times K$. %
+$G$ is closed; therefore, $\singleton{(x_{\rho(n)}, f(x_{\rho(n)}))}$
+converges in $G$. So, $b=f(a)$; %
+which establishes that $f$ is sequentially continuous.
+%
+Since $X$ is metrizable, $f$ is also continuous, see \citeFA{[A6]}. %
+So ends the proof.
+%
+\newline\newline\noindent %
+%
+To show that compactness cannot be omitted from the hypotheses, %
+we showcase the following counterexample, %
+%
+  \begin{align}
+  f: [0, \infty) & \to [0, \infty)\\
+     x & \mapsto\begin{cases}
+       1/x & (x > 0)  \\\nonumber
+       0   & (x = 0).
+    \end{cases}
+  \end{align}
+%
+Clearly, $f$ has a discontinuity at $0$. %
+Nevertheless the graph $G$ of $f$ is closed. %
+To see that, first remark that %
+%
+  \begin{align}
+    G = \set{(x, 1/x)}{x > 0} \cup \singleton{(0, 0)}.
+  \end{align}
+%
+Next, let %
+%
+  $\singleton{(x_n, 1/x_n)}$ %
+%
+be a sequence in %
+%
+  $G_+ = \set{(x, 1/x)}{x > 0}$ %
+%
+that converges to $(a, b)$. %
+To be more specific: %
+$a=0$ contradicts the boundedness of $\singleton{(x_n,1/x_n)}$: %
+$a$ is necessarily positive and $b = 1/a$, %
+since $x\mapsto 1/x$ is continuous on $R_+$.
+This establishes that $(a, b) \in G_+$, hence the closedness $G_+$. %
+Finally, we conclude that $G$ is closed, as a finite union of closed sets.
+%
+\end{proof}
+%
+% END

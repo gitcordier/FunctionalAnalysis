@@ -1,0 +1,67 @@
+\textit{%
+Let X be the normed space of all real polynomials in one variable, with %
+%
+  \begin{align*}
+    \norm{f}=\int_0^1\lvert f(t)\rvert\ dt.
+\end{align*}
+%
+Put  %
+  $B(f, g)=\int _0^1 f(t)g(t) dt $, %
+%
+and show that $B$ is a bilinear continuous functional on $X\times X$ %
+which is separately but not continuous.
+}
+\begin{proof} Let $f$ denote the first variable, $g$ the second one. %
+Remark that %
+%
+  \begin{align}\label{magnitude of B(f, g)}
+    \magnitude{B(f, g)} 
+      & < \norm{f} \cdot \max_{[0,1]} \magnitude{g} ; 
+  \end{align}
+%
+which is sufficient (\citeFA{1.18}) to assert that any %
+%
+  $f \mapsto B(f, g)$ 
+%
+is continuous. The continuity of all %
+%
+  $g \mapsto B(f,g)$ %
+%
+follows (Put $C(g, f) = B(f, g)$ and proceed as above). %
+Suppose, to reach a contradiction, that $B$ is continuous. %
+There so exists a positive $M$ such that, 
+%
+  \begin{align}\label{magnitude of B(f, g) H_c}
+    \magnitude{B(f, g)} < M \norm{f}\norm{g}.
+  \end{align}
+%
+Put %
+%
+  \begin{align}\label{definition of f_n}
+    f_n(x)\Def 2 \sqrt{n}\cdot x^{n}\in \R[x] \quad\quad (\counting{n}), 
+  \end{align}
+%
+so that 
+%
+  \begin{align}\label{norm of f_n}
+    \norm{f_n} = \frac{2 \sqrt{n}}{n+1} \tendsto{n}{\infty}0.
+  \end{align}
+%
+On the other hand,
+%
+  \begin{align}\label{norm of B(f_n, g_n)}
+    B(f_n, f_n)= \frac{4 n}{2n+1} > 1.
+  \end{align}
+%
+Finally, we combine %
+%
+  (\ref{norm of B(f_n, g_n)}) and %
+  (\ref{magnitude of B(f, g) H_c}) with %
+  (\ref{norm of f_n}) %
+%
+and so obtain
+\begin{align}
+ 1 < B(f_n, f_n) <  M \norm{f_n}^2  \tendsto{n}{\infty} 0.
+\end{align}
+Our continuousness assumption is then contradicted. So ends the proof.
+\end{proof}

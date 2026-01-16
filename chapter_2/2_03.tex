@@ -26,16 +26,16 @@ Construct an example where it can be done with $p=2$ but not with $p=1$.}
 % First part: f_n as a bounded and signed Radon measure.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 Equipped with the supremum norm, $\Continuous_K=C(\R) \cap \set{\phi}{\supp\phi\subset K}$ realizes the Banach space $C_c(K)$ %
-in $C(\R)$. Each density $f_n$ is then identified with the Radon measure %
+in $C(\R)$. Each density $f_n$ is then identified with the following %
 %
 \begin{align}
   \Lambda_n: \Continuous_K &\to \C \\
-  \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}.\nonumber
+  \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}.\nonumber, 
 \end{align}
 %
-Every $\Lambda_n$ is continuous since $\norm{\Lambda_n}=\norm[1]{f_n}$ is finite; \cf \citeFA{6.19}. Note that the dual %
-space $\Continuous_K^*$ is a Banach space as well, by \citeFA{4.1}. Here, we consider only pointwise convergence, which is %
-weaker than norm convergence. We prove that the assumed pointwise convergence %
+seen as with a Radon measure. Every $\Lambda_n$ is continuous since $\norm{\Lambda_n}=\norm[1]{f_n}$ is finite; %
+\cf \citeFA{6.19}. Note that the dual space $\Continuous_K^*$ is a Banach space as well, by \citeFA{4.1}. Here, we consider %
+only pointwise convergence, which is weaker than norm convergence. We prove that the assumed pointwise convergence %
 %
 \begin{equation}\label{2.3-assumed-pointwise-convergence}
   \Lambda_n \phi \tendsto{n}{\infty} \Lambda\phi \quad (\phi \in \D_K)
@@ -48,7 +48,7 @@ bounds:
 %
 \begin{align}
   % Workaround to get the vertical alignment: 
-  \big\lvert\hspace{0.33 em}\Lambda_n \phi \phantom{,}\big\rvert &\leq M \norm[\infty]{\phi'} \label{2.3-norm-p-bound1},\\
+  \big\lvert\hspace{0.15em}\Lambda_n \phi \phantom{,}\big\rvert &\leq M \norm[\infty]{\phi'} \label{2.3-norm-p-bound1},\\
   \magnitude{\Lambda_n \phi'} &\leq M \norm[\infty]{\phi''} \label{2.3-norm-p-bound2}.
 \end{align}
 %
@@ -57,15 +57,15 @@ Combined with the impossibility of boundedness at order $p=0$, \cf \eqref{2.3-no
 convergence is known as \emph{vague convergence}. In the next paragraph, $\phi$ is restricted to $\D_K$. 
 %
 \paragraph{Continuity of $\Lambda$.} We equip $\D_K$ with derivative norms %
-$\norm{N}{\phi}\Def \norm[\infty]{\phi} + \norm[\infty]{D^1\phi} + \cdots + \norm[\infty]{D^N\phi}$. The induced topology %
-$\tau_K$ of $\D_K$ is the weakest topology that makes all norms $\norm{N}{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and %
+$\norm[N]{\phi}\Def \norm[\infty]{\phi} + \norm[\infty]{D^1\phi} + \cdots + \norm[\infty]{D^N\phi}$. The induced topology %
+$\tau_K$ of $\D_K$ is the weakest topology that makes all norms $\norm[N]{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and %
 Exercise [1.16]. Equivalently, the collection of all convex balanced sets %
 %
 \begin{equation}\label{2.3-local-base-of-DK}
-  V_N \Def \Bigl\{\norm{N}{\;}< 1/N\Bigr\}
+  V_N \Def \Bigl\{\norm[N]{\;}< 1/N\Bigr\}
 \end{equation}
 %
-forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm{N}{\phi} < 1$ implies $\norm[\infty]{\phi} < 1 $: %
+forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm[N]{\phi} < 1$ implies $\norm[\infty]{\phi} < 1 $: %
 Every $\Lambda_n$ is then $\tau_K$-continuous by \citeFA{1.18}, since $\magnitude{\Lambda_n}$ is bounded by %
 $\norm{\Lambda_n}$ on $V_1$. In summary: %
 %
