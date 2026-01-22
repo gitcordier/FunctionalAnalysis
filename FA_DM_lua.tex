@@ -1,0 +1,355 @@
+% a4paper = ISO 216 standard. 
+% Don't forget to revert to default if you want the US Letter instead.
+\documentclass[a4paper,10pt,titlepage,openany,leqno]{book}
+
+% --------------------------- MATH PACKAGES ----------------------------
+%\usepackage{graphicx}
+%\usepackage{fontspec} % XeTeX only, now replaced by fontspec + unicode-math
+\usepackage{amsmath, amssymb} 
+\usepackage{
+physics, 
+amssymb, 
+amsfonts, 
+mathrsfs, 
+amsthm, 
+mathtools, 
+% mathspec, % DEPRECATED: XeTeX-specific, removed for LuaLaTeX
+fouridx, 
+%%stix
+%%tensor 
+%tikz 
+}
+%\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+\usepackage{caption}
+\captionsetup{labelsep=period}
+\usepackage{diagbox} % For diagonal cells
+%\usetikzlibrary{shapes.geometric}
+%\usetikzlibrary{arrows.meta,arrows}
+%\usepackage{tlatex}
+% TEXs LOGOS! 
+%\usepackage{dtklogos}
+
+\usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
+
+% --------------------------- COLOR ----------------------------
+\usepackage{array}
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage[]{color}
+%\usepackage{framed}
+\usepackage{colortbl}
+
+% --------------------------- FONT + UNICODE-MATH ----------------------------
+\usepackage{fontspec}
+
+% 1. OPTION ADDED HERE: [math-style=upright]
+% This forces Latin (x, y) and Greek letters to be upright by default.
+\usepackage[math-style=upright]{unicode-math} 
+
+% --------------------------- HYPERREF ----------------------------
+\usepackage{hyperref} 
+\hypersetup{
+    pdfborder = {0 0 0},
+    colorlinks,
+    citecolor=red,
+    filecolor=green,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+% --------------------------- TEXT FONTS ----------------------------
+% Note: If you want to strictly forbid italics even in text 
+% (e.g. \textit produces upright text), set ItalicFont to the Regular .otf file.
+%\setmainfont[
+%  ItalicFont=NewCM10-Italic.otf,
+%  BoldFont=NewCM10-Bold.otf,
+%  BoldItalicFont=NewCM10-BoldItalic.otf
+%]{NewCM10-Regular.otf}
+
+\setmainfont[
+  ItalicFont=NewCM10-BookItalic.otf,
+  BoldFont=NewCM10-Bold.otf,       % There is no "Book Bold", we use standard Bold
+  BoldItalicFont=NewCM10-BoldItalic.otf
+]{NewCM10-Book.otf}
+
+%\setsansfont[
+%  ItalicFont=NewCMSans10-Oblique.otf,
+%  BoldFont=NewCMSans10-Bold.otf,
+%  BoldItalicFont=NewCMSans10-BoldOblique.otf
+%]{NewCMSans10-Regular.otf}
+
+\setsansfont[
+  ItalicFont=NewCMSans10-BookOblique.otf,
+  BoldFont=NewCMSans10-Bold.otf,
+  BoldItalicFont=NewCMSans10-BoldOblique.otf
+]{NewCMSans10-Book.otf}
+
+%\setmonofont[
+%  ItalicFont=NewCMMono10-Italic.otf,
+%  BoldFont=NewCMMono10-Bold.otf,
+%  BoldItalicFont=NewCMMono10-BoldOblique.otf
+%]{NewCMMono10-Regular.otf}
+
+\setmonofont[
+  ItalicFont=NewCMMono10-BookItalic.otf,
+  BoldFont=NewCMMono10-Bold.otf,
+  BoldItalicFont=NewCMMono10-BoldOblique.otf
+]{NewCMMono10-Book.otf}
+
+\newfontfamily\fw{NewCMMono10-Book.otf}
+\newfontfamily\CMUCS{NewCMMono10-Book.otf}
+% --------------------------- MATH FONTS ----------------------------
+\setmathfont{NewCMMath-Book.otf}
+
+% Correction for typewriter math
+%\setmathfont[range=\mathtt]{NewCMMono10-Book.otf}
+
+ % Load the main math font
+
+ %\setmathfont{New Computer Modern Math}
+
+
+ % 2. CORRECTION: \setmathtt is not a command in unicode-math.
+ 
+ % Use range=\mathtt to set the typewriter math font.
+ 
+ \setmathfont[range=\mathtt]{cmuntt.otf}
+% --------------------------- TYPOGRAPHIC CONVENTIONS ----------------------------
+\usepackage{polyglossia}
+\setdefaultlanguage[variant=usmax]{english}
+
+% --------------------------- PRIMITIVES ----------------------------
+\newcommand{\insmall}[1]{\text{\small{#1}}}
+%\newcommand{\minus}{\insmall{-}}
+% Use \AtBeginDocument to ensure unicode-math doesn't overwrite it
+
+\AtBeginDocument{
+  \renewcommand{\minus}{%
+    \mathbin{%
+      \mathchoice
+        {\scalebox{0.8}{$\text{\bf -}$}} % Display and Text style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Script style
+        {\scalebox{0.5}{$\text{\bf -}$}} % Script-script style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Default fallback
+    }%
+  }
+}
+
+
+
+% The field C and the usual subsets R, Q, Z, N.
+% NOTE: \mathbf produces bold italic in unicode-math, switch to \mathbb for standard notation
+\newcommand\usualSet[1]{\mathbf{#1}} % UPDATED for unicode-math
+\def\C{\usualSet{C}}
+\def\R{\usualSet{R}}
+\def\Q{\usualSet{Q}}
+\def\Z{\usualSet{Z}}
+\def\N{\usualSet{N}}
+\def\K{\usualSet{K}}
+
+% --------------------------- Remaining macros ----------------------------
+\def\Def{\triangleq}
+%\def\Def{:=}
+\def\defIFF{\quad \text{\bf iff} \quad}
+
+\newcommand\counting[1]{#1=1, 2, 3, \dots}
+\newcommand\integers[1]{#1=0, 1, 2, \dots}
+\newcommand\naturals[1]{#1=0, 1, 2, \dots}
+
+\newcommand{\up}[1]{^{(#1)}}
+\newcommand{\low}[1]{_{#1}}
+\newcommand{\upnw}[2]{\fourIdx{#2}{}{}{}#1}
+\newcommand{\downsw}[2]{\fourIdx{}{#2}{}{}#1}
+\newcommand{\scriptatleft}[3]{\fourIdx{#2}{#3}{}{}#1}
+\newcommand{\diagscript}[3]{\fourIdx{#2}{}{}{#3}#1}
+
+\newcommand{\function}[1]{\mathtt{#1}}
+\newcommand{\relation}[2]{{#1}_{#2}}
+\newcommand{\f}[2]{#1(#2)}
+\newcommand{\id}[1]{\text{id}_{#1}}
+\renewcommand{\restriction}[2]{#1\!\upharpoonright_{#2}}
+
+% For now, nothing gets bolded. TODO:? Minor concern. 
+\DeclareMathOperator{\unionOfCollection}{\boldsymbol{\bigcup}}
+\DeclareMathOperator{\intersectionOfCollection}{\boldsymbol{\bigcap}}
+
+\AtBeginDocument{\let\subset\subseteq
+\let\supset\supseteq}
+\newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
+\DeclareMathOperator\opcard{card} 
+\def\contains{\supseteq}
+\def\cuts{\cap}
+\DeclareMathOperator\cvxhull{co} 
+\newcommand{\co}[1]{\cvxhull(#1)}
+
+
+%\newcommand{\singleton}[2][\big]{#1\{#2 #1\}}
+
+\DeclarePairedDelimiter\singleton\{\}
+\newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
+
+
+\newcommand{\interior}[1]{{#1}^\circ}
+
+\AtBeginDocument{
+  \DeclareRobustCommand{\closure}[1]{\overline{#1}}
+}
+
+\DeclareMathOperator{\cotan}{cotan}
+\DeclareMathOperator\sgn{sgn}
+\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\DeclareMathOperator\Leibnizdiff{d}
+\newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
+\newcommand{\supp}[1]{\operatorname{supp}#1}
+
+\newcommand{\evalbar}[4][\Big]{#2\mathrel{#1|}_{#3}^{#4}}
+\newcommand{\evalbracket}[4][\Big]{#1[\,#2\,#1]_{#3}^{#4}}
+
+\newcommand{\openinterval}[2]{\left]#1, #2\right[} 
+\def\hspaceNorm{\hspace{0.12 em}}
+\newcommand{\magnitude}[2][\big]{#1\lvert \hspaceNorm #2 \hspaceNorm #1\rvert}
+
+\renewcommand{\norm}[2][]{
+  \if\relax\detokenize{#1}\relax 
+    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
+  \else 
+    \left\lVert \hspaceNorm #2 \hspaceNorm \right\rVert_{#1} 
+  \fi
+}
+
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
+\newcommand{\normtriple}[2]{\vertiii{\hspaceNorm #2 \hspaceNorm}_{#1}}
+
+\newcommand{\Continuous}{{\mathscr C}} 
+\newcommand{\D}{{\mathscr D}} 
+\def\weakstar{\text{weak}^\ast\text{-}}
+
+\newcommand{\localbase}[1]{\mathscr #1}
+\newcommand{\Iverson}[2][\big]{#1[\, #2\, #1]}
+\newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
+
+\newcommand{\varit}[1]{\mathit{#1}}
+\def\vart{\varit{t}}
+
+\def\ie{\textit{, i.e., }}
+\def\eg{\textit{, e.g., }}
+\def\cf{\textit{cf.\,}} 
+\def\IFF{{\bf iff }}
+\def\wlg{{\bf wlg }}
+
+\def\then{\Rightarrow} 
+\def\therefore{\Rightarrow}
+\def\since{\Leftarrow}
+\def\because{\Leftarrow} 
+\renewcommand{\iff}{\Leftrightarrow}
+
+\renewcommand{\rho}{\uprho}
+\AtBeginDocument{
+\renewcommand{\epsilon}{\varepsilon} 
+%\renewcommand{\phi}{\varphi} 
+}
+
+% Citations (unchanged)
+\newcommand{\citehere}[2]{\overset{#1}{#2}}
+\newcommand{\citeq}[1]{\citehere{#1}{=}}
+\newcommand{\citeleq}[1]{\citehere{#1}{\leq}}
+\newcommand{\citegeq}[1]{\citehere{#1}{\geq}}
+\newcommand{\citeleast}[1]{\citehere{#1}{<}}
+\newcommand{\citegreater}[1]{\citehere{#1}{>}}
+\newcommand{\citesubset}[1]{\citehere{#1}{\subset}}
+\newcommand{\citesubseteq}[1]{\citehere{#1}{\subseteq}}
+\newcommand{\citesupset}[1]{\citehere{#1}{\supset}}
+\newcommand{\citesupseteq}[1]{\citehere{#1}{\supseteq}}
+\newcommand{\citethen}[1]{\citehere{#1}{\then}}
+\newcommand{\citeresult}[2]{#1 of #2}
+\newcommand{\citebook}[2]{[#1] of {\cite{#2}}}
+\newcommand{\citeFA}[1]{\citebook{#1}{FA}}
+\newcommand{\citein}[1]{\citehere{#1}{\in}}
+
+\newcommand{\underbarwithindex}[2]{\underline{#1}\,\!_{#2}}
+\newcommand{\dy}[1]{{\function{dyadic}}(#1)}
+\def\ddy{{\function{decay}}}
+
+% --------------------------- THEOREM STYLE ----------------------------
+\makeatletter
+\newtheoremstyle{namedlemma} 
+  {3pt} 
+  {20pt} 
+  {} 
+  {} 
+  {\bfseries} 
+  {.\newline} 
+  {\newline} 
+  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}} 
+\makeatother
+
+\theoremstyle{namedlemma}
+\newtheorem{lemma}{Lemma}[chapter]
+
+% --------------------------- DOCUMENT INFO ----------------------------
+\def\ROOT{./}
+\def\TITLE{Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}}
+\def\EMAIL{}
+\def\AUTHOR{gitcordier}
+
+
+\begin{document}
+% Changes the "proof" in proof environment. 
+% source: https://tex.stackexchange.com/questions/8089/changing-style-of-proof
+\let\oldproofname=\proofname
+\renewcommand{\proofname}{{\rm \small PROOF}}
+%\begin{abstract}
+%    \input{\ROOT/abstract.tex}
+%\end{abstract}
+%\title{\TITLE}
+\title{\TITLE}
+\author{\AUTHOR}
+\date{\today}
+\maketitle
+
+% FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
+%\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
+% IF LANG = @fr
+%\renewcommand{\chaptername}{Chapitre}
+%
+\frontmatter
+\tableofcontents
+%\clearpage
+
+%\printglossary
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\roman{subsection}}
+\input{\ROOT/notations.tex}
+
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesection}{\arabic{section}}
+\mainmatter
+%\part{Content} 
+\input{\ROOT/FA_mainmatter.tex} 
+
+\backmatter
+%\part{Annex}
+\chapter{Annex}
+%\addcontentsline{toc}{chapter}{Annex}
+
+\newcounter{annex_chapter}
+\newcounter{annex_section}
+
+\setcounter{annex_chapter}{1}
+\setcounter{annex_section}{1}
+\setcounter{equation}{0}
+
+\renewcommand{\thechapter}{\Alph{annex_chapter}} 
+\renewcommand{\thesection}{\thechapter.\arabic{annex_section}} 
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+%
+\input{\ROOT/annex/FA_annex.tex}
+
+% --- Bibliography ---
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+\end{document}
+% Made on \XeTeX
+% END
+% 
