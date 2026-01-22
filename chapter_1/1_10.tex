@@ -24,19 +24,20 @@ $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-Discard the trivial case $\Lambda = 0$ and assume that $\dim Y > 0$. From now on, $Y$ has a basis $B= \singleton{e, e', \dots}$ %
-and $W$ is an arbitrary neighborhood of $0$. Since addition is continuous, there exists a balanced open $V\subset Y$ such that %
+Let $B=\singleton{e, e', \dots}$ be a basis for $Y$, and let $W\subset X$ be an arbitrary neighborhood of the origin. %
+Since addition is continuous in $X$, there exists a neighborhood $V$ of the origin such that%  
 %
   \begin{equation}
     \label{definition of v}
-    \sum_{e} V \subset W. 
+    \sum_e V \subset W. 
   \end{equation}
 %
-Moreover, the surjectivity of $\Lambda$ allows us to pick $x_e$ with $\Lambda x_e = e$. This implies that %
-every $y = \sum_e y_e e $ ($y_e \in \C$) can be expressed as %
+We assume henceforth, without loss of generality, that $V$ is balanced. 
+Moreover, the surjectivity of $\Lambda$ provides a vector $x_e$ such that $\Lambda x_e = e$. Therefore, given the coordinate %
+representation $\sum_e y_e e$ of $y\in Y$, the following holds: 
 %
 \begin{equation}\label{1_10_sum}
-  y = \sum_{e} y_e \Lambda x_e. 
+  y = \sum_e y_e e = \sum_e y_e \Lambda x_e. 
 \end{equation}
 %
 Note that $\set{x_e}{e\in B}$ is bounded (as a finite set). Hence %
@@ -51,19 +52,20 @@ for some $s > 0$. Combining this with (\ref{1_10_sum}) yields %
     y \in \sum_e s y_e  \Lambda (V).
   \end{equation}
 %
-Using (\ref{definition of v}) and the balancedness of $\Lambda(V)$, we conclude that
+Using (\ref{definition of v}) and the balancedness of $\Lambda(V)$, we conclude that $\magnitude{y_e} < 1/s$ implies
 %
   \begin{equation}
-    y \in \sum_e \Lambda (V) \subset \Lambda(W)  \quad (\norm[\infty]{y} < 1/s). 
+    y \in \sum_e \Lambda (V) \subset \Lambda(W) .
   \end{equation}
 %
-This proves (a) in the case where $Y = \C^n$ and $B$ is the standard basis. The general case now follows from %
-[\ref{notations: vector spaces: finite-dimensional vector spaces}].\\\\
+This establishes (a) for $Y = \C^n$ and $B$ the standard basis. The general case $\dim{Y} = n$ now follows from %
+[\ref{notations: vector spaces: finite-dimensional vector spaces}]. The case $Y=\singleton{0}$ is trivial. %
+\par\noindent
 %
-To prove (b), assume that the null space $\{\Lambda = 0\}$ is closed and let $f, \pi$ be as in Exercise 1.9, %
+To prove (b), assume that the null space $\singleton{\Lambda = 0}$ is closed and let $f, \pi$ be as in Exercise 1.9, %
 $\{\Lambda = 0\}$ playing the role of $N$. Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) asserts %
-that $f$ is an isomorphism of $X/N$ onto $Y$. We now conclude with the help of %
-[\ref{notations: vector spaces: finite-dimensional vector spaces}] that $f$ is a homeomorphism of $X/N$ onto $Y$. %
-We have thus established that $f$ is continuous: So is $\Lambda = f\circ \pi$.
+that $f$ is an isomorphism of $X/N$ onto $Y$. By [\ref{notations: vector spaces: finite-dimensional vector spaces}], %
+$f$ is also a homeomorphism. We have thus established that $f$ is continuous; so is $\Lambda = f\circ \pi$.
 \end{proof}
 % END
+% 

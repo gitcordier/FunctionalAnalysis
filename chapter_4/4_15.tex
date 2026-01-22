@@ -1,5 +1,5 @@
 %
-{ \CMUCS Suppose $\mu$ is a finite (or $\sigma$-finite) positive measure on a measure space $\Omega$, $\mu\times\mu$ is the corresponding product measure on $\Omega\times\Omega$, and $K\in L^2(\mu\times\mu)$. Define 
+\textit{Suppose $\mu$ is a finite (or $\sigma$-finite) positive measure on a measure space $\Omega$, $\mu\times\mu$ is the corresponding product measure on $\Omega\times\Omega$, and $K\in L^2(\mu\times\mu)$. Define 
 \begin{align*}
 (Tf\,)(s\,)=\int_\Omega K(s,t\,) f\,(t\,) d\mu(t\,)\quad [\,f\in L^2(\mu)\,].
 \end{align*}
@@ -20,7 +20,7 @@ has a unique solution $f\in L^2(\mu)$ for every $g\in L^2(\mu)$ or there are inf
 %: a 
 \begin{proof} Let $X$ (respectively $P\,$) be the Banach space $L^2(\mu)$ (respectively $L^2(\mu\times \mu)\,$). A consequence of the Radon-Nikodym theorem (\cf \citebook{6.16}{BigRudin}\,) is that there exists a group isomorphism $\rho:\, X\to \, X^{\,\ast},\, f\mapsto f^{\,\,\ast}$ such that
 \begin{align}
-\langle u ,\, f^{\,\,\ast}  \rangle =\int_\Omega u\cdot f \, \d\mu  \quad (u\in X,\, f\in X)\quad .
+\langle u ,\, f^{\,\,\ast}  \rangle =\int_\Omega u\cdot f \, \diff\mu  \quad (u\in X,\, f\in X)\quad .
 \end{align}
 Define a.e $K_s,\, K_t:\, \Omega\to \C$ by setting
 \begin{align}
@@ -39,12 +39,12 @@ $T$ is clearly linear. Moreover,
 %: b
 To show (b), remark that
 \begin{align}
-\int_\Omega a_i (s\,) \cdot b_i \cdot f  \,\,\d\mu \,\,\in \C\cdot  a_i(s\,)\,\,\,\text{a.e}\quad \quad (f\in X, \, s\in \Omega)  \quad.
+\int_\Omega a_i (s\,) \cdot b_i \cdot f  \,\,\diff\mu \,\,\in \C\cdot  a_i(s\,)\,\,\,\text{a.e}\quad \quad (f\in X, \, s\in \Omega)  \quad.
 \end{align}
 It is now clear that $T$ maps any $f$ of $X$ into $\C \cdot a_1+\dotsb+ \C\cdot a_n$. We so conclude that $\dim R(T_1)\leq n $. \\
 \\
 %: c
-We now aim at (c). The current part refers to Exercise 4.13. $X$ is also a Hilbert space and so contains a Hilbert basis $M$. Define a.e
+We now prove (c). The current part refers to Exercise 4.13. $X$ is also a Hilbert space and so contains a Hilbert basis $M$. Define a.e
 \begin{align}
 a_b: \Omega \to &\,\C   \\
  s \mapsto &\,(K_s,\, b) \nonumber
@@ -108,9 +108,9 @@ Our last step is the description of $T^{\,\ast}$. Let $S:\, X\to X$ be such that
 Proceed as in (a), with $S$ instead of $T$: $S$ lies in $\mathscr{B}(X)$. Next, we claim that 
 \begin{align}
 \langle u,\, T^{\,\ast} f^{\,\,\ast}  \rangle = &\, \langle Tu,\,f^{\,\,\ast}   \rangle\\
-=&  \int_{\Omega} (T  u ) \cdot  f \,\, \,\d\mu \\
-\label{int_Fubini}=& \int_{\Omega^2} K\cdot f \cdot  u \,\,\, \d(\mu\times\mu) \\
-=&  \int_{\Omega} (S  f\, ) \cdot  u \,\,\, \d\mu\,  \\
+=&  \int_{\Omega} (T  u ) \cdot  f \,\, \,\diff\mu \\
+\label{int_Fubini}=& \int_{\Omega^2} K\cdot f \cdot  u \,\,\, \diff{(\mu\times\mu)} \\
+=&  \int_{\Omega} (S  f\, ) \cdot  u \,\,\, \diff\mu\,  \\
 =&\, \langle u,\, (S f\, )^\ast \rangle \quad ,
 \end{align}
 whenever $u$ and $f$ run through the closed unit ball of $X$. Since $\|T\, \|$, $\| T^{\,\ast} \|$ are equal and finite, only exactness of (\ref{int_Fubini}) is possibly in doubt; the justification below dissipates it. In conclusion,
@@ -124,7 +124,7 @@ T^{\,\ast} = S\quad .
 \\
 \underline{Justification of (\ref{int_Fubini})}. The current proof shall be complete once we have justified (\ref{int_Fubini}). To do so, keep $u$ and $f$ as above. Let us introduce
 \begin{align}
-A(s\,)\Def \int_\Omega \lvert K_s(t\,) \cdot u (t\,)\rvert  \,\, \d\mu(t\,) \, \,\,\text{a.e}  \quad (s\in \Omega)\quad ,
+A(s\,)\Def \int_\Omega \lvert K_s(t\,) \cdot u (t\,)\rvert  \,\, \diff\mu(t\,) \, \,\,\text{a.e}  \quad (s\in \Omega)\quad ,
 \end{align}
 to make hold the following Cauchy-Schwarz inequality
 \begin{align}
@@ -132,10 +132,10 @@ A(s\,)\leq \| K_s\|_X  \quad (s\in \Omega)\quad .
 \end{align}
 Thus,
 \begin{align}
- \int_{\Omega^2} \lvert K(s,\,t\,) \, u(t\,)\,  f\,(s\,) \rvert \,\d\mu(s\,)\d\mu(t\,) 
- = &   \int_\Omega   \lvert \,f\,(s\,) \rvert \,A(s\,) \, \d\mu(s\,) \\
- \leq &  \int_\Omega   \lvert \,f\,(s\,) \rvert  \, \| K_s\|_X\,\d\mu(s\,) \\
- \label{4_15_complement_2} \leq & \left[ \int_\Omega \| K_s\|_X^2\,\,\d\mu(s\,) \right]^{\frac{1}{2}} 
+ \int_{\Omega^2} \lvert K(s,\,t\,) \, u(t\,)\,  f\,(s\,) \rvert \,\diff\mu(s\,)\diff\mu(t\,) 
+ = &   \int_\Omega   \lvert \,f\,(s\,) \rvert \,A(s\,) \, \diff\mu(s\,) \\
+ \leq &  \int_\Omega   \lvert \,f\,(s\,) \rvert  \, \| K_s\|_X\,\diff\mu(s\,) \\
+ \label{4_15_complement_2} \leq & \left[ \int_\Omega \| K_s\|_X^2\,\,\diff\mu(s\,) \right]^{\frac{1}{2}} 
  =      \| K\,\|_P < \infty \quad .
  \end{align}
 The inequality in (\ref{4_15_complement_2}) is a Cauchy-Schwarz one, the following equality follows from the Fubini's theorem. This achieves the proof.\end{proof}

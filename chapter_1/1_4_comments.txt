@@ -23,13 +23,13 @@ is therefore open. So is
 \eq{E\Def \sigma(\C^2 \setminus B)= \{(z_{1},z_{2})\in \C^2:\, \lvert z_{1}\rvert  <   \lvert z_{2}\rvert \}\quad , }\endeq
 since $\sigma$ is open.
 \eq{B=E \uplus D  \quad . }\endeq
-Let $(z_1,z_2$ be in $B°$ If such a point would lie in $D$, there would be $V$ a neighbourhood of $(0,0)$ such that 
+Let $(z_1,z_2$ be in $B°$ If such a point would lie in $D$, there would be $V$ a neighborhood of $(0,0)$ such that 
 \eq{(z_1,z_2) + V \subseteq B  \quad ,}\endeq
 $(z_1,z_2) + V )\cap E$ is open. So is $(z_1,z_2) + V  )\cap D$. contradicting 
 \eq{B°\subseteq B\setminus \Delta \C = B_<}\endeq
 Let $(z_1,z_2)$ be any element of $B°$. Since $(\Delta\C)°=\emptyset$, $(z_1,z_2)$ is in $B_<$. 
 \eq{([z] \in \C^\ast / N \cong \R_+ }\endeq
-Since $\C^2$ is separated, there exists a neighbourhood of the origin such that 
+Since $\C^2$ is separated, there exists a neighborhood of the origin such that 
 \eq{C(z_1)+V\cup C(z_2)+ V\quad, }\endeq
 so that
 \eq{z_1 + V \cup z_2 + V}\endeq

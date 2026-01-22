@@ -29,15 +29,15 @@ This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First part: Justification of the terminology
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Justifying the terminology}
 \begin{proof}
+\textbf{Justifying the terminology.}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 The family of seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all finite intersections of the sets %
 %
 \begin{equation}
-  V(x,k) \triangleq \singleton{p_x < 2^{\minus k}} 
+  V(x,k) \triangleq \singleton*{p_x < 2^{\minus k}} 
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
@@ -54,7 +54,7 @@ is therefore a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37
   \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i},
 \end{equation}
 %
-see [I.\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
+see [\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
 By definition, %
 %
 \begin{equation}
@@ -92,7 +92,6 @@ It is now obvious that %
 %
 for some $i$, which shows that $\singleton{f_n(x_i)}$ does not converge to $f(x_i)$. Thus, $\tau$-convergence coincides with %
 pointwise convergence on $X$. 
-\end{proof}
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SECOND PART
@@ -101,16 +100,15 @@ pointwise convergence on $X$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First proof: Use the given hint
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Proof (with the given hint)}
+\par\noindent\textbf{Proof with the given hint.}
 We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that satisfies both (a) and (b). %
 Indeed, the hint suggests that there exists a bijection %  
 %
 \begin{align}
-  \phi: \set{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
+  \phi: \set[\Big]{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
-\end{align}
-%
-\begin{proof}
+\end{align} 
+% 
 We set %
 %
 \begin{equation}
@@ -132,22 +130,22 @@ outputs %
 \end{equation}
 %
 given a sequence $\singleton{\gamma_n}$ diverging to $\infty$. This proves (b), since %
-$\singleton{\gamma_n f_n(x_\gamma)}$ diverges.
-\end{proof}
-%
+$\singleton{\gamma_n f_n(x_\gamma)}$ diverges. 
+We now give an alternative construction of $\singleton{f_n}$. This second proof does not need the suggested cardinality %
+argument. 
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\subsection{Proof with binary expansions (no hint)}
+\par\noindent\textbf{Proof with binary expansions (no hint)}
 We rely on the following assertion: Every irrational number has a binary expansion that is not eventually periodic. %
-%
-\begin{proof}
+% 
 More precisely, there exists a bijective sum  %
 %
 %\def\bin{\text{\fw sum}}
 \def\bin{\sigma}
 \begin{align}
-  \bin:  \set{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
+  \bin:  \set[\Big]{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %

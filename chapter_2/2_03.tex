@@ -15,7 +15,7 @@ exists for every $\phi\in\D_{K}$. Show that $\Lambda$ is a continuous functional
 positive integer $p$ and a number $M<\infty$ such that
 %
 \begin{equation}
-  \magnitude{\int_{\minus 1}^1 f_n (t)\phi (t) \diff{t}}\leq M \norm[\infty]{D^p\phi} \nonumber
+  \magnitude[\Bigg]{\int_{\minus 1}^1 f_n (t)\phi (t) \diff{t}}\leq M \norm[\infty]{D^p\phi} \nonumber
 \end{equation}
 %
 for all $n$. For example, if $f_{n}(t)=n^{3}t$ on $[\minus 1/n, 1/n]$ and $0$ elsewhere, show that this can be done with $p=1$. 
@@ -30,7 +30,7 @@ in $C(\R)$. Each density $f_n$ is then identified with the following %
 %
 \begin{align}
   \Lambda_n: \Continuous_K &\to \C \\
-  \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}.\nonumber, 
+  \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}, \nonumber
 \end{align}
 %
 seen as with a Radon measure. Every $\Lambda_n$ is continuous since $\norm{\Lambda_n}=\norm[1]{f_n}$ is finite; %
@@ -48,7 +48,7 @@ bounds:
 %
 \begin{align}
   % Workaround to get the vertical alignment: 
-  \big\lvert\hspace{0.15em}\Lambda_n \phi \phantom{,}\big\rvert &\leq M \norm[\infty]{\phi'} \label{2.3-norm-p-bound1},\\
+  \big\lvert\hspace{0.3 em}\Lambda_n \phi \phantom{,}\big\rvert &\leq M \norm[\infty]{\phi'} \label{2.3-norm-p-bound1},\\
   \magnitude{\Lambda_n \phi'} &\leq M \norm[\infty]{\phi''} \label{2.3-norm-p-bound2}.
 \end{align}
 %
@@ -62,7 +62,7 @@ $\tau_K$ of $\D_K$ is the weakest topology that makes all norms $\norm[N]{\cdot}
 Exercise [1.16]. Equivalently, the collection of all convex balanced sets %
 %
 \begin{equation}\label{2.3-local-base-of-DK}
-  V_N \Def \Bigl\{\norm[N]{\;}< 1/N\Bigr\}
+  V_N \Def \singleton*{\norm[N]{\;}< 1/N}
 \end{equation}
 %
 forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm[N]{\phi} < 1$ implies $\norm[\infty]{\phi} < 1 $: %
@@ -118,7 +118,7 @@ $\Lambda_n^+$ and $\Lambda_n^-$, since %
 \end{equation} 
 %
 Thus, $\Lambda_n$ is a signed Radon measure, whose compact support $[\minus 1/n, 1/n]$ shrinks to $\singleton{0}$ as %
-$n \to \infty$. We see that $\norm{\Lambda_n} \leq \norm{\Lambda_n^+} + \norm{\Lambda_n^\minus}$. However, the collection of %
+$n \to \infty$. We see that $\norm{\Lambda_n} \leq \norm{\Lambda_n^+} + \norm{\Lambda_n^{\minus}}$. However, the collection of %
 all $\Lambda_n$ is not uniformly bounded, since 
 %
 \begin{equation}\label{2.3-norm-of-lambda-n}

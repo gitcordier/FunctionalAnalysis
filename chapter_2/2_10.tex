@@ -14,22 +14,24 @@ Prove that a bilinear mapping is continuous if it is continuous at the origin $(
 }
 %
 \begin{proof}
-Let $B: X_1 \times X_2 \to Z$ be a bilinear mapping that is continuous at $(0,0)$, where $X_i$ and $Z$ are topological vector %
-spaces. This implies that, for any balanced open set $W$, $X_i$ contains a balanced open set $U_i$ such that %
+Let $B: X_1 \times X_2 \to Z$ be a bilinear mapping that is continuous at $(0,0)$, where $X_i$\;\,$\bigl(i\in \{1, 2\}\bigr)$ %
+and $Z$ are topological vector spaces. This implies that, for any balanced open $W$, $X_i$ contains a balanced open $U_i$ %
+such that %
 %
 \begin{align}
   B(U_1 \times U_2) \subset W. 
 \end{align}
 %
-Pick $a_i$ from $X_i$, and then choose $r_i > 1/2$ large enough so that $a_i \in r_i U_i$. Let $b_i$ range over %
-$a_i + (r_1 + r_2)^{\minus 1} U_i$. We compute %
+Let $a_i$ be in $X_i$. Therefore, $a_i \in r_i U_i$ for some positive $r_i$. We now choose $b_i$ in %
+$a_i + (1 + r_1  + r_2)^{\minus 1} U_i$. Hence 
 %
 \begin{align}
   B(b_1, b_2) - B(a_1,  a_2) & = B(b_1 - a_1, b_2) + B(a_1, b_2) - B(a_1, a_2)\\
   & = B(b_1 - a_1, b_2) + B(a_1, b_2 - a_2)\\
-  & = B(b_1 - a_1, b_2 - a_2) + B(b_1 - a_1, a_2) + B(a_1, b_2 - a_2)\\
-  & \subset \frac{1}{(r_1 + r_2)^2}W  + \frac{r_2}{r_1 + r_2}W + \frac{r_1}{r_1 + r_2}W\\
-  & \subset W + W  + W 
+  & = \underbrace{B(b_1 - a_1, b_2 - a_2)}_{\in \frac{1}{(1 + r_1  + r_2)^2}W} 
+    + \underbrace{B(b_1 - a_1, a_2)}_{\in \frac{r_2}{1 + r_1 + r_2}W}
+    + \underbrace{B(a_1, b_2 - a_2)}_{\in \frac{r_1}{1 + r_1 + r_2}W}\\
+  & \in W + W  + W.
 \end{align}
 %
 We conclude that $B$ is continuous at every $(a_1, a_2)$, since $W$ was arbitrary. 

@@ -20,7 +20,6 @@
 \end{enumerate}
 }
 %
-\renewcommand{\labelenumi}{(\alph{enumi})} 
 \begin{proof}
 \begin{enumerate}
 %: (a)
@@ -143,7 +142,7 @@ Inclusions at both extremities force %
 We now conclude from (d) that the intersection of $C$ is convex. %
 So ends the proof.
 %: (g)
-\item Skip all trivial cases %
+\item We dismiss all trivial cases %
 %
   $\Gamma = \emptyset$, %
   $\{ \emptyset\}$, %
@@ -177,22 +176,26 @@ then conclude from (d) that $A + B$ is convex. %
 \alpha(A+B)=\alpha A+ \alpha B \subset A+B. 
 \end{align}
 %
-There is no more to prove: $A+B$ is balanced. %
+This completes the proof: $A+B$ is balanced. %
 %: (j)
 \item Our proof will be based on the following lemma, %
 %
-\renewcommand{\labelenumii}{(\roman{enumii})}
 \textit{
 \begin{quote}
 If $S$ is nonempty, then each of the following three properties
+%
+\renewcommand{\labelenumii}{(\roman{enumii})}
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$;
 \item $S$ is convex balanced such that $S + S = S$;
 \item $S$ is convex balanced such that $\lambda S=S\quad (\lambda > 0)$
 \end{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})}
+%
 implies the other two.
 \end{quote}
 }
+
 %
 To prove the lemma, let $\mathit{S}$ %
 run through all nonempty subsets of $X$. %

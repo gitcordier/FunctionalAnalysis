@@ -10,108 +10,80 @@ is bilinear and continuous. Prove that there exists $M<\infty$ such that
 \begin{align*}
   \norm{B(x, y)}
   \leq 
-  M \norm{x}\norm{x} \quad (x\in X, y\in Y).
+  M \norm{x}\norm{y} \quad (x\in X, y\in Y).
 \end{align*}
 %
 Is completeness needed here?}
+%
 \begin{proof}%
 % % % % % % % 
-% FIRST PART %
+% FIRST PART 
 % % % % % % % 
-The answer is: No. To prove this, we only assume that %
+Completeness is not required. For the proof, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
+there exists $r > 0$ such that 
 %
-  $\mathit{X}$, $\mathit{Y}$, $\mathit{Z}$ %
+\begin{equation}\label{bound for B}
+  \norm{B(x, y)} < 1 
+\end{equation}
 %
-are normed spaces. %
-%
-Since $B$ is continous at the origin, there exists a positive $r$ %
-such that %
-%
-\begin{align}\label{bound for B}
-  \norm{x} + \norm{y} < r \Rightarrow %
-  \norm{B(x, y)} < 1.
-\end{align}
-%
-%
-Given nonzero $\mathit{x}, \mathit{y}$, let $s$ range over $]0, r[$so that the folllowing bound %
+whenever $\bigl(\norm{x} + \norm{y} < r \bigr)$. Therefore, any $0 < s < r$ yields%
 %
 \begin{align}
-  \norm{B(x, y)} = \frac{4\norm{x}\norm{y}}{s^2} %
-    \left\|
-      B \left(\frac{s}{2\norm{x}}x, \frac{s}{2\norm{y}}y \right)
-    \right\|
-  \overset{(\ref{bound for B})}{<} \frac{4 \norm{x} \norm{y}}{s^2}
-  %\quad (x\neq 0, y \neq 0)
+  \norm{B(x, y)} = \frac{4\norm{x}\norm{y}}{s^2} 
+    \left\| B \left(\frac{s}{2}\cdot \frac{x}{\norm{x}}, \frac{s}{2} \cdot \frac{y}{\norm{y}} \right)\right\|
+  < \frac{4 \norm{x} \norm{y}}{s^2} \qquad (x \neq 0, y \neq 0)
 \end{align}
-is effective. % 
-It is now obvious that %%
+because $ \norm{\frac{s}{2}\cdot \frac{x}{\norm{x}}} + \norm{\frac{s}{2} \cdot \frac{y}{\norm{y}}} = s < r$. This establishes %
+the existence of $M=4/r^2$, since
 %
 \begin{align}
-    B(x, y) \leq %
+    \norm{B(x, y)} <  %
     \frac{\!\!\!4\!}{\,s^{\,2}}\norm{x}\norm{y} 
     \tendsto{s}{r}
     \frac{\!\!\!4\!}{\,r^{\,2}}\norm{x}\norm{y}
-    \quad ((x, y) \in X \times Y); 
+    \quad \bigl((x, y) \in X \times Y\bigr). 
 \end{align}
-%
-which achieves the proof.\\\\ %
+% 
 % % % % % % % %
-% SECOND PART %
+% SECOND PART 
 % % % % % % % %
-As a concrete example, choose %
+Consider the concrete example where $X = Y = Z = C_c(\R)$ equipped with the supremum norm. The existence of $M=1$ follows from
 %
-  $X = Y = Z = C_c(\R)$, %
+\begin{equation}
+  \norm[\infty]{fg} \leq \norm[\infty]{f} \cdot \norm[\infty]{g}. %
+\end{equation}
 %
-topologized by the supremum norm. %
-%
-$C_c(\R)$ is not complete %
-%
-(see 5.4.4 of \cite{AnalyseIII}), %
-%
-nevertheless the bilinear product %
+However, $C_c(\R)$ is not complete; see \citebook{5.4.4}{AnalyseIII}. We prove that the bilinear product %
 %
 \begin{align}
-  \begin{aligned}
-    B: &&& C_c(\R)^{2} & \to      &&& C_c(\R) \\\nonumber 
-      &&& (f, g)       & \mapsto  &&& f \cdot g
-  \end{aligned}
+  B: C_c(\R)^{2} & \to  C_c(\R) \\
+  (f, g) & \mapsto f \cdot g \nonumber
 \end{align}
 %
-is bounded (since %
-    $\norm[\infty]{f\cdot g} \leq \norm[\infty]{f}\cdot \norm[\infty]{g}$%
-), %
-and continuous. To show this, pick a positive scalar %
-$\epsilon $ smaller than $1$, provided any $(f, g)$. Next, define %
+is nevertheless continuous. To do so, we start with $r=r(f, g, \epsilon)$ as follows:
+%
+\begin{equation}
+  r \triangleq \frac{\epsilon}{1 + \norm[\infty]{f} + \norm[\infty]{g}} < 1 \qquad (0 < \epsilon < 1).
+\end{equation}
+%
+Next, we choose $(u, v) \in C_c(\R)^2$ with  
+%
+\begin{equation}
+  \norm[\infty]{f-u} + \norm[\infty]{g-v} < r, %
+\end{equation}
+%
+so that $\norm[\infty]{fg - uv} < \epsilon$. Explicitly, we have
 %
 \begin{align}
-  r \triangleq \frac{\epsilon}{1 + \norm[\infty]{f} + \norm[\infty]{g}} < 1. %
+\norm[\infty]{fg - uv} & = \norm[\infty]{(f-u) \cdot g + u \cdot (g-v)} &\\
+  & \leq \norm[\infty]{f-u} \cdot \norm[\infty]{g} + \norm[\infty]{u} \cdot \norm[\infty]{g-v} &\\
+  & < r \cdot \norm[\infty]{g} + \left(r + \norm[\infty]{f}\right) \cdot r & 
+    \left(\text{using $\norm[\infty]{u} \leq r + \norm[\infty]{f}$}\right)\\
+  & < r \cdot \left(r + \norm[\infty]{f} + \norm[\infty]{g} \right)  & \\
+  & < \epsilon & \left(\text{because $r < 1$}\right).
 \end{align}
 %
-We now restrict $(u, v)$ to a particular neighborhood of $(f, g)$. %
-More specifically,  
-\begin{align}
-  \norm[\infty]{f-u} + \norm[\infty]{g-v} < r. %
-\end{align}
-%
-Next, remark that %
-%
-  $\norm[\infty]{u} \leq r + \norm[\infty]{f}$ %
-%
-and so obtain (bear in mind that $r < 1$)%
-%
-  \begin{align}
-    \norm[\infty]{fg - uv} 
-      & =
-    \norm[\infty]{(f-u) \cdot g + u \cdot (g-v)} \\
-      & \leq
-    \norm[\infty]{f-u} \cdot \norm[\infty]{g} + 
-    \norm[\infty]{u}   \cdot \norm[\infty]{g-v} \\
-      & < r \cdot \norm[\infty]{g} + (r + \norm[\infty]{f}) \cdot r \\
-      & < r \cdot (r + \norm[\infty]{f} + \norm[\infty]{g})  \\
-      & < \epsilon.
-  \end{align}
-%
-Since $\epsilon$ was arbitrary, it is now established that $B$ continuous %
-at every $(f, g)$.
+Since $\epsilon$ is arbitrary, this establishes that $B$ is continuous.
 \end{proof}
 % END
+% 

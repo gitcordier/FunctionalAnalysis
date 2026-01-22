@@ -12,7 +12,6 @@ Let be X as topological vector space. All sets mentioned below are understood to
 }
 %: (a)
 \begin{proof}
-\renewcommand{\labelenumi}{(\alph{enumi})} 
 \begin{enumerate}
 \item%
 Pick an open set $A$ then let the variables $\mathit{V}_i$ %
@@ -34,8 +33,8 @@ which achieves the proof. %
 %
 %:(b)
 \item Provided a bounded set $E$, %
-pick $V$ a neighbourhood of $0$: By (b) of Section 1.14 in \citeFA{14}, %
-$V$ contains a convex neighbourhood of $0$, say $W$. %
+pick $V$ a neighborhood of $0$: By (b) of Section 1.14 in \citeFA{14}, %
+$V$ contains a convex neighborhood of $0$, say $W$. %
 %
 There so exists a positive scalar $s$ such that
 %
@@ -52,7 +51,7 @@ which yields %
 So ends the proof. %
 %
 %:(c)
-\item At fixed $V$, neighbourhood of the origin, %
+\item At fixed $V$, neighborhood of the origin, %
 we combine the continuity of $+$ with \citeFA{1.14} %
 to conclude that there exists $U$ a balanced neighborhood of the origin %
 such that %
@@ -170,5 +169,7 @@ Now the key ingredient is that %
 We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
 So ends the proof.
 \end{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})} 
+%
 \end{proof}
 %END

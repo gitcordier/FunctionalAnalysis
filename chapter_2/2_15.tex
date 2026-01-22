@@ -16,16 +16,20 @@ Hint: \textit{$Y$ must intersect $x+Y$ for every $x\in X$. }%
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. Assumptions.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Let $\set{E_n}{\counting{n}}$ be such that $X\setminus Y= \bigcup_n E_n$. More specifically assume that $E_n$ is nowhere d%
-ense\ie $V_n = X \setminus \closure{E_n}$ is dense in $X$. Now pick an arbitrary $x \in X$. Since the translation by $x$ is a %
-self-homeomorphism, $x + V_n$ is open and dense as well. Alternatively, observe that $X= x + X \subset\closure{x+ V_n}$, as a %
-special case of \citeFA{1.3 (b)}. %
+Let $\set{E_n}{\counting{n}}$ whose union is $X\setminus Y$. More specifically, assume that every $E_n$ is nowhere dense\ie %
+$V_n = X \setminus \closure{E_n}$ is dense in $X$. Now pick an arbitrary $x \in X$. Since the translation by $x$ is a %
+self-homeomorphism, $x + V_n$ is open and dense as well%
+%
+  \footnote{Alternatively, observe that $X = x + X \subset \overline{x + V_n}$, as a special case of \citeFA{1.3 (b)}.}%
+%
+.%
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. Where Baire's theorem is involved.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 We now apply Baire's theorem twice to establish that %
 %
+\renewcommand{\labelenumi}{(\alph{enumi})}
 \begin{enumerate}
   \item every intersection $W_n = V_n \cap [x+V_n]$ is dense in $X$,
   \item so is the nonempty intersection $\bigcap_{n=1}^\infty W_n$. 
@@ -41,7 +45,7 @@ for some $w = w(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % C. Key ingredient! 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Furthermore, $w$ also lies in every $x + V_n$, by (a), which implies %
+Furthermore, $w$ also lies in every $x + V_n$, by (a). This implies %
 %
 \begin{align}\label{2_15_2}
   w - x \in \bigcap_{n=1}^\infty V_n \subset Y. 
