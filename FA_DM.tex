@@ -115,7 +115,7 @@ fouridx,
 \def\K{\usualSet{K}}
 
 \def\Def{\triangleq}
-\def\defIFF{\quad \text{\bf iff} \quad}
+\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
 
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
 \newcommand\integers[1]{#1=0, 1, 2, \dots}
@@ -140,9 +140,9 @@ fouridx,
 \def\therefore{\Rightarrow}
 \def\since{\Leftarrow}
 \def\because{\Leftarrow} 
+\renewcommand{\iff}{\Leftrightarrow} 
 
-% % Halmos and Iverson
-\renewcommand{\iff}{\Leftrightarrow}
+% % Iverson bracket notation
 \newcommand{\Iverson}[2][\big]{#1[\, #2\, #1]}
 
 % Sets

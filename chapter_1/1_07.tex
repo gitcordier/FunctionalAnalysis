@@ -34,14 +34,14 @@ This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-The family of seminorms $p_x$ is separating: The collection $\mathscr{B}$ of all finite intersections of the sets %
+Since the family of seminorms $p_x$ is separating, the collection $\mathscr{B}$ of all finite intersections of the sets %
 %
 \begin{equation}
   V(x,k) \triangleq \singleton*{p_x < 2^{\minus k}} 
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
-is therefore a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Hence %
+forms a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Hence %
 %
 \begin{equation}
   %
@@ -115,7 +115,7 @@ We set %
   f_n(x) \Def \theta_n \quad \bigl(x = \phi(\theta_1, \dots, \theta_n, \dots)\bigr)
 \end{equation}
 %
-so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construction, the special case %
+so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construction, the following  %
 %
 \begin{equation}
   x_\gamma %
@@ -126,13 +126,11 @@ outputs %
 %
 \begin{equation}
   \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude{\gamma_n}} %
-  \tendsto{n}{\infty} \infty, 
+  \tendsto{n}{\infty} \infty
 \end{equation}
 %
-given a sequence $\singleton{\gamma_n}$ diverging to $\infty$. This proves (b), since %
-$\singleton{\gamma_n f_n(x_\gamma)}$ diverges. 
-We now give an alternative construction of $\singleton{f_n}$. This second proof does not need the suggested cardinality %
-argument. 
+when $\gamma_n \to \infty$. This proves (b), since $\singleton{\gamma_n f_n(x_\gamma)}$ diverges. We now give an alternative %
+construction of $\singleton{f_n}$. This second proof requires no cardinality argument. 
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
@@ -187,7 +185,7 @@ Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yie
     \tendsto{k}{\infty}\infty.
 \end{equation}
 %
-In conclusion, every sequence of scalars $\gamma_n$ such that $\gamma_n \to \infty$ contains a subsequence%
+In conclusion, every sequence of scalars $\gamma_n$ such that $\gamma_n \to \infty$ contains a subsequence %
 $\singleton{\gamma_{n_k}}$ that causes $\singleton{\gamma_{n_k}f_{n_k}}$ to diverge. This is (b). 
 \end{proof}
 %
