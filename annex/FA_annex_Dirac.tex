@@ -40,10 +40,10 @@ Physically, integrating $\delta$ over time recaptures all the energy. Let $W$ be
 that either $0 \in \interior{W}$ or $0 \notin \closure{W}$. Next, consider any smooth real function $\phi$ with compact %
 support in $\interior{W}$ as a test signal. In this formalism, the integral $\int_{\R} \phi \diff{\delta}$ represents the %
 detector's response to the collision when $\phi$ is not identically zero. If $\max{\abs{\phi}} = 1$, then Lebesgue's %
-dominated convergence theorem justifies
+dominated convergence theorem ensures
 %
 \begin{equation}
-  \sup_\phi \int_{\R} \phi \diff{\delta} = \int_{\interior{W}} \diff{\delta} = \Iverson[\big]{0 \in \interior{W}}.
+  \sup_\phi \int_{\interior{W}} \abs{\phi} \diff{\delta} = \int_{\interior{W}} \diff{\delta} = \Iverson[\big]{0 \in \interior{W}}.
 \end{equation}
 %
 We now make the model rigorous by eliminating the heuristic $\heuristic{dH}$, as follows:

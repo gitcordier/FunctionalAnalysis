@@ -20,7 +20,7 @@ for all $k \leq p$ in $\N$.
 \end{lemma}
 %
 \begin{proof}
-  Let us first consider that $a < x_0 \leq (a+b)/2$. By the mean value theorem, there exists $a < x_1 < x_0$ such that
+First, consider $a < x_0 \leq (a+b)/2$. By the mean value theorem, there exists $a < x_1 < x_0$ such that
 %
 \begin{equation}
   \phi(x_0) = \phi(x_0) - \phi(a)=  D\phi(x_1)(x_0 - a).
@@ -57,9 +57,9 @@ place of $\phi$ shows that %
 for all $0 \leq k \leq p$. %
 \end{proof}
 %
-\begin{lemma}[Impossibility of a nontrivial reversed mean value theorem]%
+\begin{lemma}[Higher derivatives cannot be bounded by lower derivatives]
 \label{lemma-derivative-not-bounded-by-magnitude}%
-There is no general formula to estimate higher-order derivatives from lower-order derivatives.
+There is no general formula to estimate higher-order derivatives from lower-order derivatives. This immediately implies that no reversed mean value theorem exists.
 \end{lemma}
 %
 \begin{proof}
@@ -78,39 +78,41 @@ so that
 %
 is unbounded as $p$ or $\omega$ tends to $\infty$. %
 %
-Note that no pointwise estimation holds either. Indeed, the quotient %
+Note that no pointwise estimation holds either. Indeed, when it exists, the quotient %
+$Q_\omega(t) = \magnitude{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have same parity. Otherwise, %
+$Q_\omega(t)$ is either $\omega^{p-k}\tan(\omega t)$ or $\omega^{p-k}\cot{(\omega t)}$. In all cases, $Q_\omega(t)$ can be %
+arbitrarily large when $\omega \to \infty$, which defeats any pointwise bound $\sup_\omega Q_\omega(t) \leq M(t)$. %
 %
-$Q(t) = \magnitude{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ equals (when it exists) $\omega^{p-k}$ if $p$ and $k$ have %
-same parity, or $\omega^{p-k}\tan(\omega t)$, (or $\omega^{p-k}\cot{(\omega t)}$) in the opposite case. In this last case, %
-$Q(t)$ reaches all nonnegative values, which defeats any bound $Q(t) \leq M$.\par\noindent
+This example rules out any general inequality in the reversed direction. However, the following smooth example $\phi$ keeps %
+constant derivative $\phi'$ around $0$, which is the simplest possible behavior. \par\noindent%
 %
-This example rules out any general inequality in the reversed direction. However, the following smooth example $\phi$ %
-keeps constant derivative $\phi'$ around $0$, which is more tractable. Let $\rho\in C^\infty(\R)$ be defined as $1$ on %
-$]\minus \infty, 0]$, $0$ on $[1,\infty[$, and a strict decay on $\openinterval{0}{1}$. A standard choice is $\rho = 1-h$ with
+Let $\rho\in C^\infty(\R)$ be defined as $1$ %
+on $(\minus \infty, 0]$, $0$ on $[1,\infty)$, and a strict decay on $\openinterval{0}{1}$. A standard choice is %
+$\rho = 1-h$ with
 %
 \begin{equation}
   h(t) \Def \frac{e^{\minus 1/t}}{e^{\minus 1/t} + e^{\minus 1/(1-t)}}
 \end{equation}
 %
-for all $0 < t < 1$. Inspired by signal processing, we choose three positive parameters: $A$ (maximum amplitude), $\tau$ %
-(delay), and angular frequency $\omega$. We now define $\phi$ as the solution of 
+for all $0 < t < 1$. Inspired by signal processing, we choose two more positive parameters: maximum amplitude ($A$) and delay %
+($\tau$). We now define $\phi$ as the time-dependent solution of
 %
 \begin{align}
-  E_\rho: 
+  %E_\rho: 
   \begin{cases}
     \phi(0) & = 0 \\
-    \displaystyle{\frac{\diff{\phi}}{\diff{t}}(t)} & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr) 
+    \phi'(t) & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr) \qquad (t\in \R)
   \end{cases}
 \end{align}
 %
-when time $t$ ranges over the real line. Equivalently, $\phi$ is odd and, when $t$ turns positive, 
+Equivalently, $\phi$ is odd and, for $t > 0$, 
 %
 \begin{align}
   \phi(t)  = A \int_{0}^{t} \rho \bigl(\omega (s - \tau)\bigr) \diff{s} 
     =  A \min(t, \tau) + A \int_{\tau}^{\max(t,  \tau)} \rho \bigl(\omega (s - \tau)\bigr) \diff{s} 
 \end{align}
 %
-Note that $\max{\magnitude{\phi}}$ over $\R$ is %
+Note that the maximum of $\magnitude{\phi}$ is
 %
 \begin{align}
   \norm[\infty]{\phi} & = \tau A  + A \int_{\tau}^{\tau + 1/\omega} \rho \bigl(\omega (s - \tau)\bigr) \diff{s} \\
@@ -118,8 +120,8 @@ Note that $\max{\magnitude{\phi}}$ over $\R$ is %
     & < \tau A + \frac{A}{\omega}.
 \end{align}
 %
-The special case $\tau= 1/\omega= 1/A$ is of great interest. In this case, $\frac{\diff{\phi}}{\diff{t}}(0) = A\to \infty$, %
-as $\tau \to 0$. In contrast, $\norm[\infty]{\phi} < 2$.  
+The special case $\tau= 1/\omega= 1/A$ is of great interest. In this case, $\phi'(0) = A\to \infty$ as $\tau \to 0$. %
+In contrast, the maximum $\norm[\infty]{\phi}$ remains less than $2$. 
 \end{proof}
 % END
 % 
