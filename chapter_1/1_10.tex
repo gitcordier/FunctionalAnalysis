@@ -24,17 +24,16 @@ $\Lambda(X) = Y$.
 }
 %
 \begin{proof}
-Let $B=\singleton{e, e', \dots}$ be a basis for $Y$, and let $W\subset X$ be an arbitrary neighborhood of the origin. %
-Since addition is continuous in $X$, there exists a neighborhood $V$ of the origin such that%  
+Let $B=\singleton{e, e', \dots}$ be a basis for $Y$, and let $W\subset X$ be an arbitrary neighborhood of the origin. Since %
+addition is continuous in $X$, there exists a balanced open $V$ such that
 %
   \begin{equation}
     \label{definition of v}
     \sum_e V \subset W. 
   \end{equation}
 %
-We assume henceforth, without loss of generality, that $V$ is balanced. 
-Moreover, the surjectivity of $\Lambda$ provides a vector $x_e$ such that $\Lambda x_e = e$. Therefore, given the coordinate %
-representation $\sum_e y_e e$ of $y\in Y$, the following holds: 
+Note that $\Lambda(V)$ is balanced as well. Moreover, the surjectivity of $\Lambda$ ensures a vector $x_e$ such that %
+$\Lambda x_e = e$. Therefore, given the coordinate representation $\sum_e y_e e$ of $y\in Y$, we have
 %
 \begin{equation}\label{1_10_sum}
   y = \sum_e y_e e = \sum_e y_e \Lambda x_e. 
@@ -58,14 +57,14 @@ Using (\ref{definition of v}) and the balancedness of $\Lambda(V)$, we conclude 
     y \in \sum_e \Lambda (V) \subset \Lambda(W) .
   \end{equation}
 %
-This establishes (a) for $Y = \C^n$ and $B$ the standard basis. The general case $\dim{Y} = n$ now follows from %
-[\ref{notations: vector spaces: finite-dimensional vector spaces}]. The case $Y=\singleton{0}$ is trivial. %
-\par\noindent
+This establishes (a) when $Y$ is $\C^n$ equipped with $\norm[\infty]{\cdot}$ and the standard basis ($B$). The general case %
+$\dim{Y} = n$ now follows from [\ref{notations: vector spaces: finite-dimensional vector spaces}]. The case $Y=\singleton{0}$ %
+is trivial. \par\noindent
 %
-To prove (b), assume that the null space $\singleton{\Lambda = 0}$ is closed and let $f, \pi$ be as in Exercise 1.9, %
-$\{\Lambda = 0\}$ playing the role of $N$. Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) asserts %
-that $f$ is an isomorphism of $X/N$ onto $Y$. By [\ref{notations: vector spaces: finite-dimensional vector spaces}], %
-$f$ is also a homeomorphism. We have thus established that $f$ is continuous; so is $\Lambda = f\circ \pi$.
+To prove (b), assume that the null space $N = \singleton{\Lambda = 0}$ is closed and let $f, \pi$ be as in Exercise 1.9. %
+Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) asserts that $f$ is an isomorphism of $X/N$ onto %
+$Y$. By [\ref{notations: vector spaces: finite-dimensional vector spaces}], $f$ is also a homeomorphism. We have thus %
+established that $f$ is continuous; so is $\Lambda = f\circ \pi$.
 \end{proof}
 % END
 % 
