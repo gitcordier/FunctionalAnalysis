@@ -7,9 +7,11 @@ I am carefully rewriting my solutions, aiming at the cleanest possible result.
 
 # Requirements
 
-UPDATE: I am switching to LuaLaTeX, the XeLaTeX FA_DM.tex has not been updated. I will make a cleanup soon.  
+UPDATE: I am switching to LuaLaTeX, FA_DM_XeLaTeX the XeLaTeX version of FA_DM.tex is now "legacy".
+You should use FA_DM.tex.
+
 - TeX
-- XeLaTeX or LuaLaTeX
+- LuaLaTeX or XeLaTeX
 - Packages
   - AMS packages:
     - amsmath
@@ -47,7 +49,7 @@ Feel free to get copies of this great book by yourself.
 
 - FA_DM.pdf Output from compilation.You can also get an html output from
   [Hevea](http://hevea.inria.fr) compilation, see HOWTO.
-- FA_DM.tex, or FA_DM_lua.tex, the master document. 
+- FA_DM.tex, the master document.
 - FA_mainmatter.tex
 - FA_chapter_1.tex
 - chapter_1/

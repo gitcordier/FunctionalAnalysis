@@ -9,7 +9,7 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\newcommand{\heuristic}[1]{\mathtt{#1}}
+\newcommand{\heuristic}[1]{\mathcal{#1}}
 Consider a physical example: a particle colliding with a surface, which absorbs a unit of energy at impact time $t=0$. 
 We start with $H$ the \emph{Heaviside step function} $t \mapsto \Iverson{t \geq 0}$, so that $H(t)$ indicates whether the %
 particle has contributed its energy by time $t$. This formalism expresses that 
@@ -19,7 +19,7 @@ particle has contributed its energy by time $t$. This formalism expresses that
 \item{The energy is conserved over time.}
 \end{enumerate}
 %
-Heuristically, we write
+Heuristically, we $\heuristic{write}$, 
 %
 \begin{equation}
   \int_{\R} \heuristic{dH} = 1, \quad \heuristic{\frac{dH}{dt}} =
@@ -43,7 +43,7 @@ detector's response to the collision when $\phi$ is not identically zero. If $\m
 dominated convergence theorem ensures
 %
 \begin{equation}
-  \sup_\phi \int_{\interior{W}} \abs{\phi} \diff{\delta} = \int_{\interior{W}} \diff{\delta} = \Iverson[\big]{0 \in \interior{W}}.
+  \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\big]{0 \in \interior{W}}.
 \end{equation}
 %
 We now make the model rigorous by eliminating the heuristic $\heuristic{dH}$, as follows:
@@ -60,7 +60,7 @@ Nevertheless, we obtain all filtered responses as the evaluation functional $\ph
 following definitions: %
 %
 \begin{align}
-  \Lambda_H(\phi) &\Def \int_{\R} H \phi\diff{t} & (\text{expresses $H$, the Heaviside step function})\\
+  \Lambda_H(\phi) &\Def \int_{\R} H \phi\diff{t} & (\text{expresses $H$})\\
   \Lambda_H'(\phi) &\Def \minus \int_{\R} H \diff{\phi} = \phi(0) & 
     (\text{the \textit{weak derivative} of $H$: impulse at $0$})\\
   \delta(\phi) &\Def \phi(0) \label{definition-of-dirac} & (\text{$\delta$ now has a rigorous definition}).

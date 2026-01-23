@@ -26,7 +26,7 @@ there exists $r > 0$ such that
   \norm{B(x, y)} < 1 
 \end{equation}
 %
-whenever $\bigl(\norm{x} + \norm{y} < r \bigr)$. Therefore, any $0 < s < r$ yields%
+whenever $\norm{x} + \norm{y} < r$. Therefore, any $0 < s < r$ yields%
 %
 \begin{align}
   \norm{B(x, y)} = \frac{4\norm{x}\norm{y}}{s^2} 
@@ -37,7 +37,7 @@ because $ \norm{\frac{s}{2}\cdot \frac{x}{\norm{x}}} + \norm{\frac{s}{2} \cdot \
 the existence of $M=4/r^2$, since
 %
 \begin{align}
-    \norm{B(x, y)} <  %
+    \norm{B(x, y)} \leq %
     \frac{\!\!\!4\!}{\,s^{\,2}}\norm{x}\norm{y} 
     \tendsto{s}{r}
     \frac{\!\!\!4\!}{\,r^{\,2}}\norm{x}\norm{y}
@@ -47,7 +47,7 @@ the existence of $M=4/r^2$, since
 % % % % % % % %
 % SECOND PART 
 % % % % % % % %
-Consider the concrete example where $X = Y = Z = C_c(\R)$ equipped with the supremum norm. The existence of $M=1$ follows from
+Consider the example where $X = Y = Z = C_c(\R)$ equipped with the supremum norm. The existence of $M=1$ follows from
 %
 \begin{equation}
   \norm[\infty]{fg} \leq \norm[\infty]{f} \cdot \norm[\infty]{g}. %
@@ -60,10 +60,10 @@ However, $C_c(\R)$ is not complete; see \citebook{5.4.4}{AnalyseIII}. We prove t
   (f, g) & \mapsto f \cdot g \nonumber
 \end{align}
 %
-is nevertheless continuous. To do so, we start with $r=r(f, g, \epsilon)$ as follows:
+is nevertheless continuous. To do so, we start with any
 %
 \begin{equation}
-  r \triangleq \frac{\epsilon}{1 + \norm[\infty]{f} + \norm[\infty]{g}} < 1 \qquad (0 < \epsilon < 1).
+  0 < r < \frac{\epsilon}{1 + \norm[\infty]{f} + \norm[\infty]{g}} < \epsilon < 1.
 \end{equation}
 %
 Next, we choose $(u, v) \in C_c(\R)^2$ with  
@@ -80,6 +80,7 @@ so that $\norm[\infty]{fg - uv} < \epsilon$. Explicitly, we have
   & < r \cdot \norm[\infty]{g} + \left(r + \norm[\infty]{f}\right) \cdot r & 
     \left(\text{using $\norm[\infty]{u} \leq r + \norm[\infty]{f}$}\right)\\
   & < r \cdot \left(r + \norm[\infty]{f} + \norm[\infty]{g} \right)  & \\
+  & < \epsilon \frac{r + \norm[\infty]{f} + \norm[\infty]{g}}{ 1+ \norm[\infty]{f} + \norm[\infty]{g}}  \\
   & < \epsilon & \left(\text{because $r < 1$}\right).
 \end{align}
 %

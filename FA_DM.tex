@@ -1,11 +1,11 @@
 % a4paper = ISO 216 standard. 
 % Don't forget to revert to default if you want the US Letter instead.
-\documentclass[a4paper,10pt,titlepage,openany, leqno]{book}
+\documentclass[a4paper,10pt,titlepage,openany,leqno]{book}
 
-%: MATH PACKAGE USED
+% --------------------------- MATH PACKAGES ----------------------------
 %\usepackage{graphicx}
-%\usepackage{fontspec}
-\usepackage{amsmath, bm}
+%\usepackage{fontspec} % XeTeX only, now replaced by fontspec + unicode-math
+\usepackage{amsmath, amssymb} 
 \usepackage{
 physics, 
 amssymb, 
@@ -13,7 +13,7 @@ amsfonts,
 mathrsfs, 
 amsthm, 
 mathtools, 
-mathspec, 
+% mathspec, % DEPRECATED: XeTeX-specific, removed for LuaLaTeX
 fouridx, 
 %%stix
 %%tensor 
@@ -29,80 +29,84 @@ fouridx,
 % TEXs LOGOS! 
 %\usepackage{dtklogos}
 
-%\usepackage[bottom=3cm,top=2cm]{geometry}
-% Metric system, sorry;)
 \usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
-%: COLOR
+
+% --------------------------- COLOR ----------------------------
 \usepackage{array}
 %\usepackage[dvipsnames]{xcolor}
 %\usepackage[]{color}
 %\usepackage{framed}
 \usepackage{colortbl}
 
-%: FOR XELATEX. SKIP IF ERROR MESSAGE
-\usepackage{xltxtra,xunicode}
+% --------------------------- FONT + UNICODE-MATH ----------------------------
+\usepackage{fontspec}
 
-%: for HEVEA- Uncomment before using XeTeX
-%\usepackage[utf8]{inputenc}
-\usepackage[xetex]{hyperref}
-%\usepackage{hyperref}
-%\usepackage{listings}
-\hypersetup{%
+% 1. OPTION ADDED HERE: [math-style=upright]
+% This forces Latin (x, y) and Greek letters to be upright by default.
+\usepackage[math-style=upright]{unicode-math} 
+
+% --------------------------- HYPERREF ----------------------------
+\usepackage{hyperref} 
+\hypersetup{
     pdfborder = {0 0 0},
     colorlinks,
     citecolor=red,
     filecolor=green,
     linkcolor=black,
-    urlcolor=blue%cyan!50!black!90
+    urlcolor=blue
 }
-\defaultfontfeatures{Mapping=tex-text}
 
-% FONTS: PERSONNAL CHOICE- CAN BE CHANGED!
-\newfontfamily{\CMUCS}{CMU Classical Serif}
-\newfontfamily{\CMU}{CMU Serif}
-\newfontfamily{\CMUSS}{CMU Sans Serif}
-\newfontfamily{\fw}{CMU Typewriter Text Light}
-%\newfontfamily{\Arabic}{Al Bayan}
-% On mac OS:
-%\newfontfamily{\Didot}{Didot}
-% Alternatively, for all Unix systems:
-%\newfontfamily{\Didot}{Theano Didot}
-%\usepackage{mathspec}
-\def\mainfont{CMU Serif}
-\setmainfont{\mainfont}
+% --------------------------- TEXT FONTS ----------------------------
+\setmainfont[
+  ItalicFont=NewCM10-BookItalic.otf,
+  BoldFont=NewCM10-Bold.otf,       % There is no "Book Bold", we use standard Bold
+  BoldItalicFont=NewCM10-BoldItalic.otf
+]{NewCM10-Book.otf}
 
-\setmathfont(Latin)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
-\setmathfont(Greek)[Uppercase=Regular,Lowercase=Regular]{\mainfont}
-\setmathrm{\mainfont}
-%\setmathbb{\mainfont}
-%\setmathit{\mainfont}
-\setmathtt{CMU Typewriter Text Light}
-%\setmathbf{CMU Serif}
+\setsansfont[
+  ItalicFont=NewCMSans10-BookOblique.otf,
+  BoldFont=NewCMSans10-Bold.otf,
+  BoldItalicFont=NewCMSans10-BoldOblique.otf
+]{NewCMSans10-Book.otf}
 
+\setmonofont[
+  Scale=MatchLowercase, % Good practice to keep mono readable against serif
+  ItalicFont=NewCMMono10-BookItalic.otf,
+  BoldFont=NewCMMono10-Bold.otf,
+  BoldItalicFont=NewCMMono10-BoldOblique.otf
+]{NewCMMono10-Book.otf}
 
-%: TYPOGRAPHIC CONVENTIONS, XETEX
+%\newfontfamily\fw{NewCMMono10-Book.otf}
+%\newfontfamily\CMUCS{NewCMMono10-Book.otf}
+% --------------------------- MATH FONTS ----------------------------
+\setmathfont{NewCMMath-Book.otf}
+%\setmathfont[range=\mathtt]{NewCMMono10-Book.otf}
+ 
+ %cmuntt.otf}
+% --------------------------- TYPOGRAPHIC CONVENTIONS ----------------------------
 \usepackage{polyglossia}
-%\selectbackgroundlanguage[variant=usmax]{english}
 \setdefaultlanguage[variant=usmax]{english}
 
-%
-%\usepackage{glossaries}
-%\makeglossaries
-
-
-%\newglossaryentry{maths}
-%{
-%    name=mathematics,
-%    description={Mathematics is what mathematicians do}
-%}
-%: ----------------------------PRIMITIVES------------------------------------- 
+% --------------------------- PRIMITIVES ----------------------------
 \newcommand{\insmall}[1]{\text{\small{#1}}}
-% Some acceptable minus sign.
-\newcommand{\minus}{\insmall{-}}
+%\newcommand{\minus}{\insmall{-}}
+% Use \AtBeginDocument to ensure unicode-math doesn't overwrite it
 
+\AtBeginDocument{
+  \renewcommand{\minus}{%
+    \mathbin{%
+      \mathchoice
+        {\scalebox{0.8}{$\text{\bf -}$}} % Display and Text style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Script style
+        {\scalebox{0.5}{$\text{\bf -}$}} % Script-script style
+        {\scalebox{0.8}{$\text{\bf -}$}} % Default fallback
+    }%
+  }
+}
 
-% The field C and the usual subsets R, Q, Z, N. 
-\newcommand\usualSet[1]{{\mathbf #1}}
+% The field C and the usual subsets R, Q, Z, N.
+% NOTE: \mathbf produces bold italic in unicode-math, switch to \mathbb for standard notation
+\newcommand\usualSet[1]{\mathbf{#1}} 
 \def\C{\usualSet{C}}
 \def\R{\usualSet{R}}
 \def\Q{\usualSet{Q}}
@@ -110,74 +114,106 @@ fouridx,
 \def\N{\usualSet{N}}
 \def\K{\usualSet{K}}
 
-% "Defined as equals to", alternative to := .
 \def\Def{\triangleq}
 \def\defIFF{\quad \text{\bf iff} \quad}
 
-% Counting numbers
 \newcommand\counting[1]{#1=1, 2, 3, \dots}
-% integers (nonnegative)
 \newcommand\integers[1]{#1=0, 1, 2, \dots}
 \newcommand\naturals[1]{#1=0, 1, 2, \dots}
 
-% Indices: upper, lower
 \newcommand{\up}[1]{^{(#1)}}
 \newcommand{\low}[1]{_{#1}}
 \newcommand{\upnw}[2]{\fourIdx{#2}{}{}{}#1}
 \newcommand{\downsw}[2]{\fourIdx{}{#2}{}{}#1}
 \newcommand{\scriptatleft}[3]{\fourIdx{#2}{#3}{}{}#1}
 \newcommand{\diagscript}[3]{\fourIdx{#2}{}{}{#3}#1}
-%\tensor*[^x]{V}{_k}
 
-% function, relation
 \newcommand{\function}[1]{\mathtt{#1}}
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
 \newcommand{\id}[1]{\text{id}_{#1}}
-%\renewcommand{\restriction}[2]{\left.#1\right|_{#2}}
 \renewcommand{\restriction}[2]{#1\!\upharpoonright_{#2}}
 
-%\newcommand{\DeclareMathOperator}[1]{\text{#1}}
+% Predicate calculus, logic
+% % Bunch of synonyms
+\def\then{\Rightarrow} 
+\def\therefore{\Rightarrow}
+\def\since{\Leftarrow}
+\def\because{\Leftarrow} 
+
+% % Halmos and Iverson
+\renewcommand{\iff}{\Leftrightarrow}
+\newcommand{\Iverson}[2][\big]{#1[\, #2\, #1]}
 
 % Sets
-%\renewcommand{\notin}{\tiny{\not\in}}
-%\renewcommand{\ni}{\small \ni}
-\renewcommand{\subset}{\subseteq}
-\renewcommand{\supset}{\supseteq}
+% % Braces
+\DeclarePairedDelimiter\singleton\{\}
+\newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
+
+% % Union, intersection.
+% For now, nothing gets bolded. TODO:? Minor concern. 
+\DeclareMathOperator{\unionOfCollection}{\boldsymbol{\bigcup}}
+\DeclareMathOperator{\intersectionOfCollection}{\boldsymbol{\bigcap}}
+\def\cuts{\cap} % synonym
+
+% % Subset, supset
+\AtBeginDocument{\let\subset\subseteq
+\let\supset\supseteq}
+\def\contains{\supseteq} % synonym
+
+% % Convex hull
+\DeclareMathOperator\cvxhull{co} 
+\newcommand{\co}[1]{\cvxhull(#1)}
+
+% % Misc
 \newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
 \DeclareMathOperator\opcard{card} 
-%
-\def\contains{\supseteq}
-\def\cuts{\cap}
-\DeclareMathOperator\cvxhull{co} 
-%\DeclareMathOperator\support{supp} 
-\newcommand{\co}[1]{\cvxhull(#1)}
-\newcommand{\set}[3][\big]{#1\{#2 : #3 #1\}}
 
-\newcommand{\singleton}[1]{\{#1\}}
-\newcommand{\interior}[1]{\overset{\circ}{#1}}
-\newcommand{\closure}[1]{\overline{#1}} 
- 
-% Arithmetics
+% Topology 
+\newcommand{\interior}[1]{{#1}^\circ}
 
+\AtBeginDocument{
+  \DeclareRobustCommand{\closure}[1]{\overline{#1}}
+}
 
-% Calculus 
+\newcommand{\localbase}[1]{\mathscr #1}
+\def\weakstar{\text{weak}^\ast\text{-}}
+
+% Standard calculus
+% % Intervals
+%\newcommand{\openInterval}[2]{\left]#1, #2\right[}
+%\newcommand{\openInterval}[2]{\openInterval}
+%\DeclarePairedDelimiter\openinterval[]
+\DeclarePairedDelimiter\openinterval{]}{[}
+\newcommand{\openInterval}[3][\big]{\openinterval[#1]{#2, #3}}
+
+%newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
+
+% % Usual spaces
+\newcommand{\Continuous}{{\mathscr C}} 
+\newcommand{\D}{{\mathscr D}} 
+
+% % Bounds
+\newcommand{\supp}[1]{\operatorname{supp}#1}
+
+% % Usual functions and operator
+\DeclareMathOperator{\cotan}{cotan}
 \DeclareMathOperator\sgn{sgn}
 \newcommand{\ceil}[1]{\lceil #1 \rceil}
 \DeclareMathOperator\Leibnizdiff{d}
 \newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
-\newcommand{\supp}[1]{\operatorname{supp}#1}
 
-% Variation of a function. 
-% I don't know where the original \variation comes from. 
-% It outputs a \delta... Hence 
+% % Evaluation
 \newcommand{\evalbar}[4][\Big]{#2\mathrel{#1|}_{#3}^{#4}}
 \newcommand{\evalbracket}[4][\Big]{#1[\,#2\,#1]_{#3}^{#4}}
-%
-% Analysis
-\newcommand{\openinterval}[2]{\left]#1, #2\right[} 
-%\newcommand{\magnitude}[1]{\abs{\,#1\,}}
+
+% % Limits
+\newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
+
+% % Norms
 \def\hspaceNorm{\hspace{0.12 em}}
+
+% % Alternative to \abs
 \newcommand{\magnitude}[2][\big]{#1\lvert \hspaceNorm #2 \hspaceNorm #1\rvert}
 
 \renewcommand{\norm}[2][]{
@@ -188,98 +224,73 @@ fouridx,
   \fi
 }
 
-% Three-bar norm, macro from:
-% https://tex.stackexchange.com/questions/54385/spacing-between-triple-vertical-lines
+% % the ||| . ||| version
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
     \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
-% So, 
 \newcommand{\normtriple}[2]{\vertiii{\hspaceNorm #2 \hspaceNorm}_{#1}}
 
-\newcommand{\Continuous}{{\mathscr C}} 
-\newcommand{\D}{{\mathscr D}} 
-%\renewcommand{\norm}[2]{\norm{#2}_{#1}}
-\def\weakstar{\text{weak}^\ast\text{-}}
+% Typesetting
 
-% Topology
-\newcommand{\localbase}[1]{\mathscr #1}
-
-%Iverson bracket
-\newcommand{\Iverson}[1]{\bigl[#1\bigr]}
-
-% limits
-\newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
-
-% Variables
 \newcommand{\varit}[1]{\mathit{#1}}
 \def\vart{\varit{t}}
-%Usual terms
+
 \def\ie{\textit{, i.e., }}
 \def\eg{\textit{, e.g., }}
 \def\cf{\textit{cf.\,}} 
 \def\IFF{{\bf iff }}
-\def\wlg{{\bf wlg }} % Without loss of generality
+\def\wlg{{\bf wlg }}
 
-% then, since.
-\def\then{\Rightarrow} 
-\def\therefore{\Rightarrow}
-\def\since{\Leftarrow}
-\def\because{\Leftarrow} 
-\renewcommand{\iff}{\Leftrightarrow}
+% Typography
+% % Greel letters.
+\renewcommand{\rho}{\uprho}
+\AtBeginDocument{
+\renewcommand{\epsilon}{\varepsilon} 
+%\renewcommand{\phi}{\varphi} % For now, \phi is OK.
+}
 
-% Misc
-% phi is varphi:
-\renewcommand{\phi}{\varphi} 
-
-% Citations
+% Citations (unchanged)
 \newcommand{\citehere}[2]{\overset{#1}{#2}}
 \newcommand{\citeq}[1]{\citehere{#1}{=}}
-%\newcomand{\citeineq}[1]{\citehere{#1}{=}}
 \newcommand{\citeleq}[1]{\citehere{#1}{\leq}}
 \newcommand{\citegeq}[1]{\citehere{#1}{\geq}}
 \newcommand{\citeleast}[1]{\citehere{#1}{<}}
 \newcommand{\citegreater}[1]{\citehere{#1}{>}}
-
 \newcommand{\citesubset}[1]{\citehere{#1}{\subset}}
 \newcommand{\citesubseteq}[1]{\citehere{#1}{\subseteq}}
 \newcommand{\citesupset}[1]{\citehere{#1}{\supset}}
 \newcommand{\citesupseteq}[1]{\citehere{#1}{\supseteq}}
-
 \newcommand{\citethen}[1]{\citehere{#1}{\then}}
-%\newcommand{\citesince}[1]{\citehere{#1}{\Leftarrow}}
 \newcommand{\citeresult}[2]{#1 of #2}
 \newcommand{\citebook}[2]{[#1] of {\cite{#2}}}
 \newcommand{\citeFA}[1]{\citebook{#1}{FA}}
-
 \newcommand{\citein}[1]{\citehere{#1}{\in}}
-% Misc
+
 \newcommand{\underbarwithindex}[2]{\underline{#1}\,\!_{#2}}
 \newcommand{\dy}[1]{{\function{dyadic}}(#1)}
 \def\ddy{{\function{decay}}}
 
-%--------------END OF PRIMITIVES--------------------------------
-
-% Environment for lemmas 
+% --------------------------- THEOREM STYLE ----------------------------
 \makeatletter
-\newtheoremstyle{namedlemma} % <name>
-  {3pt}                     % Space above
-  {20pt}                    % Space below
-  {}                        % Body font e.g \itshape
-  {}                        % Indent
-  {\bfseries}               % Head font
-  {.\newline}               % Hack
-  {\newline}                % Space after theorem head
-  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}} % Head spec
+\newtheoremstyle{namedlemma} 
+  {3pt} 
+  {20pt} 
+  {} 
+  {} 
+  {\bfseries} 
+  {.\newline} 
+  {\newline} 
+  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}} 
 \makeatother
 
 \theoremstyle{namedlemma}
 \newtheorem{lemma}{Lemma}[chapter]
 
+% --------------------------- DOCUMENT INFO ----------------------------
 \def\ROOT{./}
-\def\TITLE{
-  Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}
-}
+\def\TITLE{Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}}
 \def\EMAIL{}
 \def\AUTHOR{gitcordier}
+
 
 \begin{document}
 % Changes the "proof" in proof environment. 
@@ -308,6 +319,7 @@ fouridx,
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\roman{subsection}}
 \input{\ROOT/notations.tex}
+
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesection}{\arabic{section}}
 \mainmatter
