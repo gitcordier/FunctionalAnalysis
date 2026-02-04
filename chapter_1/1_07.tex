@@ -34,10 +34,10 @@ This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Since the family of seminorms $p_x$ is separating, the collection $\mathscr{B}$ of all finite intersections of the sets %
+Since the family of seminorms $p_x$ is separating, the collection $\mathscr{B}$ of all finite intersections of the following %
 %
 \begin{equation}
-  V(x,k) \triangleq \singleton*{p_x < 2^{\minus k}} 
+  V(x,k) \Def \singleton*{p_x < 2^{\minus k}} 
   \quad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
@@ -47,11 +47,11 @@ forms a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Henc
   %
   \label{Inequality-boolean-series}
   %
-  \sum_{n=1}^\infty \Iverson{g_n \notin \cap_{i=1}^m U_i}
+  \sum_{n=1}^\infty \Iverson[\Big]{g_n \notin \cap_{i=1}^m U_i}
   \leq 
-  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson{g_n \notin U_i} 
+  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson[\Big]{g_n \notin U_i} 
   = 
-  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{g_n \notin U_i},
+  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\Big]{g_n \notin U_i},
 \end{equation}
 %
 see [\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
@@ -59,7 +59,7 @@ By definition, %
 %
 \begin{equation}
   %
-  \sum_{n=1}^\infty \Iverson{f_n - f \notin W} < \infty \quad (W \in \mathscr{B}).
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin W} < \infty \quad (W \in \mathscr{B}).
 \end{equation}
 %
 The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
@@ -67,20 +67,20 @@ finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge. This implies that, for every $f \in X$, there exist %
-finitely many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
+Conversely, assume that $\singleton{f_n}$ does not converge in $\tau$. This implies that, for each $f$ there exists finitely %
+many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
 %
 \begin{equation}
   %
   \label{Divergence}
-  \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} = \infty. 
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} = \infty. 
 \end{equation}
 %
 Substituting $f_n - f$ for $f_n$ in \eqref{Inequality-boolean-series}, with $U_i = V(x_i, k_i)$, yields 
 %
 \begin{equation}
-  \sum_{n=1}^\infty \Iverson{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} 
-  \leq \sum_{i=1}^m \sum_{n=1}^\infty \Iverson{f_n - f \notin V(x_i, k_i)}
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)} 
+  \leq \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin V(x_i, k_i)}
   = \infty.
 \end{equation}
 %
@@ -130,7 +130,7 @@ outputs %
 \end{equation}
 %
 when $\gamma_n \to \infty$. This proves (b), since $\singleton{\gamma_n f_n(x_\gamma)}$ diverges. We now give an alternative %
-construction of $\singleton{f_n}$. This second proof requires no cardinality argument. 
+construction of $\singleton{f_n}$ that requires no cardinality argument. 
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.

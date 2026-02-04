@@ -1,3 +1,14 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 2_09.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{
 Suppose $X,Y,Z$ are Banach spaces and 
 %
@@ -8,9 +19,9 @@ Suppose $X,Y,Z$ are Banach spaces and
 is bilinear and continuous. Prove that there exists $M<\infty$ such that 
 %
 \begin{align*}
-  \norm{B(x, y)}
+  \norm*{B(x, y)}
   \leq 
-  M \norm{x}\norm{y} \quad (x\in X, y\in Y).
+  M \norm*{x}\norm*{y} \quad (x\in X, y\in Y).
 \end{align*}
 %
 Is completeness needed here?}
@@ -19,29 +30,35 @@ Is completeness needed here?}
 % % % % % % % 
 % FIRST PART 
 % % % % % % % 
-Completeness is not required. For the proof, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
+Completeness is not required. For show this, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
 there exists $r > 0$ such that 
 %
 \begin{equation}\label{bound for B}
-  \norm{B(x, y)} < 1 
+  \norm*{B(x, y)} < 1 
 \end{equation}
 %
-whenever $\norm{x} + \norm{y} < r$. Therefore, any $0 < s < r$ yields%
+whenever $\norm*{x} + \norm*{y} < r$. Therefore, any $0 < s < r$ yields%
 %
 \begin{align}
-  \norm{B(x, y)} = \frac{4\norm{x}\norm{y}}{s^2} 
-    \left\| B \left(\frac{s}{2}\cdot \frac{x}{\norm{x}}, \frac{s}{2} \cdot \frac{y}{\norm{y}} \right)\right\|
-  < \frac{4 \norm{x} \norm{y}}{s^2} \qquad (x \neq 0, y \neq 0)
+  \norm*{B(x, y)} = \frac{4\norm*{x}\norm*{y}}{s^2} \cdot \norm[\bigg]{B\left(
+    \frac{s}{2} \cdot \frac{x}{\norm*{x}}, %
+    \frac{s}{2} \cdot \frac{y}{\norm*{y}}
+  \right)}
+  < \frac{4 \norm*{x} \norm*{y}}{s^2} \qquad (x \neq 0, y \neq 0)
 \end{align}
-because $ \norm{\frac{s}{2}\cdot \frac{x}{\norm{x}}} + \norm{\frac{s}{2} \cdot \frac{y}{\norm{y}}} = s < r$. This establishes %
-the existence of $M=4/r^2$, since
+%
+when %
+$ \norm[\Big]{\frac{s}{2} \cdot \frac{x}{\norm*{x}}}
++ \norm[\Big]{\frac{s}{2} \cdot \frac{y}{\norm*{y}}}
+= s < r$. 
+%
+This establishes the existence of $M=4/r^2$, since
 %
 \begin{align}
-    \norm{B(x, y)} \leq %
-    \frac{\!\!\!4\!}{\,s^{\,2}}\norm{x}\norm{y} 
+    \norm*{B(x, y)} \leq %
+    \frac{\!\!\!4\!}{\,s^{\,2}}\norm*{x}\norm*{y} 
     \tendsto{s}{r}
-    \frac{\!\!\!4\!}{\,r^{\,2}}\norm{x}\norm{y}
-    \quad \bigl((x, y) \in X \times Y\bigr). 
+    \frac{\!\!\!4\!}{\,r^{\,2}}\norm*{x}\norm*{y}. 
 \end{align}
 % 
 % % % % % % % %
@@ -50,7 +67,7 @@ the existence of $M=4/r^2$, since
 Consider the example where $X = Y = Z = C_c(\R)$ equipped with the supremum norm. The existence of $M=1$ follows from
 %
 \begin{equation}
-  \norm[\infty]{fg} \leq \norm[\infty]{f} \cdot \norm[\infty]{g}. %
+  \norm*[\infty]{fg} \leq \norm*[\infty]{F} \cdot \norm*[\infty]{g}. %
 \end{equation}
 %
 However, $C_c(\R)$ is not complete; see \citebook{5.4.4}{AnalyseIII}. We prove that the bilinear product %
@@ -63,24 +80,24 @@ However, $C_c(\R)$ is not complete; see \citebook{5.4.4}{AnalyseIII}. We prove t
 is nevertheless continuous. To do so, we start with any
 %
 \begin{equation}
-  0 < r < \frac{\epsilon}{1 + \norm[\infty]{f} + \norm[\infty]{g}} < \epsilon < 1.
+  0 < r < \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}} < \epsilon < 1.
 \end{equation}
 %
 Next, we choose $(u, v) \in C_c(\R)^2$ with  
 %
 \begin{equation}
-  \norm[\infty]{f-u} + \norm[\infty]{g-v} < r, %
+  \norm*[\infty]{f-u} + \norm*[\infty]{g-v} < r, %
 \end{equation}
 %
-so that $\norm[\infty]{fg - uv} < \epsilon$. Explicitly, we have
+so that $\norm*[\infty]{fg - uv} < \epsilon$. Explicitly, we have
 %
 \begin{align}
-\norm[\infty]{fg - uv} & = \norm[\infty]{(f-u) \cdot g + u \cdot (g-v)} &\\
-  & \leq \norm[\infty]{f-u} \cdot \norm[\infty]{g} + \norm[\infty]{u} \cdot \norm[\infty]{g-v} &\\
-  & < r \cdot \norm[\infty]{g} + \left(r + \norm[\infty]{f}\right) \cdot r & 
-    \left(\text{using $\norm[\infty]{u} \leq r + \norm[\infty]{f}$}\right)\\
-  & < r \cdot \left(r + \norm[\infty]{f} + \norm[\infty]{g} \right)  & \\
-  & < \epsilon \frac{r + \norm[\infty]{f} + \norm[\infty]{g}}{ 1+ \norm[\infty]{f} + \norm[\infty]{g}}  \\
+\norm*[\infty]{fg - uv} & = \norm*[\infty]{(f-u) \cdot g + u \cdot (g-v)} &\\
+  & \leq \norm*[\infty]{f-u} \cdot \norm*[\infty]{g} + \norm*[\infty]{u} \cdot \norm*[\infty]{g-v} &\\
+  & < r \cdot \norm*[\infty]{g} + \left(r + \norm*[\infty]{f}\right) \cdot r & 
+    \left(\text{using $\norm*[\infty]{u} \leq r + \norm*[\infty]{f}$}\right)\\
+  & < r \cdot \left(r + \norm*[\infty]{f} + \norm*[\infty]{g} \right)  & \\
+  & < \epsilon \frac{r + \norm*[\infty]{f} + \norm*[\infty]{g}}{ 1+ \norm*[\infty]{f} + \norm*[\infty]{g}}  \\
   & < \epsilon & \left(\text{because $r < 1$}\right).
 \end{align}
 %

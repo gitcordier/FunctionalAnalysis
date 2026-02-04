@@ -5,6 +5,7 @@
 % --------------------------- MATH PACKAGES ----------------------------
 %\usepackage{graphicx}
 %\usepackage{fontspec} % XeTeX only, now replaced by fontspec + unicode-math
+\usepackage{xparse} 
 \usepackage{amsmath, amssymb} 
 \usepackage{
 physics, 
@@ -143,7 +144,45 @@ fouridx,
 \renewcommand{\iff}{\Leftrightarrow} 
 
 % % Iverson bracket notation
-\newcommand{\Iverson}[2][\big]{#1[\, #2\, #1]}
+%\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
+%\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
+\NewDocumentCommand{\Iverson}{s O{} m }{%
+  % #1: * (optional star)
+  % #2: [\big] (optional size)
+  % #3: Content (required)
+  {%
+  \IfBooleanTF{#1}{\left[}{#2[}%
+  {\, #3 \, }%
+  \IfBooleanTF{#1}{\right]}{#2]}%
+}%
+}
+% Simplified and Robust \OP
+% #1: * (optional star)
+% #2: [\big] (optional size)
+% #3: Content (required)
+% #4: Subscript (optional, defaults to empty)
+\NewDocumentCommand{\OP}{s O{} m O{}}{%
+  {%
+    \IfBooleanTF{#1}{\left[}{#2[}%
+    {#3}%
+    \IfBooleanTF{#1}{\right]}{#2]}%
+  }%
+  \if\relax\detokenize{#4}\relax
+    ^{\prime}% No subscript case
+  \else
+    _{#4}^{\prime}% With subscript case
+  \fi
+}
+%
+\NewDocumentCommand{\gnorm}{s O{\big} m}{%
+  \IfBooleanTF{#1}%
+    {% starred version: automatic sizing
+      {\left[\, #3 \,\right]}^{\prime}%
+    }%
+    {% non-starred version: manual sizing
+      {#2[\, #3 \,#2]}^{\prime}%
+    }%
+}
 
 % Sets
 % % Braces
@@ -216,13 +255,50 @@ fouridx,
 % % Alternative to \abs
 \newcommand{\magnitude}[2][\big]{#1\lvert \hspaceNorm #2 \hspaceNorm #1\rvert}
 
-\renewcommand{\norm}[2][]{
-  \if\relax\detokenize{#1}\relax 
-    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
-  \else 
-    \left\lVert \hspaceNorm #2 \hspaceNorm \right\rVert_{#1} 
-  \fi
+%\newcommand{\norm}[2][]{
+%  \if\relax\detokenize{#1}\relax 
+%    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
+%  \else 
+%    \left\lVert \hspaceNorm #2 \hspaceNorm \right\rVert_{#1} 
+%  \fi
+%}
+
+% \norm command
+% #1: * (optional star for auto-sizing)
+% #2: [\big] (optional size command like \big, \Big, \bigg, \Bigg)
+% #3: Subscript (optional)
+% #4: Content (required)
+\RenewDocumentCommand{\norm}{s o o g}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{% if [subscript]
+      \IfValueTF{#3}{ % if [content]
+      \errmessage{norm: Star mode. Don't specify the [size].}%
+      }{ % elif {content}
+        \IfValueTF{#4}{
+          {\left\lVert \hspaceNorm #4 \hspaceNorm \right\rVert}_{#2}%
+        }{ % else:
+        \errmessage{norm: Star mode. Don't specify the [size].}%
+        }
+      }
+    }{% elif no [subscript]
+      \left\lVert \hspaceNorm #4 \hspaceNorm \right\rVert
+    }%
+  }{%
+    % Non-star version: manual sizing
+    \IfValueTF{#2}{% if [size]
+      \IfValueTF{#3}{% if [p] 
+        {#2\lVert \hspaceNorm #4 \hspaceNorm #2\rVert}_{#3}%
+      }{% elif no [p]
+        % We assume that #2 was a legal [size] value
+        #2\lVert \hspaceNorm #4 \hspaceNorm #2\rVert
+      }%
+    }{% elif no [size]
+      \errmessage{norm: Size command required. Use \string\norm[\string\big]{F} or \string\norm*{F}}%
+    }
+  }
 }
+
 
 % % the ||| . ||| version
 \newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 

@@ -41,7 +41,7 @@ hence the inner product %
     \frac{1}{2\pi} \int_{\minus \pi}^\pi f(\theta)e^{\minus in\theta}d\theta.
   \end{align}
 %
-We believe it is customary to write %
+We express $\Lambda_n(f)$ as follows: 
 \begin{align}\label{2.06. Rewriting of Lambda_n.}
   \Lambda_n (f) = (f, e_{\minus n}) + \cdots + (f, e_n).
 \end{align}
@@ -60,11 +60,11 @@ identification %
 So,  %
 %
   \begin{align}\label{2.06. Norm of Lambda_n.}
-    \norm{\Lambda_n}^2
+    \norm*{\Lambda_n}^2
       \citeq{\ref{2.06. Rewriting of Lambda_n.}}
-    \norm{e_{\minus n}  + \cdots + e_n}^2 
+    \norm*{e_{\minus n}  + \cdots + e_n}^2 
       \citeq{\ref{2.06. Orthonormality.}} 
-    \norm{e_{\minus n }}^2 + \cdots + \norm{e_{n}}^2
+    \norm*{e_{\minus n }}^2 + \cdots + \norm*{e_{n}}^2
       \citeq{\ref{2.06. Orthonormality.}}
     2n+1.
   \end{align}
@@ -90,7 +90,7 @@ So, the Banach-Steinhaus theorem \citeFA{2.5} asserts that the sequence %
 is norm-bounded; which is a desired contradiction, since %
 %
   \begin{align}
-    \norm{\Lambda_n} \citeq{
+    \norm*{\Lambda_n} \citeq{
       \ref{2.06. Norm of Lambda_n.}
     } \sqrt{2n + 1} \tendsto{n}{\infty}\infty.
 %

@@ -11,7 +11,7 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \newcommand{\heuristic}[1]{\mathcal{#1}}
 Consider a physical example: a particle colliding with a surface, which absorbs a unit of energy at impact time $t=0$. 
-We start with $H$ the \emph{Heaviside step function} $t \mapsto \Iverson{t \geq 0}$, so that $H(t)$ indicates whether the %
+We start with $H$ the \emph{Heaviside step function} $t \mapsto \Iverson*{t \geq 0}$, so that $H(t)$ indicates whether the %
 particle has contributed its energy by time $t$. This formalism expresses that 
 %
 \begin{enumerate}
@@ -19,7 +19,7 @@ particle has contributed its energy by time $t$. This formalism expresses that
 \item{The energy is conserved over time.}
 \end{enumerate}
 %
-Heuristically, we $\heuristic{write}$, 
+Heuristically, we write, 
 %
 \begin{equation}
   \int_{\R} \heuristic{dH} = 1, \quad \heuristic{\frac{dH}{dt}} =
@@ -43,7 +43,7 @@ detector's response to the collision when $\phi$ is not identically zero. If $\m
 dominated convergence theorem ensures
 %
 \begin{equation}
-  \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\big]{0 \in \interior{W}}.
+  \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\Big]{0 \in \interior{W}}.
 \end{equation}
 %
 We now make the model rigorous by eliminating the heuristic $\heuristic{dH}$, as follows:
@@ -68,11 +68,11 @@ following definitions: %
 %
 The functional $\delta:\phi\mapsto\phi(0)$ is rigorously defined and so represents an instantaneous energy injection at $t=0$. 
 Its extension to all $\phi \in C_c(\R)$ turns $\delta$ into a positive Radon measure of norm/total variation %
-$\norm{\delta} = 1$ and support $\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) distribution %
+$\norm*{\delta} = 1$ and support $\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) distribution %
 of order $0$; see \citeFA{Chapters 6 and 7}. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
 %
 \begin{equation}
-  \delta: E \mapsto \Iverson{0 \in E} 
+  \delta: E \mapsto \Iverson[\Big]{0 \in E} 
 \end{equation}
 %
 restricted to Borel sets in $\R$; hence the special case of \eqref{definition-of-sum}

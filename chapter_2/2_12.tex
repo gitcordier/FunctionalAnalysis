@@ -2,7 +2,7 @@
 Let X be the normed space of all real polynomials in one variable, with %
 %
   \begin{align*}
-    \norm{f}=\int_0^1\lvert f(t)\rvert\ dt.
+    \norm*{f}=\int_0^1\lvert f(t)\rvert\ dt.
 \end{align*}
 %
 Put  %
@@ -16,7 +16,7 @@ Remark that %
 %
   \begin{align}\label{magnitude of B(f, g)}
     \magnitude{B(f, g)} 
-      & < \norm{f} \cdot \max_{[0,1]} \magnitude{g} ; 
+      & < \norm*{f} \cdot \max_{[0,1]} \magnitude{g} ; 
   \end{align}
 %
 which is sufficient (\citeFA{1.18}) to assert that any %
@@ -32,7 +32,7 @@ Suppose, to reach a contradiction, that $B$ is continuous. %
 There so exists a positive $M$ such that, 
 %
   \begin{align}\label{magnitude of B(f, g) H_c}
-    \magnitude{B(f, g)} < M \norm{f}\norm{g}.
+    \magnitude{B(f, g)} < M \norm*{f}\norm*{g}.
   \end{align}
 %
 Put %
@@ -44,7 +44,7 @@ Put %
 so that 
 %
   \begin{align}\label{norm of f_n}
-    \norm{f_n} = \frac{2 \sqrt{n}}{n+1} \tendsto{n}{\infty}0.
+    \norm*{f_n} = \frac{2 \sqrt{n}}{n+1} \tendsto{n}{\infty}0.
   \end{align}
 %
 On the other hand,
@@ -61,7 +61,7 @@ Finally, we combine %
 %
 and so obtain
 \begin{align}
- 1 < B(f_n, f_n) <  M \norm{f_n}^2  \tendsto{n}{\infty} 0.
+ 1 < B(f_n, f_n) <  M \norm*{f_n}^2  \tendsto{n}{\infty} 0.
 \end{align}
 Our continuousness assumption is then contradicted. So ends the proof.
 \end{proof}
