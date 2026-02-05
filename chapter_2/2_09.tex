@@ -12,17 +12,17 @@
 \textit{
 Suppose $X,Y,Z$ are Banach spaces and 
 %
-\begin{align*}
+\begin{equation*}
   B:X\times Y \to Z
-\end{align*}
+\end{equation*}
 %
 is bilinear and continuous. Prove that there exists $M<\infty$ such that 
 %
-\begin{align*}
+\begin{equation*}
   \norm*{B(x, y)}
   \leq 
-  M \norm*{x}\norm*{y} \quad (x\in X, y\in Y).
-\end{align*}
+  M \norm*{x}\norm*{y} \qquad (x\in X, y\in Y).
+\end{equation*}
 %
 Is completeness needed here?}
 %
@@ -30,7 +30,7 @@ Is completeness needed here?}
 % % % % % % % 
 % FIRST PART 
 % % % % % % % 
-Completeness is not required. For show this, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
+Completeness is not required. To show this, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
 there exists $r > 0$ such that 
 %
 \begin{equation}\label{bound for B}
@@ -39,13 +39,13 @@ there exists $r > 0$ such that
 %
 whenever $\norm*{x} + \norm*{y} < r$. Therefore, any $0 < s < r$ yields%
 %
-\begin{align}
+\begin{equation}
   \norm*{B(x, y)} = \frac{4\norm*{x}\norm*{y}}{s^2} \cdot \norm[\bigg]{B\left(
     \frac{s}{2} \cdot \frac{x}{\norm*{x}}, %
     \frac{s}{2} \cdot \frac{y}{\norm*{y}}
   \right)}
   < \frac{4 \norm*{x} \norm*{y}}{s^2} \qquad (x \neq 0, y \neq 0)
-\end{align}
+\end{equation}
 %
 when %
 $ \norm[\Big]{\frac{s}{2} \cdot \frac{x}{\norm*{x}}}
@@ -54,12 +54,12 @@ $ \norm[\Big]{\frac{s}{2} \cdot \frac{x}{\norm*{x}}}
 %
 This establishes the existence of $M=4/r^2$, since
 %
-\begin{align}
+\begin{equation}
     \norm*{B(x, y)} \leq %
     \frac{\!\!\!4\!}{\,s^{\,2}}\norm*{x}\norm*{y} 
     \tendsto{s}{r}
     \frac{\!\!\!4\!}{\,r^{\,2}}\norm*{x}\norm*{y}. 
-\end{align}
+\end{equation}
 % 
 % % % % % % % %
 % SECOND PART 

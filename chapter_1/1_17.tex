@@ -17,9 +17,9 @@ It is then sufficient to establish continuity at the origin.
 We begin with the $C^\infty\left(\Omega\right)$ case. \\
 \\
 Let $U$ be an arbitrary neighborhood of the origin.
-There so exists $N$ such that $U$ contains
+It exists $N$ such that $U$ contains
 %
-  \begin{align} 
+  \begin{equation} 
     V_{N}= \left\{
       \phi \in C^\infty\left(\Omega\right): 
       \max\set{
@@ -29,11 +29,11 @@ There so exists $N$ such that $U$ contains
       }
     < 1/N
     \right\}.
-  \end{align}
+  \end{equation}
 %
 Now pick $g$ in $V_{N+\magnitude{\alpha}}$so that
 %
-  \begin{align}
+  \begin{equation}
     \max
     \set{
       \magnitude{ D^\gamma g\left(x\right) }
@@ -42,13 +42,13 @@ Now pick $g$ in $V_{N+\magnitude{\alpha}}$so that
       x\in K_{N}
     }
     < \frac{1}{N+\magnitude{\alpha}}.
-  \end{align}
+  \end{equation}
 %
 (the fact that $K_N\subset K_{N+\magnitude{\alpha}}$ was tacitly used).
 %
 The special case $\gamma = \beta + \alpha$ yields
 %‡
-\begin{align}
+\begin{equation}
     \max
     \set{
       | D^\beta D^\alpha g(x)|
@@ -57,19 +57,19 @@ The special case $\gamma = \beta + \alpha$ yields
       x\in K_{N}
     }
     < \frac{1}{N}.
-  \end{align}
+  \end{equation}
 %
 We have just proved that
 %
-  \begin{align}\label{1.17. inclusion}
+  \begin{equation}\label{1.17. inclusion}
     g \in V_{N + \magnitude{\alpha}}
       \then 
     D^\alpha g \in V_{N},
-      \quad
+      \qquad
       \ie
-      \quad
+      \qquad
     D^\alpha \left(V_{N+\magnitude{\alpha}}\right) \subset V_N,
-  \end{align}
+  \end{equation}
 %
 which establishes the continuity of %
 %
@@ -110,7 +110,7 @@ Furthermore,
         \cap 
       \D_K
         %
-          \quad (\text{see }(\ref{1.17. inclusion}))
+          \qquad (\text{see }(\ref{1.17. inclusion}))
         %
     %
   \end{align}

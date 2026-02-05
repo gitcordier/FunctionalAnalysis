@@ -17,12 +17,12 @@ Let be X as topological vector space. All sets mentioned below are understood to
 Pick an open set $A$ then let the variables $\mathit{V}_i$ %
 ($i=1, 2, \dots$) run through all open subsets of $A$so that % 
 %
-\begin{align}
+\begin{equation}
   \co{A} \subset 
   \bigcup_{t_i} \, %
     (t_1V_1 + \cdots + t_i V_i  + \cdots) 
   \subset \co{A}
-\end{align}
+\end{equation}
 %
 given all convex combinations %
 %
@@ -36,19 +36,19 @@ which achieves the proof. %
 pick $V$ a neighborhood of $0$: By (b) of Section 1.14 in \citeFA{14}, %
 $V$ contains a convex neighborhood of $0$, say $W$. %
 %
-There so exists a positive scalar $s$ such that
+It follows that there exists a positive scalar $s$ such that
 %
-\begin{align}
-  E \subset tW \subset tV \quad (t>s); 
-\end{align}
+\begin{equation}
+  E \subset tW \subset tV \qquad (t>s). 
+\end{equation}
 %
-which yields %
+Hence %
 %
-\begin{align}
-  \co{E} \subset \co{tW} = t\co{W} = t W \subset tV.
-\end{align}
+\begin{equation}
+  \co{E} \subset \co{tW} = t\co{W} = t W \subset tV, 
+\end{equation}
 %
-So ends the proof. %
+which completes the proof. %
 %
 %:(c)
 \item At fixed $V$, neighborhood of the origin, %
@@ -56,9 +56,9 @@ we combine the continuity of $+$ with \citeFA{1.14} %
 to conclude that there exists $U$ a balanced neighborhood of the origin %
 such that %
 %
-\begin{align}
+\begin{equation}
   U+U\subset V. 
-\end{align}
+\end{equation}
 %
 Moreover, by the very definition of boundedness, %
 $A \subset r U$ for some positive scalar $r$. % 
@@ -66,9 +66,9 @@ Similarly, $B \subset s U$ for some positive $s$. %
 %
 Finally, 
 %
-\begin{align}
-A+B \subset  rU + sU \subset tU + tU \subset tV \quad (t > r, s), 
-\end{align}
+\begin{equation}
+A+B \subset  rU + sU \subset tU + tU \subset tV \qquad (t > r, s), 
+\end{equation}
 %
 since $U$ is balanced. So ends the proof. %
 %
@@ -88,30 +88,30 @@ To do so, we let the variable $\mathit{a}$ range over $A$: %
 Every set $a+B$ is closed as well, see \citeFA{1.7}. %
 %
 Trivially, $a+B \neq c$: By Section \citeFA{1.10}, %
-there so exists $V=V(a)$ a neighborhood of the origin such that %
+there exists $V=V(a)$ a neighborhood of the origin such that %
 %
-\begin{align}\label{separation}
+\begin{equation}\label{separation}
   (a+B + V) \cap (c+V) = \emptyset.
-\end{align}
+\end{equation}
 %
 Moreover, there are finitely many $a+V$, say $a_1 + V_1, a_2 + V_2, \dots$, %
 whose union $U$ contains the compact set $A$. Therefore, %
 %
-\begin{align}\label{U + B encloses A + B}
+\begin{equation}\label{U + B encloses A + B}
   A+B \subset U + B.
-\end{align}
+\end{equation}
 %
 Now define %
-\begin{align}
+\begin{equation}
   W \Def V_1 \cap V_2 \cap \cdots, 
-\end{align}
+\end{equation}
 %
 so that 
 %
-\begin{align}
+\begin{equation}
   (a_i + B + V_i) \cap (c + W) \overset{(\ref{separation})}{=} \emptyset %
-  \quad (i = 1, 2, \dots).
-\end{align}
+  \qquad (i = 1, 2, \dots).
+\end{equation}
 %
 As a conclusion, $c$ is not in the closure of $U+B$. %
 Finally, (\ref{U + B encloses A + B}) asserts that %
@@ -119,9 +119,9 @@ $c$ is not in $\overline{A+B}$ either; which achieves the proof. \\
 \\
 \textbf{Corollary}: If $B$ is the closure of a set $S$, then %
 %
-\begin{align}
+\begin{equation}
   A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
-\end{align}
+\end{equation}
 %
 by \citeFA{(b) of 1.13} (since $A$ is closed; %
 see Section 1.12, from the same source). %
@@ -129,11 +129,11 @@ The special case $A = \{x\}$, $B=X$ %
 will occur in the proof of Exercise 15 in chapter 2. %
 %
 %:(f)
-\item The last proof will consist in exhibiting a counterexample. %
+\item The final proof consists of exhibiting a counterexample. %
 To do so, let $f$ be any continuous mapping of the real line such that %
 \renewcommand{\labelenumii}{(\roman{enumii})} 
 \begin{enumerate}
-  \item $f(x) + f(\minus x) \neq 0$ \quad ($x \in \R$);
+  \item $f(x) + f(\minus x) \neq 0$ \qquad ($x \in \R$);
   \item $f$ vanishes at infinity. 
 \end{enumerate}
 For instance, we may combine (ii) with $f$ even and $f>0$ by setting %
@@ -154,17 +154,17 @@ is not in $G+G$. %
 %
 On the other hand, 
 %
-\begin{align}
+\begin{equation}
   \{ \left(0, f(n) + f(\minus n)\right): n=1, 2, \dots\} \subset G + G.
-\end{align}
+\end{equation}
 %
 
 %
 Now the key ingredient is that % 
 %
-\begin{align}
+\begin{equation}
   \left(0, f(n)+f(\minus n)\right) \overset{(ii)}{\tendsto{n}{\infty}} (0, 0). 
-\end{align}
+\end{equation}
 %
 We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
 So ends the proof.

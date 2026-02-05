@@ -22,14 +22,14 @@ particle has contributed its energy by time $t$. This formalism expresses that
 Heuristically, we write, 
 %
 \begin{equation}
-  \int_{\R} \heuristic{dH} = 1, \quad \heuristic{\frac{dH}{dt}} =
+  \int_{\R} \heuristic{dH} = 1, \qquad \heuristic{\frac{dH}{dt}} =
   \begin{cases}
   \infty & t = 0 \\
   0 & t \neq 0
   \end{cases}
   \end{equation} 
 %
-These properties cannot coexist in standard calculus. Nevertheless the informal measure $\heuristic{dH}$ describes the %
+These properties cannot coexist in standard calculus. Nevertheless, the informal measure $\heuristic{dH}$ describes the %
 \emph{Dirac $\delta$ function}. When identified with a positive Borel measure, $\delta$ has total mass $1$ because %
 %
 \begin{equation}\label{mass-of-dirac}
@@ -56,11 +56,11 @@ We now make the model rigorous by eliminating the heuristic $\heuristic{dH}$, as
 \end{align}
 %
 The key point is that the right-hand side in \eqref{Dirac-impulse-distribution1} is valid in standard calculus. %
-Nevertheless, we obtain all filtered responses as the evaluation functional $\phi \mapsto \phi(0)$. This motivates the %
+Moreover, we obtain all filtered responses as the evaluation functional $\phi \mapsto \phi(0)$. This motivates the %
 following definitions: %
 %
 \begin{align}
-  \Lambda_H(\phi) &\Def \int_{\R} H \phi\diff{t} & (\text{expresses $H$})\\
+  \Lambda_H(\phi) &\Def \int_{\R} H \phi & (\text{expresses $H$})\\
   \Lambda_H'(\phi) &\Def \minus \int_{\R} H \diff{\phi} = \phi(0) & 
     (\text{the \textit{weak derivative} of $H$: impulse at $0$})\\
   \delta(\phi) &\Def \phi(0) \label{definition-of-dirac} & (\text{$\delta$ now has a rigorous definition}).

@@ -61,9 +61,9 @@ for some $(\mathit{t_i}, \mathit{x_i})$. %
 Every sum $sa + (1-s)b $ ($0\leq s \leq 1$) is then in the convex hull of %
 $\{\mathit{x_1}, \dots, \mathit{x_{n+p}}\}$, since %
 %
-\begin{align}
+\begin{equation}
   sa + (1-s)b = \sum_{i=1}^n st_i x_i + \sum_{i=n+1}^{n+p} (1-s)t_i x_i 
-\end{align}
+\end{equation}
 %
 and
 \begin{align}
@@ -73,9 +73,9 @@ and
 %
 In terms of sets $S$, this reads as follows, %
 %
-\begin{align}
+\begin{equation}
   s\co{S} + (1-s)\co{S} \subset \co{S}; 
-\end{align}
+\end{equation}
 %
 which was our first goal. %
 We now prove the equivalence %
@@ -89,43 +89,43 @@ directly come from (d) of the above exercise 1, chapter 1. %
 and the implication (iii) $\Rightarrow$ (iv) derives from the definition of %
 the convex hull. %
 %
-We now close the chain with (iv) $\Rightarrow$ (i), %
+We close the chain with (iv) $\Rightarrow$ (i), %
 by remarking that $S$ is convex whether $S = \co{S}$. %
 %  
-The lemma being proved, let us establish the second part. \\
+The lemma being proved, we establish the second part. \\
 \\
 To do so, we start from the convexity of $\co{A}$ then set %
 %
   $F = \{\co{A}\}$. %
 %
 We may enrich $F$ as follows,  %
-\begin{align}
+\begin{equation}
   B \in F \Rightarrow B \text{ is convex and contains }A.
-\end{align}
+\end{equation}
 Note that our initial predicate %
 ``[$F$ only encompasses] \textit{all convex sets that contain A}", %
 is now the special case %
 %
-\begin{align}
+\begin{equation}
   B \in F \Leftrightarrow B \text{ is convex and contains }A.
-\end{align}
+\end{equation}
 %
 In any case, the key ingredient is that $\co{A} \in F$ implies %
 %
-\begin{align}
+\begin{equation}
  \co{A} \supseteq  \bigcap_{B \in F} B.
-\end{align}
+\end{equation}
 %
 Conversely, the next formula %
 %
-\begin{align}
-  \co{A} \subset \co{B} \overset{(i) \Rightarrow (iv)}{=} B \quad (B \in F) 
-\end{align}
+\begin{equation}
+  \co{A} \subset \co{B} \overset{(i) \Rightarrow (iv)}{=} B \qquad (B \in F) 
+\end{equation}
 %
 is valid and implies %
-\begin{align}
+\begin{equation}
   \co{A} \subset \bigcap_{B \in F} B. 
-\end{align}
+\end{equation}
 %
 So ends the proof
 \end{proof}

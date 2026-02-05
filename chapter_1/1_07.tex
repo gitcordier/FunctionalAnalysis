@@ -13,7 +13,7 @@
 Let $X$ be the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
 %
 \begin{equation}
-  p_x(f)= \magnitude{f(x)} \quad (0 \leq x \leq 1).\nonumber
+  p_x(f)= \magnitude{f(x)} \qquad (0 \leq x \leq 1).\nonumber
 \end{equation}
 %
 This topology is called the topology of pointwise convergence. Justify this terminology. \\
@@ -38,7 +38,7 @@ Since the family of seminorms $p_x$ is separating, the collection $\mathscr{B}$ 
 %
 \begin{equation}
   V(x,k) \Def \singleton*{p_x < 2^{\minus k}} 
-  \quad (x \in [0, 1], k=1, 2, 3, \dots)
+  \qquad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
 forms a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Hence %
@@ -59,7 +59,7 @@ By definition, %
 %
 \begin{equation}
   %
-  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin W} < \infty \quad (W \in \mathscr{B}).
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin W} < \infty \qquad (W \in \mathscr{B}).
 \end{equation}
 %
 The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
@@ -101,18 +101,18 @@ pointwise convergence on $X$.
 % First proof: Use the given hint
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \par\noindent\textbf{Proof with the given hint.}
-We now prove the second part by constructing a specific sequence $\singleton{f_n}$ that satisfies both (a) and (b). %
-Indeed, the hint suggests that there exists a bijection %  
+We prove the second part by constructing a specific sequence $\singleton{f_n}$ that satisfies both (a) and (b). The hint %
+suggests that there exists a bijection %  
 %
 \begin{align}
   \phi: \set[\Big]{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
 \end{align} 
 % 
-We set %
+We set
 %
 \begin{equation}
-  f_n(x) \Def \theta_n \quad \bigl(x = \phi(\theta_1, \dots, \theta_n, \dots)\bigr)
+  f_n(x) \Def \theta_n \qquad \bigl(x = \phi(\theta_1, \dots, \theta_n, \dots)\bigr)
 \end{equation}
 %
 so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construction, the following  %
@@ -147,7 +147,7 @@ More precisely, there exists a bijective sum  %
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
-A suitable $\singleton{f_n}$ can be defined as follows: %
+A suitable $\singleton{f_n}$ is defined as follows: %
 %
 \begin{equation}\label{definition of f_n(alpha)}
   f_n(x) \Def \begin{cases} 
@@ -156,7 +156,7 @@ A suitable $\singleton{f_n}$ can be defined as follows: %
   \end{cases} 
 \end{equation}
 %
-Indeed, we note that every bit stream $\bin^{\minus 1}(x)$ has infinitely many $1$'s, which implies that %
+Indeed, every bit stream $\bin^{\minus 1}(x)$ has infinitely many $1$'s, which implies that %
 $f_n(x) \xrightarrow{n\infty} 0$. Next, pick an arbitrary $\gamma_n \to \infty$. Thus, for any positive integer $k$, %
 $\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k > N_k$ so large that %
 %

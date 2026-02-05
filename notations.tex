@@ -17,9 +17,9 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Special terms}
 \subsection{The \IFF convention}%
-\IFF is a shorthand for ``if and only if". Splitting \IFF into \emph{if-then} clauses shows that it is the logical equivalence 
-$\iff$. All definitions are understood to be \IFF clauses, which is consistent with the fact that every definition expresses %
-an equivalence.
+\IFF is a shorthand for ``if and only if". Splitting \IFF into \emph{if-then} clauses shows that it is a natural language %
+version of the logical equivalence $\iff$. All definitions are understood to be \IFF clauses, which is consistent with the %
+fact that every definition expresses an equivalence.
 %
 \subsection{The assignment operator}%
 Given $\varit{a}$ and $\varit{b}$, $a \Def b$ is a specific instance of $a = b$. We say that $a\Def b$ \IFF $a$ and $b$ %
@@ -29,13 +29,13 @@ are \emph{assumed} to be equal. Typically, $a\Def b$ means that $a$ is assigned 
 \subsection{Iverson brackets}\label{Iverson-notation}
 Given a boolean expression $\phi$, the boolean value $\Iverson*{\phi}$ encodes the truth value of $\phi$ as a \texttt{bit}:
 %
-\begin{align} \nonumber
+\begin{equation} \nonumber
   \Iverson*{\phi}\Def 
   \begin{cases}
     0 & \qquad (\phi \text{ is false}) \\
     1 & \qquad (\phi \text{ is true}). \\
   \end{cases}
-\end{align}
+\end{equation}
 %
 For example, $\Iverson[\Big]{1 > 0} = 1$ but $\Iverson[\Big]{ \sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
 in logic, see \cite{SpecifyingSystems}.
@@ -85,7 +85,7 @@ the sum %
   \set[\Big]{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \\\nonumber
   (z_u) & \mapsto \sum_{u \in B} z_u u
 \end{align}
-is a bijection of all \emph{finitely supported} families $(z_u)$ to $X$. %
+is a bijection from all \emph{finitely supported} families $(z_u)$ onto $X$. %
 %
 The axiom of choice (AC) forces %$
 %
@@ -253,7 +253,7 @@ Theorem \citebook{2.14}{BigRudin} shows that positivity (i) implies the followin
 % 
 Condition (ii) defines Radon measures in a weaker sense; see \cite{AnalyseIII}. Furthermore, $\Lambda$ is bounded on $C_c(X)$ %
 with respect to the supremum norm \IFF (ii) is strengthened by %
-$\norm*[\infty]{\Lambda}\leq\sup\set{M_K}{K \subset X\;\text{compact}} <\infty$. Such uniformly continuous functionals %
+$\norm*[\infty]{\Lambda}\leq\sup\set{M_K}{K \subset X\;\text{compact}} < \infty$. Such uniformly continuous functionals %
 $\Lambda$ constitute the space of \emph{bounded} Radon measures. According to \citebook{6.19}{BigRudin}, each of them can be %
 isometrically identified with a specific regular Borel measure $\mu$. Conversely, when the ambient space $X$ is compact, every 
 Radon measure is $\norm*[\infty]{\cdot}$-bounded. For instance, this case is addressed in Exercise 3 of Chapter 2. In measure %
@@ -268,16 +268,17 @@ where $V$ runs through all open sets of measure $0$. A very important Radon meas
 %
 \subsection{Lebesgue integration}
 Theorem \citebook{2.14}{BigRudin} states that every positive Radon measure $\Lambda: C_c(X)\to \C$ is identified with a %
-specific positive and regular Borel measure $\beta:X \to \R$. Hence % 
+positive and regular Borel measure $\beta:X \to \R$. More precisely, % 
 %
 \begin{equation}\label{definition-of-sum}
 	\int_{X} \phi \diff{\beta} \Def \Lambda \phi \qquad \bigl(\phi \in C_c(X)\bigr),
 \end{equation}
 %
-where the left side is a Lebesgue integral. The regularity property implies that $\beta$ has total mass %
+where the integral on the left-hand side is a Lebesgue integral. The standard example is $X=\R$ with $\beta = \beta_\R$ the %
+Lebesgue measure on Borel sets. The regularity property implies that $\beta$ has total mass %
 %
 \begin{equation}
-	\int_{X} 1 \diff{\beta} \Def \sup \set[\Big]{\Lambda \phi}{\phi \in C_c(X), \norm*[\infty]{\phi} \leq 1}.
+	\int_{X} 1 \diff{\beta} \Def \sup \set[\Big]{\Lambda \phi}{\phi \in C_c(X), \norm*[\infty]{\phi} \leq 1} \leq \infty.
 \end{equation}
 %
 When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ $X$-measurable, \eqref{definition-of-sum} takes the form %

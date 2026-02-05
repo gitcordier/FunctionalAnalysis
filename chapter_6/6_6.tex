@@ -10,14 +10,14 @@ converges for every $\phi\in C^{\,\infty} (R)$?
 \item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathscr{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subset \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathscr{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
 \item Can the assumption about the supports be dropped in (b)?
 \end{enumerate}}
-\begin{proof} The answer is: no. Let us establish this assertion. Assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
+\begin{proof} The answer is: no. To establish this assertion, we first assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
 \\
 The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this, see the $\phi_j-\check{\phi}_j$ involved in (\ref{2_3_phicheck}).}\eg greater than $1/c_m$.
  A desired contradiction is then reached. We now prove (b), again by contradiction.\\
 \\
 To do so we assume $\{\Lambda_j\}$ to converge to some $\Lambda$ of $\mathscr{D}'(\Omega)$ and we let $Q$ run through the compact sets of $\Omega\,$. Next, we define
 \begin{align}{\label{6_6_1}
-S(T,\, Q\,)\Def \{N\in \N, \, \exists C\in \R_+:\, \lvert T\phi\, \rvert \leq C\, \| \phi \|_N \,\text{ for all }\phi \text{ of } \mathscr{D}_Q \}\quad (T\in \mathscr{D}(\Omega))\quad .
+S(T,\, Q\,)\Def \{N\in \N, \, \exists C\in \R_+:\, \lvert T\phi\, \rvert \leq C\, \| \phi \|_N \,\text{ for all }\phi \text{ of } \mathscr{D}_Q \}\qquad (T\in \mathscr{D}(\Omega))\qquad .
 }\end{align}
 Such subset of $\N$ has a minimum $\omega(T,\, Q)$. The following value
 \begin{align}{\label{6_6_2}
@@ -25,16 +25,16 @@ Such subset of $\N$ has a minimum $\omega(T,\, Q)$. The following value
 }\end{align}
 is then the order of $T$. Assume, to reach a contradiction, that, after passage to a subsequence,
 \begin{align}{\label{6_6_3}
-\omega (\Lambda_{j\,},\, Q_j\,) =j\quad (j=1,\, 2,\, 3,\, \dots)
+\omega (\Lambda_{j\,},\, Q_j\,) =j\qquad (j=1,\, 2,\, 3,\, \dots)
 }\end{align}
 for some compact $Q=Q_j\,$. By (a) of [6.24], $Q_j$ cuts $\text{supp}\Lambda_j\,$, say in $p_j\,$. Since $K$ encloses $\text{supp}\Lambda_j\,$, $\{p_j\}$ tends, after passage to a subsequence, to some $p$ of $K\,$.
 Choose a positive scalar $r$ so that 
 \begin{align}{\label{6_6_5}
-\overline{B}(p,\, r)\Def \{ x\in \R^n:\, \lvert x-p\,\rvert\leq r\}\subset \Omega \quad .
+\overline{B}(p,\, r)\Def \{ x\in \R^n:\, \lvert x-p\,\rvert\leq r\}\subset \Omega \qquad .
 }\end{align}
-Such closed ball $\overline{B}(p,\, r)$ is a compact subset of $\Omega$. By (b) of [6.5] (which refers to [1.46])  $\mathscr{D}_{\overline{B}(p,\, r)}$ is then a Fréchet space. It now follows from [2.6] that $\{\Lambda_j\}$ is equicontinuous on $\mathscr{D}_{\overline{B}(p,\, r)}\,$. There so exists\footnote{For more details, see Exercise 2.3.} a nonnegative integer $N$ such that 
+Such closed ball $\overline{B}(p,\, r)$ is a compact subset of $\Omega$. By (b) of [6.5] (which refers to [1.46])  $\mathscr{D}_{\overline{B}(p,\, r)}$ is then a Fréchet space. It now follows from [2.6] that $\{\Lambda_j\}$ is equicontinuous on $\mathscr{D}_{\overline{B}(p,\, r)}\,$. There exists\footnote{For more details, see Exercise 2.3.} a nonnegative integer $N$ such that 
 \begin{align}{\label{6_6_6}
-\lvert \Lambda \phi \,\rvert \leq C\, \| \phi \|_N \quad (\phi \in \mathscr{D}_{\overline{B}(p,\, r)})
+\lvert \Lambda \phi \,\rvert \leq C\, \| \phi \|_N \qquad (\phi \in \mathscr{D}_{\overline{B}(p,\, r)})
 }\end{align}
 for some positive constant $C$. On the other hand, $\overline{B}(p,\, r)$ contains almost all the $p_j$'s. Hence
 \begin{align}{\label{6_6_7} 

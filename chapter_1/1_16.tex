@@ -91,7 +91,7 @@ is a decreasing local base of $X$.
 %
 Moreover,
 % 
-  \begin{align}
+  \begin{equation}
     Q_{\rho(n)} 
       \subset 
     \interior{Q}_{\rho(n) + 1} 
@@ -99,15 +99,15 @@ Moreover,
     Q_{\rho(n) + 1} 
       \subset 
     Q_{\rho(n+ 1)}.
-  \end{align}
+  \end{equation}
 % 
 Thus,
 %
-  \begin{align}
+  \begin{equation}
     Q_{\rho(n)} 
       \subset 
     \interior{Q}_{\rho(n+ 1)}.
-  \end{align}
+  \end{equation}
 %
 In other words, 
 %
@@ -142,7 +142,7 @@ specified in section 1.44, then every compact set $K$ lies in almost all
 %
 there exists $\varit{m}$ such that 
 %
-  \begin{align}\mathit{
+  \begin{equation}\mathit{
     K \subset 
     \interior{Q}_m 
       \subset 
@@ -151,20 +151,20 @@ there exists $\varit{m}$ such that
     \interior{Q}_{m+2}
       \subset
     \cdots.}
-  \end{align}
+  \end{equation}
 }
 %
 \begin{proof}
 The following definition
 %
-  \begin{align}
+  \begin{equation}
     C_n \Def K \setminus \interior{Q}_n 
-  \end{align}
+  \end{equation}
 %
-shapes $\singleton{C_n}$ as a decreasing sequence of compact\footnote{
+yields a decreasing sequence of compact\footnote{
   See \citebook{(b) of 2.5}{BigRudin}.
 } 
-sets. We now suppose (to reach a contradiction) that 
+sets $\singleton{C_n}$. Suppose (to reach a contradiction) that 
 % 
   no $C_n$ is empty 
 % 
@@ -190,7 +190,7 @@ for some $m$.
 %
 Finally,  
 %
-  \begin{align}
+  \begin{equation}
     K\subset 
     \interior{Q}_m
       \subset
@@ -203,7 +203,7 @@ Finally,
     \interior{Q}_{m+2}
       \subset
     \cdots.
-  \end{align}  
+  \end{equation}  
 %
 \end{proof}
 %: THEOREM -------------------------------------------------------------------%
@@ -257,23 +257,23 @@ Now apply the above Lemma 2 with $K_i$ ($\counting{i}$) and so conclude that
 %  
 for some $m_i$. In particular, the special case $\kappa_i = m_i + i$ is 
 %
-  \begin{align}
+  \begin{equation}
     %
     \label{1_16. K subset interior L}
     K_i
       \subset 
     \interior{L}_{\kappa_i}.
-  \end{align} 
+  \end{equation} 
 %
-Let us reiterate the above proof with $K_n$ and $L_n$ in exchanged roles 
+We now reiterate the above proof with $K_n$ and $L_n$ in exchanged roles 
 then similarly find a subsequence $\set{\lambda_j}{\counting{j}}$ such that 
 %
-  \begin{align}
+  \begin{equation}
   %
   \label{1_16. L subset interior K}
   %
     L_j \subset \interior{K}_{\lambda_j}
-  \end{align}
+  \end{equation}
 %
 Combine 
 %
@@ -282,7 +282,7 @@ Combine
 %
 and so obtain
 %
-  \begin{align}
+  \begin{equation}
     K_1 
       \subset 
     \interior{L}_{\kappa_1} 
@@ -296,7 +296,7 @@ and so obtain
     \interior{L}_{\kappa_{\lambda_{\kappa_1}}}
       \subset
     \cdots, 
-  \end{align}
+  \end{equation}
 %
 which means that the sequence 
 %
@@ -311,7 +311,7 @@ which means that the sequence
 satisfies the conditions specified in section 1.44. 
 It now follows from the corollary 2 that 
 %
-  \begin{align}  
+  \begin{equation}  
     \tau_{K} 
     = 
       \tau_{K_\lambda} 
@@ -320,7 +320,7 @@ It now follows from the corollary 2 that
     = 
       \tau_{L_\kappa} 
     = \tau_{L}.
-  \end{align} 
+  \end{equation} 
 %
 So ends the proof
 \end{proof}

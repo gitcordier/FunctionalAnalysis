@@ -11,34 +11,34 @@
 \\
 Reset every $T_n$ as a compact operator. Let $\{x_{\,0}^{\,i}:\, i\in \N\}$ be in $U$ the open unit ball of $X$. Since $T_1$ is compact, $\{x^i_0\}$ contains a subsequence $\{x^{\,i}_{\,1}:\, i\in \N\}$ such that $\{T_1x^{i}_{\,1}\}$ converges to a point $y_{\,1}$ of $Y$. The same reasoning can be recursively applied to $T_{n}$ and $\{x^{\,i}_{\, n-1}\}\subset U$ so that $\{T_{n\,}x^{\,i}_{\, n}\}$ tends to some $y_{n}$ of $Y$, as $\{x^{\,i}_{\, n}\}$ is a subsequence of $\{x^{\,i}_{\,n-1}\}$. Then
 \begin{align}\label{4_13_a_0}
-T_{n\,} x^{i}_p \,\underset{i\to \infty}{\longrightarrow}\,y_n\quad (p\> n=1,\, 2,\, 3,\, \dotsb )\quad .
+T_{n\,} x^{i}_p \,\underset{i\to \infty}{\longrightarrow}\,y_n\qquad (p\> n=1,\, 2,\, 3,\, \dotsb )\qquad .
 \end{align}
 Applied with $\{x^{\,i}_{\,n}:\, (n,i\,)\in\N^2\}$, a Cantor's diagonal process therefore provides a subsequence $\{\tilde{x}_{\, j}:\, j\in \N\} $ such that
 \begin{align}\label{4_13_a_1}
-&T_{j\,} \tilde{x}_k \underset{k\to \infty}{\longrightarrow}y_{j}\quad ;\\
-&T_{j\,} \tilde{x}_{\, j} \underset{j\to \infty}{\longrightarrow} y_{j}\quad .
+&T_{j\,} \tilde{x}_k \underset{k\to \infty}{\longrightarrow}y_{j}\qquad ;\\
+&T_{j\,} \tilde{x}_{\, j} \underset{j\to \infty}{\longrightarrow} y_{j}\qquad .
 \end{align}
 %Since $\|T-T_k\|\underset{k\to \infty}{\longrightarrow}0$, (\ref{4_13_a_1}) implies that
 %\begin{align}\label{4_13_a_2}
-%T \tilde{x}_k  -y_k  \underset{k\to \infty}{\longrightarrow}0\quad.
+%T \tilde{x}_k  -y_k  \underset{k\to \infty}{\longrightarrow}0\qquad.
 %\end{align}
 We now easily obtain
 \begin{align}\label{4_13_a_3}
 \| T_{j\,} \tilde{x}_{j\,}  -T_{\, k} \tilde{x}_{\, k}\| \leq
 \| T_{j\,} \tilde{x}_{j\,}- y_{j\,}\| +
 \| y_{j\,} -T_{j\,} \tilde{x}_{k\,}\| +
-\| T_{j\,} - T_{ k\,}\|   \underset{k> j\to \infty}{\longrightarrow}0\quad .
+\| T_{j\,} - T_{ k\,}\|   \underset{k> j\to \infty}{\longrightarrow}0\qquad .
 \end{align}
 $\{T_{ j\,} \tilde{x}_{\, j} \}$ is then a Cauchy sequence. So is $\{T \,\tilde{x}_{\, j}\}$, since $\| T-T_{j}\,\| \to 0$. On the other hand, $Y$ is complete: (a) is then proved and we now establish the counterpart in a Hilbert space.\\
 \\
 %: b
 Fix $\epsilon$ as a positive scalar. Since $T$ is compact, $Y$ contains a finite set $C$ such that 
 \begin{align}\label{4_13_b_1}
-T(U\,)\subset \bigcup_{c\in C} B(c,\, \epsilon)\quad .
+T(U\,)\subset \bigcup_{c\in C} B(c,\, \epsilon)\qquad .
 \end{align}
 As a Hilbert space, $Y$ contains a \textsl{maximal orthonormal set} (or \textsl{Hilbert basis}) $M$. This implies that $\text{span}(M)$ is dense in $Y$; \cf 4.18 \& \citebook{4.22}{BigRudin}. The finiteness of $C$ forces $M$ to enclose a finite set $S$ so that 
 \begin{align}\label{4_13_b_2}
-\forall c\in C, \, \exists  s(c\,) \in \text{span} (S\,):\, \|c - s(c\,)\| <\epsilon\quad .
+\forall c\in C, \, \exists  s(c\,) \in \text{span} (S\,):\, \|c - s(c\,)\| <\epsilon\qquad .
 \end{align}
 Let $x$ be in $U$. It follows from (\ref{4_13_b_1}) that 
 \begin{align}\label{4_13_b_3}
@@ -50,30 +50,30 @@ for some $c_x$ of $C$. We now combine (\ref{4_13_b_2}) and (\ref{4_13_b_3}) to o
 \end{align}
 As a finite-dimensional subspace, $\text{span}(S\,)$ is closed (see footnote 4, Exercise 1.10). We so obtain
 \begin{align}
-Y=\text{span}(S\,)\oplus \text{span}(S\,)^\bot \quad ,
+Y=\text{span}(S\,)\oplus \text{span}(S\,)^\bot \qquad ,
 \end{align}
-by [12.4]. There so exists a unique projection $\pi=\pi(\epsilon)$ of $Y$ onto itself (see [5.6] for the definition) such that
+by [12.4]. There exists a unique projection $\pi=\pi(\epsilon)$ of $Y$ onto itself (see [5.6] for the definition) such that
 \begin{align}
-\pi (Y) = \text{span}(S\,)\, ,\,  \,  (I-\pi)(Y\,) = \text{span}(S\,)^\bot\quad .
+\pi (Y) = \text{span}(S\,)\, ,\,  \,  (I-\pi)(Y\,) = \text{span}(S\,)^\bot\qquad .
 \end{align}
 It is easily checked that $\pi$ has norm $1$. Moreover,
 \begin{align}
-\pi s = s \quad (s\in\text{span}(S\,))\quad .
+\pi s = s \qquad (s\in\text{span}(S\,))\qquad .
 \end{align}
 Thus,
 \begin{align}
-(I-\pi) (Tx\,)= (I-\pi ) (Tx - s(c_x)) \quad (x\in U\,)\quad .
+(I-\pi) (Tx\,)= (I-\pi ) (Tx - s(c_x)) \qquad (x\in U\,)\qquad .
 \end{align}
 Then,
 \begin{align}
-\|( I- \pi )(T x) \| \leq \| I- \pi \| \, \| Tx -s(c_x)\| < 4 \epsilon  \quad (x\in U)\quad 
+\|( I- \pi )(T x) \| \leq \| I- \pi \| \, \| Tx -s(c_x)\| < 4 \epsilon  \qquad (x\in U)\qquad 
 \end{align}
 (the fact that $\pi$ has norm $1$ is hidden in the right side inequality). We have just so proved that 
 \begin{align}
-\| T-\pi\circ T\, \| \in \underset{\epsilon \sim 0}{O}(\epsilon) \quad . 
+\| T-\pi\circ T\, \| \in \underset{\epsilon \sim 0}{O}(\epsilon) \qquad . 
 \end{align}
 That is particularly true when $\epsilon=\epsilon_0,\, \epsilon_1,\, \epsilon_2,\, \dots ,\, \epsilon_n \underset{n\to \infty}{\longrightarrow} 0\,$. Let so $T_n$ be $ \pi(\epsilon_n) \circ T\,$ and conclude that these (compact) operators approximate $T$ in the desired fashion\ie
 \begin{align}
-\| T-T_n \| \underset{n \to \infty}{\longrightarrow} 0\quad .
+\| T-T_n \| \underset{n \to \infty}{\longrightarrow} 0\qquad .
 \end{align}
 \end{proof}

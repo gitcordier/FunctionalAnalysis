@@ -63,8 +63,7 @@ Feel free to get copies of this great book by yourself.
   - 1_4.tex
   - 1_5.tex
   - 1_6.tex
-  - 1_7.texI choose to start with this because it is a lovely result,
-    since it connects a topological result
+  - 1_07.tex This is a lovely result, since it connects a topological result
     (*to be metrizable or not to be*) with number theory.
   - 1_9.tex Continuity, openness of a linear mapping.
   - 1_10.tex Continuity, openness of a linear mapping onto a finite dimensional
@@ -79,11 +78,10 @@ Feel free to get copies of this great book by yourself.
     Given a multi-index $\alpha$, the differential operators $D^\alpha$ is
     continuous in the test functions topology.
 - chapter_2/
-  - 2_3/
-    - 2_3.tex In $D_K$, some Lebesgue integrable functions converge to $\delta'$,
+  - 2_03.tex In $D_K$, some Lebesgue integrable functions converge to $\delta'$,
       which is not a Radon measure.
       Their weak derivatives converge to $\delta''$.
-  - 2_9.tex Given normed spaces (X, Y, Z), any continuous bilinear mapping
+  - 2_09.tex Given normed spaces (X, Y, Z), any continuous bilinear mapping
     $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded.
     Thoses spaces need not be complete. An easy example is given by
     $B(f, g)= fg$ where $f$ and $g$ keep in $C_c(R)$.
@@ -91,7 +89,7 @@ Feel free to get copies of this great book by yourself.
     Actually, 2.09 contains all the relevant material.
     In the more general topological vector space context proof,
     the norm is replaced by Minkowski functionals on balanced open sets.
-  - 2_12.tex A bilinear mapping that is separately continuous, but not continuous.
+  - 2_12.tex A bilinear mapping that is separately continuous, but not jointly continuous.
   - 2_15.tex In a F-space X, the complement C of a subgroup Y is not
     of the first category, unless X=Y.
     To sum it up: If Y is a proper subspace,

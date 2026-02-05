@@ -5,7 +5,7 @@
   as given in section 1.4.
 \begin{enumerate}
 \item{If $x,\,y\in X$ there is a unique $z\in X$ such that $x+z=y$.}
-\item{ $0\cdot x=0=\alpha\cdot 0 \quad (\alpha\in\C, x\in X)$.}
+\item{ $0\cdot x=0=\alpha\cdot 0 \qquad (\alpha\in\C, x\in X)$.}
 \item{ $2A\subset A+A$.}
 \item{ $A$ is convex if and only if $(s+t)A=sA+tA$ %
   for all positive scalars $s$ and $t$.}
@@ -23,12 +23,11 @@
 \begin{proof}
 \begin{enumerate}
 %: (a)
-\item Such property only depends on the group structure of $X$: Each $x$ in
-$X$ has an opposite $\minus x$. Let $x'$ be any opposite of $x$so that
+\item Such a property only depends on the group structure of $X$: Each $x$ in
+$X$ has an additive inverse $\minus x$. Let $x'$ be any additive inverse of $x$, so that
 ${x-x=0}=x+x'$. %
 Thus, $\minus x +x -x =  \minus x + x + x' $, %
-which is equivalent to $\minus x = x'$. So is established the uniqueness of %
-$\minus x $. %
+which is equivalent to $\minus x = x'$. Therefore, the inverse $\minus x$ is unique.
 %
 It is now clear that $x+z=y$ \IFF $z=\minus x +y$, %
 which asserts both the existence and the uniqueness of $z$.
@@ -48,98 +47,98 @@ then conclude from (a) that $0\cdot x=0$. So, %
 %
 Finally, %
 %
-\begin{align}
+\begin{equation}
   \alpha\cdot 0\overset{(\ref{inverse of x})}{=}
   \alpha\cdot (x+(\minus 1\cdot x))
   = \alpha \cdot x + \alpha \cdot (\minus 1) \cdot x 
   = (\alpha-\alpha )  \cdot x =0\cdot x = 0,
-\end{align}
+\end{equation}
 %
 which proves (b).
 %
 %: (c)
 \item Remark that 
 %
-\begin{align}
+\begin{equation}
   2x =(1+1) x = x + x
-\end{align}
+\end{equation}
 %
 for every $x$ in $X$, and so conclude that %
 %
-\begin{align}\label{double lies in sum}
+\begin{equation}\label{double lies in sum}
   2A = \{2x: x\in A \} 
   = \{x + x: x \in A \} 
   \subset \{ x + y : (x,\,y) \in A^2 \} 
   = A+A
-\end{align}
+\end{equation}
 %
 for all subsets $A$ of $X$; which proves (c). %
 %: (d)
 \item If $A$ is convex, then %
 %
-\begin{align}
+\begin{equation}
   A \subset \frac{s}{s+t} A + \frac{t}{s+t} A \subset A;
-\end{align}
+\end{equation}
 %
 which is %
 %
-\begin{align}
+\begin{equation}
   sA + tA = (s+t)A.
-\end{align}
+\end{equation}
 %
 Conversely, the special case $s+t=1$ is %
 %
-\begin{align}
+\begin{equation}
   sA + (1-s)A = A.
-\end{align}
+\end{equation}
 %
 The latter extends to $s=0$, since %
 %
-\begin{align}
+\begin{equation}
   0A + A \overset{(b)}{=}\{0\}+A=A.
-\end{align}
+\end{equation}
 %
 The extension to $s=1$ is analogously established %
 (or simply use the fact that $+$ is commutative!).
 So ends the proof. %
 %: (e)
-\item Let $A$ range over $B$ a collection of balanced subsetsso that %
+\item Let $A$ range over $B$ a collection of balanced subsets, so that %
 %
-\begin{align}
+\begin{equation}
   \alpha \bigcap B \subset  \alpha A \subset A \subset \bigcup B 
-\end{align}
+\end{equation}
 %
 for all scalars $\alpha$ of magnitude $\leq 1$. %
 The inclusion $\alpha \bigcap B \subset A$ establishes the first part. %
 Now remark that %
 %
-\begin{align}
+\begin{equation}
   \alpha A  \subset \bigcup {B} 
-\end{align}
+\end{equation}
 %
 implies %
 %
-\begin{align}
+\begin{equation}
   \alpha \bigcup {B} \subset \bigcup {B};
-\end{align}
-which achieves the proof. %
+\end{equation}
+which completes the proof. %
 %
 %: (f)
-\item Let $A$ range over $C$ a collection of convex subsetsso that %
+\item Let $A$ range over $C$ a collection of convex subsets, so that %
 %
-\begin{align}
+\begin{equation}
   (s+t) \bigcap C \subset s\bigcap C + t\bigcap C \subset  sA + tA 
   \overset{(d)}{\subset} (s+t)A
-\end{align}
+\end{equation}
 %
 for all positives scalars $\mathit{s}$, $\mathit{t}$. %
 Inclusions at both extremities force %
 %
-\begin{align}
+\begin{equation}
   s\bigcap C  + t\bigcap C = (s+t) \bigcap C.
-\end{align}
+\end{equation}
 %
-We now conclude from (d) that the intersection of $C$ is convex. %
+We then conclude from (d) that the intersection of $C$ is convex. %
 So ends the proof.
 %: (g)
 \item We dismiss all trivial cases %
@@ -163,18 +162,18 @@ $C_2 \subset \bigcup \Gamma$. Hence (g). %
 %: (h)
 \item Simply remark that 
 %
-\begin{align}
+\begin{equation}
   s (A+B) + t (A+B) = s A+ t A +s B +t B = (s+t)(A+B)
-\end{align}
+\end{equation}
 %
 for all positive scalars $\mathit{s}$ and $\mathit{t}$, %
 then conclude from (d) that $A + B$ is convex. %
 %: (i) 
 \item Given any $\alpha$ from the closed unit disc, %
 %
-\begin{align}
+\begin{equation}
 \alpha(A+B)=\alpha A+ \alpha B \subset A+B. 
-\end{align}
+\end{equation}
 %
 This completes the proof: $A+B$ is balanced. %
 %: (j)
@@ -188,7 +187,7 @@ If $S$ is nonempty, then each of the following three properties
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$;
 \item $S$ is convex balanced such that $S + S = S$;
-\item $S$ is convex balanced such that $\lambda S=S\quad (\lambda > 0)$
+\item $S$ is convex balanced such that $\lambda S=S\qquad (\lambda > 0)$
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})}
 %
@@ -205,19 +204,19 @@ which establishes (ii). %
 %
 Next, assume (only) (ii): A proof by induction shows that %
 %
-\begin{align}\label{induction nS}
-  nS = (n-1)  S + S = S + S = S \quad (n=1,2,3, \dots)
-\end{align}
+\begin{equation}\label{induction nS}
+  nS = (n-1)  S + S = S + S = S \qquad (n=1,2,3, \dots)
+\end{equation}
 %
 with the help of (b) and (d). %
 Pick $\lambda >0$ then choose $n$ so large that $1 < n \lambda < n^2$. %
 Thus, %
 %
-\begin{align}
+\begin{equation}
   nS \overset{(\ref{induction nS})}{\subset} S 
   \subset n\,\lambda S 
   \subset  n^2 S, 
-\end{align}
+\end{equation}
 %
 since $S$ is balanced. %
 For instance, set %
@@ -226,55 +225,55 @@ For instance, set %
 %
 Dividing the latter inclusions by $n$ shows that %
 %
-\begin{align} 
+\begin{equation} 
   S \subset \lambda S \subset nS \overset{(\ref{induction nS})}{\subset} S,
-\end{align}
+\end{equation}
 %
 which is (iii). Finally, dropping (ii) in favor of (iii) leads to %
 %
-\begin{align} 
+\begin{equation} 
   \alpha  S +\beta  S 
   \overset{(a)}{=} |\alpha | S + | \beta | S 
   \overset{(d)}{=} (|\alpha | + | \beta| )S 
   \overset{(iii)}{=} S 
   %
-  \quad (|\alpha| + |\beta| > 0);
-\end{align}
+  \qquad (|\alpha| + |\beta| > 0);
+\end{equation}
 %
 where the equality at the left holds as $S$ is balanced. %
 %
 Moreover (under the sole assumption that $S$ is balanced), %
 this extends to $|\alpha| + |\beta| = 0$, as follows, %
 %
-\begin{align} 
+\begin{equation} 
   \alpha S + \beta S  = 0S + 0S\overset{(b)}{=} \{0\} 
   \overset{(b)}{=} 0S \subset S.
-\end{align}
+\end{equation}
 %
 Hence (i), which achieves the lemma's proof. %
 We will now offer a straightforward proof of (j). \\
 \\
-Let $V$ be a collection of vector spaces of $X$, %
+Let $V$ be a collection of vector subspaces of $X$, %
 of intersection $I$ and union $U$. 
 %
 First, remark that every member of $V$ is convex balanced: %
 So is $I$ (combine (e) with (f)). %
 %
-Next, let $\mathit{Y}$ range over $V$so that %
+Next, let $\mathit{Y}$ range over $V$, so that %
 %
-\begin{align}
+\begin{equation}
   I + I \subset Y + Y \subset  Y; 
-\end{align}
+\end{equation}
 %
 which yields
 %
-\begin{align}
+\begin{equation}
   I + I = I 
-\end{align}
+\end{equation}
 %
 (the fact that $I  = I + \{0\} \subset I + I$ was tacitly used). %
 %
-It now follows from the lemma's (ii) $\Rightarrow$ (i) that %
+It now follows from the implication (ii) $\Rightarrow$ (i) of the lemma that %
 $I$ is a vector subspace of $X$. %
 %
 Now temporarily assume that $S$ is totally ordered by set inclusion: %
@@ -285,16 +284,16 @@ we first remark that such total order implies that either %
 $Z \subset Y$ or $Y \subset Z$, as $\mathit{Z}$ ranges over $V$. %
 A straightforward consequence is that 
 %
-\begin{align}
+\begin{equation}
   Y \subset Y + Z  \subset Y\cup Z.
-\end{align}
+\end{equation}
 %
 Another one is that $Y \cup Z$ ranges over $V$ as well. %
 Combined with the latter inclusions, this leads to %
 %
-\begin{align}
+\begin{equation}
   U \subset U  + U \subset U.
-\end{align}
+\end{equation}
 %
 It then follows from the lemma's (ii) implication $\Rightarrow$ (i) that $U$ is a vector subspace of $X$. %
 %
@@ -303,12 +302,12 @@ Combining (h) with (i) proves that $A+B$ is convex balanced as well. %
 %
 Furthermore, %
 %
-\begin{align}
+\begin{equation}
   A + B \overset{(i) \Rightarrow (ii)}{=} (A + A) + (B + B) = (A + B) + (A + B),
-\end{align}
+\end{equation}
 % 
 where the equality at the right holds as $X$ is an abelian group. %
-We now conclude from (ii) that any $A+B$ is a vector subspace of $X$. %
+Finally, we conclude from (ii) that any $A+B$ is a vector subspace of $X$. %
 %
 So ends the proof. %
 \end{enumerate}

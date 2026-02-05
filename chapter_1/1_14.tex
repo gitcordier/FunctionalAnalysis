@@ -20,34 +20,34 @@ If $D = d/dx$:
 }
 %
 \begin{proof}%
-Let us equipp $\D_K$ with the inner product %
+Let us equip $\D_K$ with the inner product %
 %
-  $\bra{f}\ket{g} = \int_0^1 f \, \bar{g}$so that %
+  $\bra{f}\ket{g} = \int_0^1 f \, \bar{g}$, so that %
   $\bra{f}\ket{f} = \| f \|_2^2$. %
 %
 The following %
 %
-\begin{align}
+\begin{equation}
   \int_0^1 1\,| D^n f| \leq \| 1 \|_2 \| D^n f \|_2 
-\end{align}
+\end{equation}
 %
 is then a Cauchy-Schwarz inequality, see Theorem \citeFA{12.2}{FA}. %
 We so obtain %
 %
-\begin{align}\label{inequalities 1}
+\begin{equation}\label{inequalities 1}
   \| D^n f \|_1 
     \leq 
   \| D^n f \|_2 
     \leq 
   \| D^n f \|_\infty 
     <\infty 
-\end{align}
+\end{equation}
 %
 since $K$ has length $1$. %
 %
 Obviously, the support of $D^n f$ lies in $K$, hence the below equality %
 %
-\begin{align}\label{inequalities 2}
+\begin{equation}\label{inequalities 2}
   |D^n f(x)|
     =
   \left|\int_{0}^x D^{n+1}f\right|
@@ -55,12 +55,12 @@ Obviously, the support of $D^n f$ lies in $K$, hence the below equality %
   \int_{0}^x |D^{n+1}f|
     \leq 
   \|D^{n+1}f \|_1.
-\end{align}
+\end{equation}
 %
 Take the supremum over all $|D^n f(x)|$: Combining (\ref{inequalities 1}) %
 with (\ref{inequalities 2}) now reads as follows, %
 %
-\begin{align}\label{inequalities 3}
+\begin{equation}\label{inequalities 3}
   \|D^n f\|_1 
     \leq 
   \|D^{n} f\|_2 
@@ -70,7 +70,7 @@ with (\ref{inequalities 2}) now reads as follows, %
   \|D^{n+1}f\|_1 
     \leq 
   \cdots < \infty.
-\end{align}
+\end{equation}
 %
 Finally, put %
 %
@@ -82,7 +82,7 @@ Finally, put %
 so that (\ref{inequalities 3}) is mirrored by neighborhood inclusions, %
 provided $i=1, 2, \infty$:
 %
-\begin{align}\label{inclusions}
+\begin{equation}\label{inclusions}
   V^{(1)}_n
     \supseteq  
   V^{(2)}_n 
@@ -92,15 +92,15 @@ provided $i=1, 2, \infty$:
   V^{(1)}_{n+1} 
     \supseteq  
   \cdots .
-\end{align}
+\end{equation}
 %
 Their subchains $V^{(i)}_n\supseteq V^{(i)}_{n+1}$ turn $\mathscr{B}^{(i)}$ %
 into a local base of a topology $\tau_i$. 
 The whole chain (\ref{inclusions}) then forces %
 %
-\begin{align}
+\begin{equation}
   \tau_1 \subset \tau_2 \subset \tau_\infty \subset \tau_1;
-\end{align}
+\end{equation}
 %
 which achieves the proof.
 \end{proof}

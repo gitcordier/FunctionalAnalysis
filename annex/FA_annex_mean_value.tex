@@ -44,7 +44,7 @@ for some $a < x_p <  \dots < x_1 < x_0$. Hence %
 Similarly, if $b > x_0 \geq (a+b)/2$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
 %
 \begin{equation}
-  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \quad (a < x_0 < b), 
+  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad (a < x_0 < b), 
 \end{equation}
 %
 which establishes the result when $k=0$. Finally, applying the latter inequality to $D^k \phi $ in %
@@ -85,9 +85,8 @@ In all cases, $Q_\omega(t) \to \infty$ when $\omega \to \infty$\ie $\sup\set{Q_\
 This example rules out any general inequality in the reversed direction. However, the following smooth example $\phi$ %
 maintains constant derivative $\phi'$ around $0$, which is the simplest possible behavior. \par\noindent%
 %
-Let $\rho\in C^\infty(\R)$ be defined as $1$ %
-on $(\minus \infty, 0]$, $0$ on $[1,\infty)$, and a strict decay on $\openInterval{0}{1}$. A standard choice is %
-$\rho = 1-h$ with
+Let $\rho\in C^\infty(\R)$ be $1$ on $]\minus\infty, 0]$, $0$ on $[1,\infty[$, and strictly decaying on $\openInterval{0}{1}$. 
+A standard choice is $\rho = 1-h$ with
 %
 \begin{equation}
   h(t) \Def \frac{e^{\minus 1/t}}{e^{\minus 1/t} + e^{\minus 1/(1-t)}}
@@ -96,13 +95,13 @@ $\rho = 1-h$ with
 for all $0 < t < 1$. Inspired by signal processing, we choose two more positive parameters: maximum amplitude ($A$) and delay %
 ($\tau$). We now define $\phi$ as the time-dependent solution of
 %
-\begin{align}
+\begin{equation}
   %E_\rho: 
   \begin{cases}
     \phi(0) & = 0 \\
     \phi'(t) & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr) \qquad (t\in \R).
   \end{cases}
-\end{align}
+\end{equation}
 %
 Equivalently, $\phi$ is odd and, for $t > 0$, 
 %

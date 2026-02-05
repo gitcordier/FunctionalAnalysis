@@ -5,20 +5,20 @@ Define the Fourier coefficient $\hat{f}(n)$ of a function %
 %
 by
 %
-  \begin{align*}
+  \begin{equation*}
   \hat{f}(n) 
     = 
   \frac{1}{2\pi} \int_{\minus \pi}^{\pi} %
   %
     f(e^{i\theta}) e^{\minus i n\theta} d\theta
   %
-  \end{align*}
+  \end{equation*}
 %
 for all $n\in \Z$ (the integers). Put 
 %
-  \begin{align*}
+  \begin{equation*}
     \Lambda_n f =\sum_{k=\minus n }^{n} \hat{f}(k).
-  \end{align*}
+  \end{equation*}
 %
 Prove that %
   $\set{f \in {L}^2(T)}{\underset{n\infty}{\lim}\,\Lambda_n f \text{ exists}} $ %
@@ -33,24 +33,24 @@ Let $f(\theta)$ stand for $f(e^{i\theta})$so that %
 %
 hence the inner product %
 %
-  \begin{align}\label{2.06. Inner product.}
+  \begin{equation}\label{2.06. Inner product.}
     \hat{f}(n) 
       = 
     (f,e_n) 
       =
     \frac{1}{2\pi} \int_{\minus \pi}^\pi f(\theta)e^{\minus in\theta}d\theta.
-  \end{align}
+  \end{equation}
 %
 We express $\Lambda_n(f)$ as follows: 
-\begin{align}\label{2.06. Rewriting of Lambda_n.}
+\begin{equation}\label{2.06. Rewriting of Lambda_n.}
   \Lambda_n (f) = (f, e_{\minus n}) + \cdots + (f, e_n).
-\end{align}
+\end{equation}
 Moreover, a well-known (and easy to prove) result is % 
 %
-  \begin{align}\label{2.06. Orthonormality.}
+  \begin{equation}\label{2.06. Orthonormality.}
     (e_{n}, e_{n'}) = [n=n'], \text{\ie } %
     \set{e_n}{n\in\Z} \text{ is an orthormal subset of } L^2(T).
-  \end{align}
+  \end{equation}
 %
 For the sake of brevity, we assume the isometric ($\equiv$) %
 identification %
@@ -59,7 +59,7 @@ identification %
 %
 So,  %
 %
-  \begin{align}\label{2.06. Norm of Lambda_n.}
+  \begin{equation}\label{2.06. Norm of Lambda_n.}
     \norm*{\Lambda_n}^2
       \citeq{\ref{2.06. Rewriting of Lambda_n.}}
     \norm*{e_{\minus n}  + \cdots + e_n}^2 
@@ -67,12 +67,12 @@ So,  %
     \norm*{e_{\minus n }}^2 + \cdots + \norm*{e_{n}}^2
       \citeq{\ref{2.06. Orthonormality.}}
     2n+1.
-  \end{align}
+  \end{equation}
 %
 %$\Lambda_n$ is therefore a bounded linear functional, of norm $\sqrt{2n+1}$. %
-We now assume, to reach a contradiction, that %
+Now suppose, to reach a contradiction, that %
 %
-  \begin{align}
+  \begin{equation}
     B \Def \set{f \in {L}^2(T)}{
       %{\underset{n\infty}
       \sup\set{
@@ -80,7 +80,7 @@ We now assume, to reach a contradiction, that %
         \counting{n}
       } < \infty
   } %
-  \end{align}
+  \end{equation}
 %
 is of the second category. %
 So, the Banach-Steinhaus theorem \citeFA{2.5} asserts that the sequence %
@@ -89,19 +89,19 @@ So, the Banach-Steinhaus theorem \citeFA{2.5} asserts that the sequence %
 %
 is norm-bounded; which is a desired contradiction, since %
 %
-  \begin{align}
+  \begin{equation}
     \norm*{\Lambda_n} \citeq{
       \ref{2.06. Norm of Lambda_n.}
     } \sqrt{2n + 1} \tendsto{n}{\infty}\infty.
 %
-  \end{align}
+  \end{equation}
 %
-We have just established that $B$ is actually of the first category; %
+This establishes that $B$ is actually of the first category; %
 and so is its subset %
 %
   L=$\set{f\in {L}^2(T)}{\lim_{n\longrightarrow\infty}\Lambda_n f \text{ exists}}$. %
 %.
-We now prove that $L$ is nevertheless dense in $L^2(T)$. %
+It remains to prove that $L$ is nevertheless dense in $L^2(T)$. %
 To do so, we let $P$ be $\text{span}\set{e_k}{k\in Z} $, %
 the collection of the trignometric polynomials %
 %
@@ -116,9 +116,9 @@ shows that %
 $\Lambda_n(p)= \sum \lambda_k$ for almost all $n$. %
 Thus, 
 %
-  \begin{align}\label{2.06. Basic inclusions.}
+  \begin{equation}\label{2.06. Basic inclusions.}
     P \subset L \subset L^2(T).
-  \end{align}
+  \end{equation}
 %
 We know from the Fejér theorem (the Lebesgue variant) that %
 $P$ is dense in $L^2(T)$. We then conclude, with the help of %
@@ -127,9 +127,9 @@ $P$ is dense in $L^2(T)$. We then conclude, with the help of %
 %
 that %
 %
-  \begin{align}
+  \begin{equation}
     L^2(T) = \overline{P} = \overline{L}.
-  \end{align}
+  \end{equation}
 %
 %It is now clear that $\overline{L} = L^2(T)$. 
 So ends the proof

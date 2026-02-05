@@ -25,7 +25,7 @@ Construct an example where it can be done with $p=2$ but not with $p=1$.}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First part: f_n as a bounded and signed Radon measure.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Equipped with the supremum norm, $\Continuous_K=C(\R) \cap \set{\phi}{\supp\phi\subset K}$ is $C(\R)$'s copy of $C_c(K)$. %
+Equipped with the supremum norm, $\Continuous_K=C(\R) \cap \set{\phi}{\supp\phi\subset K}$ is the copy of $C_c(K)$ in $C(\R)$.
 Each density $f_n$ is then identified with the following %
 %
 \begin{align}
@@ -33,12 +33,12 @@ Each density $f_n$ is then identified with the following %
   \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}, \nonumber
 \end{align}
 %
-seen as with a Radon measure. Every $\Lambda_n$ is continuous since $\norm*{\Lambda_n}=\norm*[1]{f_n}$ is finite; %
+seen as a Radon measure. Every $\Lambda_n$ is continuous since $\norm*{\Lambda_n}=\norm*[1]{f_n}$ is finite; %
 \cf \citeFA{6.19}. Note that the dual space $\Continuous_K^*$ is a Banach space as well, by \citeFA{4.1}. Here, we consider %
 only pointwise convergence, which is weaker than norm convergence. We prove that the assumed pointwise convergence %
 %
 \begin{equation}\label{2.3-assumed-pointwise-convergence}
-  \Lambda_n \phi \tendsto{n}{\infty} \Lambda\phi \quad (\phi \in \D_K)
+  \Lambda_n \phi \tendsto{n}{\infty} \Lambda\phi \qquad (\phi \in \D_K)
 \end{equation}
 %
 implies the continuity of $\Lambda$ in the topology of $\D_K$. We also construct a specific sequence $\{\Lambda_n\}$ whose %
@@ -135,7 +135,7 @@ statistical mechanics; see \cite{BoltzmannMachines}}. Thus, Lebesgue's dominated
   \tendsto{\lambda}{\infty} n \qquad(n \geq 2). 
 \end{equation}
 %
-We refer to \citeFA{6.19} for a more general scope. A first point is that is there is no vague convergence for the current %
+We refer to \citeFA{6.19} for a more general scope. A first point is that there is no vague convergence for the current %
 sequence $\{\Lambda_n\}$: this would, by Theorem \citeFA{2.6}, imply that $\sup_n{\norm*{\Lambda_n}}\ < \infty$, which would %
 contradict \eqref{2.3-norm-of-lambda-n}. However, we investigate further to establish weaker convergence and boundedness in %
 $\tau_K$. From now on, we bound $\phi$ to $\D_K$: The mean value theorem implies that 
@@ -182,7 +182,7 @@ Next, taking absolute values gives %
 As a result, %
 %
 \begin{equation}\label{2.3-convergence-to-dirac}
-  \Lambda_n\phi \tendsto{n}{\infty} \minus \frac{2}{3}\delta' \phi \quad (\phi\in \D_K), 
+  \Lambda_n\phi \tendsto{n}{\infty} \minus \frac{2}{3}\delta' \phi \qquad (\phi\in \D_K), 
 \end{equation}
 %
 where $\delta': \phi \mapsto \minus \phi'(0)$ is the \emph{derivative} of the \textit{Dirac measure} %
@@ -205,7 +205,7 @@ This is a concrete instance of \eqref{2.3-bound-from-derivative}, with $p=1$ and
 to reach a contradiction, that there exists $M$ such that 
 %
 \begin{equation}\label{2.3-upper-bound-assumption}
-  \magnitude{\Lambda_n \phi} \leq M \norm*[\infty]{\phi} \quad (\phi \in \D_K, \, \counting{n}).
+  \magnitude{\Lambda_n \phi} \leq M \norm*[\infty]{\phi} \qquad (\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Next, we choose %
@@ -213,14 +213,14 @@ Next, we choose %
   \phi_n \Def \tilde{\phi}_n u,
 \end{equation}
 %
-where $\tilde{\phi}_n$ is the function $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], with %
-$\tau= 1/n = 1/ \omega = 1/A$. So, $\norm*[\infty]{\phi_n} < 2$. Nevertheless, for all $n \geq 4$, $\Lambda_n \phi_n$ is now %
+where $\tilde{\phi}_n$ is $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] with %
+$\tau= 1/n = 1/ \omega = 1/A$. So, $\norm*[\infty]{\phi_n} < 2$. In contrast, for $n \geq 4$, $\Lambda_n \phi_n$ is now
 %
 \begin{equation}
   %\Lambda_n \phi_n & = 
   \frac{n}{2} \bigl(\,\underbrace{\tilde{\phi}_n(1/n)}_{1} 
-  - \underbrace{\tilde{\phi}(\minus 1 /n)}_{\minus 1}\,\bigr) 
-  - \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \tilde{\phi}'(t) \diff{t}}_{\frac{1}{3}n} = \frac{2}{3}n .
+  - \underbrace{\tilde{\phi}_n(\minus 1 /n)}_{\minus 1}\,\bigr) 
+  - \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \tilde{\phi}'(t) \diff{t}}_{\frac{1}{3}n} = \frac{2}{3}n.
 \end{equation}
 %
 Hence %
@@ -253,13 +253,14 @@ contrasts with $\norm*[\infty]{u\phi_\omega}=1$. Thus, we have exhibited a seque
   }
 \end{enumerate}
 %
-We now present a second example, the \emph{derivative}; see \citeFA{6.1}.
+As a second example, we present the \emph{derivative}
 %
 \begin{align}
   \Lambda_n': \D_K &\to \C\\
-  \phi &\mapsto \minus \Lambda_n \phi'. \nonumber
+  \phi &\mapsto \minus \Lambda_n \phi'; \nonumber
 \end{align}
 %
+see \citeFA{6.1}. %
 We have proved that every $\Lambda_n$ is continuous. So is the derivative operator in $\D_K$ - see Exercise [1.17]. %
 Therefore, $\Lambda_n'$ is continuous. Now apply \eqref{2.3-convergence-to-dirac} with $\phi'$ and so obtain %
 %
@@ -270,14 +271,14 @@ Therefore, $\Lambda_n'$ is continuous. Now apply \eqref{2.3-convergence-to-dirac
 Furthermore, Theorem \citeFA{2.8} implies that the limit $\minus \frac{2}{3} \phi''(0)$ is $\tau_K$ continuous. 
 Additionally, it follows from \eqref{2.3-upper-bound} that the bound \eqref{2.3-norm-p-bound2} is %
 %
-\begin{align}
+\begin{equation}
   \magnitude{\Lambda_n' \phi} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
-\end{align}
+\end{equation}
 %
-Indeed, we show that $2$ is the smallest suitable $p$. First, we assume, to reach a contradiction, that
+To prove this, it now suffices to show that $2$ is the smallest suitable $p$. First, we assume, to reach a contradiction, that
 %
 \begin{equation}
-  \magnitude{\Lambda_n \phi'} \leq M \norm*[\infty]{\phi'} \quad (\phi \in \D_K, \, \counting{n}).
+  \magnitude{\Lambda_n \phi'} \leq M \norm*[\infty]{\phi'} \qquad (\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Next, let $\Phi_n$ be the primitive of $\phi_n$ that vanishes at $\minus 1$; see \eqref{2.3-zn-definition}. The oddness %
@@ -297,7 +298,7 @@ which has already been disproved. Finally, to reach a last contradiction, assume
 $p=0$ so that 
 %
 \begin{equation}
-  \magnitude{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi} \quad(\phi \in \D_K, \, \counting{n}).
+  \magnitude{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] implies that %
