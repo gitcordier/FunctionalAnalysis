@@ -23,7 +23,7 @@ for all $k \leq p$ in $\N$.
 First, consider $a < x_0 \leq (a+b)/2$. By the mean value theorem, there exists $a < x_1 < x_0$ such that
 %
 \begin{equation}
-  \phi(x_0) = \phi(x_0) - \phi(a)=  D\phi(x_1)(x_0 - a).
+  \phi(x_0) - \underbrace{\phi(a)}_{0}=  D\phi(x_1)(x_0 - a).
 \end{equation}
 %
 Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b]}$ gives % 
@@ -73,7 +73,7 @@ For \emph{angular frequency} $\omega > 1$, we consider
 so that 
 %
 \begin{equation}
-  \frac{\norm*[\infty]{D^p \phi_\omega}}{\norm*[\infty]{D^k \phi_\omega}} = \magnitude{\omega}^{p-k} \qquad (0 \leq k < p)
+  \frac{\norm*[\infty]{D^p \phi_\omega}}{\norm*[\infty]{D^k \phi_\omega}} = \omega^{p-k} \qquad (0 \leq k < p)
 \end{equation}
 %
 is unbounded as $p$ or $\omega$ tends to $\infty$. %
@@ -81,9 +81,9 @@ is unbounded as $p$ or $\omega$ tends to $\infty$. %
 Note that no pointwise estimation holds either. Indeed, when it exists, the quotient %
 $Q_\omega(t) = \magnitude{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
 Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude{\tan(\omega t)}$ or $\omega^{p-k}\magnitude{\cot{(\omega t)}}$. %
-In all cases, $Q_\omega(t) \to \infty$ when $\omega \to \infty$\ie $\sup\set{Q_\omega(t)}{\omega> 1}=\infty$ at arbitrary $t$. 
-This example rules out any general inequality in the reversed direction. However, the following smooth example $\phi$ %
-maintains constant derivative $\phi'$ around $0$, which is the simplest possible behavior. \par\noindent%
+In all cases, $Q_\omega(t) \to \infty$ as $\omega \to \infty$ at fixed $t$. This example rules out any general inequality in %
+the reversed direction. However, the following smooth example $\phi$ maintains constant derivative $\phi'$ around $0$, %
+which is the simplest possible behavior. \par\noindent%
 %
 Let $\rho\in C^\infty(\R)$ be $1$ on $]\minus\infty, 0]$, $0$ on $[1,\infty[$, and strictly decaying on $\openInterval{0}{1}$. 
 A standard choice is $\rho = 1-h$ with

@@ -22,9 +22,9 @@ version of the logical equivalence $\iff$. All definitions are understood to be 
 fact that every definition expresses an equivalence.
 %
 \subsection{The assignment operator}%
-Given $\varit{a}$ and $\varit{b}$, $a \Def b$ is a specific instance of $a = b$. We say that $a\Def b$ \IFF $a$ and $b$ %
-are \emph{assumed} to be equal. Typically, $a\Def b$ means that $a$ is assigned the pre-existing value $b$ %
-(some authors write $a:=b$) but this is not a strict requirement. 
+Given variables $\varit{a}$ and $\varit{b}$, $a \Def b$ is a special form of $a = b$. We say that $a\Def b$ \IFF $a$ and $b$ %
+are \emph{assumed} to be equal. Typically, $a\Def b$ is used to indicate that $\varit{a}$ is assigned the value $b$ %
+(some authors write $a:=b$) but, in a different context, $a \Def b$ may also denote $a=:b$\ie $a:=b$.
 %
 \subsection{Iverson brackets}\label{Iverson-notation}
 Given a boolean expression $\phi$, the boolean value $\Iverson*{\phi}$ encodes the truth value of $\phi$ as a \texttt{bit}:
@@ -213,7 +213,7 @@ A linear mapping $\Lambda$ is said to be \emph{bounded} \IFF \emph{$\Lambda(E)$ 
 see \citeFA{1.31}. Linearity implies that $\Lambda: X \to Y$ is bounded \IFF 
 %
 \begin{equation}
-  \norm*{\Lambda} \Def \sup{\set[\Big]{\norm*{\Lambda x}}{\norm*{x} < 1}} < \infty, 
+  \norm*{\Lambda} \Def \sup{\set[\big]{\norm*{\Lambda x}}{\norm*{x} < 1}} < \infty, 
 \end{equation}
 %
 Given normed spaces $X$ and $Y$, bounded linear maps $\Lambda$ form a normed space $B(X,Y)$, where norm $\norm*{\Lambda}$ is %
@@ -278,7 +278,7 @@ where the integral on the left-hand side is a Lebesgue integral. The standard ex
 Lebesgue measure on Borel sets. The regularity property implies that $\beta$ has total mass %
 %
 \begin{equation}
-	\int_{X} 1 \diff{\beta} \Def \sup \set[\Big]{\Lambda \phi}{\phi \in C_c(X), \norm*[\infty]{\phi} \leq 1} \leq \infty.
+	\int_{X} 1 \diff{\beta} \Def \sup \set[\big]{\Lambda \phi}{\phi \in C_c(X), \norm*[\infty]{\phi} \leq 1} \leq \infty.
 \end{equation}
 %
 When we substitute $f\diff{\beta}$ for $\diff{\beta}$, with $f$ $X$-measurable, \eqref{definition-of-sum} takes the form %
@@ -309,9 +309,9 @@ A central question in calculus is whether the integral of the modulus, namely
 is finite. This motivates the following definitions:%
 %
 \begin{equation}
-	\mathcal{L}^1(X, \beta)\Def \set[\Big]{f}{\magnitude{f}_1  < \infty} 
+	\mathcal{L}^1(X, \beta)\Def \set[\big]{f}{\magnitude{f}_1  < \infty} 
   \subset \mathcal{L}^1_{\text{loc}}(X,\beta) 
-  \Def \intersectionOfCollection{\set[\Big]{\mathcal{L}^1(K,\beta)}{K \subset X \text{ compact.}}}.
+  \Def \intersectionOfCollection{\set[\big]{\mathcal{L}^1(K,\beta)}{K \subset X \text{ compact.}}}.
 \end{equation}
 %
 Standard notation $\mathcal{L}^1(\beta)$ is used to avoid redundancy, or simply $\mathcal{L}^1$ when the context is clear. %
@@ -332,20 +332,20 @@ Together, these two facts imply that $L^1 = \mathcal{L}^1/N$, equipped with the 
 is a Banach space. These definitions and properties extend to $L^p$ spaces ($p> 1$), as follows 
 %
 \begin{align}
-  \mathcal{L}^p &\Def \set[\Big]{f}{\magnitude{f}^p \in \mathcal{L}^1}, \\
+  \mathcal{L}^p &\Def \set[\big]{f}{\magnitude{f}^p \in \mathcal{L}^1}, \\
   L^p & \Def \mathcal{L}^p / N,  \\
   \norm*[p]{f+N} &\Def \left(\int_X \magnitude{f}^p \right)^{1/p} \qquad (f \in \mathcal{L}^p).
 \end{align}
 %
 Similar \emph{quasi-Banach} $L^p$ spaces exist for $0< p < 1$, with the notable difference that $\norm*[p]{f+N}$ no longer %
-defines a norm (the triangle inequality fails to hold). In contrast, the counterpart %
-$L^\infty = \set{f+N}{\norm*[\infty]{f+N} < \infty}$ is equipped with $\norm*[\infty]{\cdot}$, where the \emph{quotient-norm}
+defines a norm (the triangle inequality is lost). In contrast, $L^\infty = \set{f+N}{\norm*[\infty]{f+N} < \infty}$, equipped %
+with the \emph{quotient norm}
 %
 \begin{equation}
-  \norm*[\infty]{f+N} \Def \inf\set[\Big]{M}{M > 0, \magnitude{f} < M \;\,\beta \text{-a.e.}}
+  \norm*[\infty]{f+N} \Def \inf\set[\big]{M}{\magnitude{f} < M \;\,\beta \text{-a.e.}}
 \end{equation}
 %
-over bounded functions $f$ turns it into a Banach space.%
+is a Banach space.%
 %
 % END 
 %
