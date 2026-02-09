@@ -133,7 +133,7 @@ fouridx,
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
 \newcommand{\id}[1]{\text{id}_{#1}}
-\renewcommand{\restriction}[2]{#1\!\upharpoonright_{#2}}
+\renewcommand{\restriction}[2]{#1\vert_{#2}}
 
 % Predicate calculus, logic
 % % Bunch of synonyms
@@ -219,12 +219,77 @@ fouridx,
 \def\weakstar{\text{weak}^\ast\text{-}}
 
 % Standard calculus
-% % Intervals
-%\newcommand{\openInterval}[2]{\left]#1, #2\right[}
-%\newcommand{\openInterval}[2]{\openInterval}
-%\DeclarePairedDelimiter\openinterval[]
-\DeclarePairedDelimiter\openinterval{]}{[}
-\newcommand{\openInterval}[3][\big]{\openinterval[#1]{#2, #3}}
+% % Intervals, as partial functions of the Interval command below.
+% % % Open.
+\NewDocumentCommand{\openInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{]}{[}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{]}{[}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{openInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Closed.
+\NewDocumentCommand{\closedInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{[}{]}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{[}{]}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{closedInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Open-closed ]...].
+\NewDocumentCommand{\openClosedInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{]}{]}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{]}{]}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{openClosedInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Closed-open [...[.
+\NewDocumentCommand{\closedOpenInterval}{s o m m}{%
+  \IfBooleanTF{#1}{
+    \Interval*{#3}{#4}{[}{[}
+  }{% 
+    \IfValueTF{#2}{% If [size]:
+      \Interval[#2]{#3}{#4}{[}{[}
+    }{% 
+      % If no [size], use standard delimiters with correct spacing
+      \errmessage{closedOpenInterval: Size argument is required.}
+    }
+  }
+}
+
+% % % Interval, the primitive. 
+% % % Should not be called directly. 
+% % % Use open Interval, ..., closedOpenInterval; see above
+\NewDocumentCommand{\Interval}{s o m m m m}{%
+  \IfBooleanTF{#1}{% Auto-sizing
+    \left#5 \hspaceNorm #3, #4 \hspaceNorm  \right#6
+  }{% Else, manual sizing
+    \IfValueTF{#2}{% If [size] 
+      \mathopen{#2#5} \hspaceNorm  #3, #4 \hspaceNorm  \mathclose{#2#6}
+    }{% Else, error
+      \errmessage{Interval: Size argument is required.}
+    }
+  }
+}
 
 %newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
 

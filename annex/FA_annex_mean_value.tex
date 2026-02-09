@@ -26,22 +26,22 @@ First, consider $a < x_0 \leq (a+b)/2$. By the mean value theorem, there exists 
   \phi(x_0) - \underbrace{\phi(a)}_{0}=  D\phi(x_1)(x_0 - a).
 \end{equation}
 %
-Repeating the same reasoning for $D\phi, D^2 \phi, \dots, D^p \phi \in \D_{[a, b]}$ gives % 
+If $p> 1$, repeating the same reasoning, first for $D\phi$, then $D^2\phi$, and so on, yields
 %
 \begin{align}
-  \phi(x_0) & = D^0 \phi(x_0) \\ 
-  & = D^1\phi(x_1)(x_0 - a) \\
-  &  \nonumber \mspace{10mu} \vdots \\
-  & = D^p\phi(x_{p})(x_{p-1} - a) \cdots (x_0-a),
+  \phi(x_0) & = D^1 \phi(x_1) (x_0-a) \\
+  & = D^2 \phi(x_2) (x_1-a) (x_0-a) \\
+  &  \mspace{5mu} \vdots \nonumber \\ 
+  & = \underbrace{D^p\phi(x_{p}) (x_{p-1} - a)}_{D^{p-1} \phi(x_{p-1})} \, (x_{p-2} -a) \cdots (x_0-a)
 \end{align}
 %
-for some $a < x_p <  \dots < x_1 < x_0$. Hence %
+for some points $a < x_p <  \dots < x_1 < x_0$. Hence %
 %
 \begin{equation}
-  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p .
+  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\integers{p}).
 \end{equation}
 %
-Similarly, if $b > x_0 \geq (a+b)/2$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
+Similarly, if $(a+b)/2 < x_0 < b$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
 %
 \begin{equation}
   \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad (a < x_0 < b), 
@@ -67,7 +67,7 @@ For \emph{angular frequency} $\omega > 1$, we consider
 %
 \begin{align}
   \phi_\omega: \R & \to [\minus 1, 1]\\
-  t & \mapsto \sin(\omega t) \nonumber
+  t & \mapsto \sin(\omega t), \nonumber
 \end{align}
 %
 so that 
@@ -82,44 +82,46 @@ Note that no pointwise estimation holds either. Indeed, when it exists, the quot
 $Q_\omega(t) = \magnitude{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
 Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude{\tan(\omega t)}$ or $\omega^{p-k}\magnitude{\cot{(\omega t)}}$. %
 In all cases, $Q_\omega(t) \to \infty$ as $\omega \to \infty$ at fixed $t$. This example rules out any general inequality in %
-the reversed direction. However, the following smooth example $\phi$ maintains constant derivative $\phi'$ around $0$, %
+the reversed direction. However, the following smooth example $\phi$ maintains a constant derivative around $0$, %
 which is the simplest possible behavior. \par\noindent%
 %
-Let $\rho\in C^\infty(\R)$ be $1$ on $]\minus\infty, 0]$, $0$ on $[1,\infty[$, and strictly decaying on $\openInterval{0}{1}$. 
-A standard choice is $\rho = 1-h$ with
+Let $\rho\in C^\infty(\R)$ be $1$ on $\openClosedInterval*{\minus\infty}{0}$, $0$ on $\closedOpenInterval*{1}{\infty}$, and %
+strictly decaying on $\openInterval*{0}{1}$. A standard choice is $\rho = 1-h$ with
 %
 \begin{equation}
   h(t) \Def \frac{e^{\minus 1/t}}{e^{\minus 1/t} + e^{\minus 1/(1-t)}}
 \end{equation}
 %
-for all $0 < t < 1$. Inspired by signal processing, we choose two more positive parameters: maximum amplitude ($A$) and delay %
-($\tau$). We now define $\phi$ as the time-dependent solution of
+for all $0 < t < 1$. Inspired by signal processing, we retain the angular frequency $\omega$ and introduce two additional %
+positive parameters: maximum amplitude ($A$) and delay ($\tau$). We now define $\phi$ as the time-dependent solution of
 %
 \begin{equation}
   %E_\rho: 
   \begin{cases}
     \phi(0) & = 0 \\
-    \phi'(t) & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr) \qquad (t\in \R).
+    \diff{\phi}& = A \rho \bigl(\omega(\abs{t} - \tau)\bigr)\diff{t}.
   \end{cases}
 \end{equation}
 %
-Equivalently, $\phi$ is odd and, for $t > 0$, 
+Equivalently, $\phi$ is odd and, for $s > 0$, 
 %
 \begin{align}
-  \phi(t)  = A \int_{0}^{t} \rho \bigl(\omega (s - \tau)\bigr) \diff{s} 
-    =  A \min(t, \tau) + A \int_{\tau}^{\max(t,  \tau)} \rho \bigl(\omega (s - \tau)\bigr) \diff{s}.
+  \phi(s)  = A \int_{0}^{s} \rho \bigl(\omega (t - \tau)\bigr) \diff{t} 
+    =  A \min(s, \tau) + A \int_{\tau}^{\max(s,  \tau)} \rho \bigl(\omega (t - \tau)\bigr) \diff{t}.
 \end{align}
 %
-Note that the maximum of $\magnitude{\phi}$ is
+Hence
 %
 \begin{align}
-  \norm*[\infty]{\phi} & = \tau A  + A \int_{\tau}^{\tau + 1/\omega} \rho \bigl(\omega (s - \tau)\bigr) \diff{s} \\
+  \norm*[\infty]{\phi} & = \phi(\tau + 1/\omega) \\
+    %& =  \tau A  + A \int_{\tau}^{\tau + 1/\omega} \rho \bigl(\omega (t - \tau)\bigr) \diff{t} \\
     & = \tau A  + \frac{A}{\omega} \int_{0}^{1} \rho(u)\diff{u} \\
     & < \tau A + \frac{A}{\omega}.
 \end{align}
 %
-The special case $\tau= 1/\omega= 1/A$ is of great interest. In this case, $\phi'(0) = A\to \infty$ as $\tau \to 0$. %
-In contrast, the maximum $\norm*[\infty]{\phi}$ remains less than $2$. 
+The special case $\tau= 1/\omega= 1/A$ is of great interest. Indeed, %
+$\restriction{D\phi}{\closedInterval*{\minus \tau}{\tau}} \equiv A\to \infty$ as $\tau \to 0$. In contrast, %
+$\norm*[\infty]{\phi} < 2$. 
 \end{proof}
 % END
 % 

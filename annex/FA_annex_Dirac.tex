@@ -22,36 +22,35 @@ particle has contributed its energy by time $t$. This formalism expresses that
 Heuristically, we write, 
 %
 \begin{equation}
-  \int_{\R} \heuristic{dH} = 1, \qquad \heuristic{\frac{dH}{dt}} =
+  \int_{\R} \heuristic{dH} = 1, \qquad \heuristic{H'(t)} =
   \begin{cases}
-  \infty & t = 0 \\
-  0 & t \neq 0
+  \infty & (t = 0) \\
+  0 & (t \neq 0)
   \end{cases}
   \end{equation} 
 %
-These properties cannot coexist in standard calculus. Nevertheless, the informal measure $\heuristic{dH}$ describes the %
+These properties cannot coexist in standard calculus. Nevertheless, the informal density $\heuristic{H}$ describes the %
 \emph{Dirac $\delta$ function}. When identified with a positive Borel measure, $\delta$ has total mass $1$ because %
 %
 \begin{equation}\label{mass-of-dirac}
   \int_{\R} \diff{\delta} = \int_{\R} \heuristic{dH} = \evalbracket{H}{\minus \infty}{\infty} = 1. 
 \end{equation}
 %
-Physically, integrating $\delta$ over time recaptures all the energy. Let $W$ be the observation window, which is adjusted so %
-that either $0 \in \interior{W}$ or $0 \notin \closure{W}$. Next, consider any smooth real function $\phi$ with compact %
+Physically, integrating over time recaptures all the energy. Let $W$ be the observation window, which is adjusted so that %
+either $0 \in \interior{W}$ or $0 \notin \closure{W}$. Next, consider any smooth real function $\phi$ with (nonempty) compact %
 support in $\interior{W}$ as a test signal. In this formalism, the integral $\int_{\R} \phi \diff{\delta}$ represents the %
-detector's response to the collision when $\phi$ is not identically zero. If $\max{\abs{\phi}} = 1$, then Lebesgue's %
-dominated convergence theorem ensures
+detector's response to the collision. If $\max{\abs{\phi}}= 1$, then Lebesgue's dominated convergence theorem ensures
 %
 \begin{equation}
   \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\Big]{0 \in \interior{W}}.
 \end{equation}
 %
-We now make the model rigorous by eliminating the heuristic $\heuristic{dH}$, as follows:
+We now make the model rigorous by eliminating the heuristic $\heuristic{H}$, as follows:
 %
 \begin{align}
   \int_{\R} \phi \diff{\delta} &=\int_{\R} \phi\,\heuristic{dH} & \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
-  & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_{\R} H \diff{\phi} & (\text{integration by parts})\\
-  & = \minus \int_{\R} H \diff{\phi} \label{Dirac-impulse-distribution1}&(\text{$\supp{\phi}$ is compact})\\
+  & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_{\R} H \phi' & (\text{integration by parts})\\
+  & = \minus \int_{\R} H \phi' \label{Dirac-impulse-distribution1}&(\text{$\supp{\phi}$ is compact})\\
   & =  \phi(0) &
 \end{align}
 %
@@ -61,7 +60,7 @@ following definitions: %
 %
 \begin{align}
   \Lambda_H(\phi) &\Def \int_{\R} H \phi & (\text{expresses $H$})\\
-  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \diff{\phi} = \phi(0) & 
+  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \phi' = \phi(0) & 
     (\text{the \textit{weak derivative} of $H$: impulse at $0$})\\
   \delta(\phi) &\Def \phi(0) \label{definition-of-dirac} & (\text{$\delta$ now has a rigorous definition}).
 \end{align}
