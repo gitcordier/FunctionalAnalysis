@@ -1,6 +1,6 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % FunctionalAnalysis 
-% FA_annex_mean-value.tex
+% FA_annex_mean_value.tex
 % 
 % encoding: UTF-8 
 % EOL: LF
@@ -9,7 +9,7 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\begin{lemma}[A mean value inequality for higher-order derivatives]\label{mean-value-with-derivatives}
+\begin{lemma}[A mean value inequality for higher-order derivatives]\label{annex:mean-value-with-derivatives}
 If $\phi\in\D_{[a, b]}$, then
 %
 \begin{equation}
@@ -38,13 +38,13 @@ If $p> 1$, repeating the same reasoning, first for $D\phi$, then $D^2\phi$, and 
 for some points $a < x_p <  \dots < x_1 < x_0$. Hence %
 %
 \begin{equation}
-  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\integers{p}).
+  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\integers{p}).
 \end{equation}
 %
 Similarly, if $(a+b)/2 < x_0 < b$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
 %
 \begin{equation}
-  \magnitude{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad (a < x_0 < b), 
+  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad (a < x_0 < b), 
 \end{equation}
 %
 which establishes the result when $k=0$. Finally, applying the latter inequality to $D^k \phi $ in %
@@ -79,8 +79,8 @@ so that
 is unbounded as $p$ or $\omega$ tends to $\infty$. %
 %
 Note that no pointwise estimation holds either. Indeed, when it exists, the quotient %
-$Q_\omega(t) = \magnitude{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
-Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude{\tan(\omega t)}$ or $\omega^{p-k}\magnitude{\cot{(\omega t)}}$. %
+$Q_\omega(t) = \magnitude*{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
+Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude*{\tan(\omega t)}$ or $\omega^{p-k}\magnitude*{\cot{(\omega t)}}$. %
 In all cases, $Q_\omega(t) \to \infty$ as $\omega \to \infty$ at fixed $t$. This example rules out any general inequality in %
 the reversed direction. However, the following smooth example $\phi$ maintains a constant derivative around $0$, %
 which is the simplest possible behavior. \par\noindent%

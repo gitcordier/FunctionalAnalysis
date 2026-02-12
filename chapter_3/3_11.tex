@@ -17,7 +17,7 @@ f $\varit{X}$ is an infinite dimensional topological vector space whose dual %
 separates points on $X$, then the polar
 %
   \begin{align}
-    \varit{K}_A\Def \{ \Lambda \in \mathit{X^\ast}:\, \magnitude{\Lambda} \leq \mathrm{1} \text{ on } A\}
+    \varit{K}_A\Def \{ \Lambda \in \mathit{X^\ast}:\, \magnitude*{\Lambda} \leq \mathrm{1} \text{ on } A\}
   \end{align} 
 %
 of any absorbing subset $\varit{A}$ is a $\varit{\weakstar}$closed set that has empty interior.
@@ -31,7 +31,7 @@ Let $x$ range over $X$. The linear form %
 is $\weakstar$continuous, see \citeFA{3.14}. %
 Therefore, %
 %
-  $P_x= \set[\Big]{\Lambda \in X^\ast}{\magnitude{\Lambda x} \leq 1}$ %
+  $P_x= \set[\Big]{\Lambda \in X^\ast}{\magnitude*{\Lambda x} \leq 1}$ %
 %
 is $\weakstar$ closed: %
 %In particular, every $P_a$ ($a \in A$) is $\weakstar$closed:  %
@@ -49,7 +49,7 @@ $X$ is then locally convex, but its dual space is still %
 Put %
 %
   \begin{align}
-    W_{F, x} \Def \bigcap_{x\in F} \set[\Big]{\Lambda \in X^\ast}{\magnitude{\Lambda x} < r_x} \qquad\qquad (r_x > 0)
+    W_{F, x} \Def \bigcap_{x\in F} \set[\Big]{\Lambda \in X^\ast}{\magnitude*{\Lambda x} < r_x} \qquad\qquad (r_x > 0)
   \end{align}
 %
 where $F$ runs through the nonempty finite subsets of $X$. %
@@ -96,9 +96,9 @@ On the other hand, given an arbitrary $\Lambda \in K_A$, %
 the following inequalities  %
 %
   \begin{align}
-    \magnitude{\Lambda_a b + \Lambda b} 
+    \magnitude*{\Lambda_a b + \Lambda b} 
       \geq 
-    2 - \magnitude{\Lambda b} 
+    2 - \magnitude*{\Lambda b} 
       >
     1.
   \end{align}
@@ -137,7 +137,7 @@ form a local base of $X$. %
 If $\Lambda$ is in $X^\ast$, then %
 %
   \begin{align}
-    \magnitude{\Lambda} \leq  m \text{ on } B_n
+    \magnitude*{\Lambda} \leq  m \text{ on } B_n
   \end{align}
 %
 for some $(n, m) \in \singleton{1, 2, 3, \dots}^2$, see \citeFA{1.18}. %

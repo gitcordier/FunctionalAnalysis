@@ -13,7 +13,7 @@
 Let $X$ be the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
 %
 \begin{equation}
-  p_x(f)= \magnitude{f(x)} \qquad (0 \leq x \leq 1).\nonumber
+  p_x(f)= \magnitude*{f(x)} \qquad (0 \leq x \leq 1).\nonumber
 \end{equation}
 %
 This topology is called the topology of pointwise convergence. Justify this terminology. \\
@@ -62,7 +62,7 @@ By definition, %
   \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \notin W} < \infty \qquad (W \in \mathscr{B}).
 \end{equation}
 %
-The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
+The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude*{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
 finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
@@ -119,13 +119,13 @@ so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construct
 %
 \begin{equation}
   x_\gamma %
-  \Def \phi\Bigl(1 / \sqrt{1 + \magnitude{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude{\gamma_n}}, \dots\Bigr) %
+  \Def \phi\Bigl(1 / \sqrt{1 + \magnitude*{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude*{\gamma_n}}, \dots\Bigr) %
 \end{equation}
 %
 outputs %
 %
 \begin{equation}
-  \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude{\gamma_n}} %
+  \gamma_n f_n(x_\gamma) = \gamma_n / \sqrt{1 + \magnitude*{\gamma_n}} %
   \tendsto{n}{\infty} \infty
 \end{equation}
 %

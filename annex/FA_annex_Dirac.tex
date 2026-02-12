@@ -9,7 +9,7 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\newcommand{\heuristic}[1]{\mathcal{#1}}
+\newcommand{\heuristic}[1]{\mathscr{#1}}
 Consider a physical example: a particle colliding with a surface, which absorbs a unit of energy at impact time $t=0$. 
 We start with $H$ the \emph{Heaviside step function} $t \mapsto \Iverson*{t \geq 0}$, so that $H(t)$ indicates whether the %
 particle has contributed its energy by time $t$. This formalism expresses that 
@@ -22,18 +22,18 @@ particle has contributed its energy by time $t$. This formalism expresses that
 Heuristically, we write, 
 %
 \begin{equation}
-  \int_{\R} \heuristic{dH} = 1, \qquad \heuristic{H'(t)} =
+  \int_{\R} \heuristic{H'} = 1, \qquad \heuristic{H'(t)} =
   \begin{cases}
   \infty & (t = 0) \\
   0 & (t \neq 0)
   \end{cases}
   \end{equation} 
 %
-These properties cannot coexist in standard calculus. Nevertheless, the informal density $\heuristic{H}$ describes the %
+These properties cannot coexist in standard calculus. Nevertheless, the informal density $\heuristic{H'}$ describes the %
 \emph{Dirac $\delta$ function}. When identified with a positive Borel measure, $\delta$ has total mass $1$ because %
 %
 \begin{equation}\label{mass-of-dirac}
-  \int_{\R} \diff{\delta} = \int_{\R} \heuristic{dH} = \evalbracket{H}{\minus \infty}{\infty} = 1. 
+  \int_{\R} \diff{\delta} = \int_{\R} \heuristic{H'} = \evalbracket{H}{\minus \infty}{\infty} = 1. 
 \end{equation}
 %
 Physically, integrating over time recaptures all the energy. Let $W$ be the observation window, which is adjusted so that %
@@ -45,10 +45,10 @@ detector's response to the collision. If $\max{\abs{\phi}}= 1$, then Lebesgue's 
   \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\Big]{0 \in \interior{W}}.
 \end{equation}
 %
-We now make the model rigorous by eliminating the heuristic $\heuristic{H}$, as follows:
+We now make the model rigorous by eliminating the heuristic $\heuristic{H'}$, as follows:
 %
 \begin{align}
-  \int_{\R} \phi \diff{\delta} &=\int_{\R} \phi\,\heuristic{dH} & \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
+  \int_{\R} \phi \diff{\delta} &=\int_{\R} \phi\,\heuristic{H'} & \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
   & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_{\R} H \phi' & (\text{integration by parts})\\
   & = \minus \int_{\R} H \phi' \label{Dirac-impulse-distribution1}&(\text{$\supp{\phi}$ is compact})\\
   & =  \phi(0) &
@@ -60,21 +60,22 @@ following definitions: %
 %
 \begin{align}
   \Lambda_H(\phi) &\Def \int_{\R} H \phi & (\text{expresses $H$})\\
-  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \phi' = \phi(0) & 
-    (\text{the \textit{weak derivative} of $H$: impulse at $0$})\\
-  \delta(\phi) &\Def \phi(0) \label{definition-of-dirac} & (\text{$\delta$ now has a rigorous definition}).
+  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \phi' & 
+    (\text{the \textit{weak derivative} of $H$})\\
+  \delta(\phi) &\Def \Lambda_H'(\phi)  = \phi(0) \label{definition-of-dirac} & %
+    (\text{impulse at $0$: now $\delta$ has a rigorous definition}).
 \end{align}
 %
-The functional $\delta:\phi\mapsto\phi(0)$ is rigorously defined and so represents an instantaneous energy injection at $t=0$. 
-Its extension to all $\phi \in C_c(\R)$ turns $\delta$ into a positive Radon measure of norm/total variation %
-$\norm*{\delta} = 1$ and support $\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) distribution %
-of order $0$; see \citeFA{Chapters 6 and 7}. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
+The functional $\delta:\phi\mapsto\phi(0)$ represents an instantaneous energy injection at $t=0$. Its extension to all %
+$\phi \in C_c(\R)$ turns $\delta$ into a positive Radon measure of norm/total variation $\norm*{\delta} = 1$ and support %
+$\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) distribution of order $0$; %
+see \citeFA{Chapters 6 and 7}. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
 %
 \begin{equation}
   \delta: E \mapsto \Iverson[\Big]{0 \in E} 
 \end{equation}
 %
-restricted to Borel sets in $\R$; hence the special case of \eqref{definition-of-sum}
+restricted to Borel sets in $\R$. Hence the special case of \eqref{definition-of-sum}
 %
 \begin{equation}\label{filtering}
   \int_{\R} \phi \diff{\delta}= \delta(\phi) = \phi(0).

@@ -25,26 +25,26 @@ It exists $N$ such that $U$ contains
       \max\set{
         | D^\beta\phi (x) |
       }{
-        \magnitude{ \beta } \leq N, x\in K_N
+        \magnitude*{ \beta } \leq N, x\in K_N
       }
     < 1/N
     \right\}.
   \end{equation}
 %
-Now pick $g$ in $V_{N+\magnitude{\alpha}}$so that
+Now pick $g$ in $V_{N+\magnitude*{\alpha}}$so that
 %
   \begin{equation}
     \max
     \set{
-      \magnitude{ D^\gamma g\left(x\right) }
+      \magnitude*{ D^\gamma g\left(x\right) }
     }{
-      \magnitude{ \gamma | \leq N+| \alpha }, 
+      \magnitude*{ \gamma | \leq N+| \alpha }, 
       x\in K_{N}
     }
-    < \frac{1}{N+\magnitude{\alpha}}.
+    < \frac{1}{N+\magnitude*{\alpha}}.
   \end{equation}
 %
-(the fact that $K_N\subset K_{N+\magnitude{\alpha}}$ was tacitly used).
+(the fact that $K_N\subset K_{N+\magnitude*{\alpha}}$ was tacitly used).
 %
 The special case $\gamma = \beta + \alpha$ yields
 %‡
@@ -53,7 +53,7 @@ The special case $\gamma = \beta + \alpha$ yields
     \set{
       | D^\beta D^\alpha g(x)|
     }{
-      \magnitude{\beta} \leq N, 
+      \magnitude*{\beta} \leq N, 
       x\in K_{N}
     }
     < \frac{1}{N}.
@@ -62,13 +62,13 @@ The special case $\gamma = \beta + \alpha$ yields
 We have just proved that
 %
   \begin{equation}\label{1.17. inclusion}
-    g \in V_{N + \magnitude{\alpha}}
+    g \in V_{N + \magnitude*{\alpha}}
       \then 
     D^\alpha g \in V_{N},
       \qquad
       \ie
       \qquad
-    D^\alpha \left(V_{N+\magnitude{\alpha}}\right) \subset V_N,
+    D^\alpha \left(V_{N+\magnitude*{\alpha}}\right) \subset V_N,
   \end{equation}
 %
 which establishes the continuity of %
@@ -88,20 +88,20 @@ we first remark that the collection of the
 is a local base of the subspace topology of $\D_K$.
 %
 %
-  $V_{N+\magnitude{\alpha}} \cap \D_K$ % 
+  $V_{N+\magnitude*{\alpha}} \cap \D_K$ % 
 %
 is then a neighborhood of $0$ in this topology. %
 Furthermore, 
 %
   \begin{align}
     %
-    D^\alpha \lvert_{\D_K} \left(V_{N+\magnitude{\alpha}} \cap \D_K\right) 
+    D^\alpha \lvert_{\D_K} \left(V_{N+\magnitude*{\alpha}} \cap \D_K\right) 
     % 
     & = 
-      D^\alpha\left(V_{N+\magnitude{\alpha}} \cap \D_K\right) \\
+      D^\alpha\left(V_{N+\magnitude*{\alpha}} \cap \D_K\right) \\
       %
     & \subset
-      D^\alpha\left(V_{N+\magnitude{\alpha}}\right) 
+      D^\alpha\left(V_{N+\magnitude*{\alpha}}\right) 
         \cap 
       D^\alpha\left(\D_K\right) \\
       %

@@ -34,7 +34,7 @@ which asserts both the existence and the uniqueness of $z$.
 %: (b)
 \item Remark that %
 %
-\begin{align}
+\begin{align}\label{1-1-b-0x}
   0\cdot x & =(0+0)\cdot x=0\cdot x+0\cdot x \\
            & =(0+0)\cdot x=0 +0\cdot x 
 \end{align} 
@@ -82,7 +82,7 @@ for all subsets $A$ of $X$; which proves (c). %
 %
 which is %
 %
-\begin{equation}
+\begin{equation}\label{Exercise-1-d}
   sA + tA = (s+t)A.
 \end{equation}
 %
@@ -177,139 +177,45 @@ then conclude from (d) that $A + B$ is convex. %
 %
 This completes the proof: $A+B$ is balanced. %
 %: (j)
-\item Our proof will be based on the following lemma, %
-%
-\textit{
-\begin{quote}
-If $S$ is nonempty, then each of the following three properties
-%
-\renewcommand{\labelenumii}{(\roman{enumii})}
-\begin{enumerate}
-\item $S$ is a vector subspace of $X$;
-\item $S$ is convex balanced such that $S + S = S$;
-\item $S$ is convex balanced such that $\lambda S=S\qquad (\lambda > 0)$
-\end{enumerate}
-\renewcommand{\labelenumi}{(\alph{enumi})}
-%
-implies the other two.
-\end{quote}
-}
-
-%
-To prove the lemma, let $\mathit{S}$ %
-run through all nonempty subsets of $X$. %
-First, assume that (i) holds: Clearly, every $S$ is convex balanced. %
-Moreover, $S+S \subset S$.  Conversely, $S = S + \{0\} \subset S + S $; %
-which establishes (ii). %
-%
-Next, assume (only) (ii): A proof by induction shows that %
-%
-\begin{equation}\label{induction nS}
-  nS = (n-1)  S + S = S + S = S \qquad (n=1,2,3, \dots)
-\end{equation}
-%
-with the help of (b) and (d). %
-Pick $\lambda >0$ then choose $n$ so large that $1 < n \lambda < n^2$. %
-Thus, %
+\item The proof is based on Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}]. Let $\Gamma$ be a collection of %
+vector subspaces of $X$. Define $I = \bigcap \Gamma$ and $U = \bigcup \Gamma$. The intersection $I$ is convex and balanced by %
+(e) and (f), because every $Y \in \Gamma$ is convex and balanced. Next, observe that
 %
 \begin{equation}
-  nS \overset{(\ref{induction nS})}{\subset} S 
-  \subset n\,\lambda S 
-  \subset  n^2 S, 
+  I + I \subset Y + Y \subset  Y
 \end{equation}
 %
-since $S$ is balanced. %
-For instance, set %
-%
-  $n = \lceil{1/\lambda}\rceil + \lceil{\lambda}\rceil$. %
-%
-Dividing the latter inclusions by $n$ shows that %
-%
-\begin{equation} 
-  S \subset \lambda S \subset nS \overset{(\ref{induction nS})}{\subset} S,
-\end{equation}
-%
-which is (iii). Finally, dropping (ii) in favor of (iii) leads to %
-%
-\begin{equation} 
-  \alpha  S +\beta  S 
-  \overset{(a)}{=} |\alpha | S + | \beta | S 
-  \overset{(d)}{=} (|\alpha | + | \beta| )S 
-  \overset{(iii)}{=} S 
-  %
-  \qquad (|\alpha| + |\beta| > 0);
-\end{equation}
-%
-where the equality at the left holds as $S$ is balanced. %
-%
-Moreover (under the sole assumption that $S$ is balanced), %
-this extends to $|\alpha| + |\beta| = 0$, as follows, %
-%
-\begin{equation} 
-  \alpha S + \beta S  = 0S + 0S\overset{(b)}{=} \{0\} 
-  \overset{(b)}{=} 0S \subset S.
-\end{equation}
-%
-Hence (i), which achieves the lemma's proof. %
-We will now offer a straightforward proof of (j). \\
-\\
-Let $V$ be a collection of vector subspaces of $X$, %
-of intersection $I$ and union $U$. 
-%
-First, remark that every member of $V$ is convex balanced: %
-So is $I$ (combine (e) with (f)). %
-%
-Next, let $\mathit{Y}$ range over $V$, so that %
+for all $Y \in \Gamma$. Thus,
 %
 \begin{equation}
-  I + I \subset Y + Y \subset  Y; 
+  I + I \subset I.
 \end{equation}
 %
-which yields
+It now follows from the implication $(b) \then (a)$ of Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $I$ %
+is a vector subspace of $X$. We now prove the counterpart of (g) when $\Gamma$ is totally ordered by set inclusion. Combining %
+(e) with (g) demonstrates that $U$ is convex and balanced. To show that $U$ is a vector subspace, we note that the total %
+$\subset$-ordering of $\Gamma$ implies
 %
 \begin{equation}
-  I + I = I 
+  Y_1 + Y_2  \subset \max(Y_1, Y_2),
 \end{equation}
 %
-(the fact that $I  = I + \{0\} \subset I + I$ was tacitly used). %
-%
-It now follows from the implication (ii) $\Rightarrow$ (i) of the lemma that %
-$I$ is a vector subspace of $X$. %
-%
-Now temporarily assume that $S$ is totally ordered by set inclusion: %
-Combining (e) with (g) establishes that $U$ is convex balanced. %
-%
-To show that $U$ is more specifically a vector subspace, %
-we first remark that such total order implies that either %
-$Z \subset Y$ or $Y \subset Z$, as $\mathit{Z}$ ranges over $V$. %
-A straightforward consequence is that 
+for all $Y_i \in \Gamma$. Hence%
 %
 \begin{equation}
-  Y \subset Y + Z  \subset Y\cup Z.
+  U + U \subset U.
 \end{equation}
 %
-Another one is that $Y \cup Z$ ranges over $V$ as well. %
-Combined with the latter inclusions, this leads to %
+It then follows from the implication $(b) \then (a)$ of Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $U$ %
+is a vector subspace of $X$. To prove the counterpart of (h), let each $Y_i$ be a vector subspace of $X$. Taken together, %
+(h) and (i) imply that $Y_1 + Y_2$ is convex balanced as well. Moreover, 
 %
 \begin{equation}
-  U \subset U  + U \subset U.
-\end{equation}
-%
-It then follows from the lemma's (ii) implication $\Rightarrow$ (i) that $U$ is a vector subspace of $X$. %
-%
-Finally, let $\mathit{A},\mathit{B}$ run through all vector subspaces of $X$: %
-Combining (h) with (i) proves that $A+B$ is convex balanced as well. %
-%
-Furthermore, %
-%
-\begin{equation}
-  A + B \overset{(i) \Rightarrow (ii)}{=} (A + A) + (B + B) = (A + B) + (A + B),
+  (Y_1 + Y_2) + (Y_1 + Y_2) = (Y_1 + Y_1) + (Y_2 + Y_2) \subset Y_1 + Y_2.
 \end{equation}
 % 
-where the equality at the right holds as $X$ is an abelian group. %
-Finally, we conclude from (ii) that any $A+B$ is a vector subspace of $X$. %
-%
-So ends the proof. %
+Finally, we conclude from $(b) \then (a)$ of Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $Y_1 + Y_2$ %
+is a vector subspace of $X$. %
 \end{enumerate}
 \end{proof}
 % END

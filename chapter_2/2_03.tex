@@ -49,7 +49,7 @@ bounds:
 \begin{align}
   % Workaround to get the vertical alignment: 
   \big\lvert\hspace{0.3 em}\Lambda_n \phi \phantom{,}\big\rvert &\leq M \norm*[\infty]{\phi'} \label{2.3-norm-p-bound1},\\
-  \magnitude{\Lambda_n \phi'} &\leq M \norm*[\infty]{\phi''} \label{2.3-norm-p-bound2}.
+  \magnitude*{\Lambda_n \phi'} &\leq M \norm*[\infty]{\phi''} \label{2.3-norm-p-bound2}.
 \end{align}
 %
 Combined with the impossibility of boundedness at order $p=0$, \cf \eqref{2.3-norm-p-bound1}, the contraposition of Theorem %
@@ -66,7 +66,7 @@ Exercise [1.16]. Equivalently, the collection of all convex balanced sets %
 \end{equation}
 %
 forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm*[N]{\phi} < 1$ implies $\norm*[\infty]{\phi} < 1 $: %
-Every $\Lambda_n$ is then $\tau_K$-continuous by \citeFA{1.18}, since $\magnitude{\Lambda_n}$ is bounded by %
+Every $\Lambda_n$ is then $\tau_K$-continuous by \citeFA{1.18}, since $\magnitude*{\Lambda_n}$ is bounded by %
 $\norm*{\Lambda_n}$ on $V_1$. In summary: %
 %
 \begin{enumerate}
@@ -81,18 +81,18 @@ $\norm*{\Lambda_n}$ on $V_1$. In summary: %
 %
 By \citeFA{2.6, 2.8}, the equicontinuous sequence $\singleton{\Lambda_n}$ converges pointwise to a continuous $\Lambda$. %
 Furthermore, the equicontinuity of $\singleton{\Lambda_n}$ ensures that all %
-$\magnitude{\Lambda_n}$ remain below $1$ on a common \emph{balanced} neighborhood $V_p$. So,
+$\magnitude*{\Lambda_n}$ remain below $1$ on a common \emph{balanced} neighborhood $V_p$. So,
 %
 \begin{equation}
   \frac{1}{p}\cdot\frac{\phi}{\norm*[p]{\phi} + \epsilon} \in V_p 
 \end{equation}
 %
-for all $\epsilon > 0$. This yields $\magnitude{\Lambda_n \phi} <  p\bigl(\norm*[p]{\phi} + \epsilon\bigr)$, %
-which reduces to $\magnitude{\Lambda_n \phi} \leq  p\norm*[p]{\phi}$. Applying Lemma [\ref{mean-value-with-derivatives}] with %
+for all $\epsilon > 0$. This yields $\magnitude*{\Lambda_n \phi} <  p\bigl(\norm*[p]{\phi} + \epsilon\bigr)$, %
+which reduces to $\magnitude*{\Lambda_n \phi} \leq  p\norm*[p]{\phi}$. Applying Lemma [\ref{annex:mean-value-with-derivatives}] with %
 $\phi, D\phi, \dots, D^p \phi$ outputs %
 %
 \begin{equation}\label{2.3-bound-from-derivative}
-  \magnitude{\Lambda_n \phi} \leq p(p+1) \norm*[\infty]{D^p \phi}.
+  \magnitude*{\Lambda_n \phi} \leq p(p+1) \norm*[\infty]{D^p \phi}.
 \end{equation}
 %
 This completes the first part of the proof, with some $p$ and a positive constant $M = M(p)$. %
@@ -175,8 +175,8 @@ in two steps. First,
 Next, taking absolute values gives %
 %
 \begin{equation}
-  \magnitude{\Lambda_n\phi - \frac{2}{3}\phi'(0)} \leq \magnitude{\phi'(t_n) - \phi'(0)} 
-  + \frac{1}{3}\max_{[\minus 1/n, 1/n]}{\magnitude{\phi' - \phi(0)}} \tendsto{n}{\infty} 0.
+  \magnitude*{\Lambda_n\phi - \frac{2}{3}\phi'(0)} \leq \magnitude*{\phi'(t_n) - \phi'(0)} 
+  + \frac{1}{3}\max_{[\minus 1/n, 1/n]}{\magnitude*{\phi' - \phi(0)}} \tendsto{n}{\infty} 0.
 \end{equation}
 %
 As a result, %
@@ -191,13 +191,13 @@ shows that the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuou
 \eqref{2.3-integration-by-part} provide %
 %
 \begin{equation}
-  \magnitude{\Lambda_n \phi} \leq \magnitude{\phi'(t_n)} + \frac{1}{3} \max_{[\minus 1/n, 1/n]}{\magnitude{\phi'}}.
+  \magnitude*{\Lambda_n \phi} \leq \magnitude*{\phi'(t_n)} + \frac{1}{3} \max_{[\minus 1/n, 1/n]}{\magnitude*{\phi'}}.
 \end{equation}
 %
 A simpler bound is
 %
 \begin{equation}\label{2.3-upper-bound}
-  \magnitude{\Lambda_n \phi} \leq \frac{4}{3} \norm*[\infty]{\phi'}. 
+  \magnitude*{\Lambda_n \phi} \leq \frac{4}{3} \norm*[\infty]{\phi'}. 
 \end{equation}
 %
 This is a concrete instance of \eqref{2.3-bound-from-derivative}, with $p=1$ and $M=4/3$. To establish it as %
@@ -205,7 +205,7 @@ This is a concrete instance of \eqref{2.3-bound-from-derivative}, with $p=1$ and
 to reach a contradiction, that there exists $M$ such that 
 %
 \begin{equation}\label{2.3-upper-bound-assumption}
-  \magnitude{\Lambda_n \phi} \leq M \norm*[\infty]{\phi} \qquad (\phi \in \D_K, \, \counting{n}).
+  \magnitude*{\Lambda_n \phi} \leq M \norm*[\infty]{\phi} \qquad (\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Next, we choose %
@@ -226,14 +226,14 @@ $\tau= 1/n = 1/ \omega = 1/A$. So, $\norm*[\infty]{\phi_n} < 2$. In contrast, fo
 Hence %
 % 
 \begin{equation}\label{2.3-upper-bound-contradiction2}
-  2M \citegeq{\eqref{2.3-upper-bound-assumption}} \magnitude{\Lambda_n \phi_n} \tendsto{n}{\infty} \infty,
+  2M \citegeq{\eqref{2.3-upper-bound-assumption}} \magnitude*{\Lambda_n \phi_n} \tendsto{n}{\infty} \infty,
 \end{equation}
 %
 which brings the desired contradiction. We now combine \eqref{2.3-convergence-to-dirac} with %
 \eqref{2.3-upper-bound-contradiction2} to establish that %
 %
 \begin{equation}
-  \magnitude{\Lambda \phi_n} \geq \magnitude{\Lambda_n \phi_n}  - \magnitude{ \Lambda_n\phi_n - \Lambda\phi_n}
+  \magnitude*{\Lambda \phi_n} \geq \magnitude*{\Lambda_n \phi_n}  - \magnitude*{ \Lambda_n\phi_n - \Lambda\phi_n}
   \tendsto{n}{\infty} \infty.
 \end{equation}
 %
@@ -272,39 +272,39 @@ Furthermore, Theorem \citeFA{2.8} implies that the limit $\minus \frac{2}{3} \ph
 Additionally, it follows from \eqref{2.3-upper-bound} that the bound \eqref{2.3-norm-p-bound2} is %
 %
 \begin{equation}
-  \magnitude{\Lambda_n' \phi} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
+  \magnitude*{\Lambda_n' \phi} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
 \end{equation}
 %
 To prove this, it now suffices to show that $2$ is the smallest suitable $p$. First, we assume, to reach a contradiction, that
 %
 \begin{equation}
-  \magnitude{\Lambda_n \phi'} \leq M \norm*[\infty]{\phi'} \qquad (\phi \in \D_K, \, \counting{n}).
+  \magnitude*{\Lambda_n \phi'} \leq M \norm*[\infty]{\phi'} \qquad (\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Next, let $\Phi_n$ be the primitive of $\phi_n$ that vanishes at $\minus 1$; see \eqref{2.3-zn-definition}. The oddness %
 of $\Phi_n$ ($u$ is even) implies that $\supp{\Phi_n} \subset [\minus 1, 1]$. So, under our assumption, 
 %
 \begin{equation}
-  \magnitude{\Lambda_n' \Phi_n} = \magnitude{\Lambda_n \Phi_n'} \leq M \norm*[\infty]{\Phi_n'}. 
+  \magnitude*{\Lambda_n' \Phi_n} = \magnitude*{\Lambda_n \Phi_n'} \leq M \norm*[\infty]{\Phi_n'}. 
 \end{equation}
 %
 Equivalently,
 % 
 \begin{equation}
-  \magnitude{\Lambda_n \phi_n} \leq M \norm*[\infty]{\phi_n}, 
+  \magnitude*{\Lambda_n \phi_n} \leq M \norm*[\infty]{\phi_n}, 
 \end{equation}
 %
 which has already been disproved. Finally, to reach a last contradiction, assume that there exists $M$ attached to order %
 $p=0$ so that 
 %
 \begin{equation}
-  \magnitude{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
+  \magnitude*{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] implies that %
 %
 \begin{equation}
-  \magnitude{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi'}.
+  \magnitude*{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi'}.
 \end{equation}
 %
 This contradiction concludes the proof.

@@ -1,0 +1,58 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% FA_annex_vector_spaces.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{lemma}[Vector subspaces as convex balanced sets]\label{annex:vector-subspaces-as-convex-balanced-sets}
+Given a vector space $X$, the following are equivalent for any nonempty $S \subset X$.
+%
+\begin{enumerate}
+\item $S$ is a vector subspace of $X$,
+\item $S$ is convex balanced and $S + S \subset S$,
+\item $S$ is convex balanced and $\lambda S = S$ for all $\lambda > 0$.
+\end{enumerate}
+%
+\end{lemma}
+%
+\begin{proof}It suffices to show that $(a) \then (b)$, $(b) \then (c)$, and $(c) \then (a)$. Assume (a), which implies %
+$S+S \subset S$. Furthermore, $S$ is convex and balanced. Hence $(a)\then (b)$. Next, assume (b): By convexity of $S$, %
+we have%
+\footnote{See Exercise 1(d), equation \eqref{Exercise-1-d}.}: %
+%
+\begin{align}
+  2 S &= S + S & (\text{because $S$ is convex})\\
+  3 S &= 2 S + S = S + S  & (\text{by convexity and the previous step})\\
+  4 S &= 3 S + S = S + S  & (\text{similarly})
+\end{align} 
+% 
+and so forth. Using the assumption $S+S \subset S$ at each step, we obtain $nS \subset S$ for all $\counting{n}$. Now choose %
+$\lambda > 0$ and observe that $1 \leq \gamma=\max\{\lambda, 1/\lambda\} \leq \ceil*{\gamma}$. Since $S$ is balanced, this implies
+%
+\begin{equation}
+  S \subset \gamma S \subset \ceil*{\gamma} S \subset S.
+\end{equation}
+%
+Thus, $\gamma S = S$. Furthermore, multiplying both sides by $1/\gamma$ gives
+%
+\begin{equation}
+  S = (1/\gamma) S.
+\end{equation}
+%
+This proves (c), since $\lambda \in \{\gamma, 1/\gamma\}$. Finally, assume (c). For any $(\alpha_1,\alpha_2)\in \C^2$, we have:
+%
+\begin{align} 
+  \alpha_1 S + \alpha_2 S & \subset \bigl\{1+\magnitude*{\alpha_1}\bigr\} \cdot S+ \bigl\{1+\magnitude*{\alpha_2}\bigr\}\cdot S 
+      & (\text{by balancedness of $S$})\\
+    & \subset S + S & (\text{since $\lambda S = S$})\\
+    & = 2S & (\text{by convexity of $S$})\\
+    & =  S & (\text{since $\lambda S = S$}).
+\end{align}
+%
+In conclusion, $S$ is a vector subspace of $X$. %
+\end{proof}

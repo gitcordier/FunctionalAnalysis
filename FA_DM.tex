@@ -146,42 +146,19 @@ fouridx,
 % % Iverson bracket notation
 %\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
 %\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
-\NewDocumentCommand{\Iverson}{s O{} m }{%
+\NewDocumentCommand{\Iverson}{s o m}{%
   % #1: * (optional star)
   % #2: [\big] (optional size)
   % #3: Content (required)
-  {%
-  \IfBooleanTF{#1}{\left[}{#2[}%
-  {\, #3 \, }%
-  \IfBooleanTF{#1}{\right]}{#2]}%
-}%
-}
-% Simplified and Robust \OP
-% #1: * (optional star)
-% #2: [\big] (optional size)
-% #3: Content (required)
-% #4: Subscript (optional, defaults to empty)
-\NewDocumentCommand{\OP}{s O{} m O{}}{%
-  {%
-    \IfBooleanTF{#1}{\left[}{#2[}%
-    {#3}%
-    \IfBooleanTF{#1}{\right]}{#2]}%
-  }%
-  \if\relax\detokenize{#4}\relax
-    ^{\prime}% No subscript case
-  \else
-    _{#4}^{\prime}% With subscript case
-  \fi
-}
-%
-\NewDocumentCommand{\gnorm}{s O{\big} m}{%
-  \IfBooleanTF{#1}%
-    {% starred version: automatic sizing
-      {\left[\, #3 \,\right]}^{\prime}%
-    }%
-    {% non-starred version: manual sizing
-      {#2[\, #3 \,#2]}^{\prime}%
-    }%
+  \IfBooleanTF{#1}{
+    \left[ \hspaceNorm #3 \hspaceNorm \right]
+  }{
+    \IfValueTF{#2}{
+      #2[ \hspaceNorm #3 \hspaceNorm #2]
+    }{
+      \errmessage{Iverson: Size argument needed.}
+    }
+  }
 }
 
 % Sets
@@ -303,7 +280,25 @@ fouridx,
 % % Usual functions and operator
 \DeclareMathOperator{\cotan}{cotan}
 \DeclareMathOperator\sgn{sgn}
-\newcommand{\ceil}[1]{\lceil #1 \rceil}
+\NewDocumentCommand{\ceil}{s o m}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{
+      \errmessage{ceil: Star mode. Don't specify the [size].}
+    }{
+      \lceil \hspaceNorm #3 \hspaceNorm \rceil
+    }
+  % Non-star version: manual sizing
+  }{
+    \IfValueTF{#2}{% if [size] 
+      #2\lceil \hspaceNorm #3 \hspaceNorm #2\rceil
+    }{% elif no [size]
+      \errmessage{ceil: Size command required.}
+    }
+  }
+}
+
+\newcommand{\floor}[1]{\lfloor \hspaceNorm #1 \hspaceNorm\rfloor}
 \DeclareMathOperator\Leibnizdiff{d}
 \newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
 
@@ -318,8 +313,23 @@ fouridx,
 \def\hspaceNorm{\hspace{0.12 em}}
 
 % % Alternative to \abs
-\newcommand{\magnitude}[2][\big]{#1\lvert \hspaceNorm #2 \hspaceNorm #1\rvert}
-
+\NewDocumentCommand{\magnitude}{s o m}{%
+  \IfBooleanTF{#1}{%
+    % Star version: auto-sizing with \left\right
+    \IfValueTF{#2}{
+      \errmessage{magnitude: Star mode. Don't specify the [size].}
+    }{
+        \left\lvert \hspaceNorm #3 \hspaceNorm #1\right\rvert
+    }
+  % Non-star version: manual sizing
+  }{
+    \IfValueTF{#2}{% if [size] 
+        #2\lvert \hspaceNorm #3 \hspaceNorm #2\rvert
+    }{% elif no [size]
+      \errmessage{magnitude: Size command required.}
+    }
+  }
+}
 %\newcommand{\norm}[2][]{
 %  \if\relax\detokenize{#1}\relax 
 %    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
