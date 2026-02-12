@@ -7,12 +7,11 @@ I am carefully rewriting my solutions, aiming at the cleanest possible result.
 
 # Requirements
 
-UPDATE: I am switching to LuaLaTeX, FA_DM_XeLaTeX the XeLaTeX version of FA_DM.tex is now "legacy".
-You should use FA_DM.tex.
-
 - TeX
-- LuaLaTeX or XeLaTeX
+- LuaLaTeX
 - Packages
+  - fontspec
+  - xparse
   - AMS packages:
     - amsmath
     - physics
@@ -22,13 +21,9 @@ You should use FA_DM.tex.
     - mathspec
   - cite
   - geometry
-  - xltxtra (for XeLaTeX)
-  - xunicode (for XeLaTeX)
-  - xetex (for XeLaTeX)
+  - caption
 - Optional: Relevant fonts:
-  - Computer Modern 10
-  - CMU Serif
-  - CMU Typewriter Text Light
+  - New Computer Modern 10 (NewCM10)
 
 You may want to install the latest
 [TeXLive](https://www.tug.org)
@@ -113,5 +108,11 @@ Feel free to get copies of this great book by yourself.
 - chapter 6/
   - 6_1.tex
   - 6_9.tex
+- annex/
+  - annex_vector_spaces.tex
+    Lemma for (j) of Exercise 1.1 (1_01.tex)
+  - annex_mean_value.tex
+    Examples and Lemma for Exercise 2.3 (2.03.tex).
+  - annex_Dirac.tex
 - LICENSE
 - HOWTO
