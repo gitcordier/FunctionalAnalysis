@@ -48,10 +48,10 @@ detector's response to the collision. If $\max{\abs{\phi}}= 1$, then Lebesgue's 
 We now make the model rigorous by eliminating the heuristic $\heuristic{H'}$, as follows:
 %
 \begin{align}
-  \int_{\R} \phi \diff{\delta} &=\int_{\R} \phi\,\heuristic{H'} & \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
-  & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_{\R} H \phi' & (\text{integration by parts})\\
-  & = \minus \int_{\R} H \phi' \label{Dirac-impulse-distribution1}&(\text{$\supp{\phi}$ is compact})\\
-  & =  \phi(0) &
+  \int_{\R} \phi \diff{\delta} &=\int_{\R} \phi\,\heuristic{H'} && \bigl(\text{generalization of \eqref{mass-of-dirac}}\bigr)\\
+  & =  \evalbracket{H\phi}{\minus \infty}{\infty} - \int_{\R} H \phi' && (\text{integration by parts})\\
+  & = \minus \int_{\R} H \phi' \label{Dirac-impulse-distribution1} && (\text{$\supp{\phi}$ is compact})\\
+  & =  \phi(0). &
 \end{align}
 %
 The key point is that the right-hand side in \eqref{Dirac-impulse-distribution1} is valid in standard calculus. %
@@ -59,11 +59,10 @@ Moreover, we obtain all filtered responses as the evaluation functional $\phi \m
 following definitions: %
 %
 \begin{align}
-  \Lambda_H(\phi) &\Def \int_{\R} H \phi & (\text{expresses $H$})\\
-  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \phi' & 
-    (\text{the \textit{weak derivative} of $H$})\\
-  \delta(\phi) &\Def \Lambda_H'(\phi)  = \phi(0) \label{definition-of-dirac} & %
-    (\text{impulse at $0$: now $\delta$ has a rigorous definition}).
+  \Lambda_H(\phi) &\Def \int_{\R} H \phi, && (\text{expresses $H$})\\
+  \Lambda_H'(\phi) &\Def \minus \int_{\R} H \phi', && (\text{the \textit{weak derivative} of $H$})\\
+  \delta(\phi) &\Def \Lambda_H'(\phi)  = \phi(0). \label{definition-of-dirac} && %
+    (\text{impulse at $0$: now $\delta$ has a rigorous definition})
 \end{align}
 %
 The functional $\delta:\phi\mapsto\phi(0)$ represents an instantaneous energy injection at $t=0$. Its extension to all %

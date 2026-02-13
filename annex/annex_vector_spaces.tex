@@ -9,13 +9,13 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\begin{lemma}[Vector subspaces as convex balanced sets]\label{annex:vector-subspaces-as-convex-balanced-sets}
+\begin{lemma}[Vector subspaces as convex and balanced sets]\label{annex:vector-subspaces-as-convex-balanced-sets}
 Given a vector space $X$, the following are equivalent for any nonempty $S \subset X$.
 %
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$,
-\item $S$ is convex balanced and $S + S \subset S$,
-\item $S$ is convex balanced and $\lambda S = S$ for all $\lambda > 0$.
+\item $S$ is convex and balanced, and $S + S \subset S$,
+\item $S$ is convex and balanced, and $\lambda S = S$ for all $\lambda > 0$.
 \end{enumerate}
 %
 \end{lemma}
@@ -26,13 +26,16 @@ we have%
 \footnote{See Exercise 1(d), equation \eqref{Exercise-1-d}.}: %
 %
 \begin{align}
-  2 S &= S + S & (\text{because $S$ is convex})\\
-  3 S &= 2 S + S = S + S  & (\text{by convexity and the previous step})\\
-  4 S &= 3 S + S = S + S  & (\text{similarly})
+  2 S &= S + S \\
+  n S &= (n-1)S + S = S + S. && (\text{by induction on } n=2, 3, 4, \dots)
 \end{align} 
 % 
-and so forth. Using the assumption $S+S \subset S$ at each step, we obtain $nS \subset S$ for all $\counting{n}$. Now choose %
-$\lambda > 0$ and observe that $1 \leq \gamma=\max\{\lambda, 1/\lambda\} \leq \ceil*{\gamma}$. Since $S$ is balanced, this implies
+The assumption $S+S \subset S$ then yields $nS \subset S$ for $\counting{n}$. Now choose $\lambda > 0$ and observe that
+\begin{equation}
+  1 \leq \gamma=\max\{\lambda, 1/\lambda\} \leq \ceil*{\gamma}.
+\end{equation}
+%
+Since $S$ is balanced, this implies
 %
 \begin{equation}
   S \subset \gamma S \subset \ceil*{\gamma} S \subset S.
@@ -44,14 +47,13 @@ Thus, $\gamma S = S$. Furthermore, multiplying both sides by $1/\gamma$ gives
   S = (1/\gamma) S.
 \end{equation}
 %
-This proves (c), since $\lambda \in \{\gamma, 1/\gamma\}$. Finally, assume (c). For any $(\alpha_1,\alpha_2)\in \C^2$, we have:
+This proves (c), because $\lambda\in\{\gamma, 1/\gamma\}$. Finally, assume (c). For any $(\alpha_1,\alpha_2)\in \C^2$, we have:
 %
-\begin{align} 
-  \alpha_1 S + \alpha_2 S & \subset \bigl\{1+\magnitude*{\alpha_1}\bigr\} \cdot S+ \bigl\{1+\magnitude*{\alpha_2}\bigr\}\cdot S 
-      & (\text{by balancedness of $S$})\\
-    & \subset S + S & (\text{since $\lambda S = S$})\\
-    & = 2S & (\text{by convexity of $S$})\\
-    & =  S & (\text{since $\lambda S = S$}).
+\begin{align}
+  \alpha_1\cdot S + \alpha_2\cdot S &\subset \{1+|\alpha_1|\}\cdot S + \{1+|\alpha_2|\} \cdot S && \text{(by balancedness)}\\
+  &\subset S + S && \text{(by the assumption $\lambda S = S$)}\\
+  &= 2S && \text{(by convexity)}\\
+  &= S. && \text{(by the assumption $\lambda S = S$)}
 \end{align}
 %
 In conclusion, $S$ is a vector subspace of $X$. %
