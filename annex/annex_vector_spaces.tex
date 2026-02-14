@@ -22,17 +22,18 @@ Given a vector space $X$, the following are equivalent for any nonempty $S \subs
 %
 \begin{proof}
 It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$. Assume (a), which implies $S+S \subset S$ %
-and that $S$ is convex balanced. Hence $(a)\to (b)$. Next, assume (b) and proceed by induction on $n \geq 2$, as follows:
+and that $S$ is convex balanced. Thus, $(a)\to (b)$. Next, assume (b) and proceed by induction on positive integers $n$, %
+as follows:
 %
 \begin{equation}
-  n \, S \subset (n-1)\,S + S \subset S + S \subset S  \qquad (\text{by the assumption that } S + S \subset S).\\
+  n \, S \subset (n-1)\,S + S \subset (S + S) \cap S. 
 \end{equation} 
 %
-The LHS expresses the convexity of $S$, see \eqref{Exercise-1-d}. Thus, $n \, S \subset S$ for all $n \geq 1$. Now choose %
-$\lambda > 0$ and observe that
+The LHS uses the convexity of $S$ (see \eqref{Exercise-1-d}); the case $n=1$ is valid since $S$ is balanced. Now choose %
+$\lambda > 0$. Then
 %
 \begin{equation}
-  1 \leq \gamma=\max\{\lambda, 1/\lambda\} \leq \ceil*{\gamma}.
+  1 \leq \gamma=\max\singleton[\big]{\lambda, 1/\lambda} \leq \ceil*{\gamma}.
 \end{equation}
 %
 From the balancedness of $S$ and the property $nS \subset S$, we obtain
@@ -57,11 +58,12 @@ Equations \eqref{annex:S=gamma-S} and \eqref{annex:S=inverse-of-gamma-S} prove (
 Finally, assume (c): For any $(\alpha_1,\alpha_2)\in \C^2$, we have
 %
 \begin{align}
-  \alpha_1 \, S + \alpha_2 \, S &\subset \{1+|\alpha_1|\} \cdot S + \{1+|\alpha_2|\} \cdot S && \text{(by balancedness)}\\
+  \alpha_1 \, S + \alpha_2 \, S &\subset \singleton[\big]{1+|\alpha_1|} \cdot S 
+    + \singleton[\big]{1+|\alpha_2|} \cdot S && \text{(by balancedness)}\\
   &\subset S + S && \text{(by the assumption that $\lambda S = S$)}\\
   &= 2\, S && \text{(by convexity)}\\
   &= S. && \text{(by the assumption that $\lambda S = S$)}
 \end{align}
 %
-In conclusion, $S$ is a vector subspace of $X$. %
+Therefore, $S$ is a vector subspace of $X$. %
 \end{proof}
