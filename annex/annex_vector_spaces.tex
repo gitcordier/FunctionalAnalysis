@@ -20,40 +20,47 @@ Given a vector space $X$, the following are equivalent for any nonempty $S \subs
 %
 \end{lemma}
 %
-\begin{proof}It suffices to show that $(a) \then (b)$, $(b) \then (c)$, and $(c) \then (a)$. Assume (a), which implies %
-$S+S \subset S$. Furthermore, $S$ is convex and balanced. Hence $(a)\then (b)$. Next, assume (b): By convexity of $S$, %
-we have%
-\footnote{See Exercise 1(d), equation \eqref{Exercise-1-d}.}: %
+\begin{proof}
+It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$. Assume (a), which implies $S+S \subset S$ %
+and that $S$ is convex balanced. Hence $(a)\to (b)$. Next, assume (b) and proceed by induction on $n \geq 2$, as follows:
 %
-\begin{align}
-  2 S &= S + S \\
-  n S &= (n-1)S + S = S + S. && (\text{by induction on } n=2, 3, 4, \dots)
-\end{align} 
-% 
-The assumption $S+S \subset S$ then yields $nS \subset S$ for $\counting{n}$. Now choose $\lambda > 0$ and observe that
+\begin{equation}
+  n \, S \subset (n-1)\,S + S \subset S + S \subset S  \qquad (\text{by the assumption that } S + S \subset S).\\
+\end{equation} 
+%
+The LHS expresses the convexity of $S$, see \eqref{Exercise-1-d}. Thus, $n \, S \subset S$ for all $n \geq 1$. Now choose %
+$\lambda > 0$ and observe that
+%
 \begin{equation}
   1 \leq \gamma=\max\{\lambda, 1/\lambda\} \leq \ceil*{\gamma}.
 \end{equation}
 %
-Since $S$ is balanced, this implies
+From the balancedness of $S$ and the property $nS \subset S$, we obtain
 %
 \begin{equation}
-  S \subset \gamma S \subset \ceil*{\gamma} S \subset S.
+  S \subset \gamma \, S \subset \ceil*{\gamma} \,S \subset S.
 \end{equation}
 %
-Thus, $\gamma S = S$. Furthermore, multiplying both sides by $1/\gamma$ gives
+Hence 
 %
-\begin{equation}
-  S = (1/\gamma) S.
+\begin{equation}\label{annex:S=gamma-S}
+  S = \gamma \, S.
 \end{equation}
 %
-This proves (c), because $\lambda\in\{\gamma, 1/\gamma\}$. Finally, assume (c). For any $(\alpha_1,\alpha_2)\in \C^2$, we have:
+Multiplying both sides by $1/\gamma$ gives
+%
+\begin{equation}\label{annex:S=inverse-of-gamma-S}
+  (1/\gamma)\, S = S.
+\end{equation}
+%
+Equations \eqref{annex:S=gamma-S} and \eqref{annex:S=inverse-of-gamma-S} prove (c) because $\lambda\in\{\gamma, 1/\gamma\}$. %
+Finally, assume (c): For any $(\alpha_1,\alpha_2)\in \C^2$, we have
 %
 \begin{align}
-  \alpha_1\cdot S + \alpha_2\cdot S &\subset \{1+|\alpha_1|\}\cdot S + \{1+|\alpha_2|\} \cdot S && \text{(by balancedness)}\\
-  &\subset S + S && \text{(by the assumption $\lambda S = S$)}\\
-  &= 2S && \text{(by convexity)}\\
-  &= S. && \text{(by the assumption $\lambda S = S$)}
+  \alpha_1 \, S + \alpha_2 \, S &\subset \{1+|\alpha_1|\} \cdot S + \{1+|\alpha_2|\} \cdot S && \text{(by balancedness)}\\
+  &\subset S + S && \text{(by the assumption that $\lambda S = S$)}\\
+  &= 2\, S && \text{(by convexity)}\\
+  &= S. && \text{(by the assumption that $\lambda S = S$)}
 \end{align}
 %
 In conclusion, $S$ is a vector subspace of $X$. %
