@@ -57,7 +57,7 @@ Combined with the impossibility of boundedness at order $p=0$, \cf \eqref{2.3-no
 convergence is known as \emph{vague convergence}. In the next paragraph, $\phi$ is restricted to $\D_K$. 
 %
 \paragraph{Continuity of $\Lambda$.} We equip $\D_K$ with derivative norms %
-$\norm*[N]{\phi}\Def \norm*[\infty]{\phi} + \norm*[\infty]{D^1\phi} + \cdots + \norm*[\infty]{D^N\phi}$. The induced topology %
+$\norm*[N]{\phi}\Def \norm*[\infty]{\phi} + \norm*[\infty]{D\phi} + \cdots + \norm*[\infty]{D^N\phi}$. The induced topology %
 $\tau_K$ of $\D_K$ is the weakest topology that makes all norms $\norm*[N]{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and %
 Exercise [1.16]. Equivalently, the collection of all convex balanced sets %
 %
@@ -126,8 +126,9 @@ all $\Lambda_n$ is not uniformly bounded, since
 \end{equation}
 %
 The \emph{logistic function} $\sigma_\lambda:t\mapsto 1/\bigl(1+\exp(\minus\lambda t)\bigr)$ provides a direct proof of this. %
-It is a standard approximation of the Heaviside step function\footnote{$\sigma_\lambda$ connects machine learning with %
-statistical mechanics; see \cite{BoltzmannMachines}}. Thus, Lebesgue's dominated convergence theorem implies
+It is a standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside step function; %
+see Annex [\ref{annex-Dirac}]. %
+Thus, Lebesgue's dominated convergence theorem implies
 %
 \begin{equation}
   \Lambda_n\bigl(u\cdot(\,\underbrace{\sigma_\lambda - 1/2}_{\text{odd}}\,)\bigr) 
@@ -176,7 +177,7 @@ Next, taking absolute values gives %
 %
 \begin{equation}
   \magnitude*{\Lambda_n\phi - \frac{2}{3}\phi'(0)} \leq \magnitude*{\phi'(t_n) - \phi'(0)} 
-  + \frac{1}{3}\max_{[\minus 1/n, 1/n]}{\magnitude*{\phi' - \phi(0)}} \tendsto{n}{\infty} 0.
+  + \frac{1}{3}\max_{[\minus 1/n, 1/n]}{\magnitude*{\phi' - \phi'(0)}} \tendsto{n}{\infty} 0.
 \end{equation}
 %
 As a result, %
@@ -214,7 +215,7 @@ Next, we choose %
 \end{equation}
 %
 where $\tilde{\phi}_n$ is $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] with %
-$\tau= 1/n = 1/ \omega = 1/A$. So, $\norm*[\infty]{\phi_n} < 2$. In contrast, for $n \geq 4$, $\Lambda_n \phi_n$ is now
+$\tau= 1/n = 1/ \omega = 1/A$. Hence $\norm*[\infty]{\phi_n} < 2$. In contrast, for $n \geq 4$, $\Lambda_n \phi_n$ is now
 %
 \begin{equation}
   %\Lambda_n \phi_n & = 
@@ -223,13 +224,13 @@ $\tau= 1/n = 1/ \omega = 1/A$. So, $\norm*[\infty]{\phi_n} < 2$. In contrast, fo
   - \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \tilde{\phi}'(t) \diff{t}}_{\frac{1}{3}n} = \frac{2}{3}n.
 \end{equation}
 %
-Hence %
+Our assumption \eqref{2.3-upper-bound-assumption} then reads as
 % 
 \begin{equation}\label{2.3-upper-bound-contradiction2}
-  2M \citegeq{\eqref{2.3-upper-bound-assumption}} \magnitude*{\Lambda_n \phi_n} \tendsto{n}{\infty} \infty,
+  \frac{2}{3}n \leq 2M < \infty. 
 \end{equation}
 %
-which brings the desired contradiction. We now combine \eqref{2.3-convergence-to-dirac} with %
+The behavior $\frac{2}{3}n \to\infty$ brings the desired contradiction. We now combine \eqref{2.3-convergence-to-dirac} with %
 \eqref{2.3-upper-bound-contradiction2} to establish that %
 %
 \begin{equation}
