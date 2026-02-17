@@ -1,6 +1,6 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % FunctionalAnalysis 
-% FA_annex_Dirac.tex
+% annex_Dirac.tex
 % 
 % encoding: UTF-8 
 % EOL: LF
@@ -37,12 +37,13 @@ These properties cannot coexist in standard calculus. Nevertheless, the informal
 \end{equation}
 %
 Physically, integrating over time recaptures all the energy. Let $W$ be the observation window, which is adjusted so that %
-either $0 \in \interior{W}$ or $0 \notin \closure{W}$. Next, consider any smooth real function $\phi$ with (nonempty) compact %
-support in $\interior{W}$ as a test signal. In this formalism, the integral $\int_{\R} \phi \diff{\delta}$ represents the %
-detector's response to the collision. If $\max{\abs{\phi}}= 1$, then Lebesgue's dominated convergence theorem ensures
+either $0 \in \interior{W}$ or $0 \notin \closure{W}$. Next, consider all smooth functions $\phi$ with (nonempty) compact %
+support in $\interior{W}$ as test signals. In this formalism, the integral $\int_{\R} \phi \diff{\delta}$ represents the %
+detector's response to the collision. Lebesgue's dominated convergence theorem ensures
 %
 \begin{equation}
-  \sup_\phi \int_{\interior{W}} \abs{\phi}\diff{\delta}= \int_{\interior{W}}\diff{\delta}= \Iverson[\Big]{0 \in \interior{W}}.
+  \sup_{0 \leq \phi \leq 1} \int_{\interior{W}} \phi \diff{\delta}= \int_{\interior{W}}\diff{\delta} %
+    = \Iverson[\big]{0 \in \interior{W}}.
 \end{equation}
 %
 We now make the model rigorous by eliminating the heuristic $\heuristic{H'}$, as follows:
@@ -71,7 +72,7 @@ $\singleton{0}$. In the sense of distribution theory, $\delta$ is a (tempered) d
 see \citeFA{Chapters 6 and 7}. Notably, its Borel-measure counterpart is the \emph{Dirac measure} %
 %
 \begin{equation}
-  \delta: E \mapsto \Iverson[\Big]{0 \in E} 
+  \delta: E \mapsto \Iverson[\big]{0 \in E} 
 \end{equation}
 %
 restricted to Borel sets in $\R$. Hence the special case of \eqref{definition-of-sum}

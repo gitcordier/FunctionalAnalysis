@@ -1,0 +1,67 @@
+\textit{The convex hull of a set $A$ in a vector space $X$ is the set of all convex combinations of members of $A$, that is %
+the set of all sums $t_1 x_1 +\cdots +t_n x_n$ in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. %
+Prove that the convex hull of a set $A$ is convex and that it is the intersection of all convex sets that contain $A$.}
+%
+\begin{proof} Our proof relies on the following equivalent propositions:%
+%
+\renewcommand{\labelenumi}{(\roman{enumi})} 
+\begin{enumerate}
+  \item{$A$ is convex.}
+  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ when $s_i > 0$.}
+  \item{$t_1 A + \dots + t_n A = A$ when $t_i > 0$ and $\sum t_i = 1$.}
+  \item{$\co(A) = A$.}
+\end{enumerate}
+\renewcommand{\labelenumi}{(\alph{enumi})} 
+%
+Let $y$ stand for $t_1 x_1 + \dots + t_n x_n \in \co(A)$. If $s \in \closedInterval*{0}{1}$, then %
+$sy + (1-s)y' \in \co(A)$, because
+%
+\begin{equation}
+  sy + (1-s)y' = st_1 x_1 + \cdots  + st_n x_n  + (1-s)t'_1 x'_1 + \cdots + (1-s)t'_{n'} \,x'_{n'}
+\end{equation}
+%
+and 
+% 
+\begin{equation}
+  \sum_i st_i + \sum_i (1-s)t'_i = s \sum_i t_i +(1-s) \sum_i t'_i  = 1.
+\end{equation}
+%
+This shows that 
+%
+\begin{equation}
+  s\co(A) + (1-s)\co(A) \subset \co(A) \qquad (0 \leq s \leq 1). 
+\end{equation}
+%
+In other words, $\co(A)$ is convex (the case $A=\emptyset = \co(A)$ is trivial). Note that $A$ is convex when $A = \co(A)$. %
+Hence $(iv) \to (i)$. We now prove that $(i)\to(ii)\to(iii)\to(iv)$.
+
+A proof by induction shows that $(i) \to (ii)$, as \eqref{Exercise-1-d} provides the initial case $n=2$.%
+Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. %
+It remains to establish the second property.
+
+To do so, we consider
+% 
+\begin{equation} 
+  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
+\end{equation} 
+% 
+Observe that
+\begin{equation}
+ \bigcap \Gamma \subset \co(A), 
+\end{equation}
+%
+since $\co(A) \in \Gamma$. Conversely, the implication $(i) \to (iv)$, with $B\in \Gamma$ substituted for $A$, yields
+%
+\begin{equation}
+  \co(A) \subset \co(B) = B.
+\end{equation}
+The LHS inequality follows from the obvious covariance $A \subset B \; \then \;\co(A) \subset \co(B)$. %
+In conclusion,
+% 
+\begin{equation}
+  \co(A) \subset \bigcap \Gamma \subset \co(A),
+\end{equation} 
+%
+which completes the proof.
+\end{proof}
+% END

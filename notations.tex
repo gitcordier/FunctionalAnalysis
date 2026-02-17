@@ -37,7 +37,7 @@ Given a boolean expression $\phi$, the boolean value $\Iverson*{\phi}$ encodes t
   \end{cases}
 \end{equation}
 %
-For example, $\Iverson[\Big]{1 > 0} = 1$ but $\Iverson[\Big]{ \sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
+For example, $\Iverson[\big]{1 > 0} = 1$ but $\Iverson[\big]{ \sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
 in logic, see \cite{SpecifyingSystems}.
 % 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -148,31 +148,32 @@ $W$ is normable as well. The following assertions are then equivalent in the fin
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %
-Furthermore, the norms on $W$ and $Y$ are \emph{equivalent}. That is, for any given norm $\norm*[Y]{\cdot}$ on $Y$ and %
+Moreover, the norms on $W$ and $Y$ are \emph{equivalent}. That is, for any given norm $\norm*[Y]{\cdot}$ on $Y$ and %
 any given norm $\normtriple{W}{\cdot}$ on $W$, there exists a positive constant $C = C_h$ such that %
 %
 \begin{equation}
-  \normtriple{W}{w} \leq C \normtriple{Y}{y} \qquad\left( w = h(y) \right), 
+  \normtriple{W}{h(y)} \leq C \normtriple{Y}{y} \qquad\bigl(y \in Y \bigr)
 \end{equation}
 %
 because $h$ is continuous. When $h=\mathrm{id}_Y$, this means that all norms on $Y$ are equivalent, in the sense that %
 %
-\begin{equation}
-  \normtriple{Y}{y} \leq C \norm*[Y]{y},
+\begin{equation}\label{notations:norm-equivalence}
+  \normtriple{Y}{y} \leq C \norm*[Y]{y}.
 \end{equation}
 %
-given any pair $\bigl(\norm*[Y]{\cdot}, \normtriple{Y}{\cdot}\bigr)$.
+We now introduce the versions of \eqref{notations:norm-equivalence} where $\norm*[Y]{\cdot}$ and $\normtriple{Y}{\cdot}$ %
+denote the standard norms $i, j= 1, 2, \infty$; see \citeFA{1.19}.
 %
 \subsubsection{The standard norms $1$, $2$, and $\infty$}
-When $\C^n$ is equipped with standard norms $\norm*[1]{\,\cdot\,}$, $\norm*[2]{\,\cdot\,}$, $\norm*[\infty]{\,\cdot\,}$, %
-the least $C_{i, j}$ such that %
+When $\C^n$ is equipped with $\norm*[i]{\,\cdot\,}$ and $\norm*[j]{\,\cdot\,}$, the smallest possible constants %
+$C_{i, j}$ such that %
 %
 \begin{equation}
 	\norm*[j]{z} \leq C_{i, j} \norm*[i]{z} 
 \end{equation}
 %
-is easily derived from definitions - see \citeFA{1.19}, except for the case $C_{2, 1} = \sqrt{n}$, which requires the %
-Cauchy-Schwarz inequality; see (1) in \citeFA{12.2}. The table below records such sharp constants $C_{i,j}$,
+are easily derived from the definitions of these norms, except for the case $C_{2, 1} = \sqrt{n}$, which requires the Cauchy-Schwarz inequality; %
+see (1) in \citeFA{12.2}. The table below records these sharp $C_{i,j}$:
 %
 \begin{table}[h!]\centering
   \begin{tabular}{|c|c|c|c|}
@@ -182,7 +183,7 @@ Cauchy-Schwarz inequality; see (1) in \citeFA{12.2}. The table below records suc
   2 & $\sqrt{n}$ & 1 & 1 \\ \hline
   $\infty$ & $n$ & $\sqrt{n}$ & 1 \\ \hline
   \end{tabular}
-  \caption{Minimal $C_{i,j}$ for the standard norms $i, j = 1, 2, \infty$.}
+  \caption{Optimal $C_{i,j}$ for the standard norms $i, j = 1, 2, \infty$.}
   \label{tab:sharp-constants}
 \end{table}
 %
