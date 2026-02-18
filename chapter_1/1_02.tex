@@ -43,20 +43,21 @@ This shows that
   s\co(A) + (1-s)\co(A) \subset \co(A) \qquad (0 \leq s \leq 1). 
 \end{equation}
 %
-In other words, $\co(A)$ is convex (the case $A=\emptyset = \co(A)$ is trivial). Note that $A$ is convex when $A = \co(A)$. %
-Hence $(iv) \to (i)$. We now prove that $(i)\to(ii)\to(iii)\to(iv)$.
+In other words, $\co(A)$ is convex (the case $A=\emptyset= \co(A)$ is trivial). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ 
+to establish the second property as a consequence of $(i) \to (iv)$. 
 
-A proof by induction shows that $(i) \to (ii)$, as \eqref{Exercise-1-d} provides the initial case $n=2$.%
+A proof by induction shows that $(i) \to (ii)$, as (d) of [1.1] provides the initial case $n=2$; see \eqref{Exercise-1-d}. %
 Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. %
-It remains to establish the second property.
+It remains to establish the intersection property.
 
 To do so, we consider
 % 
 \begin{equation} 
-  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
+  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}, 
 \end{equation} 
 % 
-Observe that
+as we must prove that $\co(A) = \bigcap \Gamma$. First, observe that
+%
 \begin{equation}
  \bigcap \Gamma \subset \co(A), 
 \end{equation}
@@ -66,7 +67,7 @@ since $\co(A) \in \Gamma$. Conversely, the implication $(i) \to (iv)$, with $B\i
 \begin{equation}
   \co(A) \subset \co(B) = B.
 \end{equation}
-The LHS inequality follows from the obvious covariance $A \subset B \; \then \;\co(A) \subset \co(B)$. %
+The inclusion expresses the monotonicity $A \subset B \; \then \;\co(A) \subset \co(B)$. %
 In conclusion,
 % 
 \begin{equation}

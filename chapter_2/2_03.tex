@@ -127,12 +127,11 @@ all $\Lambda_n$ is not uniformly bounded, since
 %
 The \emph{logistic function} $\sigma_\lambda:t\mapsto 1/\bigl(1+\exp(\minus\lambda t)\bigr)$ provides a direct proof of this. %
 It is a standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside step function; %
-see Annex [\ref{annex-Dirac}]. %
-Thus, Lebesgue's dominated convergence theorem implies
+see [\ref{annex-Dirac}]. Thus, Lebesgue's dominated convergence theorem implies
 %
 \begin{equation}
-  \Lambda_n\bigl(u\cdot(\,\underbrace{\sigma_\lambda - 1/2}_{\text{odd}}\,)\bigr) 
-  = 2n^3 \int_0^{1/n} \underbrace{t\, (\sigma_\lambda(t) - 1/2)}_{\text{even}} \diff{t} 
+  \Lambda_n\bigl(u\cdot(\,\underbrace{2 \sigma_\lambda - 1}_{\text{odd}}\,)\bigr) 
+  = 2n^3 \int_0^{1/n} \underbrace{t\, \bigl(2\sigma_\lambda(t) - 1\bigr)}_{\text{even}} \diff{t} 
   \tendsto{\lambda}{\infty} n \qquad(n \geq 2). 
 \end{equation}
 %
@@ -170,7 +169,7 @@ in two steps. First,
     + \phi'(0) \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \diff{t}}_{1/3} \\
   & = \phi'(t_n) 
     - \phi'(0)
-  - \frac{n^3}{2} \left(\int_{\minus 1/n}^{1/n} t^2 \Bigl(\bigl(\phi'(t) - \phi'(0)\bigr)\Bigr)  \diff{t}\right).
+  - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \bigl(\phi'(t) - \phi'(0)\bigr)  \diff{t}.
 \end{align}
 %
 Next, taking absolute values gives %
@@ -187,9 +186,9 @@ As a result, %
 \end{equation}
 %
 where $\delta': \phi \mapsto \minus \phi'(0)$ is the \emph{derivative} of the \textit{Dirac measure} %
-$\delta: \phi \mapsto \phi(0)$; see \citeFA{6.1, 6.9} and Section [\ref{annex-Dirac}]. The reasoning from the previous part %
-shows that the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuous. As a complement, absolute values from %
-\eqref{2.3-integration-by-part} provide %
+$\delta: \phi \mapsto \phi(0)$; see \citeFA{6.1, 6.9} and [\ref{annex-Dirac}]. The reasoning from the previous part shows that 
+the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuous. As a complement, \eqref{2.3-integration-by-part} %
+justifies
 %
 \begin{equation}
   \magnitude*{\Lambda_n \phi} \leq \magnitude*{\phi'(t_n)} + \frac{1}{3} \max_{[\minus 1/n, 1/n]}{\magnitude*{\phi'}}.
