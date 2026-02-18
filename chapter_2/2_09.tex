@@ -92,13 +92,11 @@ Next, we choose $(u, v) \in C_c(\R)^2$ with
 so that $\norm*[\infty]{fg - uv} < \epsilon$. Explicitly, we have
 %
 \begin{align}
-\norm*[\infty]{fg - uv} & = \norm*[\infty]{(f-u) \cdot g + u \cdot (g-v)} &\\
-  & \leq \norm*[\infty]{f-u} \cdot \norm*[\infty]{g} + \norm*[\infty]{u} \cdot \norm*[\infty]{g-v} &\\
-  & < r \cdot \norm*[\infty]{g} + \left(r + \norm*[\infty]{f}\right) \cdot r & 
-    \left(\text{using $\norm*[\infty]{u} \leq r + \norm*[\infty]{f}$}\right)\\
-  & < r \cdot \left(r + \norm*[\infty]{f} + \norm*[\infty]{g} \right)  & \\
-  & < \epsilon \frac{r + \norm*[\infty]{f} + \norm*[\infty]{g}}{ 1+ \norm*[\infty]{f} + \norm*[\infty]{g}}  \\
-  & < \epsilon & \left(\text{because $r < 1$}\right).
+\norm*[\infty]{fg - uv} & \leq \norm*[\infty]{f-u} \cdot \norm*[\infty]{g} + \norm*[\infty]{u} \cdot \norm*[\infty]{g-v} &\\
+  & < r \cdot \norm*[\infty]{g} + \left(r + \norm*[\infty]{f}\right) \cdot r && 
+    \left(\text{since $\norm*[\infty]{u} \leq r + \norm*[\infty]{f}$}\right)\\
+  & < \epsilon \frac{r + \norm*[\infty]{f} + \norm*[\infty]{g}}{ 1+ \norm*[\infty]{f} + \norm*[\infty]{g}} 
+    < \epsilon && \left(\text{since $r < 1$}\right).
 \end{align}
 %
 Since $\epsilon$ is arbitrary, this establishes that $B$ is continuous.
