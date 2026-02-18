@@ -23,29 +23,29 @@ $\Lambda(X) = Y$.
 %
 }
 %
-\begin{proof}
-Let $B=\singleton{e, e', \dots}$ be a basis for $Y$, and let $W\subset X$ be an arbitrary neighborhood of the origin. Since %
-addition is continuous in $X$, there exists a balanced open $V$ such that
+\begin{proof}%
+The case $Y=\singleton{0}$ is trivial. Let $Y$ have dimension $n>0$ and basis $B=\singleton{e, e', \dots}$. Let $W\subset X$ %
+be a neighborhood of the origin. Since addition is continuous in $X$, there exists a balanced open $V$ such that
 %
   \begin{equation}
     \label{definition of v}
     \sum_e V \subset W. 
   \end{equation}
 %
-Note that $\Lambda(V)$ is balanced as well. Moreover, the surjective $\Lambda$ provides a vector $x_e$ such that %
-$\Lambda x_e = e$. Therefore, given the coordinate representation $\sum_e y_e e$ of $y\in Y$, we have
+Note that $\Lambda(V)$ is balanced as well. Moreover, by the surjectivity of $\Lambda$, there exists a vector $x_e\in X$ %
+such that $\Lambda x_e = e$. Therefore, given the coordinate representation $\sum_e y_e e$ of $y\in Y$, we have
 %
 \begin{equation}\label{1_10_sum}
   y = \sum_e y_e e = \sum_e y_e \Lambda x_e. 
 \end{equation}
 %
-Note that $\set{x_e}{e\in B}$ is bounded (as a finite set). Hence %
+Note that the finite set $\set{x_e}{e\in B}$ is bounded. Hence %
 %
 \begin{equation}
   \set{x_e}{e \in B} \subset sV 
 \end{equation}
 %
-for some $s > 0$. Combining this with (\ref{1_10_sum}) yields % 
+for some $s > 0$. Equation (\ref{1_10_sum}) then yields % 
 %
   \begin{equation}\label{y in sum of lambda V}
     y \in \sum_e s y_e  \Lambda (V).
@@ -57,11 +57,9 @@ Using (\ref{definition of v}) and the balancedness of $\Lambda(V)$, we conclude 
     y \in \sum_e \Lambda (V) \subset \Lambda(W) .
   \end{equation}
 %
-This establishes (a) for $Y = \C^n$ equipped with $\norm*[\infty]{\cdot}$, when $B$ is the standard basis. The general case %
-$\dim{Y} = n$ now follows from [\ref{notations: vector spaces: finite-dimensional vector spaces}]. The case $Y=\singleton{0}$ %
-is trivial. 
+This proves (a) for $Y = \C^n$ equipped with $\norm*[\infty]{\cdot}$ and the standard basis. The general case now follows from [\ref{notations: vector spaces: finite-dimensional vector spaces}]. 
 
-To prove (b), assume that the null space $N = \singleton{\Lambda = 0}$ is closed and let $f, \pi$ be as in Exercise 1.9. %
+To prove (b), assume that the null space $N = \set{x}{\Lambda x = 0}$ is closed and let $f, \pi$ be as in Exercise 1.9. %
 Since $\Lambda$ is onto, the first isomorphism theorem (see Exercise 1.9) asserts that $f$ is an isomorphism of $X/N$ onto %
 $Y$. By [\ref{notations: vector spaces: finite-dimensional vector spaces}], $f$ is also a homeomorphism. We have thus %
 established that $f$ is continuous; so is $\Lambda = f\circ \pi$.
