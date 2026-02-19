@@ -23,19 +23,19 @@ Construct an example where it can be done with $p=2$ but not with $p=1$.}
 %
 \begin{proof}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% First part: f_n as a bounded and signed Radon measure.
+% First part: Introduction, f_n as a bounded and signed Radon measure.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Equipped with the supremum norm, $\Continuous_K=C(\R) \cap \set{\phi}{\supp\phi\subset K}$ is the copy of $C_c(K)$ in $C(\R)$.
-Each density $f_n$ is then identified with the following %
+Equipped with the supremum norm, $\Continuous_K=C(\R)\cap \set{\phi}{\supp\phi\subset K}$ is the copy of $C_c(K)$ in $C(\R)$. %
+Each density $f_n$ is then identified with the following Radon measure%
 %
 \begin{align}
   \Lambda_n: \Continuous_K &\to \C \\
   \phi &\mapsto \int_{\minus 1}^{1} f_n(t)\phi(t)\diff{t}, \nonumber
 \end{align}
 %
-seen as a Radon measure. Every $\Lambda_n$ is continuous since $\norm*{\Lambda_n}=\norm*[1]{f_n}$ is finite; %
-\cf \citeFA{6.19}. Note that the dual space $\Continuous_K^*$ is a Banach space as well, by \citeFA{4.1}. Here, we consider %
-only pointwise convergence, which is weaker than norm convergence. We prove that the assumed pointwise convergence %
+Every $\Lambda_n$ is continuous since $\norm*{\Lambda_n} = \norm*[1]{f_n}$ is finite; \cf \citeFA{6.19}. Note that the dual %
+space $\Continuous_K^*$ is a Banach space as well, by \citeFA{4.1}. Here, we consider only pointwise convergence, %
+which is weaker than norm convergence. We prove that the assumed pointwise convergence %
 %
 \begin{equation}\label{2.3-assumed-pointwise-convergence}
   \Lambda_n \phi \tendsto{n}{\infty} \Lambda\phi \qquad (\phi \in \D_K)
@@ -54,9 +54,32 @@ bounds:
 %
 Combined with the impossibility of boundedness at order $p=0$, \cf \eqref{2.3-norm-p-bound1}, the contraposition of Theorem %
 \citeFA{2.6} implies that $\{\Lambda_n\}$ does not converge pointwise on $\Continuous_K$. In Radon measure theory, pointwise %
-convergence is known as \emph{vague convergence}. In the next paragraph, $\phi$ is restricted to $\D_K$. 
+convergence is known as \emph{vague convergence}. The rest of the current proof has been split into the following paragraphs,
 %
-\paragraph{Continuity of $\Lambda$.} We equip $\D_K$ with derivative norms %
+\begin{description}
+  \item[Continuity of $\Lambda$:]{%
+    The sequence $\singleton{\Lambda_n}$ has a pointwise limit $\Lambda \in \D_K^\ast$.
+  }
+  \item[Existence of the uniform bound $\magnitude*{\Lambda_n \phi}\leq M\norm*{D^p \phi}$:]{%
+    The sequence $\singleton{\Lambda_n}$ is equicontinuous, hence the uniform bound %
+    $\magnitude*{\Lambda_n \phi} \leq M \norm*{D^p \phi}$.
+  }
+  \item[Existence of a $\singleton{\Lambda_n}$ such that $\magnitude*{\Lambda_n \phi} \leq M \norm*{D^p \phi}$:]{%
+    More specifically, in this example, no similar bound in $\norm*{\phi}$ exists. We establish that the limit $\Lambda$ of %
+    this $\singleton{\Lambda_n}$ cannot be extended as a Radon measure. 
+  }
+  \item[Second example of $\singleton{\Lambda_n}$, with optimal uniform bound %
+    $\magnitude*{\Lambda_n \phi}\leq M \norm*{D^2\phi}$:]{%
+    We introduce $\phi \mapsto \Lambda \phi'$; the smallest possible $p$ for %
+    $\magnitude*{\Lambda_n \phi} \leq M \norm*{D^p\phi}$ to hold is $2$.
+  }
+\end{description}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Second part: The limit Lambda is continous 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Continuity of $\Lambda$.} %
+We equip $\D_K$ with derivative norms %
 $\norm*[N]{\phi}\Def \norm*[\infty]{\phi} + \norm*[\infty]{D\phi} + \cdots + \norm*[\infty]{D^N\phi}$. The induced topology %
 $\tau_K$ of $\D_K$ is the weakest topology that makes all norms $\norm*[N]{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and %
 Exercise [1.16]. Equivalently, the collection of all convex balanced sets %
@@ -79,17 +102,21 @@ $\norm*{\Lambda_n}$ on $V_1$. In summary: %
     }
 \end{enumerate}
 %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Third part: The sequence {Lambda_n} is equicontinuous, hence the uniform bound |Lambda_n .| < M |.| .
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Existence of the uniform bound $\magnitude*{\Lambda_n \phi}\leq M\norm*{D^p \phi}$.} %
 By \citeFA{2.6, 2.8}, the equicontinuous sequence $\singleton{\Lambda_n}$ converges pointwise to a continuous $\Lambda$. %
-Furthermore, the equicontinuity of $\singleton{\Lambda_n}$ ensures that all %
-$\magnitude*{\Lambda_n}$ remain below $1$ on a common \emph{balanced} neighborhood $V_p$. So,
+Furthermore, the equicontinuity of $\singleton{\Lambda_n}$ ensures that all $\magnitude*{\Lambda_n}$ remain below $1$ on a %
+common balanced neighborhood $V_p$. So,
 %
 \begin{equation}
   \frac{1}{p}\cdot\frac{\phi}{\norm*[p]{\phi} + \epsilon} \in V_p 
 \end{equation}
 %
-for all $\epsilon > 0$. This yields $\magnitude*{\Lambda_n \phi} <  p\bigl(\norm*[p]{\phi} + \epsilon\bigr)$, %
-which reduces to $\magnitude*{\Lambda_n \phi} \leq  p\norm*[p]{\phi}$. Applying Lemma [\ref{annex:mean-value-with-derivatives}] with %
-$\phi, D\phi, \dots, D^p \phi$ outputs %
+for all $\epsilon > 0$. This yields $\magnitude*{\Lambda_n \phi}<  p\cdot \bigl\{\norm*[p]{\phi} + \epsilon\bigr\}$, %
+which reduces to $\magnitude*{\Lambda_n \phi}\leq  p\norm*[p]{\phi}$. Applying Lemma [\ref{annex:mean-value-with-derivatives}] 
+with $\phi, D\phi, \dots, D^p \phi$ outputs %
 %
 \begin{equation}\label{2.3-bound-from-derivative}
   \magnitude*{\Lambda_n \phi} \leq p(p+1) \norm*[\infty]{D^p \phi}.
@@ -97,12 +124,12 @@ $\phi, D\phi, \dots, D^p \phi$ outputs %
 %
 This completes the first part of the proof, with some $p$ and a positive constant $M = M(p)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-% Second part: Counterexample
+% Fourth part: Counterexample
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{The counterexample: A sequence of $\{\Lambda_n\}$ that does not converge pointwise on $\Continuous_K$.} %
+\paragraph{Existence of $\singleton{\Lambda_n}$ such that $\magnitude*{\Lambda_n \phi} \leq M \norm*{D^p \phi}$.} %
 Let $u$ be a smooth, even mapping that equals $1$ on $[\minus 1/2, 1/2]$, vanishes outside $[\minus 1,1]$, and satisfies %
 $0\leq u\leq 1$ on $\R$. The function $u$ belongs to the general construction in \citeFA{1.46}. Alternatively, $u$ can be the %
-derivative of $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], with $\tau=1/2$, $\omega=2$, and $A=1$. 
+derivative of $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], with $\tau=1/2$, $\omega=2$, and $A=1$. %
 We set 
 %
 \begin{equation}
@@ -125,9 +152,10 @@ all $\Lambda_n$ is not uniformly bounded, since
   \norm*{\Lambda_n} = \norm*[1]{f_n} = n = \norm*{\Lambda_n^+}  + \norm*{\Lambda_n^-}. 
 \end{equation}
 %
-The \emph{logistic function} $\sigma_\lambda:t\mapsto 1/\bigl(1+\exp(\minus\lambda t)\bigr)$ provides a direct proof of this. %
-It is a standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside step function; %
-see [\ref{annex-Dirac}]. Thus, Lebesgue's dominated convergence theorem implies
+These equalities are justified by \citeFA{6.19}, but the logistic function %
+$\sigma_\lambda:t\mapsto 1/\bigl(1+\exp(\minus\lambda t)\bigr)$ provides a direct proof of them. Indeed, this function is a %
+standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside step function; see [\ref{annex-Dirac}]. Thus, %
+Lebesgue's dominated convergence theorem implies
 %
 \begin{equation}
   \Lambda_n\bigl(u\cdot(\,\underbrace{2 \sigma_\lambda - 1}_{\text{odd}}\,)\bigr) 
@@ -135,10 +163,10 @@ see [\ref{annex-Dirac}]. Thus, Lebesgue's dominated convergence theorem implies
   \tendsto{\lambda}{\infty} n \qquad(n \geq 2). 
 \end{equation}
 %
-We refer to \citeFA{6.19} for a more general scope. A first point is that there is no vague convergence for the current %
-sequence $\{\Lambda_n\}$: this would, by Theorem \citeFA{2.6}, imply that $\sup_n{\norm*{\Lambda_n}}\ < \infty$, which would %
-contradict \eqref{2.3-norm-of-lambda-n}. However, we investigate further to establish weaker convergence and boundedness in %
-$\tau_K$. From now on, we bound $\phi$ to $\D_K$: The mean value theorem implies that 
+A first point is that there is no vague convergence for the current sequence $\{\Lambda_n\}$: this would, by Theorem %
+\citeFA{2.6}, imply that $\sup_n{\norm*{\Lambda_n}}\ < \infty$, which would contradict \eqref{2.3-norm-of-lambda-n}. However, %
+we investigate further to establish weaker convergence and boundedness in $\tau_K$. From now on, we restrict $\phi$ to $\D_K$: 
+The mean value theorem implies that 
 %
 \begin{equation}
   \phi(1/n)- \phi(\minus 1/n) = \frac{2}{n}\phi'(t_n)
@@ -237,8 +265,10 @@ The behavior $\frac{2}{3}n \to\infty$ brings the desired contradiction. We now c
   \tendsto{n}{\infty} \infty.
 \end{equation}
 %
-Therefore, $\Lambda$ is not bounded either. A direct way to see this is to pick $\phi_\omega$ from 
-Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] so that 
+This shows that $\Lambda$ has no continuity bound for $K$ because $\norm*[\infty]{\phi_n} < 2$ for all $n$ while %
+$\magnitude*{\Lambda_n \phi_n}\to \infty$. Therefore, $\Lambda$ cannot be extended as a Radon measure; %
+see [\ref{notations:Radon-measures}], equation \eqref{notations:definition-of-Radon-measure}. A direct way to see this is to %
+pick $\phi_\omega$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], so that 
 %
 \begin{equation}
   \Lambda (u\phi_\omega) = \frac{2}{3} \omega \tendsto{\omega}{\infty} \infty 
@@ -247,13 +277,18 @@ Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] so that
 contrasts with $\norm*[\infty]{u\phi_\omega}=1$. Thus, we have exhibited a sequence of Radon measures $\Lambda_n$ that 
 %
 \begin{enumerate} 
-  \item{does not converge vaguely to any Radon measure,}
+  \item{does not converge vaguely to a Radon measure,}
   \item{but converges pointwise on $\D_K$, in the specific $\D_K$'s topology; %
     see \eqref{2.3-local-base-of-DK}, \eqref{2.3-convergence-to-dirac}, and \eqref{2.3-upper-bound}.
   }
 \end{enumerate}
 %
-As a second example, we present the \emph{derivative}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Fifth part: Second Counterexample
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\paragraph{Second example of $\singleton{\Lambda_n}$, with optimal uniform bound %
+$\magnitude*{\Lambda_n \phi}\leq M \norm*{D^2\phi}$.} %
+We define the \emph{derivative}
 %
 \begin{align}
   \Lambda_n': \D_K &\to \C\\
@@ -261,8 +296,8 @@ As a second example, we present the \emph{derivative}
 \end{align}
 %
 see \citeFA{6.1}. %
-We have proved that every $\Lambda_n$ is continuous. So is the derivative operator in $\D_K$ - see Exercise [1.17]. %
-Therefore, $\Lambda_n'$ is continuous. Now apply \eqref{2.3-convergence-to-dirac} with $\phi'$ and so obtain %
+We have proved that every $\Lambda_n$ is continuous. So is the derivative operator in $\D_K$; see Exercise [1.17]. Therefore, %
+$\Lambda_n'$ is continuous. Now apply \eqref{2.3-convergence-to-dirac} with $\phi'$ and so obtain %
 %
 \begin{equation}
   \Lambda_n' \phi \tendsto{n}{\infty}  \minus \frac{2}{3} \phi''(0). \nonumber
