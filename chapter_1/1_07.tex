@@ -16,13 +16,12 @@ Let $X$ be the vector space of all complex functions on the unit interval $[0, 1
   p_x(f)= \magnitude*{f(x)} \qquad (0 \leq x \leq 1).\nonumber
 \end{equation}
 %
-This topology is called the topology of pointwise convergence. Justify this terminology. \\
-\\
-Show that there is a sequence % 
-$\singleton{f_n}$ in $X$ such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but (b) if $\singleton{\gamma_n}$ %
-is any sequence of scalars such that $\gamma_n \to \infty$ then $\singleton{\gamma_n f_n}$ does not converge to $0$. %
-(Use the fact that the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) %
-This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
+This topology is called the topology of pointwise convergence. Justify this terminology.}
+
+\textit{Show that there is a sequence $\singleton{f_n}$ in $X$ such that (a) $\singleton{f_n}$ converges to $0$ as %
+$n \to \infty$, but (b) if $\singleton{\gamma_n}$ is any sequence of scalars such that $\gamma_n \to \infty$ then %
+$\singleton{\gamma_n f_n}$ does not converge to $0$. (Use the fact that the collection of all complex sequences converging to %
+$0$ has the same cardinality as $[0, 1]$.) This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 }
 %
 
@@ -34,24 +33,26 @@ This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Since the family of seminorms $p_x$ is separating, the collection $\mathscr{B}$ of all finite intersections of the following %
+Since the family of seminorms $p_x$ is separating, the collection $\mathcal{B}$ of all finite intersections of $V$ %
+that are of the form %
 %
 \begin{equation}
   V(x,k) \Def \singleton*{p_x < 2^{\minus k}} 
   \qquad (x \in [0, 1], k=1, 2, 3, \dots)
 \end{equation}
 %
-forms a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Moreover, %
+is a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Additionally, note that events %
+$f_n \in \cup_{i=1}^m S_i$ can be bounded by summing as follows:
 %
 \begin{equation}
   %
-  \label{Inequality-boolean-series}
+  \label{1.7:inequality-boolean-series}
   %
-  \sum_{n=1}^\infty \Iverson[\big]{g_n \in \cup_{i=1}^m S_i}
+  \sum_{n=1}^\infty \Iverson[\big]{f_n \in \cup_{i=1}^m S_i}
   \leq 
-  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson[\big]{g_n \in S_i} 
+  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson[\big]{f_n \in S_i} 
   = 
-  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\big]{g_n \in S_i};
+  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\big]{f_n \in S_i};
 \end{equation}
 %
 see [\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
@@ -59,24 +60,26 @@ By definition, %
 %
 \begin{equation}
   %
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in X \setminus W} < \infty \qquad (W \in \mathscr{B}).
+  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in X \setminus W} < \infty \qquad (W \in \mathcal{B}).
 \end{equation}
 %
-The special case $W = V(x, k)$ implies that, for a fixed $k$, $\magnitude*{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
+In the special case where $W = V(x, k)$, we have, for a fixed $k$, $\magnitude*{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
 finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\singleton{f_n}$ does not converge in $\tau$. This implies that, for each $f$ there exist finitely %
-many $V(x_1, k_1), \dots, V(x_m, k_m)$ such that %
+Conversely, assume that $\singleton{f_n}$ does not converge in $\tau$: For each $f$ there exists an intersection of finitely %
+many $V(x_1, k_1), \dots, V(x_m, k_m) \in \mathcal{B}$ such that %
 %
 \begin{equation}
   %
-  \label{Divergence}
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in \cup_{i=1}^m X \setminus V(x_i, k_i)} = \infty. 
+  \label{1.7:divergence}
+  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)}
+  = \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in \cup_{i=1}^m X \setminus V(x_i, k_i)}
+  = \infty 
 \end{equation}
 %
-Substituting $f_n - f$ for $f_n$ in \eqref{Inequality-boolean-series}, with $S_i = X \setminus V(x_i, k_i)$, yields 
+Substituting $f_n - f$ for $f_n$ in \eqref{1.7:inequality-boolean-series}, with $S_i = X \setminus V(x_i, k_i)$, yields 
 %
 \begin{equation}
   \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in \cup_{i=1}^m X \setminus V(x_i, k_i)} 
@@ -91,8 +94,8 @@ As a result, there exists $i \in \{1, \dots, m\}$ such that
 \end{equation}
 %
 This shows that $\singleton{f_n(x_i)}$ does not converge to $f(x_i)$. Thus, $\tau$-convergence coincides with pointwise %
-convergence on $X$. We now prove the second part in two different manners. The first proof uses the suggested cardinality %
-argument; the second provides a construction based on binary expansions.
+convergence on $X$. We prove the second part in two different ways. The first proof uses the suggested cardinality argument; %
+the second one provides a construction based on binary expansions.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SECOND PART
@@ -105,7 +108,7 @@ argument; the second provides a construction based on binary expansions.
 satisfies both (a) and (b). The hint suggests that there exists a bijection %  
 %
 \begin{align}
-  \phi: \set[\big]{\theta_n}{\theta_n \xrightarrow{n\infty} 0} & \to [0, 1] \\
+  \phi: \set[\big]{\theta}{\theta \in \C^{\N_+}, \lim_{\infty} \theta = 0} & \to [0, 1] \\
           (\theta_1, \dots, \theta_n, \dots) & \mapsto x. \nonumber
 \end{align} 
 % 
@@ -120,7 +123,7 @@ so that $\singleton{f_n}$ tends pointwise to $0$. Note that, with this construct
 \begin{equation}
   x_\gamma %
   \Def \phi\bigl(1 / \sqrt{1 + \magnitude*{\gamma_1}}, \dots, 1 / \sqrt{1 + \magnitude*{\gamma_n}}, \dots\bigr) 
-    \qquad (\gamma_n \to \infty)
+    \qquad (\gamma_n \tendsto{n}{\infty} \infty)
 \end{equation}
 %
 outputs %
@@ -130,60 +133,61 @@ outputs %
   \tendsto{n}{\infty} \infty. 
 \end{equation}
 %
-This proves (b) because $\singleton{\gamma_n f_n(x_\gamma)}$ diverges. We now give an alternative construction of %
-$\singleton{f_n}$ that requires no cardinality argument. 
+This proves (b) because $\singleton[\big]{\gamma_n f_n(x_\gamma)}$ diverges. We now construct a second $\singleton{f_n}$ %
+without assuming the cardinality of $\set{\theta}{\theta \in \C^{\N_+}, \lim_{\infty} \theta = 0}$.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textbf{Proof with binary expansions (no hint).} We rely on the fact that every irrational number has a binary expansion %
-that is not eventually periodic. More precisely, there exists a bijective sum
+that is not eventually periodic. More precisely, there exists a bijective map
 %  
 \begin{align} 
-  \sigma:  \set[\big]{\beta \in \{0, 1\}^{\N_+}}{\beta \text{ is not eventually periodic}} & \to [0, 1] \setminus \Q \\
+  \sigma:  \set[\big]{\beta}{\beta \in \{0, 1\}^{\N_+}, \beta \text{ not eventually periodic}} 
+    & \to \closedInterval*{0}{1} \setminus \Q \\
         (\beta_1, \dots, \beta_n, \dots) & \mapsto \sum_{k=1}^\infty \beta_k 2^{\minus k}. \nonumber
 \end{align}
 %
-A suitable $\singleton{f_n}$ is defined as follows: %
+A suitable $\singleton{f_n}$ is defined as follows on $\closedInterval*{0}{1}\setminus \Q$: %
 %
-\begin{equation}\label{definition of f_n(alpha)}
-  f_n(x) \Def \begin{cases} 
-    2^{\minus (\beta_1 + \cdots + \beta_n)} & \bigr(x = \sigma(\beta_1, \dots, \beta_n, \dots) \notin \Q) \\
-    0 & (x \in \Q).
-  \end{cases} 
+\begin{equation}\label{1.7:definition-of-f-n-alpha}
+  f_n(\alpha) \Def 2^{\,\minus (\beta_1 + \cdots + \beta_n)} 
+    \qquad \bigl(\alpha = \sigma(\beta_1, \dots, \beta_n, \dots) \in \closedInterval*{0}{1} \setminus \Q \bigr).\\
 \end{equation}
 %
-Indeed, every bit stream $\sigma^{\minus 1}(x)$ has infinitely many $1$'s, which implies that %
-$f_n(x) \xrightarrow{n\infty} 0$. Next, pick an arbitrary $\gamma_n \to \infty$. Thus, for any positive integer $k$, %
-$\gamma_n > 4^k$ for all sufficiently large $n$, say $n > N_k$. We select $n_k > N_k$ so large that %
+The definition of $f_n$ on $\closedInterval*{0}{1}\setminus\Q$, say $\restriction{f_n}{\closedInterval*{0}{1}\setminus\Q}= 0$, 
+is of no importance. The key ingredient is that every bit stream $\sigma^{\minus 1}(\alpha)$ has infinitely many $1$'s %
+(which implies that $f_n(\alpha) \to 0$, since $\beta_1 + \cdots + \beta_n \to \infty$). Pick an arbitrary %
+$\gamma_n \to \infty$: For each $k\in \N_+$, choose $m_k$ such that $\gamma_n > 4^k$ for all $n > m_k$. Next, select %
+$n_k > m_k$ large enough to additionally satisfy %
 %
-\begin{equation}\label{definition of n_k}
+\begin{equation}\label{1.7:definition-of-n-k}
   n_{k+1} - n_k > k.
 \end{equation}
 %
-The crucial point is that the sequence $1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Moreover, the particular choice %
+The crucial point is that the sequence $\beta^\gamma = 1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Hence %
 %
 \begin{equation}
-  \beta^{\gamma} \Def 1_{\{n_1, n_2, \dots \}}
+  \sigma(\beta^{\gamma}) \in \closedInterval*{0}{1} \setminus \Q.
 \end{equation}
 %
-implies %
+Moreover, a straightforward induction on $k$ shows that  %
 %
-\begin{equation}\label{p sum of bits}
+\begin{equation}\label{1.7:partial-sum-of-beta}
   \beta^\gamma_1 + \dots + \beta^\gamma_{n_1} + \dots + \beta^\gamma_{n_k} = k.
 \end{equation}
 %
-Finally, (\ref{definition of f_n(alpha)}) and (\ref{p sum of bits}) together yield %
+Finally, \eqref{1.7:definition-of-f-n-alpha} and \eqref{1.7:partial-sum-of-beta} together yield %
 %
 \begin{equation}
-  \gamma_{n_k} f_{n_{k}}(\sigma(\beta^\gamma))
-    = {\gamma_{n_k}}/{2^k} 
+  \gamma_{n_k} f_{n_{k}}\bigl(\sigma(\beta^\gamma)\bigr)
+    = \gamma_{n_k} \cdot 2^{\,\minus k}
     > 2^k 
     \tendsto{k}{\infty}\infty.
 \end{equation}
 %
-In conclusion, every $\gamma_n \to \infty$ contains a subsequence $\singleton{\gamma_{n_k}}$ that causes %
-$\singleton{\gamma_{n_k}f_{n_k}}$ to diverge. This is (b). 
+In conclusion, every sequence of scalars $\singleton{\gamma_n}$ such that $\gamma_n \to \infty$ contains a subsequence %
+$\singleton{\gamma_{n_k}}$ that causes $\singleton{\gamma_{n_k}f_{n_k}} \to \infty$, which proves (b). 
 \end{proof}
 %
 % END

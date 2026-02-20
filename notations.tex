@@ -24,7 +24,7 @@ fact that every definition expresses an equivalence.
 \subsection{The assignment operator}%
 Given variables $\varit{a}$ and $\varit{b}$, $a \Def b$ is a special form of $a = b$. We say that $a\Def b$ \IFF $a$ and $b$ %
 are \emph{assumed} to be equal. Typically, $a\Def b$ is used to indicate that $\varit{a}$ is assigned the value $b$ %
-(some authors write $a:=b$) but, in a different context, $a \Def b$ may also denote $a=:b$\ie $a:=b$.
+(some authors write $a:=b$) but, in a different context, $a \Def b$ may also denote $a=:b$, \ie,  $a:=b$.
 %
 \subsection{Iverson brackets}\label{Iverson-notation}
 Given a boolean expression $\phi$, the boolean value $\Iverson*{\phi}$ encodes the truth value of $\phi$ as a \texttt{bit}:
@@ -69,7 +69,7 @@ In a metric space context, $X\equiv Y$ means that $\phi$ is a surjective isometr
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Topological vector spaces}
 \subsection{Scalar field}%
-$\C$ extends $\R$, which implies that a property\eg linearity, that holds over $\C$ also holds over $\R$. The complex %
+$\C$ extends $\R$, which implies that a property, \eg,  linearity, that holds over $\C$ also holds over $\R$. The complex %
 case is therefore \emph{stronger} than the real case. This restriction may be significant in some contexts. However, the %
 standard scalar field is $\C$. Unless the field is explicitly given, as in \citeFA{3.1 and 12.7}, we assume that results for %
 $\C$ apply equally to the real case. 
@@ -98,7 +98,7 @@ The axiom of choice (AC) forces %$
 \end{enumerate}
 %
 We now turn to the finite-dimensional case over the field $\C$. The zero-dimensional case is $B =\emptyset$ %
-\ie $X=\singleton{0}$. Our first step is to study $\C^n$, the standard $n$-dimensional vector space, when $\counting{n}$. 
+, \ie, $X=\singleton{0}$. Our first step is to study $\C^n$, the standard $n$-dimensional vector space, when $\counting{n}$. 
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Finite dimension
@@ -134,7 +134,7 @@ homeomorphism. A striking consequence is that %
 %
   $\set{f(U)}{U \text{ open in }\C^n}$ \emph{is the unique topological vector space topology on $Y$}. %
 %
-Thus, $Y$ is necessarily locally convex and locally bounded \ie normable; see \citeFA{1.39}. Note that the equality %
+Thus, $Y$ is necessarily locally convex and locally bounded , \ie,  normable; see \citeFA{1.39}. Note that the equality %
 $\norm*[Y]{y}= \norm*[2]{f^{\minus 1}(y)}$ for all $y\in Y$ defines a norm on $Y$. Additionally, $Y$ is locally compact, as %
 the closed unit ball of $\C^n$ is compact. Choose an $n$-dimensional topological vector space $W$, and repeat the same %
 reasoning with $g: \C^n \to W$, then $h = g\circ f^{\,\minus 1}$, in place of $f$. Thus, $h: Y \to W$ is a homeomorphism and %
@@ -172,8 +172,8 @@ $C_{i, j}$ such that %
 	\norm*[j]{z} \leq C_{i, j} \norm*[i]{z} 
 \end{equation}
 %
-are easily derived from the definitions of these norms, except for the case $C_{2, 1} = \sqrt{n}$, which requires the Cauchy-Schwarz inequality; %
-see (1) in \citeFA{12.2}. The table below records these sharp $C_{i,j}$:
+are easily derived from the definitions of these norms, except for the case $C_{2, 1} = \sqrt{n}$, which requires the %
+Cauchy-Schwarz inequality; see (1) in \citeFA{12.2}. The table below records these sharp $C_{i,j}$:
 %
 \begin{table}[h!]\centering
   \begin{tabular}{|c|c|c|c|}
@@ -212,7 +212,7 @@ Thus, \emph{uniform boundedness} and uniform continuity coincide as well; \cf \c
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Measure theory}
 \subsection{Radon measures}\label{notations:Radon-measures}
-Given a locally compact Hausdorff space $X$\eg $\R^n$, a positive Radon measure $\Lambda$ is a functional that is %
+Given a locally compact Hausdorff space $X$, \eg,  $\R^n$, a positive Radon measure $\Lambda$ is a functional that is %
 \emph{positive} on $C_c(X)$, in the sense that
 %
 \renewcommand{\labelenumi}{(\roman{enumi})} 
@@ -245,7 +245,7 @@ theory, by \emph{support} of $\mu$, we mean:
 where $V$ runs through all open sets of measure $0$. A very important Radon measure of support $\singleton{0}$, the %
 \emph{Dirac delta function} is described in [\ref{annex-Dirac}].
 %
-\subsection{Lebesgue integration}
+\subsection{Lebesgue integration}\label{notations:Lebesgue-integration}
 Theorem \citebook{2.14}{BigRudin} states that every positive Radon measure $\Lambda: C_c(X)\to \C$ is identified with a %
 positive and regular Borel measure $\beta:X \to \R$. By ``regular'', we mean that 
 %
@@ -253,7 +253,7 @@ positive and regular Borel measure $\beta:X \to \R$. By ``regular'', we mean tha
   \sup\set{\beta(K)}{K \subset E,\, K \text{ compact}} = \beta(E) = \inf\set{\beta(U)}{E \subset U,\, U \text{ open}}
 \end{equation}
 %
-for all measurable sets $E$. This justifies the following definition of the Lebesgue integral:
+when $E$ is measurable. This justifies the following definition of the Lebesgue integral:
 %
 \begin{equation}\label{definition-of-sum}
 	\int_{X} \phi \diff{\beta} \Def \Lambda \phi \qquad \bigl(\phi \in C_c(X)\bigr),
@@ -275,7 +275,7 @@ When we substitute $f\,\beta$ for $\beta$, with $f$ measurable, \eqref{definitio
 In particular, if $f$ is positive, then $f\,\beta$ is a regular Borel measure such that
 %
 \begin{equation}
-	\int_{X} f \diff{\beta} = \sup \set{\Lambda \phi}{\phi \in C_c(X), 0 \leq \phi \leq 1}.
+	\int_{X} f \diff{\beta} = \sup \set{\Lambda \phi}{\phi \in C_c(X), 0 \leq \phi \leq 1}
 \end{equation}
 %
 Moreover, given $N = N(\beta)$ denoting $\set{f}{f = 0 \;\,\beta\text{-a.e.}}$, we see that the \emph{density} $f$ and the %

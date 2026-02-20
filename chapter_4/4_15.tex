@@ -5,11 +5,11 @@
 \end{align*}
 \begin{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})}
-\item Prove that $T\in \mathscr{B}(L^2(\mu))$ and that 
+\item Prove that $T\in \mathcal{B}(L^2(\mu))$ and that 
 \begin{align*}
 \| T\, \|^2 \leq \int_\Omega\int_\Omega \lvert K (s,t\,)\rvert ^2 d\mu (s\,) d\mu(t\,).
 \end{align*}
-\item Suppose $a_i$, $b_i$ are members of $L^2(\mu)$, for $1\leq i\leq n$, put $K_1=\sum a_i(s\,)b_i(t\,)$ and define $T_1$ in terms of $K_1$ a $T$ was defined in terms of $K$. Prove that $\dim \mathscr{R}(T_1)\leq n$.
+\item Suppose $a_i$, $b_i$ are members of $L^2(\mu)$, for $1\leq i\leq n$, put $K_1=\sum a_i(s\,)b_i(t\,)$ and define $T_1$ in terms of $K_1$ a $T$ was defined in terms of $K$. Prove that $\dim \mathcal{R}(T_1)\leq n$.
 \item Deduce that $T$ is a compact operator in $L^2(\mu)$. Hint: Use exercise 13.
 \item Suppose $\lambda\in \C,\, \lambda\neq 0$. Prove: Either the equation 
 \begin{align*}Tf-\lambda f=g\end{align*}
@@ -90,13 +90,13 @@ Since $\epsilon$ and $\delta$ were arbitrary, the $\sigma$-finite case is proved
 %: d
 Provided  $g$ of $X$, let $E_g$ be the following equation on $X$
 \begin{align}Tf-\lambda f =g \qquad ,\end{align}
-whose solution set is denoted by $S_g\,$. Note that $S_0$ is $\ker (T-\lambda)$ and discard the trivial case $S_0=X\,$\footnote{\eg$ X=L^2(\{0\},\, \delta)\,$so that $I=\lambda^{\minus 1} T $ is compact. }: each $f$ of $X $ lies in $S_{\,Tf-\lambda f\,} $, as some $Tf-\lambda f\,$'s are nonzero. Some $S_g$'s are then nonempty. Remark that 
+whose solution set is denoted by $S_g\,$. Note that $S_0$ is $\ker (T-\lambda)$ and discard the trivial case $S_0=X\,$\footnote{For instace, $ X=L^2(\{0\},\, \delta)\,$so that $I=\lambda^{\minus 1} T $ is compact. }: each $f$ of $X $ lies in $S_{\,Tf-\lambda f\,} $, as some $Tf-\lambda f\,$'s are nonzero. Some $S_g$'s are then nonempty. Remark that 
 \begin{align}\label{4_15_17}
 S_g= f + S_0 \qquad (f\in S_g) \qquad 
 \end{align}
 in such case. Furthermore, the equality $\beta= \alpha $ of [4.25] yields 
 \begin{align}
-(T-\lambda I\,)(X)\neq X , \text{\ie}  S_0 \neq\{0\}  \qquad .
+(T-\lambda I\,)(X)\neq X , \text{, \ie, }  S_0 \neq\{0\}  \qquad .
 \end{align}
 So if $T-\lambda I$ is not onto, not only some $S_g$'s are empty, but also $S_0\neq\{0\}$. Every nonempty $S_g$ (such sets always exist, see above) is then infinite, by (\ref{4_15_17}).\\
 Otherwise, $T-\lambda I$ is bijective and every equation $E_g$ has then a unique solution $f$. The Fredholm alternative is so proved. \\
@@ -105,7 +105,7 @@ Our last step is the description of $T^{\,\ast}$. Let $S:\, X\to X$ be such that
 \begin{align}
 (Sf\,)(t\,)\Def \int_\Omega K_t \cdot f \,\,\, \text{a.e}\qquad \qquad (\,f\in X,\, t\in \Omega)
 \end{align}
-Proceed as in (a), with $S$ instead of $T$: $S$ lies in $\mathscr{B}(X)$. Next, we claim that 
+Proceed as in (a), with $S$ instead of $T$: $S$ lies in $\mathcal{B}(X)$. Next, we claim that 
 \begin{align}
 \langle u,\, T^{\,\ast} f^{\,\,\ast}  \rangle = &\, \langle Tu,\,f^{\,\,\ast}   \rangle\\
 =&  \int_{\Omega} (T  u ) \cdot  f \,\, \,\diff\mu \\

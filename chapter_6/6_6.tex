@@ -7,17 +7,17 @@
 \sum_{m=0}^\infty c_m (D^m\phi)(0)
 }\end{align*}
 converges for every $\phi\in C^{\,\infty} (R)$?
-\item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathscr{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subset \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathscr{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
+\item Let $\Omega$ be open in $\R^n$, suppose $\Lambda_i\in \mathcal{D}'(\Omega)$, and suppose that all $\Lambda_i$ have their supports in some fixed compact $K\subset \Omega$. Prove that the sequence $\{\Lambda_i\}$ cannot converge in $\mathcal{D}'(\Omega)$ unless the orders of the $\Lambda_j$ are bounded. Hint: Use the Banach-Steinhaus theorem.
 \item Can the assumption about the supports be dropped in (b)?
 \end{enumerate}}
 \begin{proof} The answer is: no. To establish this assertion, we first assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
 \\
-The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this, see the $\phi_j-\check{\phi}_j$ involved in (\ref{2_3_phicheck}).}\eg greater than $1/c_m$.
+The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this, see the $\phi_j-\check{\phi}_j$ involved in (\ref{2_3_phicheck}).}, \eg,  greater than $1/c_m$.
  A desired contradiction is then reached. We now prove (b), again by contradiction.\\
 \\
-To do so we assume $\{\Lambda_j\}$ to converge to some $\Lambda$ of $\mathscr{D}'(\Omega)$ and we let $Q$ run through the compact sets of $\Omega\,$. Next, we define
+To do so we assume $\{\Lambda_j\}$ to converge to some $\Lambda$ of $\mathcal{D}'(\Omega)$ and we let $Q$ run through the compact sets of $\Omega\,$. Next, we define
 \begin{align}{\label{6_6_1}
-S(T,\, Q\,)\Def \{N\in \N, \, \exists C\in \R_+:\, \lvert T\phi\, \rvert \leq C\, \| \phi \|_N \,\text{ for all }\phi \text{ of } \mathscr{D}_Q \}\qquad (T\in \mathscr{D}(\Omega))\qquad .
+S(T,\, Q\,)\Def \{N\in \N, \, \exists C\in \R_+:\, \lvert T\phi\, \rvert \leq C\, \| \phi \|_N \,\text{ for all }\phi \text{ of } \mathcal{D}_Q \}\qquad (T\in \mathcal{D}(\Omega))\qquad .
 }\end{align}
 Such subset of $\N$ has a minimum $\omega(T,\, Q)$. The following value
 \begin{align}{\label{6_6_2}
@@ -32,27 +32,27 @@ Choose a positive scalar $r$ so that
 \begin{align}{\label{6_6_5}
 \overline{B}(p,\, r)\Def \{ x\in \R^n:\, \lvert x-p\,\rvert\leq r\}\subset \Omega \qquad .
 }\end{align}
-Such closed ball $\overline{B}(p,\, r)$ is a compact subset of $\Omega$. By (b) of [6.5] (which refers to [1.46])  $\mathscr{D}_{\overline{B}(p,\, r)}$ is then a Fréchet space. It now follows from [2.6] that $\{\Lambda_j\}$ is equicontinuous on $\mathscr{D}_{\overline{B}(p,\, r)}\,$. There exists\footnote{For more details, see Exercise 2.3.} a nonnegative integer $N$ such that 
+Such closed ball $\overline{B}(p,\, r)$ is a compact subset of $\Omega$. By (b) of [6.5] (which refers to [1.46])  $\mathcal{D}_{\overline{B}(p,\, r)}$ is then a Fréchet space. It now follows from [2.6] that $\{\Lambda_j\}$ is equicontinuous on $\mathcal{D}_{\overline{B}(p,\, r)}\,$. There exists\footnote{For more details, see Exercise 2.3.} a nonnegative integer $N$ such that 
 \begin{align}{\label{6_6_6}
-\lvert \Lambda \phi \,\rvert \leq C\, \| \phi \|_N \qquad (\phi \in \mathscr{D}_{\overline{B}(p,\, r)})
+\lvert \Lambda \phi \,\rvert \leq C\, \| \phi \|_N \qquad (\phi \in \mathcal{D}_{\overline{B}(p,\, r)})
 }\end{align}
 for some positive constant $C$. On the other hand, $\overline{B}(p,\, r)$ contains almost all the $p_j$'s. Hence
 \begin{align}{\label{6_6_7} 
 \lvert \Lambda_N\,\phi \,\rvert >  C\, \| \phi \|_N 
 }\end{align}
-for some $\phi$ of $\mathscr{D}_{\overline{B}(p,r)}\,$. (b) is then established.\\
+for some $\phi$ of $\mathcal{D}_{\overline{B}(p,r)}\,$. (b) is then established.\\
 \\
 To prove (c), we introduce a sequence $\{x_m:\, m\in \Z\}$ of $ \Omega$ that has no limit point. Let $\{ \alpha_m:\, m\in \Z\}$ be in $\N$ and so define\footnote{As $\Omega=\R\,$, the case $\alpha_m= m$ is the ``counterpart" of the series of (a) and the case $(x_m,\, \alpha_m)= (m,\, 0)$ is the \textsl{Dirac comb}.}
 \begin{align}{
-\Lambda:\, \mathscr{D}(\Omega) \to &  \, \C   \qquad\qquad\qquad\qquad .\\
+\Lambda:\, \mathcal{D}(\Omega) \to &  \, \C   \qquad\qquad\qquad\qquad .\\
  \phi \mapsto & \,  \sum_{m=\minus \infty}^\infty (D^{\,\alpha_m}\phi)(x_m)  \nonumber
 }\end{align}
-$\Lambda$ belongs to $\mathscr{D}'(\Omega)$, since $\{x_m\}$ has no limit point. Next, we easily check that
+$\Lambda$ belongs to $\mathcal{D}'(\Omega)$, since $\{x_m\}$ has no limit point. Next, we easily check that
 \begin{align}{
-\Lambda_j:\, \mathscr{D}(\Omega) \to   & \, \C  \qquad\qquad\qquad\qquad(j\in \N)\\
+\Lambda_j:\, \mathcal{D}(\Omega) \to   & \, \C  \qquad\qquad\qquad\qquad(j\in \N)\\
  \phi \mapsto &  \,  \sum_{\lvert m\rvert \leq j} (D^{\,\alpha_m}\phi)(x_m) \nonumber
 }\end{align}
-is also a distribution and that $\{\Lambda_j\}$ tends to $\Lambda$ in $\mathscr{D}'(\Omega)$. Nevertheless, no $\Lambda_j$'s can have common support because $\{x_m\}$ has no limit point. Our assumption can therefore be dropped.\end{proof}
+is also a distribution and that $\{\Lambda_j\}$ tends to $\Lambda$ in $\mathcal{D}'(\Omega)$. Nevertheless, no $\Lambda_j$'s can have common support because $\{x_m\}$ has no limit point. Our assumption can therefore be dropped.\end{proof}
 
 
 

@@ -3,7 +3,7 @@ The following permutation
 \sigma:&\,  \C^2 \to \C^2\\
 & (z,z')\mapsto (z',z) 
 \end{align}
-is an automorphism\ie a homeomorphism [\cf (a) of 1.21], of the vector space $\C^2$. The key ingredient is that $\sigma$ is open. Moreover, the invariant points under $\sigma$ form the diagonal
+is an automorphism, \ie,  a homeomorphism [\cf (a) of 1.21], of the vector space $\C^2$. The key ingredient is that $\sigma$ is open. Moreover, the invariant points under $\sigma$ form the diagonal
 \eq{D\Def \{(z,z)\in\C^2 \}\qquad. }\endeq
 As the graph of
 \begin{align*}
