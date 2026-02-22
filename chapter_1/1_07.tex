@@ -22,9 +22,8 @@ This topology is called the topology of pointwise convergence. Justify this term
 $n \to \infty$, but (b) if $\singleton{\gamma_n}$ is any sequence of scalars such that $\gamma_n \to \infty$ then %
 $\singleton{\gamma_n f_n}$ does not converge to $0$. (Use the fact that the collection of all complex sequences converging to %
 $0$ has the same cardinality as $[0, 1]$.) This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
-}
-%
-
+} 
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First part: Justification of the terminology
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -33,69 +32,67 @@ $0$ has the same cardinality as $[0, 1]$.) This shows that metrizability cannot 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % A. tau-convergence => pointwise convergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Since the family of seminorms $p_x$ is separating, the collection $\mathcal{B}$ of all finite intersections of $V$ %
-that are of the form %
+Since the family of seminorms $p_x$ is separating, the collection $\mathcal{B}$ of all finite intersections of $V$ that are of 
+the form %
 %
 \begin{equation}
-  V(x,k) \Def \singleton*{p_x < 2^{\minus k}} 
-  \qquad (x \in [0, 1], k=1, 2, 3, \dots)
+  V_{x,k} \Def \singleton*{p_x < 2^{\minus k}} \qquad (x \in [0, 1], \counting{k})
 \end{equation}
 %
-is a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Additionally, note that the total number of %
-occurrences when $f_n \in \cup_{i=1}^m S_i$ is bounded as follows:
+is a local base for a topology $\tau$ on $X$, see Theorem \citeFA{1.37}. Additionally, the total number of occurrences of %
+events $f_n \in \cup_{i=1}^m S_i$ can be bounded via a series of Iverson brackets, as follows:
 %
 \begin{equation}
   %
   \label{1.7:inequality-boolean-series}
   %
-  \sum_{n=1}^\infty \Iverson[\big]{f_n \in \cup_{i=1}^m S_i}
+  \sum_{n=1}^\infty \Iverson*{f_n \in \bigcup_{i=1}^m S_i}
   \leq 
-  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson[\big]{f_n \in S_i} 
+  \sum_{n=1}^\infty \sum_{i=1}^m \Iverson[\Big]{f_n \in S_i} 
   = 
-  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\big]{f_n \in S_i};
+  \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\Big]{f_n \in S_i};
 \end{equation}
 %
-see [\ref{Iverson-notation}] for Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. %
+see [\ref{Iverson-notation}] for the Iverson bracket notation. Now assume that $\singleton{f_n}$ $\tau$-converges to some $f$. 
 By definition, %
 %
 \begin{equation}
   %
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in X \setminus W} < \infty \qquad (W \in \mathcal{B}).
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \in X \setminus W} < \infty \qquad (W \in \mathcal{B}).
 \end{equation}
 %
-In the special case where $W = V(x, k)$, we have, for a fixed $k$, $\magnitude*{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
-finitely many $n$. In other words, $\singleton{f_n(x)}$ converges to $f(x)$. %
+In the special case where $W = V_{x, k}$, we have, for a fixed $k$, $\magnitude*{f_n(x)- f(x)} < 2^{\minus k}$ for all but %
+finitely many $n$. Equivalently, $f_n(x) \to f(x)$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Conversely, assume that $\singleton{f_n}$ does not converge in $\tau$: For each $f$ there exists an intersection of finitely %
-many $V(x_1, k_1), \dots, V(x_m, k_m) \in \mathcal{B}$ such that %
+Conversely, assume that $\singleton{f_n}$ diverges in $\tau$: For each $f$ choose $\bigcap_{i=1}^m V_{x_i, k_i}$ such that %
 %
 \begin{equation}
   %
   \label{1.7:divergence}
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \notin \cap_{i=1}^m V(x_i, k_i)}
-  = \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in \cup_{i=1}^m X \setminus V(x_i, k_i)}
-  = \infty 
-\end{equation}
-%
-Substituting $f_n - f$ for $f_n$ in \eqref{1.7:inequality-boolean-series}, with $S_i = X \setminus V(x_i, k_i)$, yields 
-%
-\begin{equation}
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in \cup_{i=1}^m X \setminus V(x_i, k_i)} 
-  \leq \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in X \setminus V(x_i, k_i)}
+  \sum_{n=1}^\infty \Iverson*{f_n - f \notin \bigcap_{i=1}^m V_{x_i, k_i}}
+  = \sum_{n=1}^\infty \Iverson*[\big]{f_n - f \in \bigcup_{i=1}^m X \setminus V_{x_i, k_i}}
   = \infty.
 \end{equation}
 %
-As a result, there exists $i \in \{1, \dots, m\}$ such that 
+Substituting $f_n - f$ for $f_n$ in \eqref{1.7:inequality-boolean-series}, with $S_i = X \setminus V_{x_i, k_i}$, shows that 
 %
 \begin{equation}
-  \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in X \setminus V(x_i, k_i)} = \infty.
+  \sum_{n=1}^\infty \Iverson*{f_n - f \in \bigcup_{i=1}^m X \setminus V_{x_i, k_i}} 
+  \leq \sum_{i=1}^m \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \in X \setminus V_{x_i, k_i}}
+  = \infty.
 \end{equation}
 %
-This shows that $\singleton{f_n(x_i)}$ does not converge to $f(x_i)$. Thus, $\tau$-convergence coincides with pointwise %
-convergence on $X$. We prove the second part in two different ways. The first proof uses the suggested cardinality argument; %
-the second one provides a construction based on binary expansions.
+As a result,  
+%
+\begin{equation}
+  \sum_{n=1}^\infty \Iverson[\Big]{f_n - f \in X \setminus V_{x_i, k_i}} = \infty
+\end{equation}
+%
+for some index $i$. This shows that $\singleton{f_n(x_i)}$ does not converge to $f(x_i)$. Thus, $\tau$-convergence coincides %
+with pointwise convergence on $X$. We prove the second part in two different ways. The first proof uses the suggested %
+cardinality argument; the second one provides an alternative construction based on binary expansions.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SECOND PART
@@ -134,13 +131,13 @@ outputs %
 \end{equation}
 %
 This proves (b) because $\singleton[\big]{\gamma_n f_n(x_\gamma)}$ diverges. We now construct a second $\singleton{f_n}$ %
-without assuming the cardinality of $\set{\theta}{\theta \in \C^{\N_+}, \lim_{\infty} \theta = 0}$.
+that does not invoke the hinted cardinality argument.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textbf{Proof with binary expansions (no hint).} We rely on the fact that every irrational number has a binary expansion %
-that is not eventually periodic. More precisely, there exists a bijective map
+that is not eventually periodic. More precisely, there exists a bijective mapping
 %  
 \begin{align} 
   \sigma:  \set[\big]{\beta}{\beta \in \{0, 1\}^{\N_+}, \beta \text{ not eventually periodic}} 
@@ -155,17 +152,16 @@ A suitable $\singleton{f_n}$ is defined as follows on $\closedInterval*{0}{1}\se
     \qquad \bigl(\alpha = \sigma(\beta_1, \dots, \beta_n, \dots) \in \closedInterval*{0}{1} \setminus \Q \bigr).\\
 \end{equation}
 %
-The definition of $f_n$ on $\closedInterval*{0}{1}\setminus\Q$, say $\restriction{f_n}{\closedInterval*{0}{1}\setminus\Q}= 0$, 
-is of no importance. The key ingredient is that every bit stream $\sigma^{\minus 1}(\alpha)$ has infinitely many $1$'s %
-(which implies that $f_n(\alpha) \to 0$, since $\beta_1 + \cdots + \beta_n \to \infty$). Pick an arbitrary %
-$\gamma_n \to \infty$: For each $k\in \N_+$, choose $m_k$ such that $\gamma_n > 4^k$ for all $n > m_k$. Next, select %
-$n_k > m_k$ large enough to additionally satisfy %
+Indeed, every bit stream $(\beta_1, \dots, \beta_n, \dots) = \sigma^{\minus 1}(\alpha)$ has infinitely many $1$'s, which %
+implies $\beta_1 + \cdots + \beta_n \to \infty$. Hence $f_n(\alpha) \to 0$. The values of $f_n$ on rationals are irrelevant. %
+For simplicity, set $f_n = 0$ on $\closedInterval*{0}{1} \cap \Q$. Pick an arbitrary $\gamma_n \to \infty$: For each %
+$\counting{k}$ choose $m_k$ such that $\gamma_n > 4^k$ for all $n > m_k$. Next, select $n = n_k > m_k$ so large that %
 %
 \begin{equation}\label{1.7:definition-of-n-k}
-  n_{k+1} - n_k > k.
+  n_{k} - n_{k-1} > k \qquad(\text{start with } n_0 = 0).
 \end{equation}
 %
-The crucial point is that the sequence $\beta^\gamma = 1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Hence %
+The key observation is that the sequence $\beta^\gamma = 1_{\{n_1, n_2, \dots \}}$ is not eventually periodic. Thus, %
 %
 \begin{equation}
   \sigma(\beta^{\gamma}) \in \closedInterval*{0}{1} \setminus \Q.
@@ -186,8 +182,8 @@ Finally, \eqref{1.7:definition-of-f-n-alpha} and \eqref{1.7:partial-sum-of-beta}
     \tendsto{k}{\infty}\infty.
 \end{equation}
 %
-In conclusion, every sequence of scalars $\singleton{\gamma_n}$ such that $\gamma_n \to \infty$ contains a subsequence %
-$\singleton{\gamma_{n_k}}$ such that $\singleton{\gamma_{n_k}f_{n_k}}$ does not converge pointwise to $0$, which proves (b).
+In conclusion, every sequence of scalars $\gamma_n \to \infty$ contains a subsequence $\singleton{\gamma_{n_k}}$ such that %
+$\singleton{\gamma_{n_k}f_{n_k}}$ does not converge pointwise to $0$, which proves (b).
 \end{proof}
 %
 % END
