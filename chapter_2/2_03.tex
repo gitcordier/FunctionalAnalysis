@@ -49,13 +49,13 @@ and assume the pointwise convergence of the sequence $\singleton{\Lambda_n}$, th
   \Lambda_n(\phi) \tendsto{n}{\infty} \Lambda(\phi) \qquad(\phi \in \D_K).
 \end{equation}
 %
-We show that the linear form $\Lambda$ is continuous the topology of $\D_K$. We also construct a particular sequence %
+We show that the linear form $\Lambda$ is continuous in the topology of $\D_K$. We also construct a particular sequence %
 $\{\Lambda_n\}$ whose pointwise limit $\Lambda$ is not norm-bounded. By contraposition, Theorem \citeFA{2.8} implies that %
-pointwise convergence on $\D_K$ does not extend to $\Continuous_K$. This conclusion also derives from the following bounds:
+pointwise convergence on $\D_K$ does not extend to $\Continuous_K$. This conclusion also follows from the following bounds:
 %
 \begin{align}
   \big\lvert \Lambda_n(\phi) \big\rvert &\leq M \norm*[\infty]{\phi'} \label{2.3:norm-p-bound1},\\
-  \magnitude*{\Lambda_n'(\phi)} &\leq M \norm*[\infty]{\phi''} \label{2.3:norm-p-bound2}.
+  \magnitude*{\Lambda_n(\phi')} &\leq M \norm*[\infty]{\phi''} \label{2.3:norm-p-bound2}.
 \end{align}
 %
 Combined with the lack of boundedness at order $p=0$, \cf \eqref{2.3:norm-p-bound1}, the contraposition of Theorem %
@@ -72,8 +72,8 @@ convergence is known as \emph{vague convergence}. The rest of the current proof 
   \item[Existence of $\singleton{\Lambda_n}$ with optimal uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M \norm*{D \phi}$:]{
     In this example, no similar bound in $\norm*{\phi}$ exists. We show that $\Lambda$ does not extend to a Radon measure. 
   }
-  \item[Case of uniform bound $\magnitude*{\Lambda_n(\phi)} \leq M \norm*{D^2\phi}$:]{%
-    Where the smallest possible $p$ to hold is $2$}.
+  \item[Case of a uniform bound in $\norm*{D^2\phi}$:]{%
+    Where the smallest possible $p$ is $2$}.
 \end{description}
 %
 We first prove that $\displaystyle{\lim_{n\to \infty}{\restriction{\Lambda_n}{\D_K}}}$ is continuous in $\D_K$'s topology.
@@ -87,7 +87,7 @@ $\norm*[N]{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and Exercise [1.16]. Equiv
 balanced sets %
 %
 \begin{equation}\label{2.3:local-base-of-DK}
-  V_N \Def \singleton*{\norm*[N]{\;}< 1/N}
+  V_N \Def \set[\Big]{\phi}{\phi \in \D_K, \norm*[N]{\phi}< 1/N}
 \end{equation}
 %
 forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm*[N]{\phi} < 1$ implies $\norm*[\infty]{\phi} < 1 $: %
@@ -104,7 +104,7 @@ $\norm*{\Lambda_n}$ on $V_1$. In summary: %
     }
 \end{enumerate}
 %
-We are in the conditions of the Banach-Steinhaus theorem, which supports the following existence proof.
+The hypotheses of the Banach-Steinhaus theorem are then satisfied, which supports the following existence proof.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Third part: The sequence {Lambda_n} is equicontinuous, hence the uniform bound |Lambda_n .| < M |.| .
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -117,7 +117,7 @@ neighborhood $V_p$. Hence
   \frac{1}{p}\cdot\frac{\phi}{\norm*[p]{\phi} + \epsilon} \in V_p \qquad (\epsilon > 0).
 \end{equation}
 %
-This yields $\magnitude*{\Lambda_n(\phi)}<  p\cdot \bigl\{\norm*[p]{\phi} + \epsilon \bigr\}$, %
+This gives $\magnitude*{\Lambda_n(\phi)}<  p\cdot \Bigl\{\norm*[p]{\phi} + \epsilon \Bigr\}$, %
 which reduces to $\magnitude*{\Lambda_n(\phi)}\leq  p\norm*[p]{\phi}$. Use [\ref{annex:mean-value-with-derivatives}] with %
 $I, D, \dots, D^p$ to output %
 %
@@ -132,7 +132,7 @@ $\singleton{\Lambda_n}$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \paragraph{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M \norm*{D\phi}$.}
 Let $\psi$ be a smooth even mapping that equals $1$ on $\closedInterval*{\minus 1/2}{1/2}$, vanishes outside %
-$\closedInterval*{\minus 1}{1}$, and satisfies $0\leq \psi \leq 1$ on $\R$. $\psi$ can be obtained from the general ù
+$\closedInterval*{\minus 1}{1}$, and satisfies $0\leq \psi \leq 1$ on $\R$. $\psi$ can be obtained from the general %
 construction in \citeFA{1.46}. Alternatively, take the derivative of $\phi$ from Lemma %
 [\ref{lemma-derivative-not-bounded-by-magnitude}], with $\tau=1/2$, $\omega=2$, and $A=1$. %
 We set 
@@ -163,23 +163,23 @@ standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside 
 Lebesgue's dominated convergence theorem implies
 %
 \begin{equation}
-  \Lambda_n\bigl(u\cdot(\,\underbrace{2 \sigma_\lambda - 1}_{\text{odd}}\,)\bigr) 
+  \mu_n\bigl(u\cdot(\,\underbrace{2 \sigma_\lambda - 1}_{\text{odd}}\,)\bigr) 
   = 2n^3 \int_0^{1/n} \underbrace{t\, \bigl(2\sigma_\lambda(t) - 1\bigr)}_{\text{even}} \diff{t} 
   \tendsto{\lambda}{\infty} n \qquad(n \geq 2). 
 \end{equation}
 %
-A first point is that there is no vague convergence for this $\{\Lambda_n\}$: this would, by Theorem \citeFA{2.6}, imply that %
-$\sup_n{\norm*{\Lambda_n}}\ < \infty$, which would contradict \eqref{2.3:norm-of-lambda-n}. However, we investigate further %
-to establish weaker convergence and boundedness in $\tau_K$. The mean value theorem implies that 
+We first observe that this $\{\mu_n\}$ cannot converge vaguely: this would, by Theorem \citeFA{2.6}, imply %
+$\sup_n{\norm*{\mu_n}}\ < \infty$, which would contradict \eqref{2.3:norm-of-lambda-n}. However, we investigate further %
+to establish weaker convergence and boundedness in $\tau_K$. The mean value theorem implies that, given $\phi \in \D_K$, 
 %
 \begin{equation}
   \phi(1/n)- \phi(\minus 1/n) = \frac{2}{n}\phi'(t_n)
 \end{equation}
 %
-for some $\minus 1/n < t_n < {1/n}$. Moreover, integration by parts yields %
+for some $t_n = t_n(\phi)\in \openInterval*{\minus 1/n}{1/n}$. Moreover, integration by parts yields %
 %
 \begin{align}
-  \Lambda_n(\phi) & = \evalbar[\bigg]{\frac{n^3}{2}t^2 \phi(t)}{\minus 1/n}{1/n} 
+  \mu_n(\phi) = \Lambda_n(\phi) & = \evalbar[\bigg]{\frac{n^3}{2}t^2 \phi(t)}{\minus 1/n}{1/n} 
       - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}\\
   & = \frac{n}{2}\bigl(\phi(1/n) - \phi(\minus 1/n)\bigr)
       - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}\\
@@ -187,7 +187,7 @@ for some $\minus 1/n < t_n < {1/n}$. Moreover, integration by parts yields %
       - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}.\label{2.3:integration-by-part}
 \end{align}
 %
-Note that when $\phi' = 1$ in a neighborhood of $0$, \eg,  for $\phi(t)= t \psi(t)$, the latter equality reduces to %
+Note that when $\phi' = 1$ in a neighborhood of $0$, \eg,  for $\phi(t)= \psi(t) \cdot t$, the latter equality reduces to %
 %
 \begin{equation}
   \Lambda_n(\phi) = 1 - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \diff{t} = \frac{2}{3}.
@@ -218,12 +218,13 @@ As a result, %
 \end{equation}
 %
 where $\delta': \phi \mapsto \minus \phi'(0)$ is the \emph{derivative} of the \textit{Dirac measure} %
-$\delta: \phi \mapsto \phi(0)$; see \citeFA{6.1, 6.9} and [\ref{annex-Dirac}]. The reasoning from the previous part shows that 
-the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuous. As a complement, \eqref{2.3:integration-by-part} %
+$\delta: \phi \mapsto \phi(0)$; see \citeFA{6.1, 6.9} and [\ref{annex-Dirac}]. The previous reasoning shows that 
+the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuous. In addition, \eqref{2.3:integration-by-part} %
 justifies
 %
 \begin{equation}
-  \magnitude*{\Lambda_n(\phi)} \leq \magnitude*{\phi'(t_n)} + \frac{1}{3} \max_{\closedInterval*{\minus 1}{1}}{\magnitude*{\phi'}}.
+  \magnitude*{\Lambda_n(\phi)} \leq \magnitude*{\phi'(t_n)} 
+  + \frac{1}{3} \max_{\closedInterval*{\minus 1}{1}}{\magnitude*{\phi'}}.
 \end{equation}
 %
 A simpler bound is
@@ -242,7 +243,7 @@ to reach a contradiction, that there exists $M$ such that
 %
 Next, we choose %
 \begin{equation}\label{2.3:zn-definition}
-  \phi_n \Def \psi \tilde{\phi}_n,
+  \phi_n \Def \psi \cdot \tilde{\phi}_n,
 \end{equation}
 %
 where $\tilde{\phi}_n$ is $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] with %
@@ -260,7 +261,7 @@ Our assumption \eqref{2.3:upper-bound-assumption} then reads as
   \frac{2}{3}n \leq 2M < \infty. 
 \end{equation}
 %
-The behavior $\frac{2}{3}n \to\infty$ brings the desired contradiction. Combining \eqref{2.3:convergence-to-dirac} with %
+The behavior $\frac{2}{3}n \to\infty$ provides the desired contradiction. Combining \eqref{2.3:convergence-to-dirac} with %
 \eqref{2.3:upper-bound-contradiction2} gives%
 %
 \begin{equation}
@@ -274,10 +275,10 @@ see [\ref{notations:Radon-measures}], equation \eqref{notations:definition-of-Ra
 pick $\phi_\omega$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], so that 
 %
 \begin{equation}
-  \Lambda(\psi \phi_\omega) = \frac{2}{3} \omega \tendsto{\omega}{\infty} \infty 
+  \Lambda(\psi\cdot \phi_\omega) = \frac{2}{3} \omega \tendsto{\omega}{\infty} \infty 
 \end{equation}
 %
-contrasts with $\norm*[\infty]{\psi \phi_\omega}=1$. Thus, we have exhibited a sequence of Radon measures $\mu_n$ that 
+contrasts with $\norm*[\infty]{\psi\cdot \phi_\omega}=1$. Thus, we have exhibited a sequence of Radon measures $\mu_n$ that 
 %
 \begin{enumerate} 
   \item{
@@ -288,12 +289,12 @@ contrasts with $\norm*[\infty]{\psi \phi_\omega}=1$. Thus, we have exhibited a s
   }
 \end{enumerate}
 %
-We now propose a second example, with $2$ as minimal $p$.
+We now propose a second example, with $p=2$ as the smallest admissible order.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Fifth part: Second Counterexample
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{Case of uniform bound $\magnitude*{\Lambda_n(\phi)} \leq M \norm*{D^2\phi}$.} We define the \emph{derivative}
+\paragraph{Case of a uniform bound in $\norm*{D^2\phi}$.} We define the \emph{derivative}
 %
 \begin{align}
   \Lambda_n': \D_K &\to \C\\
@@ -301,17 +302,17 @@ We now propose a second example, with $2$ as minimal $p$.
 \end{align}
 %
 see \citeFA{6.1}. We have proved that every $\Lambda_n$ is continuous. So is the derivative operator in $\D_K$; see Exercise %
-[1.17]. Therefore, $\Lambda_n'$ is continuous. Now apply \eqref{2.3:convergence-to-dirac} with $\phi'$ and so obtain %
+[1.17]. Therefore, $\Lambda_n'$ is continuous. Applying \eqref{2.3:convergence-to-dirac} with $\phi'$ yields %
 %
 \begin{equation}
-  \Lambda_n' \phi \tendsto{n}{\infty}  \minus \frac{2}{3} \phi''(0).
+  \Lambda_n'(\phi) \tendsto{n}{\infty}  \minus \frac{2}{3} \phi''(0).
 \end{equation}
 %
 Furthermore, Theorem \citeFA{2.8} implies that the limit $\minus \frac{2}{3} \phi''(0)$ is $\tau_K$ continuous. 
 Additionally, it follows from \eqref{2.3:upper-bound} that the bound \eqref{2.3:norm-p-bound2} is %
 %
 \begin{equation}
-  \magnitude*{\Lambda_n' \phi} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
+  \magnitude*{\Lambda_n'(\phi)} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
 \end{equation}
 %
 To prove this, it suffices to show that $2$ is the smallest suitable $p$. First, we assume, to reach a contradiction, that
@@ -320,30 +321,29 @@ To prove this, it suffices to show that $2$ is the smallest suitable $p$. First,
   \magnitude*{\Lambda_n(\phi')} \leq M \norm*[\infty]{\phi'} \qquad (\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
-Next, let $\Phi_n$ be the primitive of $\phi_n$ that vanishes at $\minus 1$; see \eqref{2.3:zn-definition}. The oddness %
+Next, let $\Phi_n$ be the antiderivative of $\phi_n$ that vanishes at $\minus 1$; see \eqref{2.3:zn-definition}. The oddness %
 of $\Phi_n$ ($\psi$ is even) implies that $\supp{\Phi_n} \subset \closedInterval*{\minus 1}{1}$. So, under our assumption, 
 %
 \begin{equation}
-  \magnitude*{\Lambda_n' \Phi_n} = \magnitude*{\Lambda_n \Phi_n'} \leq M \norm*[\infty]{\Phi_n'}. 
+  \magnitude*{\Lambda_n'(\Phi_n)} = \magnitude*{\Lambda_n(\Phi_n')} \leq M \norm*[\infty]{\Phi_n'}. 
 \end{equation}
 %
 Equivalently,
 % 
 \begin{equation}
-  \magnitude*{\Lambda_n (\phi_n)} \leq M \norm*[\infty]{\phi_n}, 
+  \magnitude*{\Lambda_n(\phi_n)} \leq M \norm*[\infty]{\phi_n}, 
 \end{equation}
 %
-which has already been disproved. Finally, to reach a last contradiction, assume that there exists $M$ attached to order %
-$p=0$ so that 
+which has already been disproved. To reach one final contradiction, assume that there exists $M = M(0)$ so that 
 %
 \begin{equation}
-  \magnitude*{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
+  \magnitude*{\Lambda_n'(\phi)}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
 \end{equation}
 %
 Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] implies that %
 %
 \begin{equation}
-  \magnitude*{\Lambda_n' \phi}  \leq M \norm*[\infty]{\phi'}.
+  \magnitude*{\Lambda_n'(\phi)}  \leq M \norm*[\infty]{\phi'}.
 \end{equation}
 %
 This contradiction concludes the proof.
