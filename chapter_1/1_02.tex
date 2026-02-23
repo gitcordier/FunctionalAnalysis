@@ -13,7 +13,7 @@
 the set of all sums $t_1 x_1 +\cdots +t_n x_n$ in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. %
 Prove that the convex hull of a set $A$ is convex and that it is the intersection of all convex sets that contain $A$.}
 %
-\begin{proof} Our proof relies on the following equivalent propositions:%
+\begin{proof} Our proof relies on the following equivalent properties:%
 %
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
@@ -24,8 +24,7 @@ Prove that the convex hull of a set $A$ is convex and that it is the intersectio
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %
-Let $y$ stand for $t_1 x_1 + \dots + t_n x_n \in \co(A)$. If $s \in \closedInterval*{0}{1}$, then %
-$sy + (1-s)y' \in \co(A)$, because
+Let $y$ stand for $t_1 x_1 + \dots + t_n x_n$. If $s \in \closedInterval*{0}{1}$, then $sy + (1-s)y' \in \co(A)$, because
 %
 \begin{equation}
   sy + (1-s)y' = st_1 x_1 + \cdots  + st_n x_n  + (1-s)t'_1 x'_1 + \cdots + (1-s)t'_{n'} \,x'_{n'}
@@ -43,14 +42,14 @@ This shows that
   s\co(A) + (1-s)\co(A) \subset \co(A) \qquad (0 \leq s \leq 1). 
 \end{equation}
 %
-In other words, $\co(A)$ is convex (the case $A=\emptyset= \co(A)$ is trivial). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ 
-to establish the second property as a consequence of $(i) \to (iv)$. 
+In other words, $\co(A)$ is convex (hence $(iv) \to (i)$). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ to establish the %
+second property as a consequence of $(i) \to (iv)$. 
 
 A proof by induction shows that $(i) \to (ii)$, as (d) of [1.1] provides the initial case $n=2$; see \eqref{Exercise-1-d}. %
 Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. %
 It remains to establish the intersection property.
 
-To do so, we consider
+To this end, we consider
 % 
 \begin{equation} 
   \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}, 
@@ -65,13 +64,12 @@ as we must prove that $\co(A) = \bigcap \Gamma$. First, observe that
 since $\co(A) \in \Gamma$. Conversely, the implication $(i) \to (iv)$, with $B\in \Gamma$ substituted for $A$, yields
 %
 \begin{equation}
-  \co(A) \subset \co(B) = B.
+  \co(A) \subset \co(B) = B; 
 \end{equation}
-The inclusion expresses the covariance $A \subset B \; \then \;\co(A) \subset \co(B)$. %
-In conclusion,
+where $\subset$ expresses the covariance $A \subset B \; \then \;\co(A) \subset \co(B)$. In conclusion,
 % 
 \begin{equation}
-  \co(A) \subset \bigcap \Gamma \subset \co(A),
+  \bigcap \Gamma \subset \co(A) \subset B \qquad (B \in \Gamma),
 \end{equation} 
 %
 which completes the proof.
