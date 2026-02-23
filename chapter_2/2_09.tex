@@ -27,79 +27,86 @@ is bilinear and continuous. Prove that there exists $M<\infty$ such that
 Is completeness needed here?}
 %
 \begin{proof}%
-% % % % % % % 
-% FIRST PART 
-% % % % % % % 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% First part: proof. 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 Completeness is not required. To show this, we only assume that $X$, $Y$, and $Z$ are normed spaces. Since $B$ is continuous, 
 there exists $r > 0$ such that 
 %
-\begin{equation}\label{bound for B}
-  \norm*{B(x, y)} < 1 
+\begin{equation}\label{2.9:bound-for-B}
+  \norm*{B(x, y)} < 1
 \end{equation}
 %
-whenever $\norm*{x} + \norm*{y} < r$. Therefore, any $0 < s < r$ yields%
+if $\norm*{x} + \norm*{y} < r$. Given $0 < \Delta = r - s < r$, substitute:
+$x' = \frac{s}{2} \cdot \frac{x}{\norm*{x} + \Delta }$ for $x$, %
+$y' = \frac{s}{2} \cdot \frac{y}{\norm*{y} + \Delta }$ for $y$ in \eqref{2.9:bound-for-B}. Hence
 %
 \begin{equation}
-  \norm*{B(x, y)} = \frac{4\norm*{x}\norm*{y}}{s^2} \cdot \norm[\bigg]{B\left(
-    \frac{s}{2} \cdot \frac{x}{\norm*{x}}, %
-    \frac{s}{2} \cdot \frac{y}{\norm*{y}}
-  \right)}
-  < \frac{4 \norm*{x} \norm*{y}}{s^2} \qquad (x \neq 0, y \neq 0)
-\end{equation}
-%
-when %
-$ \norm[\Big]{\frac{s}{2} \cdot \frac{x}{\norm*{x}}}
-+ \norm[\Big]{\frac{s}{2} \cdot \frac{y}{\norm*{y}}}
-= s < r$. 
-%
-This establishes the existence of $M=4/r^2$, since
-%
-\begin{equation}
-    \norm*{B(x, y)} \leq %
-    \frac{\!\!\!4\!}{\,s^{\,2}}\norm*{x}\norm*{y} 
-    \tendsto{s}{r}
-    \frac{\!\!\!4\!}{\,r^{\,2}}\norm*{x}\norm*{y}. 
+  \norm*{B(x, y)} = \frac{4}{s^{2}} \cdot \Bigl\{\norm*{x}\norm*{y} + O(\Delta) \Bigr\} 
+    \cdot \underbrace{\norm*{B(x', y')}}_{<1}
+  < \frac{4}{s^{2}} \cdot \Bigl\{\norm*{x}\norm*{y} + O(\Delta) \Bigr\}
+  \tendsto{s}{r} \frac{4}{r^{2}}\norm*{x}\norm*{y}.
 \end{equation}
 % 
-% % % % % % % %
-% SECOND PART 
-% % % % % % % %
-Consider the example where $X = Y = Z = C_c(\R)$ equipped with the supremum norm. The existence of $M=1$ follows from
-%
-\begin{equation}
-  \norm*[\infty]{fg} \leq \norm*[\infty]{F} \cdot \norm*[\infty]{g}. %
-\end{equation}
-%
-However, $C_c(\R)$ is not complete; see \citebook{5.4.4}{AnalyseIII}. We prove that the bilinear product %
+This establishes the existence of $M=4/r^2$. We now turn to a concrete example.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Second part: example.
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Consider the example where $X= Y= Z= C_c(\R)$ equipped with $\norm*[\infty]{\cdot}$, which is noncomplete; see %
+\citebook{5.4.4}{AnalyseIII}. Nevertheless, the following bilinear mapping 
 %
 \begin{align}
   B: C_c(\R)^{2} & \to  C_c(\R) \\
   (f, g) & \mapsto f \cdot g \nonumber
 \end{align}
 %
-is nevertheless continuous. To do so, we start with any
+is continuous. In addition, $B$ has continuity bound $M=1$, since 
 %
-\begin{equation}
-  0 < r < \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}} < \epsilon < 1.
+\begin{equation}\label{2.9:example-bound-M}
+  \norm*[\infty]{f\cdot g} \leq \norm*[\infty]{f} \cdot \norm*[\infty]{g}.
 \end{equation}
 %
-Next, we choose $(u, v) \in C_c(\R)^2$ with  
+To prove the continuity of $B$, start with any
 %
-\begin{equation}
-  \norm*[\infty]{f-u} + \norm*[\infty]{g-v} < r, %
+\begin{equation}\label{2.9:example-r-and-epsilon}
+  0 < r < \min\Bigl(1, \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}}\Bigr) < \epsilon.
 \end{equation}
 %
-so that $\norm*[\infty]{fg - uv} < \epsilon$. Explicitly, we have
+Next, choose $(u, v) \in C_c(\R)^2$ with  
+%
+\begin{equation}\label{2.9:example-distance-smaller-than-r}
+  \underbrace{\norm*[\infty]{u}- \norm*[\infty]{f} \leq \norm*[\infty]{f-u} }_{\text{reversed triangle inequality}} 
+  + \norm*[\infty]{g-v} 
+  < r. 
+\end{equation}
+%
+Hence 
 %
 \begin{align}
-\norm*[\infty]{fg - uv} & \leq \norm*[\infty]{f-u} \cdot \norm*[\infty]{g} + \norm*[\infty]{u} \cdot \norm*[\infty]{g-v} &\\
-  & < r \cdot \norm*[\infty]{g} + \left(r + \norm*[\infty]{f}\right) \cdot r && 
-    \left(\text{since $\norm*[\infty]{u} \leq r + \norm*[\infty]{f}$}\right)\\
-  & < \epsilon \frac{r + \norm*[\infty]{f} + \norm*[\infty]{g}}{ 1+ \norm*[\infty]{f} + \norm*[\infty]{g}} 
-    < \epsilon. && \left(\text{since $r < 1$}\right)
+  % 
+  {\lVert\hspaceNorm \overbrace{(f-u) g + u (g-v)}^{fg - uv} \hspaceNorm\rVert}_\infty
+    & \leq \norm*[\infty]{f-u} \cdot \norm*[\infty]{g} + \norm*[\infty]{u} \cdot \norm*[\infty]{g-v} 
+    && \bigl(\text{by the triangle inequality and } \eqref{2.9:example-bound-M} \bigr) \\
+  %
+    & < r \cdot \norm*[\infty]{g} + \left(r + \norm*[\infty]{f}\right) \cdot r 
+    && \bigl(\text{since } \norm*{u} \leq r + \norm*{f} \text{, see } \eqref{2.9:example-distance-smaller-than-r}\bigr)\\
+  % 
+    & < \epsilon \frac{r + \norm*[\infty]{f} + \norm*[\infty]{g}}{ 1+ \norm*[\infty]{f} + \norm*[\infty]{g}} 
+    && \bigl(\text{by } \eqref{2.9:example-r-and-epsilon}\bigr)\\
+  %
+    & < \epsilon. 
+    && \left(\text{since } r < 1 \text{, see } \eqref{2.9:example-r-and-epsilon}\right)
 \end{align}
 %
-Since $\epsilon$ is arbitrary, this establishes that $B$ is continuous.
+In conclusion,
+%
+\begin{equation}
+  \norm*[\infty]{B(f,g) - B(u, v)} < \epsilon.
+\end{equation}
+%
+Since $\epsilon$ was arbitrary, the continuity of $B$ is established. We have thus constructed a continuous bilinear %
+$B: X^2 \to X$ over a noncomplete normed space $X$, which completes the proof.
 \end{proof}
 % END
 % 
