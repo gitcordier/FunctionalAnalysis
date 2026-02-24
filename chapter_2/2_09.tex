@@ -37,23 +37,27 @@ there exists $r > 0$ such that
   \norm*{B(x, y)} < 1
 \end{equation}
 %
-if $\norm*{x} + \norm*{y} < r$. Given $0 < \Delta = r - s < r$, substitute:
-$x' = \frac{s}{2} \cdot \frac{x}{\norm*{x} + \Delta }$ for $x$, %
-$y' = \frac{s}{2} \cdot \frac{y}{\norm*{y} + \Delta }$ for $y$ in \eqref{2.9:bound-for-B}. Hence
+whenever $\norm*{x}+\norm*{y} < r$. Now, for general $(x, y) \in X\times Y$ and for all $0< r - s<\min (1, r)$, we substitute:%
+%
+\begin{align}
+  x_s &\Def \frac{s}{2} \cdot \frac{x}{\norm*{x} + r-s} \qquad (\text{for } x),\\
+  y_s &\Def \frac{s}{2} \cdot \frac{y}{\norm*{y} + r-s} \qquad (\text{for } y),
+\end{align}
+%
+in \eqref{2.9:bound-for-B}. A straightforward computation shows that, at fixed $(x, y)$, 
 %
 \begin{equation}
-  \norm*{B(x, y)} = \frac{4}{s^{2}} \cdot \Bigl\{\norm*{x}\norm*{y} + O(\Delta) \Bigr\} 
-    \cdot \underbrace{\norm*{B(x', y')}}_{<1}
-  < \frac{4}{s^{2}} \cdot \Bigl\{\norm*{x}\norm*{y} + O(\Delta) \Bigr\}
-  \tendsto{s}{r} \frac{4}{r^{2}}\norm*{x}\norm*{y}.
+  \norm*{B(x, y)}= \frac{4}{s^2} \Bigl(\norm*{x} + r-s \Bigr) \Bigl(\norm*{y} + r-s\Bigr) \underbrace{\norm*{B(x_s, y_s)}}_{<1}
+  < \frac{4}{s^2} \Bigl(\norm*{x}\norm*{y} + O(r-s) \Bigr)
+  \tendsto{s}{r} \frac{4}{r^{2}}\norm*{x}\norm*{y};
 \end{equation}
 % 
-This establishes the existence of $M=4/r^2$. We now turn to a concrete example.
+which establishes the existence of a bound $M=4/r^2$. To illustrate this result, we now turn to a concrete example.
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second part: example.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Consider the example where $X= Y= Z= C_c(\R)$ equipped with $\norm*[\infty]{\cdot}$, which is noncomplete; see %
+Take $X= Y= Z= C_c(\R)$ equipped with $\norm*[\infty]{\cdot}$, which is noncomplete; see %
 \citebook{5.4.4}{AnalyseIII}. Nevertheless, the following bilinear mapping 
 %
 \begin{align}
@@ -67,13 +71,13 @@ is continuous. In addition, $B$ has continuity bound $M=1$, since
   \norm*[\infty]{f\cdot g} \leq \norm*[\infty]{f} \cdot \norm*[\infty]{g}.
 \end{equation}
 %
-To prove the continuity of $B$, start with any
+To prove the continuity of $B$ at every $(f, g)$, fix $\epsilon > 0$ and let $r$ satisfy
 %
 \begin{equation}\label{2.9:example-r-and-epsilon}
-  0 < r < \min\Bigl(1, \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}}\Bigr) < \epsilon.
+  0 < r < \min\Bigl(1, \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}}\Bigr). 
 \end{equation}
 %
-Next, choose $(u, v) \in C_c(\R)^2$ with  
+Next, choose $(u, v) \in C_c(\R)^2$ such that 
 %
 \begin{equation}\label{2.9:example-distance-smaller-than-r}
   \underbrace{\norm*[\infty]{u}- \norm*[\infty]{f} \leq \norm*[\infty]{f-u} }_{\text{reversed triangle inequality}} 
@@ -106,7 +110,7 @@ In conclusion,
 \end{equation}
 %
 Since $\epsilon$ was arbitrary, the continuity of $B$ is established. We have thus constructed a continuous bilinear %
-$B: X^2 \to X$ over a noncomplete normed space $X$, which completes the proof.
+$B: X^2 \to X$ over a noncomplete normed space $X$. This concludes the proof.
 \end{proof}
 % END
 % 

@@ -24,6 +24,9 @@ Prove that the convex hull of a set $A$ is convex and that it is the intersectio
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
 %
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% First property: co(A) is convex
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 Let $y$ stand for $t_1 x_1 + \dots + t_n x_n$. If $s \in \closedInterval*{0}{1}$, then $sy + (1-s)y' \in \co(A)$, because
 %
 \begin{equation}
@@ -42,20 +45,20 @@ This shows that
   s\co(A) + (1-s)\co(A) \subset \co(A) \qquad (0 \leq s \leq 1). 
 \end{equation}
 %
-In other words, $\co(A)$ is convex (hence $(iv) \to (i)$). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ to establish the %
-second property as a consequence of $(i) \to (iv)$. 
+In other words, $\co(A)$ is convex (which implies $(iv) \to (i)$). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ to establish %
+the intersection property as a corollary of $(i) \to (iv)$. 
 
-A proof by induction shows that $(i) \to (ii)$, as (d) of [1.1] provides the initial case $n=2$; see \eqref{Exercise-1-d}. %
-Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. %
-It remains to establish the intersection property.
-
-To this end, we consider
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Second property: co(A) is the intersection of all convex sets that contain A.
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+A proof by induction shows that $(i) \to (ii)$, since (d) of [1.1] gives the base case $n=2$; see \eqref{Exercise-1-d}. %
+Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. Finally, consider
 % 
 \begin{equation} 
-  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}, 
+  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
 \end{equation} 
 % 
-as we must prove that $\co(A) = \bigcap \Gamma$. First, observe that
+We must prove that $\co(A) = \bigcap \Gamma$. Observe that
 %
 \begin{equation}
  \bigcap \Gamma \subset \co(A), 
@@ -64,14 +67,14 @@ as we must prove that $\co(A) = \bigcap \Gamma$. First, observe that
 since $\co(A) \in \Gamma$. Conversely, the implication $(i) \to (iv)$, with $B\in \Gamma$ substituted for $A$, yields
 %
 \begin{equation}
-  \co(A) \subset \co(B) = B; 
+  \co(A) \subset \co(B) = B
 \end{equation}
-where $\subset$ expresses the covariance $A \subset B \; \then \;\co(A) \subset \co(B)$. In conclusion,
+because $A \subset B \then \co(A) \subset \co(B)$. In conclusion,
 % 
 \begin{equation}
-  \bigcap \Gamma \subset \co(A) \subset B \qquad (B \in \Gamma),
+  \bigcap \Gamma \subset \co(A) \subset B, 
 \end{equation} 
 %
-which completes the proof.
+where $B$ runs through $\Gamma$. This completes the proof.
 \end{proof}
 % END
