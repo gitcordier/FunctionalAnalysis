@@ -18,8 +18,8 @@ Prove that the convex hull of a set $A$ is convex and that it is the intersectio
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
   \item{$A$ is convex.}
-  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ when $s_i > 0$.}
-  \item{$t_1 A + \dots + t_n A = A$ when $t_i > 0$ and $\sum t_i = 1$.}
+  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all $s_i > 0$; $n$ is arbitrary.}
+  \item{$t_1 A + \dots + t_n A = A$ for all $t_i> 0$, where $\sum t_i = 1$; $n$ is arbitrary.}
   \item{$\co(A) = A$.}
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
@@ -51,8 +51,8 @@ the intersection property as a corollary of $(i) \to (iv)$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second property: co(A) is the intersection of all convex sets that contain A.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-A proof by induction shows that $(i) \to (ii)$, since (d) of [1.1] gives the base case $n=2$; see \eqref{Exercise-1-d}. %
-Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the definition of the convex hull. Finally, consider
+A proof by induction shows that $(i) \to (ii)$, since \eqref{Exercise-1-d} gives the base case $n=2$. Next, (iii) is a %
+special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, consider
 % 
 \begin{equation} 
   \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
@@ -60,21 +60,24 @@ Next, (iii) is a special case of (ii), and $(iii) \to (iv)$ derives from the def
 % 
 We must prove that $\co(A) = \bigcap \Gamma$. Observe that
 %
-\begin{equation}
+\begin{equation}\label{1.2:intersection-subsetof-co-A}
  \bigcap \Gamma \subset \co(A), 
 \end{equation}
 %
-since $\co(A) \in \Gamma$. Conversely, the implication $(i) \to (iv)$, with $B\in \Gamma$ substituted for $A$, yields
+since $\co(A) \in \Gamma$. Conversely, applying $(i) \to (iv)$ to $B \in \Gamma$ in place of $A$ shows that
 %
-\begin{equation}
+\begin{equation}\label{1.2:co-A-subsetof-intersection}
   \co(A) \subset \co(B) = B
 \end{equation}
-because $A \subset B \then \co(A) \subset \co(B)$. In conclusion,
+because $A \subset B \then \co(A) \subset \co(B)$. In conclusion, \eqref{1.2:intersection-subsetof-co-A} and %
+\eqref{1.2:co-A-subsetof-intersection} 
+together yield
 % 
 \begin{equation}
-  \bigcap \Gamma \subset \co(A) \subset B, 
+  \bigcap \Gamma \subset \co(A) \subset B
 \end{equation} 
 %
-where $B$ runs through $\Gamma$. This completes the proof.
+for all $B \in \Gamma$. This completes the proof.
 \end{proof}
 % END
+% 
