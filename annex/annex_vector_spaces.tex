@@ -14,55 +14,58 @@ Given a vector space $X$, the following are equivalent for any nonempty $S \subs
 %
 \begin{enumerate}
 \item $S$ is a vector subspace of $X$,
-\item $S$ is convex and balanced, and $S + S \subset S$,
-\item $S$ is convex and balanced, and $\lambda S = S$ for all $\lambda > 0$.
+\item $S$ is balanced, and $S + S \subset S$,
+\item $S$ is convex and balanced, and $\lambda S \subset S$ for all $\lambda > 1$.
 \end{enumerate}
 %
 \end{lemma}
 %
 \begin{proof}
-It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$. Assume (a), which implies $S+S \subset S$ %
-and that $S$ is convex balanced. Thus, $(a)\to (b)$. Next, assume (b) and proceed by induction on positive integers $n$, %
-as follows:
+It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$.
+
+Assume (a), which implies $S+S \subset S$ and that $S$ is balanced. This establishes (b); %
+we now work under (b) alone. 
+
+Combining the assumptions of (b), we obtain the convexity of $S$:
+%
+\begin{equation}
+  (1-t)\,S + t\,S \subset S + S \subset S \qquad (0 \leq t \leq 1).
+\end{equation}
+%
+Next, a straightforward induction on $n \in \{2, 3, 4, \dots\}$ shows that
 %
 \begin{equation}
   n \, S \subset (n-1)\,S + S \subset S + S \subset S. 
 \end{equation} 
 %
-The LHS uses the convexity of $S$ (see \eqref{Exercise-1-d}); the case $n=1$ is valid since $S$ is balanced. Now choose %
-$\lambda > 0$. Then
+Indeed, the base case $n=2$ follows from $S + S \subset S$. Now choose $\lambda > 1$. Then 
 %
 \begin{equation}
-  1 \leq \gamma=\max\singleton[\big]{\lambda, 1/\lambda} \leq \ceil*{\gamma}.
+  1 <  \lambda \leq \ceil*{\lambda}.
 \end{equation}
 %
-From the balancedness of $S$ and the property $nS \subset S$, we obtain
+The balancedness of $S$ and $n \,S \subset S$ together yield
 %
 \begin{equation}
-  S \subset \gamma \, S \subset \ceil*{\gamma} \,S \subset S.
+  S \subset \lambda \, S \subset \ceil*{\lambda} \,S \subset S.
 \end{equation}
 %
-Hence 
+In summary, 
 %
-\begin{equation}\label{annex:S=gamma-S}
-  S = \gamma \, S.
+\begin{equation}\label{annex:S=lambda-S}
+  S = \lambda \, S, 
 \end{equation}
 %
-Multiplying both sides by $1/\gamma$ gives
-%
-\begin{equation}\label{annex:S=inverse-of-gamma-S}
-  (1/\gamma)\, S = S.
-\end{equation}
-%
-Equations \eqref{annex:S=gamma-S} and \eqref{annex:S=inverse-of-gamma-S} prove (c) because $\lambda\in\{\gamma, 1/\gamma\}$. %
-Finally, assume (c): For any $(\alpha_1,\alpha_2)\in \C^2$, we have
+which completes the proof of $(b) \to (c)$.
+
+Finally, assume only (c): For any $(\alpha_1,\alpha_2)\in \C^2$, we have
 %
 \begin{align}
   \alpha_1 \, S + \alpha_2 \, S &\subset \singleton[\big]{1+|\alpha_1|} \cdot S 
     + \singleton[\big]{1+|\alpha_2|} \cdot S && \text{(by balancedness)}\\
-  &\subset S + S && \text{(by the assumption that $\lambda S = S$)}\\
-  &= 2\, S && \text{(by convexity)}\\
-  &= S. && \text{(by the assumption that $\lambda S = S$)}
+  &\subset S + S && \text{(by the assumption that $\lambda S \subset S$ for all $\lambda > 1$)}\\
+  &\subset 2\, S && \text{(by convexity; see \eqref{Exercise-1-d})}\\
+  &\subset S. && \text{(by the assumption that $\lambda S \subset S$ for all $\lambda > 1$)}
 \end{align}
 %
 Therefore, $S$ is a vector subspace of $X$. %
