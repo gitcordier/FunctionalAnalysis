@@ -18,8 +18,8 @@ Prove that the convex hull of a set $A$ is convex and that it is the intersectio
 \renewcommand{\labelenumi}{(\roman{enumi})} 
 \begin{enumerate}
   \item{$A$ is convex.}
-  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all $s_i > 0$; $n$ is arbitrary.}
-  \item{$t_1 A + \dots + t_n A = A$ for all $t_i> 0$, where $\sum t_i = 1$; $n$ is arbitrary.}
+  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all positive $s_i$, for all $n$.}
+  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n   = 1)$, for all $n$.}
   \item{$\co(A) = A$.}
 \end{enumerate}
 \renewcommand{\labelenumi}{(\alph{enumi})} 
@@ -27,13 +27,13 @@ Prove that the convex hull of a set $A$ is convex and that it is the intersectio
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First property: co(A) is convex
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Let $y$ stand for $t_1 x_1 + \dots + t_n x_n$. If $s \in \closedInterval*{0}{1}$, then $sy + (1-s)y' \in \co(A)$, because
+With this notation, for all $s$ in the unit interval,   
 %
 \begin{equation}
-  sy + (1-s)y' = st_1 x_1 + \cdots  + st_n x_n  + (1-s)t'_1 x'_1 + \cdots + (1-s)t'_{n'} \,x'_{n'}
+  s \sum_i t_i x_i + (1-s) \sum_i t'_i x'_i  = \sum_i s t_i x_i + \sum_i (1-s) t'_i x'_i 
 \end{equation}
 %
-and 
+lies in $\co(A)$, because
 % 
 \begin{equation}
   \sum_i st_i + \sum_i (1-s)t'_i = s \sum_i t_i +(1-s) \sum_i t'_i  = 1.
@@ -42,12 +42,11 @@ and
 This shows that 
 %
 \begin{equation}
-  s\co(A) + (1-s)\co(A) \subset \co(A) \qquad (0 \leq s \leq 1). 
+  s\co(A) + (1-s)\co(A) \subset \co(A) \qquad \bigl(s \in \closedInterval*{0}{1}\bigr). 
 \end{equation}
 %
-In other words, $\co(A)$ is convex (which implies $(iv) \to (i)$). We now prove that $(i)\to(ii)\to(iii)\to(iv)$ to establish %
-the intersection property as a corollary of $(i) \to (iv)$. 
-
+In other words, $\co(A)$ is convex, and $(iv) \to (i)$ follows. To prove the intersection property, we first establish the %
+chain $(i)\to(ii)\to(iii)\to(iv)$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second property: co(A) is the intersection of all convex sets that contain A.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -64,20 +63,19 @@ We must prove that $\co(A) = \bigcap \Gamma$. Observe that
  \bigcap \Gamma \subset \co(A), 
 \end{equation}
 %
-since $\co(A) \in \Gamma$. Conversely, applying $(i) \to (iv)$ to $B \in \Gamma$ in place of $A$ shows that
+since $\co(A) \in \Gamma$. Conversely, applying $(i) \to (iv)$ with $B \in \Gamma$ playing the role of $A$ shows that
 %
 \begin{equation}\label{1.2:co-A-subsetof-intersection}
-  \co(A) \subset \co(B) = B
+  \co(A) \subset \co(B) = B, 
 \end{equation}
-because $A \subset B \then \co(A) \subset \co(B)$. In conclusion, \eqref{1.2:intersection-subsetof-co-A} and %
-\eqref{1.2:co-A-subsetof-intersection} 
-together yield
+as $A \subset B$ implies $\co(A) \subset \co(B)$. In conclusion, \eqref{1.2:co-A-subsetof-intersection} and %
+\eqref{1.2:intersection-subsetof-co-A} together yield
 % 
 \begin{equation}
-  \bigcap \Gamma \subset \co(A) \subset B
+  \co(A) \subset \bigcap \Gamma \subset \co(A), 
 \end{equation} 
 %
-for all $B \in \Gamma$. This completes the proof.
+which completes the proof.
 \end{proof}
 % END
 % 
