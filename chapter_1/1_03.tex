@@ -123,45 +123,36 @@ The special case $A = \{x\}$, $B=X$ %
 will occur in the proof of Exercise 15 in chapter 2. %
 %
 %:(f)
-\paragraph{Proof of (f).} The final proof consists of exhibiting a counterexample. To do so, let $f$ be any continuous mapping of the %
-real line such that %
+\paragraph{Proof of (f).} We provide a counterexample. Let $f: \R \to \R$ be continuous such that 
 %
 \begin{enumerate}[label=(\roman*)]
-  \item $f(x) + f(\minus x) \neq 0$ \qquad ($x \in \R$);
+  \item $f(x) + f(\minus x) \neq 0$ \qquad ($x \in \R$),
   \item $f$ vanishes at infinity. 
-\end{enumerate}
-For instance, we may combine (ii) with $f$ even and $f>0$ by setting %
-%
-  $f(x) = 2^{\minus |x|}$, %
-  $f(x) = e^{\minus x^2}$, %
-  $f(x) = 1/(1+|x|)$, \dots, %
-%
-and so on. \\
-\\
-As a continuous function, $f$ has closed graph $G$, see \citeFA{2.14}. %
-%
-Moreover, (i) implies that the origin %
-%
-  $(0, 0) \neq \left(x-x, f(x)+ f(\minus x)\right)$ %
+\end{enumerate} 
 % 
-is not in $G+G$. %
-%
-On the other hand, 
-%
+Condition (i) is satisfied when $f(x) > 0 $ for all $x$. For simplicity, choose $f$ to be strictly positive and even \eg the %
+\emph{bell curve} $f: x \mapsto e^{\minus x^2}$. Other possible choices are $f(x)= 2^{\minus |x|}$, $f(x)= 1/(1+|x|)$, and so %
+on. As a continuous function, $f$ has a closed graph $G$; see \citeFA{2.14}. Assume, to reach a contradiction, that %
+$(0, 0) \in G+G$. Then 
+% 
 \begin{equation}
-  \{ \left(0, f(n) + f(\minus n)\right): n=1, 2, \dots\} \subset G + G.
+  (0, 0) =  \bigl(x-x, \, \underbrace{f(x)+ f(\minus x)}_{> 0}\,\bigr), % 
 \end{equation}
 %
-
-%
-Now the key ingredient is that % 
+which contradicts (i). Therefore, $(0, 0) \notin G + G$. However, 
 %
 \begin{equation}
-  \left(0, f(n)+f(\minus n)\right) \overset{(ii)}{\tendsto{n}{\infty}} (0, 0). 
+  \set[\Big]{\bigl(0, f(n) + f(\minus n)\bigr)}{\counting{n}} \subset G + G.
 \end{equation}
 %
-We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
-So ends the proof.
+%
+Finally, it follows from (ii) that % 
+%
+\begin{equation}
+  \bigl(0, f(n)+f(\minus n)\bigr) \tendsto{n}{\infty} (0, 0). 
+\end{equation}
+%
+We have thus constructed a sequence in $G+G$ that converges to a point not in $G+G$. This completes the proof. 
 %
 \end{proof}
 %END 
