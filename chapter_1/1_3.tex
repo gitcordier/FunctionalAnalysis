@@ -13,23 +13,16 @@ Let be X as topological vector space. All sets mentioned below are understood to
 %: (a)
 \begin{proof}
 \begin{enumerate}
-\item%
-Pick an open set $A$ then let the variables $\mathit{V}_i$ %
-($i=1, 2, \dots$) run through all open subsets of $A$so that % 
+\item
+Let $A$ be open, so that 
 %
 \begin{equation}
-  \co(A) \subset 
-  \bigcup_{t_i} \, %
-    (t_1V_1 + \cdots + t_i V_i  + \cdots) 
-  \subset \co(A)
+  \co(A) \subset \bigcup %
+    \set[\Bigg]{\sum_{i=1}^n t_i V_i}{V_i \text{ open subset of } A, \sum_{i=1}^n t_i = 1, t_i > 0, n > 0} 
+  \subset \co(A).
 \end{equation}
 %
-given all convex combinations %
-%
-  $t_1V_1 + \cdots + t_i V_i  + \cdots $. %
- %
-We know from \citeFA{1.7} that those sums are open; %
-which achieves the proof. %
+We know from \citeFA{1.7} that every $\sum_i t_i V_i$ is open, which proves (a). %
 %
 %:(b)
 \item Provided a bounded set $E$, %
