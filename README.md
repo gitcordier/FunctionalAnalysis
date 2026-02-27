@@ -54,12 +54,13 @@ Feel free to get copies of this great book by yourself.
   - 1_2.tex
     The convex hull of a set A is convex and that is the intersection of
     all convex set(s) that contain A.
-  - 1_3.tex
+  - 1_03.tex
+    Other basic results
   - 1_4.tex
   - 1_5.tex
   - 1_6.tex
-  - 1_07.tex This is a lovely result, since it connects a topological result
-    (*to be metrizable or not to be*) with number theory.
+  - 1_07.tex
+    Number theory answers a topological question (*to be metrizable or not to be*). Lovely.
   - 1_9.tex Continuity, openness of a linear mapping.
   - 1_10.tex Continuity, openness of a linear mapping onto a finite dimensional
     space. Not trivial, since the domain may be infinite-dimensional.
