@@ -13,30 +13,20 @@
 the set of all sums $t_1 x_1 +\cdots +t_n x_n$ in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. %
 Prove that the convex hull of a set $A$ is convex and that it is the intersection of all convex sets that contain $A$.}
 %
-\begin{proof} Our proof relies on the following equivalent properties:%
-%
-\renewcommand{\labelenumi}{(\roman{enumi})} 
-\begin{enumerate}
-  \item{$A$ is convex.}
-  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all positive $s_i$, for all $n$.}
-  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n   = 1)$, for all $n$.}
-  \item{$\co(A) = A$.}
-\end{enumerate}
-\renewcommand{\labelenumi}{(\alph{enumi})} 
-%
+\begin{proof}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First property: co(A) is convex
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-With this notation, for all $s$ in the unit interval,   
+With this notation, for all $s$ in the unit interval, the weighted sum
 %
 \begin{equation}
-  s \sum_i t_i x_i + (1-s) \sum_i t'_i x'_i  = \sum_i s t_i x_i + \sum_i (1-s) t'_i x'_i 
+  s \sum_{i=1}^{n} t_i x_i + (1-s) \sum_{j=1}^{n'} t'_j x'_j = \sum_{i=1}^{n}  s t_i x_i + \sum_{j=1}^{n'} (1-s) t'_j x'_j 
 \end{equation}
 %
 lies in $\co(A)$, because
 % 
 \begin{equation}
-  \sum_i st_i + \sum_i (1-s)t'_i = s \sum_i t_i +(1-s) \sum_i t'_i  = 1.
+  \sum_{i=1}^{n} st_i + \sum_{j=1}^{n'} (1-s)t'_j = s \sum_{i=1}^{n} t_i +(1-s) \sum_{j=1}^{n'} t'_j  = 1.
 \end{equation}
 %
 This shows that 
@@ -45,13 +35,21 @@ This shows that
   s\co(A) + (1-s)\co(A) \subset \co(A) \qquad \bigl(s \in \closedInterval*{0}{1}\bigr). 
 \end{equation}
 %
-In other words, $\co(A)$ is convex, and $(iv) \to (i)$ follows. To prove the intersection property, we first establish the %
-chain $(i)\to(ii)\to(iii)\to(iv)$.
+In other words, $\co(A)$ is convex. To prove the intersection property, we establish the chain $(i)\to(ii)\to(iii)\to(iv)$ %
+from the following properties
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second property: co(A) is the intersection of all convex sets that contain A.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-A proof by induction shows that $(i) \to (ii)$, since \eqref{Exercise-1-d} gives the base case $n=2$. Next, (iii) is a %
-special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, consider
+%
+\begin{enumerate}[label=(\roman*)]
+  \item{$A$ is convex.}
+  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all positive $s_i$, for all $n$.}
+  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n = 1)$, for all $n$.}
+  \item{$\co(A) = A$.}
+\end{enumerate}
+%
+A straightforward proof by induction shows that $(i) \to (ii)$, since \eqref{Exercise-1-d} gives the base case $n=2$. Next, %
+(iii) is a special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, consider
 % 
 \begin{equation} 
   \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
@@ -75,7 +73,7 @@ as $A \subset B$ implies $\co(A) \subset \co(B)$. In conclusion, \eqref{1.2:co-A
   \co(A) \subset \bigcap \Gamma \subset \co(A), 
 \end{equation} 
 %
-which completes the proof.
+which completes the proof. In addition, observe that the convexity of $\co(A)$ conversely gives $(iv) \to (i)$.
 \end{proof}
 % END
 % 

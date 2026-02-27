@@ -1,6 +1,17 @@
-\renewcommand{\labelenumi}{(\alph{enumi})} 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 1_03.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{
-Let be X as topological vector space. All sets mentioned below are understood to be the subsets of X. Prove the following statements:
+Let be X as topological vector space. All sets mentioned below are understood to be the subsets of X. Prove the following %
+statements:
 \begin{enumerate}
 \item The convex hull of every open set is open.
 \item If X is locally convex then the convex hull of every bounded set is bounded.
@@ -11,10 +22,8 @@ Let be X as topological vector space. All sets mentioned below are understood to
 \end{enumerate}
 }
 %: (a)
-\begin{proof}
-\begin{enumerate}
-\item
-Let $A$ be open, so that 
+\begin{proof}%
+\textbf{Proof of (a).} Let $A$ be open, so that 
 %
 \begin{equation}
   \co(A) \subset \bigcup %
@@ -25,11 +34,8 @@ Let $A$ be open, so that
 We know from \citeFA{1.7} that every $\sum_i t_i V_i$ is open, which proves (a). %
 %
 %:(b)
-\item Provided a bounded set $E$, %
-pick $V$ a neighborhood of $0$: By (b) of Section 1.14 in \citeFA{14}, %
-$V$ contains a convex neighborhood of $0$, say $W$. %
-%
-It follows that there exists a positive scalar $s$ such that
+\paragraph{Proof of (b).} Provided a bounded set $E$, pick $V$ a neighborhood of $0$: By \citeFA{1.14 (b)}, $V$ %
+contains a convex neighborhood of $0$, say $W$. It follows that there exists a positive scalar $s$ such that
 %
 \begin{equation}
   E \subset tW \subset tV \qquad (t>s). 
@@ -44,34 +50,29 @@ Hence %
 which completes the proof. %
 %
 %:(c)
-\item At fixed $V$, neighborhood of the origin, %
-we combine the continuity of $+$ with \citeFA{1.14} %
-to conclude that there exists $U$ a balanced neighborhood of the origin %
-such that %
+\paragraph{Proof of (c).} At fixed $V$, neighborhood of the origin, we combine the continuity of $+$ with \citeFA{1.14} %
+to conclude that there exists $U$, a balanced neighborhood of the origin such that %
 %
 \begin{equation}
   U+U\subset V. 
 \end{equation}
 %
-Moreover, by the very definition of boundedness, %
-$A \subset r U$ for some positive scalar $r$. % 
-Similarly, $B \subset s U$ for some positive $s$. % 
-%
-Finally, 
+Moreover, by the very definition of boundedness, $A \subset r\,U$ for some positive $r$. Similarly, $B \subset s \, U$ for %
+sufficiently large $s > 0$. Finally, 
 %
 \begin{equation}
-A+B \subset  rU + sU \subset tU + tU \subset tV \qquad (t > r, s), 
+  A+B \subset  r\,U + s\,U \subset t\,U + t\,U \subset t\,V \qquad \bigl(t > \max(r, s)\bigr), 
 \end{equation}
 %
 since $U$ is balanced. So ends the proof. %
 %
 %:(d)
-\item First, $A$ and $B$ are compact: So is $A\times B$. %
+\paragraph{Proof of (d).} First, $A$ and $B$ are compact: So is $A\times B$. %
 Next, $+$ maps continuously $A\times B$ onto $A+B$. %
 In conclusion, $A+B$ is compact. %
 %
 %:(e)
-\item From now on, we assume that neither $A$ nor $B$ is empty, %
+\paragraph{Proof of (e).} From now on, we assume that neither $A$ nor $B$ is empty, %
 since otherwise the result is trivial.  %
 Now pick $c\in X$ outside $A+B$: %
 The result will be established by showing that $c$ is not in the closure %
@@ -80,13 +81,13 @@ of $A+B$. \\
 To do so, we let the variable $\mathit{a}$ range over $A$: %
 Every set $a+B$ is closed as well, see \citeFA{1.7}. %
 %
-Trivially, $a+B \neq c$: By Section \citeFA{1.10}, %
-there exists $V=V(a)$ a neighborhood of the origin such that %
+Since $a+B \cap \singleton{c} = \emptyset$, there exists $V=V(a)$ a neighborhood of the origin such that %
 %
 \begin{equation}\label{separation}
-  (a+B + V) \cap (c+V) = \emptyset.
+  (a+B + V) \cap (c+V) = \emptyset;
 \end{equation}
 %
+see \citeFA{1.10}. 
 Moreover, there are finitely many $a+V$, say $a_1 + V_1, a_2 + V_2, \dots$, %
 whose union $U$ contains the compact set $A$. Therefore, %
 %
@@ -122,10 +123,10 @@ The special case $A = \{x\}$, $B=X$ %
 will occur in the proof of Exercise 15 in chapter 2. %
 %
 %:(f)
-\item The final proof consists of exhibiting a counterexample. %
-To do so, let $f$ be any continuous mapping of the real line such that %
-\renewcommand{\labelenumii}{(\roman{enumii})} 
-\begin{enumerate}
+\paragraph{Proof of (f).} The final proof consists of exhibiting a counterexample. To do so, let $f$ be any continuous mapping of the %
+real line such that %
+%
+\begin{enumerate}[label=(\roman*)]
   \item $f(x) + f(\minus x) \neq 0$ \qquad ($x \in \R$);
   \item $f$ vanishes at infinity. 
 \end{enumerate}
@@ -161,8 +162,7 @@ Now the key ingredient is that %
 %
 We have so constructed a sequence in $G+G$ that converges outside $G+G$. %
 So ends the proof.
-\end{enumerate}
-\renewcommand{\labelenumi}{(\roman{enumi})} 
 %
 \end{proof}
-%END
+%END 
+% 
