@@ -166,11 +166,8 @@ fouridx,
 \DeclarePairedDelimiter\singleton\{\}
 \newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
 
-% % Union, intersection.
-% For now, nothing gets bolded. TODO:? Minor concern. 
-\DeclareMathOperator{\unionOfCollection}{\boldsymbol{\bigcup}}
-\DeclareMathOperator{\intersectionOfCollection}{\boldsymbol{\bigcap}}
-\def\cuts{\cap} % synonym
+% % Union, intersection. 
+\def\cuts{\cap} % synonym 
 
 % % Subset, supset
 \AtBeginDocument{\let\subset\subseteq

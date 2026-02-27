@@ -48,11 +48,11 @@ in logic, see \cite{SpecifyingSystems}.
 $\subset$ and $\supset$ are the standard symbols for set ordering. No specific symbol is reserved for strict ordering, every %
 constraint $X \neq Y$ will be explicitly stated when a strict subset is intended.
 %
-Given $A$ and $B$, $A\cup B$ is the union of $A$ and $B$. More generally, for any collection $C$, the union $U$ of $C$ is %
-expressed as follows:
+Given $A$ and $B$, $A\cup B$ is the union of $A$ and $B$. More generally, for any collection $\Gamma$, the union $U$ of %
+$\Gamma$ is expressed as follows:
 %
 \begin{equation}
-U \Def \unionOfCollection{C} \Def \bigcup_{S \in C} S.
+U \Def \pmb{\bigcup} \; \Gamma \Def \bigcup_{S \in \Gamma} S.
 \end{equation}
 %
 Similarly, $\cap$ denotes intersection in the same manner. %
@@ -232,7 +232,7 @@ Theorem \citebook{2.14}{BigRudin} shows that positivity (i) implies the followin
 % 
 Condition (ii) defines Radon measures in a more general sense; see \cite{AnalyseIII}. Furthermore, $\Lambda$ is bounded on %
 $C_c(X)$ with respect to the supremum norm \IFF (ii) is strengthened by %
-$\norm*[\infty]{\Lambda}\leq\sup\set{M_K}{K \subset X\;\text{compact}} < \infty$. Such uniformly continuous functionals %
+$\norm*[\infty]{\Lambda}\leq\sup\set{M_K}{K\text{ compact}} < \infty$. Such uniformly continuous functionals %
 $\Lambda$ constitute the space of \emph{bounded} Radon measures. According to \citebook{6.19}{BigRudin}, each of them can be %
 isometrically identified with a specific regular Borel measure $\mu$. Conversely, when the ambient space $X$ is compact, every 
 Radon measure is $\norm*[\infty]{\cdot}$-bounded. For instance, this case is addressed in Exercise 3 of Chapter 2. In measure %
@@ -275,10 +275,10 @@ When we substitute $f\,\beta$ for $\beta$, with $f$ measurable, \eqref{definitio
 In particular, if $f$ is positive, then $f\,\beta$ is a regular Borel measure such that
 %
 \begin{equation}
-	\int_{X} f \diff{\beta} = \sup \set{\Lambda \phi}{\phi \in C_c(X), 0 \leq \phi \leq 1}
+	\int_{X} f \diff{\beta} = \sup \set{\Lambda \phi}{\phi \in C_c(X), 0 \leq \phi \leq 1}.
 \end{equation}
 %
-Moreover, given $N = N(\beta)$ denoting $\set{f}{f = 0 \;\,\beta\text{-a.e.}}$, we see that the \emph{density} $f$ and the %
+For general $f$, let $N = N(\beta)$ be the set $\set{u}{u= 0 \;\,\beta\text{-a.e.}}$. Observe that the density $f$ and the %
 measure $\Lambda$ are identified modulo $N$ in \eqref{Borel-integral}. Algebraically speaking: %
 %
 \begin{equation}
@@ -294,9 +294,9 @@ A central question in calculus is whether the integral of the modulus, namely
 is finite. This motivates the following definitions:%
 %
 \begin{equation}
-	\mathcal{L}^1(X, \beta)\Def \set[\big]{f}{\magnitude*{f}_1  < \infty} 
+	\mathcal{L}^1(X, \beta)\Def \set[\Big]{f}{\magnitude*{f}_1  < \infty} 
   \subset \mathcal{L}^1_{\text{loc}}(X,\beta) 
-  \Def \intersectionOfCollection{\set[\big]{\mathcal{L}^1(K,\beta)}{K \subset X \text{ compact.}}}.
+  \Def \pmb{\bigcap}\; \set[\Big]{\mathcal{L}^1(K,\beta)}{K \text{ compact.}}.
 \end{equation}
 %
 Standard notation $\mathcal{L}^1(\beta)$ is used to avoid redundancy, or simply $\mathcal{L}^1$ when the context is clear. %
