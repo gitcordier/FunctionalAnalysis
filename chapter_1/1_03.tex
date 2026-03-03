@@ -26,19 +26,20 @@ statements:
 \textbf{Proof of (a).} Let $A$ be open, so that 
 %
 \begin{equation}
-  \co(A) \subset \pmb{\bigcup} %
-    \set[\Bigg]{\sum_{i=1}^n t_i V_i}{V_i \text{ open subset of } A, \sum_{i=1}^n t_i = 1, t_i > 0, n > 0} 
-  \subset \co(A).
+  \co(A) = \bigcup \set[\big]{\co(V_1, \dots, V_n)}{{V_i \subset A, \text{ $V_i$ open, $n$ is arbitrary}}},
 \end{equation}
 %
-We know from \citeFA{1.7} that every $\sum_i t_i V_i$ is open, which proves (a). %
-%
+where $\co(V_1, \dots, V_n)$ is the union of all convex combinations $t_1 V_1 +\cdots + t_n V_n$ %
+($t_1 + \cdots + t_n = 1$, $t_i > 0$). A straightforward induction on $n$ proves that every mapping %
+$(x_1, \dots, x_n) \mapsto t_1 x_1 + \cdots + t_n x_n$ is open. The base cases $n=1, 2$ are provided by \citeFA{1.7}. %
+As a result, every $t_1 V_1 +\cdots + t_n V_n$ is an open subset of $\co(V_1,\dots,V_n)$. Therefore, $\co(V_1,\dots,V_n)$ is %
+open. Property (a) follows, since $\co(A)$ is the union of all $\co(V_1,\dots, V_n)$.
 %:(b)
-\paragraph{Proof of (b).} Provided a bounded set $E$, pick $V$ a neighborhood of $0$: By \citeFA{1.14 (b)}, $V$ %
-contains a convex neighborhood of $0$, say $W$. It follows that there exists a positive scalar $s$ such that
+\paragraph{Proof of (b).} Given a bounded $E$, let $V$ be any neighborhood of $0$. By \citeFA{1.14 (b)}, $V$ contains a convex 
+neighborhood $W$ of $0$. It follows that there exists $s > 0$ such that
 %
 \begin{equation}
-  E \subset tW \subset tV \qquad (t>s). 
+  E \subset tW \subset tV \qquad (t > s). 
 \end{equation}
 %
 Hence %
@@ -50,77 +51,65 @@ Hence %
 which completes the proof. %
 %
 %:(c)
-\paragraph{Proof of (c).} At fixed $V$, neighborhood of the origin, we combine the continuity of $+$ with \citeFA{1.14} %
-to conclude that there exists $U$, a balanced neighborhood of the origin such that %
+\paragraph{Proof of (c).} For a fixed neighborhood $V$ of the origin, the continuity of $+$, combined with \citeFA{1.14}, %
+provides a balanced open $U$ such that %
 %
-\begin{equation}
-  U+U\subset V. 
+\begin{equation}\label{1.3.c:U+U-subset-of-V}
+  U + U\subset V. 
 \end{equation}
 %
-Moreover, by the very definition of boundedness, $A \subset r\,U$ for some positive $r$. Similarly, $B \subset s \, U$ for %
-sufficiently large $s > 0$. Finally, 
+By boundedness, $A \subset r U$ for some $r> 0$, and $B \subset s U$ for some $s>0$. For $t > \max(r,s)$, the balancedness of %
+$U$ gives 
 %
-\begin{equation}
-  A+B \subset  r\,U + s\,U \subset t\,U + t\,U \subset t\,V \qquad \bigl(t > \max(r, s)\bigr), 
-\end{equation}
+\begin{align}
+  A+B & \subset  r U + s U \\
+  & \subset t U + t U \\
+  &\subset t V, && \bigl(\text{from }\eqref{1.3.c:U+U-subset-of-V}\bigr)
+\end{align}
 %
-since $U$ is balanced. So ends the proof. %
+which concludes the proof. %
 %
 %:(d)
-\paragraph{Proof of (d).} First, $A$ and $B$ are compact: So is $A\times B$. %
-Next, $+$ maps continuously $A\times B$ onto $A+B$. %
-In conclusion, $A+B$ is compact. %
+\paragraph{Proof of (d).} Since $A \times B$ is compact and the mapping
+%
+\begin{align}
+  +: A \times B &\to A + B \\\nonumber
+  (a,b) &\mapsto a + b 
+\end{align}
+%
+is continuous and surjective, the sum $A + B$ is compact. 
 %
 %:(e)
-\paragraph{Proof of (e).} From now on, we assume that neither $A$ nor $B$ is empty, %
-since otherwise the result is trivial.  %
-Now pick $c\in X$ outside $A+B$: %
-The result will be established by showing that $c$ is not in the closure %
-of $A+B$. \\
-\\
-To do so, we let the variable $\mathit{a}$ range over $A$: %
-Every set $a+B$ is closed as well, see \citeFA{1.7}. %
+\paragraph{Proof of (e).} Assume that $A\neq\emptyset$ and $B\neq\emptyset$, since otherwise the result is trivial. %
+Pick $c \in X \setminus (A+B)$. It suffices to show that $c\in X\setminus\closure{A+B}$. To this end, let $a$ range over $A$. %
+Every set $a+B$ is closed; see \citeFA{1.7}. Since $(a+B) \cap \singleton{c} = \emptyset$, there exists a neighborhood %
+$V=V(a)$ of the origin such that %
 %
-Since $a+B \cap \singleton{c} = \emptyset$, there exists $V=V(a)$ a neighborhood of the origin such that %
-%
-\begin{equation}\label{separation}
+\begin{equation}\label{1.3.e:separation}
   (a+B + V) \cap (c+V) = \emptyset;
 \end{equation}
 %
-see \citeFA{1.10}. 
-Moreover, there are finitely many $a+V$, say $a_1 + V_1, a_2 + V_2, \dots$, %
-whose union $U$ contains the compact set $A$. Therefore, %
+see \citeFA{1.10}. Moreover, there are finitely many $a+V$, say $a_1 + V_1, \dots, a_N + V_N$, whose union $U$ contains the %
+compact $A$. Hence
 %
-\begin{equation}\label{U + B encloses A + B}
+\begin{equation}\label{1.3.e:U+B-encloses-A+B}
   A+B \subset U + B.
 \end{equation}
 %
-Now define %
+Now define 
+%
 \begin{equation}
-  W \Def V_1 \cap V_2 \cap \cdots, 
+  W \Def V_1 \cap \cdots \cap V_N, 
 \end{equation}
 %
 so that 
 %
 \begin{equation}
-  (a_i + B + V_i) \cap (c + W) \overset{(\ref{separation})}{=} \emptyset %
-  \qquad (i = 1, 2, \dots).
+  (a_i + V_i + B) \cap (c + W) \overset{\eqref{1.3.e:separation}}{=} \emptyset
 \end{equation}
 %
-In conclusion, $c$ is not in the closure of $U+B$. %
-Finally, (\ref{U + B encloses A + B}) asserts that %
-$c$ is not in $\overline{A+B}$ either; which achieves the proof. \\
-\\
-\textbf{Corollary}: If $B$ is the closure of a set $S$, then %
-%
-\begin{equation}
-  A+B \subset \overline{A+S} \subset \overline{A+B} = A + B
-\end{equation}
-%
-by \citeFA{(b) of 1.13} (since $A$ is closed; %
-see Section 1.12, from the same source). %
-The special case $A = \{x\}$, $B=X$ %
-will occur in the proof of Exercise 15 in chapter 2. %
+for each index $i$. In conclusion, $c$ is not in the closure of $U + B$. Finally, \eqref{1.3.e:U+B-encloses-A+B} establishes 
+that $c$ is not in $\closure{A+B}$ either. This achieves the proof. 
 %
 %:(f)
 \paragraph{Proof of (f).} We provide a counterexample. Let $f: \R \to \R$ be continuous such that 
@@ -130,19 +119,19 @@ will occur in the proof of Exercise 15 in chapter 2. %
   \item $f$ vanishes at infinity. 
 \end{enumerate} 
 % 
-Condition (i) is satisfied when $f(x) > 0 $ for all $x$. For simplicity, choose $f$ to be strictly positive and even \eg the %
-\emph{bell curve} $f: x \mapsto e^{\minus x^2}$. Other possible choices are $f(x)= 2^{\minus |x|}$, $f(x)= 1/(1+|x|)$, and so %
-on. As a continuous function, $f$ has a closed graph $G$; see \citeFA{2.14}. Assume, to reach a contradiction, that %
-$(0, 0) \in G+G$. Then 
+Condition (i) is satisfied when $f(x) > 0 $ for all $x$. For simplicity, choose $f$ to be strictly positive and even, \eg the %
+\emph{bell curve} $f(x)= \exp(\minus x^2)$. Other canonical choices are $f(x)=2^{\minus\abs{x}}$, $f(x)=\frac{1}{1+\abs{x}}$, % 
+and so on. As a continuous function, $f$ has a closed graph $G$; see \citeFA{2.14}. Observe that $(0, 0)\notin G+G$ because%
+$(0, 0) \in G+G$ implies
 % 
 \begin{equation}
-  (0, 0) =  \bigl(x-x, \, \underbrace{f(x)+ f(\minus x)}_{> 0}\,\bigr), % 
+  (0, 0) =  \bigl(x_0 + (\minus x_0), \, \underbrace{f(x_0)+ f(\minus x_0)}_{> 0}\,\bigr) % 
 \end{equation}
 %
-which contradicts (i). Therefore, $(0, 0) \notin G + G$. However, 
+for some $x_0$, which contradicts (i). However, 
 %
 \begin{equation}
-  \set[\Big]{\bigl(0, f(n) + f(\minus n)\bigr)}{\counting{n}} \subset G + G.
+  \bigl(0, f(n) + f(\minus n)\bigr) \in G + G \qquad (\counting{n}).
 \end{equation}
 %
 %
@@ -152,8 +141,22 @@ Finally, it follows from (ii) that %
   \bigl(0, f(n)+f(\minus n)\bigr) \tendsto{n}{\infty} (0, 0). 
 \end{equation}
 %
-We have thus constructed a sequence in $G+G$ that converges to a point not in $G+G$. This completes the proof. 
+We have thus constructed a sequence in $G+G$ that converges to $(0,0) \notin G+G$. The proof is complete. 
 %
+\end{proof}
+%
+\begin{lemma}[Corollary to (e)]
+If $B = \closure{S}$, then %
+%
+\begin{equation}
+  A+B \subset \closure{A+S} \subset \closure{A+B} = A + B
+\end{equation}
+%
+The special case where $A = \{x\}$ and $B=X$ applies to Exercise 15 in chapter 2.
+\end{lemma}
+%
+\begin{proof}
+The result directly follows from \citeFA{1.13 (b)}, since $A$ is closed; see \citeFA{1.12}. 
 \end{proof}
 %END 
 % 
