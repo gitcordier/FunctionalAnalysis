@@ -1,108 +1,76 @@
-\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. %
-Show that the following three families of seminorms %
-(where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. 
-If $D = d/dx$: 
+\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. Show that the following three families of seminorms %
+(where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. If $D = d/dx$: 
 %
 \begin{enumerate}
 \item{
-  $\| D^n f \|_\infty = \sup\set{\left| D^n f(x)\right|}{\infty< x< \infty}$
+  $\norm*[\infty]{D^n f} = \sup\set{\magnitude*{D^n f(x)}}{\minus \infty< x< \infty}$
 }
 \item{
-  $\| D^n f \|_1 =\int_0^1 \left|D^n f(\varit{x}) \right| d\varit{x}$
+  $\norm*[1]{D^n f} = \int_0^1 \magnitude*{D^n f(x)} \diff{x}$
 }
 \item{
-  $\| D^n f \|_2 = \left\{
-    \int_0^1 | D^n f(\varit{x}) |^2  d\varit{x} 
-  \right\}^{1/2}.$
+  $\norm*[2]{D^n f} = \singleton{\int_0^1 \magnitude*{D^n f(x)}^2 \diff{x}}^{1/2}.$
 }
-\end{enumerate}
-%
-}
+\end{enumerate}}
 %
 \begin{proof}%
-Let us equip $\D_K$ with the inner product %
-%
-  $\bra{f}\ket{g} = \int_0^1 f \, \bar{g}$, so that %
-  $\bra{f}\ket{f} = \| f \|_2^2$. %
-%
-The following %
+The vector space $\Continuous_K = C(\R)\cap \set{u}{\supp{u} \subset K}$, which contains $\D_K$, is equipped with the inner %
+product $\bra{u}\ket{v} = \int_0^1 u \bar{v}$, so that $\bra{u}\ket{u} = \norm*[2]{u}^2$. The Cauchy-Schwarz inequality with %
+$u=1$ and $v = \magnitude*{D^n f}$ gives
 %
 \begin{equation}
-  \int_0^1 1\,| D^n f| \leq \| 1 \|_2 \| D^n f \|_2 
+  \int_0^1 1 \cdot \magnitude*{D^n f} \leq \norm*[2]{1} \cdot \norm*[2]{D^n f};
 \end{equation}
 %
-is then a Cauchy-Schwarz inequality, see Theorem \citeFA{12.2}{FA}. %
-We so obtain %
+see Theorem \citeFA{12.2}. Since $K$ has length $1$, we obtain %
 %
-\begin{equation}\label{inequalities 1}
-  \| D^n f \|_1 
-    \leq 
-  \| D^n f \|_2 
-    \leq 
-  \| D^n f \|_\infty 
-    <\infty 
+\begin{equation}\label{1.14:inequalities 1}
+  \norm*[1]{D^n f} \leq \norm*[2]{D^n f} \leq \norm*[\infty]{D^n f}.
 \end{equation}
 %
-since $K$ has length $1$. %
+Moreover, 
 %
-Obviously, the support of $D^n f$ lies in $K$, hence the below equality %
-%
-\begin{equation}\label{inequalities 2}
-  |D^n f(x)|
-    =
-  \left|\int_{0}^x D^{n+1}f\right|
-    \leq 
-  \int_{0}^x |D^{n+1}f|
-    \leq 
-  \|D^{n+1}f \|_1.
+\begin{equation}
+  \magnitude*{D^n f(x)} = \magnitude*{\int_{0}^x D^{n+1}f} 
+  \leq \int_{0}^x \magnitude*{D^{n+1}f} 
+  \leq \norm*[1]{D^{n+1}f}.
 \end{equation}
 %
-Take the supremum over all $|D^n f(x)|$: Combining (\ref{inequalities 1}) %
-with (\ref{inequalities 2}) now reads as follows, %
+Taking the supremum of $\magnitude*{D^n f(x)}$ over all $x$ strengthens \eqref{1.14:inequalities 1}, as follows:
 %
 \begin{equation}\label{inequalities 3}
-  \|D^n f\|_1 
-    \leq 
-  \|D^{n} f\|_2 
-    \leq 
-  \|D^{n} f\|_\infty 
-    \leq 
-  \|D^{n+1}f\|_1 
-    \leq 
-  \cdots < \infty.
+  \norm*[1]{D^n f}
+  \leq \norm*[2]{D^n f}
+  \leq \norm*[\infty]{D^n f} 
+  \leq \norm*[1]{D^{n+1} f} 
+  \leq \cdots 
+  < \infty.
 \end{equation}
 %
-Finally, put %
+Finally, set
 %
 \begin{align}
-  V^{(i)}_n         & \Def \{f\in \D_K: \|f \|_i < 2^{\,\minus n}\}, \\
-  \mathcal{B}^{(i)} & \Def \{V^{(i)}_n: n = 0, 1, 2, \dots\},
+  V^{[i]}_n & \Def \set{f}{f \in \D^k, \norm*[i]{f} < 2^{\minus n}}, \\
+  \mathcal{B}^{[i]} & \Def \set{V^{[i]}_n}{\counting{n}},
 \end{align}
 %
-so that (\ref{inequalities 3}) is mirrored by neighborhood inclusions, %
-provided $i=1, 2, \infty$:
+so that (\ref{inequalities 3}) is reflected in the following neighborhood inclusions:
 %
-\begin{equation}\label{inclusions}
-  V^{(1)}_n
-    \supseteq  
-  V^{(2)}_n 
-    \supseteq  
-  V^{(\infty)}_n 
-    \supseteq  
-  V^{(1)}_{n+1} 
-    \supseteq  
-  \cdots .
+\begin{equation}\label{1.14:inclusions}
+  V^{[1]}_n \supseteq V^{[2]}_n 
+  \supseteq V^{[\infty]}_n 
+  \supseteq V^{[1]}_{n+1} 
+  \supseteq \cdots .
 \end{equation}
 %
-Their subchains $V^{(i)}_n\supseteq V^{(i)}_{n+1}$ turn $\mathcal{B}^{(i)}$ %
-into a local base of a topology $\tau_i$. 
-The whole chain (\ref{inclusions}) then forces %
+The inclusions $V^{[i]}_n\supseteq V^{[i]}_{n+1}$ turn $\mathcal{B}^{[i]}$ into a local base of a topology $\tau_i$. %
+The entire chain \eqref{1.14:inclusions} forces %
 %
 \begin{equation}
-  \tau_1 \subset \tau_2 \subset \tau_\infty \subset \tau_1;
+  \tau_1 \subset \tau_2 \subset \tau_\infty \subset \tau_1, 
 \end{equation}
 %
-which achieves the proof.
+which completes the argument.
 \end{proof}
 % END
 
