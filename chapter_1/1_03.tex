@@ -82,34 +82,33 @@ is continuous and surjective, the sum $A + B$ is compact.
 %:(e)
 \paragraph{Proof of (e).} Assume that $A\neq\emptyset$ and $B\neq\emptyset$, since otherwise the result is trivial. %
 Pick $c \in X \setminus (A+B)$. It suffices to show that $c\in X\setminus\closure{A+B}$. To this end, let $a$ range over $A$. %
-Every set $a+B$ is closed; see \citeFA{1.7}. Since $(a+B) \cap \singleton{c} = \emptyset$, there exists a neighborhood %
-$V=V(a)$ of the origin such that %
+The set $a+B$ is closed; see \citeFA{1.7}. Since $(a+B) \cap \singleton{c} = \emptyset$, it follows from \citeFA{1.10} that %
+there exists a neighborhood $V=V(a)$ of the origin such that %
 %
 \begin{equation}\label{1.3.e:separation}
-  (a+B + V) \cap (c+V) = \emptyset;
+  (a+B + V) \cap (c+V) = \emptyset.
 \end{equation}
 %
-see \citeFA{1.10}. Moreover, there are finitely many $a+V$, say $a_1 + V_1, \dots, a_N + V_N$, whose union $U$ contains the %
-compact $A$. Hence
+As a compact subset, $A$ is covered by finitely many $a+V$, say $a_1 + V_1, \dots, a_N + V_N$, whose union is $U$. Hence 
 %
 \begin{equation}\label{1.3.e:U+B-encloses-A+B}
   A+B \subset U + B.
 \end{equation}
 %
-Now define 
+Now choose
 %
 \begin{equation}
-  W \Def V_1 \cap \cdots \cap V_N, 
+  W \Def \bigcap_{i=1}^N V_i
 \end{equation}
 %
 so that 
 %
 \begin{equation}
-  (a_i + V_i + B) \cap (c + W) \overset{\eqref{1.3.e:separation}}{=} \emptyset
+  (a_i + V_i + B) \cap (c + W) \overset{\eqref{1.3.e:separation}}{=} \emptyset 
 \end{equation}
 %
-for each index $i$. In conclusion, $c$ is not in the closure of $U + B$. Finally, \eqref{1.3.e:U+B-encloses-A+B} establishes 
-that $c$ is not in $\closure{A+B}$ either. This achieves the proof. 
+for every $a_i + V_i$. Thus, $c \notin \closure{U + B}$. Finally, \eqref{1.3.e:U+B-encloses-A+B} establishes that %
+$c \notin \closure{A+B}$. This completes the proof. 
 %
 %:(f)
 \paragraph{Proof of (f).} We provide a counterexample. Let $f: \R \to \R$ be continuous such that 
