@@ -1,3 +1,14 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 1_14.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. Show that the following three families of seminorms %
 (where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. If $D = d/dx$: 
 %
@@ -28,7 +39,7 @@ see Theorem \citeFA{12.2}. Since $K$ has length $1$, we obtain %
   \norm*[1]{D^n f} \leq \norm*[2]{D^n f} \leq \norm*[\infty]{D^n f}.
 \end{equation}
 %
-Moreover, 
+Moreover, having $f$ supported by $K$ yields
 %
 \begin{equation}
   \magnitude*{D^n f(x)} = \magnitude*{\int_{0}^x D^{n+1}f} 
@@ -43,18 +54,16 @@ Taking the supremum of $\magnitude*{D^n f(x)}$ over all $x$ strengthens \eqref{1
   \leq \norm*[2]{D^n f}
   \leq \norm*[\infty]{D^n f} 
   \leq \norm*[1]{D^{n+1} f} 
-  \leq \cdots 
-  < \infty.
+  \leq \cdots .
 \end{equation}
 %
 Finally, set
 %
-\begin{align}
-  V^{[i]}_n & \Def \set{f}{f \in \D^k, \norm*[i]{f} < 2^{\minus n}}, \\
-  \mathcal{B}^{[i]} & \Def \set{V^{[i]}_n}{\counting{n}},
-\end{align}
+\begin{equation}
+  V^{[i]}_n \Def \set{f}{f \in \D_K, \norm*[i]{D^n f} < 2^{\minus n}} 
+\end{equation}
 %
-so that (\ref{inequalities 3}) is reflected in the following neighborhood inclusions:
+for each seminorm $i$, so that (\ref{inequalities 3}) is reflected in the following neighborhood inclusions:
 %
 \begin{equation}\label{1.14:inclusions}
   V^{[1]}_n \supseteq V^{[2]}_n 
@@ -63,8 +72,8 @@ so that (\ref{inequalities 3}) is reflected in the following neighborhood inclus
   \supseteq \cdots .
 \end{equation}
 %
-The inclusions $V^{[i]}_n\supseteq V^{[i]}_{n+1}$ turn $\mathcal{B}^{[i]}$ into a local base of a topology $\tau_i$. %
-The entire chain \eqref{1.14:inclusions} forces %
+The inclusions $V^{[i]}_n\supseteq V^{[i]}_{n+1}$ turn $\set{V^{[i]}_n}{\naturals{n}}$ into a local base of a topology %
+$\tau_i$. The entire chain \eqref{1.14:inclusions} forces %
 %
 \begin{equation}
   \tau_1 \subset \tau_2 \subset \tau_\infty \subset \tau_1, 

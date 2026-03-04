@@ -38,7 +38,7 @@ If $p> 1$, repeating the same reasoning, first for $D\phi$, then $D^2\phi$, and 
 for some points $a < x_p <  \dots < x_1 < x_0$. Hence %
 %
 \begin{equation}
-  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\integers{p}).
+  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\naturals{p}).
 \end{equation}
 %
 Similarly, if $(a+b)/2 < x_0 < b$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
@@ -59,7 +59,8 @@ for all $0 \leq k \leq p$. %
 %
 \begin{lemma}[Higher derivatives cannot be bounded by lower derivatives]
 \label{lemma-derivative-not-bounded-by-magnitude}%
-There is no general formula to estimate higher-order derivatives from lower-order derivatives. This immediately implies that no reversed mean value theorem exists.
+There is no general formula to estimate higher-order derivatives from lower-order derivatives. This immediately implies that %
+no reversed mean value theorem exists.
 \end{lemma}
 %
 \begin{proof}
@@ -79,7 +80,7 @@ so that
 is unbounded as $p$ or $\omega$ tends to $\infty$. %
 %
 Note that no pointwise estimation holds either. Indeed, when it exists, the quotient %
-$Q_\omega(t) = \magnitude*{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
+$Q_\omega(t)= \magnitude*{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
 Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude*{\tan(\omega t)}$ or $\omega^{p-k}\magnitude*{\cot{(\omega t)}}$. %
 In all cases, $Q_\omega(t) \to \infty$ as $\omega \to \infty$ at fixed $t$. This example rules out any general inequality in %
 the reversed direction. However, the following smooth example $\phi$ maintains a constant derivative around $0$, %
@@ -99,7 +100,7 @@ parameters: maximum amplitude ($A$) and delay ($\tau$). We now define $\phi$ as 
   %E_\rho: 
   \begin{cases}
     \phi(0) & = 0 \\
-    \diff{\phi}& = A \rho \bigl(\omega(\abs{t} - \tau)\bigr)\diff{t}.
+    \diff{\phi} & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr)\diff{t}.
   \end{cases}
 \end{equation}
 %
@@ -113,9 +114,8 @@ Equivalently, $\phi$ is odd and, for $s > 0$,
 Hence
 %
 \begin{align}
-  \norm*[\infty]{\phi} & = \phi(\tau + 1/\omega) \\
-    %& =  \tau A  + A \int_{\tau}^{\tau + 1/\omega} \rho \bigl(\omega (t - \tau)\bigr) \diff{t} \\
-    & = \tau A  + \frac{A}{\omega} \int_{0}^{1} \rho(u)\diff{u} \\
+  \norm*[\infty]{\phi} & = \phi(\tau + 1/\omega) \\ 
+    & = \tau A  + \frac{A}{\omega} \int_{0}^{1} \rho(u)\diff{u} \\ 
     & < \tau A + \frac{A}{\omega}.
 \end{align}
 %
