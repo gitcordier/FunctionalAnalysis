@@ -9,28 +9,33 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\textit{Put $K =[0, 1]$ and define $\D_K$ as in Section 1.46. Show that the following three families of seminorms %
-(where $n = 0, 1, 2, \dots$) define the same topology on $\D_K$. If $D = d/dx$: 
+\textit{Put $K = \closedInterval*{0}{1}$ and define $\D_K$ as in Section 1.46. Show that the following three families of %
+seminorms (where $\counting{n}$) define the same topology on $\D_K$. If $D = d/dx$: 
 %
 \begin{enumerate}
 \item{
-  $\norm*[\infty]{D^n f} = \sup\set{\magnitude*{D^n f(x)}}{\minus \infty< x< \infty}$
+  $\norm*[\infty]{D^n f} = \sup\set[\big]{\magnitude*{D^n f(x)}}{\minus \infty< x< \infty}$.
 }
 \item{
-  $\norm*[1]{D^n f} = \int_0^1 \magnitude*{D^n f(x)} \diff{x}$
+  $\displaystyle{\norm*[1]{D^n f} = \int_0^1 \magnitude*{D^n f(x)} \diff{x}}$.
 }
 \item{
-  $\norm*[2]{D^n f} = \singleton{\int_0^1 \magnitude*{D^n f(x)}^2 \diff{x}}^{1/2}.$
+  $\displaystyle{\norm*[2]{D^n f} = \singleton[\bigg]{\int_0^1 \magnitude*{D^n f(x)}^2 \diff{x}}^{1/2}}$.
 }
 \end{enumerate}}
 %
 \begin{proof}%
-The vector space $\Continuous_K = C(\R)\cap \set{u}{\supp{u} \subset K}$, which contains $\D_K$, is equipped with the inner %
-product $\bra{u}\ket{v} = \int_0^1 u \bar{v}$, so that $\bra{u}\ket{u} = \norm*[2]{u}^2$. The Cauchy-Schwarz inequality with %
-$u=1$ and $v = \magnitude*{D^n f}$ gives
+The vector space $\Continuous_K = C(\R)\cap \set{u}{\supp{u} \subset K}$ contains $\D_K$. It is equipped with the inner %
+product 
+%
+\begin{align}
+  \bra{u}\ket{v} \Def \int_0^1 u \bar{v} \qquad \Bigl((u,v) \in {\Continuous_K}^2 \Bigr). 
+\end{align}
+%
+In particular, $\bra{u}\ket{u} = \norm*[2]{u}^2$. The Cauchy-Schwarz inequality with $u=1$ and $v= \magnitude*{D^n f}$ is then
 %
 \begin{equation}
-  \int_0^1 1 \cdot \magnitude*{D^n f} \leq \norm*[2]{1} \cdot \norm*[2]{D^n f};
+  \int_0^1 \magnitude*{D^n f} \leq \norm*[2]{1} \cdot \norm*[2]{D^n f};
 \end{equation}
 %
 see Theorem \citeFA{12.2}. Since $K$ has length $1$, we obtain %
@@ -39,7 +44,7 @@ see Theorem \citeFA{12.2}. Since $K$ has length $1$, we obtain %
   \norm*[1]{D^n f} \leq \norm*[2]{D^n f} \leq \norm*[\infty]{D^n f}.
 \end{equation}
 %
-Moreover, having $f$ supported by $K$ yields
+Moreover, the fact that $D^n f(0) = 0$ implies
 %
 \begin{equation}
   \magnitude*{D^n f(x)} = \magnitude*{\int_{0}^x D^{n+1}f} 
@@ -60,20 +65,20 @@ Taking the supremum of $\magnitude*{D^n f(x)}$ over all $x$ strengthens \eqref{1
 Finally, set
 %
 \begin{equation}
-  V^{[i]}_n \Def \set{f}{f \in \D_K, \norm*[i]{D^n f} < 2^{\minus n}} 
+  V^{(i)}_n \Def \set{f}{f \in \D_K, \norm*[i]{D^n f} < 2^{\minus n}} 
 \end{equation}
 %
-for each seminorm $i$, so that (\ref{inequalities 3}) is reflected in the following neighborhood inclusions:
+for each seminorm $i$, so that (\ref{inequalities 3}) is reflected in the decreasing sequence
 %
 \begin{equation}\label{1.14:inclusions}
-  V^{[1]}_n \supseteq V^{[2]}_n 
-  \supseteq V^{[\infty]}_n 
-  \supseteq V^{[1]}_{n+1} 
-  \supseteq \cdots .
+  V^{(1)}_n \supset V^{(2)}_n 
+  \supset V^{(\infty)}_n 
+  \supset V^{(1)}_{n+1} 
+  \supset \cdots .
 \end{equation}
 %
-The inclusions $V^{[i]}_n\supseteq V^{[i]}_{n+1}$ turn $\set{V^{[i]}_n}{\naturals{n}}$ into a local base of a topology %
-$\tau_i$. The entire chain \eqref{1.14:inclusions} forces %
+Inclusions $V^{(i)}_n\supset V^{(i)}_{n+1}$ turn $\singleton[\Big]{V^{(i)}_n}$ into a local base of a topology $\tau_i$; %
+see \citeFA{1.37}. The chain \eqref{1.14:inclusions} forces %
 %
 \begin{equation}
   \tau_1 \subset \tau_2 \subset \tau_\infty \subset \tau_1, 
@@ -82,4 +87,4 @@ $\tau_i$. The entire chain \eqref{1.14:inclusions} forces %
 which completes the argument.
 \end{proof}
 % END
-
+% 
