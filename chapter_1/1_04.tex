@@ -13,10 +13,17 @@
 but that its interior is not. [compare with (e) of Theorem 1.13.]}
 %
 \begin{proof}
-Let us equip $\C^2$ with the $1$-norm, that is $\norm*[1]{(z_1, z_2)} = \magnitude*{z_1} + \magnitude*{z_2}$. Note that $B$ is 
-nonempty, since the origin $(0, 0)$ lies in $B$. The proof consists of establishing that $B$ is balanced and that %
-$\interior{B}$ is a nonempty subset that does not contain the origin. This suffices, since every nonempty balanced subset %
-contains the origin. Observe that
+Let us equip $\C^2$ with the $1$-norm, that is, $\norm*[1]{(z_1, z_2)} = \magnitude*{z_1} + \magnitude*{z_2}$ for every pair %
+$(z_1, z_2) \in \C^2$. Note that $B$ is nonempty, since the origin $(0, 0)$ lies in $B$. The proof consists of %
+establishing that 
+%
+\begin{enumerate}
+  \item $B$ is balanced,
+  \item $B$ has nonempty interior,
+  \item the interior $\interior{B}$ does not contain the origin. 
+\end{enumerate}
+%
+This suffices, since every nonempty balanced subset contains the origin. Observe that
 %
 \begin{equation}
   \magnitude*{\alpha \cdot z_1}  
@@ -26,23 +33,24 @@ contains the origin. Observe that
   \qquad \bigl((z_1,z_2) \in B, \alpha \in \C \bigr).
 \end{equation}
 %
-In particular, this holds when $\magnitude*{\alpha} \leq 1$. Therefore, $B$ is balanced. The triangle inequality gives
+In particular, this holds when $\magnitude*{\alpha} \leq 1$. Therefore, $B$ is balanced. This is (a). The triangle inequality %
+gives
 %
 \begin{equation}
    \set[\big]{(z_1, z_2)}{ \norm*[1]{(1- z_1, 2- z_2)} < 1/3} \subset B. 
 \end{equation}
 %
-Thus, $B$ has nonempty interior. However, we now prove that $(0, 0) \notin \interior{B}$. To this end, suppose for the sake of %
-contradiction that $B$ contains the origin-centered open ball
+Hence $\interior{B}\neq \emptyset$, which is (b). We now prove (c). To this end, suppose for the sake of contradiction that %
+$B$ contains the origin-centered open ball
 %
 \begin{equation}
   U_r \Def \set{(z_1, z_2)}{\norm*[1]{(z_1, z_2)} < r}
 \end{equation}
 %
-for some $r> 0$. The special case $(r/2, 0)\in U_r \subset B$ conflicts with the definition of $B$, which completes the proof. 
+for some $r> 0$. The special case $(r/2, 0)\in U_r$ conflicts with the definition of $B$. This completes the proof. 
 \end{proof}
 %
-\par\noindent{\textbf{Remark.}} The construction shows that the assumption $0\in \interior{B}$ cannot be omitted from %
+\par\noindent{\textbf{Remark.}} This result implies that the assumption $0\in \interior{B}$ cannot be omitted from %
 \citeFA{1.13 (e)}.
 % END
 % 
