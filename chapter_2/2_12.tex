@@ -1,67 +1,53 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis 
+% 2_1Z.tex
+% 
+% encoding: UTF-8 
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \textit{%
 Let X be the normed space of all real polynomials in one variable, with %
 %
-  \begin{equation*}
-    \norm*{f}=\int_0^1\lvert f(t)\rvert\ dt.
+\begin{equation*}
+  \norm*{f} = \int_0^1 \magnitude*{f(t)} \diff{t}.
 \end{equation*}
 %
-Put  %
-  $B(f, g)=\int _0^1 f(t)g(t) dt $, %
+Put $B(f, g) = \int _0^1 f(t)g(t) \diff{t}$, and show that $B$ is a bilinear functional on $X\times X$ which is separately %
+continuous but is not continuous.}
+% 
+\begin{proof}
+Observe that %
 %
-and show that $B$ is a bilinear continuous functional on $X\times X$ %
-which is separately continuous but is not continuous.
-}
-\begin{proof} Let $f$ denote the first variable, $g$ the second one. %
-Remark that %
-%
-  \begin{align}\label{magnitude of B(f, g)}
-    \magnitude*{B(f, g)} 
-      & < \norm*{f} \cdot \max_{[0,1]} \magnitude*{g} ; 
-  \end{align}
-%
-which is sufficient (\citeFA{1.18}) to assert that any %
-%
-  $f \mapsto B(f, g)$ 
-%
-is continuous. The continuity of all %
-%
-  $g \mapsto B(f,g)$ %
-%
-follows (Define $C(g, f) = B(f, g)$ and proceed as above). %
-Suppose, to reach a contradiction, that $B$ is continuous. %
-Thus, there exists a positive $M$ such that, 
-%
-  \begin{equation}\label{magnitude of B(f, g) H_c}
-    \magnitude*{B(f, g)} < M \norm*{f}\norm*{g}.
-  \end{equation}
-%
-Put %
-%
-  \begin{equation}\label{definition of f_n}
-    f_n(x)\Def 2 \sqrt{n}\cdot x^{n}\in \R[x] \qquad\qquad (\counting{n}), 
-  \end{equation}
-%
-so that 
-%
-  \begin{equation}\label{norm of f_n}
-    \norm*{f_n} = \frac{2 \sqrt{n}}{n+1} \tendsto{n}{\infty}0.
-  \end{equation}
-%
-On the other hand,
-%
-  \begin{equation}\label{norm of B(f_n, g_n)}
-    B(f_n, f_n)= \frac{4 n}{2n+1} > 1.
-  \end{equation}
-%
-Finally, we combine %
-%
-  (\ref{norm of B(f_n, g_n)}) and %
-  (\ref{magnitude of B(f, g) H_c}) with %
-  (\ref{norm of f_n}) %
-%
-and so obtain
-\begin{equation}
- 1 < B(f_n, f_n) <  M \norm*{f_n}^2  \tendsto{n}{\infty} 0.
+\begin{equation}\label{2.12:magnitude-of-B}
+  \magnitude*{B(f, g)} \leq \max_{[0,1]} \magnitude*{g} \norm*{f},
 \end{equation}
-Our continuity assumption is then contradicted. So ends the proof.
+%
+which shows that the partial mapping $f\mapsto B(f,g)$ is continuous; see \citeFA{1.18}. By symmetry, the partial mapping %
+$g\mapsto B(f,g)$ is likewise continuous. This concludes the first part. We now prove, however, that $B$ is not continuous. %
+To this end, suppose, for a contradiction, that $B$ is continuous. Applying [2.9] with $X=Y=\R[T]$ and $Z=\R$ (completeness %
+is not needed) establishes that 
+%
+\begin{equation}
+  \magnitude*{B(f, f)} \leq M \norm*{f}^2 \qquad (f \in X)
+\end{equation}
+%
+for some $M < \infty$. Therefore, evaluating at
+%
+\begin{equation}
+    f_n(T)\Def \sqrt{n} \, T^{n} \qquad (\counting{n})
+\end{equation}
+%
+yields the desired contradiction:
+% 
+\begin{equation}
+  \frac{1}{3} \leq B(f_n, f_n) = \frac{n}{2n+1} \leq M \norm*{f_n}^2 = \frac{M n}{(n+1)^2} \tendsto{n}{\infty} 0.
+\end{equation}
+%
+Alternatively, without relying on [2.9], we observe that $\norm*{f_n}\to 0$, which implies that $(f_n, f_n)$ tends to $(0,0)$ %
+in the product space $X \times X$. In contrast, $B(f_n, f_n) \to 1/2 \neq B(0,0)=0$. Thus, $B$ is not sequentially continuous %
+and, consequently, not continuous. This completes the proof.
 \end{proof}
