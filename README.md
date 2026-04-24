@@ -75,8 +75,8 @@ Feel free to get copies of this great book by yourself.
     continuous in the test functions topology.
 - chapter_2/
   - 2_03.tex In $D_K$, some Lebesgue integrable functions converge to $\delta'$,
-      which is not a Radon measure.
-      Their weak derivatives converge to $\delta''$.
+    which is not a Radon measure.
+    Their weak derivatives converge to $\delta''$.
   - 2_09.tex Given normed spaces (X, Y, Z), any continuous bilinear mapping
     $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded.
     Thoses spaces need not be complete. An easy example is given by
@@ -117,3 +117,7 @@ Feel free to get copies of this great book by yourself.
   - annex_Dirac.tex
 - LICENSE
 - HOWTO
+
+# License
+
+This work is licensed under a [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
