@@ -290,3 +290,5 @@ misc*
 
 # Excel files 
 *.xlsx
+
+latex_primitives.tex
