@@ -278,9 +278,9 @@ TSWLatexianTemp*
 # Files that are not ready / not relevant 
  
 # Misc
-misc*
-
+misc* 
 *misc*
+basecard.tex
 
 # MacOS files
 .DS_Store
@@ -291,4 +291,3 @@ misc*
 # Excel files 
 *.xlsx
 
-latex_primitives.tex
