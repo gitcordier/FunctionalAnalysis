@@ -18,7 +18,6 @@ I am carefully rewriting my solutions, aiming at the cleanest possible result.
     - amssymb
     - mathrsfs
     - amsthm
-    - mathspec
   - cite
   - geometry
   - caption
@@ -46,24 +45,27 @@ Feel free to get copies of this great book by yourself.
   [Hevea](http://hevea.inria.fr) compilation, see HOWTO.
 - FA_DM.tex, the master document.
 - FA_mainmatter.tex
+- notations.tex
 - FA_chapter_1.tex
 - chapter_1/
-  - 1_1.tex
+  - 1_01.tex
     Basic results that straightforwardly follow from the axioms
     as given in section 1.4.
-  - 1_2.tex
+  - 1_02.tex
     The convex hull of a set A is convex and that is the intersection of
     all convex set(s) that contain A.
   - 1_03.tex
     Other basic results
-  - 1_4.tex
-  - 1_5.tex
+  - 1_04.tex
+  - 1_05.tex
   - 1_6.tex
   - 1_07.tex
     Number theory answers a topological question (*to be metrizable or not to be*). Lovely.
   - 1_9.tex Continuity, openness of a linear mapping.
   - 1_10.tex Continuity, openness of a linear mapping onto a finite dimensional
     space. Not trivial, since the domain may be infinite-dimensional.
+  - 1_12.tex
+    Two topologically equivalent metrics on the real line. Only one metric is complete.
   - 1_14.tex Alternative ways to define the topology of the test functions space D_K,
     in the special case K=[0, 1].
   - 1_16.tex This is about showing that a function test topology is independent
@@ -96,7 +98,8 @@ Feel free to get copies of this great book by yourself.
     Roughly speaking, compactness replaces completeness. Compactness cannot
     be dropped: A counterexample is given.
 - chapter 3/
-  - 3_4.tex
+  - 3_03.tex
+    Direct application of Hahn-Banach theorem.
   - 3_11.tex
     Meagerness of the polar (in the infinite-dimensional case)
     of the neighborhoods of the origin:
@@ -108,6 +111,8 @@ Feel free to get copies of this great book by yourself.
   - 4_15.tex
 - chapter 6/
   - 6_1.tex
+  - 6_1_Mat.tex
+  - 6_6.tex
   - 6_9.tex
 - annex/
   - annex_vector_spaces.tex
@@ -115,6 +120,7 @@ Feel free to get copies of this great book by yourself.
   - annex_mean_value.tex
     Examples and Lemma for Exercise 2.3 (2.03.tex).
   - annex_Dirac.tex
+  - annex.tex
 - LICENSE
 - HOWTO
 

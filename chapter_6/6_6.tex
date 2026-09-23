@@ -1,7 +1,6 @@
 %
-\renewcommand{\labelenumi}{(\alph{enumi})} 
 {\it 
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item Suppose that $c_m=\exp\{\minus (m!)!\}$, $m=0,\, 1,\, 2,\, \dots\, $. Does the series
 \begin{align*}{
 \sum_{m=0}^\infty c_m (D^m\phi)(0)
@@ -12,7 +11,7 @@ converges for every $\phi\in C^{\,\infty} (R)$?
 \end{enumerate}}
 \begin{proof} The answer is: no. To establish this assertion, we first assume, to reach a contradiction, that the above series converges for every smooth $\phi:\, \R\to\,\C\,$. \\
 \\
-The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this, see the $\phi_j-\check{\phi}_j$ involved in (\ref{2_3_phicheck}).}, \eg,  greater than $1/c_m$.
+The sequence $\{c_m\, (D^m\phi)(0)\}$ so converges to $0$. Nevertheless, it is proved in [1.46] that $C^{\,\infty}(\Omega)$ is not locally bounded. In other words, it is always possible to excavate a $\phi\,$ for which the magnitude of the $m$-th derivative at $0$ is as large as we please\footnote{indeed [1.46] provides sufficient tools for constructive proof of this.}, \eg,  greater than $1/c_m$.
  A desired contradiction is then reached. We now prove (b), again by contradiction.\\
 \\
 To do so we assume $\{\Lambda_j\}$ to converge to some $\Lambda$ of $\mathcal{D}'(\Omega)$ and we let $Q$ run through the compact sets of $\Omega\,$. Next, we define

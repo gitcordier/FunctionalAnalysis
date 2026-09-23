@@ -9,11 +9,9 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\renewcommand{\labelenumi}{(\alph{enumi})} 
-\textit{Suppose $X$ is a vector space. All sets mentioned below are understood 
-  to be subsets of $X$. Prove the following statements from the axioms 
-  as given in section 1.4.
-\begin{enumerate}
+\textit{Suppose $X$ is a vector space. All sets mentioned below are understood  to be subsets of $X$. Prove the following %
+statements from the axioms as given in section 1.4. 
+\begin{enumerate}[label=(\alph*)]
 \item{If $x,\,y\in X$ there is a unique $z\in X$ such that $x+z=y$.}
 \item{ $0\cdot x=0=\alpha\cdot 0 \qquad (\alpha\in\C, x\in X)$.}
 \item{ $2A\subset A+A$.}
@@ -186,9 +184,9 @@ then conclude from (d) that $A + B$ is convex. %
 %
 This completes the proof: $A+B$ is balanced. %
 %: (j)
-\item The proof is based on Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}]. Let $\Gamma$ be a collection of %
-vector subspaces of $X$. Define $I = \bigcap \Gamma$ and $U = \bigcup \Gamma$. The intersection $I$ is convex and balanced by %
-(e) and (f), because every $Y \in \Gamma$ is convex and balanced. Next, observe that
+\item The proof is based on Lemma [\ref{annex:lemma:vector-subspaces-as-convex-balanced-sets}]. Let $\Gamma$ be a collection %
+of vector subspaces of $X$. Define $I = \bigcap \Gamma$ and $U = \bigcup \Gamma$. The intersection $I$ is convex and balanced %
+by (e) and (f), because every $Y \in \Gamma$ is convex and balanced. Next, observe that
 %
 \begin{equation}
   I + I \subset Y + Y \subset  Y
@@ -200,10 +198,10 @@ for all $Y \in \Gamma$. Thus,
   I + I \subset I.
 \end{equation}
 %
-It now follows from the implication $(b) \then (a)$ of Lemma~[\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $I$ %
-is a vector subspace of $X$. We now prove the counterpart of (g) when $\Gamma$ is totally ordered by set inclusion. Combining %
-(e) with (g) demonstrates that $U$ is convex and balanced. To show that $U$ is a vector subspace, we note that this total %
-ordering of $\Gamma$ implies
+It now follows from the implication $(b) \then (a)$ of Lemma~[\ref{annex:lemma:vector-subspaces-as-convex-balanced-sets}] %
+that $I$ is a vector subspace of $X$. We now prove the counterpart of (g) when $\Gamma$ is totally ordered by set inclusion. 
+Combining (e) with (g) demonstrates that $U$ is convex and balanced. To show that $U$ is a vector subspace, we note that this 
+total ordering of $\Gamma$ implies
 %
 \begin{equation}
   Y_1 + Y_2  \subset \max(Y_1, Y_2),
@@ -215,16 +213,16 @@ where $Y_1$ and $Y_2$ run through $\Gamma$. Hence%
   U + U \subset U.
 \end{equation}
 %
-It then follows from the implication $(b) \then (a)$ of Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $U$ %
-is a vector subspace of $X$. To prove the counterpart of (h), let each $Y_i$ be a vector subspace of $X$. Taken together, %
-(h) and (i) imply that $Y_1 + Y_2$ is convex and balanced. Moreover, 
+It then follows from the implication $(b) \then (a)$ of Lemma [\ref{annex:lemma:vector-subspaces-as-convex-balanced-sets}] %
+that $U$ is a vector subspace of $X$. To prove the counterpart of (h), let each $Y_i$ be a vector subspace of $X$. Taken %
+together, (h) and (i) imply that $Y_1 + Y_2$ is convex and balanced. Moreover, 
 %
 \begin{equation}
   (Y_1 + Y_2) + (Y_1 + Y_2) = (Y_1 + Y_1) + (Y_2 + Y_2) \subset Y_1 + Y_2.
 \end{equation}
 % 
-Finally, we conclude from $(b) \then (a)$ of Lemma [\ref{annex:vector-subspaces-as-convex-balanced-sets}] that $Y_1 + Y_2$ %
-is a vector subspace of $X$. %
+Finally, we conclude from $(b) \then (a)$ of Lemma [\ref{annex:lemma:vector-subspaces-as-convex-balanced-sets}] that %
+$Y_1 + Y_2$ is a vector subspace of $X$. %
 \end{enumerate}
 \end{proof}
 % END

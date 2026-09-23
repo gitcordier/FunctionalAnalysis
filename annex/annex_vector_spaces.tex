@@ -9,10 +9,10 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\begin{lemma}[Vector subspaces as convex and balanced sets]\label{annex:vector-subspaces-as-convex-balanced-sets}
-Given a vector space $X$, the following are equivalent for any nonempty $S \subset X$.
+\begin{lemma}[Vector subspaces as convex and balanced sets]\label{annex:lemma:vector-subspaces-as-convex-balanced-sets}
+Given a vector space $X$, the following are equivalent for any nonempty $S \subset X$:
 %
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item $S$ is a vector subspace of $X$,
 \item $S$ is balanced, and $S + S \subset S$,
 \item $S$ is convex and balanced, and $\lambda S \subset S$ for all $\lambda > 1$.
@@ -21,52 +21,345 @@ Given a vector space $X$, the following are equivalent for any nonempty $S \subs
 \end{lemma}
 %
 \begin{proof}
-It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$.
-
-Assume (a), which implies $S+S \subset S$ and that $S$ is balanced. This establishes (b); %
-we now work under (b) alone. 
-
-Combining the assumptions of (b), we obtain the convexity of $S$:
+It suffices to show that $(a) \to (b)$, $(b) \to (c)$, and $(c) \to (a)$. Clearly, assuming (a) implies that $S+S \subset S$ %
+and that $S$ is balanced, which is (b). Next, let us work with (b) alone. By balancedness, 
 %
 \begin{equation}
-  (1-t)\,S + t\,S \subset S + S \subset S \qquad (0 \leq t \leq 1).
+  (1-t)\,S + t\,S \subset S + S \subset S \qquad (0 \leq t \leq 1), 
 \end{equation}
 %
-Next, a straightforward induction on $n \in \{2, 3, 4, \dots\}$ shows that
+which establishes the convexity of $S$. Furthermore, a straightforward induction on $n = 2, 3, 4, \dots$ shows that
 %
 \begin{equation}
-  n \, S \subset (n-1)\,S + S \subset S + S \subset S. 
+  n \, S \subset (n-1)\,S + S \subset S + S \subset S.
 \end{equation} 
 %
-Indeed, the base case $n=2$ follows from $S + S \subset S$. Now choose $\lambda > 1$. Then 
+Now choose $\lambda > 1$. The special case $n = \ceil*{\lambda}$ yields%
 %
 \begin{equation}
-  1 <  \lambda \leq \ceil*{\lambda}.
+  S \subset \lambda \, S \subset \ceil*{\lambda} \,S \subset S,
 \end{equation}
 %
-The balancedness of $S$ and $n \,S \subset S$ together yield
+since $S$ is balanced. Therefore, 
 %
 \begin{equation}
-  S \subset \lambda \, S \subset \ceil*{\lambda} \,S \subset S.
-\end{equation}
-%
-In summary, 
-%
-\begin{equation}\label{annex:S=lambda-S}
   S = \lambda \, S, 
 \end{equation}
 %
-which completes the proof of $(b) \to (c)$.
-
-Finally, assume only (c): For any $(\alpha_1,\alpha_2)\in \C^2$, we have
+which completes the proof of $(b) \to (c)$. Finally, assume (c) only and consider all %
+$\lambda = 2 + \magnitude*{\alpha}$\;\,($\alpha \in \C$). Hence %  
 %
 \begin{align}
-  \alpha_1 \, S + \alpha_2 \, S &\subset \singleton[\big]{1+|\alpha_1|} \cdot S 
-    + \singleton[\big]{1+|\alpha_2|} \cdot S && \text{(by balancedness)}\\
+  \alpha \, S + \alpha' \, S &\subset \lambda \, S + \lambda' \,S && \text{(by balancedness)}\\
   &\subset S + S && \text{(by the assumption that $\lambda S \subset S$ for all $\lambda > 1$)}\\
   &\subset 2\, S && \text{(by convexity; see \eqref{Exercise-1-d})}\\
   &\subset S. && \text{(by the assumption that $\lambda S \subset S$ for all $\lambda > 1$)}
 \end{align}
 %
-Therefore, $S$ is a vector subspace of $X$. %
+In summary, $\alpha \, S + \alpha' \, S \subset S$ holds for all scalars $\alpha$ and $\alpha'$. This proves $(c) \to (a)$ %
+and completes the proof.
 \end{proof}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Finite dimension
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\noindent %
+From now on, $Y$ has finite dimension $n>0$: the trivial $0$-dimensional case is excluded. In the context of %
+topological vector spaces, as defined in \citeFA{1.6, 1.12}, we now establish the fundamental result: 
+%
+\begin{quote}
+  \emph{In finite dimension, all norms are equivalent.}
+\end{quote}
+% 
+By ``equivalent'', we mean that two norms $\norm*{\cdot}$ and $\norm*{\cdot}'$ on a finite-dimensional vector space $Y$ have %
+the same order of magnitude: There exist positive constants $C$ and $C'$ such that, for all $y\in Y$, 
+%
+\begin{align}
+  \norm*{y}'\! &\leq C\, \norm*{y}, \\
+  \norm*{y}\,  &\leq C'\!\norm*{y}'.
+\end{align}
+%
+This expresses in terms of norms, a fundamental \emph{topological} equivalence between all vector spaces of same dimension %
+$n$. Theorem [\ref{annex:theorem:topology-in-finite-dimension}] makes this equivalence explicit. It uses the following %
+definitions:
+%
+\begin{enumerate}[label=(\roman*)]
+  \item Given a vector space $U$, the group $\Aut(U)$ consists of all isomorphisms of $U$ onto itself.
+  \item Given vector spaces $U$ and $V$, $\Iso(U,V)$ is the family of all isomorphisms of $U$ onto $V$.
+  \item {
+    Given topological vector spaces $U$ and $V$, $\GL(U, V)$ is the subset of all $\Lambda \in \Iso(U, V)$ %
+    that are homeomorphisms. Elements of $\GL(U, V)$ are known as the \emph{topological isomorphisms} of $U$ onto $V$. 
+  }
+  \item $\GL_n$ is the \emph{general linear group} $\GL(\C^n, \C^n)$, where $\C^n$ is endowed with the product topology.
+\end{enumerate}
+%
+We start with Lemma [\ref{annex:lemma:isomorphisms-in-dimension-n}], which assigns to each isomorphism $\C^n \to Y$ a basis of 
+$Y$. 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % Finite dimension: lemma 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{lemma}\label{annex:lemma:isomorphisms-in-dimension-n}
+Let $Y$ be a complex vector space of dimension $n$. The isomorphisms of $\C^n$ onto $Y$ exists, they are exactly the linear %
+maps $f$ that solve the systems
+\begin{align} E_u:
+  \begin{cases}
+    f(e_1) &= u_1 \\
+    \mspace{16mu}\vdots& \\\nonumber
+    f(e_n) &= u_n
+  \end{cases}
+\end{align}
+when the lists $u_1, \dots, u_n$ describe the bases of $Y$. More precisely: 
+%
+\begin{enumerate}[label=(\alph*)]
+  \item Each $E_u$ has a unique solution $f_u: \C^n \to Y$ that is a linear isomorphism, and, conversely, 
+  \item to each isomorphism $f: \C^n \to Y$ corresponds a unique system $E_u$ that encodes $f=f_u$.  
+\end{enumerate}
+%
+\end{lemma}
+%
+\begin{proof}
+Let $u_1, \dots, u_n$ describe any basis of $Y$. More precisely, each $E_u$ defines a function that extends to a unique linear 
+mapping $f=f_u$, where
+%
+\begin{equation}\label{annex:isomorphisms-in-dimension-n:linearity}
+  f\Biggl(\sum_{k=1}^n \alpha_k e_k\Biggr) = \sum_{k=1}^n \alpha_k u_k \qquad(\alpha_k \in \C).
+\end{equation} 
+%
+Note that $f$ is one-to-one, since the whole list $u_1, \dots, u_n$ is linearly independent. The whole image $f(\C^n)$ %
+has then dimension $n$. Hence $f(\C^n) = Y$, which completes the proof of (a). Conversely, if $f: \C^n \to Y$ is %
+an isomorphism, then $v_1= f(e_1), \dots, v_n = f(e_n)$ describes a basis of $Y$. Equality %
+\eqref{annex:isomorphisms-in-dimension-n:linearity} applied to this $f$ shows that the system $E_v$ carries enough information 
+to retrieve $f$. 
+\end{proof}
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % Finite dimension: topological equivalence 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+We now give the central result: all vector spaces $Y$ of same dimension $n$ are topologically equivalent, in the sense %
+that the only way to endow $Y$ with a vector space topology is to copy the product topology of $C^n$ onto $Y$ with any %
+isomorphism $f: \C^n \to Y$. The normed point of view is addressed in Corollary %
+[\ref{annex:corollary:finite-dimension:norm-equivalence}].
+%
+\begin{theorem}[Topology of a finite-dimensional vector space]\label{annex:theorem:topology-in-finite-dimension}
+If $Y$ is a complex vector space of finite dimension $n$, then $Y$ admits a unique vector topology, which is the product %
+topology of $\C^n$, transferred by \emph{any} isomorphism $f:\C^n \to Y$. %
+%
+This topology is normable, and $Y$ is locally compact, locally convex, and locally bounded. %
+%
+\newline\newline
+Moreover, if $W$ is a complex topological vector space, then the following statements are equivalent: %
+%
+\begin{enumerate}[label=(\alph*)]
+  \item $\dim{W} = n$.
+  \item $W$ has a vector topology, and $\GL(\C^n, W) \neq \emptyset$.
+  \item For all $g \in \GL(\C^n, W)$ (they exist), $\GL(Y, W)= g \circ \GL_n \circ \,f^{\minus 1}$ entirely fills $\Iso(Y, W)$.
+\end{enumerate} 
+% 
+\end{theorem}
+%
+\begin{proof}
+Let $\upsilon$ be the product topology of $\C^n$. Choose an isomorphism $f_0: \C^n \to Y$ (existence was proved with Lemma %
+[\ref{annex:lemma:isomorphisms-in-dimension-n}]) then equip $Y$ with the vector topology %
+%
+\begin{equation}\label{annex:topology-in-finite-dimension:definition}
+  \tau_0 = \set{f_0(\Omega)}{\Omega \in \upsilon}.
+\end{equation}
+%
+Indeed, the bijectivity of $f_0$ implies the following four properties:
+%
+\begin{enumerate}[label=(\roman*)]
+  \item{
+    $\bigcup_{U \in \Gamma} f_0(U) = f_0\Bigl(\bigcup_{U \in \Gamma} U \Bigr) \in \tau_0; Y\in \tau_0 %
+    \qquad\Gamma \subset \upsilon.$
+  }
+  \item $f_0(U) \cap f_0(U') = f_0(U \cap U'); \emptyset \in \tau_0$.
+  \item $\tau_0$ is translation invariant, and $\{f_0(0)\}$ is closed.
+  \item The transfer by $f_0$ of addition and scalar multiplication preserves continuity.
+\end{enumerate}
+%
+Now apply \citeFA{1.21} in the special case where the ambient space $X$ is $Y$ itself, equipped with a vector space topology %
+$\tau$, \eg, $\tau_0$. So, every isomorphism $f:\C^n \to Y$ is also a homeomorphism. In summary, 
+%
+\begin{equation}\label{annex:topology-in-finite-dimension:topological-isomorphisms-C-n-onto-Y}
+  \Iso(\C^n, Y) = \GL(C^n, Y) \neq \emptyset.
+\end{equation}
+%
+Thus, every $f\in \Iso(\C^n, Y)$ transports the product topology of $\C^n$ onto $Y$. A vector space topology $\tau$ for $Y$ is 
+then necessarily of the form 
+%
+\begin{equation}
+  \set{f(\Omega)}{\Omega \in \upsilon} = \tau \qquad \bigl(f\in \Iso(\C^n, Y)\bigr).
+\end{equation}
+%
+The special case $f=f_0$ yields $\tau = \tau_0$. We have just proved that 
+%
+\begin{equation}\label{annex:topology-in-finite-dimension:uniqueness-of-tau}
+  \text{$\tau_0$ is the only admisssible vector topology of $Y$.}
+\end{equation}
+%
+Our first statement is then established. The special case $Y = \C^n$ is that every isomorphism $f:\C^n \to \C^n$ is, more %
+specifically, a topological isomorphism. So, 
+%
+\begin{equation}\label{annex:topology-in-finite-dimension:automorphisms}
+  \Aut(\C^n) = \GL_n.
+\end{equation}
+%
+We now return to the general $Y$. %
+\newline\newline
+Definition \eqref{annex:topology-in-finite-dimension:definition} implies local convexity and local boundedness. Consequently, %
+$Y$ is normables; see \citeFA{1.39}. Constructively, the following formula
+%
+\begin{equation}
+  \norm*{y} \Def \norm*[2]{f_0^{\minus 1}(y)} \qquad (y \in Y)
+\end{equation}
+%
+introduces a norm $\norm*{\cdot}$ on $Y$. Another strong property is that $Y$ is locally compact, since the closed unit ball %
+of $\C^n$ is compact and $f_0$ is a homeomorphism. 
+\newline\newline
+Now let $W$ be a complex vector space. The preceding argument (with $W$ in place of $Y$) shows that, if $W$ has dimension $n$, 
+then 
+%
+\begin{enumerate}[label=$\cdot$]
+  \item $W$ is a topological vector space,
+  \item there exists a topological isomorphism $g:\C^n \to W$.
+\end{enumerate}
+%
+Hence $(a) \to (b)$. %
+\newline\newline
+Now assume (b) only. We easily check that the diagram %
+[\ref{annex:topology-in-finite-dimension:commutative-square}] below is commutative and that 
+%
+\begin{equation}
+  \Iso(Y, W) = g \circ \Aut(\C^n) \circ f^{\minus 1} \qquad \bigl(f \in \Iso(\C^n, Y)\bigr).
+\end{equation}
+%
+Moreover, combining \eqref{annex:topology-in-finite-dimension:topological-isomorphisms-C-n-onto-Y} with %
+\eqref{annex:topology-in-finite-dimension:automorphisms} shows that the (then nonempty) set $\Iso(Y,W)$ consists of all %
+topological isomorphisms of $Y$ onto $W$. This completes the proof of $(b) \to (c)$. 
+%
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpicture}[node distance=3cm, auto]
+    \node (A) {$Y$};
+    \node (B) [right of=A] {$W$};
+    \node (C) [below of=A] {$\C^n$};
+    \node (D) [below of=B] {$\C^n$};
+
+    \draw[->] (A) to node {$\Lambda$} (B);
+    \draw[->] (A) to node [swap] {$f^{\minus 1}$} (C);
+    \draw[->] (C) to node {$\phi$} (D);
+    \draw[->] (D) to node [swap] {$g$} (B);
+  \end{tikzpicture}
+  \caption{The bijection $\Aut(C^n) \to \Iso(Y, W), \phi \mapsto \Lambda = g \circ \phi \circ f^{\minus 1}$.}
+  \label{annex:topology-in-finite-dimension:commutative-square}
+\end{figure}
+%
+Finally, (c) alone implies that there exists an isomorphism $g: \C^n \to W$. The list %
+$g(e_1), \dots, g(e_n)$ then describes a basis of $W$, which proves (a). This completes the proof. 
+\end{proof}
+\noindent When two complex vectors spaces $Y$ an $W$ have the same finite dimension $n>0$, Theorem~%
+[\ref{annex:theorem:topology-in-finite-dimension}] shows that they are linearly homeomorphic and that both are normable. %
+We now give its normed counterpart, which expresses topological equivalence in terms of continuity bounds. 
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % Finite dimension: norm equivalence 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{theorem}[Equivalence of norms in a finite-dimensional space]\label{annex:theorem:finite-dimension:norm-equivalence}
+If $Y$ is a vector space of finite dimension $n$, then any two norms $\norm*{\cdot}$ and $\norm*{\cdot}'$ on $Y$ are %
+\emph{equivalent}. More specifically, there exist two positive constants $C$ and $C'$ such that 
+%
+\begin{equation}\label{annex:finite-dimension:norm-equivalence}
+  \frac{1}{C'} \norm*{y} \leq \norm*{y}' \leq C\, \norm*{y} \qquad(y \in Y).
+\end{equation}
+%
+The values of $C$ and $C'$ may depend on the choice of the norms. 
+\end{theorem}
+\begin{proof}
+Both norms define the same topology; see %
+\eqref{annex:topology-in-finite-dimension:uniqueness-of-tau}. Therefore, the identity %
+$I: \bigl(Y, \norm*{\cdot}\bigr) \to \bigl(Y, \norm*{\cdot}'\bigr)$ is continuous. Equivalently, given $M>0$, there exists %
+a radius $r = r(M)$ such that 
+%
+\begin{equation}\label{annex:finite-dimension:norm-equivalence:continuity-of-I} 
+  \norm*{y_1-y_0}' < M \qquad \bigl(\norm*{y_1-y_0} < r\bigr).
+\end{equation}
+%
+With these settings, the reverse triangle inequality $\magnitude*{\norm*{y_1}' - \norm*{y_0}'} \leq \norm*{y_1-y_0}'$ yields %
+%
+\begin{equation}
+  \magnitude[\big]{\norm*{y_1}' - \norm*{y_0}'} < M.
+\end{equation}
+%
+Consequently, $\norm*{\cdot}'$ is uniformly continuous. Next, take $M=1$. Let $R$ be the supremum taken over all admissible %
+$r(1)$. This $R$ is finite because $R=\infty$ would force $1 > \norm*{k y}' \geq 1$ for $y \neq 0$ and %
+$k = \ceil[\big]{1/\norm*{y}'}$. For arbitrary $\alpha > 1$, fix
+%
+\begin{equation}
+  y_1(y) \Def \frac{R/\alpha}{\norm*{y} +  (R/\alpha) (\alpha -1)}\,y \qquad (y \in Y),
+\end{equation}
+%
+so that 
+%
+\begin{equation}\label{annex:finite-dimension:norm-equivalence:y-is-multiple-of-y-1}
+  y = \biggl[\frac{\alpha}{R}\norm*{y} + \alpha - 1 \biggr] \, y_1(y)
+\end{equation}
+%
+and
+\begin{equation}
+      \norm*{y_1(y)} < \frac{R}{\alpha} < R.
+\end{equation}
+%
+Inequality \eqref{annex:finite-dimension:norm-equivalence:continuity-of-I}, with $y_0 = 0$ and $y_1= y_1(y)$, yields
+%
+\begin{equation}
+  \norm*{y_1(y)}' < 1.
+\end{equation}
+%
+Next, combine this with \eqref{annex:finite-dimension:norm-equivalence:y-is-multiple-of-y-1} to obtain
+%
+\begin{equation}
+  \norm*{y}' < \frac{\alpha}{R}\norm*{y} + \alpha - 1
+\end{equation}
+%
+for all $y$. Since $\alpha$ was arbitrary, it follows that 
+%
+\begin{equation}\label{annex:finite-dimension:norm-equivalence:C}
+  \norm*{y}' \leq \frac{1}{R}\norm*{y} \qquad(y\in Y).
+\end{equation}
+%
+Therefore, $C=1/R$ is the optimal constant. Exchanging the roles of the two norms shows that $\norm*{\cdot}$ is uniformly %
+continuous. Similarly, there exists a positive $C'$ such that 
+%
+\begin{equation}\label{annex:finite-dimension:norm-equivalence:C-prime}
+  \norm*{y} \leq C' \norm*{y}' \qquad(y\in Y).
+\end{equation}
+%
+Combining \eqref{annex:finite-dimension:norm-equivalence:C-prime} with %
+\eqref{annex:finite-dimension:norm-equivalence:C} establishes %
+\eqref{annex:finite-dimension:norm-equivalence}. Table~\ref{tab:optimal-constants} lists optimal $C$ for %
+$I: \bigl(\C^n, \norm*[i]{\cdot}\bigr) \to \bigl(\C^n, \norm*[j]{\cdot}\bigr)$ when $\norm*[i]{\cdot}$ and $\norm*[j]{\cdot}$ 
+are the standard norms $1, 2, \infty$. They are computed independently of this proof. This shows that the optimal constants, %
+at least in these cases, depend on the choice of the norms.
+\end{proof}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % Finite dimension: norm equivalence, corollary 
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{corollary}[Norms on finite-dimensional vector spaces]%
+\label{annex:corollary:finite-dimension:norm-equivalence}%
+Let $Y, W$ be vector spaces of finite dimension $n$, and let $\norm*[Y]{\cdot}$ (respectively $\norm*[W]{\cdot}$) be a norm on 
+$Y$ (respectively $W$). If $h$ is an isomorphism of $Y$ onto $W$, then $\norm*[W]{h(\,\cdot\,)}$ is a norm on $Y$. %
+This $\norm*[W]{h(\,\cdot\,)}$ is uniformly continuous; there exist positive constants $C$ and $C'$ such that
+%
+\begin{equation}
+  \frac{1}{C'} \norm*[Y]{y} \leq \norm*[W]{h(y)} \leq C\, \norm*[Y]{y} \qquad(y \in Y).
+\end{equation}
+%
+\end{corollary}
+\begin{proof} 
+First, we note that $\norm*[W]{h(y)} = 0$ \IFF $y = 0$, because the linear map $h$ is one-to-one. The linearity of $h$ also %
+implies that $\norm*[W]{h(\,\cdot\,)}$ satisfies all other norm axioms. %
+Theorem [\ref{annex:theorem:finite-dimension:norm-equivalence}] now applies, with $\norm*[W]{h(\,\cdot\,)}$ in the role of %
+$\norm*{\cdot}'$. This completes the proof. 
+\end{proof}
+% END 
+

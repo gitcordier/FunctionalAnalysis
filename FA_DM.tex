@@ -17,7 +17,7 @@ mathtools,
 fouridx, 
 %%stix
 %%tensor 
-%tikz 
+tikz 
 }
 %\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
 \usepackage{enumitem}
@@ -87,6 +87,14 @@ fouridx,
 % --------------------------- TYPOGRAPHIC CONVENTIONS ----------------------------
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=usmax]{english}
+
+%  All fonts are loaded, language is set
+\usepackage[
+  protrusion = true,
+  expansion  = true, final,
+  verbose    = silent,
+  factor     = 1100,
+]{microtype}
 
 % --------------------------- PRIMITIVES ----------------------------
 \newcommand{\insmall}[1]{\text{\small{#1}}}
@@ -174,15 +182,24 @@ fouridx,
 \let\supset\supseteq}
 \def\contains{\supseteq} % synonym
 
+% % Minus (big)
+\newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
+
+% % Card
+\DeclareMathOperator\opcard{card} 
+
+% Vector spaces
 % % Convex hull
 \DeclareMathOperator\co{co} 
+\DeclareMathOperator\Aut{Aut}
+\DeclareMathOperator\Iso{Iso}
 
-% % Misc
-\newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
-\DeclareMathOperator\opcard{card} 
+% % Span
+\DeclareMathOperator\vect{span}
 
 % Topology 
 \newcommand{\interior}[1]{{#1}^\circ}
+\DeclareMathOperator\GL{GL}
 
 \AtBeginDocument{
   \DeclareRobustCommand{\closure}[1]{\overline{#1}}
@@ -263,9 +280,7 @@ fouridx,
     }
   }
 }
-
-%newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
-
+ 
 % % Usual spaces
 \newcommand{\Continuous}{{\mathcal C}} 
 \newcommand{\D}{{\mathcal D}} 
@@ -294,7 +309,11 @@ fouridx,
   }
 }
 
+% % Floor
 \newcommand{\floor}[1]{\lfloor \hspaceNorm #1 \hspaceNorm\rfloor}
+
+
+% % Leibnniz' df
 \DeclareMathOperator\Leibnizdiff{d}
 \newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
 
@@ -315,7 +334,7 @@ fouridx,
     \IfValueTF{#2}{
       \errmessage{magnitude: Star mode. Don't specify the [size].}
     }{
-        \left\lvert \hspaceNorm #3 \hspaceNorm #1\right\rvert
+        \left\lvert \hspaceNorm #3 \hspaceNorm \right\rvert
     }
   % Non-star version: manual sizing
   }{
@@ -381,9 +400,9 @@ fouridx,
 \newcommand{\varit}[1]{\mathit{#1}}
 \def\vart{\varit{t}}
 
-\def\ie{\textit{i.e., }}
-\def\eg{\textit{e.g., }}
-\def\cf{\textit{cf.\,}} 
+\def\ie{\textit{i.e.}}
+\def\eg{\textit{e.g.}}
+\def\cf{\textit{cf.}} 
 \def\IFF{{\bf iff }}
 \def\wlg{{\bf wlg }}
 
@@ -417,20 +436,27 @@ fouridx,
 \def\ddy{{\function{decay}}}
 
 % --------------------------- THEOREM STYLE ----------------------------
+% % Theorem
 \makeatletter
-\newtheoremstyle{namedlemma} 
-  {3pt} 
-  {20pt} 
-  {} 
-  {} 
-  {\bfseries} 
-  {.\newline} 
-  {\newline} 
-  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}} 
+\newtheoremstyle{namedtheorem}
+  {3pt}
+  {20pt}
+  {}
+  {}
+  {\bfseries}
+  {.\newline}
+  {\newline}
+  {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}}
 \makeatother
 
-\theoremstyle{namedlemma}
-\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{namedtheorem}
+\newtheorem{theorem}{Theorem}[chapter]
+
+\theoremstyle{namedtheorem}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{namedtheorem}
+\newtheorem{corollary}[theorem]{Corollary}
 
 % --------------------------- DOCUMENT INFO ----------------------------
 \def\ROOT{./}
@@ -465,10 +491,12 @@ fouridx,
 %\printglossary
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\roman{subsection}}
+\renewcommand{\thesubsubsection}{\roman{subsubsection}}
 \input{\ROOT/notations.tex}
 
-\renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 \mainmatter
 %\part{Content} 
 \input{\ROOT/FA_mainmatter.tex} 
@@ -488,6 +516,8 @@ fouridx,
 \renewcommand{\thechapter}{\Alph{annex_chapter}} 
 \renewcommand{\thesection}{\thechapter.\arabic{annex_section}} 
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\renewcommand{\theHequation}{\thechapter.\arabic{equation}}
+\renewcommand{\theHtheorem}{\thechapter.\arabic{theorem}}
 %
 \input{\ROOT/annex/annex.tex}
 

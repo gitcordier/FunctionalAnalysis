@@ -36,7 +36,7 @@ This shows that
 \end{equation}
 %
 In other words, $\co(A)$ is convex. To prove the intersection property, we establish the chain $(i)\to(ii)\to(iii)\to(iv)$ %
-from the following properties
+from the following properties:
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second property: co(A) is the intersection of all convex sets that contain A.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -44,28 +44,31 @@ from the following properties
 \begin{enumerate}[label=(\roman*)]
   \item{$A$ is convex.}
   \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all positive $s_i$, for all $n$.}
-  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n = 1)$, for all $n$.}
+  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n = 1$), for all $n$.}
   \item{$\co(A) = A$.}
 \end{enumerate}
 %
 A straightforward proof by induction shows that $(i) \to (ii)$, since \eqref{Exercise-1-d} gives the base case $n=2$. Next, %
-(iii) is a special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, consider
+(iii) is a special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, assume (iv). %
+Define 
 % 
 \begin{equation} 
-  \Gamma \Def \set{B}{A \subset B,\,B \text{ convex }}.
+  \Gamma \Def \set{B}{\text{$A \subset B$, $B$ convex}}.
 \end{equation} 
 % 
-We must prove that $\co(A) = \bigcap \Gamma$. Observe that
+Note that its intersection $\bigcap \Gamma$ is convex, since every element of $\Gamma$ is convex. We will prove (i) by %
+establishing that $A = \co(A)$ is the convex set $\bigcap \Gamma$. To do so, observe that
 %
 \begin{equation}\label{1.2:intersection-subsetof-co-A}
  \bigcap \Gamma \subset \co(A), 
 \end{equation}
 %
-since $\co(A) \in \Gamma$. Conversely, applying $(i) \to (iv)$ with $B \in \Gamma$ playing the role of $A$ shows that
+since $\co(A) \in \Gamma$. Now, prove again $(i) \to (iv)$, with any $B \in \Gamma$ in the role of $A$. Hence %
 %
 \begin{equation}\label{1.2:co-A-subsetof-intersection}
   \co(A) \subset \co(B) = B, 
 \end{equation}
+%
 as $A \subset B$ implies $\co(A) \subset \co(B)$. In conclusion, \eqref{1.2:co-A-subsetof-intersection} and %
 \eqref{1.2:intersection-subsetof-co-A} together yield
 % 
@@ -73,7 +76,7 @@ as $A \subset B$ implies $\co(A) \subset \co(B)$. In conclusion, \eqref{1.2:co-A
   \co(A) \subset \bigcap \Gamma \subset \co(A), 
 \end{equation} 
 %
-which completes the proof. In addition, observe that the convexity of $\co(A)$ conversely gives $(iv) \to (i)$.
+which completes the proof.
 \end{proof}
 % END
 % 
