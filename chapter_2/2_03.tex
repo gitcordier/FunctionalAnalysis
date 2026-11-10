@@ -1,352 +1,773 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % FunctionalAnalysis 
-% 2.03.tex
+% 2_03.tex
 % 
 % encoding: UTF-8 
 % EOL: LF
-%
+% 
 % format: LaTeX
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\textit{Put $K=\closedInterval*{\minus 1}{1}$; define $\D_{K}$ as in Section 1.46 (with $\R$ in place of $\R^n$). Suppose %
-$\{f_{n}\}$ is a sequence of Lebesgue integrable functions such that %
-$\Lambda(\phi) = \underset{n \to \infty}{\lim} \int_{\minus 1}^1 f_{n}(t)\phi(t) \diff{t}$ exists for every $\phi\in\D_{K}$. %
-Show that $\Lambda$ is a continuous functional on $\D_{K}$. Show that there is a positive integer $p$ and a number $M<\infty$ %
-such that
+\begin{exerciseStatement}
+Put $K=\closedInterval*{\minus 1}{1}$; define $\testFunctions{K}$ as in Section 1.46 (with $\R$ in place of $\R^n$). %
+Suppose $\{f_{n}\}$ is a sequence of Lebesgue integrable functions such that %
+$\Lambda(\phi) = \lim_{n \to \infty} \int_{\minus 1}^1 f_{n}(t)\phi(t) \diff{t}$ exists for every %
+$\phi\in\testFunctions{K}$. Show that $\Lambda$ is a continuous linear functional on $\testFunctions{K}$. %
+Show that there is a positive integer $p$ and a number $M<\infty$ such that
+% 
+\begin{equation}
+  \magnitude[\Bigg]{\int_{\minus 1}^1 f_n (t)\, \phi (t) \diff{t}}\leq M \, \norm[\big][\infty]{\deriv[p]{\phi}}
+\end{equation}
+% 
+for all $n$. For example, if $f_{n}(t)=n^{3}t$ on $\closedInterval*{\minus 1/n}{1/n}$ and $0$ elsewhere, show that this %
+can be done with $p=1$. Construct an example where it can be done with $p=2$ but not with $p=1$.
+\end{exerciseStatement}
+% 
+\begin{proof}\leavevmode
 %
-\begin{equation*}
-  \magnitude[\Bigg]{\int_{\minus 1}^1 f_n (t)\phi (t) \diff{t}}\leq M \norm*[\infty]{D^p\phi}
-\end{equation*}
+\begin{quote}\textit{\noindent%
+  Throughout, $\norm*[\infty]{\cdot}$ is denoted by $\norm*{\cdot}$, without subscript, %
+  to set it apart from the derivative norms %
+  $\norm*[N]{\cdot}$, which topologize $\testFunctions{K}$. Also, $\R$ is equipped with its usual Borel measure $\beta$, %
+  that is, its Lebesgue measure restricted to Borel sets. We keep the usual $\diff{t}$ notation when we estimate integrals of %
+  smooth functions.}
+\end{quote}
 %
-for all $n$. For example, if $f_{n}(t)=n^{3}t$ on $\closedInterval*{\minus 1}{1}$ and $0$ elsewhere, show that this can be %
-done with $p=1$. Construct an example where it can be done with $p=2$ but not with $p=1$.}
-%
-\begin{proof}
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First part: Introduction, f_n as a bounded and signed Radon measure.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Equipped with the supremum norm, $\Continuous_K=C(\R)\cap \set{u}{\supp{u} \subset K}$ is the copy of $C_c(K)$ in $C(\R)$. %
-Each density $f_n$ is then identified modulo $N(\beta_\R)$ with the following Radon measure%
-%
+The integrals $\intLebesgue[K]{\phi \cdot f_n}[\beta]$ define linear functionals 
+% 
 \begin{align}
-  \mu_n: \Continuous_K &\to \C \\
-  u &\mapsto \int_{\minus 1}^{1} f_n(t)u(t)\diff{t}; \nonumber
+  \Lambda_n: \testFunctions{K} &\to \C \\
+  \phi & \mapsto \intLebesgue[K]{\phi \cdot f_n}[\beta], \nonumber
+\end{align}
+% 
+whose pointwise limit, as $n$ tends to infinity, is by hypothesis a linear functional $\Lambda$. Explicitly, 
+% 
+\begin{align}
+  \Lambda: \testFunctions{K} & \to \C \\
+                        \phi & \mapsto \lim_{n} \Lambda_n (\phi). \nonumber
 \end{align}
 %
-see [\ref{notations:Radon-measures}] and [\ref{notations:Lebesgue-integration}] for definitions and notations. Every %
-$\mu_n$ is continuous since $\norm*{\mu_n} = \norm*[1]{f_n}$ is finite; \cf \citeFA{6.19}. Note that the dual space %
-$\Continuous_K^\ast$ is a Banach space as well, by \citeFA{4.1}. Here, we consider only pointwise convergence, %
-which is weaker than norm convergence. Define
-%
-\begin{equation}
-  \Lambda_n \Def \restriction{\mu_n}{\D_K},
+First, we prove that every $\Lambda_n$ is continuous with respect to the topology $\tau_K$ of $\testFunctions{K}$. Next, we %
+prove that the limit $\Lambda$ is $\tau_K$-continuous as well and that there exist a positive order $p$ and a finite bound %
+$M=M_p$ such that 
+% 
+\begin{equation} \label{2.3:norm-p-bound}
+  \magnitude*{\Lambda_n(\phi)} \leq M \, \norm[\big]{\deriv[p]{\phi}} \qquad (\phi \in \testFunctions{K}) %
 \end{equation}
-%
-and assume the pointwise convergence of the sequence $\singleton{\Lambda_n}$, that is 
-%
-\begin{equation}\label{2.3:assumed-pointwise-convergence}
-  \Lambda_n(\phi) \tendsto{n}{\infty} \Lambda(\phi) \qquad(\phi \in \D_K).
-\end{equation}
-%
-We show that the linear form $\Lambda$ is continuous in the topology of $\D_K$. We also construct a particular sequence %
-$\{\Lambda_n\}$ whose pointwise limit $\Lambda$ is not norm-bounded. By contraposition, Theorem \citeFA{2.8} implies that %
-pointwise convergence on $\D_K$ does not extend to $\Continuous_K$. This conclusion also follows from the following bounds:
-%
-\begin{align}
-  \big\lvert \Lambda_n(\phi) \big\rvert &\leq M \norm*[\infty]{\phi'} \label{2.3:norm-p-bound1},\\
-  \magnitude*{\Lambda_n(\phi')} &\leq M \norm*[\infty]{\phi''} \label{2.3:norm-p-bound2}.
-\end{align}
-%
-Combined with the lack of boundedness at order $p=0$, \cf \eqref{2.3:norm-p-bound1}, the contraposition of Theorem %
-\citeFA{2.6} implies that $\{\Lambda_n\}$ does not converge pointwise on $\Continuous_K$. In Radon measure theory, pointwise %
-convergence is known as \emph{vague convergence}. The rest of the current proof has been split into the following paragraphs,
+% 
+for all $n$. We then exhibit instances of $\Lambda_n$ whose pointwise limits $\Lambda$ are not norm-bounded. %
+The proof is split into the following paragraphs:
 %
 \begin{description}
   \item[Continuity of $\Lambda$:]{%
-    The sequence $\singleton{\Lambda_n}$ has pointwise limit $\Lambda \in \D_K^\ast$.
+    The limit $\Lambda$ of $\singleton{\Lambda_n}$ belongs to the topological dual $\testFunctions{K}^\ast$.
   }
-  \item[Existence of the uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{D^p \phi}$:]{%
-    $\singleton{\Lambda_n}$ is equicontinuous, hence $\magnitude*{\Lambda_n(\phi)} \leq M \norm*{D^p \phi}$.
+  \item[{Existence of the uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M \norm*{\deriv[p]{\phi}}$:}]{%
+    The bound follows from the $\tau_K$-equicontinuity of $\singleton{\Lambda_n}$.
   }
-  \item[Existence of $\singleton{\Lambda_n}$ with optimal uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M \norm*{D \phi}$:]{
-    In this example, no similar bound in $\norm*{\phi}$ exists. We show that $\Lambda$ does not extend to a Radon measure. 
+  \item[{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+    $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv{\phi}}$:}]{%
+    The limit $\Lambda$ does not extend to a Radon measure.
   }
-  \item[Case of a uniform bound in $\norm*{D^2\phi}$:]{%
-    Where the smallest possible $p$ is $2$}.
+  \item[{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+    $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv[2]{\phi}}$, from a polynomial density $g_n$:}]{%
+    The smallest admissible $p$ is $2$; this answers the exercise.}
+  \item[{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+    $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv[2]{\phi}}$, no density $f_n$:}]{%
+    The smallest admissible $p$ is $2$ again.}
 \end{description}
 %
-We first prove that $\displaystyle{\lim_{n\to \infty}{\restriction{\mu_n}{\D_K}}}= \Lambda$ is continuous in $\D_K$'s topology.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second part: The limit Lambda is continuous 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{Continuity of $\Lambda$.} We equip $\D_K$ with derivative norms %
-$\norm*[N]{\phi}\Def \norm*[\infty]{\phi} + \norm*[\infty]{D\phi} + \cdots + \norm*[\infty]{D^N\phi}$ for all $\phi \in \D_K$ %
-and all $\counting{N}$. The induced topology $\tau_K$ of $\D_K$ is the weakest topology that makes all norms %
-$\norm*[N]{\cdot}$ continuous, \cf \citeFA{1.46, 6.2} and Exercise [1.16]. Equivalently, the collection of all convex %
-balanced sets %
-%
-\begin{equation}\label{2.3:local-base-of-DK}
-  V_N \Def \set[\Big]{\phi}{\phi \in \D_K, \norm*[N]{\phi}< 1/N}
+\paragraph{Continuity of $\Lambda$.} 
+Under these conditions, $1_K \cdot f_n$ is identified \emph{modulo} $\mathcal{N}_\beta$ with %
+% 
+\begin{align}
+  \mu_n: \continuous[c][][K] &\to \C \\
+  u &\mapsto \intLebesgue[K]{u \cdot f_n}[\beta],  \nonumber
+\end{align}
+% 
+which is a Radon measure in the sense of \cite{AnalyseIII}. In more detail, the congruence modulo %
+$\mathcal{N}_\beta$ means the following: if a measurable function $g_n: \R \to \C$ satisfies
+% 
+\begin{equation}
+  \intLebesgue[K]{u \cdot g_n}[\beta] = \intLebesgue[K]{u \cdot f_n}[\beta] \qquad\bigl(u \in \continuous[c][][K]\bigr),
 \end{equation}
 %
-forms a local base of $\tau_K$, \cf \citeFA{6.2}. Note that $\norm*[N]{\phi} < 1$ implies $\norm*[\infty]{\phi} < 1 $: %
-Every $\Lambda_n$ is then $\tau_K$-continuous by \citeFA{1.18}, since $\magnitude*{\Lambda_n}$ is bounded by %
-$\norm*{\Lambda_n}$ on $V_1$. In summary: %
+then  
 %
-\begin{enumerate}
-  \item{$\D_K$, equipped with the topology $\tau_K$, is a Fréchet space; see \citeFA{1.46}}.
+\begin{equation}
+  1_K \cdot (g_n - f_n) \in \mathcal{N}_\beta.
+\end{equation}
+%
+Every $\mu_n$ is continuous since $\norm*{\mu_n} = \norm*[L^1]{1_K \cdot f_n} < \infty$; see \citebook{6.19}{BigRudin}. %
+We introduce   
+% 
+\begin{equation}
+  \continuousCal[K][\infty] \Def \continuous[][\infty][\R] \cap \set[\big]{u}{\supp{u} \subset K },
+\end{equation}
+%
+equipped with the supremum norm $\norm*{\cdot}$. The canonical injection
+% 
+\begin{align}
+  R : \continuousCal[K][\infty] &\hookrightarrow \continuous[c][][K] \\
+  \phi &\mapsto \restriction{\phi}{K} \nonumber
+\end{align}
+%
+is an isometry of $\continuousCal[K][\infty]$ onto a subspace of $\continuous[c][][K]$. We recall that $\testFunctions{K}$ is %
+$\continuousCal[K][\infty]$ topologized by the \emph{derivative norms}
+% 
+\begin{align}
+  \norm*[N]{\cdot}: \continuousCal[K][\infty] &\to \closedOpenInterval*{0}{\infty} \\
+  \phi &\mapsto \max_{0 \leq k \leq N}\norm[\big]{\deriv[k]{\phi}} \nonumber
+\end{align} 
+%
+when $N$ ranges over $\N_+$; see \citeFA{1.46, 6.2}. In other words, $\testFunctions{K}$ is $\continuousCal[K][\infty]$ %
+equipped with $\tau_K$, the weakest vector space topology for which all norms $\norm*[N]{\cdot}$ are continuous. %
+Note that the choice of $K$, of half-length $1$, simplifies each $\norm*[N]{\cdot}$. Indeed, for %
+$\phi \in \continuousCal[K][\infty]$, Lemma~[\ref{annex:mean-value-with-derivatives}], with $k = 0, \dots, N$ as $\varit{N}$ %
+and $N - k$ as $\varit{p}$, gives
+% 
+\begin{equation}\label{2.3:continuity-of-Lambda:mean-value-with-derivatives}
+  \norm[\big]{\deriv[k]{\phi}} \leq \norm[\big]{\deriv[N]{\phi}} \, \frac{1}{(N-k)!} \leq \norm[\big]{\deriv[N]{\phi}}.
+\end{equation}
+% 
+Taking the maximum over $k$ outputs
+% 
+\begin{equation}\label{2.3:continuity-of-Lambda:norm-N-is-deriv-N}
+  \norm*[N]{\phi} = \norm[\big]{\deriv[N]{\phi}}.
+\end{equation}
+% 
+\skipline
+It also follows from the definition of $\norm*[N]{\cdot}$ that, in particular, 
+%
+\begin{equation}\label{2.3:continuity-of-Lambda:norm-1-controls-supremum-norm}
+  \norm*{\phi} \leq \norm*[1]{\phi} \qquad(\phi \in \testFunctions{K}).
+\end{equation}
+% 
+Consequently, every $\norm*{\cdot}$-open ball $B(r) = \set{\phi}{\norm*{\phi}< r}$ contains %
+$B_1(r) = \set{\phi}{\norm*[1]{\phi}< r}$, a $\tau_K$-neighborhood of the origin ($r>0$). %
+The topology $\tau_K$ is then stronger than the $\norm*{\cdot}$-topology of $\continuousCal[K][\infty]$. Equivalently, the %
+identity mapping
+% 
+\begin{align}
+  I: \testFunctions{K} &\hookrightarrow \continuousCal[K][\infty] \\
+  \phi &\mapsto \phi \nonumber
+\end{align}
+%
+is continuous. However, $I$ is not bicontinuous. To see this, take the functions $\phi_\omega$ of %
+Lemma~[\ref{annex:lemma:higher-derivatives-not-bounded}]. For every $\omega > 1/r$, the function $\phi_\omega/\omega$ %
+satisfies $\norm*{\phi_\omega/\omega} = 1/\omega < r$ and $\norm*{\deriv{(\phi_\omega/\omega)}} \geq 1$. Thus, it lies in %
+$B(r)$ but outside $B_1(1)$. This shows that $B_1(1)$ \emph{contains no ball} %
+$B(r)$. The topology $\tau_K$ is then \emph{strictly} stronger than the $\norm*{\cdot}$-topology of %
+$\continuousCal[K][\infty]$. Additionally, we also see from \eqref{2.3:continuity-of-Lambda:norm-1-controls-supremum-norm} %
+that $\norm*[1]{\phi} < 1$ implies that $\norm*{\phi} < 1$. So,
+% 
+\begin{equation}
+  \magnitude*{\Lambda_n(\phi)} \leq \norm*[L^1]{f_n} \qquad\bigl(\norm*[1]{\phi} < 1\bigr).
+\end{equation}
+% 
+As a linear functional that is bounded on a $\tau_K$-neighborhood of $0$, $\Lambda_n$ is $\tau_K$-continuous, by Theorem %
+\citeFA{1.18}. Furthermore, the transfer $T$,
+% 
+\begin{align}
+  T: \testFunctions{K} &\hookrightarrow \continuous[c][][K] \\
+  \phi &\mapsto \restriction{\phi}{K} \nonumber
+\end{align}
+%
+is a continuous injection, as the composite $R \circ I$ of continuous injections. Thus, our \emph{test function space} %
+$\testFunctions{K}$ is \emph{continuously embedded} in $\continuous[c][][K]$ by $T$. As in \citeFA{4.10}, we define the %
+\emph{adjoint} of $T$ as the linear mapping
+% 
+\begin{align}
+  T^\ast: \continuous[c][][K]^\ast &\to \testFunctions{K}^\ast \\
+  \mu &\mapsto \mu \circ T. \nonumber
+\end{align}
+% 
+Here $\testFunctions{K}$ is not normable, but $\mu \circ T$ is continuous for every continuous $\mu$: $T^\ast$ is well %
+defined. In particular, 
+% 
+\begin{equation}
+  \Lambda_n = \mu_n \circ T = T^\ast(\mu_n), 
+\end{equation}
+%
+or, equivalently, 
+% 
+\begin{equation}\label{2.3:continuity-of-Lambda:T-star}
+  \Lambda_n(\phi) = \mu_n(\restriction{\phi}{K}) = T^\ast (\mu_n)(\phi) \qquad(\phi \in \testFunctions{K}).
+\end{equation}
+%
+Once we identify $\phi$ with $\restriction{\phi}{K}$, \eqref{2.3:continuity-of-Lambda:T-star} allows us to see $\Lambda_n$ as %
+the \emph{$\tau_K$-continuous restriction} of $\mu_n$. Conversely, the Radon measure $\mu_n$ can be regarded as an extension %
+of $\Lambda_n$ to $\continuous[c][][K]$, on which only the strictly weaker norm topology is available. Note that taking %
+adjoints reverses arrows: $T$ maps $\testFunctions{K}$ into $\continuous[c][][K]$, while $T^\ast$ maps %
+$\continuous[c][][K]^\ast$ into $\testFunctions{K}^\ast$. This arrow-reversal pattern, known as \emph{contravariance}, plays %
+an important role in physics and computer science too.%
+%
+\footnote{%
+  In computer science, a function that accepts every argument of a type can replace a function declared for a %
+  \emph{subtype} of it. In our case, the injection $T:\testFunctions{K} \hookrightarrow \continuous[c][][K]$ turns %
+  $\testFunctions{K}$ into a subtype of $\continuous[c][][K]$, and calling $\mu_n\bigl(T(\phi)\bigr)$ returns %
+  $\Lambda_n(\phi)$. 
+}%
+%
+\skipline
+The counterexample in \eqref{2.3:Lambda-is-continuous} furnishes $\Lambda: \phi \mapsto \frac{2}{3}\deriv{\phi}(0)$, %
+an element of $\testFunctions{K}^\ast$ that is not $\norm*{\cdot}$-continuous; see \eqref{2.3:Lambda-is-not-norm-bounded}. %
+Thus, it cannot be extended to any element $\mu$ of $\continuous[c][][K]^\ast$: otherwise, $\Lambda = \mu \circ T$ would be %
+$\norm*{\cdot}$-bounded. Therefore,
+%
+\begin{equation}
+  \text{$T^\ast: \continuous[c][][K]^\ast \to \testFunctions{K}^\ast$ is not surjective.}
+\end{equation}
+%
+In summary, $\testFunctions{K}^\ast$ contains the restrictions $T^\ast(\mu)$ of all Radon measures $\mu$ on $K$, but also %
+linear functionals that do not extend to Radon measures.
+\skipline
+To complete the discussion, we prove that the pointwise limit $\Lambda$ of any sequence as in the statement is always %
+$\tau_K$-continuous. Indeed: %
+% 
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \item{$\testFunctions{K}$, equipped with the topology $\tau_K$, is a Fréchet space; see \citeFA{1.46}.}
     %
-  \item{Every functional $\Lambda_n$ is $\tau_K$-continuous.}
+  \item{Every functional $\Lambda_n$ is $\tau_K$-continuous (see above).}
     %
   \item{
-      $\Lambda_n(\phi) \to \Lambda(\phi)$ pointwise on $\D_K$ (our premise).
+      $\Lambda_n \longrightarrow \Lambda$ pointwise on $\testFunctions{K}$ (our premise).
     }
 \end{enumerate}
-%
-The hypotheses of the Banach-Steinhaus theorem are then satisfied, which supports the following existence proof.
+% 
+Theorem \citeFA{2.8} applies with these three statements, hence the $\tau_K$-continuity of $\Lambda$.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Third part: The sequence {Lambda_n} is equicontinuous, hence the uniform bound |Lambda_n .| < M |.| .
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{Existence of the uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{D^p \phi}$.} By \citeFA{2.6, 2.8}, %
-the equicontinuous sequence $\singleton{\Lambda_n}$ converges pointwise to a continuous $\Lambda$. Furthermore, the %
-equicontinuity of $\singleton{\Lambda_n}$ ensures that all $\magnitude*{\Lambda_n}$ remain below $1$ on a common balanced %
-neighborhood $V_p$. Hence 
+\paragraph{Existence of the uniform bound 
+$\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv[p]{\phi}}$.} 
+Let $\phi$ range over $\testFunctions{K}$. The convex balanced subsets
 %
 \begin{equation}
-  \frac{1}{p}\cdot\frac{\phi}{\norm*[p]{\phi} + \epsilon} \in V_p \qquad (\epsilon > 0).
+  V_N \Def \set[\big]{\phi}{\norm*[N]{\phi} < 1/N} \qquad(\counting{N})
 \end{equation}
 %
-This gives $\magnitude*{\Lambda_n(\phi)}<  p\cdot \Bigl\{\norm*[p]{\phi} + \epsilon \Bigr\}$, %
-which reduces to $\magnitude*{\Lambda_n(\phi)}\leq  p\norm*[p]{\phi}$. Use [\ref{annex:mean-value-with-derivatives}] with %
-$I, D, \dots, D^p$ to output %
+form a local base of $\tau_K$, as in \citeFA{1.46, 6.2}. For arbitrary $N$, the definition of $V_N$ gives
 %
-\begin{equation}\label{2.3:bound-from-derivative}
-  \magnitude*{\Lambda_n(\phi)} \leq p(p+1) \norm*[\infty]{D^p \phi}.
+\begin{equation}
+  \frac{1}{N} \cdot\frac{\phi}{\alpha} \in V_N
 \end{equation}
 %
-This completes the first part of the proof, with some $p$ and a positive constant $M = M(p)$. We now construct an example of 
-$\singleton{\Lambda_n}$.
+for every $\alpha > \norm*[N]{\phi}$. Hence,
+%
+\begin{equation}\label{2.3:existence-of-the-uniform-bound:phi-and-VN}
+  \phi \in N \alpha V_N.
+\end{equation}
+%
+Because $\Lambda_n(\phi) \longrightarrow \Lambda(\phi)$ for each $\phi$, Theorem \citeFA{2.6} implies that %
+$\singleton{\Lambda_n}$ is equicontinuous. Since $V_1, V_2, \dots$ is a local base of $\tau_K$, there exists an index $p$ %
+such that, for all $n$, 
+% 
+\begin{equation}\label{2.3:existence-of-the-uniform-bound:lambda-and-VN}
+  \magnitude*{\Lambda_n (\phi)} < 1 \qquad \bigl(\phi \in V_p\bigr).
+\end{equation}
+% 
+Combining \eqref{2.3:existence-of-the-uniform-bound:lambda-and-VN} with \eqref{2.3:existence-of-the-uniform-bound:phi-and-VN} %
+yields 
+% 
+\begin{equation}
+  \magnitude*{\Lambda_n(\phi)} < p \cdot \alpha.
+\end{equation}
+% 
+Since this inequality holds for every $\alpha >\norm*[p]{\phi}$, we have
+% 
+\begin{equation} \label{2.3:existence-of-the-uniform-bound:norm-p}
+  \magnitude*{\Lambda_n(\phi)} \leq %
+    p \cdot \norm*[p]{\phi}. 
+\end{equation}
+% 
+Combining \eqref{2.3:existence-of-the-uniform-bound:norm-p} with \eqref{2.3:continuity-of-Lambda:norm-N-is-deriv-N} for %
+$N = p$, we obtain
+% 
+\begin{equation}
+  \magnitude*{\Lambda_n(\phi)} \leq p \, \norm[\big]{\deriv[p]{\phi}}. 
+\end{equation}
+% 
+We have thus proved that \eqref{2.3:norm-p-bound} holds with the uniform bound $M_p=p$, for some $p>0$. To extend the %
+discussion, we define the smallest admissible order $m$ as the smallest $p \geq 0$ that satisfies \eqref{2.3:norm-p-bound} %
+with some finite $M$. By definition, $m$ depends only on $\singleton{\Lambda_n}$. Every $p \geq m$ is admissible as well, %
+since %
+% 
+\begin{equation}
+  \norm*{\phi} \leq \norm[\big]{\deriv{\phi}} \leq \norm[\big]{\deriv[2]{\phi}} \leq \cdots,  %
+\end{equation}
+%
+by Lemma~[\ref{annex:mean-value-with-derivatives}] %
+(as in \eqref{2.3:continuity-of-Lambda:mean-value-with-derivatives}). Taking the contrapositive, we see that 
+% 
+\begin{equation}
+  \text{if, at order $p$, no finite $M$ satisfies \eqref{2.3:norm-p-bound}, then $m > p$.} \label{2.3:below-minimal-order}
+\end{equation}
+%
+For instance, if \eqref{2.3:norm-p-bound} fails for $p=1$, then $ m > 1$. In the following, this criterion lets us quickly 
+establish that the order $2$ we find for \eqref{2.3:norm-p-bound} is actually the smallest admissible order.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Fourth part: Counterexample
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound $\magnitude*{\Lambda_n(\phi)}\leq M \norm*{D\phi}$.}
-Let $\psi$ be a smooth even mapping that equals $1$ on $\closedInterval*{\minus 1/2}{1/2}$, vanishes outside %
-$\closedInterval*{\minus 1}{1}$, and satisfies $0\leq \psi \leq 1$ on $\R$. $\psi$ can be obtained from the general %
-construction in \citeFA{1.46}. Alternatively, take the derivative of $\phi$ from Lemma %
-[\ref{lemma-derivative-not-bounded-by-magnitude}], with $\tau=1/2$, $\omega=2$, and $A=1$. %
-We set 
-%
+\paragraph{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+$\magnitude*{\Lambda_n(\phi)}\leq M \norm*{\deriv{\phi}}$.}%
+Let $K_n$ be the segment $\closedInterval*{\minus 1/n}{1/n}$; put %
+$K_n^{-} = K_n \cap \openClosedInterval*{\minus \infty}{0}$ and  $K_n^{+}=K_n \cap \closedOpenInterval*{0}{\infty}$.
+We address the example of $f_n$ given in the exercise statement, that is, 
+% 
+\begin{align}
+  f_n: \R &\to \R \\
+        t &\mapsto n^3 t \Iverson[\Big]{t \in K_n}. \nonumber
+\end{align}
+% 
+The measure $\mu_n$ is now the difference of two positive Radon measures $\mu_{n}^{+}$ and $\mu_n^-$, as follows: %
+% 
 \begin{equation}
-  f_n(t) \Def n^3t \Iverson[\Big]{\magnitude*{t} \leq 1/n} \qquad(t \in \R).
-\end{equation}
-%
-Under the identification $C_c(K) \equiv \Continuous_K$, $\mu_n$ reads as the difference of two positive Radon measures %
-$\mu_n^+$ and $\mu_n^-$, since %
-%
-\begin{equation}
-  \mu_n(u) = \underbrace{n^3\int_{0}^{1/n} t u(t) \diff{t}}_{\mu_n^+(u)} 
-    - \underbrace{n^3\int_{\minus 1/n}^0 \minus t u(t) \diff{t}}_{\mu_n^-(u)} \qquad (u \in \Continuous_K).
+  \mu_n(u) = 
+    \underbrace{n^3 \intLebesgue[K_n^{+}]{u \cdot \id{\R}}[\beta]}_{\mu_n^{+}(u)} - 
+    \underbrace{n^3 \intLebesgue[K_n^{-}]{u \cdot \bigl[\minus \id{\R}\bigr]}[\beta]}_{\mu_n^{-}(u)} %
+    \qquad \bigl(u \in \continuous[c][][K]\bigr).
 \end{equation} 
-%
-Thus, $\mu_n$ is a signed Radon measure, whose compact support $\closedInterval*{\minus 1}{1}$ shrinks to $\singleton{0}$ as %
-$n \to \infty$. We see that $\norm*{\mu_n} \leq \norm*{\mu_n^+} + \norm*{\mu_n^-}$. However, the sequence $\singleton{\mu_n}$ %
-is not uniformly bounded, since 
-%
-\begin{equation}\label{2.3:norm-of-lambda-n}
-  \norm*{\mu_n} = \norm*[1]{f_n} = n = \norm*{\mu_n^+}  + \norm*{\mu_n^-}. 
-\end{equation}
-%
-These equalities are justified by \citeFA{6.19}, but the logistic function %
-$\sigma_\lambda:t\mapsto 1/\bigl(1+\exp(\minus\lambda t)\bigr)$ provides a direct proof of them. Indeed, this function is a %
-standard smooth approximation of $H:t\mapsto \Iverson*{t\geq 0}$, the Heaviside step function; see [\ref{annex-Dirac}]. %
-Lebesgue's dominated convergence theorem implies
-%
-\begin{equation}
-  \mu_n\bigl(u\cdot(\,\underbrace{2 \sigma_\lambda - 1}_{\text{odd}}\,)\bigr) 
-  = 2n^3 \int_0^{1/n} \underbrace{t\, \bigl(2\sigma_\lambda(t) - 1\bigr)}_{\text{even}} \diff{t} 
-  \tendsto{\lambda}{\infty} n \qquad(n \geq 2). 
-\end{equation}
-%
-We first observe that this $\{\mu_n\}$ cannot converge vaguely: this would, by Theorem \citeFA{2.6}, imply %
-$\sup_n{\norm*{\mu_n}}\ < \infty$, which would contradict \eqref{2.3:norm-of-lambda-n}. However, we investigate further %
-to establish weaker convergence and boundedness in $\tau_K$. The mean value theorem implies that, given $\phi \in \D_K$, 
-%
-\begin{equation}
-  \phi(1/n)- \phi(\minus 1/n) = \frac{2}{n}\phi'(t_n)
-\end{equation}
-%
-for some $t_n = t_n(\phi)\in \openInterval*{\minus 1/n}{1/n}$. Moreover, integration by parts yields %
+% 
+The linear functional $\mu_n$ is then a signed Radon measure whose compact support $K_n$ shrinks to $\singleton{0}$, as %
+$n$ goes to infinity. Furthermore, the sequence $\singleton{\mu_n}$ is not uniformly bounded, since 
+% 
+\begin{align}
+  \norm*{\mu_n}   &= \norm*[L^1]{f_n}  = n, \label{2.3:norm-of-mu-n}  \\
+  \norm[\big]{\mu_{n}^{+}} &= \norm[\big]{\mu_n^-} = \frac{n}{2}. %
+    \label{2.3:existence-of-Lambda-with-optimal-uniform-bound:mu-n}
+\end{align}
+% 
+These equalities follow from \citebook{6.19}{BigRudin}. We establish the counterpart for $\Lambda_n$, that is,
+% 
+\begin{align}
+  \norm*{\Lambda_n} &= \norm*[L^1]{f_n}  = n,  \label{2.3:norm-of-lambda-n:1}\\
+  \norm[\big]{\Lambda_{n}^{+}} &= \norm[\big]{\Lambda_n^-} = \frac{n}{2}, \label{2.3:norm-of-lambda-n:2}
+\end{align}
+% 
+where $\Lambda_{n}^{+}$ (respectively, $\Lambda_n^-$) is the restriction of $\mu_{n}^{+}$ (respectively, $\mu_n^-$) to %
+$\testFunctions{K}$. This is stronger than \eqref{2.3:norm-of-mu-n}: the smaller space $\testFunctions{K}$ already gives the %
+norm $n$, since, by definition of the operator norm, $\norm[\big]{\Lambda_n}$ %
+is the supremum of $\magnitude*{\Lambda_n(\phi)}$ over all $\phi \in \testFunctions{K}$ with $\norm*{\phi}\leq 1$. As a %
+consequence, $\singleton{\Lambda_n}$, which is seen as the restriction of $\singleton{\mu_n}$ to $\testFunctions{K}$, is not %
+uniformly bounded either. The core idea is that the following \emph{logistic function} %
 %
 \begin{align}
-  \mu_n(\phi) = \Lambda_n(\phi) & = \evalbar[\bigg]{\frac{n^3}{2}t^2 \phi(t)}{\minus 1/n}{1/n} 
-      - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}\\
+  \sigma_\lambda: \R &\to \openInterval*{0}{1}\\
+                    t & \mapsto \frac{1}{1+\exp(\minus\lambda t)}, \nonumber
+\end{align}
+%
+as $\lambda \longrightarrow \infty$, serves as a standard smooth approximation of 
+%
+\begin{align}
+  H: \R &\to \singleton{0, 1}\\
+      t & \mapsto \Iverson*{t\geq 0},  \nonumber
+\end{align}
+%
+the Heaviside step function; see [\ref{annex-Dirac}]. More specifically, we asymptotically approximate $\norm*{\mu_{n}^{+}}$, %
+the contribution of $H$ to $\mu_n$, by integrals $\Lambda_{n}^{+}(\zeta_\lambda)$ of smooth functions $\zeta_\lambda$ in %
+$\testFunctions{K}$ (defined below), as follows:
+%
+\begin{equation}\label{2.3:estimate-of-mu-n-plus}
+  \Lambda_{n}^{+}(\zeta_\lambda) \tendsto{\lambda}{\infty} %
+    \underbrace{\intLebesgue[K_n]{H \, f_n}[\beta]}_{\norm*{\mu_{n}^{+}}}.
+\end{equation}
+%
+From now on, let $\lambda \geq 2$. To take both $\mu_{n}^{+}$ and its ``counterweight'' $\mu_n^-$ into account, we choose the %
+affine combination 
+%
+\begin{equation}
+  2\sigma_\lambda - 1 = \tanh \circ \, \theta_\lambda \qquad\bigl(\theta_\lambda(t) \Def \lambda t/2 \bigr), 
+\end{equation}
+%
+as a smooth approximation of $\sgn = H - H \circ \, (\minus \id{\R})$. %
+The construction described in \citeFA{1.46} provides %
+a function $\phi$, which we now call $\psi_\lambda$, such that
+%
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \item $\psi_\lambda \in \testFunctions{K}$, 
+  \item $\psi_\lambda$ is identically $1$ on $\closedInterval*{1/\lambda - 1}{1 - 1/\lambda}$, 
+  \item $0 \leq \psi_\lambda \leq 1$.
+\end{enumerate}
+%
+This gives the test functions
+%
+\begin{align}\label{2.3:norm-of-lambda-n:test-functions-zeta}
+  \zeta_\lambda: \R &\to \openInterval*{\minus 1}{1} \\
+                  t &\mapsto \psi_\lambda(t) \cdot \tanh\bigl(\theta_\lambda(t)\bigr). \nonumber
+\end{align}
+%
+With this choice of $\zeta_\lambda$, we prove the fundamental convergence
+%
+\begin{equation}\label{2.3:norm-of-lambda-n:convergence}
+  0 < n- \Lambda_n (\zeta_\lambda) \tendsto{\lambda}{\infty} 0. 
+\end{equation}
+%
+Since $\norm*{\zeta_\lambda} \leq 1$, this estimate gives %
+%
+\begin{equation}
+  n \leq \norm*{\Lambda_n} \leq \norm*[L^1]{f_n} = n, 
+\end{equation}
+%
+which is \eqref{2.3:norm-of-lambda-n:1}. Next, Lebesgue's dominated convergence theorem justifies %
+\eqref{2.3:estimate-of-mu-n-plus}, since
+%
+\begin{equation}
+  H \cdot f_n \cdot \zeta_\lambda \xrightarrow[\lambda \to \infty]{\text{a.e.}} H \cdot f_n
+\end{equation}
+%
+(this convergence is pointwise everywhere, except at $t=1$ when $n=1$). Hence $\norm*{\Lambda_{n}^{+}} = \norm*{\mu_{n}^{+}}$, 
+as follows:
+%
+\begin{equation}
+  \norm[\big]{\mu_{n}^{+}}     \citeleq{\eqref{2.3:estimate-of-mu-n-plus}} 
+  \norm[\big]{\Lambda_{n}^{+}} \leq 
+  \norm[\big]{\mu_{n}^{+}}.
+\end{equation}
+%
+We already know that $\norm*{\mu_{n}^{+}} = n/2$ from %
+\eqref{2.3:existence-of-Lambda-with-optimal-uniform-bound:mu-n}. This is also proved by computing the integral in %
+\eqref{2.3:estimate-of-mu-n-plus}. In detail, 
+%
+\begin{equation}\label{2.3:existence-of-Lambda-with-optimal-uniform-bound:mu-n-plus}
+  \norm[\big]{\mu_{n}^{+}} = n^3 \int_{0}^{\frac{1}{n}} t \diff{t} = \frac{n}{2}. 
+\end{equation}
+%
+A symmetry argument for $\Lambda_n^-$ gives
+%
+\begin{equation}
+  \norm[\big]{\Lambda_{n}^{+}} = \norm[\big]{\Lambda_{n}^{-}} = \frac{n}{2}, 
+\end{equation}
+%
+which is \eqref{2.3:norm-of-lambda-n:2}. We now prove \eqref{2.3:norm-of-lambda-n:convergence}.
+\skipline
+Because $\psi_\lambda$ and $\id{\R} \cdot \tanh \circ \, \theta_\lambda$ are even, we have, for all $n$,
+% 
+\begin{align}
+  n - \Lambda_n (\zeta_\lambda ) &\citeq{\eqref{2.3:existence-of-Lambda-with-optimal-uniform-bound:mu-n-plus}}  %
+      2n^3 \int_{0}^{\frac{1}{n}} t \diff{t} - 
+      2n^3 \int_{0}^{\frac{1}{n}} t \, \psi_\lambda(t) \, \tanh\bigl(\theta_\lambda(t)\bigr) \diff{t} \\
+    &=
+      2n^3 \int_{0}^{\frac{1}{n}} t \, \Bigl[1 - \psi_\lambda(t) \, \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t}.
+\end{align}
+%
+This makes $n - \Lambda_n (\zeta_\lambda )$ positive. Additionally, for all $n>1$, the integral reduces to 
+% 
+\begin{equation}
+  n - \Lambda_n (\zeta_\lambda) = 2n^3 \int_{0}^{\frac{1}{n}} t \, \Bigl[1 - \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t},
+\end{equation}
+%
+since $\psi_\lambda = 1$ on $\closedInterval*{0}{1/n}$ for this $n$. Moreover, for all $t \in \R$,
+%
+\begin{equation}
+  0 < 1 - \tanh\bigl(\theta_\lambda(t)\bigr) = 2 - 2\sigma_\lambda(t) < 2\, e^{\minus \lambda t}.
+\end{equation}
+%
+We then obtain, when $n > 1$,  
+%
+\begin{align}
+  n - \Lambda_n (\zeta_\lambda )  
+    &= 2n^3 \int_{0}^{\frac{1}{n}} t \, \Bigl[1 - \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t} \\
+  & < 2n^3 \int_{0}^{\infty} t \, \Bigl[1 - \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t} \\
+  & < 4n^3 \underbrace{\int_{0}^{\infty} t \, e^{\minus \lambda t} \diff{t}}_{1 / \lambda^2}.
+\end{align}
+%
+If $n=1$, we split $\closedInterval*{0}{1}$ into $\closedInterval*{0}{1-1/\lambda}$, on which $\psi_\lambda$ equals $1$, and %
+$\openClosedInterval*{1-1/\lambda}{1}$. The estimates are similar:  
+% 
+\begin{align}
+  1 - \Lambda_1 (\zeta_\lambda) & = 
+      2 \int_{0}^{1-\frac{1}{\lambda}} t \, \Bigl[1 - \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t} + 
+      2 \int_{1-\frac{1}{\lambda}}^{1} t \, \Bigl[1 - \psi_\lambda(t) \, \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t} \\
+  & < 
+      2 \int_{0}^{\infty} t \, \Bigl[1 - \tanh\bigl(\theta_\lambda(t)\bigr)\Bigr] \diff{t} + 
+      2 \int_{1 - \frac{1}{\lambda}}^{1} t \diff{t} \\
+  & < 
+      4 \int_{0}^{\infty} t \, e^{\minus \lambda t} \diff{t} + \frac{2}{\lambda}.
+\end{align}
+%
+Both cases give a two-sided bound for $n - \Lambda_n (\zeta_\lambda )$, as follows:
+%
+\begin{equation}
+  0 < n - \Lambda_n (\zeta_\lambda ) < \frac{4n^3}{\lambda^2} %
+    + \frac{2}{\lambda} \Iverson[\big]{n=1} \tendsto{\lambda}{\infty}0, 
+\end{equation}
+%
+which completes the proof of \eqref{2.3:norm-of-lambda-n:convergence}. The key observation is that this sequence %
+$\singleton{\mu_n}$ cannot converge pointwise, or ``vaguely'', in the language of Radon measure theory: by Theorem %
+\citeFA{2.6}, this would force $\sup_n \norm*{\mu_n}$ to be finite, contradicting \eqref{2.3:norm-of-mu-n}.
+\skipline
+The sequence$\singleton{\Lambda_n}$, however, converge pointwise on $\testFunctions{K}$, and they are uniformly bounded with %
+respect to $\tau_K$. We now prove these two properties. We first consider only \emph{real-valued} $\phi$ in ù
+$\testFunctions{K}$. The mean value theorem implies that 
+% 
+\begin{equation}
+  \phi(1/n)- \phi(\minus 1/n) = \frac{2}{n}\deriv{\phi}(t_n)
+\end{equation}
+% 
+for some $t_n = t_n(\phi)\in \openInterval*{\minus 1/n}{1/n}$; see, for instance, Theorem \citebook{5.10}{BabyRudin}. Moreover,
+integration by parts yields %
+% 
+\begin{align}
+  \Lambda_n(\phi) & = \evalbar[\bigg]{\frac{n^3}{2}t^2 \phi(t)}{\minus \frac{1}{n}}{\frac{1}{n}} 
+      - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \deriv{\phi}(t) \diff{t} \\
   & = \frac{n}{2}\bigl(\phi(1/n) - \phi(\minus 1/n)\bigr)
-      - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}\\
-  & = \phi'(t_n) 
-      - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}.\label{2.3:integration-by-part}
+      - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \deriv{\phi}(t) \diff{t} %
+      \label{2.3:integration-by-parts:difference}\\
+  & = \deriv{\phi}(t_n) 
+      - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \deriv{\phi}(t) \diff{t}. 
 \end{align}
-%
-Note that when $\phi' = 1$ in a neighborhood of $0$, \eg,  for $\phi(t)= \psi(t) \cdot t$, the latter equality reduces to %
-%
+% 
+For instance, $\phi = \id{\R} \cdot \psi_2$ has $\deriv{\phi} = 1$ on $K_n$ once $n \geq 2$. In this context, the last %
+equality reduces to 
+% 
 \begin{equation}
-  \Lambda_n(\phi) = 1 - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \diff{t} = \frac{2}{3}.
+  \Lambda_n(\phi) = 1 - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \diff{t} = \frac{2}{3}.
 \end{equation}
-%
-This suggests that continuity of $\phi'$ dictates $\Lambda_n(\phi) \to\frac{2}{3}\phi'(0)$. We establish this convergence %
-in two steps. First, 
-%
+% 
+By continuity of $\deriv{\phi}$, this suggests that $\Lambda_n(\phi) \longrightarrow \frac{2}{3}\deriv{\phi}(0)$. %
+We establish this convergence in two steps. First, 
+% 
 \begin{align}
-  \Lambda_n(\phi) - \frac{2}{3}\phi'(0) & = \phi'(t_n) - \phi'(0) - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \phi'(t) \diff{t}
-    + \phi'(0) \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^{2} \diff{t}}_{1/3} \\
-  & = \phi'(t_n) 
-    - \phi'(0)
-  - \frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \bigl(\phi'(t) - \phi'(0)\bigr)  \diff{t}.
+  \Lambda_n(\phi) - \frac{2}{3}\deriv{\phi}(0) & = \deriv{\phi}(t_n) - \deriv{\phi}(0) %
+      - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \deriv{\phi}(t) \diff{t}
+    + \deriv{\phi}(0) \underbrace{\frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^{2} \diff{t}}_{1/3} \\
+  & = \deriv{\phi}(t_n) 
+    - \deriv{\phi}(0)
+  - \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \bigl(\deriv{\phi}(t) - \deriv{\phi}(0)\bigr)  \diff{t}.
 \end{align}
-%
+% 
 Next, taking absolute values gives %
-%
+% 
 \begin{equation}
-  \magnitude*{\Lambda_n(\phi) - \frac{2}{3}\phi'(0)} \leq \magnitude*{\phi'(t_n) - \phi'(0)} 
-  + \frac{1}{3}\max_{\closedInterval*{\minus 1}{1}}{\magnitude*{\phi' - \phi'(0)}} \tendsto{n}{\infty} 0.
+  \magnitude*{\Lambda_n(\phi) - \frac{2}{3}\deriv{\phi}(0)} \leq \magnitude*{\deriv{\phi}(t_n) - \deriv{\phi}(0)} 
+  + \frac{1}{3}\max_{\frac{1}{n}K}{\magnitude*{\deriv{\phi} - \deriv{\phi}(0)}} \tendsto{n}{\infty} 0.
 \end{equation}
-%
+% 
 As a result, %
-%
-\begin{equation}\label{2.3:convergence-to-dirac}
-  \Lambda_n(\phi) \tendsto{n}{\infty} \minus \frac{2}{3}\delta'(\phi) \qquad (\phi\in \D_K), 
-\end{equation}
-%
-where $\delta': \phi \mapsto \minus \phi'(0)$ is the \emph{derivative} of the \textit{Dirac measure} %
-$\delta: \phi \mapsto \phi(0)$; see \citeFA{6.1, 6.9} and [\ref{annex-Dirac}]. The previous reasoning shows that 
-the limit $\Lambda = \minus \frac{2}{3}\delta'$ is $\tau_K$-continuous. In addition, \eqref{2.3:integration-by-part} %
-justifies
-%
+% 
 \begin{equation}
-  \magnitude*{\Lambda_n(\phi)} \leq \magnitude*{\phi'(t_n)} 
-  + \frac{1}{3} \max_{\closedInterval*{\minus 1}{1}}{\magnitude*{\phi'}}.
+  \Lambda_n(\phi) \tendsto{n}{\infty} \frac{2}{3}\deriv{\phi}(0) %
+    \qquad \bigl(\phi\in \testFunctions{K}: \phi(\R) \subset \R\bigr). 
 \end{equation}
-%
-A simpler bound is
-%
-\begin{equation}\label{2.3:upper-bound}
-  \magnitude*{\Lambda_n(\phi)} \leq \frac{4}{3} \norm*[\infty]{\phi'}. 
+% 
+In general, every $\phi \in \testFunctions{K}$ is the combination $\Re(\phi) + i\Im(\phi)$ of the real-valued %
+functions $\Re(\phi)$ and $\Im(\phi)$, both in $\testFunctions{K}$. The linearity of $\Lambda_n$ and the continuity of %
+the sum extend this convergence to the whole space $\testFunctions{K}$. That is, 
+% 
+\begin{equation}\label{2.3:convergence-to-dirac}
+  \Lambda_n(\phi) \tendsto{n}{\infty} \frac{2}{3}\deriv{\phi}(0) \qquad (\phi\in \testFunctions{K}).
 \end{equation}
-%
-This is a concrete instance of \eqref{2.3:bound-from-derivative}, with $p=1$ and $M=4/3$. To establish %
-\eqref{2.3:norm-p-bound1}, it suffices to prove that no reduction to order $p=0$ is possible. To do so, we first assume, %
-to reach a contradiction, that there exists $M$ such that 
-%
-\begin{equation}\label{2.3:upper-bound-assumption}
-  \magnitude*{\Lambda_n(\phi)} \leq M \norm*[\infty]{\phi} \qquad (\phi \in \D_K, \, \counting{n}).
+% 
+In distribution theory, %
+% 
+\begin{align}
+  \deriv{\delta}: \testFunctions{K} & \to \C \\
+  \phi & \mapsto \minus \deriv{\phi}(0)  \nonumber
+\end{align}
+% 
+is the \emph{derivative} of the \emph{Dirac measure} %
+% 
+\begin{align}
+  \delta: \testFunctions{K} & \to \C \\
+  \phi & \mapsto \phi(0);  \nonumber
+\end{align}
+% 
+see \citeFA{6.1, 6.9} and [\ref{annex-Dirac}]. We also show that $\deriv{\delta}$, unlike $\delta$, is not %
+a Radon measure. The previous reasoning proves that %
+% 
+\begin{equation}\label{2.3:Lambda-is-continuous}
+  \Lambda = \minus \frac{2}{3}\deriv{\delta} \in \testFunctions{K}^\ast.
 \end{equation}
-%
-Next, we choose %
-\begin{equation}\label{2.3:zn-definition}
-  \phi_n \Def \psi \cdot \tilde{\phi}_n,
+% 
+We extend the integration by parts \eqref{2.3:integration-by-parts:difference} to every $\phi \in \testFunctions{K}$ by %
+applying it to $\Re(\phi)$ and $\Im(\phi)$, then recombining %
+$\phi = \Re(\phi) + i\Im(\phi)$. As $\C \equiv \R^2$, Theorem \citebook{5.19}{BabyRudin} justifies the following mean value %
+inequality
+% 
+\begin{equation}
+  \magnitude[\big]{\phi(1/n)- \phi(\minus 1/n)} \leq \frac{2}{n} \norm*{\deriv{\phi}}.
 \end{equation}
-%
-where $\tilde{\phi}_n$ is $\phi$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] with %
-$\tau= 1/n = 1/ \omega = 1/A$. Hence $\norm*[\infty]{\phi_n} < 2$. In contrast, for $n \geq 4$, $\Lambda_n (\phi_n)$ is 
-%
+% 
+Therefore, for all $\phi \in \testFunctions{K}$,
+% 
+\begin{align}
+  \magnitude*{\Lambda_n(\phi)} & \leq \frac{n}{2}\magnitude*{\phi(1/n) - \phi(\minus 1/n)} %
+    + \frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \magnitude*{\deriv{\phi}(t)} \diff{t} \\
+  & \leq \biggl[1 + \frac{1}{3}\biggr] \norm*{\deriv{\phi}}. \label{2.3:upper-bound}
+\end{align}
+% 
+This establishes \eqref{2.3:norm-p-bound} at order $p=1$, with $M = 4/3$. It remains to prove that no reduction to order %
+$p=0$ is possible. Suppose, for contradiction, that the following bound
+% 
+\begin{equation}
+  M_0 \Def \sup\set[\big]{
+    \magnitude*{\Lambda_n(\phi)}}{
+    \norm*{\phi} \leq 1, n \in \N_+
+  }
+\end{equation}
+% 
+is finite. The contradiction comes from \eqref{2.3:norm-of-lambda-n:1}, which establishes that %
+$n = \norm*{\Lambda_n} \leq M_0$ for all $n$. Alternatively, a direct counterexample is %
+% 
+\begin{equation}\label{2.3:phi-n-definition}
+  \phi_n \Def \psi_2 \cdot \tilde{\phi}_n,
+\end{equation}
+% 
+where $\tilde{\phi}_n$ is the function $\phi$ of \eqref{annex:mean-value-with-derivatives:nice-function} %
+with $\omega = A = 1/\tau = n$, and $\psi_2$ is the cutoff used in $\zeta_2$; see %
+\eqref{2.3:norm-of-lambda-n:test-functions-zeta}. For $n \geq 4$, $\norm*{\phi_n} = 3/2$ and $\Lambda_n (\phi_n)$ equals 
+% 
 \begin{equation} 
   \frac{n}{2} \bigl(\,\underbrace{\tilde{\phi}_n(1/n)}_{1} 
   - \underbrace{\tilde{\phi}_n(\minus 1 /n)}_{\minus 1}\,\bigr) 
-  - \underbrace{\frac{n^3}{2} \int_{\minus 1/n}^{1/n} t^2 \tilde{\phi}'(t) \diff{t}}_{\frac{1}{3}n} = \frac{2}{3}n.
+  - \underbrace{\frac{n^3}{2} \int_{\minus \frac{1}{n}}^{\frac{1}{n}} t^2 \deriv{\tilde{\phi}_n}(t) \diff{t}}_{\frac{1}{3}n} %
+  = \frac{2}{3}n.
 \end{equation}
-%
-Our assumption \eqref{2.3:upper-bound-assumption} then reads as
 % 
-\begin{equation}\label{2.3:upper-bound-contradiction2}
-  \frac{2}{3}n \leq 2M < \infty. 
+For $n \geq 4$, this contradicts the finiteness of $M_0$:
+%
+\begin{equation}\label{2.3:upper-bound-contradiction}
+  M_0 \geq \Lambda_n\biggl(\frac{2}{3}\phi_n\biggr) = \frac{4n}{9} \tendsto{n}{\infty}\infty. 
+\end{equation}
+% 
+Similarly, we prove that $\Lambda$ is not bounded with respect to $\norm*{\cdot}$. To this end, suppose, for contradiction, %
+that the operator norm of $\Lambda$, that is,
+% 
+\begin{equation}
+  \norm*{\Lambda} \Def \sup\set[\big]{\magnitude*{\Lambda(\phi)}}{ \norm*{\phi} \leq 1}, 
 \end{equation}
 %
-The behavior $\frac{2}{3}n \to\infty$ provides the desired contradiction. Combining \eqref{2.3:convergence-to-dirac} with %
-\eqref{2.3:upper-bound-contradiction2} gives%
+is finite. Pick $\phi_\omega$ from the proof of Lemma~[\ref{annex:lemma:higher-derivatives-not-bounded}], so that 
 %
 \begin{equation}
-  \magnitude*{\Lambda(\phi_n)} \geq \magnitude*{\Lambda_n (\phi_n)}  - \magnitude*{ \Lambda_n(\phi_n) - \Lambda(\phi_n)}
-  \tendsto{n}{\infty} \infty.
+  \norm*{\frac{1}{\sqrt{\omega}}\phi_\omega} \tendsto{\omega}{\infty} 0.
 \end{equation}
 %
-This shows that $\Lambda$ has no continuity bound for $K$ because $\norm*[\infty]{\phi_n} < 2$ while %
-$\magnitude*{\Lambda_n (\phi_n)}\to \infty$. Therefore, $\Lambda$ cannot be extended as a Radon measure; %
-see [\ref{notations:Radon-measures}], equation \eqref{notations:definition-of-Radon-measure}. A direct way to see this is to %
-pick $\phi_\omega$ from Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}], so that 
-%
+On the other hand, since $\phi_\omega \in \testFunctions{K}$ and $\deriv{\phi_\omega}(0) = \omega$, we verify that 
+% 
 \begin{equation}
-  \Lambda(\psi\cdot \phi_\omega) = \frac{2}{3} \omega \tendsto{\omega}{\infty} \infty 
+  \Lambda\biggl(\frac{1}{\sqrt{\omega}}\phi_\omega \biggr) = \frac{2}{3} \sqrt{\omega} \tendsto{\omega}{\infty} \infty, 
 \end{equation}
-%
-contrasts with $\norm*[\infty]{\psi\cdot \phi_\omega}=1$. Thus, we have exhibited a sequence of Radon measures $\mu_n$ that 
-%
-\begin{enumerate} 
+% 
+which contradicts the assumed finiteness of $\norm*{\Lambda}$. Hence 
+% 
+\begin{equation}\label{2.3:Lambda-is-not-norm-bounded}
+  \norm*{\Lambda} = \infty.
+\end{equation}
+% 
+This prevents $\Lambda$ from extending to a Radon measure in the sense of \cite{AnalyseIII} over $\continuous[c][][K]$. %
+We have thus exhibited a sequence of Radon measures $\mu_n$ that 
+% 
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \item{does not converge vaguely to any Radon measure, but}
   \item{
-    does not converge vaguely to any Radon measure,
-  }
-  \item{but converges pointwise on $\D_K$ to $\Lambda \in \D_K^\ast$, in the specific $\D_K$'s topology; %
-    see \eqref{2.3:local-base-of-DK}, \eqref{2.3:convergence-to-dirac}, and \eqref{2.3:upper-bound}.
+    converges pointwise on $\testFunctions{K}$ to a linear functional $\Lambda$ that is $\tau_K$-continuous; %
+    see \eqref{2.3:Lambda-is-continuous}.
   }
 \end{enumerate}
-%
-We now propose a second example, with $p=2$ as the smallest admissible order.
-%
+% 
+Two examples follow, with $p=2$ as the smallest admissible order. The first meets the requirement of the exercise: it is %
+built from integrable functions $g_n$. The second is an order-$2$ instance as well, but has no density.
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Fifth part: Second Counterexample
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\paragraph{Case of a uniform bound in $\norm*{D^2\phi}$.} We define the \emph{derivative}
+\paragraph{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+  $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv[2]{\phi}}$, from a polynomial density $g_n$.} %
+%
+Legendre polynomial of degree $2$ (proof is being reviewed). 
+%\textbf{TODO}: insert the proof, after review. 
+% 
+\paragraph{Existence of $\singleton{\Lambda_n}$ with optimal uniform bound %
+    $\magnitude*{\Lambda_n(\phi)}\leq M\norm*{\deriv[2]{\phi}}$, no density $f_n$.} %
+%
+We define the \emph{derivative}
+% 
+\begin{align}
+  \deriv{\Lambda_n}: \testFunctions{K} &\to \C\\
+  \phi &\mapsto \minus \Lambda_n(\deriv{\phi});  \nonumber
+\end{align}
+% 
+see \citeFA{6.9}. Here $\Lambda_n(\deriv{\phi})$ is defined, since $\deriv{\phi} \in \testFunctions{K}$. We have %
+proved that every $\Lambda_n$ is continuous. So is the differentiation operator $D \in \mathcal{L}(\testFunctions{K})$; see %
+\hyperref[1.17]{Exercise [1.17]}. Therefore, $\deriv{\Lambda_n}$ is continuous. Applying \eqref{2.3:convergence-to-dirac} to %
+$\deriv{\phi}$ yields %
+% 
+\begin{equation}
+  \deriv{\Lambda_n}(\phi) \tendsto{n}{\infty} \minus \frac{2}{3} \deriv[2]{\phi}(0), 
+\end{equation}
+% 
+and Theorem \citeFA{2.8} shows that the limit $\phi \mapsto \minus \frac{2}{3} \deriv[2]{\phi}(0)$ is $\tau_K$-continuous. 
+Applying \eqref{2.3:upper-bound} to $\deriv{\phi}$ in place of $\phi$ gives the following version of %
+\eqref{2.3:norm-p-bound}:
+% 
+\begin{equation}
+  \magnitude*{\deriv{\Lambda_n}(\phi)} \leq \frac{4}{3} \norm*{\deriv[2]{\phi}}.
+\end{equation}
+% 
+We additionally establish that $2$ is the smallest admissible order. Suppose, for contradiction, that %
+% 
+\begin{equation}
+  M_1 \Def \sup\set[\big]{\magnitude*{\Lambda_n(\deriv{\phi})}}{\norm*{\deriv{\phi}} \leq 1, n \in \N_+}
+\end{equation}
+% 
+is finite. Let 
 %
 \begin{align}
-  \Lambda_n': \D_K &\to \C\\
-  \phi &\mapsto \minus \Lambda_n(\phi'); \nonumber
+  \Phi_n: \R &\to \R \\
+  t &\mapsto \int_{\minus 1}^{t} \phi_n(u) \diff{u}; \nonumber
 \end{align}
 %
-see \citeFA{6.1}. We have proved that every $\Lambda_n$ is continuous. So is the derivative operator in $\D_K$; see Exercise %
-[1.17]. Therefore, $\Lambda_n'$ is continuous. Applying \eqref{2.3:convergence-to-dirac} with $\phi'$ yields %
-%
+see \eqref{2.3:phi-n-definition} for the definition of $\phi_n$. In other words, %
+$\Phi_n \in \continuous[][\infty][\R]$ is the %
+antiderivative of $\phi_n$ that vanishes at $\minus 1$. Since $\phi_n$ has support in $\closedInterval*{\minus 1}{1}$, %
+we obtain 
+% 
 \begin{equation}
-  \Lambda_n'(\phi) \tendsto{n}{\infty}  \minus \frac{2}{3} \phi''(0).
+  \Phi_n(t) = \begin{cases}
+    0 & (t < \minus 1),  \\
+    \Phi_n(1) & (t > 1).
+  \end{cases}
+\end{equation}
+% 
+Note that $\phi_n$ is odd, which forces 
+% 
+\begin{equation}
+  \Phi_n(1) = \int_{\minus 1}^{1} \phi_n(u) \diff{u} = 0.
+\end{equation}
+% 
+Our $\Phi_n$ is then identically zero on $\openInterval*{\minus \infty}{\minus 1} \cup \openInterval*{1}{\infty}$. Hence
+% 
+\begin{equation}
+  \supp{\Phi_n} \subset \closedInterval*{\minus 1}{1}. %
 \end{equation}
 %
-Furthermore, Theorem \citeFA{2.8} implies that the limit $\minus \frac{2}{3} \phi''(0)$ is $\tau_K$ continuous. 
-Additionally, it follows from \eqref{2.3:upper-bound} that the bound \eqref{2.3:norm-p-bound2} is %
-%
+We have just proved that $\Phi_n \in \testFunctions{K}$, which allows us to estimate $\deriv{\Lambda_n}(\Phi_n)$. Since $M_1$ %
+is assumed to be finite, we have
+% 
 \begin{equation}
-  \magnitude*{\Lambda_n'(\phi)} \leq \frac{4\,}{3} \norm*[\infty]{\phi''}.
+  \magnitude*{\deriv{\Lambda_n}(\Phi_n)} = \magnitude*{\Lambda_n(\deriv{\Phi_n})} \leq M_1 \norm*{\deriv{\Phi_n}} < \infty. 
 \end{equation}
-%
-To prove this, it suffices to show that $2$ is the smallest suitable $p$. First, we assume, to reach a contradiction, that
-%
-\begin{equation}
-  \magnitude*{\Lambda_n(\phi')} \leq M \norm*[\infty]{\phi'} \qquad (\phi \in \D_K, \, \counting{n}).
-\end{equation}
-%
-Next, let $\Phi_n$ be the antiderivative of $\phi_n$ that vanishes at $\minus 1$; see \eqref{2.3:zn-definition}. The oddness %
-of $\Phi_n$ ($\psi$ is even) implies that $\supp{\Phi_n} \subset \closedInterval*{\minus 1}{1}$. So, under our assumption, 
-%
-\begin{equation}
-  \magnitude*{\Lambda_n'(\Phi_n)} = \magnitude*{\Lambda_n(\Phi_n')} \leq M \norm*[\infty]{\Phi_n'}. 
-\end{equation}
-%
+% 
 Equivalently,
 % 
 \begin{equation}
-  \magnitude*{\Lambda_n(\phi_n)} \leq M \norm*[\infty]{\phi_n}, 
+  \magnitude*{\Lambda_n(\phi_n)} \leq M_1 \norm*{\phi_n} < \infty, 
 \end{equation}
-%
-which has already been disproved. To reach one final contradiction, assume that there exists $M = M(0)$ so that 
-%
-\begin{equation}
-  \magnitude*{\Lambda_n'(\phi)}  \leq M \norm*[\infty]{\phi} \qquad(\phi \in \D_K, \, \counting{n}).
-\end{equation}
-%
-Lemma [\ref{lemma-derivative-not-bounded-by-magnitude}] implies that %
-%
-\begin{equation}
-  \magnitude*{\Lambda_n'(\phi)}  \leq M \norm*[\infty]{\phi'}.
-\end{equation}
-%
-This contradiction concludes the proof.
-\end{proof}
+% 
+which is disproved as in \eqref{2.3:upper-bound-contradiction}. Therefore, $M_1 = \infty$: no bound of order $1$ %
+holds for $\singleton{\deriv{\Lambda_n}}$. This sequence meets the simple criterion stated right after %
+\eqref{2.3:below-minimal-order}. Therefore, the smallest admissible order for $\singleton{\deriv{\Lambda_n}}$ is at least $2$. 
+With the bound of order $2$ above, we conclude that $2$ is the minimal order for $\singleton{\deriv{\Lambda_n}}$.
+% 
+\end{proof} 
 % END
-%
+% 

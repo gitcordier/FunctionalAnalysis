@@ -1,21 +1,21 @@
 \textit{In the setting of Section 1.46, prove that 
   %
-    $f \mapsto D^{\alpha}f$ 
+    $f \mapsto \deriv[\alpha]{f}$
   %
 is a continuous mapping of 
 %
   $C^{\infty}\left(\Omega\right)$ into 
   $C^{\infty}\left(\Omega\right)$ and also of 
-  $\D_{K}$ into 
-  $\D_{K}$, for every multi-index $\alpha$.
+  $\testFunctions{K}$ into 
+  $\testFunctions{K}$, for every multi-index $\alpha$.
 %
 }
 \begin{proof} 
-In both cases, $D^\alpha$ is a linear mapping. 
+In both cases, $\deriv[\alpha]$ is a linear mapping.
 It is then sufficient to establish continuity at the origin.
 %
-We begin with the $C^\infty\left(\Omega\right)$ case. \\
-\\
+We begin with the $C^\infty\left(\Omega\right)$ case.
+\skipline
 Let $U$ be an arbitrary neighborhood of the origin.
 It exists $N$ such that $U$ contains
 %
@@ -23,7 +23,7 @@ It exists $N$ such that $U$ contains
     V_{N}= \left\{
       \phi \in C^\infty\left(\Omega\right): 
       \max\set{
-        | D^\beta\phi (x) |
+        | \deriv[\beta]{\phi}(x) |
       }{
         \magnitude*{ \beta } \leq N, x\in K_N
       }
@@ -36,7 +36,7 @@ Now pick $g$ in $V_{N+\magnitude*{\alpha}}$so that
   \begin{equation}
     \max
     \set{
-      \magnitude*{ D^\gamma g\left(x\right) }
+      \magnitude*{ \deriv[\gamma]{g}\left(x\right) }
     }{
       \magnitude*{ \gamma | \leq N+| \alpha }, 
       x\in K_{N}
@@ -51,7 +51,7 @@ The special case $\gamma = \beta + \alpha$ yields
 \begin{equation}
     \max
     \set{
-      | D^\beta D^\alpha g(x)|
+      | \deriv[\beta]{\deriv[\alpha]{g}}(x)|
     }{
       \magnitude*{\beta} \leq N, 
       x\in K_{N}
@@ -63,52 +63,52 @@ We have just proved that
 %
   \begin{equation}\label{1.17. inclusion}
     g \in V_{N + \magnitude*{\alpha}}
-      \then 
-    D^\alpha g \in V_{N},
+      \then
+    \deriv[\alpha]{g} \in V_{N},
       \qquad
       \text{, \ie, }
       \qquad
-    D^\alpha \left(V_{N+\magnitude*{\alpha}}\right) \subset V_N,
+    \deriv[\alpha] \left(V_{N+\magnitude*{\alpha}}\right) \subset V_N,
   \end{equation}
 %
 which establishes the continuity of %
 %
-  $D^{\alpha}: C^\infty \left(\Omega\right)\to C^\infty \left(\Omega\right)$. %
+  $\deriv[\alpha]: C^\infty \left(\Omega\right)\to C^\infty \left(\Omega\right)$. %
 %
-\\\\
+\skipline
 To prove the continuity of the restriction 
 %
-  $D^\alpha \lvert_{\D_K}: \D_K \to \D_K$, % 
+  $\deriv[\alpha] \lvert_{\testFunctions{K}}: \testFunctions{K} \to \testFunctions{K}$, %
 %
 %
 we first remark that the collection of the  
 %
-  ${V_N \cap \D_K}$ % 
+  ${V_N \cap \testFunctions{K}}$ % 
 %
-is a local base of the subspace topology of $\D_K$.
+is a local base of the subspace topology of $\testFunctions{K}$.
 %
 %
-  $V_{N+\magnitude*{\alpha}} \cap \D_K$ % 
+  $V_{N+\magnitude*{\alpha}} \cap \testFunctions{K}$ % 
 %
 is then a neighborhood of $0$ in this topology. %
 Furthermore, 
 %
   \begin{align}
     %
-    D^\alpha \lvert_{\D_K} \left(V_{N+\magnitude*{\alpha}} \cap \D_K\right) 
-    % 
-    & = 
-      D^\alpha\left(V_{N+\magnitude*{\alpha}} \cap \D_K\right) \\
+    \deriv[\alpha] \lvert_{\testFunctions{K}} \left(V_{N+\magnitude*{\alpha}} \cap \testFunctions{K}\right)
+    %
+    & =
+      \deriv[\alpha]\left(V_{N+\magnitude*{\alpha}} \cap \testFunctions{K}\right) \\
       %
     & \subset
-      D^\alpha\left(V_{N+\magnitude*{\alpha}}\right) 
-        \cap 
-      D^\alpha\left(\D_K\right) \\
+      \deriv[\alpha]\left(V_{N+\magnitude*{\alpha}}\right)
+        \cap
+      \deriv[\alpha]\left(\testFunctions{K}\right) \\
       %
     & \subset 
       V_N 
         \cap 
-      \D_K
+      \testFunctions{K}
         %
           \qquad (\text{see }(\ref{1.17. inclusion}))
         %

@@ -291,3 +291,6 @@ basecard.tex
 # Excel files 
 *.xlsx
 
+# PDF
+*.pdf
+

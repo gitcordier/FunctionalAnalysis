@@ -9,63 +9,63 @@
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\textit{Put $K = \closedInterval*{0}{1}$ and define $\D_K$ as in Section 1.46. Show that the following three families of %
-seminorms (where $\counting{n}$) define the same topology on $\D_K$. If $D = d/dx$: 
+\textit{Put $K = \closedInterval*{0}{1}$ and define $\testFunctions{K}$ as in Section 1.46. Show that the following three families of %
+seminorms (where $\counting{n}$) define the same topology on $\testFunctions{K}$. If $\deriv = d/dx$:
 %
-\begin{enumerate}
+\begin{enumerate}[item-label=(\alph{enumi})]
 \item{
-  $\norm*[\infty]{D^n f} = \sup\set[\big]{\magnitude*{D^n f(x)}}{\minus \infty< x< \infty}$.
+  $\norm*[\infty]{\deriv[n]{f}} = \sup\set[\big]{\magnitude*{\deriv[n]{f}(x)}}{\minus \infty< x< \infty}$.
 }
 \item{
-  $\displaystyle{\norm*[1]{D^n f} = \int_0^1 \magnitude*{D^n f(x)} \diff{x}}$.
+  $\displaystyle{\norm*[1]{\deriv[n]{f}} = \int_0^1 \magnitude*{\deriv[n]{f}(x)} \diff{x}}$.
 }
 \item{
-  $\displaystyle{\norm*[2]{D^n f} = \singleton[\bigg]{\int_0^1 \magnitude*{D^n f(x)}^2 \diff{x}}^{1/2}}$.
+  $\displaystyle{\norm*[2]{\deriv[n]{f}} = \singleton[\bigg]{\int_0^1 \magnitude*{\deriv[n]{f}(x)}^2 \diff{x}}^{1/2}}$.
 }
 \end{enumerate}}
 %
 \begin{proof}%
-The vector space $\Continuous_K = C(\R)\cap \set{u}{\supp{u} \subset K}$ contains $\D_K$. It is equipped with the inner %
+The vector space $\Continuous_{K}= \continuous[][][\R]\cap \set{u}{\supp{u} \subset K}$ contains $\testFunctions{K}$. It is equipped with the inner %
 product 
 %
 \begin{align}
-  \bra{u}\ket{v} \Def \int_0^1 u \bar{v} \qquad \Bigl((u,v) \in {\Continuous_K}^2 \Bigr). 
+  \bra{u}\ket{v} \Def \int_0^1 u \bar{v} \qquad \Bigl((u,v) \in {\Continuous_{K}}^2 \Bigr). 
 \end{align}
 %
-In particular, $\bra{u}\ket{u} = \norm*[2]{u}^2$. The Cauchy-Schwarz inequality with $u=1$ and $v= \magnitude*{D^n f}$ is then
+In particular, $\bra{u}\ket{u} = \norm*[2]{u}^2$. The Cauchy-Schwarz inequality with $u=1$ and $v= \magnitude*{\deriv[n]{f}}$ is then
 %
 \begin{equation}
-  \int_0^1 \magnitude*{D^n f} \leq \norm*[2]{1} \cdot \norm*[2]{D^n f};
+  \int_0^1 \magnitude*{\deriv[n]{f}} \leq \norm*[2]{1} \cdot \norm*[2]{\deriv[n]{f}};
 \end{equation}
 %
 see Theorem \citeFA{12.2}. Since $K$ has length $1$, we obtain %
 %
 \begin{equation}\label{1.14:inequalities 1}
-  \norm*[1]{D^n f} \leq \norm*[2]{D^n f} \leq \norm*[\infty]{D^n f}.
+  \norm*[1]{\deriv[n]{f}} \leq \norm*[2]{\deriv[n]{f}} \leq \norm*[\infty]{\deriv[n]{f}}.
 \end{equation}
 %
-Moreover, the fact that $D^n f(0) = 0$ implies
+Moreover, the fact that $\deriv[n]{f}(0) = 0$ implies
 %
 \begin{equation}
-  \magnitude*{D^n f(x)} = \magnitude*{\int_{0}^x D^{n+1}f} 
-  \leq \int_{0}^x \magnitude*{D^{n+1}f} 
-  \leq \norm*[1]{D^{n+1}f}.
+  \magnitude*{\deriv[n]{f}(x)} = \magnitude*{\int_{0}^x \deriv[n+1]{f}}
+  \leq \int_{0}^x \magnitude*{\deriv[n+1]{f}}
+  \leq \norm*[1]{\deriv[n+1]{f}}.
 \end{equation}
 %
-Taking the supremum of $\magnitude*{D^n f(x)}$ over all $x$ strengthens \eqref{1.14:inequalities 1}, as follows:
+Taking the supremum of $\magnitude*{\deriv[n]{f}(x)}$ over all $x$ strengthens \eqref{1.14:inequalities 1}, as follows:
 %
 \begin{equation}\label{inequalities 3}
-  \norm*[1]{D^n f}
-  \leq \norm*[2]{D^n f}
-  \leq \norm*[\infty]{D^n f} 
-  \leq \norm*[1]{D^{n+1} f} 
+  \norm*[1]{\deriv[n]{f}}
+  \leq \norm*[2]{\deriv[n]{f}}
+  \leq \norm*[\infty]{\deriv[n]{f}}
+  \leq \norm*[1]{\deriv[n+1]{f}}
   \leq \cdots .
 \end{equation}
 %
 Finally, set
 %
 \begin{equation}
-  V^{(i)}_n \Def \set{f}{f \in \D_K, \norm*[i]{D^n f} < 2^{\minus n}} 
+  V^{(i)}_n \Def \set{f}{f \in \testFunctions{K}, \norm*[i]{\deriv[n]{f}} < 2^{\minus n}}
 \end{equation}
 %
 for each seminorm $i$, so that (\ref{inequalities 3}) is reflected in the decreasing sequence

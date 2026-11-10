@@ -4,79 +4,99 @@
 % 
 % encoding: UTF-8 
 % EOL: LF
-%
+% 
 % format: LaTeX
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\textit{The convex hull of a set $A$ in a vector space $X$ is the set of all convex combinations of members of $A$, that is %
-the set of all sums $t_1 x_1 +\cdots +t_n x_n$ in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. %
-Prove that the convex hull of a set $A$ is convex and that it is the intersection of all convex sets that contain $A$.}
-%
-\begin{proof}
+\begin{exerciseStatement}
+The convex hull $\co(A)$ of a set $A$ in a vector space $X$ is the set of all convex combinations of members of $A$, that is, %
+the set of all sums $t_1 x_1 +\cdots +t_n x_n$ in which $x_i \in A,\, t_i \geq 0$, $\sum t_i = 1$; $n$ is arbitrary. Prove %
+that the convex hull of a set $A$ is convex and that it is the intersection of all convex sets that contain $A$.
+\end{exerciseStatement}
+% 
+\begin{proof}\noindent %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First property: co(A) is convex
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-With this notation, for all $s$ in the unit interval, the weighted sum
-%
+By definition, a term $t_i x_i$ with $t_i = 0$ makes no contribution to the sum $t_1 x_1 +\cdots +t_n x_n$. We henceforth %
+assume without loss of generality that all $t_i$ are positive. The case $n = 1$ shows that $A \subset \co(A)$. Given %
+$0 \leq s \leq 1$, the linear combination
+% 
 \begin{equation}
-  s \sum_{i=1}^{n} t_i x_i + (1-s) \sum_{j=1}^{n'} t'_j x'_j = \sum_{i=1}^{n}  s t_i x_i + \sum_{j=1}^{n'} (1-s) t'_j x'_j 
+  s \sum_{i=1}^{n} t_i x_i + (1-s) \sum_{j=1}^{n'} t'_j x'_j = \sum_{i=1}^{n}  s t_i x_i + \sum_{j=1}^{n'} (1-s) t'_j x'_j, 
 \end{equation}
-%
-lies in $\co(A)$, because
+% 
+when both $\sum t_i x_i$ and $\sum t'_j x'_j$ range over $\co(A)$, is also a convex combination of %
+$\{x_1, \dots, x_n, x'_1, \dots, x'_{n'}\}$. To see this, observe that the sum of the \emph{weights} $st_i$ and $(1-s)t'_j$ %
+equals $1$. In detail, 
 % 
 \begin{equation}
   \sum_{i=1}^{n} st_i + \sum_{j=1}^{n'} (1-s)t'_j = s \sum_{i=1}^{n} t_i +(1-s) \sum_{j=1}^{n'} t'_j  = 1.
 \end{equation}
-%
-This shows that 
-%
+% 
+This proves that 
+% 
 \begin{equation}
-  s\co(A) + (1-s)\co(A) \subset \co(A) \qquad \bigl(s \in \closedInterval*{0}{1}\bigr). 
+  s\co(A) + (1-s)\co(A) \subset \co(A)
 \end{equation}
-%
-In other words, $\co(A)$ is convex. To prove the intersection property, we establish the chain $(i)\to(ii)\to(iii)\to(iv)$ %
-from the following properties:
+% 
+for all $0 \leq s \leq 1$. In other words, $\co(A)$ is convex. 
+\skipline
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second property: co(A) is the intersection of all convex sets that contain A.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-%
-\begin{enumerate}[label=(\roman*)]
-  \item{$A$ is convex.}
-  \item{$s_1 A + \dots + s_n A = (s_1 + \cdots + s_n)\, A$ for all positive $s_i$, for all $n$.}
-  \item{$t_1 A + \dots + t_n A = A$ for all positive $t_i$ ($t_1 + \cdots + t_n = 1$), for all $n$.}
-  \item{$\co(A) = A$.}
-\end{enumerate}
-%
-A straightforward proof by induction shows that $(i) \to (ii)$, since \eqref{Exercise-1-d} gives the base case $n=2$. Next, %
-(iii) is a special case of (ii), and $(iii) \to (iv)$ follows from the definition of the convex hull. Finally, assume (iv). %
-Define 
+To prove the intersection property, we establish that %
+% 
+\begin{equation}\label{1.2:convex-iff-co-A-equals-A}
+  \text{$A$ is convex} \iff \co(A) = A.
+\end{equation}
+% 
+The direction $\since$ follows directly from the preceding part, which establishes the convexity of $\co(A)$. We now address %
+the $\then$ direction, which we actually need for the proof. Suppose that $A$ is convex. An induction on $n$ proves that %
+% 
+\begin{equation}\label{1.2:sum-of-all-ti-A}
+  t_1 A + \cdots + t_n A = (t_1 + \cdots + t_n)\, A
+\end{equation}
+% 
+for all positive $t_i$, as \eqref{Exercise-1-d} gives the base case $n = 2$. The detail is left to the reader. In particular, %
+$t_1 A + \cdots + t_n A = A$ when $t_1 + \cdots + t_n = 1$. In that case, the sums $t_1 A + \cdots + t_n A = A$ of %
+\eqref{1.2:sum-of-all-ti-A} together cover exactly $\co(A)$. Taking the union of both sides of \eqref{1.2:sum-of-all-ti-A} %
+over all $n$ and all such $t_i$ gives $\co(A) = A$, which establishes \eqref{1.2:convex-iff-co-A-equals-A}. We now return to %
+the intersection property. To this end, we define %
 % 
 \begin{equation} 
-  \Gamma \Def \set{B}{\text{$A \subset B$, $B$ convex}}.
+  \Gamma \Def \set{B}{\text{$B$ is convex and contains $A$}}.
 \end{equation} 
 % 
-Note that its intersection $\bigcap \Gamma$ is convex, since every element of $\Gamma$ is convex. We will prove (i) by %
-establishing that $A = \co(A)$ is the convex set $\bigcap \Gamma$. To do so, observe that
-%
+Our goal then translates into proving that 
+% 
+\begin{equation}\label{1.2:co-A-equals-intersection-of-Gamma}
+  \co(A) = \bigcap \Gamma.
+\end{equation} 
+% 
+First, it follows from the preceding that $\co(A) \in \Gamma$, by the very definition of $\Gamma$. So, 
+% 
 \begin{equation}\label{1.2:intersection-subsetof-co-A}
- \bigcap \Gamma \subset \co(A), 
+  \bigcap \Gamma \subset \co(A). 
 \end{equation}
-%
-since $\co(A) \in \Gamma$. Now, prove again $(i) \to (iv)$, with any $B \in \Gamma$ in the role of $A$. Hence %
-%
-\begin{equation}\label{1.2:co-A-subsetof-intersection}
-  \co(A) \subset \co(B) = B, 
-\end{equation}
-%
-as $A \subset B$ implies $\co(A) \subset \co(B)$. In conclusion, \eqref{1.2:co-A-subsetof-intersection} and %
-\eqref{1.2:intersection-subsetof-co-A} together yield
+% 
+To obtain the converse inclusion, we apply \eqref{1.2:convex-iff-co-A-equals-A} to each member $B$ of $\Gamma$ in the role of %
+$A$. Then, %
 % 
 \begin{equation}
-  \co(A) \subset \bigcap \Gamma \subset \co(A), 
-\end{equation} 
+  \co(A) \subset \co(B) = B \qquad(B \in \Gamma), 
+\end{equation}
+% 
+as $A \subset B$ implies $\co(A) \subset \co(B)$. Equivalently, 
+% 
+\begin{equation}\label{1.2:co-A-subsetof-intersection}
+  \co(A) \subset \bigcap \Gamma.
+\end{equation}
 %
-which completes the proof.
+Finally, combining \eqref{1.2:intersection-subsetof-co-A} with \eqref{1.2:co-A-subsetof-intersection} gives %
+\eqref{1.2:co-A-equals-intersection-of-Gamma}.
 \end{proof}
 % END
 % 

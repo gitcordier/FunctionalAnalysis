@@ -1,0 +1,90 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% FunctionalAnalysis
+% 1_9.tex
+%
+% encoding: UTF-8
+% EOL: LF
+%
+% format: LaTeX
+% indent: spaces (2)
+% width: 127
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\textit{Suppose
+%
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \item $X$ and $Y$ are topological vector spaces,
+  \item $\Lambda: X\to Y$ is linear.
+  \item $N$ is a closed subspace of $X$,
+  \item$\pi: X\to X/N$ is the quotient map, and
+  \item $\Lambda x =0$ for every $x \in N$.
+\end{enumerate}
+%
+Prove that there is a unique $f:X/N\to Y$ which satisfies $\Lambda = f\circ \pi$, that is, %
+$\Lambda x = f\bigl(\pi(x)\bigr)$ for all $x\in X$. Prove that $f$ is linear and that $\Lambda$ is continuous if and only if %
+$f$ is continuous. Also, $\Lambda$ is open if and only if $f$ is open.}
+%
+\begin{proof}
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% First property: existence, uniqueness, and linearity of f
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Bear in mind that $\pi$ continuously maps $X$ onto the topological Hausdorff space $X/N$, since $N$ is closed; 
+see \citeFA{1.41}.
+%
+Moreover, the equation in $f_\Lambda$ $\Lambda = f_\Lambda \circ \pi$ has necessarily a unique solution $f$, whose graph is %
+%
+\begin{equation}\label{1.9. definition of f.}
+  \set[\big]{(\pi x, \Lambda x)}{x \in X} \subset X/N \times Y.
+\end{equation}
+%
+To ensure that $f$ is actually a mapping, simply remark that the linearity of $\Lambda$ justifies
+%
+\begin{equation}
+  \pi(x) = \pi(x') \implies x -x' \in N \implies \Lambda x - \Lambda  x' = 0
+\end{equation}
+%
+It straightforwardly derives from (\ref{1.9. definition of f.}) that $f$ inherits linearity from $\pi$ and $\Lambda$.
+\skipline
+{\bf Remark.} The strengthening $\Lambda x = 0 \IFF x \in N$ of (e) is \emph{the first isomorphism theorem} in the topological 
+space context. In this case, 
+%
+\begin{equation}
+  f(\pi x) = \Lambda x = 0 \implies x \in N, 
+\end{equation}
+%
+which implies that $f$ is one-to-one. %
+\skipline
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Second property: Lambda is continuous if and only if f is continuous
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+Now assume $f$ to be continuous. $\Lambda = f\circ \pi $ is continuous as well, by (a) of \citeFA{1.41}. Conversely, if %
+$\Lambda$ is continuous, then for each neighborhood $V$ of $0_Y$ there exists a neighborhood $U$ of $0_X$ such that
+%
+\begin{equation}
+  \Lambda(U) = f \circ \pi(U)
+    \subset
+  V.
+\end{equation}
+%
+Because $\pi$ is open, by (a) of \citeFA{1.41}, $\pi(U)$ is a neighborhood of $N = 0_{X/N}$. Therefore, $f$ is continuous.
+%
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% Third property: Lambda is open if and only if f is open
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+If $f$ is open, so is $\Lambda = f\circ \pi$, by (a) of \citeFA{1.41}.
+%
+To prove the converse, remark that every neighborhood $W$ of $0_{X/N}$ satisfies
+%
+\begin{equation}
+  W = \pi(V)
+\end{equation}
+%
+for some neighborhood $V$ of $0_X$. So,
+%
+\begin{equation}
+  f(W) = f \circ \pi(V) = \Lambda(V).
+\end{equation}
+%
+As a consequence, if $\Lambda$ is open, then $f(W)$ is a neighborhood of $0_Y$. The proof is now complete. %
+\end{proof}
+% END
+%

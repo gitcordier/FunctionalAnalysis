@@ -4,104 +4,118 @@
 % 
 % encoding: UTF-8 
 % EOL: LF
-%
+% 
 % format: LaTeX
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-%
+% 
 \chapter{Notations and Assumptions} 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % LOGIC
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-\section{Special terms}
+\section{Logic and conventions}
 \subsection{The \texorpdfstring{\textbf{iff}}{iff} convention}%
-\IFF is a shorthand for ``if and only if''. Splitting \IFF into \emph{if-then} clauses shows that it is a natural language %
+\IFF is a shorthand for ``if and only if''. Splitting \IFF into \emph{if-then} clauses shows that it is a natural-language %
 version of the logical equivalence $\iff$. All definitions are understood to be \IFF clauses, which is consistent with the %
 fact that every definition expresses an equivalence.
-%
-\subsection{The assignment operator}%
+% 
+\subsection{The definition symbol}%
 Given variables $\varit{a}$ and $\varit{b}$, $a \Def b$ is the predicate $a = b$ with the extra information that $a$ and $b$ %
 are \emph{assumed} to be equal. 
-%
+% 
 \subsection{Iverson brackets}\label{Iverson-notation}
-Given a Boolean expression $\phi$, $\Iverson*{\phi}$ encodes the truth value of $\phi$ as a \texttt{bit}:
-%
+Given a Boolean expression $\phi$, $\Iverson[\big]{\phi}$ encodes the truth value of $\phi$ as a \texttt{bit}:
+% 
 \begin{equation} 
-  \Iverson*{\phi}\Def 
+  \Iverson[\big]{\phi}\Def 
   \begin{cases}
     0 & \qquad (\phi \text{ is false}) \\
     1 & \qquad (\phi \text{ is true}). 
   \end{cases}
 \end{equation}
-%
-For example, $\Iverson[\big]{1 > 0} = 1$ but $\Iverson[\big]{\sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
+% 
+For example, $\Iverson[\Big]{1 > 0} = 1$ but $\Iverson[\Big]{\sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
 in logic, see \cite{SpecifyingSystems}.
 % 
-\subsection{Impliciit conventions}%
+\subsection{Conventions}%
+\subsubsection{Variables}
+To distinguish a variable from a value within its range, we may write variables in italics. For instance, $\varit{x}$ denotes %
+a variable, whereas the predicates $x=1$ and $x \in X$ are about \emph{values} $x$. %
+% 
 \subsubsection{Copies of variables}%
-Given variables, say $\varit{x}$ and $\symit{\alpha}$, we implicitly define %
-$\varit{x'}, \varit{x}_{\symit{\alpha}}, \varit{y},\varit{z}$ as \emph{copies} of $\varit{x}$. Thus, 
-%
+Given variables, say $\varit{v}$ and $\varit{x}$, we implicitly define %
+$\varit{v'}, \varit{v}_{\varit{x}}, \varit{w}, \dots, \varit{z}$ as \emph{copies} of $\varit{v}$. Thus, 
+% 
 \begin{align} 
-  &\varit{x'}, \varit{x''}, \dots && (\text{scope: no conflict with other meaning of $x'$, \eg, derivation}),\\
-  &\varit{x}_{\symit{\alpha}}, \varit{x}_{\symit{\alpha'}}, \dots && (\text{scope: no conflict with prior index}),\\
-  &\varit{y}, \varit{z}, \varit{z'}, \dots && (\text{scope: no conflict with prior definition, \eg, $y = 1/x$})
+  &\varit{v'}, \varit{v''}, \dots && (\text{scope: no conflict with another meaning of prime, \eg, the derivative}),\\
+  &\varit{v}_{\varit{x}}, \varit{v}_{\varit{x'}}, \dots && (\text{scope: no conflict with a prior index}),\\
+  &\varit{v}, \varit{w}, \dots, \varit{z}, \varit{z'}, \dots && (\text{scope: no conflict with a prior definition, %
+  \eg, $y=1/x$})
 \end{align}
-%
-range over $X$ when $x\in X$. The $\forall$ quantifier for copy, \eg, $\forall x'\in X$ applies whene the copy appears first. 
-Unless assigned otherwise, $i, j, k$ implicitly denote positive integers. If a variable $\varit{f}$ is a function of, then %
-copying $\varit{f}$ copies every variable of $\varit{f}$. For instance, given the parametric expression $y=f(x)$, $f_i$ is %
-implicitly a function in $\varit{x}_\varit{i}$, and $\varit{y}_\varit{i}$ is a copy of $\varit{y}$ so that $y_i=f_i(x_i)$. 
-Hence $y_1 =f_1(x_1)$. %
-%
-\subsubsection{Explicit dependences on variables}%
-Sometimes, for the sake of expressivity, we wish to make explicit that a value $\eta$ depends on variable(s) %
+% 
+range over $V$ when $v\in V$. The $\forall$ quantifier of a copy, \eg, $\forall v'\in V$, applies where the copy first %
+appears. Unless assigned otherwise, $\varit{i},\varit{j}, \varit{k}, \varit{l}, \varit{m}, \varit{n}$ implicitly denote %
+natural numbers, and $\symit{\alpha}, \symit{\beta}, \symit{\gamma}$ implicitly stand for scalars. Similarly, $\varit{t}$ is 
+implicitly a real ``time parameter''. Case matters. To avoid ambiguity, the complex numbers $i$ and $j$ may be set in bold. %
+If a variable $\varit{f}$ is a function of $\varit{x}$, then copying $\varit{f}$ copies every variable of $\varit{f}$. %
+For instance, given the parametric expression $y=f(x)$, $f_i$ is implicitly a function of $\varit{x}_\varit{i}$, and %
+$\varit{y}_\varit{i}$ is a copy of $\varit{y}$ so that $y_i=f_i(x_i)$. 
+% 
+\subsubsection{Explicit dependence on variables}%
+Sometimes, for the sake of expressivity, we wish to make explicit that a quantity $\eta$ depends on %
 $\varit{x}, \dots, \symit{\epsilon}, \dots$ by writing 
-%
+% 
 \begin{equation} 
-\eta = \eta(x, \dots, \epsilon, \dots).
+\eta = \eta(x, \dots, \epsilon, \dots), 
 \end{equation}
-%
-For instance, in the following definition of continuity of $f$ on the real line:
-%
+% 
+which reads as ``$\symit{\eta}$ as a function of $\varit{x}, \dots, \symit{\epsilon}, \dots$''. 
+For instance, in the following definition of continuity for $f$:
+% 
 \begin{equation} 
   \text{For all $x$, for all $\epsilon > 0$, there exists $\eta > 0$ such that }
-  \text{$\magnitude*{x-x'} < \eta$ implies $\magnitude*{f(x) - f(x')} < \epsilon$.}
+  \text{$\magnitude*{x-x'} < \eta$ implies $\magnitude*{f(x) - f(x')} < \epsilon$}, 
 \end{equation}
-%
-the clause ``there exists $\eta >0$'' can be written as ``there exists a positive $\eta = \eta(x, \epsilon) > 0$'', to 
-express that the range of admissible $\eta$ depends on prior choices for $x$ and $\epsilon$. In contrast, the stronger %
-\emph{uniform} continuity removes the dependence on $x$, which reads as $\eta = \eta(\epsilon)$.
-%
+% 
+the clause ``there exists $\eta > 0$'' can be written as ``there exists $\eta = \eta(x, \epsilon) > 0$'', to express that %
+the $\eta$ we address is parametrized by $\varit{x}$ and $\symit{\epsilon}$. In contrast, \emph{uniform} continuity %
+removes the dependence on $\varit{x}$, which reads as $\eta = \eta(\epsilon)$.
+% 
+\subsubsection{Index notation}
+As with sequences, where $v_n$ is preferred over the functional notation $v(n)$, we use index notation when readability is at %
+stake. For instance, $\eta = \eta(\epsilon)$ can be written as $\eta = \eta_\epsilon$. Additionally, in index notation, the %
+parentheses around multi-variable indices are omitted. To elaborate with the same example, $\eta_{(x, \epsilon)}$ becomes %
+$\eta_{x, \epsilon}$.
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SETS
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Sets}
 \subsection{Subsets and supersets}%
-$\subset$ and $\supset$ are the standard symbols for set ordering. No specific symbol is reserved for strict ordering: %
-whenever a strict inclusion is intended, the constraint $A \neq B$ is stated explicitly. %
-%
+The symbols $\subset$ and $\supset$ are the standard symbols for set ordering. No specific symbol is reserved for %
+strict ordering: whenever strict inclusion is required for $A\subset B$, the constraint $A \neq B$ is explicitly added. %
+% 
 \subsection{Union and intersection}%
 Given $A$ and $B$, $A\cup B$ is the union of $A$ and $B$. More generally, for any collection $\Gamma$, the union $U$ of %
 $\Gamma$ is expressed as follows:
-%
+% 
 \begin{equation}
 U \Def \bigcup \Gamma \Def \bigcup_{S \in \Gamma} S.
 \end{equation}
-%
-$\cap$ denotes intersection in the same manner. %
-%
+% 
+The symbol $\cap$ denotes intersection in the same manner. %
+% 
 \subsection{Special mappings}
 Given $X$, the identity mapping $I$ (or $\id{X}$) is the diagonal $\set{(x,x)}{x\in X}$ of $X \times X$. %
-%
+% 
 \subsection{Cardinality and equinumerosity}%
 The cardinality of $X$ is denoted by $\opcard(X)$. The fact that $X \mapsto \opcard(X)$ is not a function ($\opcard$'s domain %
 is the class of sets, which is not a set) does no harm (we never deal with all sets). We did not select a global symbol %
 to express equinumerosity between $X$ and $Y$, \ie, that $\opcard(X)= \opcard(Y)$. However, in the context of groups, %
 $X\cong Y$ means that there exists an isomorphism, \ie, a bijective morphism, of $X$ onto $Y$. In a normed-space context, %
 $X\equiv Y$ means that there exists a linear surjective isometry of $X$ onto $Y$. %
-%
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % TVS 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -111,90 +125,128 @@ We sometimes need to clearly specify which field we are dealing with. For instan
 \citeFA{3.2} is a purely real result. But, in most cases, the choice of the field makes no difference. So, unless the field %
 must be explicitly given, we tacitly assume that the scalar field is $\C$ but that $\R$ could be substituted for %
 $\C$. 
-%
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Vector spaces
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\subsection{A tacit result}
+In a vector space, the scalar multiplication of every nonempty set $S$ by $0$ is $\{0\}$. This will always be tacitly used. %
+The proof is given in (b) of \hyperref[1.1]{Exercise [1.1]}. %
+% 
+\subsection{Intervals}
+Given $\{a, b\} \subset X$, the \emph{closed interval}, or ``segment'', $\closedInterval*{a}{b}$ is defined as the convex %
+hull of $\{a, b\}$, that is, the set of all convex combinations $\lambda(t)= (1-t)a + tb$\;\,($0 \leq t \leq 1$). %
+We also define three other types of intervals, as follows:
+% 
+\begin{align}
+\openInterval*{a}{b} &\Def \set{\lambda(t)}{0 < t < 1}, && (\text{open interval})\\
+\openClosedInterval*{a}{b} &\Def \set{\lambda(t)}{0 < t \leq 1}, \\
+%\closedInterval*{a}{b} &\Def \set{\lambda(t)}{0 \leq t \leq 1}, && (\text{closed interval})\\
+\closedOpenInterval*{a}{b} &\Def \set{\lambda(t)}{0 \leq t < 1}.
+\end{align}
+% 
+This notation is expressive: $\openInterval*{}{}$ looks like a window being opened with open hands \emoji{open-hands}, and, 
+by contrast, $\closedInterval*{}{}$ evokes a closed window!
+\skipline
+When $X = \R$, we tacitly assume that $a \leq b$, so that the preceding definitions coincide in $\R$ with the usual ones, %
+which are made from $\leq$. For instance, $\openInterval*{a}{b} =\set{x}{a < x < b}$. Also in $\R$, unbounded intervals are 
+defined as follows:
+% 
+\begin{align}
+\openInterval*{a}{\infty} &\Def \set{x}{a < x}, \\
+\closedOpenInterval*{a}{\infty} & \Def \set{x}{a \leq x},
+\end{align}
+% 
+and %
+% 
+\begin{align}
+\openInterval*{\minus \infty}{b} &\Def \set{x}{x < b}, \\
+\openClosedInterval*{\minus \infty}{b} & \Def \set{x}{x \leq b}.
+\end{align}
+% 
+This time, the ``$($'' and ``$)$'' are kept for the ``closure at infinity'', because $\pm \infty$ is not an element of %
+$\R$. 
 \subsection{Vector space bases}\label{notations:TVS:vector-space-basis}
 Given a vector space $X$, a subset $B$ of $X$ is a basis of $X$ \IFF the following mapping %
-%
+% 
 \begin{align}
-  \set[\Big]{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \\\nonumber
+  \set[\Big]{(z_u)_{u\in B}}{z_u \in \C, \set{u}{z_u \neq 0} \text{ is finite}} & \to X \nonumber \\
   (z_u) & \mapsto \sum_{u \in B} z_u u
 \end{align}
+% 
 is a bijection from all \emph{finitely supported} families $(z_u)$ onto $X$. %
-%
+% 
 The axiom of choice (AC) forces %
-%
-\begin{enumerate}[label=(\alph*)]
+% 
+\begin{enumerate}[item-label=(\alph{enumi})]
   \item the existence of such $B$ %
     (the proof is similar to the second part of the Hahn--Banach theorem \citeFA{3.2} with $B$ playing the role of 
     $\Lambda$); %
   \item all bases to have the same cardinality, which is called the \emph{dimension} of $X$ and is denoted by $\dim{X}$. %
 \end{enumerate}
-%
+% 
 We now turn to the finite-dimensional case over the field $\C$. The zero-dimensional case is $B = \emptyset$, \ie, %
 $X=\singleton{0}$. Our first step is to study $\C^n$, the standard $n$-dimensional vector space, given a positive integer $n$.
-%
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Finite dimension
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \subsection{Finite-dimensional spaces}\label{notations:vector-spaces:finite-dimensional-vector-spaces}%
 \subsubsection{The product topology of $\C^n$}
-$\C^n$, the $n$-th power of $\C$, is seen as the set of all lists 
-%
+The space $\C^n$, the $n$-th power of $\C$, is seen as the set of all lists 
+% 
 \begin{equation}
   (z_1,\dots, z_n) = 
   z_1 \cdot (\,\underbrace{1, 0, \dots}_{1_{\singleton{1}}}\,)
   + \cdots
   + z_n  \cdot (\,\underbrace{0, \dots, 1}_{1_{\singleton{n}}}\,),
 \end{equation}
-%
+% 
 where each variable $\varit{z_1}, \dots, \varit{z_n}$ ranges over $\C$. It is easily shown that %
 $1_{\singleton{1}},\dots, 1_{\singleton{n}}$ enumerates a basis of $\C^n$, known as the \emph{standard} basis. A common %
 notation is $e_1 = 1_{\singleton{1}}, \dots, e_n = 1_{\singleton{n}}$. Furthermore, $\C^n$ is endowed with the product %
 topology generated by the origin-centered polydiscs %
-%
+% 
 \begin{equation}
   \set[\big]{(z_1, \dots, z_n)}{\magnitude*{z_1} < r_1, \dots, \magnitude*{z_n} < r_n} \qquad(\min(r_1, \dots, r_n) > 0)
 \end{equation}
-%
-and their translates over $\C^n$. In the next subsubsection, we state that every $n$-dimensional topological vector space is %
+% 
+and their translates over $\C^n$. Next, we state that every $n$-dimensional topological vector space is %
 linearly homeomorphic to $\C^n$. 
-%
+% 
 \subsubsection{Hausdorff topology of a finite-dimensional vector space}%
 By ``vector topology'' or ``topological vector space'', we will always refer to the Hausdorff topology for vector spaces, 
 as defined in \citeFA{1.6, 1.12}. In this context, let $Y$ be a vector space of finite dimension $n$. A striking consequence %
 of Theorem \citeFA{1.21} is that 
-%
+% 
 \begin{quote}
   \emph{$Y$ has exactly one vector topology, which is a linearly homeomorphic image of the topology of $\C^n$.} 
 \end{quote}
-%
-Clearly, $Y$ is locally compact as well. Moreover, it is also locally convex and locally bounded. Therefore, by %
+% 
+Clearly, $Y$ is locally compact as well. Moreover, it is locally convex and locally bounded. Therefore, by %
 \citeFA{1.39}, $Y$ is normable. A fundamental result is that any two norms $\norm*{\cdot}$ and $\norm*{\cdot}'$ on $Y$ are %
 \emph{equivalent}, in the sense that there exist two positive constants $C$ and $C'$ such that, for all $y\in Y$, %
-%
+% 
 \begin{align}
   \norm*{y}'\! &\leq C\, \norm*{y}, \\
   \norm*{y}\,  &\leq C'\!\norm*{y}'.
 \end{align}
-%
+% 
 The reader will find all proofs in [\ref{annex-TVS}]. The following provides all optimal $C$ for the standard norms $1$, $2$, 
 and $\infty$.
-%
+% 
 \subsubsection{The standard norms $1$, $2$, and $\infty$}
-When $\C^n$ is equipped with the standard norms $1$, $2$, and $\infty$, the smallest possible constants %
-$C=C_{i,j}$\;\,($i, j = 1, 2, \infty$) such that %
-%
+When $\C^n$ is equipped with the standard norms $i, j = 1, 2, \infty$, the smallest possible constants $C=C_{i,j}$ such that %
+% 
 \begin{equation}
-  \norm*[j]{z} \leq C \norm*[i]{z} \qquad(z \in \C^n)
+  \norm*[j]{z} \leq C \norm*[i]{z} \qquad\bigl(z \in \C^n\bigr)
 \end{equation}
-%
+% 
 are easily derived from the definitions of these norms, except for the case $C_{2, 1} = \sqrt{n}$, which requires the %
 Cauchy--Schwarz inequality; see \citeFA{12.2}. The table below records these optimal $C_{i,j}$:
-%
+% 
 \begin{table}[!ht]\centering
+% 
   \begin{tabular}{|c|c|c|c|}
   \hline
   \diagbox{$i$}{$j$} & $1$        & $2$        & $\infty$ \\ \hline
@@ -202,172 +254,180 @@ Cauchy--Schwarz inequality; see \citeFA{12.2}. The table below records these opt
   $2$                & $\sqrt{n}$ & $1$        & $1$ \\ \hline
   $\infty$           & $n$        & $\sqrt{n}$ & $1$ \\ \hline
   \end{tabular}
+% 
   \caption{Optimal $C_{i,j}$ for the norms $i, j = 1, 2, \infty$.}
   \label{tab:optimal-constants}
 \end{table}
-%
+% 
 \subsection{Continuity and boundedness in normed spaces}%
 A linear mapping $\Lambda: X \to Y$ is said to be \emph{bounded} \IFF \emph{$\Lambda(E)$ is bounded when $E\subset X$ is %
-bounded}; see \citeFA{1.31}. Given normed spaces $X$ and $Y$, bounded linear maps $\Lambda: X \to Y$ form a normed space %
-$B(X,Y)$. Indeed, in this context, linearity implies that $\Lambda$ is bounded \IFF $\Lambda$ is bounded on the unit sphere %
-of $X$, \ie, the quantity
-%
+bounded}; see \citeFA{1.31}. Given normed spaces $X$ and $Y$, bounded linear maps $\Lambda: X \to Y$ form a vector space %
+$B(X,Y)$. Indeed, in this context, linearity implies that $\Lambda$ is bounded \IFF $\Lambda$ is bounded on the closed unit %
+ball of $X$. This condition reads as
+% 
 \begin{equation}\label{notations:continuity-in-normed-spaces}
-  \sup_{\|x \| = 1}\norm*{\Lambda x} 
+  \sup_{\|x \| \leq 1}\norm*{\Lambda x} < \infty.
 \end{equation}
-%
-is finite. In this case, it is called \emph{the norm} of $\Lambda$ and is denoted by $\norm*{\Lambda}$, as %
-$\Lambda \mapsto \norm*{\Lambda}$ actually defines \emph{the operator norm} on $B(X,Y)$; see \citeFA{4.1}. Furthermore, %
-\citeFA{1.32} shows that, in the current context, boundedness coincides with continuity. When $Y$ is the scalar field, this %
-equivalence also comes from \citeFA{1.18}. The property of equicontinuity of a collection $\Gamma \subset B(X,Y)$ now reads as 
-%
+% 
+In this case, the supremum is called \emph{the operator norm} of $\Lambda$ and is denoted by $\norm*{\Lambda}$. The map 
+$\Lambda \mapsto \norm*{\Lambda}$ makes $B(X,Y)$ a normed space; see \citeFA{4.1}. Furthermore, \citeFA{1.32} shows that, in %
+the current context, boundedness coincides with continuity. When $Y$ is the scalar field, this equivalence also comes from %
+\citeFA{1.18}. The property of equicontinuity of a collection $\Gamma \subset B(X,Y)$ now reads as 
+% 
 \begin{equation}
   \sup_{\Lambda\in\Gamma}{\norm*{\Lambda}} < \infty. 
 \end{equation}
-%
+% 
 Thus, \emph{uniform boundedness} and equicontinuity coincide as well; \cf \citeFA{2.4}.
-%
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Radon measure theory
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Radon measure theory}
 \subsection{Radon measures}\label{notations:Radon-measures}
-Given a locally compact Hausdorff space $X$, \eg, $\R^n$, a positive Radon measure $\Lambda: C_c(X) \to \C$ is a linear %
+Given a locally compact Hausdorff space $X$, \eg, $\R^n$, %
+a positive Radon measure $\Lambda: \continuous[c][][X] \to \C$ is a linear %
 functional that is \emph{positive}, in the sense that
-%
+% 
 \begin{equation}
-  \Lambda(\phi) \geq 0 \qquad(\phi \in C_c(X): \phi \geq 0).
+  \Lambda(\phi) \geq 0 \qquad(\phi \in \continuous[c][][X]: \phi \geq 0).
 \end{equation}
-%
+% 
 Theorem \citebook{2.14}{BigRudin} shows that positivity implies the following \emph{continuity} property: to every compact %
 $K \subset X$ corresponds a constant $M_K < \infty$ such that 
-%
+% 
 \begin{equation}\label{notations:definition-of-Radon-measure}
- \magnitude*{\Lambda(\phi)} \leq M_K\norm*[\infty]{\phi} \qquad(\phi \in C_c(X): \supp{\phi} \subset K).
+  \magnitude*{\Lambda(\phi)} \leq M_K\norm*[\infty]{\phi} \qquad(\phi \in \continuous[c][][X]: \supp{\phi} \subset K).
 \end{equation}
 % 
 Note that some authors take this property as the definition of a Radon measure, in a more general sense; see %
-\cite{AnalyseIII}. Furthermore, $\Lambda$ is bounded on $C_c(X)$ with respect to the supremum norm \IFF all $M_K$ can be %
+\cite{AnalyseIII}. Furthermore, $\Lambda$ is bounded on $\continuous[c][][X]$ with respect to the supremum norm %
+\IFF all $M_K$ can be %
 chosen with a common bound $M$ ($M_K \leq M < \infty$). %
-%
-In this case, the functionals $\Lambda$ are continuous in the sense that the quantity %
-\eqref{notations:continuity-in-normed-spaces} is finite; they precisely constitute the space of norm-bounded Radon measures. %
-According to \citebook{6.19}{BigRudin}, each of them can be isometrically identified with a specific \emph{complex} regular %
+% 
+In this case, the functionals $\Lambda$ are continuous in the sense that they satisfy %
+\eqref{notations:continuity-in-normed-spaces}; they precisely constitute the space of norm-bounded Radon measures. %
+By density of $\continuous[c][][X]$ in $\continuous[0][][X]$, each of them extends uniquely to $\continuous[0][][X]$; %
+according to \citebook{6.19}{BigRudin}, it can then be isometrically identified with a specific \emph{complex} regular %
 Borel measure $\mu$. The isometry $\Lambda \mapsto \mu$ reads as
-%
+% 
 \begin{equation}
   \norm*{\Lambda} = \magnitude*{\mu}(X) \Def \sup\set[\bigg]{\sum_{i=1}^\infty \magnitude*{\mu(E_i)}}{%
   \text{$E_i$ measurable, $\{E_1, E_2, \dots\}$ partition of $X$}
   }, 
 \end{equation}
-%
+% 
 where the quantity $\magnitude*{\mu}(X)$ is called the \emph{total variation} of $\mu$ (with respect to $X$). %
-%
+% 
 An interesting special case is that of $X$ compact, which makes every Radon measure norm-bounded. This simpler version is %
-addressed in [2.\ref{2.3}]. %
-%
+addressed in \hyperref[2.3]{Exercise [2.3]}. %
+% 
 Note that, in measure theory, by \emph{the support} of $\mu$, we mean: 
-%
+% 
 \begin{equation}
   \supp{\mu} \Def X \bigsetminus \bigcup \set[\big]{V \text{ open}}{\magnitude*{\mu}(V) = 0}.
 \end{equation}
-%
+% 
 Obviously, this definition transfers to positive measures $\nu$, where the condition $\magnitude*{\nu}(V) = 0$ reads simply %
 $\nu(V) = 0$. A very important Radon measure, the \emph{Dirac measure} $\delta$, is described in %
 [\ref{annex-Dirac}]. Identified with a Borel measure (also denoted by $\delta$), $\delta$ has range $\{0, 1\}$ and support %
 $\singleton{0}$. %
-%
+% 
 \subsection{Lebesgue integration}\label{notations:Lebesgue-integration}
 When $X$ is also $\sigma$-compact, Theorems \citebook{2.14, 2.18}{BigRudin} together establish that every positive Radon %
 measure $\Lambda$ is identified with a regular positive Borel measure $\beta$ over $X$. By ``regular'', we mean that, for each 
-fixed Borel set $E$, 
-%
+Borel set $E$, 
+% 
 \begin{equation}
   \beta(E) = \sup\set{\beta(K)}{K\subset E, K \text{ compact}} = \inf\set{\beta(U)}{E\subset U, U \text{ open}}.
 \end{equation}
-%
+% 
 More specifically, in terms of the Lebesgue integral, $\Lambda$ satisfies
-%
+% 
 \begin{equation}\label{notations:Lebesgue-integral}
- \Lambda(\phi) = \int_{X} \phi \diff{\beta} \qquad \bigl(\phi \in C_c(X)\bigr), 
+  \Lambda(\phi) = \int_{X} \phi \diff{\beta} \qquad \bigl(\phi \in \continuous[c][][X]\bigr),
 \end{equation}
-%
-where, for each fixed open set $U$, $\beta(U)$ is the integral 
-%
+% 
+where, given an open set $U$, $\beta(U)$ is the integral 
+% 
 \begin{equation}
-    \int_U \diff{\beta} = \int_X 1_U \diff{\beta} = \sup\set[\big]{\Lambda(\phi)}{\supp{\phi} \subset U, 0 \leq \phi \leq 1}.
+  \int_{U} \diff{\beta} = \int_{X} 1_U \diff{\beta} =
+    \sup\set[\big]{\Lambda(\phi)}{\supp{\phi} \subset U, 0 \leq \phi \leq 1}.
 \end{equation}
-%
+% 
 Integration of indicators $1_U$ is generalized to bounded measurable functions $f$ (more generally, to locally integrable $f$, 
 see the RHS of \eqref{notations:definition-L1}) in the sense that 
-%
+% 
 \begin{equation}\label{notations:lambda-f}
   \Lambda_f (\phi) \Def \int_{X} \phi \,f \diff{\beta} 
 \end{equation}
-%
-constructs a Radon measure $\Lambda_f: C_c(X) \to \C$, in the more general sense of \cite{AnalyseIII}. %
-%
+% 
+constructs a Radon measure $\Lambda_f: \continuous[c][][X] \to \C$ in the sense of \cite{AnalyseIII}. %
+% 
 Observe that $f$ and the linear functional $\Lambda_f$ are identified modulo %
-$N= \set{\omega}{\omega\text{ measurable}, \omega=0\;\,\beta\text{-a.e.}}$ in \eqref{notations:lambda-f}. In terms of cosets, 
-this reads
-%
+$\mathcal{N}_\beta= \set{\omega}{\omega\text{ measurable, $\omega=0$ $\beta$-a.e.}}$ in \eqref{notations:lambda-f}. %
+In terms of cosets, this reads
+% 
 \begin{equation}
-  \Lambda_{g} = \Lambda_f \iff g \in f + N.
+  \Lambda_{g} = \Lambda_f \iff g - f \in \mathcal{N}_\beta.
 \end{equation}
-%
+% 
 A central question in calculus is whether the integral of the modulus, namely 
-%
+% 
 \begin{equation}
   \magnitude*{f}_1 \Def \int_{X}\magnitude*{f}\diff{\beta}, 
 \end{equation}
-%
+% 
 is finite. This motivates the following definitions, valid for measurable functions $f$:
-%
+% 
 \begin{equation}\label{notations:definition-L1}
-  \mathcal{L}^1(\beta)\Def \set[\big]{f}{\magnitude*{f}_1 < \infty} \subset \mathcal{L}^1_{\text{loc}}(\beta) 
+  L^1(\beta)\Def \set[\big]{f}{\magnitude*{f}_1 < \infty} \subset L^1_{\text{loc}}(\beta) 
   \Def \set[\big]{f}{\magnitude*{1_K f}_1 < \infty \text{ for every compact $K$}}.
 \end{equation}
-%
-The standard notation $\mathcal{L}^1$ is used when the context is clear. 
-%
+% 
+The standard notation $L^1$ is used when the context is clear. Additionally, in the context of integration on %
+$\R^n$, $\beta$ denotes the usual Borel measure, that is, the Lebesgue measure restricted to Borel sets. 
+% 
 \section{\texorpdfstring{$L^p$}{L\^{}p} spaces}
-From now on, $X$ is, more generally, a measurable space equipped with a positive measure $\nu$. Extension of the previous %
-definitions of $N$, $\mathcal{L}^1$ and $\magnitude*{\cdot}_1$ is immediate. A key point is that %
-$\mathcal{L}^1=\mathcal{L}^1(\nu)$, equipped with $\magnitude*{\cdot}_1$, is still a seminormed space. 
-%
+From now on, $X$ is, more generally, a measurable space equipped with a positive measure $\nu$. The previous definitions of %
+spaces $\mathcal{N}_\beta$, $L^1(\beta)$ and magnitude sum $\magnitude*{\cdot}_1$ extend immediately. %
+A key point is that $L^1=L^1(\nu)$, equipped with $\magnitude*{\cdot}_1$, is still a seminormed space. 
+% 
 These definitions and properties are generalized to $1\leq p < \infty$, as follows: %
-%
+% 
 \begin{align}
-  \magnitude*{f}_p &\Def \left(\int_X \magnitude*{f}^p \diff{\nu} \right)^{1/p} \qquad(f \text{ measurable}), \\
-  \mathcal{L}^p    &\Def \set[\big]{f}{\magnitude*{f}_p < \infty}, \\
-  L^p              &\Def \mathcal{L}^p / N, \\
-  \norm*[p]{f+N}   &\Def \magnitude*{f}_p \qquad (f \in \mathcal{L}^p).
+  \magnitude*{f}_p             &\Def \Biggl[\int_{X} \magnitude*{f}^p \diff{\nu} \Biggr]^{1/p} \qquad(f \text{ measurable}), \\
+  L^p                          &\Def \set[\big]{f}{\magnitude*{f}_p < \infty}, \\
+  \symbf{L}^p                  &\Def L^p / \mathcal{N}_\nu, \\
+  \norm*[p]{f+\mathcal{N}_\nu} &\Def \magnitude*{f}_p \qquad (f \in L^p).
 \end{align}
-%
+% 
 The subadditivity property 
-%
+% 
 \begin{equation}
   \magnitude*{f+g}_p \leq \magnitude*{f}_p + \magnitude*{g}_p
 \end{equation}
-%
-is known as \emph{Minkowski's inequality}. It shows that $\magnitude*{\cdot}_p$ is a seminorm on $\mathcal{L}^p$ and that %
-$\norm*[p]{\cdot}$ is a norm on $L^p$. Define %
-%
+% 
+is known as \emph{Minkowski's inequality}. Combined with the obvious homogeneity %
+$\magnitude*{\alpha f}_p = \magnitude*{\alpha} \magnitude*{f}_p$, Minkowski's inequality shows that $\magnitude*{\cdot}_p$ is %
+a seminorm on $L^p$ and that $\norm*[p]{\cdot}$ is a norm on $\symbf{L}^p$. Define %
+% 
 \begin{equation}
   \magnitude*{f}_\infty \Def \inf\set[\big]{M}{\magnitude*{f} \leq M\;\,\nu\text{-a.e.}} %
     \qquad (\text{convention: }\inf\emptyset = \infty)
 \end{equation}
-%
-for all measurable functions $f$. This extends the notions of $L^p$ space and $\norm*[p]{\cdot}$ to $p=\infty$, %
+% 
+for all measurable functions $f$. This extends the notions of $\symbf{L}^p$ space and $\norm*[p]{\cdot}$ to $p=\infty$, %
 as follows:
-%
+% 
 \begin{align}
-  \mathcal{L}^\infty &\Def \set{f \text{ measurable}}{\magnitude*{f}_\infty < \infty}, \\
-  L^\infty &\Def \mathcal{L}^\infty / N, \\
-  \norm*[\infty]{f + N } &\Def \magnitude*{f}_\infty \qquad (f \in \mathcal{L}^\infty).
+  L^\infty &\Def \set{f \text{ measurable}}{\magnitude*{f}_\infty < \infty}, \\
+  \symbf{L}^\infty & \Def L^\infty / \mathcal{N}_\nu, \\
+  \norm*[\infty]{f + \mathcal{N}_\nu} &\Def \magnitude*{f}_\infty \qquad (f \in L^\infty).
 \end{align}
-%
-A crucial point is that every $L^p$, equipped with $\norm*[p]{\cdot}$, is a Banach space; %
+% 
+A crucial point is that every $\symbf{L}^p$, equipped with $\norm*[p]{\cdot}$, is a Banach space; %
 see Theorem \citebook{3.11}{BigRudin}. 
-%
+% 
 % END 
+% 

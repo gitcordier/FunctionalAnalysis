@@ -4,124 +4,230 @@
 % 
 % encoding: UTF-8 
 % EOL: LF
-%
+% 
 % format: LaTeX
 % indent: spaces (2)
 % width: 127
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \begin{lemma}[A mean value inequality for higher-order derivatives]\label{annex:mean-value-with-derivatives}
-If $\phi\in\D_{[a, b]}$, then
-%
-\begin{equation}
-  \norm*[\infty]{D^k \phi} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
+Let $\closedInterval*{a}{b} \subset \R$. If $\phi \in \testFunctions{\closedInterval*{a}{b}}$, then
+% 
+\begin{equation}\label{annex:mean-value-with-derivatives:bound}
+  \norm*[\infty]{\deriv[N]{\phi}} \leq \norm*[\infty]{\deriv[N+p]{\phi}} \cdot \frac{1}{p!}\biggl[\frac{b-a}{2}\biggr]^p
 \end{equation}
-%
-for all $k \leq p$ in $\N$.
+% 
+for all pairs $(N, p) \in \N^2$.
 \end{lemma}
-%
+% 
 \begin{proof}
-First, consider $a < x_0 \leq (a+b)/2$. By the mean value theorem, there exists $a < x_1 < x_0$ such that
-%
-\begin{equation}
-  \phi(x_0) - \underbrace{\phi(a)}_{0}=  D\phi(x_1)(x_0 - a).
+% 
+Let $x_0$ be $a$ or $b$, so that $\phi(x_0) = 0$. We show by induction that the following property $\propertyIneq_p(\phi)$
+% 
+\begin{equation}\label{annex:mean-value-with-derivatives:bound:p}
+  \magnitude*{\phi(x)} \leq \norm*[\infty]{\deriv[p]{\phi}} \frac{\magnitude*{x-x_0}^p}{p!} \qquad (x \in \R)
 \end{equation}
-%
-If $p> 1$, repeating the same reasoning, first for $D\phi$, then $D^2\phi$, and so on, yields
-%
+% 
+holds for every $(p, \phi)$. First, note that $\propertyIneq_0(\phi)$ is trivial. Next, assume that, for a fixed $p$, every 
+$\propertyIneq_p(\phi)$ is true. Clearly, under this assumption, $\propertyIneq_p(\deriv{\phi})$ is true as well, since %
+$\deriv{\phi} \in \testFunctions{\closedInterval*{a}{b}}$. In this context, for all $x \in \R$,
+% 
+\begin{equation}
+  \magnitude[\big]{\phi(x)} \leq 
+  \magnitude[\Bigg]{\int_{x_0}^{x} \magnitude[\big]{\deriv{\phi}(u)}\diff{u}} \citeleq{\propertyIneq_p(\deriv{\phi})} %
+  \norm*[\infty]{\deriv[p+1]{\phi}} \magnitude[\Bigg]{\int_{x_0}^{x} \frac{\magnitude*{u-x_0}^{p}}{p!}\diff{u}} =
+  \norm*[\infty]{\deriv[p+1]{\phi}} \cdot \frac{\magnitude*{x-x_0}^{p+1}}{(p+1)!}.
+\end{equation}
+% 
+This establishes $\propertyIneq_{p+1}(\phi)$, and thus completes the induction. The inequality %
+\eqref{annex:mean-value-with-derivatives:bound:p} now gives
+% 
 \begin{align}
-  \phi(x_0) & = D^1 \phi(x_1) (x_0-a) \\
-  & = D^2 \phi(x_2) (x_1-a) (x_0-a) \\
-  &  \mspace{5mu} \vdots \nonumber \\ 
-  & = \underbrace{D^p\phi(x_{p}) (x_{p-1} - a)}_{D^{p-1} \phi(x_{p-1})} \, (x_{p-2} -a) \cdots (x_0-a)
+  \magnitude*{\phi(x)} & \leq \norm*[\infty]{\deriv[p]{\phi}} \cdot \frac{1}{p!} \cdot
+  \min\bigl\{\magnitude*{x-a}^p, \magnitude*{x-b}^p \bigr\} \\
+  & \leq \norm*[\infty]{\deriv[p]{\phi}} \cdot \frac{1}{p!}\biggl[\frac{b-a}{2}\biggr]^p
+  \qquad \bigl(x \in \closedInterval*{a}{b}\bigr).
 \end{align}
-%
-for some points $a < x_p <  \dots < x_1 < x_0$. Hence %
-%
+% 
+Hence
+% 
 \begin{equation}
-  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad(\naturals{p}).
+  \norm*[\infty]{\phi} \leq \norm*[\infty]{\deriv[p]{\phi}} \, \frac{1}{p!}\biggl[\frac{b-a}{2}\biggr]^p.
 \end{equation}
-%
-Similarly, if $(a+b)/2 < x_0 < b$ (with $b$ playing the role of $a$), the same inequality holds. Thus, 
-%
-\begin{equation}
-  \magnitude*{\phi(x_0)} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^p \qquad (a < x_0 < b), 
-\end{equation}
-%
-which establishes the result when $k=0$. Finally, applying the latter inequality to $D^k \phi $ in %
-place of $\phi$ shows that % 
-%
-\begin{equation}
-  \norm*[\infty]{D^k \phi} \leq \norm*[\infty]{D^p \phi} \left(\frac{b-a}{2}\right)^{p-k}
-\end{equation}
-%
-for all $0 \leq k \leq p$. %
+% 
+Inequality \eqref{annex:mean-value-with-derivatives:bound} follows when we substitute $\deriv[N]{\phi}$ for $\phi$, which %
+completes the proof. 
+% 
 \end{proof}
 %
-\begin{lemma}[Higher derivatives cannot be bounded by lower derivatives]
-\label{lemma-derivative-not-bounded-by-magnitude}%
-There is no general formula to estimate higher-order derivatives from lower-order derivatives. This immediately implies that %
-no reversed mean value theorem exists.
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% % Higher derivatives: no uniform bound
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{lemma}[Higher derivatives cannot be uniformly bounded by lower derivatives]%
+\label{annex:lemma:higher-derivatives-not-bounded}%
+Let $a < b$ in $\R$. Then, for any pair $(N, p) \in \N^2$, there is no positive constant $C$ such that %
+\begin{equation}\label{annex:derivative-not-bounded-by-magnitude}
+  \norm*[\infty]{\deriv[N+p+1]{\phi}} \leq C \, \norm*[\infty]{\deriv[N]{\phi}} \qquad %
+    \bigl(\phi \in \testFunctions{\closedInterval*{a}{b}}\bigr).
+\end{equation}
+% 
+Since $\restriction{\phi}{\closedInterval*{a}{b}} \in \continuous[][\infty][\big][\closedInterval*{a}{b}]$ when %
+$\phi\in\testFunctions{\closedInterval*{a}{b}}$, the result carries over to %
+$\continuous[][\infty][\big][\closedInterval*{a}{b}]$.
 \end{lemma}
+% 
+\begin{proof} 
+Up to an affine change of variable, we may assume that $\closedInterval*{a}{b} = \closedInterval*{\minus 1}{1}$. We know from %
+the construction described in \citeFA{1.46} that there exists $g \in \continuous[][\infty][\R]$ such that %
 %
-\begin{proof}
-For \emph{angular frequency} $\omega > 1$, we consider 
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \renewcommand{\theenumi}{\alph{enumi}}%
+  \item $0 \leq g \leq 1$,
+  \item $\restriction{g}{\openInterval*{\minus \infty}{1/2}} = 0$, 
+  \item $\restriction{g}{\openInterval*{1}{\infty}} = 1$, 
+  \item{
+    $\norm*[\infty]{\deriv[N]{g}} \leq \frac{2^N}{\delta_1 \cdots\,  \delta_N} =  2^{\frac{N^2 + 7N}{2}}$, %
+    with $\delta_k = \frac{1}{4}2^{\minus k}$\;\,($k = 1, \dots, N$). %
+    \label{annex:derivative-not-bounded-by-magnitude:deriv-g-bounded}
+  }
+\end{enumerate}
 %
+Define 
+% 
 \begin{align}
-  \phi_\omega: \R & \to [\minus 1, 1]\\
-  t & \mapsto \sin(\omega t), \nonumber
+  \phi_0: \R & \to \closedInterval*{0}{1} \\
+  t & \mapsto 1 - g\bigl(\magnitude*{t}\bigr), \nonumber
 \end{align}
 %
 so that 
 %
-\begin{equation}
-  \frac{\norm*[\infty]{D^p \phi_\omega}}{\norm*[\infty]{D^k \phi_\omega}} = \omega^{p-k} \qquad (0 \leq k < p)
-\end{equation}
-%
-is unbounded as $p$ or $\omega$ tends to $\infty$. %
-%
-Note that no pointwise estimation holds either. Indeed, when it exists, the quotient %
-$Q_\omega(t)= \magnitude*{\frac{D^p \phi_\omega}{D^k \phi_\omega}(t)}$ is $\omega^{p-k}$ if $p$ and $k$ have the same parity. %
-Otherwise, $Q_\omega(t)$ is either $\omega^{p-k}\magnitude*{\tan(\omega t)}$ or $\omega^{p-k}\magnitude*{\cot{(\omega t)}}$. %
-In all cases, $Q_\omega(t) \to \infty$ as $\omega \to \infty$ at fixed $t$. This example rules out any general inequality in %
-the reversed direction. However, the following smooth example $\phi$ maintains a constant derivative around $0$, %
-which is the simplest possible behavior.
-
-Let $\rho\in C^\infty(\R)$ be $1$ on $\openClosedInterval*{\minus\infty}{0}$, $0$ on $\closedOpenInterval*{1}{\infty}$, and %
-strictly decaying on $\openInterval*{0}{1}$. A standard choice is $\rho = 1-h$ with
-%
-\begin{equation}
-  h(t) \Def \frac{e^{\minus 1/t}}{e^{\minus 1/t} + e^{\minus 1/(1-t)}}
-\end{equation}
-%
-for all $0 < t < 1$. Inspired by signal processing, in addition to the angular frequency $\omega$ we introduce two positive %
-parameters: maximum amplitude ($A$) and delay ($\tau$). We now define $\phi$ as the time-dependent solution of
-%
-\begin{equation}
-  %E_\rho: 
-  \begin{cases}
-    \phi(0) & = 0 \\
-    \diff{\phi} & = A \rho \bigl(\omega(\abs{t} - \tau)\bigr)\diff{t}.
-  \end{cases}
-\end{equation}
-%
-Equivalently, $\phi$ is odd and, for $s > 0$, 
-%
+\begin{enumerate}[item-label=(\alph{enumi}), resume]
+  \renewcommand{\theenumi}{\alph{enumi}}%
+  \item $\phi_0 \in \testFunctions{\closedInterval*{\minus 1}{1}}$, 
+  \item $\restriction{\phi_0}{\closedInterval*{\minus 1/2}{1/2}} = 1$, 
+  \item $0 \leq \phi_0 \leq 1$,
+  \item $\norm*[\infty]{\deriv[N]{\phi_0}} \leq 2^{\frac{N^2 + 7N}{2}}$ for all $N$. %
+    \label{annex:derivative-not-bounded-by-magnitude:deriv-phi-0-bounded}
+\end{enumerate}
+% 
+Items \eqref{annex:derivative-not-bounded-by-magnitude:deriv-g-bounded} and %
+\eqref{annex:derivative-not-bounded-by-magnitude:deriv-phi-0-bounded} yield a constant $M_N$ that depends only on $N$; see %
+\eqref{annex:derivative-not-bounded-by-magnitude:order-N}. %
+To each \emph{angular frequency} $\omega \geq 2\pi$ corresponds the function
+% 
 \begin{align}
-  \phi(s)  = A \int_{0}^{s} \rho \bigl(\omega (t - \tau)\bigr) \diff{t} 
-    =  A \min(s, \tau) + A \int_{\tau}^{\max(s,  \tau)} \rho \bigl(\omega (t - \tau)\bigr) \diff{t}.
+  \phi_\omega: \R &\to \closedInterval*{\minus 1}{1} \\
+                t & \mapsto \phi_0(t)\sin(\omega t). \nonumber
 \end{align}
 %
-Hence
+We now turn to the proof proper. Note that $\phi_\omega \in \testFunctions{\closedInterval*{\minus 1}{1}}$, since %
+$\phi_0 \in \testFunctions{\closedInterval*{\minus 1}{1}}$ and $t \mapsto \sin(\omega t)$ is smooth. Assume, to %
+reach a contradiction, that for some pair $(N,p)$ there exists a positive constant $C$ satisfying %
+\eqref{annex:derivative-not-bounded-by-magnitude}. We look for an angular frequency $\omega_{\bot}$ that yields a %
+contradiction. To this end, Lemma~[\ref{annex:mean-value-with-derivatives}], with $m=0,\dots, N$ in place of $p$ and %
+$N-m$ in place of $N$, gives
 %
+\begin{equation}\label{annex:derivative-not-bounded-by-magnitude:bound}%
+  \sum_{m=0}^N \norm[\big][\infty]{\deriv[N-m]{\phi_0}} \leq
+  \sum_{m=0}^N \frac{1}{m!} \norm[\big][\infty]{\deriv[N]{\phi_0}} %
+    \citeleast{\eqref{annex:derivative-not-bounded-by-magnitude:deriv-phi-0-bounded}}
+  2^{\frac{N^2 + 7N}{2}} e.
+\end{equation}
+%
+Moreover, $\magnitude*{\deriv[m]{\sin(\omega t)}} \leq \omega^m \leq \omega^N$ for $m = 0, \dots, N$ and $t \in \R$, %
+since $\omega>1$. %
+Thus, by the general Leibniz rule,  
+%
+\begin{equation}\label{annex:derivative-not-bounded-by-magnitude:Leibniz}
+  \norm[\big][\infty]{\deriv[N]{\phi_\omega}} \leq \sum_{m=0}^{N} \binom{N}{m}
+  \norm*[\infty]{\deriv[N-m]{\phi_0}} \omega^N.
+\end{equation}
+%
+The binomial identity $(1+1)^N = \sum \binom{N}{m}$ implies $\binom{N}{m} \leq 2^N$. Therefore, combining %
+\eqref{annex:derivative-not-bounded-by-magnitude:Leibniz} with 
+\eqref{annex:derivative-not-bounded-by-magnitude:bound} gives
+%
+\begin{equation}\label{annex:derivative-not-bounded-by-magnitude:order-N}
+  \norm[\big][\infty]{\deriv[N]{\phi_\omega}} \leq %
+  2^N \sum_{m=0}^N \norm*[\infty]{\deriv[N-m]{\phi_0}} \omega^N < %
+  \underbrace{2^{\frac{N^2 + 9N}{2}} e}_{\Def M_N} \omega^N.
+\end{equation}
+% 
+As announced, the factor $M_N$ in \eqref{annex:derivative-not-bounded-by-magnitude:order-N} depends only on $N$. On the other %
+hand, $t \mapsto \sin(\omega t)$ runs through a complete period over $\closedInterval*{\minus 1/2}{1/2}$, since %
+$\omega\geq 2\pi$. Consequently, the maximum of $t \mapsto \deriv[N+p+1]{\sin(\omega t)}$, which is $\omega^{N+p+1}$, is %
+attained during this period. Since $\phi_0$ meanwhile plateaus at $1$, $\phi_\omega(t) = \sin (\omega t)$ when %
+$t\in \closedInterval*{\minus 1/2}{1/2}$. Thus,
+%
+\begin{equation}\label{annex:derivative-not-bounded-by-magnitude:order-N-plus-p-plus-1}
+  \norm[\big][\infty]{\deriv[N+p+1]{\phi_\omega}} \geq %
+    \max_{\closedInterval*{\minus 1/2}{1/2}} \deriv[N+p+1]{\phi_\omega} = \omega^{N+p+1} \geq \omega^{N+1}.
+\end{equation}
+%
+Combining this estimate with the preceding ones, we obtain
+%
+\begin{equation}
+  \omega^{N+1} \citeleq{\eqref{annex:derivative-not-bounded-by-magnitude:order-N-plus-p-plus-1}}
+    \norm*[\infty]{\deriv[N+p+1]{\phi_\omega}} \citeleq{\eqref{annex:derivative-not-bounded-by-magnitude}} %
+    C\, \norm*[\infty]{\deriv[N]{\phi_\omega}} \citeleast{\eqref{annex:derivative-not-bounded-by-magnitude:order-N}} %
+    C\,M_N\,\omega^N.
+\end{equation}
+%
+Dividing both sides by $\omega^{N}$ gives 
+%
+\begin{equation}
+  \omega < C M_N.
+\end{equation}
+%
+Finally, the angular frequency
+%
+\begin{equation}
+  \omega_\bot \Def 2\pi + C M_N
+\end{equation}
+%
+violates the latter inequality, which completes the proof by contradiction. 
+\end{proof} 
+% 
+\noindent The proof of Lemma~[\ref{annex:lemma:higher-derivatives-not-bounded}] relies on oscillation. A bounded %
+function, however, does not need to oscillate to have a large derivative on a small interval: the following smooth %
+example $\phi$ keeps a constant positive derivative around $0$.
+\skipline
+Let $\rho\in \continuous[][\infty][\R]$ be $1$ on $\openClosedInterval*{\minus\infty}{0}$, $0$ on %
+$\closedOpenInterval*{1}{\infty}$, and strictly decreasing on $\openInterval*{0}{1}$. For instance, choose 
+% 
+\begin{equation}
+  \rho(t) \Def 1 - \frac{
+      \exp\bigl(\minus \frac{1}{t} \bigr)
+    }{
+      \exp\bigl(\minus \frac{1}{t} \bigr) + \exp\bigl(\minus \frac{1}{1-t} \bigr)
+    }
+\end{equation}
+% 
+for all $0 < t < 1$. Inspired by signal processing, we introduce three positive quantities: the rate ($\omega$), the maximum %
+slope ($A$), and the delay ($\tau$). We now define $\phi$ to be the solution of the following system
+% 
+\begin{equation}\label{annex:mean-value-with-derivatives:nice-function}
+  \begin{aligned}
+    \phi(0) & = 0 \\
+    \diff{\phi} & = A \rho \Bigl(\omega\bigl(\magnitude*{t} - \tau\bigr)\Bigr)\diff{t}.
+  \end{aligned}
+\end{equation}
+% 
+Equivalently, $\phi$ is odd and, for $s > 0$, 
+% 
+\begin{equation}
+  \phi(s) = A \int_{0}^{s} \rho \bigl(\omega (t - \tau)\bigr) \diff{t}
+    = A \min(s, \tau) + A \int_{\tau}^{\max(s, \tau)} \rho \bigl(\omega (t - \tau)\bigr) \diff{t}.
+\end{equation}
+% 
+Since $\rho(u) + \rho(1-u) = 1$ for $0 < u < 1$, we have $\int_0^1 \rho(u) \diff{u} = 1/2$. Hence
+% 
 \begin{align}
   \norm*[\infty]{\phi} & = \phi(\tau + 1/\omega) \\ 
-    & = \tau A  + \frac{A}{\omega} \int_{0}^{1} \rho(u)\diff{u} \\ 
-    & < \tau A + \frac{A}{\omega}.
+    & = \tau A + \frac{A}{2\omega}\,.
 \end{align}
-%
-The special case $\tau= 1/\omega= 1/A$ is of great interest. Indeed, %
-$\restriction{D\phi}{\closedInterval*{\minus \tau}{\tau}} = A \to \infty$ as $\tau \to 0$. In contrast, %
-$\norm*[\infty]{\phi} < 2$. 
-\end{proof}
+% 
+Setting $A = \omega = 1/\tau$ proves the claim. Indeed, %
+$\restriction{\deriv{\phi}}{\closedInterval*{\minus \tau}{\tau}} = A \to \infty$ as $\tau \to 0$. In contrast, %
+$\norm*[\infty]{\phi} = 3/2$. 
 % END
 % 

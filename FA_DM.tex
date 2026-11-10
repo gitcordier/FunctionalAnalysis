@@ -1,42 +1,79 @@
-% a4paper = ISO 216 standard. 
+% !TEX program = lualatex
+\DocumentMetadata{lang=en-US, pdfversion=2.0, pdfstandard=ua-2, tagging=on}
+% \DocumentMetadata (before \documentclass): tagged PDF 2.0, PDF/UA-2. Lists then take item-label=..., not label=....
+% a4paper = ISO 216 standard.
 % Don't forget to revert to default if you want the US Letter instead.
+\RequirePackage{iftex}
+\RequireLuaTeX
+% The 2 lines above stop with a clear error if the engine is not LuaTeX (fontspec, unicode-math).
 \documentclass[a4paper,10pt,titlepage,openany,leqno]{book}
 
 % --------------------------- MATH PACKAGES ----------------------------
-%\usepackage{graphicx}
-\usepackage{xparse} 
-\usepackage{amsmath, amssymb} 
+\usepackage{graphicx}
+\usepackage{emoji}
+\usepackage{amsmath} 
 \usepackage{
 physics, 
-amssymb, 
-amsfonts, 
+%amssymb, 
+%amsfonts, 
 mathrsfs, 
 amsthm, 
 mathtools, 
 % mathspec, % DEPRECATED: XeTeX-specific, removed for LuaLaTeX
 fouridx, 
-%%stix
-%%tensor 
-tikz 
+% %stix
+% %tensor 
+tikz, 
+tikz-cd
 }
-%\usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
-\usepackage{enumitem}
-\usepackage{caption}
-\captionsetup{labelsep=period}
+% \usetikzlibrary{arrows,snakes,backgrounds,patterns,matrix,shapes,fit,calc,shadows,plotmarks}
+% enumitem is incompatible with the latex-lab list code: the lists use the kernel keys (item-label=...).
+% FA_checks.lua scans every input file and stops on an enumitem option, or on a \label in an item-label list without
+% \renewcommand{\theenumi}.
+\directlua{FA_checks = require("FA_checks")}
+\AddToHook{file/before}{%
+  \directlua{FA_checks.lists("\luaescapestring{\ifx\CurrentFilePath\empty\else\CurrentFilePath/\fi\CurrentFile}")}%
+}
+% No caption package (no effect under tagging): \@makecaption below sets the period separator.
+\makeatletter
+% The book class \@makecaption, with "." in place of ":" after the label.
+\AtBeginDocument{%
+  \long\def\@makecaption#1#2{%
+    \vskip\abovecaptionskip
+    \sbox\@tempboxa{#1. #2}%
+    \ifdim \wd\@tempboxa >\hsize
+      #1. #2\par
+    \else
+      \global \@minipagefalse
+      \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \vskip\belowcaptionskip}%
+}
+\makeatother
+% float: the placement [H] ("exactly here", no floating), for a figure that must follow its text (Figure 1.1 of 1_07.tex).
+% Loaded before hyperref. Check the tagging warnings of the log after the first build.
+\usepackage{float}
+% tocbibind puts the Bibliography in the table of contents; see the end of the document.
+\usepackage[nottoc,notlot,notlof]{tocbibind}
 \usepackage{diagbox} % For diagonal cells
-%\usetikzlibrary{shapes.geometric}
-%\usetikzlibrary{arrows.meta,arrows}
-%\usepackage{tlatex}
+% Tagging is suspended inside \diagbox, which would break the table structure of the tagged PDF.
+\NewCommandCopy{\diagboxOrig}{\diagbox}
+\RenewDocumentCommand{\diagbox}{O{} m m}{%
+  \SuspendTagging{diagbox}\diagboxOrig[#1]{#2}{#3}\ResumeTagging{diagbox}%
+}
+% \usetikzlibrary{shapes.geometric}
+% \usetikzlibrary{arrows.meta,arrows}
+% \usepackage{tlatex}
 % TEXs LOGOS! 
-%\usepackage{dtklogos}
+% \usepackage{dtklogos}
 
 \usepackage[left=1.9cm,right=1.32cm,top=1.9cm,bottom=3.67cm]{geometry}
 
 % --------------------------- COLOR ----------------------------
 \usepackage{array}
-%\usepackage[dvipsnames]{xcolor}
-%\usepackage[]{color}
-%\usepackage{framed}
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage[]{color}
+% \usepackage{framed}
 \usepackage{colortbl}
 
 % --------------------------- FONT + UNICODE-MATH ----------------------------
@@ -44,46 +81,44 @@ tikz
 
 % 1. OPTION ADDED HERE: [math-style=upright]
 % This forces Latin (x, y) and Greek letters to be upright by default.
-\usepackage[math-style=upright]{unicode-math} 
+\usepackage[math-style=upright]{unicode-math}
+% Mutes 2 unavoidable unicode-math warnings on mathtools commands that the book does not use.
+\ExplSyntaxOn
+\msg_redirect_name:nnn { unicode-math } { mathtools-overbracket } { none }
+\msg_redirect_name:nnn { unicode-math } { mathtools-colon } { none }
+\ExplSyntaxOff
 
 % --------------------------- HYPERREF ----------------------------
-\usepackage{hyperref} 
-\hypersetup{
-    pdfborder = {0 0 0},
-    colorlinks,
-    citecolor=red,
-    filecolor=green,
-    linkcolor=black,
-    urlcolor=blue
-}
+% hyperref is loaded last; see below.
 
 % --------------------------- TEXT FONTS ----------------------------
-\setmainfont[
+% fontspec syntax: \setmainfont{<font>}[<options>].
+\setmainfont{NewCM10-Book.otf}[
   ItalicFont=NewCM10-BookItalic.otf,
   BoldFont=NewCM10-Bold.otf,       % There is no "Book Bold", we use standard Bold
   BoldItalicFont=NewCM10-BoldItalic.otf
-]{NewCM10-Book.otf}
+]
 
-\setsansfont[
+\setsansfont{NewCMSans10-Book.otf}[
   ItalicFont=NewCMSans10-BookOblique.otf,
   BoldFont=NewCMSans10-Bold.otf,
   BoldItalicFont=NewCMSans10-BoldOblique.otf
-]{NewCMSans10-Book.otf}
+]
 
-\setmonofont[
+\setmonofont{NewCMMono10-Book.otf}[
   Scale=MatchLowercase, % Good practice to keep mono readable against serif
   ItalicFont=NewCMMono10-BookItalic.otf,
   BoldFont=NewCMMono10-Bold.otf,
   BoldItalicFont=NewCMMono10-BoldOblique.otf
-]{NewCMMono10-Book.otf}
+]
 
-%\newfontfamily\fw{NewCMMono10-Book.otf}
-%\newfontfamily\CMUCS{NewCMMono10-Book.otf}
+% \newfontfamily\fw{NewCMMono10-Book.otf}
+% \newfontfamily\CMUCS{NewCMMono10-Book.otf}
 % --------------------------- MATH FONTS ----------------------------
 \setmathfont{NewCMMath-Book.otf}
-%\setmathfont[range=\mathtt]{NewCMMono10-Book.otf}
- 
- %cmuntt.otf}
+% \setmathfont[range=\mathtt]{NewCMMono10-Book.otf}
+  
+% cmuntt.otf}
 % --------------------------- TYPOGRAPHIC CONVENTIONS ----------------------------
 \usepackage{polyglossia}
 \setdefaultlanguage[variant=usmax]{english}
@@ -96,35 +131,59 @@ tikz
   factor     = 1100,
 ]{microtype}
 
+% --------------------------- HYPERREF ----------------------------
+% Loaded last, so that it patches the final definitions.
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=red,
+    filecolor=green,
+    linkcolor=black,
+    urlcolor=blue
+}
+
 % --------------------------- PRIMITIVES ----------------------------
-\newcommand{\insmall}[1]{\text{\small{#1}}}
-%\newcommand{\minus}{\insmall{-}}
+\newcommand{\insmall}[1]{\text{\small #1}}
+% \newcommand{\minus}{\insmall{-}}
 % Use \AtBeginDocument to ensure unicode-math doesn't overwrite it
 
 \AtBeginDocument{
-  \renewcommand{\minus}{%
-    \mathbin{%
-      \mathchoice
-        {\scalebox{0.8}{$\text{\bf -}$}} % Display and Text style
-        {\scalebox{0.8}{$\text{\bf -}$}} % Script style
-        {\scalebox{0.5}{$\text{\bf -}$}} % Script-script style
-        {\scalebox{0.8}{$\text{\bf -}$}} % Default fallback
-    }%
-  }
+  \renewcommand{\minus}{\mathbin{\scalebox{0.8}{\bfseries -}}}%
 }
 
 % The field C and the usual subsets R, Q, Z, N.
-% NOTE: \mathbf produces bold italic in unicode-math, switch to \mathbb for standard notation
-\newcommand\usualSet[1]{\mathbf{#1}} 
-\def\C{\usualSet{C}}
-\def\R{\usualSet{R}}
-\def\Q{\usualSet{Q}}
-\def\Z{\usualSet{Z}}
-\def\N{\usualSet{N}}
-\def\K{\usualSet{K}}
+% The usual sets in upright bold (\mathbf).
+% \newcommand, not \def, throughout: a taken name stops with an error; \renewcommand marks a deliberate override.
+\newcommand\usualSet[1]{\mathbf{#1}}
+\newcommand{\C}{\usualSet{C}}
+\newcommand{\R}{\usualSet{R}}
+\newcommand{\Q}{\usualSet{Q}}
+\newcommand{\Z}{\usualSet{Z}}
+\newcommand{\N}{\usualSet{N}}
+\newcommand{\K}{\usualSet{K}}
 
-\def\Def{\triangleq}
-\def\defIFF{\quad \text{\bf iff} \quad} % Halmos' iff
+% Exercise statements: italic text, math-style=TeX, usual sets (\R, \C, ...) in bold italic.
+% The environment is a group: the settings below end with it.
+% math-style=TeX takes effect only when the math font is (re)loaded, and each reload costs seconds (more as they add up).
+% So the font is reloaded once, in a group at the end of \begin{document}, where FA_mathstyle.lua records the mathcodes
+% that math-style=TeX changes; the environment sets them again, without a reload.
+\directlua{FA_mathstyle = require("FA_mathstyle")}
+\AddToHook{begindocument/end}{%
+  \directlua{FA_mathstyle.record()}%
+  \begingroup
+    \unimathsetup{math-style=TeX}%
+    \setmathfont{NewCMMath-Book.otf}%
+    \directlua{FA_mathstyle.diff()}%
+  \endgroup
+}
+\NewDocumentEnvironment{exerciseStatement}{}{%
+  \directlua{FA_mathstyle.apply()}%
+  \renewcommand{\usualSet}[1]{\symbfit{##1}}% \R, \C, ... in bold italic
+  \itshape
+}{}
+
+\newcommand{\Def}{\triangleq}
+\newcommand{\defIFF}{\quad \text{\bfseries iff} \quad} % Halmos' iff
 
 \newcommand\counting[1]{#1=1, 2, 3, \dots} 
 \newcommand\naturals[1]{#1=0, 1, 2, \dots} 
@@ -139,21 +198,24 @@ tikz
 \newcommand{\function}[1]{\mathtt{#1}}
 \newcommand{\relation}[2]{{#1}_{#2}}
 \newcommand{\f}[2]{#1(#2)}
-\newcommand{\id}[1]{\text{id}_{#1}}
-\renewcommand{\restriction}[2]{#1\vert_{#2}}
+% \mathrm, not \text: always upright, also in italic text.
+\newcommand{\id}[1]{\mathrm{id}_{#1}}
+\newcommand{\restriction}[2]{#1\vert_{#2}}
 
 % Predicate calculus, logic
 % % Bunch of synonyms
-\def\then{\Rightarrow} 
-\def\therefore{\Rightarrow}
-\def\implies{\Rightarrow}
-\def\since{\Leftarrow}
-\def\because{\Leftarrow} 
-\renewcommand{\iff}{\Leftrightarrow} 
+% unicode-math defines \therefore and \because at \begin{document}: they are redefined in \AtBeginDocument.
+\newcommand{\then}{\Rightarrow}
+\renewcommand{\implies}{\Rightarrow}
+\newcommand{\since}{\Leftarrow}
+\AtBeginDocument{
+  \renewcommand{\therefore}{\Rightarrow}%
+  \renewcommand{\because}{\Leftarrow}%
+}
 
 % % Iverson bracket notation
-%\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
-%\newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
+% \newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
+% \newcommand{\Iverson*[\big]}[2][\big]{#1[\, #2\, #1]}
 \NewDocumentCommand{\Iverson}{s o m}{%
   % #1: * (optional star)
   % #2: [\big] (optional size)
@@ -164,10 +226,13 @@ tikz
     \IfValueTF{#2}{
       #2[ \hspaceNorm #3 \hspaceNorm #2]
     }{
-      \errmessage{Iverson: Size argument needed.}
+      \PackageError{FA_DM}{Iverson: Size argument needed.}{}
     }
   }
 }
+
+% % Names for properties, e.g. inequalities
+\DeclareMathOperator{\propertyIneq}{\mathbf{Ineq}}
 
 % Sets
 % % Braces
@@ -175,18 +240,21 @@ tikz
 \newcommand{\set}[3][\big]{\singleton[#1]{#2: #3}}
 
 % % Union, intersection. 
-\def\cuts{\cap} % synonym 
+\newcommand{\cuts}{\cap} % synonym
 
 % % Subset, supset
 \AtBeginDocument{\let\subset\subseteq
 \let\supset\supseteq}
-\def\contains{\supseteq} % synonym
+\newcommand{\contains}{\supseteq} % synonym
 
 % % Minus (big)
 \newcommand{\bigsetminus}[1][\big]{\mathbin{#1\backslash}}
 
 % % Card
 \DeclareMathOperator\opcard{card} 
+
+% Combinatorics
+\RenewDocumentCommand{\binom}{m m}{\mathtt{C(#1, #2)}}
 
 % Vector spaces
 % % Convex hull
@@ -205,21 +273,151 @@ tikz
   \DeclareRobustCommand{\closure}[1]{\overline{#1}}
 }
 
-\newcommand{\localbase}[1]{\mathcal #1}
-\def\weakstar{\text{weak}^\ast\text{-}}
+\newcommand{\localbase}[1]{\mathcal{#1}}
+\newcommand{\weakstar}{\text{weak}^\ast\text{-}}
 
 % Standard calculus
+% % Integrals
+% Integrals with bounds mirrored through the center of the sign: the upper bound at the top right, the lower bound at
+% the bottom left. \int with no bound is the ordinary integral; \intReg is the ordinary integral with bounds.
+\makeatletter
+\newcommand{\symintgap}{0.05em}      % extra clearance between sign and bounds
+\newcommand{\symintcx}{0em}       % nudge the sign's center (+ = right)
+
+\newdimen\symint@w  \newdimen\symint@u  \newdimen\symint@ax
+\newdimen\symint@d  \newdimen\symint@c
+\newdimen\symint@sh \newdimen\symint@sl
+\newdimen\symint@wu \newdimen\symint@wl
+\newdimen\symint@ovr \newdimen\symint@ovl
+\newbox\symint@sign \newbox\symint@hi \newbox\symint@lo \newbox\symint@tmp
+\newcount\symint@n
+
+% MathML (luamml, loaded at \begin{document} by tagging=on): the boxes below only draw. The helper formulas are
+% ignored, the bounds are saved under labels, and the integral gets a single <msub>, <msup> or <msubsup>.
+\ExplSyntaxOn
+\cs_new_protected:Npn \symint@ignore { }
+\cs_new_protected:Npn \symint@save #1 { }
+\cs_new_protected:Npn \symint@annotate #1#2 { }
+\AtBeginDocument
+  {
+    \cs_if_exist:NT \luamml_annotate:en
+      {
+        \cs_set_protected:Npn \symint@ignore { \luamml_ignore: }
+        \cs_set_protected:Npn \symint@save #1 { \luamml_save:n { symint-#1-\int_use:N \symint@n } }
+        \cs_set_protected:Npn \symint@annotate #1#2
+          {
+            \luamml_annotate:en
+              {
+                mathml = { [0] = '\tl_if_blank:nTF {#1} { msup } { \tl_if_blank:nTF {#2} { msub } { msubsup } }',
+                  { [0] = 'mo', '^^^^222b' }
+                  \tl_if_blank:nF {#1} { , consume_label'symint-lo-\int_use:N \symint@n' }
+                  \tl_if_blank:nF {#2} { , consume_label'symint-hi-\int_use:N \symint@n' } }
+              }
+          }
+      }
+  }
+\ExplSyntaxOff
+
+% unicode-math defines \int at \begin{document}, so a redefinition in the preamble would be overwritten.
+\AtBeginDocument{%
+  \NewCommandCopy\intReg\int      % the ordinary integral
+  % \int accepts _ and ^ in either order, like the original
+  \RenewDocumentCommand{\int}{e{_^}}{%
+    \IfNoValueTF{#1}
+      {\IfNoValueTF{#2}{\intReg}{\symint@do{}{#2}}}
+      {\IfNoValueTF{#2}{\symint@do{#1}{}}{\symint@do{#1}{#2}}}}%
+}
+
+% #1 = lower bound, #2 = upper bound.
+% The sign takes the current style, the bounds the matching script style. \mathchoice typesets all 4 styles: only the
+% first one saves the MathML of the bounds.
+\newcommand{\symint@do}[2]{%
+  \global\advance\symint@n\@ne
+  \symint@annotate{#1}{#2}{%
+    \mathop{\mathchoice
+      {\symint@build\symint@save\displaystyle\scriptstyle{#1}{#2}}%
+      {\symint@build\@gobble\textstyle\scriptstyle{#1}{#2}}%
+      {\symint@build\@gobble\scriptstyle\scriptscriptstyle{#1}{#2}}%
+      {\symint@build\@gobble\scriptscriptstyle\scriptscriptstyle{#1}{#2}}}\nolimits}}
+
+% #1 = \symint@save or \@gobble, #2 = style of the sign, #3 = style of the bounds, #4 = lower bound, #5 = upper bound
+\newcommand{\symint@build}[5]{%
+  \begingroup
+  \setbox\symint@sign\hbox{$\m@th\symint@ignore#2\intReg\nolimits$}%
+  \symint@w=\wd\symint@sign
+  \symint@c=\dimexpr.5\symint@w+\symintcx\relax
+  \setbox\symint@tmp\hbox{$\m@th\symint@ignore#2\vcenter{\hrule height0pt depth0pt}$}%
+  \symint@ax=\ht\symint@tmp                       % math axis
+  \setbox\symint@tmp\hbox{$\m@th\symint@ignore#2\intReg\nolimits^{\vrule width0pt height 100em depth0pt}$}%
+  \symint@u=\dimexpr\ht\symint@tmp-100em\relax    % baseline of a superscript on \intReg
+  \setbox\symint@tmp\hbox{$\m@th\symint@ignore#3#5$}\symint@wu=\wd\symint@tmp
+  \setbox\symint@tmp\hbox{$\m@th\symint@ignore#3#4$}\symint@wl=\wd\symint@tmp
+  % distances from the center of the sign to the centers of the bounds
+  \symint@sh=\dimexpr.5\symint@w+.5\symint@wu+\symintgap\relax
+  \symint@sl=\dimexpr.5\symint@w+.5\symint@wl+\symintgap\relax
+  % same height and depth for both bounds, so that they mirror each other
+  \setbox\symint@tmp\hbox{$\m@th\symint@ignore#3\mathstrut\vphantom{#4#5}$}%
+  \setbox\symint@hi\hbox to 0pt{\hss\copy\symint@tmp$\m@th\symint@ignore#1{hi}#3#5$\hss}%
+  \setbox\symint@lo\hbox to 0pt{\hss\copy\symint@tmp$\m@th\symint@ignore#1{lo}#3#4$\hss}%
+  \symint@d=\dp\symint@hi
+  \symint@ovr=\dimexpr\symint@c+\symint@sh+.5\symint@wu-\symint@w\relax
+  \symint@ovl=\dimexpr\symint@sl-\symint@c+.5\symint@wl\relax
+  % no room for a missing bound
+  \ifdim\symint@wu=0pt \symint@ovr=0pt \fi
+  \ifdim\symint@wl=0pt \symint@ovl=0pt \fi
+  \ifdim\symint@ovr<0pt \symint@ovr=0pt \fi
+  \ifdim\symint@ovl<0pt \symint@ovl=0pt \fi
+  \hbox{%
+    \kern\symint@ovl
+    \copy\symint@sign
+    \hbox to 0pt{%
+      \kern-\symint@w
+      $\m@th\symint@ignore#2\vcenter{\vbox{\offinterlineskip
+        \moveright\dimexpr\symint@c+\symint@sh\relax\box\symint@hi
+        \kern\dimexpr2\symint@u-2\symint@ax-2\symint@d\relax
+        \moveright\dimexpr\symint@c-\symint@sl\relax\box\symint@lo}}$%
+      \hss}%
+    \kern\symint@ovr
+  }%
+  \endgroup}
+\makeatother
+  
+% #1 = domain (optional), #2 = integrand, #3 = measure (optional): \intLebesgue[K]{u \cdot f}[\beta].
+% The trailing optional #3 takes any [ that follows the integrand, so \intLebesgue[K]{f} [a] reads [a] as the measure.
+% This never occurs by design: an integral inside a computation is wrapped in parentheses or brackets, e.g.
+% \bigl[\intLebesgue[K]{f}[\beta]\bigr], so a [ right after the integrand is a typo.
+\NewDocumentCommand{\intLebesgue}{o m o}{%
+  \ensuremath{%
+    \intReg
+    \IfValueT{#1}{_{#1}}%
+    #2%
+    \IfValueT{#3}{\diff{#3}}%
+  }%
+}
+
 % % Intervals, as partial functions of the Interval command below.
 % % % Open.
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\openClosingLeft}{m}{%
+  \str_if_eq:nnTF {#1} {\minus \infty} {(} {]}
+}
+\ExplSyntaxOff
+
+\ExplSyntaxOn
+\NewExpandableDocumentCommand{\openClosingRight}{m}{%
+  \str_if_eq:nnTF {#1} {\infty} {)} {[}
+}
+\ExplSyntaxOff
+
 \NewDocumentCommand{\openInterval}{s o m m}{%
   \IfBooleanTF{#1}{
-    \Interval*{#3}{#4}{]}{[}
+    \Interval*{#3}{#4}{\openClosingLeft{#3}}{\openClosingRight{#4}}
   }{% 
     \IfValueTF{#2}{% If [size]:
-      \Interval[#2]{#3}{#4}{]}{[}
+      \Interval[#2]{#3}{#4}{\openClosingLeft{#3}}{\openClosingRight{#4}}
     }{% 
       % If no [size], use standard delimiters with correct spacing
-      \errmessage{openInterval: Size argument is required.}
+      \PackageError{FA_DM}{openInterval: Size argument is required.}{}
     }
   }
 }
@@ -233,35 +431,35 @@ tikz
       \Interval[#2]{#3}{#4}{[}{]}
     }{% 
       % If no [size], use standard delimiters with correct spacing
-      \errmessage{closedInterval: Size argument is required.}
+      \PackageError{FA_DM}{closedInterval: Size argument is required.}{}
     }
   }
 }
 
-% % % Open-closed ]...].
+% % % Open-closed
 \NewDocumentCommand{\openClosedInterval}{s o m m}{%
   \IfBooleanTF{#1}{
-    \Interval*{#3}{#4}{]}{]}
+    \Interval*{#3}{#4}{\openClosingLeft{#3}}{]}
   }{% 
     \IfValueTF{#2}{% If [size]:
-      \Interval[#2]{#3}{#4}{]}{]}
+      \Interval[#2]{#3}{#4}{\openClosingLeft{#3}}{]}
     }{% 
       % If no [size], use standard delimiters with correct spacing
-      \errmessage{openClosedInterval: Size argument is required.}
+      \PackageError{FA_DM}{openClosedInterval: Size argument is required.}{}
     }
   }
 }
 
-% % % Closed-open [...[.
+% % % Closed-open
 \NewDocumentCommand{\closedOpenInterval}{s o m m}{%
   \IfBooleanTF{#1}{
-    \Interval*{#3}{#4}{[}{[}
+    \Interval*{#3}{#4}{[}{\openClosingRight{#4}}
   }{% 
     \IfValueTF{#2}{% If [size]:
-      \Interval[#2]{#3}{#4}{[}{[}
+      \Interval[#2]{#3}{#4}{[}{\openClosingRight{#4}}
     }{% 
       % If no [size], use standard delimiters with correct spacing
-      \errmessage{closedOpenInterval: Size argument is required.}
+      \PackageError{FA_DM}{closedOpenInterval: Size argument is required.}{}
     }
   }
 }
@@ -276,26 +474,76 @@ tikz
     \IfValueTF{#2}{% If [size] 
       \mathopen{#2#5} \hspaceNorm  #3, #4 \hspaceNorm  \mathclose{#2#6}
     }{% Else, error
-      \errmessage{Interval: Size argument is required.}
+      \PackageError{FA_DM}{Interval: Size argument is required.}{}
     }
   }
 }
- 
+  
 % % Usual spaces
-\newcommand{\Continuous}{{\mathcal C}} 
-\newcommand{\D}{{\mathcal D}} 
+\newcommand{\Continuous}{C}
+\NewDocumentCommand{\continuous}{o o o o}{%
+  \ensuremath{\Continuous
+    \IfValueTF{#1}{%
+      \IfValueTF{#2}{% #1 and #2: C_{#1}^{#2}
+        _{#1}^{#2}
+      }{% only #1: C_{#1}
+        _{#1}
+      }
+    }{}%
+    \IfValueTF{#4}{% #4 is optional: C(#4) if given, C otherwise
+      \IfValueTF{#3}{#3(#4#3)}{(#4)}% #3 sizes the parentheses, \eg \big
+    }{% #4 not given
+      \IfValueTF{#3}{%
+        %\errmessage{continuous: [size] given without domain}
+        (#3)
+      }{}%
+    }
+  }
+}
+
+\newcommand{\ContinuousCal}{\symcal{C}}
+\NewDocumentCommand{\continuousCal}{o o o o}{%
+  \ensuremath{\ContinuousCal
+    \IfValueTF{#1}{%
+      \IfValueTF{#2}{% #1 and #2: C_{#1}^{#2}
+        _{#1}^{#2}
+      }{% only #1: C_{#1}
+        _{#1}
+      }
+    }{}%
+    \IfValueTF{#4}{% #4 is optional: C(#4) if given, C otherwise
+      \IfValueTF{#3}{#3(#4#3)}{(#4)}% #3 sizes the parentheses, \eg \big
+    }{% #4 not given
+      \IfValueTF{#3}{%
+        %\errmessage{continuous: [size] given without domain}
+        (#3)
+      }{}%
+    }
+  }
+}
+
+% % % Test functions
+\NewDocumentCommand{\testFunctions}{m}{%
+  \ensuremath{\mathcal{D}_{\, #1}}%
+}
 
 % % Bounds
-\newcommand{\supp}[1]{\operatorname{supp}(#1)}
+\DeclareMathOperator{\opsupp}{supp}
+\NewDocumentCommand{\supp}{s m}{%
+  \IfBooleanTF{#1}
+    {\opsupp\left(#2\right)}% \supp*{...}: auto-sized
+    {\opsupp(#2)}%           \supp{...}: as before
+}
 
 % % Usual functions and operator
 \DeclareMathOperator{\cotan}{cotan}
 \DeclareMathOperator\sgn{sgn}
 \NewDocumentCommand{\ceil}{s o m}{%
   \IfBooleanTF{#1}{%
-    % Star version: auto-sizing with \left\right
+    % Star version: \lceil \rceil at the current size
     \IfValueTF{#2}{
-      \errmessage{ceil: Star mode. Don't specify the [size].}
+      % \errmessage{ceil: Star mode. Don't specify the [size].}
+      \PackageError{FA_DM}{ceil: Star mode. Don't specify the [size].}{}
     }{
       \lceil \hspaceNorm #3 \hspaceNorm \rceil
     }
@@ -304,16 +552,22 @@ tikz
     \IfValueTF{#2}{% if [size] 
       #2\lceil \hspaceNorm #3 \hspaceNorm #2\rceil
     }{% elif no [size]
-      \errmessage{ceil: Size command required.}
+      % \errmessage{ceil: Size command required.}
+      \PackageError{FA_DM}{ceil: Size command required.}{}
     }
   }
 }
 
 % % Floor
-\newcommand{\floor}[1]{\lfloor \hspaceNorm #1 \hspaceNorm\rfloor}
+\newcommand{\floor}[1]{\lfloor \hspaceNorm #1 \hspaceNorm\rfloor} 
 
+% \deriv[k]{f} is the k-th derivative of f. \deriv{f} is the first derivative.
+% \deriv[k] or \deriv alone denote the bare operator, unapplied.
+\NewDocumentCommand{\deriv}{o}{%
+  \mathop{D}\nolimits\IfValueT{#1}{^{#1}}%
+}
 
-% % Leibnniz' df
+% % Leibniz' df
 \DeclareMathOperator\Leibnizdiff{d}
 \newcommand{\diff}[1]{\Leibnizdiff{\!#1}}
 
@@ -325,14 +579,14 @@ tikz
 \newcommand{\tendsto}[2]{\xrightarrow[#1 \to #2]{}}
 
 % % Norms
-\def\hspaceNorm{\hspace{0.12 em}}
+\newcommand{\hspaceNorm}{\hspace{0.12 em}}
 
 % % Alternative to \abs
 \NewDocumentCommand{\magnitude}{s o m}{%
   \IfBooleanTF{#1}{%
     % Star version: auto-sizing with \left\right
     \IfValueTF{#2}{
-      \errmessage{magnitude: Star mode. Don't specify the [size].}
+      \PackageError{FA_DM}{magnitude: Star mode. Don't specify the [size].}{}
     }{
         \left\lvert \hspaceNorm #3 \hspaceNorm \right\rvert
     }
@@ -341,34 +595,37 @@ tikz
     \IfValueTF{#2}{% if [size] 
         #2\lvert \hspaceNorm #3 \hspaceNorm #2\rvert
     }{% elif no [size]
-      \errmessage{magnitude: Size command required.}
+      % \errmessage{magnitude: Size command required.}
+      \PackageError{FA_DM}{magnitude: Size command required.}{}
     }
   }
 }
-%\newcommand{\norm}[2][]{
+% \newcommand{\norm}[2][]{
 %  \if\relax\detokenize{#1}\relax 
 %    \lVert \hspaceNorm  #2 \hspaceNorm \rVert 
 %  \else 
 %    \left\lVert \hspaceNorm #2 \hspaceNorm \right\rVert_{#1} 
 %  \fi
-%}
+% }
 
 % \norm command
 % #1: * (optional star for auto-sizing)
-% #2: [\big] (optional size command like \big, \Big, \bigg, \Bigg)
-% #3: Subscript (optional)
+% #2: [subscript] (optional)
+% #3: [size] (optional)
 % #4: Content (required)
-\RenewDocumentCommand{\norm}{s o o g}{%
+\RenewDocumentCommand{\norm}{s o o m}{%
   \IfBooleanTF{#1}{%
     % Star version: auto-sizing with \left\right
     \IfValueTF{#2}{% if [subscript]
       \IfValueTF{#3}{ % if [content]
-      \errmessage{norm: Star mode. Don't specify the [size].}%
+      % \errmessage{norm: Star mode. Don't specify the [size].}%
+      \PackageError{FA_DM}{norm: Star mode. Don't specify the [size].}{}%
       }{ % elif {content}
         \IfValueTF{#4}{
           {\left\lVert \hspaceNorm #4 \hspaceNorm \right\rVert}_{#2}%
         }{ % else:
-        \errmessage{norm: Star mode. Don't specify the [size].}%
+        % \errmessage{norm: Star mode. Don't specify the [size].}%
+        \PackageError{FA_DM}{norm: Star mode. Don't specify the [size].}{}%
         }
       }
     }{% elif no [subscript]
@@ -384,7 +641,8 @@ tikz
         #2\lVert \hspaceNorm #4 \hspaceNorm #2\rVert
       }%
     }{% elif no [size]
-      \errmessage{norm: Size command required. Use \string\norm[\string\big]{F} or \string\norm*{F}}%
+      % \errmessage{norm: Size command required. Use \string\norm[\string\big]{F} or \string\norm*{F}}%
+      \PackageError{FA_DM}{norm: Size command required. Use \string\norm[\string\big]{F} or \string\norm*{F}}{}%
     }
   }
 }
@@ -398,21 +656,27 @@ tikz
 % Typesetting
 
 \newcommand{\varit}[1]{\mathit{#1}}
-\def\vart{\varit{t}}
+\newcommand{\vart}{\varit{t}}
 
-\def\ie{\textit{i.e.}}
-\def\eg{\textit{e.g.}}
-\def\cf{\textit{cf.}} 
-\def\IFF{{\bf iff }}
-\def\wlg{{\bf wlg }}
+\newcommand{\ie}{\textit{i.e.}}
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\cf}{\textit{cf.}}
+
+% \skipline ends the paragraph, skips one line and starts the next without indent (no underfull box).
+\newcommand{\skipline}{\par\vspace{\baselineskip}\noindent}
+
+% % Halmos' iff
+\DeclareRobustCommand{\IFF}{\ifmmode\mathrel{\textbf{iff}}\else\textbf{iff} \fi}
+\DeclareRobustCommand{\wlg}{\textbf{wlg} }
+
 
 % Typography
-% % Greel letters.
-\renewcommand{\rho}{\uprho}
-\AtBeginDocument{
-\renewcommand{\epsilon}{\varepsilon} 
-%\renewcommand{\phi}{\varphi} % For now, \phi is OK.
+% % Greek letters.
+\AtBeginDocument{% unicode-math sets the Greek letters at \begin{document}
+  \renewcommand{\epsilon}{\varepsilon}%
 }
+
+% \renewcommand{\phi}{\varphi} % For now, \phi is OK. 
 
 % Citations (unchanged)
 \newcommand{\citehere}[2]{\overset{#1}{#2}}
@@ -433,62 +697,75 @@ tikz
 
 \newcommand{\underbarwithindex}[2]{\underline{#1}\,\!_{#2}}
 \newcommand{\dy}[1]{{\function{dyadic}}(#1)}
-\def\ddy{{\function{decay}}}
+\newcommand{\ddy}{{\function{decay}}}
 
 % --------------------------- THEOREM STYLE ----------------------------
 % % Theorem
-\makeatletter
+% One line break after the head, then a skip of one line: no underfull box at each theorem.
 \newtheoremstyle{namedtheorem}
   {3pt}
   {20pt}
   {}
   {}
   {\bfseries}
-  {.\newline}
-  {\newline}
+  {.\\[\baselineskip]}
+  { }
   {\thmname{#1}\ \thmnumber{#2}\thmnote{\quad #3}}
-\makeatother
+% \makeatother
 
 \theoremstyle{namedtheorem}
 \newtheorem{theorem}{Theorem}[chapter]
 
-\theoremstyle{namedtheorem}
 \newtheorem{lemma}[theorem]{Lemma}
 
-\theoremstyle{namedtheorem}
 \newtheorem{corollary}[theorem]{Corollary}
 
+% Tagged PDF: at \end{proof}, the sections (\paragraph) opened inside the proof are closed.
+% \g__tag_sec_stack_seq is a private variable of tagpdf (double underscore): a tagpdf update may rename it.
+\ExplSyntaxOn
+\tl_new:N \l__fa_proof_sect_tl
+\tl_new:N \l__fa_proof_sect_now_tl
+\cs_new:Npn \__fa_current_sect:
+  { \seq_if_exist:NT \g__tag_sec_stack_seq { \seq_item:Nn \g__tag_sec_stack_seq { 1 } } }
+\AddToHook{env/proof/begin}{ \tl_set:Ne \l__fa_proof_sect_tl { \__fa_current_sect: } }
+\AddToHook{env/proof/end}
+  {
+    \tl_set:Ne \l__fa_proof_sect_now_tl { \__fa_current_sect: }
+    \tl_if_eq:NNF \l__fa_proof_sect_tl \l__fa_proof_sect_now_tl { \tagpdfsetup { sec/end = paragraph } }
+  }
+\ExplSyntaxOff
+
 % --------------------------- DOCUMENT INFO ----------------------------
-\def\ROOT{./}
-\def\TITLE{Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}}
-\def\EMAIL{}
-\def\AUTHOR{gitcordier}
+\newcommand{\ROOT}{.}
+\newcommand{\TITLE}{Solutions to some exercises from Walter Rudin's \textit{Functional Analysis}}
+\newcommand{\EMAIL}{}
+\newcommand{\AUTHOR}{gitcordier}
 
 
 \begin{document}
-% Changes the "proof" in proof environment. 
+% Changes the "proof" in proof environment.
 % source: https://tex.stackexchange.com/questions/8089/changing-style-of-proof
-\let\oldproofname=\proofname
-\renewcommand{\proofname}{{\rm \small PROOF}}
-%\begin{abstract}
+\renewcommand{\proofname}{{\normalfont \small PROOF}}
+% \begin{abstract}
 %    \input{\ROOT/abstract.tex}
-%\end{abstract}
-%\title{\TITLE}
+% \end{abstract}
+% \title{\TITLE}
 \title{\TITLE}
 \author{\AUTHOR}
 \date{\today}
+\pagenumbering{alph}
 \maketitle
 
 % FORMAT ENUMERATION (DEFAULT. OPTIONS: ALPH, ARABIC, ROMAN,…)
-%\renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
+% \renewcommand{\labelenumi}{$(\textit{\alph{enumi}}\,)$}
 % IF LANG = @fr
-%\renewcommand{\chaptername}{Chapitre}
-%
+% \renewcommand{\chaptername}{Chapitre}
+% 
 \frontmatter
 \tableofcontents
-%\clearpage
+% \clearpage
 
-%\printglossary
+% \printglossary
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsection}{\roman{subsection}}
 \renewcommand{\thesubsubsection}{\roman{subsubsection}}
@@ -498,13 +775,13 @@ tikz
 \renewcommand{\thesubsection}{\arabic{subsection}}
 \renewcommand{\thesubsubsection}{\arabic{subsubsection}}
 \mainmatter
-%\part{Content} 
+% \part{Content} 
 \input{\ROOT/FA_mainmatter.tex} 
 
 \backmatter
-%\part{Annex}
+% \part{Annex}
 \chapter{Annex}
-%\addcontentsline{toc}{chapter}{Annex}
+% \addcontentsline{toc}{chapter}{Annex}
 
 \newcounter{annex_chapter}
 \newcounter{annex_section}
@@ -518,14 +795,14 @@ tikz
 \renewcommand{\theequation}{\thechapter.\arabic{equation}}
 \renewcommand{\theHequation}{\thechapter.\arabic{equation}}
 \renewcommand{\theHtheorem}{\thechapter.\arabic{theorem}}
-%
+% 
 \input{\ROOT/annex/annex.tex}
 
 % --- Bibliography ---
 \bibliographystyle{plain}
+\cleardoublepage
 \bibliography{bibliography}
-\addcontentsline{toc}{chapter}{Bibliography}
 \end{document}
-% Made on \XeTeX
+% Made with LuaLaTeX
 % END
 % 

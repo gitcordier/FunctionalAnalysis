@@ -57,11 +57,11 @@ which establishes the existence of a bound $M=4/r^2$. To illustrate this result,
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second part: example.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-Take $X= Y= Z= C_c(\R)$ equipped with $\norm*[\infty]{\cdot}$, which is noncomplete; see %
+Take $X= Y= Z= \continuous[c][][\R]$ equipped with $\norm*[\infty]{\cdot}$, which is noncomplete; see %
 \citebook{5.4.4}{AnalyseIII}. Nevertheless, the following bilinear mapping 
 %
 \begin{align}
-  B: C_c(\R)^{2} & \to  C_c(\R) \\
+  B: \continuous[c][][][\R]^{2} & \to  \continuous[c][][\R] \\
   (f, g) & \mapsto f \cdot g \nonumber
 \end{align}
 %
@@ -77,7 +77,7 @@ To prove the continuity of $B$ at every $(f, g)$, fix $\epsilon > 0$ and let $r$
   0 < r < \min\Bigl(1, \frac{\epsilon}{1 + \norm*[\infty]{f} + \norm*[\infty]{g}}\Bigr). 
 \end{equation}
 %
-Next, choose $(u, v) \in C_c(\R)^2$ such that 
+Next, choose $(u, v) \in \continuous[c][][][\R]^2$ such that
 %
 \begin{equation}\label{2.9:example-distance-smaller-than-r}
   \underbrace{\norm*[\infty]{u}- \norm*[\infty]{f} \leq \norm*[\infty]{f-u} }_{\text{reversed triangle inequality}} 

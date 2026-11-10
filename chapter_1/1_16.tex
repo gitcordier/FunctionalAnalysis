@@ -1,31 +1,30 @@
 \textit{
-Prove that the topology of $C(\Omega)$ does not depend on the particular 
+Prove that the topology of $\continuous[][][\Omega]$ does not depend on the particular
 choice of $\singleton{K_n}$, as long as this sequence satisfies the conditions 
 specified in section 1.44. Do the same for $C^\infty(\Omega)$ (Section 1.46).}
 % 
-\paragraph{Lemma 1} {\it %
+\paragraph{Lemma 1} %
 Let $X$ be a topological space with a countable local base %
-$\mathit{\set{V_n}{\counting{n}}}$. 
+$\set{V_n}{\counting{n}}$. 
 If 
 %
-  $\mathit{\tilde{V}_{n} = V_1 \cuts \cdots \cuts V_n}$, 
+  $\tilde{V}_{n} = V_1 \cuts \cdots \cuts V_n$, 
 %
 then every subsequence 
 % 
-  $\mathit{\singleton{\tilde{V}_{\rho(n)}}}$ 
+  $\singleton{\tilde{V}_{\rho(n)}}$ 
 %
 is a decreasing (equivalently, 
 %
-  $\mathit{\tilde{V}_{\rho(n)} \contains \tilde{V}_{\rho(n+1)}}$)
+  $\tilde{V}_{\rho(n)} \contains \tilde{V}_{\rho(n+1)}$)
 %
-local base of $\varit{X}$.
-}
+local base of $X$.
 %
 \begin{proof}
 The proof consists in combining trivial consequences of the local base 
 definition with a well-known result (for instance, see \citebook{2.6}{BigRudin}) 
 about intersection of nonempty compact sets. %
-\newline\newline
+\skipline
 The decreasing property is trivial. Now remark that 
 %
   $V_n \contains \tilde{V}_{n}$:
@@ -48,35 +47,34 @@ since $\tilde{V}_{n} \contains \tilde{V}_{\rho(n)}$.
 is one of the key ingredients:
 %: COROLLARY 1 OF LEMMA 1-----------------------------------------------------%
 \paragraph{Corollary 1 (special case $V_{n} = \tilde{V}_{n}$)}
-{\it Under the same notations of Lemma 1, if $\mathit{\singleton{V_{n}}}$ %
-is a decreasing local base, then so is $\mathit{\singleton{V_{\rho(n)}}}$.}
+Under the same notations of Lemma 1, if $\singleton{V_{n}}$ %
+is a decreasing local base, then so is $\singleton{V_{\rho(n)}}$.
 %
 %: COROLLARY 2 OF LEMMA 1-----------------------------------------------------%
-\paragraph{Corollary 2}{\it %
+\paragraph{Corollary 2} %
 If 
 %
-  $\mathit{\mathit{\singleton{Q_n}}}$ 
+  $\singleton{Q_n}$ 
 %
 is a sequence of compact sets that satisfies the conditions specified 
 in section 1.44, then every subsequence 
 %
-  $\mathit{\singleton{Q_{\rho(n)}}}$ 
+  $\singleton{Q_{\rho(n)}}$ 
 %
 also satisfies theses conditions.
 %
-Furthermore, if $\mathit{\tau_{Q}}$ is the $\mathit{C(\Omega)}$'s 
-(respectively $\mathit{C^\infty (\Omega)}$'s) topology of the seminorms %
-$\mathit{p_{n}}$, 
+Furthermore, if $\tau_{Q}$ is the $\continuous[][][\Omega]$'s
+(respectively $C^\infty (\Omega)$'s) topology of the seminorms %
+$p_{n}$, 
 as defined in section 1.44 (respectively 1.46), then the seminorms 
 %
-  $\mathit{p_{\rho(n)}}$ 
+  $p_{\rho(n)}$ 
 %
-define the same topology $\mathit{\tau_{Q}}$. %
-}
+define the same topology $\tau_{Q}$. %
 %
 \begin{proof}%
 %
-Let $X$ be $C(\Omega)$ topologized by the seminorms $p_{n}$ 
+Let $X$ be $\continuous[][][\Omega]$ topologized by the seminorms $p_{n}$
 (the case $X=C^\infty(\Omega)$ is proved the same way).
 %
 If 
@@ -134,15 +132,15 @@ is a local base of $\tau_{Q}$, which yields
 %
 \end{proof}
 %: LEMMA 2 -------------------------------------------------------------------%
-\paragraph{Lemma 2}{ \it \label{1.16 Lemma 2}
-If a sequence of compact sets $\mathit{\singleton{Q_n}}$ satisfies the conditions 
+\paragraph{Lemma 2}\label{1.16 Lemma 2}
+If a sequence of compact sets $\singleton{Q_n}$ satisfies the conditions 
 specified in section 1.44, then every compact set $K$ lies in almost all 
 %
-  $\mathit{Q^{\,\circ}_n}$, \ie, 
+  $Q^{\,\circ}_n$, \ie, 
 %
-there exists $\varit{m}$ such that 
+there exists $m$ such that 
 %
-  \begin{equation}\mathit{
+  \begin{equation}
     K \subset 
     \interior{Q}_m 
       \subset 
@@ -150,10 +148,9 @@ there exists $\varit{m}$ such that
       \subset
     \interior{Q}_{m+2}
       \subset
-    \cdots.}
+    \cdots.
   \end{equation}
-}
-%
+% 
 \begin{proof}
 The following definition
 %
@@ -208,22 +205,21 @@ Finally,
 %: THEOREM -------------------------------------------------------------------%
 \noindent We are now in a fair position to establish the following:
 %\newpage
-\paragraph{Theorem}{\it 
+\paragraph{Theorem}
 The topology of %
 %
-$\mathit{C(\Omega)}$ %
+$\continuous[][][\Omega]$ %
 %
 does not depend on the particular choice of %
 %
-$\mathit{\singleton{K_n}}$, %
+$\singleton{K_n}$, %
 %
 as long as this sequence satisfies the conditions specified in section 1.44. %
 Neither does the topology of %
 %
-$\mathit{C^{\,\infty} (\Omega)}$, %
+$C^{\infty}(\Omega)$, %
 %
-as long as this sequence satisfies the conditions specified in section 1.44.
-}
+as long as this sequence satisfies the conditions specified in section 1.44. %
 %
 \begin{proof}%
 With the second corollary's notations,

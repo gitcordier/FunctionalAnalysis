@@ -61,7 +61,7 @@ Feel free to get copies of this great book by yourself.
   - 1_6.tex
   - 1_07.tex
     Number theory answers a topological question (*to be metrizable or not to be*). Lovely.
-  - 1_9.tex Continuity, openness of a linear mapping.
+  - 1_à9.tex Continuity, openness of a linear mapping.
   - 1_10.tex Continuity, openness of a linear mapping onto a finite dimensional
     space. Not trivial, since the domain may be infinite-dimensional.
   - 1_12.tex
@@ -79,6 +79,7 @@ Feel free to get copies of this great book by yourself.
   - 2_03.tex In $D_K$, some Lebesgue integrable functions converge to $\delta'$,
     which is not a Radon measure.
     Their weak derivatives converge to $\delta''$.
+  - 2_06.tex, Fourier series.
   - 2_09.tex Given normed spaces (X, Y, Z), any continuous bilinear mapping
     $B: (x, y) \in X\times Y \mapsto B(x, y) \in Z$ is bounded.
     Thoses spaces need not be complete. An easy example is given by
