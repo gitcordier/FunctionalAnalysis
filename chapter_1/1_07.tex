@@ -13,7 +13,7 @@
 Let $X$ be the vector space of all complex functions on the unit interval $[0, 1]$, topologized by the family of seminorms %
 %
 \begin{equation*}
-  p_x(f)= \magnitude*{f(x)} \qquad (0 \leq x \leq 1).
+  p_x(f) = \magnitude*{f(x)} \qquad (0 \leq x \leq 1).
 \end{equation*}
 %
 This topology is called the topology of pointwise convergence. Justify this terminology.
@@ -42,93 +42,77 @@ The subsets
 %
 of $X$ form a local \emph{subbase} of a vector space topology $\tau$. A local base $\localbase{B}$ of $\tau$ consists of all %
 finite intersections of these $V(x, k)$; see Theorem \citeFA{1.37}. In this part, we prove that $\tau$-convergence is %
-exactly pointwise convergence in $X$. To this end, given
+exactly pointwise convergence in $X$. To this end, we fix a sequence $\singleton{f_n}$ in $X$, as $f$ ranges over $X$.
 %
-\begin{enumerate}[item-label=(\roman{enumi})]
-  \item any $f \in X$,
-  \item a sequence of functions $f_n$ in $X$, and
-  \item finitely many subsets $S_1, \dots, S_j, \dots, S_N$ of $X$, with union $T$,
-\end{enumerate}
+First, assume that $f_n$ $\tau$-converges to some $f$: this implies that, for this $f$, $f_n - f \to 0$ in $\tau$. Since every theses
+$V(x, k)$ is a neighborhood of the origin, the inequality
 %
-we equip $X$ with the counting measure 
-%
-\begin{equation}
-  \Delta \Def \sum_{n=1}^\infty \delta_{f_n - f}.
-\end{equation}
-%
-In terms of Iverson brackets, this reads as
-%
-\begin{equation}
-  \intLebesgue[S]{}[\Delta] = \sum_{n=1}^\infty \Iverson[\big]{f_n - f \in S} \qquad (S \subset X). 
-\end{equation}
-%
-Note that the subadditivity and the monotonicity of $\Delta$ give
-%
-\begin{equation}\label{1.7:inequality-boolean-series}
-  \intLebesgue[T]{}[\Delta] \leq \sum_{j=1}^N \intLebesgue[S_j]{}[\Delta] \leq N \intLebesgue[T]{}[\Delta].
-\end{equation}
-%
-\skipline
-First, assume that the $f_n$ $\tau$-converge to $f$. Since every $V(x, k)$ is a neighborhood of $0$,
-%
-\begin{equation}
-  \intLebesgue[X \setminus V(x, k)]{}[\Delta] = %
-  \sum_{n=1}^\infty \Iverson[\big]{\underbrace{f_n - f \in X \setminus V(x, k)}_{\magnitude*{f_n(x)- f(x)} \geq 1/\,k}} \in \N
-\end{equation}
-%
-for all $V(x, k)$. Thus, for every $x$ and every $k$, the inequality 
-%
-\begin{equation}
-  \magnitude[\big]{f_n(x)- f(x)} \geq 1/\,k 
-\end{equation}
-%
-holds for \emph{only} finitely many $n$. Equivalently, 
-%
-\begin{equation}\label{1.7:f-n-convergence-2}
+\begin{equation}\label{1.7:f-n-convergence}
   \magnitude[\big]{f_n(x)- f(x)} < 1/\,k 
 \end{equation}
 %
-for \emph{all} but finitely many $n$. As $k$ is arbitrary, this establishes that, for every $x \in \closedInterval*{0}{1}$,
+is satisfied for all but finitely many $n$. As $k$ is arbitrary, this establishes that, for every %
+$x \in \closedInterval*{0}{1}$, 
 %
 \begin{equation}
   f_n(x) \tendsto{n}{\infty} f(x). 
 \end{equation}
 % 
-We have just proved that, in $X$, $\tau$-convergence implies pointwise convergence. %
+We have just proved that $\tau$-convergence implies pointwise convergence in $X$. %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % B. tau-divergence => pointwise divergence. 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \skipline
-Conversely, fix the function $f$ and assume that our $f_n$ do not $\tau$-converge to $f$. Consequently, there exists %
-$W \in \localbase{B}$ such that infinitely many $f_n - f$ are \emph{outside} $W$. Equivalently, 
+Conversely, assume that $\singleton{f_n}$ does not $\tau$-converge to any $f$. Let $\Delta_n$ be the set-theoretic %
+version of the Dirac measure $\delta_{f_n - f}$ on the subsets of $X$. In terms of Iverson brackets,  
 %
 \begin{equation}
-  \intLebesgue[X \setminus W]{}[\Delta] = \infty.
+  \Delta_n(S) \Def \Iverson[\big]{f_n - f \in S} \qquad (S \subset X).
 \end{equation}
 %
-As $W$ is of the form $\bigcap_{j=1}^N V(x_j, k_j)$, we choose, in (iii), 
+For all $S_1, \dots, S_N \subset X$ and $T = S_1 \cup \cdots \cup S_N$, the subadditivity of $\Delta_n$ gives
+%
+\begin{equation}
+  \Delta_n(T) \leq \sum_{j=1}^N \Delta_n(S_j).
+\end{equation}
+%
+Hence
+%
+\begin{equation}\label{1.7:inequality-boolean-series}
+  \sum_{n=1}^\infty \Delta_n(T) \leq %
+  \sum_{n=1}^\infty \sum_{j=1}^N \Delta_n(S_j) = %
+  \sum_{j=1}^N \sum_{n=1}^\infty \Delta_n(S_j).
+\end{equation}
+%
+With this formalism, the failure of $\singleton{f_n}$ to $\tau$-converge to $f$ is expressed as follows: There exists %
+$W \in \localbase{B}$ such that
+%
+\begin{equation}\label{1.7:divergence-of-fn}
+  \sum_{n=1}^\infty \Delta_n(X \setminus W) = \infty.
+\end{equation}
+%
+As $W$ is of the form $V(x_1, k_1) \cap \cdots \cap V(x_N, k_N)$, we choose, from these members $V(x_j, k_j)$ of %
+$\localbase{B}$, 
 %
 \begin{align}
-  S_j &\Def \set{g}{\magnitude*{g(x_j)} \geq 1/\,k_j} \qquad (j = 1, \dots, N), \\
-  T &\Def \bigcup_{j=1}^N S_j = X \setminus W, \nonumber
+  S_j &\Def X \setminus V(x_j, k_j) = \singleton{p_{x_j} \geq 1/\,k_j} \qquad (j = 1, \dots, N), \\
+  T &\Def S_1 \cup \cdots \cup S_N = X \setminus W. \nonumber
 \end{align}
 %
-so that 
+We thus reach the special case of \eqref{1.7:inequality-boolean-series} where $T= X\setminus W$ and %
+$S_j = X \setminus V(x_j, k_j)$. Therefore, 
 %
 \begin{equation}
-  \intLebesgue[T]{}[\Delta] =  \intLebesgue[X \setminus W]{}[\Delta] = \infty.
+  \sum_{n=1}^\infty \Delta_n(X \setminus W) \leq 
+  \sum_{n=1}^\infty \sum_{j=1}^N \Delta_n(S_j) = 
+  \sum_{j=1}^N \sum_{n=1}^\infty \Delta_n(S_j) = \infty
 \end{equation}
 %
-By \eqref{1.7:inequality-boolean-series}, we thus obtain 
+Because the sum $\sum_j \bigl(\sum \Delta_n(S_j)\bigr)$ in $j$ has only $N$ terms $\sum \Delta_n(S_j)$, there exists $j$ such %
+that 
 %
 \begin{equation}
-  \sum_{j=1}^N \intLebesgue[S_j]{}[\Delta] = \infty. 
-\end{equation}
-%
-Because this sum has only $N$ terms, there must be an index $j$ such that 
-%
-\begin{equation}
-  \intLebesgue[S_j]{}[\Delta] = \infty. 
+  \sum_{n=1}^\infty \Delta_n(S_j) = \infty. 
 \end{equation}
 %
 In other words, 
@@ -137,9 +121,9 @@ In other words,
   \magnitude[\big]{f_n(x_j) - f(x_j)} \geq 1/\,k_j
 \end{equation}
 %
-for infinitely many $n$. Thus, the sequence $\bigl(f_1(x_j), \dots, f_n(x_j), \dots\bigr)$ fails to converge to %
-$f(x_j)$; \cf~\eqref{1.7:f-n-convergence-2}. %
-This completes the proof that $\tau$-convergence coincides with pointwise convergence on $X$. We prove the second part in two %
+for infinitely many $n$. Thus, the sequence $\singleton{f_n(x_j)}$ fails to converge to $f(x_j)$; %
+\cf~\eqref{1.7:f-n-convergence}. %
+This completes the proof that $\tau$-convergence coincides with pointwise convergence in $X$. We prove the second part in two %
 different ways. The first proof uses the suggested cardinality argument, while the second one relies only on binary expansions.
 %
 % we clarify what \gamma_n \to \infty means when scalars may be complex.
@@ -168,9 +152,9 @@ For each $x \in \closedInterval*{0}{1}$, define
   f_n(x) \Def \theta_n 
 \end{equation}
 %
-with the convention that $(\theta_1, \dots, \theta_n, \dots) = \phi^{\minus 1}(x)$. Consequently, the sequence %
-$(f_1, \dots, f_n, \dots)$ tends pointwise to $0$. By the first part, this is (a). With this construction, given a positive %
-sequence $\gamma = (\gamma_1, \dots, \gamma_n, \dots)$ that tends to $\infty$, the sequence $\theta_\gamma$ with general term 
+where $(\theta_1, \dots, \theta_n, \dots) = \phi^{\minus 1}(x)$. Thus, this sequence $\singleton{f_n}$ tends pointwise %
+to $0$. By the first part, this is (a). With this construction, given a positive sequence $\singleton{\gamma_n}$ that tends to 
+infinity, the sequence $\theta_\gamma$ with general term 
 %
 \begin{equation}\label{1.7:definition-of-theta-gamma}
   \theta_{\gamma, n} \Def \frac{1}{\sqrt{\gamma_n}}
@@ -189,15 +173,14 @@ is then well-defined. Hence %
   & \citeq{\eqref{1.7:definition-of-theta-gamma}} \sqrt{\gamma_n} \tendsto{n}{\infty} \infty. 
 \end{align}
 %
-In conclusion, $\bigl(\gamma_1 f_1(x_\gamma), \dots, \gamma_n f_n(x_\gamma), \dots \bigr)$ diverges for every sequence %
-$\gamma_n \to \infty$; by the first part, this proves (b). We now construct another sequence $(f_1, \dots, f_n, \dots)$ %
-without the hint.
+In conclusion, $\singleton{f_n(x_\gamma)}$ diverges for every sequence $\gamma_n \to \infty$; by the first part, this proves %
+(b). We now construct another sequence $\singleton{f_n}$ without the hint.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \paragraph{Proof with binary expansions (no hint).} This argument is based on the following property: a real number is %
-irrational \IFF its binary expansion is not eventually periodic. More precisely, there exists a bijection
+irrational \IFF it has a binary expansion that is not eventually periodic. More precisely, there exists a bijection
 %  
 \begin{align} 
   \psi: \{0, 1\}^{\N_+} \cap \set[\big]{\beta}{\beta \text{ is not eventually periodic}} 
@@ -211,9 +194,9 @@ For each $x \in \closedInterval*{0}{1}$, define
   f_n(x) \Def \Iverson*{x \notin \Q} \cdot \frac{1}{2^{\beta_1 + \cdots + \beta_n}}
 \end{equation}
 %
-with the convention that $x = \psi(\beta)$ whenever $x$ is irrational. %
-This bit stream is not eventually periodic and therefore has infinitely many $1$s, which implies that %
-$\beta_1 + \cdots + \beta_n$ goes to infinity as $n \to \infty$. Thus, for all $x$,  
+where $x = \psi(\beta)$ whenever $x$ is irrational. %
+If $x$ is irrational, then $\beta = \psi^{\minus 1}(x)$ is not eventually periodic and therefore has infinitely %
+many $1$s, which implies that $\beta_1 + \cdots + \beta_n$ goes to infinity as $n \to \infty$. Thus, for all $x$,
 %
 \begin{equation}\label{1.7:f-n-tends-to-0}
   f_n(x) \tendsto{n}{\infty} 0. 
@@ -240,7 +223,8 @@ Indeed, this turns the indicator function of $\{n_1, n_2, \dots\}$ on $\N_+$, th
     n &\mapsto  \Iverson*{\text{$n$ is one of these integers $n_k$}}, \nonumber
 \end{align}
 %
-into a sequence that is \emph{not eventually periodic}. Consequently, the input
+into a sequence that is \emph{not eventually periodic}: an eventually periodic sequence with infinitely many $1$s has %
+bounded gaps between its $1$s. Consequently, the input
 %
 \begin{equation}
   x_\gamma \Def \psi(\beta_\gamma)
@@ -264,8 +248,9 @@ Combining \eqref{1.7:f-nk} with \eqref{1.7:partial-sum-of-beta}, we obtain, sinc
   \gamma_{n_k} f_{n_k}(x_\gamma) > \biggl(\frac{3}{2}\biggr)^k \tendsto{k}{\infty}\infty.
 \end{equation}
 %
-In conclusion, every $\gamma_n \to \infty$ contains a subsequence $(\gamma_{n_1}, \dots, \gamma_{n_k}, \dots)$ such that %
-$(\gamma_{n_1} f_{n_1}, \dots, \gamma_{n_k} f_{n_k}, \dots)$ diverges; by the first part, this proves (b).
+In conclusion, for every $\singleton{\gamma_n}$ that tends to infinity, the subsequence %
+$\singleton{\gamma_{n_k} f_{n_k}(x_\gamma)}$ is unbounded. In particular, $\singleton{\gamma_n f_n(x_\gamma)}$ does not tend to 
+$0$. By the first part, this proves (b).
 \end{proof}
 %
 % END
