@@ -16,13 +16,13 @@ Let $X$ be the vector space of all complex functions on the unit interval $[0, 1
   p_x(f) = \magnitude*{f(x)} \qquad (0 \leq x \leq 1).
 \end{equation*}
 %
-This topology is called the topology of pointwise convergence. Justify this terminology.
-
-Show that there is a sequence $\singleton{f_n}$ in $X$ such that (a) $\singleton{f_n}$ converges to $0$ as %
-$n \to \infty$, but (b) if $\singleton{\gamma_n}$ is any sequence of scalars such that %
-$\gamma_n \to \infty$ then $\singleton{\gamma_n f_n}$ does not converge to $0$. %
-(Use the fact that the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) %
-This shows that metrizability cannot be omitted in (b) of Theorem 1.28.
+This topology is called the topology of pointwise convergence. Justify this terminology. %
+\skipline
+Show that there is a sequence $\singleton{f_n}$ in $X$ such that (a) $\singleton{f_n}$ converges to $0$ as $n \to \infty$, but 
+(b) if $\singleton{\gamma_n}$ is any sequence of scalars such that $\gamma_n \to \infty$ then $\singleton{\gamma_n f_n}$ does %
+not converge to $0$. %
+(Use the fact that the collection of all complex sequences converging to $0$ has the same cardinality as $[0, 1]$.) This shows 
+that metrizability cannot be omitted in (b) of Theorem 1.28.
 \end{exerciseStatement}
 % 
 \begin{proof}\leavevmode
@@ -40,18 +40,18 @@ The subsets
   V(x, k) \Def \singleton*{p_x < 1/\,k} \qquad (x \in \closedInterval*{0}{1}, \counting{k})
 \end{equation}
 %
-of $X$ form a local \emph{subbase} of a vector space topology $\tau$. A local base $\localbase{B}$ of $\tau$ consists of all %
-finite intersections of these $V(x, k)$; see Theorem \citeFA{1.37}. In this part, we prove that $\tau$-convergence is %
-exactly pointwise convergence in $X$. To this end, we fix a sequence $\singleton{f_n}$ in $X$. %
+of $X$ and their finite intersections form a local base $\localbase{B}$ of a vector space topology $\tau$. Indeed, Theorem %
+\citeFA{1.37} applies, since the $p_x$ separate points. In this part, we prove that $\tau$-convergence is exactly pointwise %
+convergence in $X$. To this end, we fix a sequence $\set{f_n}{\counting{n}}$ in $X$. %
 %
-First, assume that $\singleton{f_n}$ $\tau$-converges to some $f$: for this $f$, $f_n - f \to 0$ in $\tau$. Since every %
-$V(x, k)$ is a neighborhood of the origin, the inequality
+First, assume that $\singleton{f_n}$ converges to some $f$ in $\tau$: for this $f$, the sequence $\singleton{f_n - f}$ %
+tends to $0$ in $\tau$. Since every $V(x, k)$ is a neighborhood of the origin, the inequality
 %
 \begin{equation}\label{1.7:f-n-convergence}
   \magnitude[\big]{f_n(x) - f(x)} < 1/\,k 
 \end{equation}
 %
-is satisfied for all but finitely many $n$. As $k$ is arbitrary, this establishes that, for every %
+holds for all but finitely many $n$, once $x$ and $k$ are fixed. As $k$ is arbitrary, this shows that, for every %
 $x \in \closedInterval*{0}{1}$, 
 %
 \begin{equation}
@@ -68,10 +68,10 @@ $\Delta_n$ be the set-theoretic version of the Dirac measure $\delta_{f_n - f}$ 
 brackets,  
 %
 \begin{equation}
-  \Delta_n(S) \Def \Iverson[\big]{f_n - f \in S} \qquad (S \subset X).
+  \Delta_n(S) \Def \Iverson[\Big]{f_n - f \in S} \qquad (S \subset X).
 \end{equation}
 %
-For all $S_1, \dots, S_N \subset X$ and $T = S_1 \cup \cdots \cup S_N$, the subadditivity of $\Delta_n$ gives
+For all $S_1, \dots, S_N \subset X$ and $T = \bigcup_{j=1}^N S_j$, the subadditivity of $\Delta_n$ gives
 %
 \begin{equation}
   \Delta_n(T) \leq \sum_{j=1}^N \Delta_n(S_j).
@@ -92,27 +92,27 @@ $W \in \localbase{B}$ such that
   \sum_{n=1}^\infty \Delta_n(X \setminus W) = \infty.
 \end{equation}
 %
-As $W$ is of the form $V(x_1, k_1) \cap \cdots \cap V(x_N, k_N)$, we choose, from these $V(x_j, k_j)$, 
+As $W$ is of the form $\bigcap_{j=1}^N V(x_j, k_j)$, we set
 %
 \begin{align}
-  S_j &\Def X \setminus V(x_j, k_j) = \singleton{p_{x_j} \geq 1/\,k_j} \qquad (j = 1, \dots, N), \\
-  T &\Def S_1 \cup \cdots \cup S_N = X \setminus W. \nonumber
+  S_j &\Def X \setminus V(x_j, k_j), \\
+  T   &\Def \bigcup_{j=1}^N S_j. \nonumber
 \end{align}
 %
-We thus reach the special case of \eqref{1.7:inequality-boolean-series} where $T = X \setminus W$ and %
-$S_j = X \setminus V(x_j, k_j)$. It follows from \eqref{1.7:divergence-of-fn} that
+We thus reach the special case of \eqref{1.7:inequality-boolean-series} where $T = X \setminus W$ (by De Morgan's laws) and 
+$S_j = \singleton{p_{x_j} \geq 1/\,k_j}$. It follows from \eqref{1.7:divergence-of-fn} that the three sums in %
+\eqref{1.7:inequality-boolean-series} now diverge. In detail, 
 %
 \begin{equation}
-  \sum_{n=1}^\infty \Delta_n(X \setminus W) \leq 
-  \sum_{n=1}^\infty \sum_{j=1}^N \Delta_n(S_j) = 
-  \sum_{j=1}^N \sum_{n=1}^\infty \Delta_n(S_j) = \infty. 
+  \sum_{n=1}^\infty \Delta_n(X \setminus W) = % 
+  \sum_{n=1}^\infty \sum_{j=1}^N \Delta_n(S_j) = %
+  \sum_{j=1}^N \underbrace{\sum_{n=1}^\infty \Delta_n(S_j)}_{\sigma_j} = \infty. 
 \end{equation}
 %
-Because the sum $\sum_{j=1}^N \sum_{n=1}^\infty \Delta_n(S_j)$ has only $N$ terms $\sum_{n=1}^\infty \Delta_n(S_j)$, %
-there exists an index $j$ such that
+Because the sum $\sum_j \sigma_j$ above has finite support, there exists an index $j$ such that
 %
 \begin{equation}
-  \sum_{n=1}^\infty \Delta_n(S_j) = \infty. 
+  \sigma_j = \sum_{n=1}^\infty \Delta_n(S_j) = \infty. 
 \end{equation}
 %
 In other words, for infinitely many $n$, the following inequality holds: 
@@ -126,12 +126,7 @@ Thus, the sequence $\singleton{f_n(x_j)}$ fails to converge to $f(x_j)$; %
 establishes the converse implication. The proof that $\tau$-convergence coincides in $X$ with pointwise convergence is then %
 complete. We prove the second part in two different ways. The first proof uses the suggested cardinality argument, while the %
 second one relies only on binary expansions.
-%
-% we clarify what \gamma_n \to \infty means when scalars may be complex.
-\begin{quote}\itshape
-  We henceforth assume without loss of generality that all $\gamma_n$ are positive; the general case is covered %
-  by substituting $\max\bigl(1, \magnitude*{\gamma_n}\bigr)$ for each original scalar $\gamma_n$.
-\end{quote}
+% 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % SECOND PART
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
@@ -139,65 +134,82 @@ second one relies only on binary expansions.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % First proof: Use the given hint
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+\begin{quote}\itshape
+  \begin{exerciseStatement}
+    In the second part, $\alpha, \beta, \gamma$ denote sequences of scalars indexed by $n$. The coordinate map $\pi_n$ gives %
+    the $\mathrm{n}$th term: $\pi_n(\alpha) = \alpha_n$. 
+  \end{exerciseStatement}
+\end{quote}
+%
 \paragraph{Proof with the given hint.} We prove the second part by constructing a specific sequence of functions $f_n \in X$ %
 that satisfies both (a) and (b). Following the hint, we assume a surjection %
 %
 \begin{equation}
-  \phi: \closedInterval*{0}{1} \to \C^{\N_+} \cap \set[\big]{\theta}{\lim_{\infty} \theta = 0}.
+  \phi: \closedInterval*{0}{1} \to \C^{\N_+} \cap \set[\big]{\alpha}{\lim_{\infty} \alpha = 0}.
 \end{equation} 
 % 
-For each $x \in \closedInterval*{0}{1}$, define 
+Next, we define 
 %
 \begin{equation}\label{1.7:definition-of-f-n-hint}
-  f_n(x) \Def \theta_n, 
+  f_n \Def \pi_n \circ \phi.
 \end{equation}
 %
-where $\theta_n$ is the $n$th term of the sequence $\phi(x)$. This constructs a sequence $\singleton{f_n}$ that converges %
-pointwise to $0$. By the first part, this is (a). With this construction, given a positive sequence $\singleton{\gamma_n}$ %
-that tends to infinity, the sequence $\theta_\gamma$ with general term 
+This constructs a sequence $\singleton{f_n}$ that converges pointwise to $0$. By the first part, this is (a). With this %
+construction, given a sequence $\singleton{\gamma_n}$ that tends (in magnitude) to $\infty$, the sequence $\alpha_\gamma$ with 
+general term 
 %
-\begin{equation}\label{1.7:definition-of-theta-gamma}
-  \theta_{\gamma, n} \Def \frac{1}{\sqrt{\gamma_n}}
+\begin{equation}\label{1.7:definition-of-alpha}
+  \pi_n(\alpha_\gamma) \Def \frac{1}{1 + \sqrt{\magnitude*{\gamma_n}}}
 \end{equation}
 %
-tends to $0$. The equation in $x$ %
+tends to $0$. The surjectivity of $\phi$ then provides $x_\gamma$ such that 
 %
 \begin{equation}
-  \phi(x) = \theta_{\gamma}
+  \phi(x_\gamma) = \alpha_\gamma.
 \end{equation}
 %
-then has a solution $x_\gamma$. Hence %
+Hence
 %
 \begin{align}
-  \gamma_n f_n(x_\gamma) & \citeq{\eqref{1.7:definition-of-f-n-hint}} \gamma_n \theta_{\gamma, n} \\
-  & \citeq{\eqref{1.7:definition-of-theta-gamma}} \sqrt{\gamma_n} \tendsto{n}{\infty} \infty. 
+  f_n(x_\gamma) & \citeq{\eqref{1.7:definition-of-f-n-hint}} \pi_n(\alpha_\gamma) \\
+  & \citeq{\eqref{1.7:definition-of-alpha}} \frac{1}{1 + \sqrt{\magnitude*{\gamma_n}}}.
 \end{align}
 %
-In conclusion, $\singleton{\gamma_n f_n(x_\gamma)}$ diverges for every sequence $\gamma_n \to \infty$; by the first part, %
-this proves (b). We now construct another sequence $\singleton{f_n}$ without the hint.
+Finally, 
+%
+\begin{align}
+  \magnitude[\big]{\gamma_n f_n(x_\gamma)} &= \frac{\magnitude*{\gamma_n}}{1 + \sqrt{\magnitude*{\gamma_n}}} \\
+  &\sim \sqrt{\magnitude*{\gamma_n}} \tendsto{n}{\infty} \infty. 
+\end{align}
+%
+In conclusion, to every $\gamma_n \to \infty$ corresponds a point $x_\gamma$ at which $\singleton{\gamma_n f_n(x_\gamma)}$ %
+is not bounded. This shows that $\singleton{\gamma_n f_n(x_\gamma)}$ diverges for this particular $x_\gamma$, and, %
+consequently, that $\singleton{\gamma_n f_n}$ fails to converge pointwise to $0$ or to any other element of $X$. %
+By the first part, this proves (b). We now construct another sequence $\singleton{f_n}$ without the hint.
 %
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 % Second proof: No hint, the hard way.
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \paragraph{Proof with binary expansions (no hint).} 
-The argument is based on the following property: a real number is irrational \IFF it has a binary expansion that is not %
-eventually periodic. More precisely, let $\Beta \subset \{0, 1\}^{\N_+}$ consist of all sequences of bits that are %
+Our proof rests on the following property: a real number is irrational \IFF it has a binary expansion that is %
+not eventually periodic. More precisely, let $B \subset \{0, 1\}^{\N_+}$ consist of all sequences of bits that are %
 \emph{not eventually periodic}: there exists a bijection
 %  
 \begin{align} 
-  \psi: \Beta &\to \closedInterval*{0}{1} \setminus \Q \\
+  \psi: B &\to \closedInterval*{0}{1} \setminus \Q \\
   \beta &\mapsto \sum_{n=1}^\infty \beta_n 2^{\minus n}. \nonumber
 \end{align}
 %
-Every irrational $x$ in $\closedInterval*{0}{1}$ is then the image under $\psi$ of a bit stream $\beta$ that is not eventually 
-periodic. This implies that $\beta$ has infinitely many $1$s. Equivalently, the \emph{Hamming weight} sequence 
+Every irrational $x$ in $\closedInterval*{0}{1}$ is then the image under $\psi$ of $\beta$, a sequence of bits that is not %
+eventually periodic. This implies that $\beta$ has infinitely many $1$s. Equivalently, the sequence of \emph{Hamming weights} 
 %
 \begin{equation}
   w_n(x) \Def \beta_1 + \cdots + \beta_n %
   \qquad \bigl(x = \psi(\beta) \in \closedInterval*{0}{1} \setminus \Q \bigr)
 \end{equation}
 %
-tends to infinity as $n \to \infty$. For each $x \in \closedInterval*{0}{1}$, we set
+tends to infinity as $n \to \infty$. For each $x \in \closedInterval*{0}{1}$, we set, with %
+\hyperref[Iverson-notation]{Knuth's convention},
 %
 \begin{equation}\label{1.7:definition-of-f-n}
   f_n(x) \Def \Iverson[\Big]{x \in \closedInterval*{0}{1} \setminus \Q} \cdot \frac{1}{2^{w_n(x)}}.
@@ -209,27 +221,30 @@ Thus, for all $x$,
   f_n(x) \tendsto{n}{\infty} 0. 
 \end{equation}
 %
-By the first part, \eqref{1.7:f-n-tends-to-0} is (a). Next, let $\gamma_n \to \infty$. For each positive integer %
-$k$, there exists a threshold $m_k$ beyond which $\gamma_n > 3^k$. Fixing $n_0 = 0$, we select $n_k > m_k$ such that
+By the first part, \eqref{1.7:f-n-tends-to-0} is (a). Next, let $\magnitude*{\gamma_n} \to \infty$. For each positive integer %
+$k$, there exists a threshold $m_k$ beyond which $\magnitude*{\gamma_n} > 3^k$. Fixing $n_0 = 0$, we iteratively select %
+$n_k > m_k$ such that
 %
 \begin{equation}
-  n_{k} - n_{k-1} \geq k \qquad (\counting{k}).
+  n_{k} - n_{k-1} > k.
 \end{equation}
 %
-The core idea of the construction is that 
-%
-\begin{equation}
-  n_{k} - n_{k-1} \tendsto{k}{\infty} \infty. 
-\end{equation}
-%
-Indeed, this turns the indicator function of $\{n_1, \dots, n_k, \dots\}$ on $\N_+$, that is,  
+The indicator function of $\{n_1, \dots, n_k, \dots\}$ on $\N_+$ is the bit stream   
 %  
 \begin{align} 
   \beta_\gamma: \N_+ &\to \{0, 1\} \\
-    n &\mapsto  \Iverson*{\text{$n$ is one of these integers $n_k$}}, \nonumber
+    n &\mapsto  \Iverson*{\text{$n = n_k$ for some $k$}}, \nonumber
 \end{align}
 %
-into a sequence that is \emph{not eventually periodic}. Consequently, the input
+where the peak $\beta_\gamma(n) = 1$ occurs only when $n = n_k$. Assume, to reach a contradiction, that the sequence %
+$\beta_\gamma$ is eventually periodic. Thus, there must exist a minimal integer $m > 0$ such that each $1$ at $n_{k-1}$ %
+recurs, with finitely many exceptions, at $n_{k-1} + m \geq n_{k}$. This yields the contradiction 
+%
+\begin{equation}
+  m \geq n_{k} - n_{k-1} > k \to \infty,
+\end{equation}
+%
+which shows that $\beta_\gamma$ is not eventually periodic. Equivalently, $\beta_\gamma \in B$. Consequently, the number
 %
 \begin{equation}
   x_\gamma \Def \psi(\beta_\gamma)
@@ -241,21 +256,23 @@ is irrational. Therefore, by \eqref{1.7:definition-of-f-n},
   f_{n_k}(x_\gamma) = \frac{1}{2^{w_{n_k}(x_\gamma)}}. 
 \end{equation}
 %
-Moreover, by definition of $\beta_\gamma$, the bit $\beta_{\gamma, n}$ is a $1$ \IFF $n \in \{n_1, \dots, n_k, \dots\}$. Hence 
+Moreover, by definition of $\beta_\gamma$, its $n$th bit $\beta_{\gamma}(n)$ is a $1$ \IFF $n \in \{n_1, \dots, n_k, \dots\}$. 
+Hence 
 %
 \begin{equation}\label{1.7:partial-sum-of-beta}
   w_{n_k}(x_\gamma) = k.
 \end{equation}
 %
-Combining \eqref{1.7:f-nk} with \eqref{1.7:partial-sum-of-beta}, we obtain, since $\gamma_{n_k} > 3^k$, 
+Combining \eqref{1.7:f-nk} with \eqref{1.7:partial-sum-of-beta}, we obtain, because $\magnitude*{\gamma_{n_k}} > 3^k$, 
 %
 \begin{equation}
-  \gamma_{n_k} f_{n_k}(x_\gamma) > \biggl(\frac{3}{2}\biggr)^k \tendsto{k}{\infty}\infty.
+  \magnitude*{\gamma_{n_k} f_{n_k}(x_\gamma)} > \biggl[\frac{3}{2}\biggr]^k \tendsto{k}{\infty}\infty. 
 \end{equation}
 %
-In conclusion, for every $\singleton{\gamma_n}$ that tends to infinity, the subsequence %
-$\singleton{\gamma_{n_k} f_{n_k}(x_\gamma)}$ is unbounded. In particular, $\singleton{\gamma_n f_n(x_\gamma)}$ does not tend %
-to $0$. By the first part, this proves (b).
+Thus, for every $\singleton{\gamma_n}$ that tends to $\infty$, the subsequence $\singleton{\gamma_{n_k} f_{n_k}(x_\gamma)}$ %
+is unbounded. We are in a situation that is similar to the end of the first proof, yet with a subsequence %
+$\singleton{\gamma_{n_k} f_{n_k}}$ instead of the original sequence $\singleton{\gamma_{n} f_{n}}$. We similarly conclude that 
+the sequence $\singleton{\gamma_n f_n}$ fails to converge pointwise. By the first part, this proves (b). 
 \end{proof}
 %
 % END

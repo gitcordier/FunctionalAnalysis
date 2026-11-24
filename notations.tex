@@ -35,8 +35,10 @@ Given a Boolean expression $\phi$, $\Iverson[\big]{\phi}$ encodes the truth valu
   \end{cases}
 \end{equation}
 % 
-For example, $\Iverson[\Big]{1 > 0} = 1$ but $\Iverson[\Big]{\sqrt{2} \in \Q} = 0$. For interpretations of Boolean operators %
-in logic, see \cite{SpecifyingSystems}.
+For example, $\Iverson[\big]{1 > 0} = 1$ but $\Iverson[\big]{\sqrt{2} \in \Q} = 0$. We adopt Knuth's %
+\emph{strong-zero convention}~\cite{TwoNotes}: if $\phi$ is false, then every expression $\Iverson*{\phi} \cdot \alpha$ %
+is set to $0$. For instance, evaluating $\Iverson*{x > 0} \cdot \frac{1}{x}$ at $x=0$ gives $0$, no matter what $1/0$ may %
+mean. For conventions on Boolean operators in logic, see \cite{SpecifyingSystems}.
 % 
 \subsection{Conventions}%
 \subsubsection{Variables}
