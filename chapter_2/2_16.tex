@@ -1,63 +1,66 @@
 \begin{exerciseStatement}
-Suppose that $X$ and $K$ are metric spaces, that $K$ is compact, and that the graph of $f:X\to K$is a closed subset of %
-$X\times K$. Prove that $f$ is continuous. (This is an analogue of Theorem 2.15 but much easier.) Show that compactness of $K$ 
-cannot be omitted from the hypotheses, even when $X$ is compact.
+Suppose that $X$ and $K$ are metric spaces, that $K$ is compact, and that the graph of $f\colon X \to K$ is a closed subset %
+of $X \times K$. Prove that $f$ is continuous. (This is an analogue of Theorem 2.15 but much easier.) Show that compactness %
+of $K$ cannot be omitted from the hypotheses, even when $X$ is compact.
 \end{exerciseStatement}
 %
 \begin{proof}\leavevmode
-Let $d$ be the distance over $X$ and $G$ be the graph of $f$. %
-Bear in mind that, in metric spaces, continuity is equivalent to sequential continuity; %
-see \citeFA{A6}. Assume, to reach a contradiction, that $f$ is not (sequentially) continuous at some point $x$ of $X$, \ie, %
-there exists a sequence $\set{x_n}{\counting{n}}$ in $X$ such that
+Let $d_K$ be the metric on $K$, and let $G$ be the graph of $f$. Recall that, in metric spaces, continuity is equivalent to %
+sequential continuity; see \citeFA{A6}. Assume, to reach a contradiction, that $f$ is not (sequentially) continuous at some %
+point $x$ of $X$, \ie, that there exists a sequence $\set{x_n}{\counting{n}}$ in $X$ such that
 %
 \begin{enumerate}[item-label=(\alph{enumi})]
   \renewcommand{\theenumi}{\alph{enumi}}%
-  \item $\singleton{x_n}$ tends to $x$, but 
-  \item $\singleton{f(x_n)}$ does not converge to $f(x)$. 
+  \item $\singleton{x_n}$ tends to $x$, but
+    \label{2.16:x-n-to-x}
+  \item $\singleton[\big]{f(x_n)}$ does not converge to $f(x)$.
+    \label{2.16:f-x-n-not-to-f-x}
 \end{enumerate}
 %
-In metric terms, (b) means that, for some $\epsilon > 0$, there exists a subsequence $\singleton{x_{n'}}$ of %
-$\singleton{x_{n}}$ such that
+In metric terms, \eqref{2.16:f-x-n-not-to-f-x} means that, for some $\epsilon > 0$, there exists a subsequence %
+$\singleton{x_{n'}}$ of $\singleton{x_{n}}$ such that
 %
 \begin{equation}\label{2.16:d-more-than-epsilon}
-  d\bigl(f(x_{n'}), f(x)\bigr) \geq \epsilon
+  d_K\bigl(f(x_{n'}), f(x)\bigr) \geq \epsilon
 \end{equation}
 %
-for all $n'$. Since $K$ is compact, $\singleton{f(x_{n'})}$ has a subsequence $\singleton{f(x_{n''})}$ that converges to %
-some $y \in K$. This implies, combined with (a), that $\singleton{x_{n''}, f(x_{n''})}$ is a %
-sequence in $G$ that tends to $(x, y)$. Since $G$ is closed, the limit $(x, y)$ lies in $G$, which shows that $y = f(x)$. %
-Hence 
+for all $n'$. Because $K$ is a compact metric space, $\singleton[\big]{f(x_{n'})}$ has a subsequence %
+$\singleton[\big]{f(x_{n''})}$ that converges to some $y \in K$; see Theorem \citeFA{A4}. By \eqref{2.16:x-n-to-x}, it %
+follows that the elements $\bigl(x_{n''}, f(x_{n''})\bigr)$ of $G$ converge, in the product space $X \times K$, to $(x, y)$. %
+Furthermore, $(x, y) \in G$ because $G$ is closed. Consequently, $y = f(x)$. Hence
 %
 \begin{equation}\label{2.16:d-less-than-epsilon}
-  d\bigl(f(x_{n''}), f(x)\bigr) < \epsilon
+  d_K\bigl(f(x_{n''}), f(x)\bigr) < \epsilon
 \end{equation}
 %
-for sufficiently large $n''$. Since $\singleton{x_{n''}} \subset \singleton{x_{n'}}$, \eqref{2.16:d-less-than-epsilon} %
-contradicts \eqref{2.16:d-more-than-epsilon}. We have thus reached a desired contradiction, which establishes that $f$ is %
-continuous.
+for sufficiently large $n''$. Since every $x_{n''}$ is by definition a point $x_{n'}$, inequality %
+\eqref{2.16:d-less-than-epsilon} contradicts \eqref{2.16:d-more-than-epsilon}. This contradiction shows that $f$ is continuous.
 \skipline
-To show that compactness of $K$ cannot be omitted from the hypotheses, even when $X$ is compact, we choose to exhibit %
-a counterexample $f$. To this end, we let $X$ be $\closedOpenInterval*{0}{\infty}$ or, alternatively, the compact interval %
-$\closedInterval*{0}{1}$. Next, we set $K = \closedOpenInterval*{0}{\infty}$. Now, our counterexample consists of
+To show that compactness of $K$ cannot be omitted from the hypotheses, even when $X$ is compact, we exhibit a counterexample %
+$f$. To this end, we let $X$ be $\closedOpenInterval*{0}{\infty}$ or, alternatively, the compact interval %
+$\closedInterval*{0}{1}$. Next, we set $K = \closedOpenInterval*{0}{\infty}$, and define
 %
 \begin{align}
-  f: X & \to \closedOpenInterval*{0}{\infty} \\
-     x & \mapsto \Iverson*{x > 0} \cdot \frac{1}{x}. \nonumber
+  f \colon X & \to K \\
+     x & \mapsto \Iverson[\big]{x > 0} \cdot \frac{1}{x}. \nonumber
 \end{align}
 %
-Note that the image $f(x) = 1/x$ tends to $\infty$ when a positive $x$ tends to $0$. On the other hand, $f(0) = 0$: %
-this contrast shows that $f$ has a discontinuity at $0$. However, the graph $G$ is closed. To see that, first remark that
+Note that $1/n$ tends to $0$, while $f(1/n) = n$ tends to $\infty$ and $f(0) = 0$. Therefore, our function $f$ is %
+discontinuous at $0$. We now prove that its graph $G$ is closed. First, we express $G$ as follows:
 %
-\begin{equation}
+\begin{equation}\label{2.16:graph-decomposition}
   G = \underbrace{\set[\big]{(x, 1/x)}{x \in X \setminus \singleton{0}}}_{G^\ast} \cup \singleton[\big]{(0, 0)}.
 \end{equation}
 %
-Next, let $\singleton{(x_n, 1/x_n)}$ be a sequence in $G^\ast$ that converges to an element $(x, y)$ of $X \times K$. %
-As previously noted, $x_n \to 0$ would imply that $f(x_n) \to \infty$: the limit $x$ of $\singleton{x_n}$ is necessarily a %
-positive scalar. The continuity of $f$ on $\openInterval*{0}{\infty}$ thus implies that $y = 1/x$. Consequently, $(x, y)$ is %
-more specificly an element of $G^\ast$: the closedness of $G^\ast$ is established. Finally, we conclude that $G$ is closed, %
-as a finite union of closed sets.
-%
+In view of \eqref{2.16:graph-decomposition}, and since the union of two closed subsets is closed, the proof is complete once %
+we establish that both $G^\ast$ and $\singleton[\big]{(0, 0)}$ are closed. As $X$ and $K$ are metric spaces, the singleton %
+$\singleton[\big]{(0, 0)}$ is closed in the product topology of $X \times K$. To prove that $G^\ast$ is closed in %
+$X \times K$ as well, let $\singleton[\big]{(x_n, 1/x_n)}$ be a sequence in $G^\ast$ that converges to some element $(a, b)$ %
+of $X \times K$. By the definition of $G^\ast$, every $x_n$ is positive. This implies that $1/x_n$ tends to $\infty$ if $x_n$ %
+tends to $0$. Since $1/x_n$ converges to $b$ in $K$, the contrapositive shows that $a$ is positive too. The continuity of $f$ %
+on $X \setminus \singleton{0}$ thus implies that $b = 1/a$. Consequently, the limit of $\singleton[\big]{(x_n, 1/x_n)}$ is an %
+element $(a, 1/a)$ of $G^\ast$. Therefore, $G^\ast$ is closed.
 \end{proof}
 %
 % END
+% 
