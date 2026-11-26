@@ -1,74 +1,62 @@
-\textit{%
-Suppose that $X$ and $K$ are metric spaces, %
-that $K$ is compact, and that the graph of %
+\begin{exerciseStatement}
+Suppose that $X$ and $K$ are metric spaces, that $K$ is compact, and that the graph of $f:X\to K$is a closed subset of %
+$X\times K$. Prove that $f$ is continuous. (This is an analogue of Theorem 2.15 but much easier.) Show that compactness of $K$ 
+cannot be omitted from the hypotheses, even when $X$ is compact.
+\end{exerciseStatement}
 %
-  $f:X\to K$ %
+\begin{proof}\leavevmode
+Let $d$ be the distance over $X$ and $G$ be the graph of $f$. %
+Bear in mind that, in metric spaces, continuity is equivalent to sequential continuity; %
+see \citeFA{A6}. Assume, to reach a contradiction, that $f$ is not (sequentially) continuous at some point $x$ of $X$, \ie, %
+there exists a sequence $\set{x_n}{\counting{n}}$ in $X$ such that
 %
-is a closed subset of $X\times K$. %
-Prove that $f$ is continuous %
+\begin{enumerate}[item-label=(\alph{enumi})]
+  \renewcommand{\theenumi}{\alph{enumi}}%
+  \item $\singleton{x_n}$ tends to $x$, but 
+  \item $\singleton{f(x_n)}$ does not converge to $f(x)$. 
+\end{enumerate}
 %
-  (This is an analogue of Theorem 2.15 but much easier.) %
+In metric terms, (b) means that, for some $\epsilon > 0$, there exists a subsequence $\singleton{x_{n'}}$ of %
+$\singleton{x_{n}}$ such that
 %
-Show that compactness of $K$ cannot be omitted from the hypotheses, %
-even when $X$ is compact.
-}
+\begin{equation}\label{2.16:d-more-than-epsilon}
+  d\bigl(f(x_{n'}), f(x)\bigr) \geq \epsilon
+\end{equation}
 %
-\begin{proof}%
-Choose a sequence $\set{x_n}{\counting{n}}$ whose limit is an arbitrary $a$. %
-By compactness of $K$, the graph $G$ of $f$ contains a subsequence %
+for all $n'$. Since $K$ is compact, $\singleton{f(x_{n'})}$ has a subsequence $\singleton{f(x_{n''})}$ that converges to %
+some $y \in K$. This implies, combined with (a), that $\singleton{x_{n''}, f(x_{n''})}$ is a %
+sequence in $G$ that tends to $(x, y)$. Since $G$ is closed, the limit $(x, y)$ lies in $G$, which shows that $y = f(x)$. %
+Hence 
 %
-  $\singleton{
-    (x_{\rho(n)}, f(x_{\rho(n)}))
-  }$
+\begin{equation}\label{2.16:d-less-than-epsilon}
+  d\bigl(f(x_{n''}), f(x)\bigr) < \epsilon
+\end{equation}
 %
-of %
+for sufficiently large $n''$. Since $\singleton{x_{n''}} \subset \singleton{x_{n'}}$, \eqref{2.16:d-less-than-epsilon} %
+contradicts \eqref{2.16:d-more-than-epsilon}. We have thus reached a desired contradiction, which establishes that $f$ is %
+continuous.
+\skipline
+To show that compactness of $K$ cannot be omitted from the hypotheses, even when $X$ is compact, we choose to exhibit %
+a counterexample $f$. To this end, we let $X$ be $\closedOpenInterval*{0}{\infty}$ or, alternatively, the compact interval %
+$\closedInterval*{0}{1}$. Next, we set $K = \closedOpenInterval*{0}{\infty}$. Now, our counterexample consists of
 %
-  $\singleton{
-    (x_n, f(x_n))
-  }$
+\begin{align}
+  f: X & \to \closedOpenInterval*{0}{\infty} \\
+     x & \mapsto \Iverson*{x > 0} \cdot \frac{1}{x}. \nonumber
+\end{align}
 %
-that converges to some $(a, b)$ of $X\times K$. %
-$G$ is closed; therefore, $\singleton{(x_{\rho(n)}, f(x_{\rho(n)}))}$
-converges in $G$. So, $b=f(a)$; %
-which establishes that $f$ is sequentially continuous.
+Note that the image $f(x) = 1/x$ tends to $\infty$ when a positive $x$ tends to $0$. On the other hand, $f(0) = 0$: %
+this contrast shows that $f$ has a discontinuity at $0$. However, the graph $G$ is closed. To see that, first remark that
 %
-Since $X$ is metrizable, $f$ is also continuous, see \citeFA{[A6]}. %
-So ends the proof.
-
-To show that compactness cannot be omitted from the hypotheses, %
-we present the following counterexample, %
+\begin{equation}
+  G = \underbrace{\set[\big]{(x, 1/x)}{x \in X \setminus \singleton{0}}}_{G^\ast} \cup \singleton[\big]{(0, 0)}.
+\end{equation}
 %
-  \begin{align}
-  f: [0, \infty) & \to [0, \infty)\\
-     x & \mapsto\begin{cases}
-       1/x & (x > 0)  \\\nonumber
-       0   & (x = 0).
-    \end{cases}
-  \end{align}
-%
-Clearly, $f$ has a discontinuity at $0$. %
-In contrast, the graph $G$ of $f$ is closed. %
-To see that, first remark that %
-%
-  \begin{equation}
-    G = \set{(x, 1/x)}{x > 0} \cup \singleton{(0, 0)}.
-  \end{equation}
-%
-Next, let %
-%
-  $\singleton{(x_n, 1/x_n)}$ %
-%
-be a sequence in %
-%
-  $G_+ = \set{(x, 1/x)}{x > 0}$ %
-%
-that converges to $(a, b)$. %
-To be more specific: %
-$a=0$ contradicts the boundedness of $\singleton{(x_n,1/x_n)}$: %
-$a$ is necessarily positive and $b = 1/a$, %
-since $x\mapsto 1/x$ is continuous on $R_+$.
-This establishes that $(a, b) \in G_+$, hence the closedness $G_+$. %
-Finally, we conclude that $G$ is closed, as a finite union of closed sets.
+Next, let $\singleton{(x_n, 1/x_n)}$ be a sequence in $G^\ast$ that converges to an element $(x, y)$ of $X \times K$. %
+As previously noted, $x_n \to 0$ would imply that $f(x_n) \to \infty$: the limit $x$ of $\singleton{x_n}$ is necessarily a %
+positive scalar. The continuity of $f$ on $\openInterval*{0}{\infty}$ thus implies that $y = 1/x$. Consequently, $(x, y)$ is %
+more specificly an element of $G^\ast$: the closedness of $G^\ast$ is established. Finally, we conclude that $G$ is closed, %
+as a finite union of closed sets.
 %
 \end{proof}
 %
